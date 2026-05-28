@@ -1,0 +1,22 @@
+{
+  "project": "T&T Vina Industrial Solutions Portal",
+  "agent": {
+    "name": "Gemini AI Developer Agent",
+    "provider": "Google DeepMind / AI Studio",
+    "capabilities": [
+      "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+    ]
+  },
+  "workflow": {
+    "active": true,
+    "current_phase": "production",
+    "commands_root": "/.gemini/commands",
+    "rules_root": "/.gemini/rules",
+    "agents_root": "/.gemini/agents"
+  },
+  "formatting": {
+    "indent_size": 2,
+    "insert_final_newline": true,
+    "trim_trailing_whitespace": true
+  }
+}

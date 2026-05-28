@@ -1,0 +1,6 @@
+{
+  "name": "T&T Vina",
+  "description": "Cổng thông tin giải pháp thiết bị công nghiệp lắp ráp chính xác & tự động hóa T&T Vina",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
