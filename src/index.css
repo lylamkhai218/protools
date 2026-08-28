@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-primary: #00478d;
+  --color-primary-container: #005eb8;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #545f72;
+  --color-secondary-container: #d5e0f7;
+  --color-on-secondary-container: #586377;
+  
+  --color-tertiary: #e8a020; /* Industrial Amber */
+  --color-tertiary-dark: #634000;
+  --color-tertiary-container: #ffd295;
+  
+  --color-surface: #ffffff;
+  --color-surface-container: #ecedf6;
+  --color-surface-container-low: #f2f3fb;
+  --color-surface-container-high: #e7e8f0;
+  --color-surface-container-highest: #e1e2ea;
+  --color-surface-dim: #d8dae2;
+  --color-surface-bright: #f9f9ff;
+  
+  --color-background-app: #f9f9ff;
+  --color-on-background: #191c21;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background-app);
+  color: var(--color-on-background);
+}
+
