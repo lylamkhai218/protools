@@ -4,9 +4,9 @@
 
 ---
 
-## ⚡ ANTIGRAVITY PROJECT OS QUICK ACCESS
+## ⚡ PROJECT OS QUICK ACCESS
 
-Hệ thống hoạt động theo chuẩn **Antigravity Project Operating System (Project OS)**:
+Hệ thống hoạt động theo chuẩn **Project Operating System (Project OS)**:
 
 1. **Hiến pháp & Trạng thái hoạt động:**
    - 📜 [Hiến pháp dự án](file:///d:/T&TVina/protools/.project/constitution.md)

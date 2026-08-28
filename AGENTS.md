@@ -126,7 +126,7 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
 
 ---
 
-## 8. HỆ THỐNG ANTIGRAVITY PROJECT OS (PROJECT OPERATING SYSTEM)
+## 8. HỆ THỐNG PROJECT OS (PROJECT OPERATING SYSTEM)
 
 * **Hiến pháp vận hành (Constitution):** Xem chi tiết tại [`.project/constitution.md`](file:///d:/T&TVina/protools/.project/constitution.md).
 * **Trạng thái tức thời (Snapshot):** Mọi Agent trước khi thực thi tác vụ BẮT BUỘC đọc [`.project/snapshot.md`](file:///d:/T&TVina/protools/.project/snapshot.md).

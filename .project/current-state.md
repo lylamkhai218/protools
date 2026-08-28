@@ -14,7 +14,7 @@
 - Tỷ lệ người dùng thực địa: ~92% kỹ sư hiện trường sử dụng Mobile.
 
 ### 🟡 DECIDED (Đã thống nhất chiến lược)
-- `ADR-001`: Triển khai Project OS Bootstrap theo chuẩn Antigravity 2.0.
+- `ADR-001`: Triển khai Project OS Bootstrap theo chuẩn Protools Core Engine.
 - `ADR-002`: Xây dựng giao diện B2B Industrial Precision với Mobile-first, Spec-sheet Grid và Touch Target 48px.
 - `ADR-003`: Cấm tuyệt đối SQL Bridge Scripts qua Web để phòng thủ WAF Imunify360.
 - `ADR-004`: Lựa chọn B — Xây dựng Backend Độc lập Hiện đại (New Independent Modern Backend), không phụ thuộc vào mã nguồn WordPress legacy.
