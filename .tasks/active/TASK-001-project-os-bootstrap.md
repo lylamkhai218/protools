@@ -1,4 +1,4 @@
-# TASK-001: TRIỂN KHAI ANTIGRAVITY PROJECT OS BOOTSTRAP
+# TASK-001: TRIỂN KHAI PROTOOLS PROJECT OS BOOTSTRAP
 
 * **Task ID:** `TASK-001`
 * **Tiêu đề:** Khởi tạo Project Operating System (Project OS) cho Protools.com.vn

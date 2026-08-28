@@ -1,11 +1,11 @@
-# Antigravity 2.0 — Project OS Bootstrap Specification
+# Protools Core Engine — Project OS Bootstrap Specification
 
 ## 0. Mission
 
 You are initializing a long-lived AI-native software project workspace.
 
 Your goal is NOT merely to create folders for multiple agents.
-Your goal is to create a **Project Operating System (Project OS)** that allows Antigravity 2.0 and future agents to work on the same project for a long time without losing context, inventing assumptions, duplicating decisions, breaking architecture, or becoming less reliable as the project grows.
+Your goal is to create a **Project Operating System (Project OS)** that allows Protools Core Engine and future agents to work on the same project for a long time without losing context, inventing assumptions, duplicating decisions, breaking architecture, or becoming less reliable as the project grows.
 
 The Project OS must preserve:
 
@@ -843,7 +843,7 @@ The desired outcome is a project that becomes **more understandable as it grows*
 
 ---
 
-# Final Instruction to Antigravity
+# Final Instruction to Protools
 
 Treat this specification as the initial operating contract for the project.
 
