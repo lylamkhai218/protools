@@ -16,6 +16,7 @@
 ## 1. TỔNG QUAN DỰ ÁN & HẠ TẦNG (SYSTEM PROFILE)
 
 * **Business:** Website B2B phân phối thiết bị cơ khí, dụng cụ công nghiệp Protools.
+* **GitHub Repository:** [https://github.com/lylamkhai218/protools](https://github.com/lylamkhai218/protools)
 * **Frontend Techstack:** React, TypeScript, Vite, Tailwind CSS (Single Page Application - SPA).
 * **Hosting Server:** Mắt Bão Cloud Network (`s2d34.cloudnetwork.vn` - IP: `112.78.2.34`).
 * **Control Panel:** DirectAdmin (Evolution Skin - Port `2222`).

@@ -4,6 +4,7 @@
 | Hạng mục | Nội dung / Trạng thái |
 | :--- | :--- |
 | **Dự án** | Protools.com.vn — Nền tảng phân phối thiết bị cơ khí, dụng cụ công nghiệp B2B & Murrplastik Brand Hub |
+| **GitHub Repository** | [https://github.com/lylamkhai218/protools](https://github.com/lylamkhai218/protools) |
 | **Giai đoạn (Phase)** | **Phase 1: OS Bootstrap & Murrplastik Subpage Isolation Integration** |
 | **Tech Stack Hiện Tại** | Frontend: React 18, TypeScript, Vite, Tailwind CSS (Core App). Subpage: Static HTML5/CSS3/JS, Three.js 3D Viewer (`/murrplastik/`). Hosting: Mắt Bão LiteSpeed. |
 | **Tech Stack Chưa Chốt** | Lựa chọn công nghệ Backend API cụ thể (Node.js/FastAPI/Laravel 11) cho Phase 3. *(Đã chốt kiến trúc: Independent Backend - ADR-004)*. |
