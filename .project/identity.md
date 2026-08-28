@@ -4,6 +4,7 @@
 * **Tên dự án:** Protools.com.vn (B2B Industrial Equipment & Tooling Platform)
 * **Chủ quản:** Công ty TNHH Thiết bị Công nghiệp T&T Vina (T&T Vina Industrial Co., Ltd)
 * **Website hiện hữu:** `https://protools.com.vn/`
+* **GitHub Repository:** [https://github.com/lylamkhai218/protools](https://github.com/lylamkhai218/protools)
 * **Mục tiêu cốt lõi:** Xây dựng nền tảng số hóa B2B hiện đại, tốc độ cao, phục vụ tra cứu thông số kỹ thuật (Spec-sheet), quản lý danh mục thiết bị dự án và quy trình Yêu cầu báo giá (Request for Quote - RFQ) cho ngành công nghiệp chế tạo, cơ khí chính xác tại Việt Nam.
 
 ## 2. ĐỐI TƯỢNG NGƯỜI DÙNG MỤC TIÊU (PERSONAS)
