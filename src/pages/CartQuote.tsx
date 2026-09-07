@@ -1,347 +1,580 @@
 import React, { useState } from 'react';
-import { CartItem, Product } from '../types';
 import { 
-  Plus, Minus, Trash2, ArrowLeft, Send, CheckCircle, Info, ShieldAlert, Lock, HelpCircle
+  ShoppingCart, 
+  Trash2, 
+  Send, 
+  FileSpreadsheet, 
+  ArrowLeft, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Building2, 
+  PhoneCall, 
+  Mail, 
+  User, 
+  Plus, 
+  Minus,
+  Sparkles,
+  Download,
+  ListPlus,
+  Layers,
+  HelpCircle,
+  FileCode,
+  Tag
 } from 'lucide-react';
+import { CartItem, Product } from '../types';
+import { PRODUCTS, COMPANY_INFO } from '../data';
 
 interface CartQuoteProps {
   cartItems: CartItem[];
-  onUpdateQuantity: (id: string, quantity: number) => void;
-  onRemoveItem: (id: string) => void;
-  onNavigate: (tab: string) => void;
-  userEmail?: string;
+  onUpdateQuantity: (productId: string, quantity: number) => void;
+  onRemoveItem: (productId: string) => void;
   onClearCart: () => void;
+  onNavigate: (tab: string) => void;
+  onAddToCart?: (product: Product, quantity?: number) => void;
 }
 
-export default function CartQuote({ 
-  cartItems, onUpdateQuantity, onRemoveItem, onNavigate, userEmail, onClearCart 
+export default function CartQuote({
+  cartItems,
+  onUpdateQuantity,
+  onRemoveItem,
+  onClearCart,
+  onNavigate,
+  onAddToCart
 }: CartQuoteProps) {
-  // Form fields
-  const [fullName, setFullName] = useState('');
   const [companyName, setCompanyName] = useState('');
-  const [workEmail, setWorkEmail] = useState(userEmail || '');
+  const [contactName, setContactName] = useState('');
   const [phone, setPhone] = useState('');
-  const [projectDesc, setProjectDesc] = useState('');
-  
-  // Submit animation states
+  const [email, setEmail] = useState('');
+  const [factoryLocation, setFactoryLocation] = useState('');
+  const [projectNote, setProjectNote] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [rfqNumber, setRfqNumber] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  // BOM Quick Order State
+  const [showBomDrawer, setShowBomDrawer] = useState(false);
+  const [bomInput, setBomInput] = useState('');
+  const [bomStatusMessage, setBomStatusMessage] = useState<string | null>(null);
 
-  // Count sums
-  const totalItemsCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleProcessBOM = (customText?: string) => {
+    const rawText = customText !== undefined ? customText : bomInput;
+    if (!rawText.trim()) {
+      setBomStatusMessage('Vui lòng nhập ít nhất một mã SKU hoặc Part Number!');
+      return;
+    }
+
+    const lines = rawText.split('\n');
+    let addedCount = 0;
+    const notFoundList: string[] = [];
+
+    lines.forEach(line => {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+
+      // Format can be: "SKU, quantity" or "SKU quantity" or "SKU \t quantity" or just "SKU"
+      let skuPart = trimmed;
+      let qtyPart = 1;
+
+      if (trimmed.includes(',')) {
+        const parts = trimmed.split(',');
+        skuPart = parts[0].trim();
+        qtyPart = parseInt(parts[1]?.trim()) || 1;
+      } else if (trimmed.includes('\t')) {
+        const parts = trimmed.split('\t');
+        skuPart = parts[0].trim();
+        qtyPart = parseInt(parts[1]?.trim()) || 1;
+      } else if (trimmed.includes(' ')) {
+        const parts = trimmed.split(' ');
+        const lastPart = parts[parts.length - 1];
+        if (!isNaN(parseInt(lastPart))) {
+          qtyPart = parseInt(lastPart);
+          skuPart = parts.slice(0, parts.length - 1).join(' ').trim();
+        }
+      }
+
+      // Find matching product by SKU, ID or Name in PRODUCTS
+      const matched = PRODUCTS.find(p => 
+        p.sku.toLowerCase() === skuPart.toLowerCase() ||
+        p.id.toLowerCase() === skuPart.toLowerCase() ||
+        p.name.toLowerCase().includes(skuPart.toLowerCase()) ||
+        (p.specs && Object.values(p.specs).some(val => val.toLowerCase().includes(skuPart.toLowerCase())))
+      );
+
+      if (matched && onAddToCart) {
+        onAddToCart(matched, qtyPart);
+        addedCount += 1;
+      } else {
+        notFoundList.push(skuPart);
+      }
+    });
+
+    if (addedCount > 0) {
+      setBomStatusMessage(`Thành công: Đã tự động thêm ${addedCount} thiết bị vào danh sách báo giá!`);
+      setBomInput('');
+    } else {
+      setBomStatusMessage(`Không tìm thấy mã phù hợp trong cơ sở dữ liệu. Vui lòng kiểm tra lại mã SKU.`);
+    }
+  };
+
+  const handleSubmitQuote = (e: React.FormEvent) => {
     e.preventDefault();
-    if (cartItems.length === 0) return;
+    if (!companyName || !phone || !contactName) {
+      alert('Vui lòng điền đầy đủ Tên Công ty, Người liên hệ và Số điện thoại!');
+      return;
+    }
 
     setIsSubmitting(true);
-    
-    // Simulate real web transmission request
+    // Simulate instant secure RFQ submission
     setTimeout(() => {
       setIsSubmitting(false);
-      setSubmitSuccess(true);
-      
-      // Random RFQ identity
-      const randomId = Math.floor(100000 + Math.random() * 900000);
-      setRfqNumber(`RFQ-${randomId}`);
-    }, 2000);
+      setIsSubmitted(true);
+      onClearCart();
+    }, 1200);
   };
 
-  const resetForm = () => {
-    setFullName('');
-    setCompanyName('');
-    setPhone('');
-    setProjectDesc('');
-    setSubmitSuccess(false);
-    onClearCart();
+  const handleExportCSV = () => {
+    if (cartItems.length === 0) return;
+    let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
+    csvContent += "STT,Mã SKU,Tên Thiết Bị,Hãng,Số Lượng,Đơn Giá Tham Khảo\n";
+    cartItems.forEach((item, idx) => {
+      csvContent += `${idx + 1},"${item.product.sku}","${item.product.name}","${item.product.brand}",${item.quantity},"${item.product.price || 'Báo giá dự án'}"\n`;
+    });
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Protools_RFQ_Estimate_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
-  return (
-    <div className="flex-1 bg-zinc-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Quote Page Header matching pictures layout color scheme */}
-        <div className="flex items-center gap-3.5 mb-10 border-l-4 border-[#00478d] pl-4">
-          <h1 className="font-display text-3xl font-extrabold uppercase text-[#00478d] tracking-tight">
-            Giỏ hàng báo giá
-          </h1>
-        </div>
+  if (isSubmitted) {
+    return (
+      <div className="flex-1 bg-slate-50/60 py-20">
+        <div className="max-w-2xl mx-auto px-4 text-center space-y-6">
+          <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+            <CheckCircle2 className="w-8 h-8" />
+          </div>
 
-        {submitSuccess ? (
-          /* -------------------- Submission Success Screen -------------------- */
-          <div className="bg-white border border-zinc-200 rounded-xs shadow-lg max-w-2xl mx-auto p-10 text-center space-y-6">
-            <div className="mx-auto w-16 h-16 bg-green-100 flex items-center justify-center rounded-full text-green-600">
-              <CheckCircle className="h-10 w-10" />
-            </div>
-            
-            <div className="space-y-2">
-              <h2 className="font-display text-2xl font-extrabold uppercase text-primary">gửi yêu cầu thành công!</h2>
-              <p className="text-sm text-zinc-500 font-light">
-                Mã số báo giá yêu cầu của bạn là <strong className="font-mono text-zinc-800 bg-zinc-100 px-2 py-1 rounded">{rfqNumber}</strong>.
-              </p>
-            </div>
+          <div className="space-y-2">
+            <h1 className="font-display text-3xl font-extrabold text-[#0F172A] uppercase">
+              Yêu Cầu Báo Giá Đã Gửi Thành Công!
+            </h1>
+            <p className="text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
+              Đội ngũ Kỹ sư Dự án của Protools (T&T VINA) đã tiếp nhận danh mục thiết bị của quý công ty. Chúng tôi sẽ gửi Bảng báo giá chính thức kèm hồ sơ năng lực qua Email & Zalo trong vòng <strong className="text-slate-900">15 – 30 phút</strong>.
+            </p>
+          </div>
 
-            <div className="bg-zinc-50 border border-zinc-200 p-5 rounded-xs text-xs text-left max-w-md mx-auto space-y-2.5">
-              <p className="text-zinc-600">Chúng tôi đã chuyển tiếp thông số cấu hình và tài liệu kỹ thuật của bạn tới bộ phận thiết kế giải pháp T&amp;T Vina.</p>
-              <p className="text-zinc-700"><strong>Người nhận:</strong> {fullName || 'Quý khách'}</p>
-              <p className="text-zinc-700"><strong>Đại diện:</strong> {companyName || 'Doanh nghiệp sản xuất'}</p>
-              <p className="text-zinc-700"><strong>Email phản hồi:</strong> {workEmail}</p>
-              <p className="text-zinc-400 text-[11px] leading-relaxed pt-2 border-t border-zinc-200">
-                ⌛ Một chuyên viên kỹ thuật kinh doanh của chúng tôi sẽ phản hồi bảng báo giá PDF và tư vấn kỹ thuật trực tiếp vào hộp thư của bạn trong vòng 1-2 giờ làm việc.
-              </p>
+          <div className="p-5 rounded-sm bg-white border border-slate-200 text-xs text-left space-y-2 max-w-md mx-auto shadow-2xs">
+            <div className="font-bold text-slate-900 uppercase font-display border-b border-slate-100 pb-1.5 text-xs">
+              Thông Tin Tiếp Nhận
             </div>
+            <div>Doanh nghiệp: <strong>{companyName || 'Công ty T&T Partner'}</strong></div>
+            <div>Người phụ trách: <strong>{contactName || 'Kỹ sư Thu mua'}</strong></div>
+            <div>Số điện thoại: <strong>{phone || '0982.xxx.xxx'}</strong></div>
+            <div>Trạng thái: <span className="text-emerald-600 font-semibold">Đã chuyển giao bộ phận B2B Sales</span></div>
+          </div>
 
+          <div className="pt-4 flex justify-center gap-4">
             <button
-              onClick={resetForm}
-              className="px-8 py-3.5 bg-primary hover:bg-primary-container text-white font-display text-xs font-bold uppercase tracking-wider rounded-xs shadow-md transition-all cursor-pointer"
+              onClick={() => {
+                setIsSubmitted(false);
+                onNavigate('home');
+              }}
+              className="px-8 py-3 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white font-display font-bold text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer"
             >
-              Tiếp tục tham quan sản phẩm
+              Quay Về Trang Chủ
             </button>
           </div>
-        ) : (
-          /* -------------------- Main Quote Basket Layout -------------------- */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* LEFT Column: Selected Items (7 cols) */}
-            <div className="lg:col-span-7 bg-white border border-zinc-200 rounded-sm p-6 space-y-8">
-              
-              <div className="flex justify-between items-center border-b border-zinc-100 pb-4">
-                <span className="font-display text-xs font-extrabold text-zinc-400 uppercase tracking-widest">Sản phẩm tuyển chọn</span>
-                <span className="text-xs text-zinc-500">{cartItems.length} sản phẩm độc lập</span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex-1 bg-slate-50/60 pb-20">
+      
+      {/* 1. HEADER */}
+      <div className="bg-white border-b border-slate-200/80 py-10 bg-swiss-grid">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D97706] block mb-1">
+                B2B Bulk Procurement Portal
+              </span>
+              <h1 className="font-display text-3xl font-extrabold text-[#0F172A] tracking-tight uppercase">
+                Giỏ Yêu Cầu Báo Giá Dự Án ({totalItemsCount} Thiết Bị)
+              </h1>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                onClick={() => setShowBomDrawer(!showBomDrawer)}
+                className="px-4 py-2 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              >
+                <ListPlus className="w-3.5 h-3.5 text-amber-300" />
+                <span>{showBomDrawer ? 'Đóng Công Cụ BOM' : 'Nhập Nhanh Mã BOM (Excel)'}</span>
+              </button>
+
+              <button
+                onClick={() => onNavigate('home')}
+                className="px-4 py-2 rounded-xs bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold uppercase tracking-wider border border-slate-300 transition-colors flex items-center gap-1.5 cursor-pointer"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Thêm Thiết Bị Khác</span>
+              </button>
+
+              {cartItems.length > 0 && (
+                <button
+                  onClick={handleExportCSV}
+                  className="px-4 py-2 rounded-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-300 transition-colors flex items-center gap-1.5 cursor-pointer"
+                >
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-700" />
+                  <span>Xuất File Excel/CSV</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. MAIN CONTENT GRID */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        
+        {/* BOM Quick Order Section (MISUMI Style) */}
+        {showBomDrawer && (
+          <div className="mb-8 p-6 rounded-sm bg-white border-2 border-[#00478D] shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+              <div className="flex items-center gap-2">
+                <ListPlus className="w-5 h-5 text-[#00478D]" />
+                <h3 className="font-display font-bold text-sm uppercase text-slate-900">
+                  Công Cụ Nhập Nhanh Mã Linh Kiện Hàng Loạt (BOM Quick Quote)
+                </h3>
               </div>
+              <span className="text-[11px] font-mono text-slate-500">Chuẩn mua hàng nhà máy B2B</span>
+            </div>
 
-              {cartItems.length === 0 ? (
-                /* Empty Cart */
-                <div className="py-20 text-center space-y-4">
-                  <div className="text-zinc-300">
-                    <span className="material-symbols-outlined text-6xl">shopping_cart_off</span>
-                  </div>
-                  <p className="text-sm text-zinc-500">Giỏ hàng báo giá của bạn đang trống.</p>
-                  <button 
-                    onClick={() => onNavigate('home')}
-                    className="inline-flex items-center gap-1.5 text-xs text-primary font-bold hover:underline font-sans"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                    Quay lại chọn sản phẩm thiết bị
-                  </button>
-                </div>
-              ) : (
-                /* Listed Items with plus/minus */
-                <div className="space-y-6">
-                  <div className="space-y-4 divide-y divide-zinc-100">
-                    {cartItems.map((item) => (
-                      <div key={item.product.id} className="flex gap-4 pt-4 first:pt-0 items-start">
-                        {/* Photo */}
-                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-zinc-50 border border-zinc-200 rounded-xs overflow-hidden flex-none">
-                          <img 
-                            src={item.product.image} 
-                            alt={item.product.name} 
-                            className="w-full h-full object-cover"
-                            referrerPolicy="no-referrer"
-                          />
-                        </div>
+            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+              Dán trực tiếp danh sách mã SKU / Part Number từ Excel hoặc bảng kê vật tư vào ô bên dưới. Định dạng hỗ trợ: <code className="bg-slate-100 px-1.5 py-0.5 rounded-xs font-mono text-slate-800">[Mã SKU], [Số lượng]</code> hoặc mỗi dòng một mã.
+            </p>
 
-                        {/* Content */}
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-bold text-zinc-800 text-sm sm:text-base leading-snug line-clamp-1">
-                            {item.product.name}
-                          </h4>
-                          <p className="text-xs text-zinc-400 mt-1 font-mono">SKU: {item.product.sku}</p>
-                          <p className="text-[11px] font-sans text-primary font-medium mt-1">
-                            Yêu cầu: <span className="underline decoration-dotted">Tư vấn kỹ thuật</span>
-                          </p>
-                        </div>
+            {/* Pre-filled BOM Sample Presets */}
+            <div className="flex flex-wrap items-center gap-2 pt-3">
+              <span className="text-[10px] uppercase font-bold text-slate-400">Nạp mẫu nhanh:</span>
+              <button
+                onClick={() => handleProcessBOM("HK-936, 5\nHIOS-1002, 3\nCM-1003, 1")}
+                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
+              >
+                + Dây Chuyền Hàn & Bắt Vít
+              </button>
+              <button
+                onClick={() => handleProcessBOM("MP-1076, 10\nMP-1074, 5\nMP-1078, 2")}
+                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
+              >
+                + Xích Dẫn Cáp Robot Murrplastik
+              </button>
+              <button
+                onClick={() => handleProcessBOM("ESD-1065, 4\nHP-1037, 2\nMIC-1045, 2")}
+                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
+              >
+                + Phòng Sạch & Đo Lường ESD
+              </button>
+            </div>
 
-                        {/* Quantity Counter adjustment */}
-                        <div className="flex items-center border border-zinc-300 rounded-xs overflow-hidden shrink-0 bg-zinc-50">
-                          <button
-                            onClick={() => onUpdateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
-                            className="p-1 px-2.5 hover:bg-zinc-100 text-zinc-500 transition-colors"
-                          >
-                            <Minus className="h-3 w-3" />
-                          </button>
-                          <span className="px-3 py-1 text-xs font-bold font-mono text-zinc-800 bg-white select-none">
-                            {item.quantity.toString().padStart(2, '0')}
-                          </span>
-                          <button
-                            onClick={() => onUpdateQuantity(item.product.id, item.quantity + 1)}
-                            className="p-1 px-2.5 hover:bg-zinc-100 text-zinc-500 transition-colors"
-                          >
-                            <Plus className="h-3 w-3" />
-                          </button>
-                        </div>
+            <div className="pt-3 space-y-3">
+              <textarea
+                rows={4}
+                value={bomInput}
+                onChange={(e) => setBomInput(e.target.value)}
+                placeholder={"Ví dụ:\nHK-936, 5\nHIOS-1002, 3\nMP-1076, 10\nZCUT-1033, 1"}
+                className="w-full p-3 rounded-xs border border-slate-300 font-mono text-xs text-slate-900 focus:outline-none focus:border-[#00478D] bg-slate-50/50"
+              />
 
-                        {/* Trash action button */}
-                        <button
-                          onClick={() => onRemoveItem(item.product.id)}
-                          className="p-2 text-zinc-400 hover:text-red-600 transition-colors bg-zinc-50 hover:bg-zinc-100 rounded-xs border border-zinc-200 sm:flex shrink-0 ml-2"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </button>
-
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Back CTA + Summary count block */}
-                  <div className="flex flex-col sm:flex-row justify-between items-center bg-zinc-50 p-5 border border-zinc-200/60 rounded-xs mt-8 gap-4">
-                    <button 
-                      onClick={() => onNavigate('home')}
-                      className="text-xs font-display font-bold text-primary hover:text-primary-container inline-flex items-center gap-1.5 transition-colors uppercase tracking-wider"
-                    >
-                      <ArrowLeft className="h-4 w-4 text-tertiary" />
-                       Tiếp tục chọn sản phẩm
-                    </button>
-                    
-                    <div className="text-center sm:text-right">
-                      <p className="text-[10px] text-zinc-400 font-display font-extrabold tracking-widest uppercase">Tổng số lượng sản phẩm</p>
-                      <p className="font-display font-extrabold text-[#00478d] text-2xl sm:text-3xl mt-1 leading-none">
-                        {totalItemsCount.toString().padStart(2, '0')} Đơn vị
-                      </p>
-                    </div>
-                  </div>
-
+              {bomStatusMessage && (
+                <div className="p-3 rounded-xs bg-blue-50 border border-blue-200 text-xs font-semibold text-[#00478D] flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>{bomStatusMessage}</span>
                 </div>
               )}
 
+              <div className="flex items-center justify-between pt-1">
+                <button
+                  onClick={() => handleProcessBOM()}
+                  className="px-6 py-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider font-display transition-all flex items-center gap-2 cursor-pointer shadow-md"
+                >
+                  <ListPlus className="w-4 h-4 text-amber-300" />
+                  <span>Phân Tích & Thêm Vào Báo Giá</span>
+                </button>
+
+                <button
+                  onClick={() => setShowBomDrawer(false)}
+                  className="text-xs text-slate-500 hover:underline font-medium cursor-pointer"
+                >
+                  Đóng lại
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        {cartItems.length === 0 ? (
+          <div className="bg-white rounded-sm border border-slate-200 p-16 text-center space-y-4 max-w-lg mx-auto shadow-2xs">
+            <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+              <ShoppingCart className="w-8 h-8" />
+            </div>
+            <h3 className="font-display text-xl font-bold text-slate-900 uppercase">
+              Giỏ Báo Giá Hiện Đang Trống
+            </h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Quý khách vui lòng chọn các thiết bị công nghiệp từ danh mục để tạo danh sách yêu cầu báo giá dự án nhanh.
+            </p>
+            <button
+              onClick={() => onNavigate('home')}
+              className="px-6 py-2.5 rounded-xs bg-[#00478D] text-white text-xs font-bold uppercase tracking-wider font-display hover:bg-[#003B75] transition-colors"
+            >
+              Khám Phá Danh Mục Thiết Bị
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            
+            {/* Left Col (7/12): Items Table */}
+            <div className="lg:col-span-7 space-y-4">
+              
+              <div className="bg-white rounded-sm border border-slate-200 shadow-2xs overflow-hidden">
+                <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                  <span className="font-display font-bold text-xs uppercase tracking-wider text-slate-700">
+                    Danh Sách Thiết Bị Cần Báo Giá
+                  </span>
+                  <button
+                    onClick={onClearCart}
+                    className="text-xs text-red-600 hover:underline flex items-center gap-1 font-medium"
+                  >
+                    <Trash2 className="w-3 h-3" />
+                    <span>Xóa tất cả</span>
+                  </button>
+                </div>
+
+                <div className="divide-y divide-slate-100">
+                  {cartItems.map((item) => (
+                    <div key={item.product.id} className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                      
+                      <div className="flex items-center gap-4">
+                        <img 
+                          src={item.product.image} 
+                          alt={item.product.name}
+                          className="w-16 h-16 object-cover rounded-xs border border-slate-200 bg-white shrink-0"
+                        />
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="px-1.5 py-0.5 rounded-xs bg-[#00478D] text-white text-[9px] font-bold font-display uppercase">
+                              {item.product.brand}
+                            </span>
+                            <span className="text-[10px] font-mono text-slate-400">
+                              SKU: {item.product.sku}
+                            </span>
+                          </div>
+
+                          <h4 className="font-display text-sm font-bold text-slate-900 line-clamp-1">
+                            {item.product.name}
+                          </h4>
+
+                          <div className="text-xs font-semibold text-[#00478D]">
+                            {item.product.price || 'Giá thỏa thuận theo số lượng'}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Quantity & Delete */}
+                      <div className="flex items-center gap-4 self-end sm:self-center">
+                        <div className="flex items-center border border-slate-200 rounded-xs bg-slate-50 h-9">
+                          <button
+                            onClick={() => onUpdateQuantity(item.product.id, Math.max(1, item.quantity - 1))}
+                            className="w-8 h-full text-slate-600 hover:bg-slate-200 transition-colors font-bold text-sm"
+                          >
+                            -
+                          </button>
+                          <span className="w-10 text-center text-xs font-mono font-bold text-slate-900">
+                            {item.quantity}
+                          </span>
+                          <button
+                            onClick={() => onUpdateQuantity(item.product.id, item.quantity + 1)}
+                            className="w-8 h-full text-slate-600 hover:bg-slate-200 transition-colors font-bold text-sm"
+                          >
+                            +
+                          </button>
+                        </div>
+
+                        <button
+                          onClick={() => onRemoveItem(item.product.id)}
+                          className="p-2 text-slate-400 hover:text-red-600 transition-colors"
+                          title="Xóa thiết bị"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* B2B Guarantee badges */}
+              <div className="grid grid-cols-3 gap-3 text-center text-[11px] text-slate-600 bg-white p-4 rounded-sm border border-slate-200">
+                <div className="flex flex-col items-center gap-1">
+                  <ShieldCheck className="w-4 h-4 text-[#00478D]" />
+                  <span>100% Đầy đủ CO/CQ</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <Building2 className="w-4 h-4 text-[#D97706]" />
+                  <span>Hỗ trợ hồ sơ thầu B2B</span>
+                </div>
+                <div className="flex flex-col items-center gap-1">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>Bảo hành chính hãng</span>
+                </div>
+              </div>
+
             </div>
 
-            {/* RIGHT Column: RFQ Form Pictured (5 cols) */}
+            {/* Right Col (5/12): Procurement Form */}
             <div className="lg:col-span-5">
-              
-              <form 
-                onSubmit={handleSubmit}
-                className="bg-white border border-zinc-200 rounded-xs shadow-xs p-6 space-y-5"
-              >
+              <div className="bg-white rounded-sm border border-slate-200 shadow-sm p-6 sm:p-7 space-y-5">
                 
-                <div className="flex items-center gap-2 mb-2 border-b border-zinc-100 pb-3">
-                  <span className="material-symbols-outlined text-[#005eb8]">article</span>
-                  <h3 className="font-display text-lg font-extrabold text-[#00478d] uppercase tracking-tight">Yêu cầu báo giá nhanh</h3>
-                </div>
-
-                {/* Name */}
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-display font-extrabold text-zinc-400 uppercase tracking-wider">
-                    Họ và tên *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Vd: Nguyễn Văn A"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xs text-xs focus:outline-hidden focus:ring-1 focus:ring-primary focus:border-primary transition-all font-sans"
-                  />
-                </div>
-
-                {/* Company */}
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-display font-extrabold text-zinc-400 uppercase tracking-wider">
-                    Công ty *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Tên doanh nghiệp của bạn"
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xs text-xs focus:outline-hidden focus:ring-1 focus:ring-primary focus:border-primary transition-all font-sans"
-                  />
-                </div>
-
-                {/* Work Email */}
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-display font-extrabold text-zinc-400 uppercase tracking-wider">
-                    Email công việc *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="email@company.com"
-                    value={workEmail}
-                    onChange={(e) => setWorkEmail(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xs text-xs focus:outline-hidden focus:ring-1 focus:ring-primary focus:border-primary transition-all font-sans"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-display font-extrabold text-zinc-400 uppercase tracking-wider">
-                    Số điện thoại *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="024 XXXX XXXX"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xs text-xs focus:outline-hidden focus:ring-1 focus:ring-primary focus:border-primary transition-all font-sans"
-                  />
-                </div>
-
-                {/* Technical description */}
-                <div className="space-y-1.5">
-                  <label className="block text-[10px] font-display font-extrabold text-zinc-400 uppercase tracking-wider">
-                    Mô tả dự án
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Yêu cầu cụ thể về kỹ thuật, tiến độ..."
-                    value={projectDesc}
-                    onChange={(e) => setProjectDesc(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-zinc-50 border border-zinc-200 rounded-xs text-xs focus:outline-hidden focus:ring-1 focus:ring-primary focus:border-primary transition-all font-sans"
-                  />
-                </div>
-
-                {/* Info Note alert box pictured */}
-                <div className="bg-zinc-50 border-l-4 border-l-amber-500 border-zinc-200 p-3 flex gap-2.5 items-start">
-                  <Info className="h-4.5 w-4.5 text-amber-500 shrink-0 mt-0.5" />
-                  <p className="text-[11px] text-zinc-500 leading-relaxed font-sans font-light">
-                    Chuyên viên kỹ thuật sản phẩm của T&amp;T Vina sẽ phản hồi bảng báo giá chính thức kèm bản vẽ phân tích trong vòng <strong>1-2 giờ</strong> làm việc.
+                <div className="border-b border-slate-100 pb-3">
+                  <h3 className="font-display text-lg font-bold text-[#0F172A] uppercase">
+                    Thông Tin Doanh Nghiệp Nhận Báo Giá
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Chúng tôi sẽ lập bảng dự toán chi tiết và gửi lại cho quý công ty.
                   </p>
                 </div>
 
-                {/* Submit button dynamic action */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting || cartItems.length === 0}
-                  className="w-full py-4 bg-[#00478d] hover:bg-primary-container text-white disabled:opacity-50 disabled:cursor-not-allowed text-xs font-display font-bold uppercase tracking-widest rounded-xs shadow-md hover:shadow-lg transition-transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
-                      <span>ĐANG XỬ LÝ...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>GỬI YÊU CẦU BÁO GIÁ</span>
-                      <Send className="h-3.5 w-3.5 fill-white" />
-                    </>
-                  )}
-                </button>
+                <form onSubmit={handleSubmitQuote} className="space-y-4 text-xs">
+                  
+                  <div>
+                    <label className="font-bold text-slate-700 block mb-1">
+                      Tên Doanh Nghiệp / Nhà Máy <span className="text-red-500">*</span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        required
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                        placeholder="VD: Công ty TNHH Điện Tử Samsung / Foxconn..."
+                        className="w-full h-10 pl-9 pr-3 rounded-xs border border-slate-200 focus:outline-none focus:border-[#00478D] font-medium text-slate-800"
+                      />
+                      <Building2 className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    </div>
+                  </div>
 
-                {/* Trust standards footer icons */}
-                <div className="flex justify-center gap-4 text-[10px] text-zinc-400 pt-3 border-t border-zinc-100">
-                  <span className="inline-flex items-center gap-1">
-                    <CheckCircle className="h-3 w-3 text-emerald-600" />
-                    ISO 9001:2015
-                  </span>
-                  <span className="text-zinc-200">|</span>
-                  <span className="inline-flex items-center gap-1">
-                    <Lock className="h-3 w-3 text-[#005eb8]" />
-                    Secure Privacy
-                  </span>
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="font-bold text-slate-700 block mb-1">
+                        Người Phụ Trách / Kỹ Sư <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="text"
+                          required
+                          value={contactName}
+                          onChange={(e) => setContactName(e.target.value)}
+                          placeholder="Họ và tên..."
+                          className="w-full h-10 pl-9 pr-3 rounded-xs border border-slate-200 focus:outline-none focus:border-[#00478D] font-medium text-slate-800"
+                        />
+                        <User className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                      </div>
+                    </div>
 
-              </form>
+                    <div>
+                      <label className="font-bold text-slate-700 block mb-1">
+                        Số Điện Thoại / Zalo <span className="text-red-500">*</span>
+                      </label>
+                      <div className="relative">
+                        <input
+                          type="tel"
+                          required
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          placeholder="0982.xxx.xxx"
+                          className="w-full h-10 pl-9 pr-3 rounded-xs border border-slate-200 focus:outline-none focus:border-[#00478D] font-medium text-slate-800"
+                        />
+                        <PhoneCall className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                      </div>
+                    </div>
+                  </div>
 
+                  <div>
+                    <label className="font-bold text-slate-700 block mb-1">
+                      Email Nhận File Báo Giá (PDF)
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="purchasing@company.com"
+                        className="w-full h-10 pl-9 pr-3 rounded-xs border border-slate-200 focus:outline-none focus:border-[#00478D] font-medium text-slate-800"
+                      />
+                      <Mail className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="font-bold text-slate-700 block mb-1">
+                      Khu Công Nghiệp / Địa Điểm Giao Hàng
+                    </label>
+                    <input
+                      type="text"
+                      value={factoryLocation}
+                      onChange={(e) => setFactoryLocation(e.target.value)}
+                      placeholder="VD: KCN Yên Phong, Bắc Ninh hoặc KCN VSIP Hải Phòng..."
+                      className="w-full h-10 px-3 rounded-xs border border-slate-200 focus:outline-none focus:border-[#00478D] font-medium text-slate-800"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="font-bold text-slate-700 block mb-1">
+                      Yêu Cầu Kỹ Thuật Đặc Biệt (Nếu có)
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={projectNote}
+                      onChange={(e) => setProjectNote(e.target.value)}
+                      placeholder="Ghi chú về điện áp, xuất xứ, thời gian cần hàng hoặc yêu cầu demo chạy thử tại nhà máy..."
+                      className="w-full p-2.5 rounded-xs border border-slate-200 focus:outline-none focus:border-[#00478D] font-medium text-slate-800 resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full h-12 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white font-display font-bold text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <span>Đang Xử Lý Gửi Báo Giá...</span>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 text-amber-300" />
+                        <span>Gửi Yêu Cầu Báo Giá Chính Thức</span>
+                      </>
+                    )}
+                  </button>
+
+                  <div className="text-[10px] text-center text-slate-400 pt-1">
+                    Bảo mật tuyệt đối thông tin doanh nghiệp theo tiêu chuẩn B2B.
+                  </div>
+
+                </form>
+
+              </div>
             </div>
 
           </div>
         )}
-
       </div>
+
     </div>
   );
 }

@@ -48,11 +48,14 @@ export default function AdminDashboard({ products, onAddProduct, onDeleteProduct
       sku: newProductSku || `HK-NEW-${Math.floor(100+Math.random()*900)}`,
       brand: newProductBrand,
       category: newProductCategory,
+      categorySlug: newProductCategory.toLowerCase().replace(/\s+/g, '-'),
+      origin: 'Chính hãng',
       image: 'https://images.unsplash.com/photo-1581092162384-8987c1796715?auto=format&fit=crop&q=80&w=300',
       stock: stockNum,
-      status: stockNum > 20 ? 'In Stock' : (stockNum > 0 ? 'Low Stock' : 'Out of Stock'),
+      stockStatus: stockNum > 20 ? 'In Stock' : (stockNum > 0 ? 'Low Stock' : 'Contact Order'),
       price: 'Báo giá',
-      shortDesc: newProductDesc || 'Sản phẩm mới cập nhật trong hệ thống.'
+      shortDesc: newProductDesc || 'Sản phẩm mới cập nhật trong hệ thống.',
+      specs: {}
     };
     onAddProduct(newP);
     setShowAddModal(false);
