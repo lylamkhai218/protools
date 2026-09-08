@@ -86,7 +86,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 whitespace-nowrap">
           
           {/* Left: Headquarters Location & VPGD */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2.5 shrink-0">
             <span className="flex items-center gap-1.5 text-slate-600 font-medium">
               <Building2 className="w-3.5 h-3.5 text-[#00478D] shrink-0" />
               <span>Trụ sở: <strong>Thụy Anh, Hưng Yên</strong> • </span>
@@ -101,6 +101,16 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 <ExternalLink className="w-2.5 h-2.5 text-slate-400" />
               </a>
             </span>
+            <span className="text-slate-300">|</span>
+            <a
+              href="/murrplastik/"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 text-[#E30613] hover:bg-red-100/90 border border-red-200/90 font-bold tracking-tight transition-all shadow-2xs group"
+              title="Truy cập Chuyên Trang Ủy Quyền Murrplastik (CHLB Đức)"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] animate-pulse"></span>
+              <span>Chuyên Trang Murrplastik Đức</span>
+              <ExternalLink className="w-2.5 h-2.5 text-red-500 group-hover:translate-x-0.5 transition-transform" />
+            </a>
           </div>
 
           {/* Right: Direct Contacts Fully Visible With Quick Copy */}
@@ -279,11 +289,22 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           </div>
                         </div>
 
-                        <ArrowRight className={`w-4 h-4 shrink-0 transition-all ${
-                          sol.id === 'murrplastik'
-                            ? 'text-[#E30613] group-hover:translate-x-1'
-                            : 'text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1'
-                        }`} />
+                        {sol.id === 'murrplastik' ? (
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <a
+                              href="/murrplastik/"
+                              onClick={(e) => e.stopPropagation()}
+                              title="Chuyển sang Chuyên Trang Murrplastik Đức"
+                              className="px-2 py-1 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-2xs transition-colors"
+                            >
+                              <span>Chuyên Trang</span>
+                              <ExternalLink className="w-2.5 h-2.5" />
+                            </a>
+                            <ArrowRight className="w-4 h-4 text-[#E30613] group-hover:translate-x-1 transition-transform" />
+                          </div>
+                        ) : (
+                          <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1 transition-all shrink-0" />
+                        )}
                       </button>
                     ))}
                   </div>
@@ -481,6 +502,32 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             >
               Trang Chủ
             </button>
+
+            {/* Featured Murrplastik Subsite Card on Mobile */}
+            <div className="p-3 rounded-sm bg-gradient-to-br from-red-50 via-white to-red-50/40 border border-red-200/90 shadow-2xs space-y-2 my-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#E30613] animate-pulse" />
+                  <span className="text-xs font-bold text-[#E30613] uppercase tracking-wide font-display">
+                    Chuyên Trang Murrplastik (Đức)
+                  </span>
+                </div>
+                <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-xs bg-red-100 text-[#E30613]">
+                  Ủy Quyền
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-600 leading-snug">
+                Hệ sinh thái quản lý cáp công nghiệp, xích dẫn cáp Robot, catalog 500+ mã hàng &amp; Gian hàng ảo 3D.
+              </p>
+              <a
+                href="/murrplastik/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full h-9 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+              >
+                <span>Truy Cập Chuyên Trang</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
 
             <div className="px-3 pt-2 pb-1 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
               Danh Mục Sản Phẩm

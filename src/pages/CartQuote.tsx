@@ -13,9 +13,7 @@ import {
   User, 
   Plus, 
   Minus,
-  Sparkles,
   Download,
-  ListPlus,
   Layers,
   HelpCircle,
   FileCode,
@@ -47,90 +45,120 @@ export default function CartQuote({
   const [email, setEmail] = useState('');
   const [factoryLocation, setFactoryLocation] = useState('');
   const [projectNote, setProjectNote] = useState('');
+  const [hpFax, setHpFax] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
-  // BOM Quick Order State
-  const [showBomDrawer, setShowBomDrawer] = useState(false);
-  const [bomInput, setBomInput] = useState('');
-  const [bomStatusMessage, setBomStatusMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const totalItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const handleProcessBOM = (customText?: string) => {
-    const rawText = customText !== undefined ? customText : bomInput;
-    if (!rawText.trim()) {
-      setBomStatusMessage('Vui lòng nhập ít nhất một mã SKU hoặc Part Number!');
+  const handleSubmitQuote = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+
+    // Honeypot spam trap
+    if (hpFax) {
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        onClearCart();
+      }, 500);
       return;
     }
 
-    const lines = rawText.split('\n');
-    let addedCount = 0;
-    const notFoundList: string[] = [];
+    const cleanCompany = companyName.trim();
+    const cleanContact = contactName.trim();
+    const cleanPhone = phone.replace(/\s+/g, '');
+    const cleanEmail = email.trim();
 
-    lines.forEach(line => {
-      const trimmed = line.trim();
-      if (!trimmed) return;
-
-      // Format can be: "SKU, quantity" or "SKU quantity" or "SKU \t quantity" or just "SKU"
-      let skuPart = trimmed;
-      let qtyPart = 1;
-
-      if (trimmed.includes(',')) {
-        const parts = trimmed.split(',');
-        skuPart = parts[0].trim();
-        qtyPart = parseInt(parts[1]?.trim()) || 1;
-      } else if (trimmed.includes('\t')) {
-        const parts = trimmed.split('\t');
-        skuPart = parts[0].trim();
-        qtyPart = parseInt(parts[1]?.trim()) || 1;
-      } else if (trimmed.includes(' ')) {
-        const parts = trimmed.split(' ');
-        const lastPart = parts[parts.length - 1];
-        if (!isNaN(parseInt(lastPart))) {
-          qtyPart = parseInt(lastPart);
-          skuPart = parts.slice(0, parts.length - 1).join(' ').trim();
-        }
-      }
-
-      // Find matching product by SKU, ID or Name in PRODUCTS
-      const matched = PRODUCTS.find(p => 
-        p.sku.toLowerCase() === skuPart.toLowerCase() ||
-        p.id.toLowerCase() === skuPart.toLowerCase() ||
-        p.name.toLowerCase().includes(skuPart.toLowerCase()) ||
-        (p.specs && Object.values(p.specs).some(val => val.toLowerCase().includes(skuPart.toLowerCase())))
-      );
-
-      if (matched && onAddToCart) {
-        onAddToCart(matched, qtyPart);
-        addedCount += 1;
-      } else {
-        notFoundList.push(skuPart);
-      }
-    });
-
-    if (addedCount > 0) {
-      setBomStatusMessage(`Thành công: Đã tự động thêm ${addedCount} thiết bị vào danh sách báo giá!`);
-      setBomInput('');
-    } else {
-      setBomStatusMessage(`Không tìm thấy mã phù hợp trong cơ sở dữ liệu. Vui lòng kiểm tra lại mã SKU.`);
+    if (!cleanCompany || !cleanPhone || !cleanContact) {
+      setErrorMessage('Vui lòng điền đầy đủ Tên Doanh Nghiệp, Người Phụ Trách và Số Điện Thoại!');
+      return;
     }
-  };
 
-  const handleSubmitQuote = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!companyName || !phone || !contactName) {
-      alert('Vui lòng điền đầy đủ Tên Công ty, Người liên hệ và Số điện thoại!');
+    const phoneRegex = /^(0|84)(3|5|7|8|9)([0-9]{8})$/;
+    if (!phoneRegex.test(cleanPhone)) {
+      setErrorMessage('Số điện thoại không hợp lệ. Vui lòng nhập số di động 10 chữ số (VD: 0982xxxxxx).');
+      return;
+    }
+
+    if (cleanEmail) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(cleanEmail)) {
+        setErrorMessage('Địa chỉ email không đúng định dạng. Vui lòng kiểm tra lại.');
+        return;
+      }
+    }
+
+    if (cartItems.length === 0) {
+      setErrorMessage('Giỏ yêu cầu báo giá đang trống. Vui lòng chọn ít nhất 1 thiết bị.');
       return;
     }
 
     setIsSubmitting(true);
-    // Simulate instant secure RFQ submission
-    setTimeout(() => {
+
+    const payload = {
+      companyName: cleanCompany,
+      contactName: cleanContact,
+      phone: cleanPhone,
+      email: cleanEmail,
+      factoryLocation: factoryLocation.trim(),
+      projectNote: projectNote.trim(),
+      hp_fax: hpFax,
+      totalCount: totalItemsCount,
+      items: cartItems.map((item, idx) => ({
+        stt: idx + 1,
+        sku: item.product.sku,
+        name: item.product.name,
+        brand: item.product.brand,
+        quantity: item.quantity,
+        price: item.product.price || 'Báo giá dự án'
+      }))
+    };
+
+    try {
+      const res = await fetch('/api/submit_quote.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        const data = await res.json().catch(() => ({ success: true }));
+        if (data.success !== false) {
+          setIsSubmitting(false);
+          setIsSubmitted(true);
+          onClearCart();
+          return;
+        }
+        throw new Error(data.message || 'Lỗi xử lý tiếp nhận báo giá.');
+      }
+
+      // If in local development or server returns non-200, check if 404 (dev server without PHP)
+      if (res.status === 404 && window.location.hostname === 'localhost') {
+        console.log('[LOCAL DEV MOCK] Đã tiếp nhận đơn B2B RFQ giả lập trên localhost:', payload);
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        onClearCart();
+        return;
+      }
+
+      throw new Error(`Máy chủ phản hồi mã lỗi: ${res.status}`);
+    } catch (err: any) {
+      // In localhost without PHP backend, simulate successful flow for UI testing
+      if (window.location.hostname === 'localhost') {
+        console.warn('[LOCAL DEV MOCK] Backend /api/submit_quote.php không khả dụng trên Vite dev server, chuyển sang chế độ test thành công:', payload);
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        onClearCart();
+        return;
+      }
+
+      console.error('Lỗi gửi báo giá:', err);
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      onClearCart();
-    }, 1200);
+      setErrorMessage('Không thể kết nối đến máy chủ tiếp nhận báo giá. Quý khách vui lòng gọi Hotline 0943.301.886 hoặc Zalo để được hỗ trợ tức thời.');
+    }
   };
 
   const handleExportCSV = () => {
@@ -210,14 +238,6 @@ export default function CartQuote({
 
             <div className="flex flex-wrap items-center gap-3">
               <button
-                onClick={() => setShowBomDrawer(!showBomDrawer)}
-                className="px-4 py-2 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
-              >
-                <ListPlus className="w-3.5 h-3.5 text-amber-300" />
-                <span>{showBomDrawer ? 'Đóng Công Cụ BOM' : 'Nhập Nhanh Mã BOM (Excel)'}</span>
-              </button>
-
-              <button
                 onClick={() => onNavigate('home')}
                 className="px-4 py-2 rounded-xs bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold uppercase tracking-wider border border-slate-300 transition-colors flex items-center gap-1.5 cursor-pointer"
               >
@@ -241,82 +261,6 @@ export default function CartQuote({
 
       {/* 2. MAIN CONTENT GRID */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        
-        {/* BOM Quick Order Section (MISUMI Style) */}
-        {showBomDrawer && (
-          <div className="mb-8 p-6 rounded-sm bg-white border-2 border-[#00478D] shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-200">
-              <div className="flex items-center gap-2">
-                <ListPlus className="w-5 h-5 text-[#00478D]" />
-                <h3 className="font-display font-bold text-sm uppercase text-slate-900">
-                  Công Cụ Nhập Nhanh Mã Linh Kiện Hàng Loạt (BOM Quick Quote)
-                </h3>
-              </div>
-              <span className="text-[11px] font-mono text-slate-500">Chuẩn mua hàng nhà máy B2B</span>
-            </div>
-
-            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
-              Dán trực tiếp danh sách mã SKU / Part Number từ Excel hoặc bảng kê vật tư vào ô bên dưới. Định dạng hỗ trợ: <code className="bg-slate-100 px-1.5 py-0.5 rounded-xs font-mono text-slate-800">[Mã SKU], [Số lượng]</code> hoặc mỗi dòng một mã.
-            </p>
-
-            {/* Pre-filled BOM Sample Presets */}
-            <div className="flex flex-wrap items-center gap-2 pt-3">
-              <span className="text-[10px] uppercase font-bold text-slate-400">Nạp mẫu nhanh:</span>
-              <button
-                onClick={() => handleProcessBOM("HK-936, 5\nHIOS-1002, 3\nCM-1003, 1")}
-                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
-              >
-                + Dây Chuyền Hàn & Bắt Vít
-              </button>
-              <button
-                onClick={() => handleProcessBOM("MP-1076, 10\nMP-1074, 5\nMP-1078, 2")}
-                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
-              >
-                + Xích Dẫn Cáp Robot Murrplastik
-              </button>
-              <button
-                onClick={() => handleProcessBOM("ESD-1065, 4\nHP-1037, 2\nMIC-1045, 2")}
-                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
-              >
-                + Phòng Sạch & Đo Lường ESD
-              </button>
-            </div>
-
-            <div className="pt-3 space-y-3">
-              <textarea
-                rows={4}
-                value={bomInput}
-                onChange={(e) => setBomInput(e.target.value)}
-                placeholder={"Ví dụ:\nHK-936, 5\nHIOS-1002, 3\nMP-1076, 10\nZCUT-1033, 1"}
-                className="w-full p-3 rounded-xs border border-slate-300 font-mono text-xs text-slate-900 focus:outline-none focus:border-[#00478D] bg-slate-50/50"
-              />
-
-              {bomStatusMessage && (
-                <div className="p-3 rounded-xs bg-blue-50 border border-blue-200 text-xs font-semibold text-[#00478D] flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#D97706] shrink-0" />
-                  <span>{bomStatusMessage}</span>
-                </div>
-              )}
-
-              <div className="flex items-center justify-between pt-1">
-                <button
-                  onClick={() => handleProcessBOM()}
-                  className="px-6 py-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider font-display transition-all flex items-center gap-2 cursor-pointer shadow-md"
-                >
-                  <ListPlus className="w-4 h-4 text-amber-300" />
-                  <span>Phân Tích & Thêm Vào Báo Giá</span>
-                </button>
-
-                <button
-                  onClick={() => setShowBomDrawer(false)}
-                  className="text-xs text-slate-500 hover:underline font-medium cursor-pointer"
-                >
-                  Đóng lại
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
         {cartItems.length === 0 ? (
           <div className="bg-white rounded-sm border border-slate-200 p-16 text-center space-y-4 max-w-lg mx-auto shadow-2xs">
             <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
@@ -451,7 +395,26 @@ export default function CartQuote({
                 </div>
 
                 <form onSubmit={handleSubmitQuote} className="space-y-4 text-xs">
-                  
+                  {errorMessage && (
+                    <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-xs animate-in fade-in">
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  {/* Anti-spam honeypot field */}
+                  <div style={{ display: 'none' }} aria-hidden="true">
+                    <label htmlFor="hp_fax">Fax</label>
+                    <input
+                      id="hp_fax"
+                      name="hp_fax"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={hpFax}
+                      onChange={(e) => setHpFax(e.target.value)}
+                    />
+                  </div>
+
                   <div>
                     <label className="font-bold text-slate-700 block mb-1">
                       Tên Doanh Nghiệp / Nhà Máy <span className="text-red-500">*</span>
