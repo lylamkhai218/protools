@@ -1569,6 +1569,33 @@ footer{background:var(--dark-2);border-top:1px solid rgba(255,255,255,0.06);widt
   white-space: normal;
 }
 
+.meta-map-link {
+  color: #0f172a;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.18s ease;
+}
+
+.meta-map-link:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.map-ext-icon {
+  width: 13px;
+  height: 13px;
+  color: var(--red);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  vertical-align: middle;
+}
+
+.meta-map-link:hover .map-ext-icon {
+  transform: translate(1.5px, -1.5px);
+}
+
 .news-content-section {
   padding: 4rem 0 6rem;
   background: #ffffff;
