@@ -385,3 +385,24 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - CẤM đưa lên GitHub: Script deploy chứa mật khẩu plaintext (deploy_*.py), file log máy chủ (All_Logs.csv, Logs.csv), thư mục tạm agent (scratch/), video nặng (>30MB).
 * **Tiêu Chuẩn Vệ Sinh Máy Chủ Production (Giữ Sạch Web Server)**:
   - CẤM upload lên Web Server Mắt Bão: File tài liệu nội bộ (docs/, *.md, README.md, AGENTS.md), thư mục Git (.git/, .gitignore), script deploy, file ảnh có tên dấu tiếng Việt hoặc khoảng trắng.
+
+### Rule 9.34: Quy Chuẩn An Toàn Form B2B: Ghi CSDL MariaDB contact_list, Loại Bỏ File Upload & Chuẩn Hóa VEC 2026 (08/09/2026)
+* **Form Giỏ Hàng B2B (`?tab=cart`)**:
+  - Gỡ bỏ hoàn toàn tính năng BOM (*Bill of Materials*) để giao diện mua hàng tinh gọn, trực quan.
+  - Tích hợp endpoint REST an toàn `public/api/submit_quote.php` (ECC AgentShield): Chống XSS qua `htmlspecialchars()`, chống SQLi qua PDO Prepared Statements, áp dụng Rate Limiting 5 req/min per IP và Honeypot ẩn `hp_fax`.
+  - Ghi đơn trực tiếp vào bảng MariaDB **`contact_list`** (`prod2e4e_db`) để đơn mới lập tức xuất hiện tại màn hình quản trị chính thức `https://protools.com.vn/admincp/#contact`.
+  - Đồng bộ gửi email thông báo tới `info@t2tvina.com` và `t2t.vina@gmail.com`.
+* **Form Liên Hệ Murrplastik (`/murrplastik/#contact`)**:
+  - Loại bỏ 100% ô upload file Base64 để triệt tiêu lỗ hổng Unrestricted File Upload lên Google Drive và nguy cơ cạn kiệt quota execution time của Google Apps Script.
+  - Form chỉ gửi text thuần, thời gian phản hồi form < 400ms.
+* **Form Đăng Ký VEC 2026 (`/tin-tuc/trien-lam-vec-2026/`)**:
+  - Triệt tiêu lỗi nghiêm trọng "Thành công giả" trong Catch block: Báo lỗi trung thực và giữ nguyên dữ liệu form khi xảy ra mất mạng.
+  - Chuẩn hóa Regex 10 số di động Việt Nam `/^(0|84)(3|5|7|8|9)[0-9]{8}$/` và header UTF-8.
+  - Phân luồng dữ liệu sang tab riêng `VEC_2026_Visitors` trong Google Sheet kèm chống Formula Injection (`'`).
+
+
+### Rule 9.34: Đóng Băng & Cô Lập Tuyệt Đối Thư Mục Backup murrplastik_code (08/09/2026)
+* **Chính Sách Đóng Băng Thư Mục Backup**:
+  - Tuyệt đối KHÔNG chỉnh sửa, không thêm bớt file và không can thiệp vào thư mục D:\T&TVina\murrplastik_code.
+  - Thư mục này hiện tại chỉ đóng vai trò là kho lưu trữ dự phòng (backup repository), liên kết với tên miền cũ https://murrplastikvn.com/.
+  - Mọi hoạt động phát triển tính năng, bảo trì mã nguồn, quản lý tài nguyên và deploy đều tập trung 100% tại d:\T&TVina\protools và phát hành lên máy chủ Mắt Bão (https://protools.com.vn/).
