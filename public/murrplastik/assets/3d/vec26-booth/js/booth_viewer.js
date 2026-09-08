@@ -436,7 +436,7 @@
 
     ctx.fillStyle = '#F8FAFC';
     ctx.font = '28px "Barlow", sans-serif';
-    ctx.fillText('Gian Hàng H1-15 · Sảnh 2 · T&T Vina Industrial', 512, 420);
+    ctx.fillText('Gian Hàng H2-15a · Sảnh 2 · T&T Vina Industrial', 512, 420);
 
     const screenTex = new THREE.CanvasTexture(tvCanvas);
     screenTex.encoding = THREE.sRGBEncoding;
