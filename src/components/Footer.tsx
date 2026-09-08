@@ -178,6 +178,18 @@ export default function Footer({ onNavigate }: FooterProps) {
                       <span>Quạt thổi Ion & Dụng cụ ESD</span>
                     </button>
                   </li>
+                  <li className="pt-2 border-t border-slate-800/80">
+                    <a
+                      href="/murrplastik/"
+                      className="text-red-400 hover:text-red-300 font-bold transition-colors flex items-center justify-between group"
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] animate-pulse shrink-0"></span>
+                        <span>Chuyên Trang Murrplastik Đức</span>
+                      </span>
+                      <ExternalLink className="w-3 h-3 text-red-400 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  </li>
                 </ul>
               </div>
 

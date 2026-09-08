@@ -406,3 +406,103 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Tuyệt đối KHÔNG chỉnh sửa, không thêm bớt file và không can thiệp vào thư mục D:\T&TVina\murrplastik_code.
   - Thư mục này hiện tại chỉ đóng vai trò là kho lưu trữ dự phòng (backup repository), liên kết với tên miền cũ https://murrplastikvn.com/.
   - Mọi hoạt động phát triển tính năng, bảo trì mã nguồn, quản lý tài nguyên và deploy đều tập trung 100% tại d:\T&TVina\protools và phát hành lên máy chủ Mắt Bão (https://protools.com.vn/).
+
+### Rule 9.35: Quy Chuẩn Xử Lý Trình Duyệt In-App (Zalo / Facebook) & Dual Fullscreen Engine WebGL 3D (08/09/2026)
+* **Xử Lý Trình Duyệt In-App (Zalo / Facebook / TikTok / Line)**:
+  - **Bản chất**: In-App WebView bóp nghẹt tài nguyên WebGL, chiếm dụng 20-30% diện tích màn hình điện thoại và chặn HTML5 Fullscreen API qua Permissions-Policy.
+  - **Cơ chế thoát In-App**:
+    1. **Android**: Hỗ trợ Intent URL Scheme (`intent://...#Intent;scheme=https;package=com.android.chrome;end`) kích hoạt khởi động trực tiếp Google Chrome hệ thống.
+    2. **iOS (iPhone/iPad)**: Do cơ chế Sandbox của Apple cấm website tự ý ép mở Safari, tích hợp **Smart In-App Guidance Banner** hướng dẫn người dùng bấm biểu tượng `•••` (dấu 3 chấm) -> chọn *"Mở bằng Safari / Trình duyệt mặc định"*.
+    3. **Trải nghiệm người dùng**: Thiết kế Dark Industrial Slate `#0f172a`, viền đỏ `#C8102E`, tuyệt đối không dùng Windows emojis, có nút đóng lưu vào `sessionStorage`.
+* **Dual Fullscreen Engine cho WebGL 3D**:
+  - **Vấn đề**: iOS Safari (iPhone) và In-App WebViews không hỗ trợ `requestFullscreen()` trên thẻ `<div>`/`<canvas>`.
+  - **Giải pháp**: Triển khai **CSS Pseudo-Fullscreen** cố định toàn màn hình `100vw x 100dvh`, `z-index: 9999999`, khóa cuộn nền (`overflow: hidden`), hỗ trợ nút đóng nổi `[✕ Thu nhỏ]`, đổi icon SVG nút bấm tương ứng, lắng nghe phím `Escape` và nút Back phần cứng của smartphone (`popstate`). Hoạt động 100% trên mọi thiết bị.
+### Rule 9.36: Quy Chuẩn Kiến Trúc Liên Kết Hai Chiều Cổng Mẹ Protools ⟷ Chuyên Trang Con Murrplastik (08/09/2026)
+* **Phân Định Cấp Bậc Kiến Trúc (Parent-Child Architecture)**:
+  - `protools.com.vn`: Đóng vai trò là Cổng Thiết Bị Công Nghiệp Tổng Thể (Parent Portal) của T&T Vina, quản lý danh mục đa ngành (hàn Hakko/Quick, bắt vít Hios, robot bơm keo, quạt ion ESD, kính hiển vi, máy cắt băng dính Zcut).
+  - `protools.com.vn/murrplastik`: Đóng vai trò là Chuyên Trang Con Ủy Quyền (Authorized Subsite) của Murrplastik Systemtechnik GmbH (Đức).
+* **Định Danh Hai Chiều Bắt Buộc**:
+  - **Từ Cổng Mẹ sang Chuyên Trang Con**:
+    1. Header Protools (Desktop & Mobile): Đặt nút nhận diện đối tác chiến lược `[Chuyên Trang Murrplastik Đức]` trên Topbar và Mega Dropdown.
+    2. Khi người dùng lọc danh mục Murrplastik trên trang chủ: Giữ nguyên việc lọc danh sách 14 thiết bị thực tế, đồng thời xuất hiện **Partner Spotlight Showcase Banner** trên đầu và **Catalog CAD CTA Banner** ở cuối danh mục dẫn trực tiếp sang `/murrplastik/`.
+  - **Từ Chuyên Trang Con về Cổng Mẹ**:
+    1. Navbar & Mobile Menu của chuyên trang Murrplastik tích hợp mục `Trang Chủ Protools` dẫn về `/`.
+    2. Breadcrumbs tin tức/sự kiện chuẩn hóa 4 tầng: `Protools Trang Chủ / Murrplastik / Tin tức & Sự kiện / Chi tiết`.
+    3. Chân trang chuyên trang Murrplastik tích hợp Card **Hệ Thống Phân Phối T&T Vina** kết nối về tổng kho thiết bị trên `protools.com.vn`.
+
+### Rule 9.37: Quy Chuẩn Điều Hướng Cùng Tab, Tối Giản Header & Tối Ưu Tốc Độ Deploy Production (08/09/2026)
+* **Quy Chuẩn Chuyển Hướng Cùng Tab (Same-Tab Navigation Policy)**:
+  - Mọi liên kết điều hướng nội bộ giữa Cổng Mẹ (`protools.com.vn`) và Chuyên Trang Con (`protools.com.vn/murrplastik/`) TUYỆT ĐỐI KHÔNG DÙNG `target="_blank"`.
+  - Mọi chuyển hướng phải diễn ra ngay trong tab hiện tại của trình duyệt để tạo trải nghiệm liền mạch của một hệ sinh thái duy nhất.
+* **Tối Giản Hóa Header & Triệt Tiêu Trùng Lặp**:
+  - Không đặt các nút trùng lặp dẫn sang cùng một đích trên cả Topbar và Main Navbar.
+  - Trên chuyên trang Murrplastik, loại bỏ thanh phụ `parent-bar-inner` trên đầu trang để giữ navbar chính tại `top: 0`, đảm bảo tính thanh thoát trên di động và máy tính.
+* **Khoảng Cách Bố Cục Chân Trang (Footer Spacing)**:
+  - Khối Card Hệ Thống Phân Phối T&T Vina (`.footer-protools-ecosystem`) phải duy trì khoảng cách tối thiểu `4.5rem` (`72px`) so với form liên hệ bên trên để tránh cảm giác chật chội.
+* **Tối Ưu Tốc Độ & Độ Ổn Định Phát Hành Production (`deploy_production_root.py`)**:
+  - Tích hợp kiểm tra kích thước file nhị phân qua FTP (`ftp.size(file) == local_size`): Bỏ qua an toàn 100+ file ảnh/video/3D nặng đã tồn tại trên server, rút ngắn thời gian deploy từ 15 phút xuống dưới 20 giây và chống timeout mạng.
+### Rule 9.38: Quy Chuẩn Hub Danh Mục Thiết Bị Triển Lãm & Sticky Reading Tracker Chuẩn Gọn (08/09/2026)
+* **Hub Danh Mục Thiết Bị Triển Lãm 67 Hạng Mục (Brand Switcher & 4 Cột Tiêu Chuẩn)**:
+  - **Phân luồng 2 Master Brands**:
+    1. **Hàng Hãng Murrplastik (Đức)**: 36 thiết bị/phụ kiện (`M-01` đến `M-36`), bao gồm Máy in tem Laser `mp-LM 1M`, R-Tec Box, Xích cáp MP 560 RV, MP 800 RK, Tấm luồn cáp KDP/X, KDP/P EX, TRO Liner 2.0, SAT-GF.
+    2. **Hàng Thương Mại T&T Vina**: 31 thiết bị/vật tư (`T-01` đến `T-31`), bao gồm Robot hàn, Hakko 936, Bể hàn CM-808, Tô vít Hios, Robot bơm keo SP-982, Zcut 9, HP-10, Quạt ion SL-001, kim bơm, mũi hàn.
+    3. **Tất Cả Thiết Bị**: 67 hạng mục tổng thể.
+  - **Bảng 4 Cột Tiêu Chuẩn**:
+    - Cột 1: `STT` (Badge màu thương hiệu: Đỏ `#E30613` cho Murrplastik, Xanh `#00478D` cho T&T Vina).
+    - Cột 2: `TÊN THIẾT BỊ / PHỤ KIỆN` (Tên thiết bị, Part Number, hãng sản xuất, tag phân loại kỹ thuật).
+    - Cột 3: `SỐ LƯỢNG` (Số lượng trưng bày thực tế, căn giữa).
+    - Cột 4: `ĐẶC TÍNH & GHI CHÚ KỸ THUẬT` (Thông số Đức/Nhật chính xác, tính năng và nút liên hệ tư vấn trực tiếp).
+* **Phụ Lục 5 Phần & Sticky Reading Tracker Tối Giản**:
+  - **Phụ Lục Bài Viết Đầu Trang (5 Phần)**: Chia rõ 5 phần trọng tâm của bài viết (1. Gian Hàng 3D, 2. 6 Hệ Sinh Thái Murr, 3. Quà Tặng Khách VIP, 4. Đăng Ký Tham Quan, 5. Danh Mục Thiết Bị Trưng Bày).
+  - **Sticky Reading Tracker Chuẩn Gọn**:
+    - Cố định trên cùng khi cuộn màn hình, tích hợp thanh tiến trình đọc gradient 3px.
+    - Định dạng hiển thị bắt buộc: **`X/5: [Tên Phần]`** (ví dụ: `2/5: 6 Hệ Sinh Thái Murrplastik`), tuyệt đối không thêm tiền tố/hậu tố rườm rà.
+    - Hỗ trợ nút mở nhanh bảng danh mục phần (Quick Dropdown) và nút cuộn mượt về Form Đăng Ký.
+* **Quy Chuẩn CSS Cột STT & Badge Chống Gãy Dòng (STT Badge Layout Standard)**:
+  - Chiều rộng cột STT cố định tối thiểu `72px` (`.vec26-th-stt`, `.vec26-col-stt`).
+  - Badge cấu hình `display: inline-flex; align-items: center; justify-content: center; min-width: 48px; height: 26px; white-space: nowrap; font-family: 'JetBrains Mono';`.
+  - Cấm tuyệt đối hiện tượng ngắt dòng ở dấu gạch ngang (`M-` / `01`), tích hợp hiệu ứng hover đổi màu nền theo thương hiệu chủ đạo (`#E30613` cho Murrplastik, `#00478D` cho T&T Vina).
+
+### Rule 9.39: Quy Chuẩn Bố Cục Phụ Lục Header, Hero Showcase 6 Hệ Sinh Thái & Bộ Quà Tặng Doanh Nghiệp VIP (08/09/2026)
+* **Phụ Lục Tích Hợp Trực Tiếp Trong Header (`.news-header-section`)**:
+  - Đặt `.article-toc-box` nằm trọn trong khối `<header class="news-header-section">` ngay dưới `.event-meta-card`.
+  - Phân tách cấu trúc rõ ràng: Nền xám kỹ thuật `#F8FAFC`, thẻ con `#FFFFFF`, viền `#E2E8F0`, giúp người đọc định hình 5 phần nội dung ngay khi tiếp cận bài viết trước khi bước vào không gian 3D.
+* **Hero Showcase & Hệ Thống Ảnh 6 Hệ Sinh Thái Murrplastik (Section 2)**:
+  - **Hero Showcase Đầu Section**: Sử dụng ảnh toàn cảnh ứng dụng `applications_products_murrplastik_no_background_2` trên nền Slate tối gradient `#0B1120` -> `#1E293B` kèm vầng sáng Ambient Red Glow `#E30613` thể hiện tính đồng bộ của 6 hệ sinh thái.
+  - **Thẻ Hệ Sinh Thái Đi Kèm Ảnh Kỹ Thuật Thực Tế**:
+    - `ACS`: Ảnh máy in khắc laser `mp-LM 1M` kèm thẻ mẫu (`ACS_MP_LM_1M_produkt_02`).
+    - `AUR`: Ảnh cụm Dresspack & hộp hồi vị `R-Tec Box` cho robot 6 trục (`aur_cable_retraction_systems_group`).
+    - `KDH`: Ảnh tấm luồn cáp vi sinh Clean KDP/S chuẩn FDA kháng nước (`Clean_kdp_s_fda_murrplastik`).
+    - `EFK`: Ảnh máng xích dẫn cáp Evochain 420 tháo lắp nhanh (`Evochain_420_konfektioniert_freisteller`).
+    - `SUV`: Ảnh hệ thống ống ruột gà & cút nối công nghiệp (`image_Conduits_and_fittings_murrSystems`).
+    - `CST`: Ảnh cấu hình may đo CAD 3D Dresspack & ReadyChain (`eco_cst_custom`).
+  - Toàn bộ ảnh được tối ưu hóa chuẩn WebP nén không suy hao từ 35MB xuống dưới 900KB tổng thể, bọc trong khung `.eco-img-wrap` nền trắng tương phản cao và hiệu ứng zoom mượt khi hover.
+* **Showcase Bộ Quà Tặng Khách Tham Quan VIP (Section 4)**:
+  - Đặt khối `.vip-gifts-showcase` ngay cạnh Form Đăng Ký Tham Quan (`#register`), tạo động lực chuyển đổi thị giác trực quan:
+    1. Bút Ký Kim Loại Murrplastik chính hãng Đức (`gift_pen_murrplastik`).
+    2. Túi Canvas Tiện Ích Murrplastik chuyên dụng đựng tài liệu & catalogue (`gift_tupper_murrplastik`).
+    3. Thẻ Tên Kim Loại Khắc Laser Trực Tiếp bằng máy `mp-LM 1M` trong 30 giây theo tên đăng ký.
+
+### Rule 9.40: Tối Ưu Hóa UI/UX Mobile, Giao Diện Sáng Đồng Nhất & Huy Hiệu Scarcity Quà Tặng (08/09/2026)
+* **Quy Chuẩn Đồng Nhất Sắc Thái & Kích Thước Khối Hero Hệ Sinh Thái (`.eco-hero-showcase`)**:
+  - Chuyển đổi từ nền đen tương phản gắt sang phong cách Technical Light `#F8FAFC`, viền `#E2E8F0`, đổ bóng mềm `rgba(15, 23, 42, 0.04)`.
+  - Tối ưu chiều cao hiển thị: Thu hẹp `max-height` ảnh từ `420px` xuống `280px` trên Desktop và `200px` trên Mobile; giảm margin từ `2.5rem` xuống `1.25rem 0 2rem` (desktop) và `1rem 0 1.5rem` (mobile) để tránh chiếm dụng không gian cuộn dọc.
+* **Quy Chuẩn Tinh Gọn Nội Dung & Huy Hiệu Quà Tặng VIP Scarcity (Section 4)**:
+  - Lược bỏ hoàn toàn đoạn văn dẫn thừa thãi nhằm tăng tốc độ chuyển đổi trực tiếp vào Form.
+  - Tích hợp huy hiệu khẩn cấp thị giác (Visual Scarcity Badge): `SỐ LƯỢNG CÓ HẠN · 100 SUẤT ĐĂNG KÝ SỚM` với chấm đỏ phát xung (`gift-pulse-dot`) và tag `SỐ LƯỢNG CÓ HẠN` trên từng thẻ quà tặng (Bút ký, Túi Canvas).
+* **Quy Chuẩn Tương Thích Di Động Mobile-First & iOS Safari**:
+  - Khắc phục lỗi Auto-Zoom trên iOS Safari: Bắt buộc khai báo `font-size: 16px !important;` cho toàn bộ thẻ `input`, `select`, `textarea` trong form báo giá / đăng ký.
+  - Ngăn ngừa gãy dòng huy hiệu trên màn hình hẹp (<640px): Cấu hình `.gifts-label-row` tự động chuyển sang `flex-direction: column` căn lề trái.
+  - Giảm padding các thẻ container trên màn hình nhỏ để tránh chiếm dụng không gian hiển thị (`.eco-card` giảm xuống `1.25rem 1rem`, `.reg-left` / `.reg-right` giảm xuống `1.5rem 1.25rem`).
+
+### Rule 9.41: Quy Chuẩn Bảng Dữ Liệu Kỹ Thuật Di Động, Tiêu Đề Dính Đa Chiều & Chống Tràn Màn Hình (08/09/2026)
+* **Quy Chuẩn Tiêu Đề Bảng Dính Đa Chiều (Bidirectional Sticky Table Standard)**:
+  - Bắt buộc khai báo `border-collapse: separate; border-spacing: 0;` trên thẻ `table` khi dùng `position: sticky` để tránh lỗi biến mất viền hoặc giật layout trên trình duyệt di động WebKit / Chromium.
+  - Khối bao ngoài bảng (`.vec26-table-wrap`): Cấu hình `max-height: 60vh - 65vh; overflow: auto; -webkit-overflow-scrolling: touch;`.
+  - Tiêu đề bảng (`thead th`): Cấu hình `position: sticky; top: 0; z-index: 25; background: #0F172A; box-shadow: 0 2px 6px rgba(0,0,0,0.18);`.
+  - Ô góc trên cùng bên trái (`th.vec26-th-stt`): Khai báo `position: sticky; top: 0; left: 0; z-index: 35;` để cố định tuyệt đối trong cả hai chiều cuộn ngang và cuộn dọc.
+  - Cột mã thiết bị (`td.vec26-col-stt`): Khai báo `position: sticky; left: 0; z-index: 15;` kèm màu nền đồng nhất với hàng và đổ bóng nhẹ sang phải (`box-shadow: 2px 0 6px -2px rgba(0,0,0,0.08);`).
+* **Quy Chuẩn Chống Tràn Màn Hình & Trả Lại Không Gian Hiển Thị (Zero Mobile Overflow)**:
+  - Khắc phục triệt để lỗi padding `.container`: Trên màn hình di động (<768px), giảm padding từ `3rem` (48px) xuống `16px` (và `12px` trên <480px), giải phóng hơn 70px chiều ngang màn hình.
+  - Triệt tiêu hiện tượng Flexbox kéo giãn body (`bodyScrollWidth` vượt quá `window.innerWidth`): Luôn khai báo `min-width: 0; width: 100%; max-width: 100%;` cho các container cha chứa thanh tab lọc cuộn ngang (`.vec26-filter-tabs`).
+  - Thanh chỉ báo cuộn ngang thông minh (`.vec26-table-scroll-hint`): Tự động hiển thị trên di động với thông điệp hướng dẫn rõ ràng kèm icon chỉ báo.

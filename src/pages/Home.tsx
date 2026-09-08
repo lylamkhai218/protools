@@ -323,6 +323,18 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     </button>
                   </div>
 
+                  {/* Direct link to Murrplastik portal */}
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                    <span className="text-slate-500 font-medium">Hệ sinh thái chính hãng:</span>
+                    <a
+                      href="/murrplastik/"
+                      className="text-[#E30613] hover:underline font-bold inline-flex items-center gap-1 group"
+                    >
+                      <span>Vào Chuyên Trang Murrplastik</span>
+                      <ExternalLink className="w-3 h-3 text-red-500 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  </div>
+
                 </div>
 
               </div>
@@ -583,6 +595,48 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
             </div>
           </div>
 
+          {/* Murrplastik Official Partner Spotlight Showcase Banner */}
+          {activeCategory === 'murrplastik' && (
+            <div className="mb-6 sm:mb-8 p-4 sm:p-6 rounded-sm bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white border-l-4 border-[#E30613] shadow-lg flex flex-col lg:flex-row lg:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="space-y-2 max-w-2xl">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#E30613] animate-pulse" />
+                  <span className="text-[10px] sm:text-xs font-mono font-bold text-red-400 uppercase tracking-wider">
+                    ĐẠI LÝ ỦY QUYỀN CHÍNH THỨC TẠI VIỆT NAM
+                  </span>
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-xs bg-red-950 text-red-300 border border-red-800/80 hidden xs:inline-block">
+                    MURRPLASTIK GMBH · SINCE 1963
+                  </span>
+                </div>
+                <h3 className="font-display text-lg sm:text-2xl font-black uppercase tracking-tight text-white">
+                  Chuyên Trang Hệ Thống Quản Lý Cáp Murrplastik (CHLB Đức)
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  T&T Vina phân phối chính hãng 6 giải pháp Murrplastik: Xích dẫn cáp Robot, Luồn ống bảo vệ luồn dây, Đầu vào cáp KDL/KDP, Tem nhãn &amp; Máy in laser công nghiệp mp-LM 1M, kèm Mô phỏng 3D WebGL tương tác thời gian thực.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 shrink-0 pt-1 lg:pt-0">
+                <a
+                  href="/murrplastik/"
+                  className="w-full sm:w-auto h-11 px-5 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white font-display text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-red-900/40 group cursor-pointer"
+                  title="Khám phá chuyên trang giải pháp Murrplastik"
+                >
+                  <span>Xem Chi Tiết Về Hãng</span>
+                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <a
+                  href="/murrplastik/tin-tuc/trien-lam-vec-2026/"
+                  className="w-full sm:w-auto h-11 px-4 rounded-xs bg-white/10 hover:bg-white/20 text-white border border-white/20 font-display text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 group cursor-pointer"
+                  title="Mở mô phỏng 3D WebGL Gian Hàng Triển Lãm VEC 2026"
+                >
+                  <span>Gian Hàng Ảo 3D VEC 2026</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </a>
+              </div>
+            </div>
+          )}
+
           {/* Product Cards Grid with Real Specs & Desktop Hover Preview (2 columns on mobile, 4 on desktop) */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
             {filteredProducts.map((p, idx) => (
@@ -692,6 +746,38 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
               </div>
             ))}
           </div>
+
+          {/* Murrplastik Full Catalog & CAD Call-to-Action */}
+          {activeCategory === 'murrplastik' && (
+            <div className="mt-10 p-6 sm:p-8 rounded-sm bg-slate-50 border border-slate-200/90 text-center space-y-3 shadow-2xs animate-in fade-in slide-in-from-bottom-2 duration-200">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#E30613] uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E30613]" />
+                <span>Catalog &amp; Bản Vẽ Kỹ Thuật CAD Đầy Đủ</span>
+              </div>
+              <h4 className="font-display text-lg sm:text-xl font-bold text-slate-900 uppercase tracking-tight">
+                Khám Phá Hơn 500+ Mã Hàng, Bản Vẽ Kỹ Thuật &amp; Đặt Hàng Tại Chuyên Trang Murrplastik
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Quý khách cần tra cứu bảng kích thước chi tiết, tài liệu kỹ thuật PDF, chứng chỉ chống cháy UL94, hoặc đặt hàng các mã xích dẫn cáp đặc thù cho cánh tay Robot công nghiệp? Ghé thăm chuyên trang Murrplastik Việt Nam để được tư vấn kỹ thuật 1-on-1.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href="/murrplastik/"
+                  className="inline-flex items-center gap-2 h-11 px-6 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white font-display text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
+                >
+                  <span>Truy Cập Chuyên Trang Murrplastik Việt Nam</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <a
+                  href="/murrplastik/tin-tuc/trien-lam-vec-2026/"
+                  className="inline-flex items-center gap-2 h-11 px-5 rounded-xs bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-display text-xs font-bold uppercase tracking-wider transition-all"
+                >
+                  <span>Mô Phỏng 3D Gian Hàng VEC 2026</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          )}
 
         </div>
       </section>
