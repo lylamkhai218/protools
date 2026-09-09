@@ -559,3 +559,19 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Khóa cứng thuật ngữ chuẩn ngành công nghiệp tránh lỗi dịch máy ngô nghê: Máng xích luồn cáp (`拖链`), Ống ruột gà & đầu nối (`电缆保护软管及接头`), Tấm luồn cáp kín nước (`电缆穿线板`), Bộ Dresspack cáp robot (`机器人管线包及回位系统`), Máy khắc laser (`工业激光打标机`), Trạm hàn thiếc SMT (`防静电焊台`), Robot bơm keo (`自动点胶机`), Máy cắt băng dính (`自动胶带切割机`), Quạt ion khử tĩnh điện (`防静电离子风机`).
 * **Đồng Bộ Bộ Nhớ Trình Duyệt (`localStorage`)**:
   - Lưu trữ khóa `tt_vina_locale` xuyên suốt phiên làm việc, tự động khôi phục khi tải lại trang và cầu nối đồng bộ sang Chuyên trang Murrplastik ([`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js)).
+
+### Rule 9.47: Quy Chuẩn Bản Địa Hóa Sâu 100% & Triệt Tiêu Xung Đột Điểm Ngắt Đa Ngôn Ngữ (10/09/2026)
+* **Bản Địa Hóa Sâu Toàn Bộ Thiết Bị & Thông Số Kỹ Thuật (Deep Technical Localization)**:
+  - Tất cả 77 mã thiết bị thực tế trong hệ thống khi hiển thị tại Trang Chủ (`Home.tsx`), Trang Chi Tiết (`ProductDetail.tsx`) và Kính Lúp Xem Nhanh (`hoveredZoomProduct`) đều được bọc qua hàm `getLocalizedProduct(product, locale)` tại [`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts).
+  - Bản địa hóa 100% các trường: Tên máy, Danh mục, Nhãn xuất xứ, Trạng thái sẵn kho, Bảng thông số kỹ thuật (Spec-sheet rows), Đặc tính vận hành SMT/Robot, Nút Thêm báo giá và Hồ sơ chứng từ nhà máy (CO/CQ/VAT/Trial-test).
+* **Nâng Cấp Chuyên Trang Murrplastik Sang Hệ Thống 7 Ngôn Ngữ Hoàn Chỉnh**:
+  - Mở rộng từ điển [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js) hỗ trợ đầy đủ 7 thứ tiếng: `vi`, `en`, `de`, `zh-CN`, `ko`, `ja`, `th`.
+  - Thay thế cụm nút toggle cũ `[VI | EN]` bằng Dropdown chuẩn Swiss-Precision mang phong cách công nghiệp cao cấp (`#0F172A`, viền `#E30613`), tích hợp cờ vector SVG micro, hiển thị tên ngôn ngữ bản xứ và dấu tích kích hoạt `✓`.
+  - Bổ sung lưới chọn ngôn ngữ dạng Grid 2 cột trong Mobile Drawer Menu phục vụ người dùng smartphone tại sự kiện VEC 2026.
+* **Triệt Tiêu Tuyệt Đối Tình Trạng Trùng Lặp Bộ Đổi Ngôn Ngữ (Zero-Duplicate Breakpoint)**:
+  - Loại bỏ hoàn toàn bộ chọn ngôn ngữ ở thanh Utility Bar phía trên (`h-9 flex`).
+  - Tại thanh Navigation chính, phân định dứt khoát điểm ngắt:
+    - Màn hình Desktop & Tablet (`>= sm`): Chỉ hiển thị DUY NHẤT 1 dropdown `<LanguageSwitcher variant="header" />` (`hidden sm:inline-block`).
+    - Màn hình Điện thoại (`< sm`): Chỉ hiển thị DUY NHẤT 1 ô toggle gọn nhẹ `<LanguageSwitcher variant="utility" />` (`sm:hidden`).
+  - Đảm bảo trên mọi độ phân giải màn hình (desktop, tablet, mobile) luôn luôn chỉ tồn tại đúng 1 bộ chuyển đổi ngôn ngữ duy nhất.
+

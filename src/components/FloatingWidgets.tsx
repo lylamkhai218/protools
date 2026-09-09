@@ -14,12 +14,14 @@ import {
   MapPin
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface FloatingWidgetsProps {
   onOpenCart?: () => void;
 }
 
 export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) => {
+  const { t } = useTranslation();
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
@@ -119,13 +121,13 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                 <span className="font-display font-bold text-xs uppercase tracking-wider text-slate-800">
-                  Trung Tâm Tư Vấn & Báo Giá
+                  {t('contact_widget.panel_title')}
                 </span>
               </div>
               <button 
                 onClick={() => setIsContactOpen(false)}
                 className="p-1 rounded-xs text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
-                aria-label="Đóng"
+                aria-label={t('contact_widget.close')}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -145,7 +147,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                       <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
                     </div>
                     <div className="min-w-0">
-                      <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">Hotline Tư Vấn</div>
+                      <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">{t('contact_widget.hotline')}</div>
                       <div className="text-[11px] font-mono text-[#00478D] font-bold truncate">{COMPANY_INFO.hotline}</div>
                     </div>
                   </div>
@@ -164,12 +166,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'hotline' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-slate-400" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -189,7 +191,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                     </div>
                     <div className="min-w-0">
                       <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
-                        Zalo KD: {COMPANY_INFO.salesTeam[0].name}
+                        {t('contact_widget.sales')}: {COMPANY_INFO.salesTeam[0].name}
                       </div>
                       <div className="text-[11px] font-mono text-[#0068FF] font-semibold truncate">
                         {COMPANY_INFO.salesTeam[0].intlPhone}
@@ -211,12 +213,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'zalo_hien' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-blue-500" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -236,7 +238,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                     </div>
                     <div className="min-w-0">
                       <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
-                        Zalo KD: {COMPANY_INFO.salesTeam[1].name}
+                        {t('contact_widget.sales')}: {COMPANY_INFO.salesTeam[1].name}
                       </div>
                       <div className="text-[11px] font-mono text-[#0068FF] font-semibold truncate">
                         {COMPANY_INFO.salesTeam[1].intlPhone}
@@ -258,12 +260,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'zalo_phuong' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-blue-500" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -283,7 +285,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                     </div>
                     <div className="min-w-0">
                       <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
-                        Zalo KD Murr: {COMPANY_INFO.murrSalesTeam[0].name}
+                        {t('contact_widget.murr_sales')}: {COMPANY_INFO.murrSalesTeam[0].name}
                       </div>
                       <div className="text-[11px] font-mono text-[#0068FF] font-semibold truncate">
                         {COMPANY_INFO.murrSalesTeam[0].phone}
@@ -305,12 +307,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'zalo_binh' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-blue-500" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -330,7 +332,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                     </div>
                     <div className="min-w-0">
                       <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
-                        Zalo KD Murr: {COMPANY_INFO.murrSalesTeam[1].name}
+                        {t('contact_widget.murr_sales')}: {COMPANY_INFO.murrSalesTeam[1].name}
                       </div>
                       <div className="text-[11px] font-mono text-[#0068FF] font-semibold truncate">
                         {COMPANY_INFO.murrSalesTeam[1].phone}
@@ -352,12 +354,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'zalo_khai' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-blue-500" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -375,7 +377,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                     </div>
                     <div className="min-w-0">
                       <div className="font-bold text-slate-900 group-hover:text-[#D97706] truncate">
-                        Phòng Dự Án: {COMPANY_INFO.projectDept.name}
+                        {t('contact_widget.project')}: {COMPANY_INFO.projectDept.name}
                       </div>
                       <div className="text-[11px] font-mono text-[#D97706] font-bold truncate">
                         {COMPANY_INFO.projectDept.phone}
@@ -397,12 +399,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'project_thanh' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-amber-600" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -419,7 +421,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                       <Mail className="w-3.5 h-3.5" />
                     </div>
                     <div className="min-w-0">
-                      <div className="font-bold text-slate-800 truncate">Email Nhận Báo Giá</div>
+                      <div className="font-bold text-slate-800 truncate">{t('contact_widget.email')}</div>
                       <div className="text-[11px] text-slate-500 font-mono truncate">{COMPANY_INFO.email}</div>
                     </div>
                   </div>
@@ -438,12 +440,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   {copiedKey === 'email' ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>Đã chép</span>
+                      <span>{t('contact_widget.copied')}</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3 h-3 text-slate-400" />
-                      <span>Copy</span>
+                      <span>{t('contact_widget.copy')}</span>
                     </>
                   )}
                 </button>
@@ -462,8 +464,8 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                       <MapPin className="w-3.5 h-3.5 text-amber-100" />
                     </div>
                     <div className="min-w-0">
-                      <div className="font-bold text-slate-800 truncate">Vị Trí Kho & VPGD Hà Nội</div>
-                      <div className="text-[11px] text-[#00478D] font-medium truncate">11/68/467 Lĩnh Nam (Mở Maps)</div>
+                      <div className="font-bold text-slate-800 truncate">{t('contact_widget.wh_title')}</div>
+                      <div className="text-[11px] text-[#00478D] font-medium truncate">{t('contact_widget.wh_sub')}</div>
                     </div>
                   </div>
                   <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#00478D] shrink-0 ml-1" />
@@ -474,7 +476,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
 
             {/* Bottom Note */}
             <div className="text-[10px] text-center text-slate-400 pt-1 border-t border-slate-100">
-              Phục vụ tư vấn kỹ thuật &amp; báo giá 24/7
+              {t('contact_widget.footer_note')}
             </div>
 
           </div>
@@ -497,12 +499,12 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                 ? 'bg-slate-800 hover:bg-slate-900 border border-slate-700' 
                 : 'bg-gradient-to-r from-[#00478D] to-[#005EB8] hover:from-[#003B75] hover:to-[#004E9A] ring-2 ring-blue-400/30'
             }`}
-            aria-label="Liên hệ hỗ trợ và báo giá"
+            aria-label={t('contact_widget.btn_main')}
           >
             {isContactOpen ? (
               <>
                 <X className="w-4.5 h-4.5 text-amber-400" />
-                <span>Đóng</span>
+                <span>{t('contact_widget.close')}</span>
               </>
             ) : (
               <>
@@ -512,8 +514,8 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
                 </div>
                 <div className="flex flex-col text-left leading-tight">
-                  <span className="font-extrabold tracking-wide text-[12px]">Liên Hệ</span>
-                  <span className="text-[9px] text-amber-300 font-medium tracking-normal lowercase -mt-0.5">tư vấn 24/7</span>
+                  <span className="font-extrabold tracking-wide text-[12px]">{t('contact_widget.btn_main')}</span>
+                  <span className="text-[9px] text-amber-300 font-medium tracking-normal lowercase -mt-0.5">{t('contact_widget.btn_sub')}</span>
                 </div>
               </>
             )}

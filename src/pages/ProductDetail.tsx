@@ -25,6 +25,8 @@ import {
 } from 'lucide-react';
 import { Product } from '../types';
 import { PRODUCTS, COMPANY_INFO } from '../data';
+import { useTranslation } from '../i18n/LanguageContext';
+import { getLocalizedProduct } from '../i18n/productTranslations';
 
 interface ProductDetailProps {
   product: Product;
@@ -34,21 +36,24 @@ interface ProductDetailProps {
   onNavigate: (tab: string, filter?: string) => void;
 }
 
-const TIER_PRICING = [
-  { qtyLabel: '1 – 5 cái', minQty: 1, policy: 'Báo Giá Tiêu Chuẩn', leadTime: 'Giao ngay 24h', highlight: false },
-  { qtyLabel: '6 – 20 cái', minQty: 6, policy: 'Báo Giá Phân Xưởng', leadTime: 'Giao ngay 24h', highlight: true },
-  { qtyLabel: '21 – 50 cái', minQty: 21, policy: 'Báo Giá Dự Án Số Lượng Lớn', leadTime: '1 – 2 ngày', highlight: false },
-  { qtyLabel: '> 50 cái', minQty: 50, policy: 'Báo Giá Tổng Thầu / Nhà Máy FDI', leadTime: 'Theo tiến độ', highlight: false },
-];
-
 export default function ProductDetail({ 
   product, 
   onBack, 
   onAddToCart, 
-  onSelectProduct,
+  onSelectProduct, 
   onNavigate 
 }: ProductDetailProps) {
-    const defaultImage = product?.image || (PRODUCTS[0]?.image || '');
+  const { t, locale } = useTranslation();
+  const p = product ? getLocalizedProduct(product, locale) : product;
+
+  const TIER_PRICING = [
+    { qtyLabel: '1 – 5', minQty: 1, policy: t('product_detail.tier_p1'), leadTime: t('product_detail.lead_24h'), highlight: false },
+    { qtyLabel: '6 – 20', minQty: 6, policy: t('product_detail.tier_p2'), leadTime: t('product_detail.lead_24h'), highlight: true },
+    { qtyLabel: '21 – 50', minQty: 21, policy: t('product_detail.tier_p3'), leadTime: t('product_detail.lead_1_2d'), highlight: false },
+    { qtyLabel: '> 50', minQty: 50, policy: t('product_detail.tier_p4'), leadTime: t('product_detail.lead_schedule'), highlight: false },
+  ];
+
+  const defaultImage = product?.image || (PRODUCTS[0]?.image || '');
   const [selectedImage, setSelectedImage] = useState<string>(defaultImage);
   const [quantity, setQuantity] = useState<number>(1);
   const [copiedSku, setCopiedSku] = useState<boolean>(false);
@@ -76,7 +81,7 @@ export default function ProductDetail({
     }
   }, [product?.id, product?.image]);
 
-  if (!product) {
+  if (!product || !p) {
     return (
       <div className="flex-1 p-12 text-center">
         <p className="text-slate-500 text-sm">Không tìm thấy thông tin thiết bị.</p>
@@ -87,19 +92,19 @@ export default function ProductDetail({
     );
   }
 
-  const allImages = product.images && product.images.length > 0 
-    ? product.images 
-    : [product.image];
+  const allImages = p.images && p.images.length > 0 
+    ? p.images 
+    : [p.image];
 
   const handleCopySku = () => {
-    if (product.sku) {
-      navigator.clipboard.writeText(product.sku);
+    if (p.sku) {
+      navigator.clipboard.writeText(p.sku);
       setCopiedSku(true);
       setTimeout(() => setCopiedSku(false), 2000);
     }
   };
 
-  const relatedProducts = PRODUCTS.filter(p => p.id !== product.id && (p.categorySlug === product.categorySlug || p.category === product.category)).slice(0, 3);
+  const relatedProducts = PRODUCTS.filter(item => item.id !== p.id && (item.categorySlug === p.categorySlug || item.category === product.category)).slice(0, 3);
 
   return (
     <div className="flex-1 bg-slate-50/60 pb-20">
@@ -114,35 +119,35 @@ export default function ProductDetail({
               className="hover:text-[#00478D] font-semibold text-slate-700 flex items-center gap-1 cursor-pointer transition-colors px-1.5 py-0.5 rounded-xs hover:bg-slate-100"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-slate-500" />
-              <span>Trang chủ</span>
+              <span>{t('product_detail.breadcrumb_home')}</span>
             </button>
 
             <ChevronRight className="w-3 h-3 text-slate-300 shrink-0" />
 
             <button 
               type="button"
-              onClick={() => onNavigate('home', product.categorySlug || 'all')}
+              onClick={() => onNavigate('home', p.categorySlug || 'all')}
               className="hover:text-[#00478D] font-medium text-slate-600 hover:underline cursor-pointer transition-colors px-1.5 py-0.5 rounded-xs hover:bg-slate-100 truncate max-w-[200px]"
-              title={`Xem danh mục ${product.category}`}
+              title={`Xem danh mục ${p.category}`}
             >
-              {product.category}
+              {p.category}
             </button>
 
             <ChevronRight className="w-3 h-3 text-slate-300 shrink-0" />
 
             <button 
               type="button"
-              onClick={() => onNavigate('home', product.brand?.toLowerCase().includes('murrplastik') ? 'murrplastik' : (product.categorySlug || 'all'))}
+              onClick={() => onNavigate('home', p.brand?.toLowerCase().includes('murrplastik') ? 'murrplastik' : (p.categorySlug || 'all'))}
               className="hover:text-[#00478D] font-mono text-slate-500 hover:underline cursor-pointer transition-colors px-1.5 py-0.5 rounded-xs hover:bg-slate-100"
-              title={`Lọc theo hãng ${product.brand}`}
+              title={`Lọc theo hãng ${p.brand}`}
             >
-              {product.brand}
+              {p.brand}
             </button>
 
             <ChevronRight className="w-3 h-3 text-slate-300 shrink-0" />
 
-            <span className="font-bold text-slate-900 truncate max-w-[200px] sm:max-w-xs md:max-w-md" title={product.name}>
-              {product.name}
+            <span className="font-bold text-slate-900 truncate max-w-[200px] sm:max-w-xs md:max-w-md" title={p.name}>
+              {p.name}
             </span>
           </div>
 
@@ -152,7 +157,7 @@ export default function ProductDetail({
               className="flex items-center gap-1 text-[11px] text-slate-600 hover:text-[#00478D] bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-xs transition-colors cursor-pointer"
             >
               {copiedSku ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
-              <span>{copiedSku ? 'Đã sao chép SKU' : 'Copy SKU'}</span>
+              <span>{copiedSku ? t('product_detail.sku_copied') : t('product_detail.copy_sku')}</span>
             </button>
           </div>
         </div>
@@ -169,24 +174,24 @@ export default function ProductDetail({
               
               <div className="relative aspect-4/3 rounded-xs bg-slate-50 border border-slate-200 overflow-hidden flex items-center justify-center p-6 group">
                 <img 
-                  src={selectedImage || product.image} 
-                  alt={product.name}
+                  src={selectedImage || p.image} 
+                  alt={p.name}
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 
                 <div className="absolute top-3 left-3 flex flex-col gap-1.5">
                   <span className="px-2.5 py-1 rounded-xs bg-[#00478D] text-white font-display font-bold text-xs uppercase tracking-wider">
-                    {product.brand}
+                    {p.brand}
                   </span>
                   <span className="px-2 py-0.5 rounded-xs bg-white/90 text-slate-800 text-[11px] font-mono border border-slate-200 font-bold">
-                    SKU: {product.sku}
+                    SKU: {p.sku}
                   </span>
                 </div>
 
                 <div className="absolute top-3 right-3">
                   <span className="px-2.5 py-1 rounded-xs bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200 flex items-center gap-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>{product.stockLocation || 'Sẵn hàng kho'}</span>
+                    <span>{p.stockLocation || t('catalog.in_stock')}</span>
                   </span>
                 </div>
               </div>
@@ -212,11 +217,11 @@ export default function ProductDetail({
               <div className="p-3.5 rounded-xs bg-blue-50/70 border border-blue-200/80 text-xs space-y-1.5">
                 <div className="flex items-center gap-2 text-[#00478D] font-bold">
                   <Truck className="w-4 h-4 text-[#00478D] shrink-0" />
-                  <span>Cam Kết Giao Hàng & Kho Hàng:</span>
+                  <span>{t('product_detail.delivery_title')}</span>
                 </div>
                 <p className="text-slate-600 leading-relaxed text-[11px] pl-6">
-                  • Sẵn hàng tại <strong>Kho Hà Nội</strong> & <strong>Kho Hưng Yên</strong> (Cạnh KCN Liên Hà Thái).<br />
-                  • Đặt trước <strong>15:00</strong> hôm nay — Giao hỏa tốc trong ngày tại các KCN Hà Nội, Bắc Ninh, Hưng Yên, Hải Phòng, Hải Dương, Vĩnh Phúc, Thái Nguyên.
+                  • {t('product_detail.delivery_desc_1')}<br />
+                  • {t('product_detail.delivery_desc_2')}
                 </p>
               </div>
 
@@ -224,18 +229,18 @@ export default function ProductDetail({
               <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 text-center text-xs">
                 <div className="p-2.5 rounded-xs bg-slate-50 border border-slate-100">
                   <ShieldCheck className="w-4 h-4 text-[#00478D] mx-auto mb-1" />
-                  <span className="font-bold text-slate-800 block text-[11px]">CO / CQ</span>
-                  <span className="text-slate-400 text-[10px]">Đầy đủ chứng từ</span>
+                  <span className="font-bold text-slate-800 block text-[11px]">{t('product_detail.co_cq_title')}</span>
+                  <span className="text-slate-400 text-[10px]">{t('product_detail.co_cq_sub')}</span>
                 </div>
                 <div className="p-2.5 rounded-xs bg-slate-50 border border-slate-100">
                   <Building2 className="w-4 h-4 text-[#D97706] mx-auto mb-1" />
-                  <span className="font-bold text-slate-800 block text-[11px]">Bảo Hành 12T</span>
-                  <span className="text-slate-400 text-[10px]">Chính hãng nhà máy</span>
+                  <span className="font-bold text-slate-800 block text-[11px]">{t('product_detail.warranty_title')}</span>
+                  <span className="text-slate-400 text-[10px]">{t('product_detail.warranty_sub')}</span>
                 </div>
                 <div className="p-2.5 rounded-xs bg-slate-50 border border-slate-100">
                   <Package className="w-4 h-4 text-emerald-600 mx-auto mb-1" />
-                  <span className="font-bold text-slate-800 block text-[11px]">Giao Toàn Quốc</span>
-                  <span className="text-slate-400 text-[10px]">KCN miền Bắc & Nam</span>
+                  <span className="font-bold text-slate-800 block text-[11px]">{t('product_detail.nationwide_title')}</span>
+                  <span className="text-slate-400 text-[10px]">{t('product_detail.nationwide_sub')}</span>
                 </div>
               </div>
 
@@ -247,18 +252,18 @@ export default function ProductDetail({
               <div className="space-y-2 border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-[#00478D] uppercase tracking-wider">
-                    {product.category}
+                    {p.category}
                   </span>
                   <span className="text-slate-300">•</span>
-                  <span className="text-xs text-slate-500 font-medium">Xuất xứ: {product.origin || 'Chính Hãng'}</span>
+                  <span className="text-xs text-slate-500 font-medium">{t('product_detail.origin_prefix')} {p.origin || 'Chính Hãng'}</span>
                 </div>
 
                 <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
-                  {product.name}
+                  {p.name}
                 </h1>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
-                  {product.shortDesc}
+                  {p.shortDesc}
                 </p>
               </div>
 
@@ -389,7 +394,7 @@ export default function ProductDetail({
                     className="flex-1 h-12 px-6 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white font-display font-bold text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ShoppingCart className="w-4 h-4 text-amber-300" />
-                    <span>Thêm Vào Giỏ Yêu Cầu Báo Giá ({quantity})</span>
+                    <span>{t('product_detail.add_to_quote_btn')} ({quantity})</span>
                   </button>
                 </div>
 
@@ -400,7 +405,7 @@ export default function ProductDetail({
                       className="flex-1 h-10 px-3 rounded-xs bg-slate-900 hover:bg-slate-800 text-white font-display font-bold text-[11px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer truncate"
                     >
                       <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span className="truncate">Hotline: {COMPANY_INFO.hotline}</span>
+                      <span className="truncate">{t('nav.hotline')}: {COMPANY_INFO.hotline}</span>
                     </a>
                     <button
                       type="button"
@@ -416,7 +421,7 @@ export default function ProductDetail({
                     {(() => {
                       const isMurr = product.brand?.toLowerCase().includes('murrplastik') || product.categorySlug === 'murrplastik' || product.sku?.startsWith('MP-');
                       const rep = isMurr ? COMPANY_INFO.murrSalesTeam[0] : COMPANY_INFO.salesTeam[0];
-                      const label = isMurr ? 'Zalo KD Murr: ' : 'Zalo KD: ';
+                      const label = isMurr ? `${t('contact_widget.murr_sales')}: ` : `${t('contact_widget.sales')}: `;
 
                       return (
                         <>
@@ -465,7 +470,7 @@ export default function ProductDetail({
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >
-              1. Bảng Thông Số Chi Tiết (Full Spec-Sheet)
+              {t('product_detail.tab_specs')}
             </button>
 
             <button
@@ -476,7 +481,7 @@ export default function ProductDetail({
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >
-              2. Tính Năng & Phụ Kiện Tiêu Chuẩn
+              {t('product_detail.tab_features')}
             </button>
 
             <button
@@ -487,7 +492,7 @@ export default function ProductDetail({
                   : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >
-              3. Tài Liệu Kỹ Thuật
+              {t('product_detail.tab_docs')}
             </button>
           </div>
 
@@ -499,15 +504,15 @@ export default function ProductDetail({
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="font-display text-lg font-bold uppercase text-[#0F172A]">
-                    Bảng Thông Số Kỹ Thuật Chuẩn Hóa ({product.name})
+                    {t('product_detail.spec_heading')} ({p.name})
                   </h3>
-                  <span className="text-xs text-slate-400 font-mono">Đơn vị đo lường: SI Standard</span>
+                  <span className="text-xs text-slate-400 font-mono">{t('product_detail.unit_standard')}</span>
                 </div>
 
                 <div className="border border-slate-200 rounded-xs overflow-hidden">
                   <table className="w-full text-left border-collapse text-xs">
                     <tbody className="divide-y divide-slate-200">
-                      {Object.entries(product.specs || {}).map(([specKey, specVal], idx) => (
+                      {Object.entries(p.specs || {}).map(([specKey, specVal], idx) => (
                         <tr key={specKey} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'}>
                           <td className="p-3.5 sm:p-4 font-bold text-slate-700 w-1/3 sm:w-1/4 border-r border-slate-200 bg-slate-50/50">
                             {specKey}
@@ -528,10 +533,10 @@ export default function ProductDetail({
               <div className="space-y-8">
                 <div className="space-y-3">
                   <h3 className="font-display text-lg font-bold uppercase text-[#0F172A]">
-                    Tính Năng Nâng Cao Cho Dây Chuyền Sản Xuất
+                    {t('product_detail.features_heading')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {(product.highlights || [
+                    {(p.highlights || [
                       'Hoạt động bền bỉ 24/7 trong môi trường sản xuất công nghiệp',
                       'Độ chính xác và độ lặp lại cao theo tiêu chuẩn quốc tế',
                       'Dễ dàng tích hợp vào hệ thống dây chuyền tự động hóa',
@@ -551,19 +556,19 @@ export default function ProductDetail({
             {activeTab === 'docs' && (
               <div className="space-y-6">
                 <h3 className="font-display text-lg font-bold uppercase text-[#0F172A]">
-                  Hồ Sơ Chứng Từ Hàng Hóa & Dịch Vụ Kỹ Thuật Nhà Máy
+                  {t('product_detail.docs_heading')}
                 </h3>
 
                 <div className="p-5 rounded-xs bg-blue-50/60 border border-blue-200 space-y-3 text-xs">
                   <div className="flex items-center gap-2 text-[#00478D] font-bold">
                     <ShieldCheck className="w-5 h-5" />
-                    <span>Chứng Nhận Hàng Hóa & Chứng Từ Cung Cấp Kèm Đơn Hàng:</span>
+                    <span>{t('product_detail.docs_sub')}</span>
                   </div>
                   <ul className="space-y-1.5 text-slate-700 pl-7 list-disc">
-                    <li>Có đầy đủ chứng từ xuất xứ và nguồn gốc hàng hóa hợp pháp.</li>
-                    <li>Chứng từ kiểm định chất lượng xuất xưởng và phiếu xuất kho.</li>
-                    <li>Hóa đơn Giá trị gia tăng (VAT) hợp pháp của T&T Vina Industrial Co., Ltd.</li>
-                    <li>Biên bản thử nghiệm mẫu tại nhà máy (Trial Test) & bàn giao kỹ thuật.</li>
+                    <li>{t('product_detail.doc_1')}</li>
+                    <li>{t('product_detail.doc_2')}</li>
+                    <li>{t('product_detail.doc_3')}</li>
+                    <li>{t('product_detail.doc_4')}</li>
                   </ul>
                   <div className="pt-2 flex flex-wrap items-center gap-3">
                     <a 
@@ -571,7 +576,7 @@ export default function ProductDetail({
                       className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#00478D] text-white rounded-xs font-bold text-xs hover:bg-[#003B75] transition-colors"
                     >
                       <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
-                      <span>Hotline Tư Vấn Kỹ Thuật: {COMPANY_INFO.hotline}</span>
+                      <span>{t('product_detail.tech_support_hotline')}: {COMPANY_INFO.hotline}</span>
                     </a>
                   </div>
                 </div>
@@ -592,76 +597,79 @@ export default function ProductDetail({
                 Cross-Reference & Accessories
               </span>
               <h2 className="font-display text-xl sm:text-2xl font-extrabold text-slate-900 uppercase">
-                Thiết Bị Tương Đương & Phụ Kiện Đồng Bộ
+                {t('product_detail.cross_ref_heading')}
               </h2>
             </div>
             <button 
               onClick={() => onNavigate('home')}
               className="text-xs font-bold text-[#00478D] hover:underline flex items-center gap-1 cursor-pointer"
             >
-              <span>Xem tất cả thiết bị</span>
+              <span>{t('product_detail.view_all_devices')}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
-            {relatedProducts.map((rel) => (
-              <div 
-                key={rel.id}
-                className="rounded-sm bg-white border border-slate-200 hover:border-[#00478D] shadow-xs hover:shadow-lg transition-all p-2.5 sm:p-4 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between text-[9px] sm:text-[10px] mb-1.5 sm:mb-2">
-                    <span className="font-mono font-bold text-slate-500 truncate max-w-[55%]">{rel.sku}</span>
-                    <span className="font-bold text-[#00478D] bg-blue-50 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">{rel.brand}</span>
+            {relatedProducts.map((rel) => {
+              const relLoc = getLocalizedProduct(rel, locale);
+              return (
+                <div 
+                  key={rel.id}
+                  className="rounded-sm bg-white border border-slate-200 hover:border-[#00478D] shadow-xs hover:shadow-lg transition-all p-2.5 sm:p-4 flex flex-col justify-between group"
+                >
+                  <div>
+                    <div className="flex items-center justify-between text-[9px] sm:text-[10px] mb-1.5 sm:mb-2">
+                      <span className="font-mono font-bold text-slate-500 truncate max-w-[55%]">{relLoc.sku}</span>
+                      <span className="font-bold text-[#00478D] bg-blue-50 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">{relLoc.brand}</span>
+                    </div>
+
+                    <div 
+                      onClick={() => {
+                        onSelectProduct(rel);
+                        setSelectedImage(rel.image);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="h-28 sm:h-36 bg-slate-50 rounded-xs border border-slate-100 p-2 flex items-center justify-center overflow-hidden cursor-pointer mb-2 sm:mb-3 group-hover:bg-blue-50/20 transition-colors"
+                    >
+                      <img src={relLoc.image} alt={relLoc.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+                    </div>
+
+                    <h3 
+                      onClick={() => {
+                        onSelectProduct(rel);
+                        setSelectedImage(rel.image);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="font-display font-bold text-xs text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 cursor-pointer min-h-[32px]"
+                    >
+                      {relLoc.name}
+                    </h3>
                   </div>
 
-                  <div 
-                    onClick={() => {
-                      onSelectProduct(rel);
-                      setSelectedImage(rel.image);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="h-28 sm:h-36 bg-slate-50 rounded-xs border border-slate-100 p-2 flex items-center justify-center overflow-hidden cursor-pointer mb-2 sm:mb-3 group-hover:bg-blue-50/20 transition-colors"
-                  >
-                    <img src={rel.image} alt={rel.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+                  <div className="pt-2 sm:pt-3 mt-1.5 sm:mt-2 border-t border-slate-100 flex items-center gap-1 sm:gap-2">
+                    <button
+                      onClick={() => {
+                        onSelectProduct(rel);
+                        setSelectedImage(rel.image);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="flex-1 h-7 sm:h-8 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] sm:text-[11px] font-bold transition-colors cursor-pointer"
+                    >
+                      {t('product_detail.detail_btn')}
+                    </button>
+                    <button
+                      onClick={() => onAddToCart(rel, 1)}
+                      className="h-7 sm:h-8 px-1.5 sm:px-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-[10px] sm:text-[11px] font-bold transition-colors flex items-center gap-0.5 sm:gap-1 cursor-pointer shrink-0"
+                      title="Thêm vào báo giá"
+                    >
+                      <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <span className="hidden sm:inline">{t('product_detail.quote_btn')}</span>
+                      <span className="sm:hidden">{t('product_detail.quote_btn')}</span>
+                    </button>
                   </div>
-
-                  <h3 
-                    onClick={() => {
-                      onSelectProduct(rel);
-                      setSelectedImage(rel.image);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="font-display font-bold text-xs text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 cursor-pointer min-h-[32px]"
-                  >
-                    {rel.name}
-                  </h3>
                 </div>
-
-                <div className="pt-2 sm:pt-3 mt-1.5 sm:mt-2 border-t border-slate-100 flex items-center gap-1 sm:gap-2">
-                  <button
-                    onClick={() => {
-                      onSelectProduct(rel);
-                      setSelectedImage(rel.image);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="flex-1 h-7 sm:h-8 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] sm:text-[11px] font-bold transition-colors cursor-pointer"
-                  >
-                    Chi tiết
-                  </button>
-                  <button
-                    onClick={() => onAddToCart(rel, 1)}
-                    className="h-7 sm:h-8 px-1.5 sm:px-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-[10px] sm:text-[11px] font-bold transition-colors flex items-center gap-0.5 sm:gap-1 cursor-pointer shrink-0"
-                    title="Thêm vào báo giá"
-                  >
-                    <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                    <span className="hidden sm:inline">Báo Giá</span>
-                    <span className="sm:hidden">Giá</span>
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

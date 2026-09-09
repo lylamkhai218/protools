@@ -288,7 +288,149 @@ ul{list-style:none}
 /* Nav right */
 .nav-right{display:flex;align-items:center;gap:12px}
 
-/* Language toggle */
+/* Murrplastik 7-Language Luxury Dropdown (Swiss Precision Standard) */
+.lang-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.lang-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+.lang-dropdown-btn:hover,
+.lang-dropdown-wrapper.active .lang-dropdown-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(227, 6, 19, 0.6);
+}
+.lang-flag-current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.flag-icon {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.lang-dropdown-chevron {
+  transition: transform 0.2s ease;
+  stroke: rgba(255, 255, 255, 0.7);
+}
+.lang-dropdown-wrapper.active .lang-dropdown-chevron {
+  transform: rotate(180deg);
+  stroke: #fff;
+}
+.lang-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 190px;
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 6px;
+  z-index: 1001;
+  animation: murrDropdownFade 0.15s ease-out;
+}
+.lang-dropdown-menu.show {
+  display: block;
+}
+@keyframes murrDropdownFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.lang-dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.lang-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.lang-dropdown-item.active {
+  background: rgba(227, 6, 19, 0.15);
+  color: #fff;
+  font-weight: 700;
+}
+.lang-item-check {
+  margin-left: auto;
+  color: #E30613;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Mobile Language Grid in Drawer */
+.mobile-lang-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+}
+.mobile-lang-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.75rem;
+}
+.mobile-lang-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.mobile-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.mobile-lang-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.mobile-lang-btn.active {
+  background: #E30613;
+  border-color: #E30613;
+  color: #fff;
+}
+
+/* Legacy fallback */
 .lang-btn{display:flex;align-items:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:4px;overflow:hidden}
 .lang-btn button{background:transparent;color:rgba(255,255,255,0.5);font-size:11px;font-weight:700;letter-spacing:1px;padding:6px 10px;transition:all var(--t)}
 .lang-btn button.active{background:var(--red);color:#fff}

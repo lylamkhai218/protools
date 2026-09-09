@@ -92,7 +92,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           <div className="flex items-center gap-2.5 shrink-0">
             <span className="flex items-center gap-1.5 text-slate-600 font-medium">
               <Building2 className="w-3.5 h-3.5 text-[#00478D] shrink-0" />
-              <span>Trụ sở: <strong>Thụy Anh, Hưng Yên</strong> • </span>
+              <span>{t('header.hq_label')}: <strong>{t('header.hq_val')}</strong> • </span>
               <a 
                 href={COMPANY_INFO.mapUrlLinhNam} 
                 target="_blank" 
@@ -100,7 +100,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 title="Mở Google Maps chỉ đường đến VPGD & Kho Lĩnh Nam"
                 className="hover:text-[#00478D] hover:underline inline-flex items-center gap-1"
               >
-                <span>VPGD & Kho: <strong>11/68/467 Lĩnh Nam, HN</strong></span>
+                <span>{t('header.wh_label')}: <strong>{t('header.wh_val')}</strong></span>
                 <ExternalLink className="w-2.5 h-2.5 text-slate-400" />
               </a>
             </span>
@@ -167,11 +167,6 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 {copiedKey === 'top_phuong' ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
               </button>
             </div>
-
-            <span className="text-slate-300">|</span>
-
-            {/* Language Switcher */}
-            <LanguageSwitcher variant="utility" />
           </div>
 
         </div>
@@ -424,7 +419,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 )}
               </div>
               <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block">
-                Giỏ Báo Giá
+                {t('nav.cart')}
               </span>
             </button>
 
@@ -434,15 +429,17 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               className="h-11 px-4 sm:px-5 rounded-sm bg-gradient-to-r from-[#00478D] to-[#005EB8] hover:from-[#003B75] hover:to-[#004E9A] text-white font-display font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all flex items-center gap-2 cursor-pointer"
             >
               <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
-              <span className="hidden md:inline">Hotline: {COMPANY_INFO.hotlines[0]}</span>
-              <span className="md:hidden">Gọi Ngay</span>
+              <span className="hidden md:inline">{t('nav.hotline')}: {COMPANY_INFO.hotlines[0]}</span>
+              <span className="md:hidden">{t('nav.call_now')}</span>
             </a>
 
-            {/* Language Switcher in Main Nav (Desktop) */}
-            <LanguageSwitcher variant="header" className="hidden xl:inline-block" />
+            {/* Language Switcher in Main Nav (Desktop & Tablet: >= sm) */}
+            <div className="hidden sm:inline-block">
+              <LanguageSwitcher variant="header" />
+            </div>
 
-            {/* Mobile Language Switcher quick toggle */}
-            <div className="lg:hidden">
+            {/* Mobile Language Switcher quick toggle (< sm) */}
+            <div className="sm:hidden">
               <LanguageSwitcher variant="utility" />
             </div>
 
