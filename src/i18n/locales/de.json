@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "categories": "Gerätekatalog",
+    "cart": "Angebotskorb",
+    "docs": "Dokumentation & CO/CQ",
+    "contact": "Kontakt",
+    "search_placeholder": "Modell, Artikelnummer suchen: Hakko 936, Hios CL-4000, SP-982...",
+    "murr_portal": "Murrplastik Deutschland Portal",
+    "hotline": "Hotline",
+    "sales": "Vertrieb",
+    "call_now": "Jetzt anrufen"
+  },
+  "hero": {
+    "badge": "B2B-INDUSTRIEGROSSHANDEL VIETNAM",
+    "title_p1": "Ganzheitliche Ausrüstungslösungen",
+    "title_highlight": "Industrie & Automation",
+    "title_p2": "Deutsche & Japanische Standards",
+    "subtitle": "Offizieller Hauptdistributor für Murrplastik-Kabelmanagementsysteme (Deutschland), Hakko/Quick-Lötstationen, Hios-Elektroschrauber, Dosierroboter, Zcut-Bandspender und ESD-Entladungsgeräte in Vietnam.",
+    "btn_explore": "Katalog durchsuchen",
+    "btn_rfq": "B2B-Angebot anfordern",
+    "trust_vinfast": "Installiert und im Dauereinsatz auf ABB-Schweißrobotern im VinFast-Karosseriewerk Hai Phong"
+  },
+  "solutions": {
+    "section_title": "Technische Lösungssysteme",
+    "section_sub": "Komplette Ausrüstungspakete für SMT-Elektronikfertigung, Präzisionsmechanik und automatisierte Fertigungslinien.",
+    "murrplastik": "Roboterkabel-Management (Murrplastik Deutschland)",
+    "thiet_bi_han": "SMT- & ESD-Lötsysteme (Hakko / Quick)",
+    "may_bat_vit": "Präzisions-Drehmomentschrauber (HIOS Japan)",
+    "dung_cu_bom_keo": "Automatische Dosier- und Vergussroboter",
+    "may_cat_bang_dinh": "Automatische Klebebandspender (ZCUT)",
+    "thiet_bi_kiem_tra": "Drehmomentprüfgeräte & Kalibrierung (HP-10)",
+    "camera_kinh_soi": "Industrielle SMT-Inspektionsmikroskope",
+    "dung_cu_chong_tinh_dien": "ESD-Ionisiergebläse zur Entladung (SL-001)",
+    "thiet_bi_dong_goi": "Automatische Schrumpffolien- & Verpackungsmaschinen"
+  },
+  "b2b_benefits": {
+    "co_cq_title": "100% Originalware mit CO/CQ",
+    "co_cq_desc": "Offizielle Ursprungs- und Qualitätszertifikate deutscher, japanischer und koreanischer Hersteller.",
+    "quote_speed": "Express-Angebot in 15–30 Minuten",
+    "quote_speed_desc": "Erfahrene Vertriebsingenieure bieten umgehende technische Beratung und wettbewerbsfähige Preise.",
+    "stock_title": "Lagerbestände in Hanoi & Hung Yen",
+    "stock_desc": "In unmittelbarer Nähe zum Industriepark Lien Ha Thai, mit taggleicher Expresslieferung für Fabriken.",
+    "warranty_title": "12 Monate Herstellergarantie",
+    "warranty_desc": "Das T&T Vina-Technikerteam unterstützt direkt bei Vor-Ort-Installation, Kalibrierung und Wartung."
+  },
+  "cart_rfq": {
+    "title": "B2B-Ausrüstungs-Angebotskorb",
+    "empty": "Ihr Angebotskorb ist derzeit leer",
+    "btn_submit": "B2B-Angebot jetzt anfordern",
+    "bom_quick": "BOM-Schnelleingabe aus Excel",
+    "download_csv": "CSV / Excel exportieren",
+    "lead_time": "Standard-Lieferzeit: Taggleicher Versand (Hanoi / Hung Yen) oder 3-5 Werktage landesweit."
+  },
+  "footer": {
+    "company_name": "T&T VINA INDUSTRIAL CO., LTD",
+    "tagline": "Vietnams führender B2B-Distributor für Industrieausrüstung, SMT-Werkzeuge, Reinraum & Roboterkabel-Management.",
+    "credit": "Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)"
+  }
+}

@@ -20,6 +20,8 @@ import {
 } from 'lucide-react';
 import { Product } from '../types';
 import { PRODUCTS, SOLUTIONS, COMPANY_INFO } from '../data';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface HeaderProps {
   currentTab: string;
@@ -29,6 +31,7 @@ interface HeaderProps {
 }
 
 export default function Header({ currentTab, cartCount, onNavigate, onSelectProduct }: HeaderProps) {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -108,7 +111,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               title="Truy cập Chuyên Trang Ủy Quyền Murrplastik (CHLB Đức)"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] animate-pulse"></span>
-              <span>Chuyên Trang Murrplastik Đức</span>
+              <span>{t('nav.murr_portal')}</span>
               <ExternalLink className="w-2.5 h-2.5 text-red-500 group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
@@ -118,7 +121,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             {/* Hotline */}
             <div className="flex items-center gap-1 text-slate-700">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block mr-0.5"></span>
-              <span className="font-bold text-slate-900">Hotline:</span>
+              <span className="font-bold text-slate-900">{t('nav.hotline')}:</span>
               <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="text-[#00478D] font-bold hover:underline font-mono">
                 {COMPANY_INFO.hotline}
               </a>
@@ -136,7 +139,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
 
             {/* Sales Ms Hien */}
             <div className="flex items-center gap-1 text-slate-700">
-              <span className="font-bold text-slate-900">Kinh doanh:</span>
+              <span className="font-bold text-slate-900">{t('nav.sales')}:</span>
               <a href={COMPANY_INFO.salesTeam[0].zaloUrl} target="_blank" rel="noreferrer" className="text-[#00478D] font-bold hover:underline">
                 {COMPANY_INFO.salesTeam[0].name} ({COMPANY_INFO.salesTeam[0].phone})
               </a>
@@ -164,6 +167,11 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 {copiedKey === 'top_phuong' ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
               </button>
             </div>
+
+            <span className="text-slate-300">|</span>
+
+            {/* Language Switcher */}
+            <LanguageSwitcher variant="utility" />
           </div>
 
         </div>
@@ -203,7 +211,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 onMouseEnter={() => setIsCategoryOpen(true)}
                 className="flex items-center gap-2 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-[#00478D] hover:bg-slate-50 rounded-sm border border-slate-200/80 transition-all cursor-pointer shadow-2xs"
               >
-                <span>Danh Mục Thiết Bị</span>
+                <span>{t('nav.categories')}</span>
                 <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isCategoryOpen ? 'rotate-180' : ''}`} />
               </button>
 
@@ -329,7 +337,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearchKeyDown}
                 onFocus={() => setIsSearchFocused(true)}
-                placeholder="Tìm mã máy, linh kiện: Hakko 936, Hios CL-4000, SP-982, Zcut 9, KEG-ZL..."
+                placeholder={t('nav.search_placeholder')}
                 className="w-full h-11 pl-11 pr-12 rounded-sm bg-slate-50/90 border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#00478D] focus:ring-2 focus:ring-[#00478D]/10 transition-all"
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -430,6 +438,14 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               <span className="md:hidden">Gọi Ngay</span>
             </a>
 
+            {/* Language Switcher in Main Nav (Desktop) */}
+            <LanguageSwitcher variant="header" className="hidden xl:inline-block" />
+
+            {/* Mobile Language Switcher quick toggle */}
+            <div className="lg:hidden">
+              <LanguageSwitcher variant="utility" />
+            </div>
+
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -500,7 +516,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 currentTab === 'home' ? 'bg-blue-50 text-[#00478D]' : 'text-slate-700 hover:bg-slate-50'
               }`}
             >
-              Trang Chủ
+              {t('nav.home')}
             </button>
 
             {/* Featured Murrplastik Subsite Card on Mobile */}
@@ -509,7 +525,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#E30613] animate-pulse" />
                   <span className="text-xs font-bold text-[#E30613] uppercase tracking-wide font-display">
-                    Chuyên Trang Murrplastik (Đức)
+                    {t('nav.murr_portal')}
                   </span>
                 </div>
                 <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-xs bg-red-100 text-[#E30613]">
@@ -530,7 +546,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             </div>
 
             <div className="px-3 pt-2 pb-1 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-              Danh Mục Sản Phẩm
+              {t('nav.categories')}
             </div>
             {SOLUTIONS.map((sol) => (
               <button
@@ -571,8 +587,13 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 currentTab === 'cart' ? 'bg-blue-50 text-[#00478D]' : 'text-slate-700 hover:bg-slate-50'
               }`}
             >
-              Giỏ Yêu Cầu Báo Giá ({cartCount})
+              {t('nav.cart')} ({cartCount})
             </button>
+
+            {/* Mobile Language Switcher Section */}
+            <div className="pt-3 border-t border-slate-200">
+              <LanguageSwitcher variant="mobile" />
+            </div>
           </div>
 
           <div className="pt-4 border-t border-slate-100 flex flex-col gap-1.5 text-center text-xs text-slate-600">

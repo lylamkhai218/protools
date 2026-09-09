@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Equipment Catalog",
+    "cart": "RFQ Basket",
+    "docs": "Docs & CO/CQ",
+    "contact": "Contact",
+    "search_placeholder": "Search model, part number: Hakko 936, Hios CL-4000, SP-982, Zcut 9...",
+    "murr_portal": "Murrplastik Germany Hub",
+    "hotline": "Hotline",
+    "sales": "Sales Dept",
+    "call_now": "Call Now"
+  },
+  "hero": {
+    "badge": "MASTER B2B INDUSTRIAL DISTRIBUTOR",
+    "title_p1": "Comprehensive Equipment Solutions",
+    "title_highlight": "Industrial & Automation",
+    "title_p2": "German & Japanese Standards",
+    "subtitle": "Master distributor of genuine Murrplastik cable management (Germany), Hakko/Quick soldering stations, Hios electric screwdrivers, fluid dispensing robots, Zcut tape dispensers, and ESD static control devices in Vietnam.",
+    "btn_explore": "Explore Catalog",
+    "btn_rfq": "Request B2B Quote",
+    "trust_vinfast": "Installed & verified on ABB welding robots at VinFast Automotive Body Shop (Hai Phong)"
+  },
+  "solutions": {
+    "section_title": "Engineering Solution Ecosystems",
+    "section_sub": "Turnkey equipment supply for SMT electronics assembly, mechanical fabrication, and robotic automation lines.",
+    "murrplastik": "Robotic Cable Management (Murrplastik Germany)",
+    "thiet_bi_han": "SMT & ESD Soldering Systems (Hakko / Quick)",
+    "may_bat_vit": "Precision Torque Screwdrivers (HIOS Japan)",
+    "dung_cu_bom_keo": "Automated Fluid Dispensing Robots",
+    "may_cat_bang_dinh": "Automatic Tape & Film Dispensers (ZCUT)",
+    "thiet_bi_kiem_tra": "Torque Meters & Calibration Testers (HP-10)",
+    "camera_kinh_soi": "SMT Industrial Inspection Microscopes",
+    "dung_cu_chong_tinh_dien": "ESD Static Eliminators (SL-001 Ion Blowers)",
+    "thiet_bi_dong_goi": "Automatic Heat Shrink & Packaging Machines"
+  },
+  "b2b_benefits": {
+    "co_cq_title": "100% Genuine with Full CO/CQ",
+    "co_cq_desc": "Official Certificate of Origin and Quality from German, Japanese, and Korean manufacturers.",
+    "quote_speed": "Express RFQ within 15–30 Mins",
+    "quote_speed_desc": "Dedicated sales engineering team providing instant technical advice and competitive pricing.",
+    "stock_title": "Ready Stock in Hanoi & Hung Yen Hubs",
+    "stock_desc": "Proximity to Lien Ha Thai Industrial Park, providing same-day express delivery for factories.",
+    "warranty_title": "12 Months Manufacturer Warranty",
+    "warranty_desc": "T&T Vina engineers provide on-site installation, calibration, and long-term maintenance support."
+  },
+  "cart_rfq": {
+    "title": "B2B Equipment RFQ Basket",
+    "empty": "Your quote basket is currently empty",
+    "btn_submit": "Submit B2B Quote Request",
+    "bom_quick": "Quick BOM Paste Tool from Excel",
+    "download_csv": "Export CSV / Excel",
+    "lead_time": "Standard Lead Time: Same-day delivery (Hanoi / Hung Yen) or 3-5 business days nationwide."
+  },
+  "footer": {
+    "company_name": "T&T VINA INDUSTRIAL CO., LTD",
+    "tagline": "Vietnam's leading industrial equipment distributor, SMT tools, cleanroom devices & robotic cable management.",
+    "credit": "Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)"
+  }
+}

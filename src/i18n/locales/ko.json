@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "홈",
+    "categories": "장비 카탈로그",
+    "cart": "견적 바구니",
+    "docs": "기술 문서 & CO/CQ",
+    "contact": "문의하기",
+    "search_placeholder": "모델명, 부품 번호 검색: Hakko 936, Hios CL-4000, SP-982, Zcut 9...",
+    "murr_portal": "독일 Murrplastik 공식 포털",
+    "hotline": "핫라인",
+    "sales": "영업부",
+    "call_now": "바로 통화"
+  },
+  "hero": {
+    "badge": "베트남 B2B 산업용 자동화 장비 총판",
+    "title_p1": "포괄적인 산업 장비 솔루션",
+    "title_highlight": "산업 제조 및 자동화",
+    "title_p2": "독일 & 일본 정밀 기술 표준",
+    "subtitle": "독일 Murrplastik 로봇 케이블 드레스팩 시스템, 일본 Hakko/Quick 솔더링 스테이션, Hios 정밀 전동 드라이버, 자동 디스펜싱 로봇 및 ESD 정전기 제어 장비 베트남 공식 총판.",
+    "btn_explore": "제품 카탈로그 보기",
+    "btn_rfq": "B2B 견적 요청",
+    "trust_vinfast": "베트남 하이퐁 VinFast 자동차 공장 Body Shop ABB 용접 로봇 라인에 설치 및 검증 완료"
+  },
+  "solutions": {
+    "section_title": "엔지니어링 솔루션 생태계",
+    "section_sub": "SMT 전자 조립, 정밀 기계 가공 및 로봇 자동화 라인을 위한 턴키 산업 장비 공급.",
+    "murrplastik": "로봇 케이블 관리 시스템 (독일 Murrplastik)",
+    "thiet_bi_han": "SMT 납땜 및 ESD 방지 장비 (Hakko / Quick)",
+    "may_bat_vit": "정밀 토크 전동 드라이버 (일본 HIOS)",
+    "dung_cu_bom_keo": "자동 디스펜싱 및 액체 도포 로봇",
+    "may_cat_bang_dinh": "자동 테이프 및 필름 절단기 (ZCUT)",
+    "thiet_bi_kiem_tra": "토크 테스터 및 교정 측정기 (HP-10)",
+    "camera_kinh_soi": "SMT 산업용 검사 현미경",
+    "dung_cu_chong_tinh_dien": "ESD 정전기 제거 이오나이저 (SL-001)",
+    "thiet_bi_dong_goi": "자동 열수축 포장 기계"
+  },
+  "b2b_benefits": {
+    "co_cq_title": "100% 정품 보장 (CO/CQ 인증서 완비)",
+    "co_cq_desc": "독일, 일본, 한국 공식 제조업체에서 발행한 원산지 증명서(CO) 및 품질 검사서(CQ) 완비.",
+    "quote_speed": "15~30분 내 신속 견적 회신",
+    "quote_speed_desc": "전문 기술 영업 엔지니어 팀이 기술 사양 상담 및 경쟁력 있는 대량 구매 단가를 신속히 제공합니다.",
+    "stock_title": "하노이 & 흥옌 즉시 출고 물류 거점",
+    "stock_desc": "리엔하타이(Lien Ha Thai) 산업단지 인접, 주요 산업단지에 당일 특급 배송 지원.",
+    "warranty_title": "제조사 공식 12개월 품질 보증",
+    "warranty_desc": "T&T Vina 전문 기술진이 현장 설치 지원, 정밀 교정 및 지속적인 유지보수를 지원합니다."
+  },
+  "cart_rfq": {
+    "title": "B2B 산업 장비 견적 요청서",
+    "empty": "견적 바구니가 비어 있습니다",
+    "btn_submit": "B2B 견적 요청서 제출",
+    "bom_quick": "Excel BOM 일괄 빠른 입력 도구",
+    "download_csv": "CSV / Excel 파일 내보내기",
+    "lead_time": "표준 납기: 하노이/흥옌 창고 당일 출고, 전국 3-5 영업일 이내 배송."
+  },
+  "footer": {
+    "company_name": "T&T VINA INDUSTRIAL CO., LTD",
+    "tagline": "베트남 최고의 산업 자동화 장비, SMT 툴, 클린룸 정전기 제어 및 로봇 케이블 관리 시스템 유통 기업.",
+    "credit": "Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)"
+  }
+}

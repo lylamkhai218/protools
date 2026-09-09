@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "categories": "製品カタログ",
+    "cart": "お見積りカゴ",
+    "docs": "技術資料・CO/CQ",
+    "contact": "お問い合わせ",
+    "search_placeholder": "型番・部品を検索: 白光 Hakko 936, HIOS CL-4000, SP-982, Zcut 9...",
+    "murr_portal": "ドイツ Murrplastik 専用ポータル",
+    "hotline": "ホットライン",
+    "sales": "営業担当",
+    "call_now": "今すぐお電話"
+  },
+  "hero": {
+    "badge": "ベトナムB2B産業機器ディストリビューター",
+    "title_p1": "包括的な産業設備ソリューション",
+    "title_highlight": "産業製造とオートメーション",
+    "title_p2": "ドイツ・日本の精密規格",
+    "subtitle": "ドイツMurrplastik製ロボットケーブル保護システム、白光(Hakko)/Quickはんだ付け装置、HIOS電動トルクドライバー、自動ディスペンサーおよびESD静電気対策機器のベトナム正規総代理店。",
+    "btn_explore": "カタログを見る",
+    "btn_rfq": "B2B見積りを依頼",
+    "trust_vinfast": "ベトナム・ハイフォンVinFast自動車工場Body ShopのABB溶接ロボットラインにて納入・実証済み"
+  },
+  "solutions": {
+    "section_title": "エンジニアリング・ソリューション体系",
+    "section_sub": "SMT電子実装、精密機械加工、ロボット自動化ライン向けに産業機器を一括供給。",
+    "murrplastik": "ロボットケーブル保護・案内システム (ドイツ Murrplastik)",
+    "thiet_bi_han": "SMTはんだ付け・ESD対策機器 (Hakko / Quick)",
+    "may_bat_vit": "精密トルク電動ドライバー (日本 HIOS)",
+    "dung_cu_bom_keo": "自動ディスペンサー・液体定量吐出ロボット",
+    "may_cat_bang_dinh": "自動テープ・フィルムカッター (ZCUT)",
+    "thiet_bi_kiem_tra": "トルク測定器・キャリブレーションテスター (HP-10)",
+    "camera_kinh_soi": "SMT産業用実体顕微鏡・外観検査装置",
+    "dung_cu_chong_tinh_dien": "ESD除電イオナイザーブロワー (SL-001)",
+    "thiet_bi_dong_goi": "自動熱収縮フィルム包装機"
+  },
+  "b2b_benefits": {
+    "co_cq_title": "100% 正規品保証（CO/CQ完備）",
+    "co_cq_desc": "ドイツ・日本・韓国メーカー発行の公式原産地証明書(CO)および品質検査証明書(CQ)を完備。",
+    "quote_speed": "15〜30分以内の迅速見積回答",
+    "quote_speed_desc": "専任のセールスエンジニアが仕様選定と競争力のある大口卸価格を即座にご案内します。",
+    "stock_title": "ハノイ・フンイエン即納在庫拠点",
+    "stock_desc": "リエンハタイ(Lien Ha Thai)工業団地に近接し、各工業団地へ即日特急配送が可能。",
+    "warranty_title": "メーカー正規12ヶ月保証",
+    "warranty_desc": "T&T Vinaの技術エンジニアがオンサイトでの設置調整、精度校正、定期保守を直接サポート。"
+  },
+  "cart_rfq": {
+    "title": "B2B産業機器 お見積り依頼カゴ",
+    "empty": "現在、お見積りカゴは空です",
+    "btn_submit": "B2Bお見積り依頼を送信",
+    "bom_quick": "ExcelからのBOM一括貼り付けツール",
+    "download_csv": "CSV / Excel エクスポート",
+    "lead_time": "標準納期: ハノイ・フンイエン倉庫在庫は即日配送、全国通常便は3〜5営業日。"
+  },
+  "footer": {
+    "company_name": "T&T VINA INDUSTRIAL CO., LTD",
+    "tagline": "ベトナムをリードする産業オートメーション機器、SMT工具、クリーンルーム静電気対策およびロボット配管保護システムの総合商社。",
+    "credit": "Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)"
+  }
+}

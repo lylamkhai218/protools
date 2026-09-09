@@ -1215,10 +1215,16 @@ const TRANSLATIONS = {
   }
 };
 
-let currentLang = localStorage.getItem('mp_lang') || 'vi';
+let currentLang = localStorage.getItem('tt_vina_locale') || localStorage.getItem('mp_lang') || 'vi';
 
 function t(key) {
-  return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) || key;
+  if (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) {
+    return TRANSLATIONS[currentLang][key];
+  }
+  if (TRANSLATIONS['en'] && TRANSLATIONS['en'][key]) {
+    return TRANSLATIONS['en'][key];
+  }
+  return (TRANSLATIONS['vi'] && TRANSLATIONS['vi'][key]) || key;
 }
 
 function applyTranslations() {
@@ -1260,6 +1266,7 @@ function switchLang(lang) {
   if (lang === currentLang) return;
   currentLang = lang;
   localStorage.setItem('mp_lang', lang);
+  localStorage.setItem('tt_vina_locale', lang);
   applyTranslations();
 }
 
