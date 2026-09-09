@@ -30,6 +30,7 @@ import { PARTNERS, SOLUTIONS, PRODUCTS, TECHNICAL_DOCUMENTS, INDUSTRIES, COMPANY
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { AnimatedCounter } from '../components/AnimatedCounter';
 import { useTranslation } from '../i18n/LanguageContext';
+import { getLocalizedProduct } from '../i18n/productTranslations';
 
 interface HomeProps {
   onNavigate: (tab: string, filter?: string) => void;
@@ -140,6 +141,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
       });
 
   const heroFeatured = PRODUCTS.find(p => p.id === '1081') || PRODUCTS[0]; // R-Tec Liner Murrplastik Đức
+  const heroFeaturedLoc = getLocalizedProduct(heroFeatured, locale);
 
   // JSON-LD Structured Data Schema for Google SEO
   const faqSchema = {
@@ -238,7 +240,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                 </div>
                 <div>
                   <AnimatedCounter end={76} suffix="+" className="font-display text-xl sm:text-3xl font-black text-slate-800 tracking-tight block" />
-                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">Thiết Bị Tiêu Chuẩn Sẵn Kho</div>
+                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">{t('hero.stat_devices')}</div>
                 </div>
               </div>
 
@@ -256,10 +258,10 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                 }`}>
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                    <span className="text-xs font-mono font-bold text-slate-700 uppercase">TIÊU ĐIỂM ROBOTICS ĐỨC</span>
+                    <span className="text-xs font-mono font-bold text-slate-700 uppercase">{t('hero.spotlight_badge')}</span>
                   </div>
                   <span className="text-[11px] font-bold text-[#00478D] bg-blue-50 px-2 py-0.5 rounded-xs border border-blue-200">
-                    Sẵn hàng tại kho
+                    {t('catalog.in_stock')}
                   </span>
                 </div>
 
@@ -274,12 +276,12 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   }}
                 >
                   <img 
-                    src={heroFeatured.image} 
-                    alt={heroFeatured.name}
+                    src={heroFeaturedLoc.image} 
+                    alt={heroFeaturedLoc.name}
                     className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-slate-200 text-[11px] font-mono text-slate-600 shadow-2xs">
-                    Mã: {heroFeatured.sku}
+                    SKU: {heroFeaturedLoc.sku}
                   </div>
                 </div>
 
@@ -288,10 +290,10 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                 }`}>
                   <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                    {heroFeatured.category} • {heroFeatured.brand}
+                    {heroFeaturedLoc.category} • {heroFeaturedLoc.brand}
                   </div>
                   <h3 className="font-display text-xl font-bold text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-1">
-                    {heroFeatured.name}
+                    {heroFeaturedLoc.name}
                   </h3>
 
                   {/* Verified Case Study VinFast Body Shop */}
@@ -310,12 +312,12 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                   }`}>
                     <div className="bg-slate-50 p-2 rounded-xs border border-slate-200/70">
-                      <span className="text-slate-400 block text-[10px]">Ứng dụng</span>
-                      <span className="font-mono font-bold text-slate-800">Robot hàn ABB (6 Trục)</span>
+                      <span className="text-slate-400 block text-[10px]">{t('hero.spotlight_app_label')}</span>
+                      <span className="font-mono font-bold text-slate-800">{t('hero.spotlight_app_val')}</span>
                     </div>
                     <div className="bg-slate-50 p-2 rounded-xs border border-slate-200/70">
-                      <span className="text-slate-400 block text-[10px]">Cơ cấu</span>
-                      <span className="font-mono font-bold text-slate-800">Thu hồi ống đàn hồi</span>
+                      <span className="text-slate-400 block text-[10px]">{t('hero.spotlight_mech_label')}</span>
+                      <span className="font-mono font-bold text-slate-800">{t('hero.spotlight_mech_val')}</span>
                     </div>
                   </div>
 
@@ -330,27 +332,27 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                       }}
                       className="flex-1 h-10 rounded-sm bg-slate-900 hover:bg-[#00478D] text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                     >
-                      <span>Xem Spec-sheet</span>
+                      <span>{t('hero.view_specsheet')}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => onAddToCart(heroFeatured)}
                       className="h-10 px-3.5 rounded-sm bg-amber-50 hover:bg-amber-100 text-[#D97706] border border-amber-300 text-xs font-bold transition-colors flex items-center gap-1 cursor-pointer"
-                      title="Thêm vào giỏ báo giá"
+                      title={t('catalog.add_rfq')}
                     >
                       <Plus className="w-4 h-4" />
-                      <span>Thêm Báo Giá</span>
+                      <span>{t('catalog.add_rfq')}</span>
                     </button>
                   </div>
 
                   {/* Direct link to Murrplastik portal */}
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
-                    <span className="text-slate-500 font-medium">Hệ sinh thái chính hãng:</span>
+                    <span className="text-slate-500 font-medium">{t('hero.official_ecosystem')}</span>
                     <a
                       href="/murrplastik/"
                       className="text-[#E30613] hover:underline font-bold inline-flex items-center gap-1 group"
                     >
-                      <span>Vào Chuyên Trang Murrplastik</span>
+                      <span>{t('hero.enter_murr_portal')}</span>
                       <ExternalLink className="w-3 h-3 text-red-500 group-hover:translate-x-0.5 transition-transform" />
                     </a>
                   </div>
@@ -377,7 +379,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
               aria-label="Cuộn xuống xem danh mục & giải pháp"
             >
               <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 group-hover:text-[#00478D] transition-colors">
-                Khám phá giải pháp & danh mục
+                {t('hero.explore_solutions')}
               </span>
               
               {/* Minimalist Glassmorphic Scroll Pill */}
@@ -413,7 +415,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold text-[#00478D] uppercase tracking-wider mb-2">
                 <Layers className="w-4 h-4" />
-                <span>Trụ Cột Giải Pháp</span>
+                <span>{t('solutions.pillar_badge')}</span>
               </div>
               <h2 className="font-display text-xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
                 {t('solutions.section_title')}
@@ -466,7 +468,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                         {sol.id !== 'thiet-bi-han' && sol.id !== 'may-bat-vit-nha-vit' && sol.id !== 'dung-cu-bom-keo' && sol.id !== 'murrplastik' && <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
                       </div>
                       <div className="absolute bottom-1.5 right-1.5 px-1 sm:px-1.5 py-0.5 bg-white/90 backdrop-blur-xs rounded-xs border border-slate-200 text-[9px] sm:text-[10px] font-mono text-slate-600 shadow-2xs">
-                        {sol.featuredProductsCount} SP
+                        {sol.featuredProductsCount} {t('solutions.items_count')}
                       </div>
                     </div>
 
@@ -494,7 +496,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   </div>
 
                   <div className="pt-2 sm:pt-4 mt-1.5 sm:mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-xs font-bold text-[#00478D] group-hover:underline">
-                    <span>Xem danh mục</span>
+                    <span>{t('solutions.view_category')}</span>
                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -513,10 +515,10 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold text-[#00478D] uppercase tracking-wider mb-2">
                 <Settings2 className="w-4 h-4" />
-                <span>Danh Mục Sản Phẩm Thực Tế</span>
+                <span>{t('catalog.section_badge')}</span>
               </div>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
-                Bảng Thông Số & Thiết Bị ({filteredProducts.length})
+                {t('catalog.section_title')} ({filteredProducts.length})
               </h2>
             </div>
 
@@ -530,7 +532,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Tất Cả ({PRODUCTS.length})
+                {t('catalog.filter_all')} ({PRODUCTS.length})
               </button>
               <button
                 onClick={() => setActiveCategory('thiet-bi-han')}
@@ -540,7 +542,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Thiết Bị Hàn
+                {t('catalog.cat_thiet_bi_han')}
               </button>
               <button
                 onClick={() => setActiveCategory('may-bat-vit-nha-vit')}
@@ -550,7 +552,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Bắt Vít - Nhả Vít
+                {t('catalog.cat_may_bat_vit')}
               </button>
               <button
                 onClick={() => setActiveCategory('dung-cu-bom-keo')}
@@ -560,7 +562,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Bơm Keo
+                {t('catalog.cat_dung_cu_bom_keo')}
               </button>
               <button
                 onClick={() => setActiveCategory('may-cat-bang-dinh-tu-dong')}
@@ -570,7 +572,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Cắt Băng Dính & Tách Tem
+                {t('catalog.cat_may_cat_bang_dinh')}
               </button>
               <button
                 onClick={() => setActiveCategory('thiet-bi-kiem-tra')}
@@ -580,7 +582,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Kiểm Tra & Đo Lực
+                {t('catalog.cat_thiet_bi_kiem_tra')}
               </button>
               <button
                 onClick={() => setActiveCategory('camera-kinh-soi-cong-nghiep')}
@@ -590,7 +592,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Kính Soi & Hiển Vi
+                {t('catalog.cat_camera_kinh_soi')}
               </button>
               <button
                 onClick={() => setActiveCategory('dung-cu-chong-tinh-dien')}
@@ -600,7 +602,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Khử Tĩnh Điện ESD
+                {t('catalog.cat_dung_cu_chong_tinh_dien')}
               </button>
               <button
                 onClick={() => setActiveCategory('murrplastik')}
@@ -610,7 +612,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Murrplastik
+                {t('catalog.cat_murrplastik')}
               </button>
             </div>
           </div>
@@ -659,112 +661,115 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
           {/* Product Cards Grid with Real Specs & Desktop Hover Preview (2 columns on mobile, 4 on desktop) */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
-            {filteredProducts.map((p, idx) => (
-              <div 
-                key={p.id}
-                style={{ animationDelay: `${Math.min(idx * 30, 300)}ms` }}
-                className="rounded-sm bg-white border border-slate-200 hover:border-[#00478D] shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group overflow-hidden scroll-reveal opacity-0 translate-y-8"
-              >
-                <div>
-                  
-                  {/* Top Bar: SKU & Origin */}
-                  <div className="p-2 sm:p-3.5 pb-0 flex items-center justify-between text-[9px] sm:text-[11px]">
-                    <span className="font-mono text-slate-500 font-semibold truncate max-w-[55%]">{p.sku}</span>
-                    <span className="text-[9px] sm:text-[10px] font-bold text-slate-600 bg-slate-100 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">
-                      {p.brand}
-                    </span>
+            {filteredProducts.map((rawP, idx) => {
+              const p = getLocalizedProduct(rawP, locale);
+              return (
+                <div 
+                  key={p.id}
+                  style={{ animationDelay: `${Math.min(idx * 30, 300)}ms` }}
+                  className="rounded-sm bg-white border border-slate-200 hover:border-[#00478D] shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group overflow-hidden scroll-reveal opacity-0 translate-y-8"
+                >
+                  <div>
+                    
+                    {/* Top Bar: SKU & Origin */}
+                    <div className="p-2 sm:p-3.5 pb-0 flex items-center justify-between text-[9px] sm:text-[11px]">
+                      <span className="font-mono text-slate-500 font-semibold truncate max-w-[55%]">{p.sku}</span>
+                      <span className="text-[9px] sm:text-[10px] font-bold text-slate-600 bg-slate-100 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">
+                        {p.brand}
+                      </span>
+                    </div>
+
+                    {/* Studio Image Container with Hover Zoom Magnifier */}
+                    <div 
+                      onClick={() => {
+                        onSelectProduct(p);
+                        onNavigate('product-detail');
+                      }}
+                      onMouseEnter={(e) => {
+                        const rect = e.currentTarget.getBoundingClientRect();
+                        setHoveredZoomProduct({
+                          product: p,
+                          x: rect.right + 16,
+                          y: Math.max(20, rect.top - 20)
+                        });
+                      }}
+                      onMouseLeave={() => setHoveredZoomProduct(null)}
+                      className="h-32 sm:h-52 m-1.5 sm:m-3 rounded-sm bg-slate-50/80 p-2 sm:p-3 flex items-center justify-center border border-slate-100 group-hover:bg-blue-50/20 transition-colors cursor-pointer overflow-hidden relative"
+                    >
+                      <img 
+                        src={p.image} 
+                        alt={p.name}
+                        className="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-200"
+                      />
+                      <div className="absolute bottom-2 right-2 bg-white/90 text-[10px] font-bold text-[#00478D] px-1.5 py-0.5 rounded-xs opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block shadow-2xs border border-slate-200">
+                        {t('catalog.hover_zoom')}
+                      </div>
+                    </div>
+
+                    {/* Name & Short Description */}
+                    <div className="px-2 sm:px-4 pb-1 sm:pb-2">
+                      <h3 
+                        onClick={() => {
+                          onSelectProduct(p);
+                          onNavigate('product-detail');
+                        }}
+                        className="font-display font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 cursor-pointer min-h-[32px] sm:min-h-[40px] leading-snug"
+                      >
+                        {p.name}
+                      </h3>
+                      
+                      <p className="text-[11px] text-slate-500 line-clamp-2 mt-1.5 leading-relaxed hidden sm:block">
+                        {p.shortDesc}
+                      </p>
+                    </div>
+
+                    {/* Compact Spec Sheet */}
+                    <div className="px-2 py-1.5 sm:px-4 sm:py-2.5 my-1 sm:my-2 mx-1.5 sm:mx-3 rounded-xs bg-slate-50 border border-slate-200/60 text-[9px] sm:text-[11px] space-y-0.5 sm:space-y-1">
+                      {Object.entries(p.specs).slice(0, 2).map(([key, val]) => (
+                        <div key={key} className="flex justify-between items-center text-[9px] sm:text-[10px]">
+                          <span className="text-slate-500 truncate mr-1.5">{key}:</span>
+                          <span className="font-mono font-bold text-slate-700 shrink-0">{val}</span>
+                        </div>
+                      ))}
+                    </div>
+
                   </div>
 
-                  {/* Studio Image Container with Hover Zoom Magnifier */}
-                  <div 
-                    onClick={() => {
-                      onSelectProduct(p);
-                      onNavigate('product-detail');
-                    }}
-                    onMouseEnter={(e) => {
-                      const rect = e.currentTarget.getBoundingClientRect();
-                      setHoveredZoomProduct({
-                        product: p,
-                        x: rect.right + 16,
-                        y: Math.max(20, rect.top - 20)
-                      });
-                    }}
-                    onMouseLeave={() => setHoveredZoomProduct(null)}
-                    className="h-32 sm:h-52 m-1.5 sm:m-3 rounded-sm bg-slate-50/80 p-2 sm:p-3 flex items-center justify-center border border-slate-100 group-hover:bg-blue-50/20 transition-colors cursor-pointer overflow-hidden relative"
-                  >
-                    <img 
-                      src={p.image} 
-                      alt={p.name}
-                      className="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-200"
-                    />
-                    <div className="absolute bottom-2 right-2 bg-white/90 text-[10px] font-bold text-[#00478D] px-1.5 py-0.5 rounded-xs opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block shadow-2xs border border-slate-200">
-                      Rê chuột phóng to
+                  {/* Card Footer: Stock & Action Buttons */}
+                  <div className="p-2 sm:p-3.5 pt-1.5 sm:pt-2 border-t border-slate-100 space-y-1.5 sm:space-y-2">
+                    <div className="flex items-center justify-between text-[9px] sm:text-[11px]">
+                      <span className="text-slate-500 hidden xs:inline">{t('catalog.status_label')}</span>
+                      <span className="font-semibold text-emerald-700 bg-emerald-50 px-1 sm:px-1.5 py-0.5 rounded-xs text-[9px] sm:text-[10px] truncate max-w-full">
+                        {p.stockLocation || t('catalog.in_stock')}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1 sm:gap-2 pt-0.5 sm:pt-1">
+                      <button
+                        onClick={() => {
+                          onSelectProduct(p);
+                          onNavigate('product-detail');
+                        }}
+                        className="flex-1 h-7 sm:h-9 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-0.5 sm:gap-1 cursor-pointer"
+                      >
+                        <span>{t('catalog.details')}</span>
+                        <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => onAddToCart(p)}
+                        className="h-7 sm:h-9 px-1.5 sm:px-3 rounded-sm bg-[#00478D] hover:bg-[#003B75] text-white text-[10px] sm:text-xs font-bold transition-colors flex items-center gap-0.5 sm:gap-1 cursor-pointer shrink-0"
+                        title={t('catalog.add_rfq')}
+                      >
+                        <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                        <span className="hidden sm:inline">{t('catalog.add_rfq')}</span>
+                        <span className="sm:hidden">{t('catalog.add_rfq')}</span>
+                      </button>
                     </div>
                   </div>
 
-                  {/* Name & Short Description */}
-                  <div className="px-2 sm:px-4 pb-1 sm:pb-2">
-                    <h3 
-                      onClick={() => {
-                        onSelectProduct(p);
-                        onNavigate('product-detail');
-                      }}
-                      className="font-display font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 cursor-pointer min-h-[32px] sm:min-h-[40px] leading-snug"
-                    >
-                      {p.name}
-                    </h3>
-                    
-                    <p className="text-[11px] text-slate-500 line-clamp-2 mt-1.5 leading-relaxed hidden sm:block">
-                      {p.shortDesc}
-                    </p>
-                  </div>
-
-                  {/* Compact Spec Sheet */}
-                  <div className="px-2 py-1.5 sm:px-4 sm:py-2.5 my-1 sm:my-2 mx-1.5 sm:mx-3 rounded-xs bg-slate-50 border border-slate-200/60 text-[9px] sm:text-[11px] space-y-0.5 sm:space-y-1">
-                    {Object.entries(p.specs).slice(0, 2).map(([key, val]) => (
-                      <div key={key} className="flex justify-between items-center text-[9px] sm:text-[10px]">
-                        <span className="text-slate-500 truncate mr-1.5">{key}:</span>
-                        <span className="font-mono font-bold text-slate-700 shrink-0">{val}</span>
-                      </div>
-                    ))}
-                  </div>
-
                 </div>
-
-                {/* Card Footer: Stock & Action Buttons */}
-                <div className="p-2 sm:p-3.5 pt-1.5 sm:pt-2 border-t border-slate-100 space-y-1.5 sm:space-y-2">
-                  <div className="flex items-center justify-between text-[9px] sm:text-[11px]">
-                    <span className="text-slate-500 hidden xs:inline">Tình trạng:</span>
-                    <span className="font-semibold text-emerald-700 bg-emerald-50 px-1 sm:px-1.5 py-0.5 rounded-xs text-[9px] sm:text-[10px] truncate max-w-full">
-                      {p.stockLocation || 'Sẵn kho'}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1 sm:gap-2 pt-0.5 sm:pt-1">
-                    <button
-                      onClick={() => {
-                        onSelectProduct(p);
-                        onNavigate('product-detail');
-                      }}
-                      className="flex-1 h-7 sm:h-9 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-0.5 sm:gap-1 cursor-pointer"
-                    >
-                      <span>Chi tiết</span>
-                      <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => onAddToCart(p)}
-                      className="h-7 sm:h-9 px-1.5 sm:px-3 rounded-sm bg-[#00478D] hover:bg-[#003B75] text-white text-[10px] sm:text-xs font-bold transition-colors flex items-center gap-0.5 sm:gap-1 cursor-pointer shrink-0"
-                      title="Thêm vào giỏ báo giá"
-                    >
-                      <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                      <span className="hidden sm:inline">Báo Giá</span>
-                      <span className="sm:hidden">Giá</span>
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Murrplastik Full Catalog & CAD Call-to-Action */}
@@ -902,38 +907,41 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
       </section>
 
       {/* 6. FLOATING PRODUCT ZOOM PREVIEW MAGNIFIER (DESKTOP INTERACTIVE HOVER) */}
-      {hoveredZoomProduct && (
-        <div 
-          style={{ 
-            top: `${hoveredZoomProduct.y}px`, 
-            left: hoveredZoomProduct.x + 340 > (typeof window !== 'undefined' ? window.innerWidth : 1200) 
-              ? `${hoveredZoomProduct.x - 360}px` 
-              : `${hoveredZoomProduct.x}px` 
-          }}
-          className="fixed z-50 pointer-events-none hidden lg:block w-76 sm:w-80 bg-white rounded-md shadow-[0_25px_70px_rgba(0,31,63,0.35)] border-2 border-[#00478D]/40 p-4 animate-in fade-in zoom-in-95 duration-150 backdrop-blur-md"
-        >
-          <div className="text-[11px] font-bold text-[#00478D] uppercase tracking-wider mb-1 flex items-center justify-between">
-            <span>{hoveredZoomProduct.product.brand}</span>
-            <span className="font-mono text-slate-400 text-[10px]">{hoveredZoomProduct.product.sku}</span>
+      {hoveredZoomProduct && (() => {
+        const hp = getLocalizedProduct(hoveredZoomProduct.product, locale);
+        return (
+          <div 
+            style={{ 
+              top: `${hoveredZoomProduct.y}px`, 
+              left: hoveredZoomProduct.x + 340 > (typeof window !== 'undefined' ? window.innerWidth : 1200) 
+                ? `${hoveredZoomProduct.x - 360}px` 
+                : `${hoveredZoomProduct.x}px` 
+            }}
+            className="fixed z-50 pointer-events-none hidden lg:block w-76 sm:w-80 bg-white rounded-md shadow-[0_25px_70px_rgba(0,31,63,0.35)] border-2 border-[#00478D]/40 p-4 animate-in fade-in zoom-in-95 duration-150 backdrop-blur-md"
+          >
+            <div className="text-[11px] font-bold text-[#00478D] uppercase tracking-wider mb-1 flex items-center justify-between">
+              <span>{hp.brand}</span>
+              <span className="font-mono text-slate-400 text-[10px]">{hp.sku}</span>
+            </div>
+            <div className="font-bold text-xs text-slate-900 line-clamp-1 mb-2">
+              {hp.name}
+            </div>
+            <div className="h-60 w-full bg-slate-50/90 rounded-xs border border-slate-100 p-3 flex items-center justify-center overflow-hidden">
+              <img 
+                src={hp.image} 
+                alt={hp.name}
+                className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300 scale-110"
+              />
+            </div>
+            <div className="mt-2.5 pt-2 border-t border-slate-100 text-[10px] text-slate-500 flex items-center justify-between">
+              <span>{t('catalog.origin_label')} <strong className="text-slate-700">{hp.origin}</strong></span>
+              <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-xs">
+                {hp.stockStatus}
+              </span>
+            </div>
           </div>
-          <div className="font-bold text-xs text-slate-900 line-clamp-1 mb-2">
-            {hoveredZoomProduct.product.name}
-          </div>
-          <div className="h-60 w-full bg-slate-50/90 rounded-xs border border-slate-100 p-3 flex items-center justify-center overflow-hidden">
-            <img 
-              src={hoveredZoomProduct.product.image} 
-              alt={hoveredZoomProduct.product.name}
-              className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300 scale-110"
-            />
-          </div>
-          <div className="mt-2.5 pt-2 border-t border-slate-100 text-[10px] text-slate-500 flex items-center justify-between">
-            <span>Xuất xứ: <strong className="text-slate-700">{hoveredZoomProduct.product.origin}</strong></span>
-            <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-xs">
-              {hoveredZoomProduct.product.stockStatus}
-            </span>
-          </div>
-        </div>
-      )}
+        );
+      })()}
 
     </div>
   );
