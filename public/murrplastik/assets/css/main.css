@@ -547,6 +547,7 @@ footer{background:var(--dark-2);border-top:1px solid rgba(255,255,255,0.06);widt
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:1.2rem 3rem 1rem}
 .footer-bottom-row{display:flex;align-items:center;justify-content:space-between}
 .footer-bottom-left{color:rgba(255,255,255,0.35);font-size:12px}
+.footer-bottom-center{color:rgba(255,255,255,0.45);font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:-0.2px;text-align:center}
 .footer-bottom-right{color:rgba(255,255,255,0.25);font-size:12px}
 .footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:10px 2% 0;line-height:1.6;margin-top:10px}
 

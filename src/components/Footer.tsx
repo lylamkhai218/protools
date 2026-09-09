@@ -439,7 +439,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <span>Hỗ trợ 24/7</span>
               </div>
               <div className="text-[11px] text-slate-500/70 hover:text-slate-400 transition-colors font-mono tracking-tight">
-                Thiết kế &amp; phát triển: <span className="text-slate-400 font-medium">KhaiLL</span>
+                Designed &amp; Developed by KhaiLL (T&amp;T VINA INDUSTRIAL)
               </div>
             </div>
           </div>
