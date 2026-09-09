@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "首页",
+    "categories": "设备产品目录",
+    "cart": "采购报价单",
+    "docs": "技术资料与CO/CQ",
+    "contact": "联系我们",
+    "search_placeholder": "搜索型号、零部件: 白光Hakko 936, 好握速Hios, 点胶机SP-982, Zcut 9...",
+    "murr_portal": "德国Murrplastik官方专区",
+    "hotline": "服务热线",
+    "sales": "销售代表",
+    "call_now": "立即致电"
+  },
+  "hero": {
+    "badge": "越南B2B工业自动化设备总仓",
+    "title_p1": "全方位工业装备解决方案",
+    "title_highlight": "工业制造与自动化",
+    "title_p2": "德国与日本精密标准",
+    "subtitle": "德国Murrplastik机器人电缆保护系统、日本Hakko/Quick焊台、Hios精密电批、自动点胶机器人、Zcut胶带机及防静电设备越南一级总代理。",
+    "btn_explore": "浏览设备目录",
+    "btn_rfq": "获取B2B项目报价",
+    "trust_vinfast": "已成功安装并稳定运行于越南VinFast海防汽车制造厂ABB焊接机器人产线"
+  },
+  "solutions": {
+    "section_title": "工程与技术解决方案生态",
+    "section_sub": "为SMT电子装配、精密机械加工及自动化机器人产线提供一站式工业装备供应。",
+    "murrplastik": "机器人电缆管理系统（德国Murrplastik）",
+    "thiet_bi_han": "SMT焊接及防静电设备（Hakko / Quick）",
+    "may_bat_vit": "精密定扭电动螺丝刀（日本HIOS）",
+    "dung_cu_bom_keo": "自动点胶机及流体点胶机器人",
+    "may_cat_bang_dinh": "自动胶带与薄膜切割机（ZCUT）",
+    "thiet_bi_kiem_tra": "扭力测试仪与拉力计（HP-10）",
+    "camera_kinh_soi": "SMT工业检测显微镜与光学检测",
+    "dung_cu_chong_tinh_dien": "防静电离子风机与ESD控制（SL-001）",
+    "thiet_bi_dong_goi": "全自动热收缩膜包装机"
+  },
+  "b2b_benefits": {
+    "co_cq_title": "100% 正品保障（附带原厂CO/CQ证书）",
+    "co_cq_desc": "提供德国、日本、韩国原厂出具的官方原产地证明书（CO）与品质检验书（CQ）。",
+    "quote_speed": "15–30分钟极速报价响应",
+    "quote_speed_desc": "专业技术销售工程师团队在线，快速提供选型方案与具备竞争力的批量采购底价。",
+    "stock_title": "河内与兴安两大现货总仓",
+    "stock_desc": "紧邻莲河泰工业区（Lien Ha Thai），支持越南北部各工业园区当天极速派送出库。",
+    "warranty_title": "官方原厂 12 个月保修",
+    "warranty_desc": "T&T Vina 技术工程师团队提供设备现场安装调试、精度校准及长期售后维护保障。"
+  },
+  "cart_rfq": {
+    "title": "B2B工业设备采购报价单",
+    "empty": "您的报价单目前为空",
+    "btn_submit": "提交B2B采购报价申请",
+    "bom_quick": "Excel BOM 清单快速批量导入",
+    "download_csv": "导出 CSV / Excel 清单",
+    "lead_time": "标准交货期：河内/兴安仓现货当天送达，全国常规物流3-5个工作日。"
+  },
+  "footer": {
+    "company_name": "T&T VINA INDUSTRIAL CO., LTD",
+    "tagline": "越南领先的工业自动化装备、SMT工具、无尘室防静电设备及机器人电缆保护系统总分销商。",
+    "credit": "Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)"
+  }
+}

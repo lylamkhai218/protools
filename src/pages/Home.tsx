@@ -29,6 +29,7 @@ import { Product } from '../types';
 import { PARTNERS, SOLUTIONS, PRODUCTS, TECHNICAL_DOCUMENTS, INDUSTRIES, COMPANY_INFO } from '../data';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { AnimatedCounter } from '../components/AnimatedCounter';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface HomeProps {
   onNavigate: (tab: string, filter?: string) => void;
@@ -61,6 +62,7 @@ const FAQ_ITEMS = [
 ];
 
 export default function Home({ onNavigate, onSelectProduct, onAddToCart, initialFilter }: HomeProps) {
+  const { t, locale } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<string>(initialFilter || 'all');
   const [selectedIndustry, setSelectedIndustry] = useState<string>('electronics');
   const [hoveredZoomProduct, setHoveredZoomProduct] = useState<{ product: Product; x: number; y: number } | null>(null);
@@ -173,19 +175,37 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
               
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50/90 border border-blue-200 text-[#00478D] text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-2xs max-w-full">
                 <span className="w-2 h-2 rounded-full bg-[#00478D] animate-ping shrink-0" />
-                <span className="truncate">{COMPANY_INFO.name}</span>
+                <span className="truncate">{t('hero.badge')}</span>
               </div>
 
               <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight uppercase leading-[1.15] break-words">
-                Thiết Bị Hàn, Bắt Vít, <br className="hidden xs:inline" />
+                {t('hero.title_p1')}, <br className="hidden xs:inline" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00478D] via-[#005EB8] to-[#003366]">
-                  Bơm Keo & Tự Động Hóa
+                  {t('hero.title_highlight')}
                 </span>
               </h1>
 
               <p className="text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl font-normal">
-                {COMPANY_INFO.slogan}. Cung cấp máy hàn Hakko/Quick, tô vít điện tử HIOS, máy bơm keo, máy cắt băng dính Zcut và hệ thống robot công nghiệp chính hãng.
+                {t('hero.subtitle')}
               </p>
+
+              {/* Special Fast-Track Procurement Card for VEC 2026 (Chinese Language) */}
+              {locale === 'zh-CN' && (
+                <div className="p-3.5 rounded-sm bg-red-50/80 border border-red-200 shadow-2xs space-y-1.5 text-xs animate-in fade-in duration-200">
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-[#E30613] flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#E30613] animate-pulse" />
+                      欢迎莅临 VEC 2026 展位 (H2-15a) · 中文采购直通
+                    </span>
+                    <span className="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded-xs font-semibold">
+                      微信 / WeChat 即时响应
+                    </span>
+                  </div>
+                  <p className="text-slate-600 text-[11px] leading-relaxed">
+                    T&T Vina 为在越外资制造企业提供原厂进口 SMT 设备、Murrplastik 拖链与防静电设备，支持越南增值税发票与美元结算。中文专员：<strong className="text-slate-900 font-mono">+84 968.597.131 (Mr. Khải)</strong> / <strong className="text-slate-900 font-mono">+84 868.822.409 (Mr. Bình)</strong>
+                  </p>
+                </div>
+              )}
 
               {/* Action CTAs */}
               <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 pt-2">
@@ -193,7 +213,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   onClick={() => onNavigate('cart')}
                   className="h-11 sm:h-12 px-5 sm:px-8 rounded-sm bg-[#00478D] hover:bg-[#003B75] text-white font-display font-bold text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer"
                 >
-                  <span>Nhận Báo Giá Dự Án</span>
+                  <span>{t('hero.btn_rfq')}</span>
                   <ArrowRight className="w-4 h-4 text-amber-300" />
                 </button>
 
@@ -202,7 +222,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   className="h-11 sm:h-12 px-5 sm:px-8 rounded-sm bg-white hover:bg-slate-50 text-slate-800 font-display font-bold text-xs sm:text-sm uppercase tracking-wider border border-slate-300 shadow-2xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <PhoneCall className="w-4 h-4 text-[#D97706]" />
-                  <span>Hotline: {COMPANY_INFO.hotlines[0]}</span>
+                  <span>{t('nav.hotline')}: {COMPANY_INFO.hotlines[0]}</span>
                 </a>
               </div>
 
@@ -281,7 +301,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                       <span>Case Study VinFast Cát Hải:</span>
                     </div>
                     <p className="text-[11px] text-slate-700 leading-snug">
-                      Đã lắp đặt & hoạt động ổn định trên dàn Robot ABB tại Body Shop (xưởng hàn thân xe) Tổ hợp Nhà máy VinFast Cát Hải.
+                      {t('hero.trust_vinfast')}
                     </p>
                   </div>
 
@@ -396,11 +416,11 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                 <span>Trụ Cột Giải Pháp</span>
               </div>
               <h2 className="font-display text-xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
-                Nhóm Giải Pháp & Thiết Bị Trọng Tâm
+                {t('solutions.section_title')}
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-slate-500 max-w-md">
-              Hệ thống danh mục thiết bị công nghiệp tiêu chuẩn cho các nhà máy lắp ráp linh kiện điện tử tại Việt Nam.
+              {t('solutions.section_sub')}
             </p>
           </div>
 
@@ -789,8 +809,8 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
             
             <div className="p-4 rounded-sm bg-white/5 backdrop-blur-xs border border-white/10">
               <AnimatedCounter end={100} suffix="%" className="font-display text-3xl sm:text-4xl font-black text-amber-300 tracking-tight block" />
-              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">Chính Hãng Nhập Khẩu</div>
-              <p className="text-[11px] text-blue-200/80 mt-0.5">Đầy đủ CO/CQ Đức, Nhật, Hàn</p>
+              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">{t('b2b_benefits.co_cq_title')}</div>
+              <p className="text-[11px] text-blue-200/80 mt-0.5">{t('b2b_benefits.co_cq_desc')}</p>
             </div>
 
             <div className="p-4 rounded-sm bg-white/5 backdrop-blur-xs border border-white/10">
@@ -801,14 +821,14 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
             <div className="p-4 rounded-sm bg-white/5 backdrop-blur-xs border border-white/10">
               <AnimatedCounter end={76} suffix="+" className="font-display text-3xl sm:text-4xl font-black text-emerald-300 tracking-tight block" />
-              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">Mã Thiết Bị Sẵn Hàng</div>
-              <p className="text-[11px] text-blue-200/80 mt-0.5">Kho Hà Nội & Hưng Yên</p>
+              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">{t('b2b_benefits.stock_title')}</div>
+              <p className="text-[11px] text-blue-200/80 mt-0.5">{t('b2b_benefits.stock_desc')}</p>
             </div>
 
             <div className="p-4 rounded-sm bg-white/5 backdrop-blur-xs border border-white/10">
               <AnimatedCounter end={10} suffix="+" className="font-display text-3xl sm:text-4xl font-black text-amber-300 tracking-tight block" />
-              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">Năm Kinh Nghiệm</div>
-              <p className="text-[11px] text-blue-200/80 mt-0.5">Tư vấn phụ trợ SMT & Điện tử</p>
+              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">{t('b2b_benefits.warranty_title')}</div>
+              <p className="text-[11px] text-blue-200/80 mt-0.5">{t('b2b_benefits.warranty_desc')}</p>
             </div>
 
           </div>

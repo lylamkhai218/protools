@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { CartItem, Product } from '../types';
 import { PRODUCTS, COMPANY_INFO } from '../data';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface CartQuoteProps {
   cartItems: CartItem[];
@@ -39,6 +40,7 @@ export default function CartQuote({
   onNavigate,
   onAddToCart
 }: CartQuoteProps) {
+  const { t, locale } = useTranslation();
   const [companyName, setCompanyName] = useState('');
   const [contactName, setContactName] = useState('');
   const [phone, setPhone] = useState('');
@@ -232,7 +234,7 @@ export default function CartQuote({
                 B2B Bulk Procurement Portal
               </span>
               <h1 className="font-display text-3xl font-extrabold text-[#0F172A] tracking-tight uppercase">
-                Giỏ Yêu Cầu Báo Giá Dự Án ({totalItemsCount} Thiết Bị)
+                {t('cart_rfq.title')} ({totalItemsCount})
               </h1>
             </div>
 
@@ -251,7 +253,7 @@ export default function CartQuote({
                   className="px-4 py-2 rounded-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider border border-emerald-300 transition-colors flex items-center gap-1.5 cursor-pointer"
                 >
                   <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>Xuất File Excel/CSV</span>
+                  <span>{t('cart_rfq.download_csv')}</span>
                 </button>
               )}
             </div>
@@ -267,7 +269,7 @@ export default function CartQuote({
               <ShoppingCart className="w-8 h-8" />
             </div>
             <h3 className="font-display text-xl font-bold text-slate-900 uppercase">
-              Giỏ Báo Giá Hiện Đang Trống
+              {t('cart_rfq.empty')}
             </h3>
             <p className="text-xs text-slate-500 leading-relaxed">
               Quý khách vui lòng chọn các thiết bị công nghiệp từ danh mục để tạo danh sách yêu cầu báo giá dự án nhanh.
@@ -520,7 +522,7 @@ export default function CartQuote({
                     ) : (
                       <>
                         <Send className="w-4 h-4 text-amber-300" />
-                        <span>Gửi Yêu Cầu Báo Giá Chính Thức</span>
+                        <span>{t('cart_rfq.btn_submit')}</span>
                       </>
                     )}
                   </button>

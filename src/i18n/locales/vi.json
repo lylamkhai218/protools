@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Trang Chủ",
+    "categories": "Danh Mục Thiết Bị",
+    "cart": "Giỏ Báo Giá",
+    "docs": "Tài Liệu & CO/CQ",
+    "contact": "Liên Hệ",
+    "search_placeholder": "Tìm mã máy, linh kiện: Hakko 936, Hios CL-4000, SP-982, Zcut 9...",
+    "murr_portal": "Chuyên Trang Murrplastik Đức",
+    "hotline": "Hotline",
+    "sales": "Kinh doanh",
+    "call_now": "Gọi Ngay"
+  },
+  "hero": {
+    "badge": "TỔNG KHO PHÂN PHỐI THIẾT BỊ B2B",
+    "title_p1": "Giải Pháp Thiết Bị Toàn Diện",
+    "title_highlight": "Công Nghiệp & Tự Động Hóa",
+    "title_p2": "Chuẩn Đức & Nhật Bản",
+    "subtitle": "Tổng đại lý phân phối chính hãng hệ thống quản lý cáp Murrplastik (Đức), máy hàn Hakko/Quick, tô vít điện Hios, robot bơm keo, máy cắt băng dính Zcut và thiết bị khử tĩnh điện ESD.",
+    "btn_explore": "Khám Phá Danh Mục",
+    "btn_rfq": "Nhận Báo Giá B2B",
+    "trust_vinfast": "Đã lắp đặt & kiểm chứng trên dàn Robot hàn ABB tại xưởng Body Shop Tổ hợp Ô tô VinFast Hải Phòng"
+  },
+  "solutions": {
+    "section_title": "Hệ Sinh Thái Giải Pháp Kỹ Thuật",
+    "section_sub": "Cung cấp trọn gói thiết bị cho nhà máy lắp ráp điện tử SMT, chế tạo cơ khí và dây chuyền sản xuất tự động hóa.",
+    "murrplastik": "Hệ Quản Lý Cáp Robot (Murrplastik Đức)",
+    "thiet_bi_han": "Thiết Bị Hàn SMT & ESD (Hakko / Quick)",
+    "may_bat_vit": "Máy Bắt Vít Mô-Men Chính Xác (HIOS Nhật Bản)",
+    "dung_cu_bom_keo": "Robot Bơm Keo & Chiết Rót Tự Động",
+    "may_cat_bang_dinh": "Máy Cắt Băng Dính & Màng Tự Động (ZCUT)",
+    "thiet_bi_kiem_tra": "Thiết Bị Đo Lực & Kiểm Tra Lực Siết (HP-10)",
+    "camera_kinh_soi": "Kính Hiển Vi Soi Công Nghiệp SMT",
+    "dung_cu_chong_tinh_dien": "Thiết Bị Khử Tĩnh Điện ESD (Quạt Ion SL-001)",
+    "thiet_bi_dong_goi": "Máy Đóng Gói & Co Màng Nhiệt Tự Động"
+  },
+  "b2b_benefits": {
+    "co_cq_title": "100% Chính Hãng (Đầy Đủ CO/CQ)",
+    "co_cq_desc": "Chứng từ chứng nhận xuất xứ & chất lượng nhà sản xuất Đức, Nhật Bản, Hàn Quốc.",
+    "quote_speed": "Báo Giá Hỏa Tốc 15–30 Phút",
+    "quote_speed_desc": "Đội ngũ kỹ sư bán hàng hỗ trợ tư vấn thông số kỹ thuật và phản hồi báo giá cạnh tranh tức thì.",
+    "stock_title": "Tổng Kho Sẵn Hàng Hà Nội & Hưng Yên",
+    "stock_desc": "Kho hàng gần KCN Liên Hà Thái, hỗ trợ giao hàng hỏa tốc trong ngày cho các nhà máy.",
+    "warranty_title": "Bảo Hành Chính Hãng 12 Tháng",
+    "warranty_desc": "Đội ngũ kỹ thuật T&T Vina trực tiếp hỗ trợ lắp đặt, hiệu chuẩn và bảo trì tận nơi."
+  },
+  "cart_rfq": {
+    "title": "Giỏ Yêu Cầu Báo Giá Thiết Bị B2B",
+    "empty": "Giỏ báo giá hiện đang trống",
+    "btn_submit": "Gửi Yêu Cầu Báo Giá B2B",
+    "bom_quick": "Công Cụ Dán Nhanh BOM từ Excel",
+    "download_csv": "Xuất File CSV / Excel",
+    "lead_time": "Thời gian giao hàng tiêu chuẩn: Trong ngày (Hà Nội/Hưng Yên) hoặc 3-5 ngày toàn quốc."
+  },
+  "footer": {
+    "company_name": "CÔNG TY TNHH CÔNG NGHIỆP T&T VINA",
+    "tagline": "Tổng kho thiết bị công nghiệp, dụng cụ SMT, phòng sạch & hệ quản lý cáp tự động hóa hàng đầu Việt Nam.",
+    "credit": "Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)"
+  }
+}
