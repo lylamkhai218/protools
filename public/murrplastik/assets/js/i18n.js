@@ -5,6 +5,8 @@
 const TRANSLATIONS = {
   vi: {
     /* Nav */
+    'nav.protools_home': 'Trang Chủ Protools',
+    'nav.mobile_protools_home': '← Về Trang Chủ Protools.com.vn',
     'nav.products': 'Sản phẩm',
     'nav.why': 'Tại sao chọn chúng tôi',
     'nav.about': 'Về chúng tôi',
@@ -405,9 +407,13 @@ const TRANSLATIONS = {
     'footer.tagline': 'Đại lý ủy quyền phân phối sản phẩm · Murrplastik Systemtechnik GmbH (Đức)',
     'footer.col1': 'Sản phẩm',
     'footer.col2': 'Thông tin',
-    'footer.copy': '© 2025 T&T Vina Industrial Co., Ltd · murrplastikvn.com',
+    'footer.copy': '© 2026 T&T Vina Industrial Co., Ltd · protools.com.vn',
     'footer.made': 'T&T Vina - Đại lý phân phối ủy quyền Murrplastik tại Việt Nam',
     'footer.disclaimer': 'Website này được sở hữu và vận hành bởi Công ty TNHH Công nghiệp T&T Vina — Đại lý phân phối ủy quyền các sản phẩm của Murrplastik Systemtechnik GmbH (Đức) tại Việt Nam. Murrplastik® là nhãn hiệu đã đăng ký của Murrplastik Systemtechnik GmbH.',
+    'footer.eco.badge': 'HỆ THỐNG PHÂN PHỐI THIẾT BỊ T&T VINA',
+    'footer.eco.title': 'Tổng Kho Thiết Bị SMT, Hàn, Bắt Vít & Robot Công Nghiệp (Protools.com.vn)',
+    'footer.eco.desc': 'Ngoài hệ sinh thái quản lý cáp Murrplastik (Đức), T&T Vina là tổng đại lý phân phối máy hàn Hakko/Quick, tô vít điện Hios, robot bơm keo, máy cắt băng dính Zcut và thiết bị khử tĩnh điện ESD.',
+    'footer.eco.btn': 'Khám Phá Tổng Kho Protools.com.vn',
     'faq.tag': 'Hỏi đáp thường gặp',
     'faq.title': 'Câu hỏi về sản phẩm & dịch vụ',
     'faq.sub': 'Giải đáp nhanh các thắc mắc phổ biến về sản phẩm Murrplastik và dịch vụ của T&T Vina.',
@@ -604,6 +610,8 @@ const TRANSLATIONS = {
   },
   en: {
     /* Nav */
+    'nav.protools_home': 'Protools Home',
+    'nav.mobile_protools_home': '← Back to Protools.com.vn',
     'nav.products': 'Products',
     'nav.why': 'Why Choose Us',
     'nav.about': 'About Us',
@@ -1004,9 +1012,13 @@ const TRANSLATIONS = {
     'footer.tagline': 'Authorized Distributor · Murrplastik Systemtechnik GmbH (Germany)',
     'footer.col1': 'Products',
     'footer.col2': 'Information',
-    'footer.copy': '© 2025 T&T Vina Industrial Co., Ltd · murrplastikvn.com',
+    'footer.copy': '© 2026 T&T Vina Industrial Co., Ltd · protools.com.vn',
     'footer.made': 'T&T Vina - Authorized Murrplastik Dealer in Vietnam',
     'footer.disclaimer': 'This website is owned and operated by T&T Vina Industrial Co., Ltd — Authorized Distributor of Murrplastik Systemtechnik GmbH (Germany) products in Vietnam. Murrplastik® is a registered trademark of Murrplastik Systemtechnik GmbH.',
+    'footer.eco.badge': 'T&T VINA EQUIPMENT DISTRIBUTION SYSTEM',
+    'footer.eco.title': 'Industrial Hub for SMT, Soldering, Screwdriving & Robotics (Protools.com.vn)',
+    'footer.eco.desc': 'In addition to Murrplastik cable management (Germany), T&T Vina is the master distributor of Hakko/Quick soldering stations, Hios electric screwdrivers, fluid dispensing robots, Zcut tape dispensers, and ESD static control devices.',
+    'footer.eco.btn': 'Explore Protools.com.vn Hub',
     'faq.tag': 'Frequently Asked Questions',
     'faq.title': 'Questions about Products & Services',
     'faq.sub': 'Quick answers to common questions about Murrplastik products and T&T Vina services.',

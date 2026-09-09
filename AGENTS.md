@@ -519,3 +519,29 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Thêm `overscroll-behavior-x: contain;` trên `.vec26-table-wrap` để thao tác vuốt ngang bảng không truyền cử chỉ ra ngoài document.
 * **Triệt Tiêu Tuyệt Đối Khe Hở Trắng Sau Footer Trên Màn Hình Điện Thoại**:
   - Áp dụng `overflow-x: clip !important; width: 100% !important; max-width: 100vw !important;` trên `html`, `body` và `footer`. Thuộc tính `clip` khóa cứng viewport không cho phép document pan ngang khi vuốt chạm, đồng thời đảm bảo footer luôn phủ kín 100% chiều ngang màn hình không để lộ nền trắng.
+
+### Rule 9.43: Quy Chuẩn Bảng HTML Đơn Báo Giá B2B Trên AdminCP & Chuẩn Hóa Thời Gian create_time (09/09/2026)
+* **Bảng Báo Giá HTML Trong CSDL (`contact_list.content`)**:
+  - Khi nhận đơn báo giá từ giỏ hàng B2B (`?tab=cart`), API [`public/api/submit_quote.php`](file:///d:/T&TVina/protools/public/api/submit_quote.php) lưu nội dung dưới dạng bảng HTML có viền nét mảnh (`border="1"`, bordercolor `#cbd5e1`), tiêu đề xám nhạt (`#f1f5f9`), căn lề chuẩn (STT/SL ở giữa, SKU font monospace màu xanh `#005BAC`, Đơn giá căn phải).
+  - Khối "Ghi chú dự án" được bọc riêng trong thẻ div viền xanh `#005BAC` nổi bật phía trên bảng.
+  - Loại bỏ hoàn toàn các ký tự phân cách ASCII kiểu cũ (`=====` và `-----`).
+  - Đầu chuỗi HTML tích hợp thẻ ẩn `<span style="display:none;">Báo giá B2B (X mục)...</span>` để hàm `strip_tags()` tại màn hình danh sách AdminCP (`admincp/#contact`) hiển thị dòng trích dẫn tóm tắt gọn gàng, không bị vỡ giao diện.
+* **Chuẩn Hóa Cột Thời Gian Gửi (`create_time`)**:
+  - Mã nguồn CMS cũ dùng hàm `format_full_time()` quy ước chuỗi 14 số dạng `YmdHis` (ví dụ `20260909233650`).
+  - Giá trị lưu vào cột `create_time` trong CSDL MariaDB phải dùng `date('YmdHis')` thay vì Unix timestamp thô `time()`, đảm bảo AdminCP hiển thị chính xác ngày giờ `HH:mm DD/MM/YYYY`.
+* **Phân Tách Nội Dung Email (@mail)**:
+  - Tách riêng `$email_body` dạng plain-text phân cấp rõ ràng theo từng thiết bị, bỏ các đường kẻ thô ráp để email gửi đến Sales (`info@t2tvina.com`) luôn sạch sẽ và chuyên nghiệp.
+
+### Rule 9.44: Quy Chuẩn Nhận Diện Tác Giả Footer Toàn Hệ Thống (10/09/2026)
+* **Đồng Bộ Dòng Credit Thiết Kế & Phát Triển**:
+  - Toàn bộ chân trang hệ thống bao gồm Cổng Mẹ ([`src/components/Footer.tsx`](file:///d:/T&TVina/protools/src/components/Footer.tsx)) và Chuyên Trang Con Murrplastik ([`public/murrplastik/index.html`](file:///d:/T&TVina/protools/public/murrplastik/index.html), tin tức, triển lãm) hiển thị đồng nhất dòng credit:
+    `Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)`
+  - Định dạng: Font monospace, cỡ chữ nhỏ gọn `11px`, màu mờ nhẹ kỹ thuật (`text-slate-500/70` hoặc `rgba(255, 255, 255, 0.45)`).
+  - Vị trí trên Chuyên trang Murrplastik: Nằm ở vị trí trung tâm trong `.footer-bottom-row` giữa bản quyền bên trái (`.footer-bottom-left`) và đại lý ủy quyền bên phải (`.footer-bottom-right`), tận dụng hoàn hảo khoảng trống ở giữa; trên màn hình điện thoại tự động chuyển `flex-direction: column` căn giữa gọn gàng.
+
+### Rule 9.45: Bảo Toàn Tính Toàn Vẹn Song Ngữ i18n Murrplastik (10/09/2026)
+* **Quy Trình Kiểm Tra i18n Trước Khi Phát Hành**:
+  - Mọi thay đổi nội dung chữ (text content), thẻ điều hướng navbar, thông tin footer hoặc các component mới trong phân vùng `public/murrplastik/` phải được khai báo song ngữ đầy đủ cả 2 từ điển `TRANSLATIONS.vi` và `TRANSLATIONS.en` trong [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js).
+  - **Cơ chế ghi đè DOM của hàm `applyTranslations()`**: Vì `i18n.js` chạy tự động khi nạp trang và đọc các thẻ có `data-i18n`, nếu giá trị trong file JS chưa được cập nhật (ví dụ key `footer.copy` còn lưu năm 2025 hoặc domain cũ `murrplastikvn.com`), script sẽ tự động ghi đè ngược lại làm mất nội dung mới trên HTML.
+  - **Chỉ số kiểm thử bắt buộc**: Số lượng key giữa tiếng Việt và tiếng Anh phải luôn đạt tỉ lệ cân bằng 100% (ví dụ: `562 VI keys = 562 EN keys`), số lượng key thiếu sót (`Missing in VI` / `Missing in EN`) phải luôn bằng `0`.
+
