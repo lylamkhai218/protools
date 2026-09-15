@@ -115,7 +115,7 @@
     "tier_title": "Volume Pricing & Procurement Tiers (B2B)",
     "tier_hint": "Click row to select quantity",
     "tier_col_qty": "Order Q'ty",
-    "tier_col_policy": "Quotation Policy",
+    "tier_col_policy": "Pricing Policy",
     "tier_col_leadtime": "Lead Time",
     "tier_p1": "Standard Quote",
     "tier_p2": "Workshop Tier Price",
@@ -133,6 +133,7 @@
     "unit_standard": "Measurement: SI Standard",
     "related_title": "Matching Ecosystem Equipment",
     "features_heading": "Advanced Features for Production Lines",
+    "accessories_heading": "Standard Included Accessories",
     "docs_heading": "Compliance Documentation & Factory Technical Support",
     "docs_sub": "Certification & Order Documents Provided:",
     "doc_1": "Full legal Certificate of Origin (CO) from authorized makers.",
@@ -143,7 +144,11 @@
     "cross_ref_heading": "Cross-Reference & Compatible Accessories",
     "view_all_devices": "View All Devices",
     "detail_btn": "Details",
-    "quote_btn": "Quote"
+    "quote_btn": "Quote",
+    "tier_table_title": "B2B Volume Tier Pricing (Misumi Standard)",
+    "tier_click_hint": "Click row to select quantity",
+    "vinfast_case_study": "The Murrplastik R-Tec Liner system has been installed and proven for 24/7 reliable operation on ABB welding robots at the Body Shop of the VinFast Cat Hai Automotive Plant, Hai Phong.",
+    "view_auto_solution": "View Automotive Industry Solutions"
   },
   "contact_widget": {
     "btn_main": "Contact",

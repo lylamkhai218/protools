@@ -114,8 +114,8 @@
     "origin_prefix": "原产国:",
     "tier_title": "B2B 采购阶梯数量与批量底价折扣 (MISUMI 标准)",
     "tier_hint": "点击行快速选择采购数量",
-    "tier_col_qty": "采购数量阶梯",
-    "tier_col_policy": "报价政策与折扣",
+    "tier_col_qty": "订购数量 (Q'ty)",
+    "tier_col_policy": "报价优惠政策",
     "tier_col_leadtime": "交货周期 (Lead Time)",
     "tier_p1": "标准样品单报价",
     "tier_p2": "车间批量优惠底价",
@@ -133,6 +133,7 @@
     "unit_standard": "测量单位标准: 国际标准单位 (SI)",
     "related_title": "配套工程技术生态推荐设备",
     "features_heading": "面向自动化生产线的高级工业特性",
+    "accessories_heading": "出厂标准配置与随机配件清单",
     "docs_heading": "产品合规证明文件与原厂技术支持",
     "docs_sub": "随订单提供的出厂认证与合规文件:",
     "doc_1": "原厂出具的合法原产地证明书 (CO)。",
@@ -143,7 +144,11 @@
     "cross_ref_heading": "同等规格设备与原厂配套附件",
     "view_all_devices": "查看全部工业设备",
     "detail_btn": "详情",
-    "quote_btn": "询价"
+    "quote_btn": "询价",
+    "tier_table_title": "批量采购阶梯报价政策 (B2B Tiers)",
+    "tier_click_hint": "点击选择采购阶梯数量",
+    "vinfast_case_study": "Murrplastik R-Tec Liner 机器人管线回位系统已在越南海防吉海 VinFast 汽车整车制造总装焊装车间 (Body Shop) ABB 六轴点焊机器人上成功装机并经过 24/7 严苛工业可靠性验证。",
+    "view_auto_solution": "查看汽车制造行业完整解决方案"
   },
   "contact_widget": {
     "btn_main": "联系我们",
