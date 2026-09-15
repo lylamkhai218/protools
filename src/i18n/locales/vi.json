@@ -133,6 +133,7 @@
     "unit_standard": "Đơn vị đo lường: SI Standard",
     "related_title": "Thiết Bị Cùng Hệ Sinh Thái Kỹ Thuật",
     "features_heading": "Tính Năng Nâng Cao Cho Dây Chuyền Sản Xuất",
+    "accessories_heading": "Phụ Kiện Tiêu Chuẩn Đi Kèm",
     "docs_heading": "Hồ Sơ Chứng Từ Hàng Hóa & Dịch Vụ Kỹ Thuật Nhà Máy",
     "docs_sub": "Chứng Nhận Hàng Hóa & Chứng Từ Cung Cấp Kèm Đơn Hàng:",
     "doc_1": "Có đầy đủ chứng từ xuất xứ và nguồn gốc hàng hóa hợp pháp (CO).",
@@ -143,7 +144,11 @@
     "cross_ref_heading": "Thiết Bị Tương Đương & Phụ Kiện Đồng Bộ",
     "view_all_devices": "Xem tất cả thiết bị",
     "detail_btn": "Chi tiết",
-    "quote_btn": "Báo Giá"
+    "quote_btn": "Báo Giá",
+    "tier_table_title": "Khung Số Lượng & Chính Sách Báo Giá (B2B Tiers)",
+    "tier_click_hint": "Click chọn số lượng",
+    "vinfast_case_study": "Hệ thống R-Tec Liner của Murrplastik đã được lắp đặt thực tế và chứng minh hiệu quả vận hành bền bỉ 24/7 trên các dàn robot hàn ABB tại xưởng hàn thân xe (Body Shop) Tổ hợp Nhà máy Ô tô VinFast Cát Hải, Hải Phòng.",
+    "view_auto_solution": "Xem Chi Tiết Giải Pháp Ngành Ô Tô"
   },
   "contact_widget": {
     "btn_main": "Liên Hệ",

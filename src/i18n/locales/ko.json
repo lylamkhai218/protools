@@ -114,9 +114,9 @@
     "origin_prefix": "원산지:",
     "tier_title": "B2B 수량별 단가 정책 (미스미 표준)",
     "tier_hint": "행을 클릭하여 수량 선택",
-    "tier_col_qty": "주문 수량",
-    "tier_col_policy": "견적 정책",
-    "tier_col_leadtime": "납기 일정 (Lead Time)",
+    "tier_col_qty": "주문 수량 (Q'ty)",
+    "tier_col_policy": "단가 정책",
+    "tier_col_leadtime": "납기 (Lead Time)",
     "tier_p1": "표준 샘플 견적",
     "tier_p2": "공장 라인 특가",
     "tier_p3": "대량 프로젝트 견적",
@@ -133,6 +133,7 @@
     "unit_standard": "측정 단위: SI 표준",
     "related_title": "엔지니어링 연계 추천 장비",
     "features_heading": "생산 라인을 위한 고급 산업 기능",
+    "accessories_heading": "공장 출하 기본 포함 표준 액세서리",
     "docs_heading": "제품 적합성 증빙 서류 및 공장 기술 지원",
     "docs_sub": "주문과 함께 제공되는 공식 인증 및 서류:",
     "doc_1": "제조사 정식 원산지 증명서 (CO) 완비.",
@@ -143,7 +144,11 @@
     "cross_ref_heading": "동급 규격 장비 및 호환 액세서리",
     "view_all_devices": "모든 장비 보기",
     "detail_btn": "상세보기",
-    "quote_btn": "견적요청"
+    "quote_btn": "견적요청",
+    "tier_table_title": "B2B 수량별 차등 단가 정책 (미스미 규격)",
+    "tier_click_hint": "수량 클릭 선택",
+    "vinfast_case_study": "Murrplastik R-Tec Liner 시스템은 베트남 하이퐁 깟하이 소재 VinFast 자동차 공장 차체 용접 라인(Body Shop) ABB 로봇에 실제 장착되어 24/7 고내구성 가동을 입증했습니다.",
+    "view_auto_solution": "자동차 산업 솔루션 보기"
   },
   "contact_widget": {
     "btn_main": "문의하기",

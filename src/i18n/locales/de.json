@@ -114,9 +114,9 @@
     "origin_prefix": "Herkunft:",
     "tier_title": "B2B-Staffelpreise & Mengenrabatte",
     "tier_hint": "Zeile anklicken zur Mengenauswahl",
-    "tier_col_qty": "Bestellmenge",
-    "tier_col_policy": "Preisstaffelung",
-    "tier_col_leadtime": "Lieferzeit",
+    "tier_col_qty": "Bestellmenge (Q'ty)",
+    "tier_col_policy": "Preispolitik",
+    "tier_col_leadtime": "Lieferzeit (Lead Time)",
     "tier_p1": "Standardangebot",
     "tier_p2": "Werkstatt-Staffelpreis",
     "tier_p3": "Projekt-Großmengenrabatt",
@@ -133,6 +133,7 @@
     "unit_standard": "Messeinheit: SI-Standard",
     "related_title": "Passende Systemausrüstung",
     "features_heading": "Erweiterte Funktionen für Fertigungslinien",
+    "accessories_heading": "Standardmäßig enthaltenes Zubehör",
     "docs_heading": "Konformitätsdokumente & technischer Werkssupport",
     "docs_sub": "Mitgelieferte Konformitäts- & Auftragsdokumente:",
     "doc_1": "Vollständiges legales Ursprungszeugnis (CO) des Herstellers.",
@@ -143,7 +144,11 @@
     "cross_ref_heading": "Vergleichbare Geräte & passendes Zubehör",
     "view_all_devices": "Alle Geräte anzeigen",
     "detail_btn": "Details",
-    "quote_btn": "Anfrage"
+    "quote_btn": "Anfrage",
+    "tier_table_title": "B2B-Mengenstaffelpreise (Misumi-Standard)",
+    "tier_click_hint": "Klicken zur Mengenauswahl",
+    "vinfast_case_study": "Das R-Tec Liner System von Murrplastik ist im Karosseriebau (Body Shop) des VinFast-Automobilwerks Cat Hai (Hai Phong) auf ABB-Schweißrobotern im industriellen 24/7-Dauereinsatz erfolgreich erprobt.",
+    "view_auto_solution": "Automotive-Lösungen ansehen"
   },
   "contact_widget": {
     "btn_main": "Kontakt",

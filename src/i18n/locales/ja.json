@@ -114,9 +114,9 @@
     "origin_prefix": "原産国:",
     "tier_title": "B2B 数量別価格体系 (MISUMI準拠)",
     "tier_hint": "行をクリックして数量指定",
-    "tier_col_qty": "発注数量",
-    "tier_col_policy": "見積ポリシー",
-    "tier_col_leadtime": "納期 (Lead Time)",
+    "tier_col_qty": "発注数量（Q'ty）",
+    "tier_col_policy": "価格ポリシー",
+    "tier_col_leadtime": "納期（リードタイム）",
     "tier_p1": "標準サンプル見積",
     "tier_p2": "製造ライン割引単価",
     "tier_p3": "大口プロジェクト特値",
@@ -133,6 +133,7 @@
     "unit_standard": "測定単位規格: 国際単位系 (SI)",
     "related_title": "連携エンジニアリング推奨機器",
     "features_heading": "生産ライン向け高度産業仕様",
+    "accessories_heading": "工場標準付属アクセサリ・構成品",
     "docs_heading": "製品適合証明書類＆工場技術サポート",
     "docs_sub": "納品時に付属する適合証明書類一覧:",
     "doc_1": "正規メーカー発行の原産地証明書 (CO) 完備。",
@@ -143,7 +144,11 @@
     "cross_ref_heading": "同等仕様機器および適合アクセサリ",
     "view_all_devices": "すべての機器を見る",
     "detail_btn": "詳細",
-    "quote_btn": "見積"
+    "quote_btn": "見積",
+    "tier_table_title": "B2B 数量別価格ポリシー（ミスミ規格準拠）",
+    "tier_click_hint": "クリックして数量を選択",
+    "vinfast_case_study": "Murrplastik 製 R-Tec Liner システムは、ベトナム・ハイフォンにある VinFast 自動車工場車体溶接工場（Body Shop）の ABB 溶接ロボット群にて 24 時間 365 日の実稼働実績を確立しています。",
+    "view_auto_solution": "自動車産業向けソリューションを見る"
   },
   "contact_widget": {
     "btn_main": "お問い合わせ",

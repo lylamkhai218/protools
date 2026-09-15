@@ -280,7 +280,7 @@ export default function ProductDetail({
                     </span>
                   </div>
                   <p className="text-xs text-slate-200 leading-relaxed">
-                    Hệ thống <strong>R-Tec Liner</strong> của Murrplastik đã được lắp đặt thực tế và chứng minh hiệu quả vận hành bền bỉ 24/7 trên các dàn robot hàn ABB tại xưởng hàn thân xe (Body Shop) Tổ hợp Nhà máy Ô tô VinFast Cát Hải, Hải Phòng.
+                    {t('product_detail.vinfast_case_study')}
                   </p>
                   <div className="pt-1">
                     <a
@@ -289,7 +289,7 @@ export default function ProductDetail({
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xs bg-white text-[#00478D] hover:bg-amber-50 font-display font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs cursor-pointer"
                     >
-                      <span>Xem Chi Tiết Giải Pháp Ngành Ô Tô</span>
+                      <span>{t('product_detail.view_auto_solution')}</span>
                       <ExternalLink className="w-3.5 h-3.5 text-[#00478D]" />
                     </a>
                   </div>
@@ -301,17 +301,17 @@ export default function ProductDetail({
                 <div className="p-2.5 bg-slate-100 border-b border-slate-200 flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
                     <Tag className="w-3.5 h-3.5 text-[#00478D]" />
-                    <span>Khung Số Lượng & Chính Sách Báo Giá (B2B Tiers)</span>
+                    <span>{t('product_detail.tier_table_title')}</span>
                   </span>
-                  <span className="text-[10px] text-slate-500 font-medium">Click chọn số lượng</span>
+                  <span className="text-[10px] text-slate-500 font-medium">{t('product_detail.tier_click_hint')}</span>
                 </div>
                 
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
                     <tr className="bg-slate-50/80 border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500">
-                      <th className="p-2.5 pl-3">Số Lượng Đặt (Q'ty)</th>
-                      <th className="p-2.5">Chính Sách Báo Giá</th>
-                      <th className="p-2.5 pr-3 text-right">Thời Gian Giao (Lead Time)</th>
+                      <th className="p-2.5 pl-3">{t('product_detail.tier_col_qty')}</th>
+                      <th className="p-2.5">{t('product_detail.tier_col_policy')}</th>
+                      <th className="p-2.5 pr-3 text-right">{t('product_detail.tier_col_leadtime')}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-xs">
@@ -346,10 +346,10 @@ export default function ProductDetail({
               {/* Core Highlights */}
               <div className="space-y-2 bg-slate-50 p-3.5 rounded-xs border border-slate-200/80">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                  Tiêu Chuẩn Nhà Máy SMT & Lắp Ráp
+                  {t('product_detail.highlights_title')}
                 </span>
                 <ul className="space-y-1.5 text-xs text-slate-700">
-                  {(product.highlights || [
+                  {(p.highlights || [
                     'Sản phẩm công nghiệp chính xác cao tiêu chuẩn nhà máy',
                     'Có đầy đủ chứng từ hàng hóa và bảo hành chính hãng',
                     'Hỗ trợ kỹ thuật lắp đặt & hướng dẫn vận hành'
@@ -572,7 +572,7 @@ export default function ProductDetail({
                   <div className="space-y-3 pt-6 border-t border-slate-200">
                     <h4 className="font-display text-base font-bold uppercase text-[#0F172A] flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#00478D]"></span>
-                      <span>Phụ Kiện Tiêu Chuẩn Đi Kèm (Standard Included Accessories)</span>
+                      <span>{t('product_detail.accessories_heading')}</span>
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                       {p.includedAccessories.map((acc, i) => (

@@ -590,4 +590,24 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Mở rộng từ điển `SPEC_KEY_TRANSLATIONS` dịch chuẩn xác 8 thông số kỹ thuật mới: Công suất định mức, Công nghệ gia nhiệt, Dải nhiệt độ cài đặt, Độ ổn định nhiệt độ, Điện áp hoạt động, Điện trở nối đất đầu mỏ hàn, Điện áp rò đầu mỏ hàn, Tiêu chuẩn chống tĩnh điện.
   - Tối ưu hóa giao diện [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx): Tự động in đậm tiền tố tính năng khi có dấu hai chấm `:`, và hiển thị khối riêng lưới "Phụ Kiện Tiêu Chuẩn Đi Kèm (Standard Included Accessories)" gồm 7 thành phần chi tiết của trạm hàn QUICK 205.
 
-
+### Rule 9.49: Quy Chuẩn Tự Động Hóa Quản Trị Danh Mục & Bản Địa Hóa Sâu Toàn Diện (Catalog Automation & Deep Localization - 15/09/2026)
+* **Đóng Gói Kỹ Năng Quản Trị Danh Mục Hàng Loạt (Skill `protools-catalog-manager`)**:
+  - Mã nguồn thực thi: [`scripts/catalog_manager.py`](file:///d:/T&TVina/protools/scripts/catalog_manager.py).
+  - Lệnh CLI tự động hóa trong `package.json`:
+    - `pnpm catalog:add --input path/to/products.json`: Tự động thêm 1 hoặc N sản phẩm hàng loạt.
+    - `pnpm catalog:audit`: Quét toàn bộ danh mục, đối soát ảnh hỏng, kiểm tra 100% độ phủ dịch thuật thông số kỹ thuật.
+  - Quy trình xử lý tự động khép kín (End-to-End Pipeline):
+    1. Nhận danh sách N sản phẩm từ file JSON.
+    2. Đọc ảnh gốc từ đường dẫn máy nội bộ (local asset), tối ưu hóa nén chuẩn WebP chất lượng cao (PIL Pillow, quality 85) lưu vào `public/images/products/<slug>.webp`.
+    3. Tự động sinh dữ liệu dịch thuật B2B sang đầy đủ 7 ngôn ngữ (`vi`, `en`, `zh-CN`, `de`, `ko`, `ja`, `th`).
+    4. Ghi nối tiếp an toàn vào `PRODUCTS` trong [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) và cập nhật từ điển [`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts).
+    5. Tự động chạy `pnpm build` xác thực TypeScript và bundling trước khi hoàn tất.
+* **Bản Địa Hóa Sâu 100% Cột 1 & Cột 2 Bảng Thông Số Kỹ Thuật (Spec-Sheet Full Parity)**:
+  - Bổ sung toàn bộ 13 khóa thông số kỹ thuật còn thiếu vào `SPEC_KEY_TRANSLATIONS`: Chương trình lập trình hẹn giờ, Chức năng, Dự án tiêu biểu, Kích thước (D x R x C), Lượng keo tối thiểu, Model, Trọng lượng, Áp suất khí ra, Áp suất khí vào, Điện áp đầu ra, Điện áp đầu vào, Độ bền uốn, Ứng dụng Robot.
+  - Chuẩn hóa từ điển `COMMON_VALUE_TRANSLATIONS` cho 100% các giá trị văn bản kỹ thuật xuất hiện trong catalog: Nhà sản xuất, Xuất xứ, Trạng thái kho, Thiết bị phụ trợ, Robot hàn ABB/KUKA, Dự án Body Shop VinFast Cát Hải, v.v. Các đơn vị đo lường quốc tế (W, V, Hz, bar, ml, s, g, °C, Ω, mV) được giữ nguyên chuẩn kỹ thuật toàn cầu.
+* **Bản Địa Hóa Toàn Diện Tính Năng & Phụ Kiện Tiêu Chuẩn (Features & Accessories)**:
+  - Chuẩn hóa toàn bộ 16 điểm nổi bật (`ALL_HIGHLIGHTS_TRANSLATIONS`) và 7 phụ kiện tiêu chuẩn (`ALL_ACCESSORIES_TRANSLATIONS`) sang 7 ngôn ngữ.
+  - Nâng cấp `translateFeatureItem()` và `translateAccessoryItem()` xử lý trơn tru các chuỗi tính năng dạng tiền tố `Tiền_tố: Diễn_giải`.
+  - Loại bỏ hoàn toàn fallback tiếng Việt hoặc mảng tính năng mẫu chung chung, bảo toàn nội dung kỹ thuật chi tiết của từng sản phẩm.
+* **Bản Địa Hóa Giao Diện B2B Misumi Pricing Tiers & Case Study Banner**:
+  - Tại [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx), chuyển đổi toàn bộ tiêu đề, nhãn bảng bậc giá số lượng B2B (Q'ty, Pricing Policy, Lead Time, Click hint) và thông điệp chứng thực dự án VinFast Body Shop sang hàm `t()` đa ngôn ngữ.
