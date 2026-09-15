@@ -626,6 +626,14 @@ export const PRODUCT_NAME_TRANSLATIONS: Record<string, Partial<Record<SupportedL
     ja: "Murrplastik mp-LM 1 産業用高精度レーザーマーキングシステム",
     th: "ระบบพิมพ์มาร์กเกอร์เลเซอร์อุตสาหกรรม mp-LM 1 Murrplastik",
   },
+  "QUICK-205": {
+    en: "QUICK 205 High-Frequency ESD Lead-Free Soldering Station (150W)",
+    "zh-CN": "QUICK 快克 205 高频涡流无铅防静电焊台 (150W)",
+    de: "QUICK 205 Hochfrequenz-ESD-Bleifreie Lötstation (150W)",
+    ko: "QUICK 205 고주파 ESD 무연 납땜 인두기 스테이션 (150W)",
+    ja: "QUICK 205 高周波ESD鉛フリーはんだステーション (150W)",
+    th: "สถานีบัดกรีความถี่สูง ESD ไร้สารตะกั่ว QUICK 205 (150W)",
+  },
 };
 
 export const CATEGORY_TRANSLATIONS: Record<string, Record<SupportedLocale, string>> = {
@@ -757,6 +765,78 @@ export const SPEC_KEY_TRANSLATIONS: Record<string, Record<SupportedLocale, strin
     ko: "재고 상태",
     ja: "在庫状況",
     th: "สถานะสต็อก"
+  },
+  "Công suất định mức": {
+    vi: "Công suất định mức",
+    en: "Rated Power",
+    "zh-CN": "额定功率",
+    de: "Nennleistung",
+    ko: "정격 소비전력",
+    ja: "定格消費電力",
+    th: "กำลังไฟพิกัด"
+  },
+  "Công nghệ gia nhiệt": {
+    vi: "Công nghệ gia nhiệt",
+    en: "Heating Technology",
+    "zh-CN": "发热方式",
+    de: "Heiztechnologie",
+    ko: "가열 방식",
+    ja: "加熱方式",
+    th: "เทคโนโลยีการทำความร้อน"
+  },
+  "Dải nhiệt độ cài đặt": {
+    vi: "Dải nhiệt độ cài đặt",
+    en: "Temperature Range",
+    "zh-CN": "温度设定范围",
+    de: "Temperaturbereich",
+    ko: "온도 설정 범위",
+    ja: "設定温度範囲",
+    th: "ช่วงอุณหภูมิที่ตั้งค่า"
+  },
+  "Độ ổn định nhiệt độ": {
+    vi: "Độ ổn định nhiệt độ",
+    en: "Temperature Stability",
+    "zh-CN": "温度稳定性",
+    de: "Temperaturstabilität",
+    ko: "온도 안정도",
+    ja: "温度安定度",
+    th: "ความเสถียรของอุณหภูมิ"
+  },
+  "Điện áp hoạt động": {
+    vi: "Điện áp hoạt động",
+    en: "Operating Voltage",
+    "zh-CN": "工作电压",
+    de: "Betriebsspannung",
+    ko: "동작 전압",
+    ja: "動作電圧",
+    th: "แรงดันไฟฟ้าใช้งาน"
+  },
+  "Điện trở nối đất đầu mỏ hàn": {
+    vi: "Điện trở nối đất đầu mỏ hàn",
+    en: "Tip to Ground Resistance",
+    "zh-CN": "烙铁头接地电阻",
+    de: "Erdimpedanz der Lötspitze",
+    ko: "팁 접지 저항",
+    ja: "こて先接地抵抗",
+    th: "ความต้านทานกราวด์ของปลายหัวแร้ง"
+  },
+  "Điện áp rò đầu mỏ hàn": {
+    vi: "Điện áp rò đầu mỏ hàn",
+    en: "Tip to Ground Potential",
+    "zh-CN": "烙铁头漏电电压",
+    de: "Ableitspannung der Lötspitze",
+    ko: "팁 누설 전압",
+    ja: "こて先漏れ電圧",
+    th: "แรงดันไฟฟ้ารั่วที่ปลายหัวแร้ง"
+  },
+  "Tiêu chuẩn chống tĩnh điện": {
+    vi: "Tiêu chuẩn chống tĩnh điện",
+    en: "ESD Standard",
+    "zh-CN": "防静电标准",
+    de: "ESD-Schutzstandard",
+    ko: "정전기 방지 표준",
+    ja: "ESD静電気規格",
+    th: "มาตรฐานป้องกันไฟฟ้าสถิต"
   }
 };
 
