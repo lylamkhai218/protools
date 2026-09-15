@@ -356,7 +356,16 @@ export default function ProductDetail({
                   ]).map((hl, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#00478D] shrink-0 mt-0.5" />
-                      <span className="leading-snug">{hl}</span>
+                      <span className="leading-snug">
+                        {hl.includes(': ') ? (
+                          <>
+                            <strong className="font-semibold text-slate-900">{hl.split(': ')[0]}:</strong>{' '}
+                            <span>{hl.split(': ').slice(1).join(': ')}</span>
+                          </>
+                        ) : (
+                          hl
+                        )}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -536,7 +545,7 @@ export default function ProductDetail({
                     {t('product_detail.features_heading')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {(p.highlights || [
+                    {(p.features || p.highlights || [
                       'Hoạt động bền bỉ 24/7 trong môi trường sản xuất công nghiệp',
                       'Độ chính xác và độ lặp lại cao theo tiêu chuẩn quốc tế',
                       'Dễ dàng tích hợp vào hệ thống dây chuyền tự động hóa',
@@ -544,11 +553,37 @@ export default function ProductDetail({
                     ]).map((feat, i) => (
                       <div key={i} className="p-4 rounded-xs bg-slate-50 border border-slate-200 flex items-start gap-3">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="text-xs text-slate-700 leading-relaxed">{feat}</span>
+                        <span className="text-xs text-slate-700 leading-relaxed">
+                          {feat.includes(': ') ? (
+                            <>
+                              <strong className="font-semibold text-slate-900 block mb-0.5">{feat.split(': ')[0]}</strong>
+                              <span>{feat.split(': ').slice(1).join(': ')}</span>
+                            </>
+                          ) : (
+                            feat
+                          )}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
+
+                {p.includedAccessories && p.includedAccessories.length > 0 && (
+                  <div className="space-y-3 pt-6 border-t border-slate-200">
+                    <h4 className="font-display text-base font-bold uppercase text-[#0F172A] flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#00478D]"></span>
+                      <span>Phụ Kiện Tiêu Chuẩn Đi Kèm (Standard Included Accessories)</span>
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {p.includedAccessories.map((acc, i) => (
+                        <div key={i} className="p-3.5 rounded-xs bg-slate-50 border border-slate-200 flex items-center gap-2.5 hover:border-slate-300 transition-colors">
+                          <CheckCircle2 className="w-4 h-4 text-[#00478D] shrink-0" />
+                          <span className="text-xs text-slate-800 font-medium leading-tight">{acc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 

@@ -575,3 +575,19 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     - Màn hình Điện thoại (`< sm`): Chỉ hiển thị DUY NHẤT 1 ô toggle gọn nhẹ `<LanguageSwitcher variant="utility" />` (`sm:hidden`).
   - Đảm bảo trên mọi độ phân giải màn hình (desktop, tablet, mobile) luôn luôn chỉ tồn tại đúng 1 bộ chuyển đổi ngôn ngữ duy nhất.
 
+### Rule 9.48: Quy Chuẩn Tích Hợp Sản Phẩm Thiết Bị Hàn QUICK 205 & Bảng Phụ Kiện Tiêu Chuẩn (15/09/2026)
+* **Thông Tin Kỹ Thuật Sản Phẩm QUICK 205**:
+  - Mã định danh (ID): `QUICK-205` / SKU: `TTV-QUI-205`.
+  - Tên thiết bị: `Trạm hàn cao tần QUICK 205 ESD (150W)`.
+  - Hãng sản xuất: `QUICK (Phân phối chính hãng)` - Danh mục: `Thiết bị hàn công nghiệp / Trạm hàn ESD` (`categorySlug: 'thiet-bi-han'`).
+  - Xuất xứ: `Chính Hãng` · Trạng thái: `Sẵn hàng tại kho Hà Nội & Hưng Yên`.
+  - Công nghệ & Công suất: Gia nhiệt xoáy cao tần (High-Frequency Eddy Current Heating) 150W bù nhiệt siêu tốc, dải nhiệt 200°C ~ 600°C, độ ổn định ±2°C, điện áp 220V AC / 50Hz, điện trở nối đất < 2Ω, điện áp rò < 2mV, đạt chuẩn chống tĩnh điện ESD Safe.
+* **Tài Nguyên Hình Ảnh Studio Thực Tế**:
+  - Nguồn ảnh gốc: `D:\Design_hub\01_BRANDS\TT_VINA\ASSETS\1_thiết_bị_hàn_ESD_QUICK_205.png`.
+  - Đã sao lưu và tối ưu vào: `public/images/products/quick-205.png` (bản gốc studio trong suốt) và `public/images/products/quick-205.webp` (bản WebP 259KB).
+* **Bản Địa Hóa Đa Ngôn Ngữ & Nâng Cấp Giao Diện B2B**:
+  - Cập nhật bản dịch tên máy đa ngôn ngữ sang 6 thứ tiếng trong `PRODUCT_NAME_TRANSLATIONS` ([`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts)).
+  - Mở rộng từ điển `SPEC_KEY_TRANSLATIONS` dịch chuẩn xác 8 thông số kỹ thuật mới: Công suất định mức, Công nghệ gia nhiệt, Dải nhiệt độ cài đặt, Độ ổn định nhiệt độ, Điện áp hoạt động, Điện trở nối đất đầu mỏ hàn, Điện áp rò đầu mỏ hàn, Tiêu chuẩn chống tĩnh điện.
+  - Tối ưu hóa giao diện [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx): Tự động in đậm tiền tố tính năng khi có dấu hai chấm `:`, và hiển thị khối riêng lưới "Phụ Kiện Tiêu Chuẩn Đi Kèm (Standard Included Accessories)" gồm 7 thành phần chi tiết của trạm hàn QUICK 205.
+
+

@@ -110,7 +110,7 @@ export const PARTNERS: Partner[] = [
     logoText: 'QUICK', 
     country: 'Chính Hãng', 
     category: 'Máy hàn & Thiết bị đo nhiệt độ mỏ hàn',
-    description: 'Dòng máy hàn cao tần và nhiệt kế đo mỏ hàn Quick 191AD/196 phổ biến trong các nhà máy SMT.',
+    description: 'Dòng máy hàn cao tần Quick 205 (150W), nhiệt kế đo mỏ hàn Quick 191AD/196 phổ biến trong các nhà máy SMT.',
     brandColor: '#FF6600',
     hoverBorderClass: 'hover:border-[#FF6600]',
     hoverBgClass: 'hover:bg-orange-50/60',
@@ -160,12 +160,12 @@ export const SOLUTIONS: Solution[] = [
     id: 'thiet-bi-han',
     title: 'THIẾT BỊ HÀN & BỂ HÀN THIẾC',
     subtitle: 'Soldering Stations & Robotic Soldering',
-    desc: 'Robot hàn tự động 3-6 trục, máy hàn Hakko 936, máy hàn Quick, bể hàn thiếc CM-508 / CM-808 và phụ kiện mũi hàn.',
+    desc: 'Robot hàn tự động 3-6 trục, trạm hàn cao tần Quick 205, máy hàn Hakko 936, bể hàn thiếc CM-508 / CM-808 và phụ kiện mũi hàn.',
     iconName: 'Zap',
     tag: 'Hakko / Quick / CM',
     badge: 'Chính Hãng',
     bgGradient: 'from-blue-50 to-indigo-50/40',
-    featuredProductsCount: 15,
+    featuredProductsCount: 16,
     standards: ['Đầy đủ chứng từ hàng hóa', 'Có bảo hành chính hãng', 'Sẵn hàng kho']
   },
   {
@@ -725,6 +725,63 @@ export const PRODUCTS: Product[] = [
       "Mã sản phẩm (ID)": "1043",
       "Chuyên mục": "Bể hàn thiếc",
       "Xuất xứ": "Chính Hãng",
+      "Tình trạng": "Sẵn hàng tại kho"
+    }
+  },
+  {
+    "id": "QUICK-205",
+    "name": "Trạm hàn cao tần QUICK 205 ESD (150W)",
+    "sku": "TTV-QUI-205",
+    "brand": "Quick",
+    "category": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
+    "categorySlug": "thiet-bi-han",
+    "origin": "Chính Hãng",
+    "image": `${import.meta.env.BASE_URL}images/products/quick-205.png`,
+    "images": [
+      `${import.meta.env.BASE_URL}images/products/quick-205.png`,
+      `${import.meta.env.BASE_URL}images/products/quick-205.webp`
+    ],
+    "stock": 50,
+    "stockStatus": "In Stock",
+    "stockLocation": "Kho Hà Nội & Hưng Yên",
+    "price": "Liên hệ Báo giá",
+    "shortDesc": "Trạm hàn cao tần QUICK 205 công suất 150W chuyên dụng cho dây chuyền SMT và sản xuất điện tử công nghiệp. Ứng dụng công nghệ gia nhiệt xoáy cao tần (Eddy Current) bù nhiệt tức thì, dải nhiệt 200°C ~ 600°C, khóa nhiệt bảo vệ mật khẩu và chế độ ngủ Auto Sleep đạt chuẩn ESD Safe.",
+    "highlights": [
+      "100% Chính hãng, có đầy đủ chứng từ hàng hóa: Đầy đủ giấy tờ thủ tục, hóa đơn, cam kết bảo vệ dây chuyền lắp ráp điện tử đạt chuẩn xuất khẩu.",
+      "Độ bền cao, hoạt động ổn định trong dây chuyền sản xuất công nghiệp 24/7: Gia nhiệt cao tần tốc độ cao, khả năng bù nhiệt tức thì khi tiếp xúc mối hàn lớn/mối hàn không chì (Lead-free).",
+      "Hỗ trợ kỹ thuật lắp đặt và giao hàng nhanh tại các KCN trên toàn quốc: Hỗ trợ kiểm tra điện áp rò/nối đất định kỳ, sẵn linh kiện thay thế (đầu tip, sensor nhiệt).",
+      "Kiểm soát nhiệt chuẩn xác & Khóa nhiệt an toàn: Hỗ trợ khóa thông số cài đặt bằng mật khẩu, tránh công nhân tự ý thay đổi dải nhiệt trên dây chuyền.",
+      "Chế độ ngủ thông minh (Auto Sleep / Auto Power-off): Tự động hạ nhiệt khi đặt tay hàn vào giá đỡ, kéo dài tuổi thọ đầu mút hàn và tiết kiệm điện năng."
+    ],
+    "features": [
+      "100% Chính hãng, có đầy đủ chứng từ hàng hóa: Đầy đủ giấy tờ thủ tục, hóa đơn, cam kết bảo vệ dây chuyền lắp ráp điện tử đạt chuẩn xuất khẩu.",
+      "Độ bền cao, hoạt động ổn định trong dây chuyền sản xuất công nghiệp 24/7: Gia nhiệt cao tần tốc độ cao, khả năng bù nhiệt tức thì khi tiếp xúc mối hàn lớn/mối hàn không chì (Lead-free).",
+      "Hỗ trợ kỹ thuật lắp đặt và giao hàng nhanh tại các KCN trên toàn quốc: Hỗ trợ kiểm tra điện áp rò/nối đất định kỳ, sẵn linh kiện thay thế (đầu tip, sensor nhiệt).",
+      "Kiểm soát nhiệt chuẩn xác & Khóa nhiệt an toàn: Hỗ trợ khóa thông số cài đặt bằng mật khẩu, tránh công nhân tự ý thay đổi dải nhiệt trên dây chuyền.",
+      "Chế độ ngủ thông minh (Auto Sleep / Auto Power-off): Tự động hạ nhiệt khi đặt tay hàn vào giá đỡ, kéo dài tuổi thọ đầu mút hàn và tiết kiệm điện năng."
+    ],
+    "includedAccessories": [
+      "Thân máy trạm hàn QUICK 205 ESD (150W)",
+      "Tay hàn cao tần kèm dây chịu nhiệt khóa xoay 5 chân",
+      "Mũi hàn cao tần tiêu chuẩn chính hãng",
+      "Giá để tay hàn chống tĩnh điện bằng hợp kim đúc",
+      "Miếng bọt biển chịu nhiệt làm sạch đầu mũi hàn (Clean Sponge)",
+      "Dây nối đất tiếp địa an toàn chống tĩnh điện",
+      "Sách hướng dẫn vận hành & Chứng từ chứng nhận chính hãng"
+    ],
+    "specs": {
+      "Hãng sản xuất": "QUICK (Phân phối chính hãng)",
+      "Mã sản phẩm (ID)": "QUICK 205",
+      "Chuyên mục": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
+      "Công suất định mức": "150W",
+      "Công nghệ gia nhiệt": "Gia nhiệt cao tần (High-Frequency Eddy Current Heating)",
+      "Dải nhiệt độ cài đặt": "200°C ~ 600°C",
+      "Độ ổn định nhiệt độ": "±2°C (ở trạng thái không tải)",
+      "Điện áp hoạt động": "220V AC / 50Hz",
+      "Điện trở nối đất đầu mỏ hàn": "< 2Ω",
+      "Điện áp rò đầu mỏ hàn": "< 2mV",
+      "Tiêu chuẩn chống tĩnh điện": "ESD Safe (Bảo vệ an toàn linh kiện nhạy cảm)",
+      "Xuất xứ": "Chính hãng",
       "Tình trạng": "Sẵn hàng tại kho"
     }
   },

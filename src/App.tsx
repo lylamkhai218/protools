@@ -179,7 +179,12 @@ export default function App() {
       const tabParam = params.get('tab');
 
       if (productParam) {
-        const found = PRODUCTS.find(p => p.sku === productParam || p.id === productParam || p.sku.toLowerCase() === productParam.toLowerCase());
+        const found = PRODUCTS.find(p => 
+          p.sku === productParam || 
+          p.id === productParam || 
+          p.sku.toLowerCase() === productParam.toLowerCase() ||
+          p.id.toLowerCase() === productParam.toLowerCase()
+        );
         if (found) {
           setSelectedProduct(found);
           setCurrentTab('product-detail');
