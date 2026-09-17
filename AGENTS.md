@@ -610,4 +610,50 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Nâng cấp `translateFeatureItem()` và `translateAccessoryItem()` xử lý trơn tru các chuỗi tính năng dạng tiền tố `Tiền_tố: Diễn_giải`.
   - Loại bỏ hoàn toàn fallback tiếng Việt hoặc mảng tính năng mẫu chung chung, bảo toàn nội dung kỹ thuật chi tiết của từng sản phẩm.
 * **Bản Địa Hóa Giao Diện B2B Misumi Pricing Tiers & Case Study Banner**:
-  - Tại [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx), chuyển đổi toàn bộ tiêu đề, nhãn bảng bậc giá số lượng B2B (Q'ty, Pricing Policy, Lead Time, Click hint) và thông điệp chứng thực dự án VinFast Body Shop sang hàm `t()` đa ngôn ngữ.
+- Tại [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx), chuyển đổi toàn bộ tiêu đề, nhãn bảng bậc giá số lượng B2B (Q'ty, Pricing Policy, Lead Time, Click hint) và thông điệp chứng thực dự án VinFast Body Shop sang hàm `t()` đa ngôn ngữ.
+### Rule 9.50: Quy Chuẩn Tải Nén Ảnh WebP Đa Luồng & Bóc Tách Làm Giàu Dữ Liệu B2B Hàng Loạt (15/09/2026)
+* **Đường Ống Tải & Nén Ảnh WebP Tự Động (Multithreaded Sapo Image Pipeline)**:
+- Mã nguồn thực thi: [`scripts/download_compress_sapo_images.py`](file:///d:/T&TVina/protools/scripts/download_compress_sapo_images.py).
+- Kết quả xử lý thực tế: 6.895 / 6.895 ảnh duy nhất từ CDN Sapo được tải và nén WebP thành công 100% trong 4.5 phút (0 lỗi, tốc độ ~25.3 ảnh/giây với 20 luồng song song).
+- Chuẩn nén: WebP Quality 82, kích thước cạnh tối đa 800px (thuật toán LANCZOS), giữ nguyên kênh Alpha trong suốt. Giảm dung lượng từ ~1.5 MB xuống ~37 KB/ảnh (giảm 95%), tổng dung lượng toàn bộ 6.895 ảnh chỉ còn 256.2 MB tại [`public/images/products/sapo/`](file:///d:/T&TVina/protools/public/images/products/sapo/).
+- Bảng ánh xạ tập trung: [`public/data/sapo_image_map.json`](file:///d:/T&TVina/protools/public/data/sapo_image_map.json) map 6.897 mã SKU sang đường dẫn file WebP nội bộ.
+* **Pipeline Phân Cụm Ngành Hàng & Sinh Mô Tả Kỹ Thuật B2B (Data Enrichment Pipeline)**:
+- Mã nguồn thực thi: [`scripts/enrich_sapo_descriptions.py`](file:///d:/T&TVina/protools/scripts/enrich_sapo_descriptions.py).
+- Giải quyết triệt để vấn đề 7.477 sản phẩm (99.97%) bị trống mô tả trong kho Sapo:
+1. Tự động bóc tách thông số kỹ thuật có sẵn trong chuỗi tên: Quy cách ren (`M12x40`), đường kính ống phi (`PV12` -> 12mm), kích thước băng tải (`2008*85*2mm`), nòng và hành trình xi lanh (`MGPM32-75Z` -> nòng 32mm, hành trình 75mm), điện áp (`220V`, `24V`).
+2. Tự động phân loại vào 16 nhóm ngành hàng công nghiệp (Khí nén, Xi lanh, Mũi vít, Kim bơm keo, Bu lông, Băng tải, Cảm biến, Mũi hàn, Rơ le, v.v.).
+3. Tự động sinh đoạn văn mô tả chuẩn văn phong B2B công nghiệp kèm tình trạng tồn kho thực tế, đơn vị tính và cam kết giao hàng KCN.
+- Bộ dữ liệu hoàn chỉnh lưu độc lập tại [`public/data/sapo_products_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_products_enriched.json) và bản mẫu 25 sản phẩm tại [`public/data/sapo_sample_25_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_sample_25_enriched.json) phục vụ nghiệm thu trước khi tích hợp frontend.
+### Rule 9.51: Quy Chuẩn Nhóm Biến Thể Murrplastik (Master-Variant Matrix) & Dashboard Quản Trị Excel B2B (15/09/2026)
+* **Mô Hình Dòng Sản Phẩm Cha & Biến Thể Quy Cách (Murrplastik Variantes Standard)**:
+- Học hỏi cấu trúc chuẩn từ Murrplastik Shop (`shop.murrplastik.com`), các sản phẩm cùng loại nhưng khác kích cỡ/thông số (ví dụ: `Cút nối góc PV12`, `PV10`, `PV8`) được gom nhóm về cùng một Dòng sản phẩm cha (`Cút nối góc PV (AKS)`) với bảng ma trận biến thể (`variants` array).
+- Tự động bóc tách quy cách: Kích thước phi ống (`Phi 12 mm`), ren bu lông (`M12 x 40 mm`), kích thước 3 chiều băng tải/phíp (`2008 x 85 x 2 mm`), nòng và hành trình xi lanh (`Nòng 32mm - Hành trình 75mm`), cỡ kim keo (`16G`), v.v.
+- Xuất bản tệp dữ liệu cấu trúc: [`public/data/sapo_grouped_families.json`](file:///d:/T&TVina/protools/public/data/sapo_grouped_families.json) (8.2 MB) chứa 6.995 Master Families, mỗi family lưu trữ mã `masterId`, tên gốc, nhóm ngành, mô tả kỹ thuật đại diện, ảnh đại diện và mảng `variants` chi tiết phục vụ render tab Variantes trên giao diện web.
+* **Quy Chuẩn Bảng Tính Quản Trị Excel B2B Đa Tương Tác**:
+- Cập nhật trực tiếp trên tệp: [`Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx`](file:///d:/T&TVina/protools/Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx).
+- Cấu trúc tích hợp:
+1. **Cột D (Mô tả sản phẩm)**: Cập nhật 100% (7.479 dòng) mô tả kỹ thuật chuẩn B2B công nghiệp.
+2. **Cột 34 (Ảnh WebP Local)**: Khởi tạo 6.820 công thức `=HYPERLINK("...", "Xem Ảnh WebP (XX KB)")` cho phép click chuột trực tiếp từ Excel để mở ảnh chất lượng cao trên máy tính Windows.
+3. **Cột 35 (Dòng sản phẩm cha - Master Family)**: Phục vụ lọc nhanh nhóm sản phẩm theo họ thiết bị.
+4. **Cột 36 (Quy cách biến thể - Variant Specs)**: Bóc tách rõ kích thước/thông số cụ thể.
+5. **Cột 37 (Trạng thái sẵn kho B2B)**: Phối màu trực quan (Xanh lá `#E8F5E9` cho 1.045 mặt hàng có sẵn tồn kho; Xám nhạt `#FAFAFA` cho 6.434 mặt hàng đặt theo dự án).
+6. **Sheet `TongQuanDanhMuc`**: Bảng điều khiển KPI (Tổng SKU, Số ảnh WebP nén thành công, Số dòng sản phẩm cha, Tỷ lệ sẵn kho) kèm bảng phân bổ theo 16 nhóm ngành hàng công nghiệp.
+7. **Cố định hàng tiêu đề (Freeze Panes B2)** và bật bộ lọc tự động (**AutoFilter**) trên toàn bộ bảng tính.
+### Rule 9.52: Bài Học Nghiệp Vụ - Tuyệt Đối Không Tự Ý Suy Đoán & Gán Nhãn Hãng OEM Quốc Tế Cho Dữ Liệu Kho Sapo (16/09/2026)
+* **Sự Cố & Nhận Định Nghiệp Vụ Từ User**:
+- Bộ mẫu thử nghiệm 30 sản phẩm đối soát nguồn OEM quốc tế (SMC, Festo, Musashi, HIOS...) đã được User kiểm tra và xác nhận **không chính xác** với nguồn hàng thực tế phân phối tại kho của công ty.
+- **Nguyên nhân gốc rễ**: Các linh kiện cơ khí, khí nén trong kho Sapo (như xi lanh, cút nối, kim keo, đầu vít...) dù mang mã quy cách kích thước tương thích với tiêu chuẩn thông dụng trên thị trường nhưng thực tế được cung cấp bởi các đối tác phụ trợ nội địa (`KHOA KIM`, `LKĐT`, cơ sở gia công...) hoặc là linh kiện thay thế tương đương, không phải sản phẩm chính hãng có chứng chỉ CO/CQ của các tập đoàn quốc tế nói trên. Việc tự ý gán nhãn làm sai lệch định danh hàng hóa và tính pháp lý thương mại của T&T Vina.
+* **Hành Động Khắc Phục & Nguyên Tắc Bất Biến**:
+1. **Hủy bỏ hoàn toàn**: Đã xóa triệt để bộ tệp thử nghiệm gồm `Mau_Xac_Thuc_Mo_Ta_B2B_30_San_Pham.xlsx`, `public/data/sapo_authentic_pilot_30.json` và script `scripts/enrich_authentic_pilot.py`.
+2. **Bảo toàn dữ liệu thực tế**: Mọi mô tả, thông số và nhãn hiệu của 7.479 sản phẩm BẮT BUỘC tôn trọng 100% trường dữ liệu gốc xuất từ Sapo (nhãn hiệu `KHOA KIM`, `LKĐT`, `Techno`, hoặc để ngỏ theo phân phối T&T Vina), tuyệt đối không suy đoán nguồn gốc bên ngoài.
+3. **Bộ dữ liệu chuẩn**: Duy trì và vận hành thống nhất trên tệp Excel [`Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx`](file:///d:/T&TVina/protools/Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx) và ma trận biến thể [`public/data/sapo_grouped_families.json`](file:///d:/T&TVina/protools/public/data/sapo_grouped_families.json).
+
+### Rule 9.53: Quy Chuẩn Song Ngữ Anh - Việt & Trình Chuyển Ngữ Tự Động Hóa Ô Tô (17/09/2026)
+* **Bản Địa Hóa Toàn Diện Trang Giải Pháp Ngành Ô Tô Murrplastik (`/murrplastik/industries/san-xuat-o-to/`)**:
+  - Giao diện: Tích hợp thanh toggle song ngữ `[ VI | EN ]` với cờ Vector SVG micro chuẩn thương hiệu tại Header (`.lang-switch-group`), tuyệt đối không sử dụng emoji hệ điều hành.
+  - Từ điển i18n (`TRANSLATIONS_AUTO`): Bao phủ 100% nội dung trang gồm Header, Biên bản cuộc họp 3 bên (VinFast - Murrplastik - T&T Vina), Khảo sát sự cố đứt gãy cáp tại xưởng Body Shop, Giải pháp cải tạo Dresspack & Trục 6 Rotary Base, Bảng BOM chi tiết 2 dòng Robot ABB IRB 7600/6700, Nhật ký thi công 2 giai đoạn, Thanh so sánh ảnh trước/sau, Video Shorts thực tế, và khối giải đáp 4 câu hỏi FAQ chuẩn kỹ thuật.
+  - Tích hợp 3D WebGL Viewer: Cập nhật động dòng trạng thái tải mô hình STL và nút bấm bật/tắt xoay tự động theo ngôn ngữ đã chọn.
+  - Cơ chế đồng bộ đa kênh:
+    1. `localStorage`: Đồng bộ đồng thời cả 2 khóa `mp_lang` (nội bộ phân vùng Murrplastik) và `tt_vina_locale` (cổng mẹ T&T Vina).
+    2. URL Search Param: Hỗ trợ nạp trực tiếp qua tham số `?lang=en` hoặc `?lang=vi` và tự động cập nhật URL bằng `history.replaceState()` không tải lại trang.
+    3. Trạng thái DOM: Cập nhật đồng bộ `document.documentElement.lang` và `<title>` của trang.
