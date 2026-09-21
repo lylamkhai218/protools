@@ -952,5 +952,21 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Khối mã cấu trúc Google `JSON-LD FAQPage` được di chuyển đồng bộ liền kề phía sau `<section id="faq">`, bảo toàn 100% dữ liệu Rich Snippets phục vụ SEO.
   - Tự động kiểm chứng toàn diện qua bộ test [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) với 8/8 modules đạt chuẩn PASS.
 
-
-
+### Rule 9.60: Quy Chuẩn Cờ Hàn Quốc Chuẩn Hình Học Thái Cực (Taegeukgi), Tin Tức R-Tec Liner Trang Chủ & Tối Ưu Khoảng Cách Đọc (21/09/2026)
+* **Quy Chuẩn Hình Học Cờ Hàn Quốc Chuẩn Vector SVG (South Korea Taegeukgi Standard)**:
+  - Khung chuẩn viewBox `0 0 18 12`, tâm đối xứng tuyệt đối tại (cx, cy) = (9, 6).
+  - Vòng tròn Thái Cực (Taegeuk) chuẩn phương ngang: Bán kính lớn R = 2.6, bán kính nhỏ r = 1.3. Phần nửa trên màu đỏ (`#CD2E3A`), phần nửa dưới màu xanh dương (`#0047A0`), tiếp tuyến uốn lượn mượt mà chuẩn quốc gia, khắc phục triệt để lỗi xoay dọc 90° trước đây.
+  - Bốn quẻ Càn - Khôn - Khảm - Ly (4 Trigrams) tại 4 góc chuẩn xác (khoảng cách tâm d = 4.5, góc xoay ±56.3° vuông góc với 2 đường chéo ±33.7°):
+    - Càn (Geon - Góc trên bên trái): 3 vạch liền (☰).
+    - Khôn (Gon - Góc dưới bên phải): 3 vạch đứt (☷).
+    - Khảm (Gam - Góc trên bên phải): vạch đứt - vạch liền - vạch đứt (☵).
+    - Ly (Ri - Góc dưới bên trái): vạch liền - vạch đứt - vạch liền (☲).
+  - Đồng bộ chuẩn xác trên toàn bộ 6 tệp: [`src/components/FlagIcon.tsx`](file:///d:/T&TVina/protools/src/components/FlagIcon.tsx), [`public/murrplastik/index.html`](file:///d:/T&TVina/protools/public/murrplastik/index.html), [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js), [`public/murrplastik/tin-tuc/index.html`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/index.html), [`public/murrplastik/tin-tuc/trien-lam-vec-2026/index.html`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/trien-lam-vec-2026/index.html), [`public/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html).
+* **Đưa Tin Báo Cáo R-Tec Liner Vào Lưới Tin Tức Trang Chủ Murrplastik (`#news`)**:
+  - Thêm thẻ tin tức thứ 3 về Thử nghiệm độ bền R-Tec Liner (`murrplastik-r-tec-liner-17-trieu-chu-ky-thumbnail.webp`) vào `.home-news-grid`.
+  - Nâng cấp lưới hiển thị `.home-news-grid` từ 2 cột lên 3 cột cân đối (`grid-template-columns: repeat(3, 1fr); gap: 1.75rem;`), tự động co giãn về 1 cột trên thiết bị di động.
+* **Tinh Gọn Tiêu Đề Badge & Tối Ưu Khoảng Cách Đệm Đọc (Reading Flow & Spacing)**:
+  - Bỏ từ "BÁO CÁO" trong huy hiệu trạng thái: Chuẩn hóa thành `THỬ NGHIỆM KỸ THUẬT · 17.75M CHU KỲ` trên bài viết và 7 ngôn ngữ trong từ điển `i18n.js`.
+  - Giảm khoảng cách đệm dọc `.news-content-section` từ `4rem 0` xuống `2.25rem 0 4rem`, giảm margin đỉnh của `.tech-metric-grid` từ `2.5rem` xuống `0.75rem`, rút ngắn tổng khoảng trống đầu bài từ ~104px xuống ~48px, tạo nhịp đọc tự nhiên, liền mạch.
+* **Bộ Kiểm Thử & Kiểm Định Tự Động (9/9 Modules Passed)**:
+  - Nâng cấp [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) với Module 9 kiểm tra toàn diện hình học cờ Hàn Quốc, sự hiện diện của card tin R-Tec Liner tại trang chủ, tiêu đề badge tinh gọn và CSS padding tối ưu. 100% kiểm thử đạt chuẩn PASS.
