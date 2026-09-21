@@ -3,6 +3,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /murrplastik/
+  # 301 Redirect deprecated /products/* to interactive #products showcase
+  RewriteRule ^products(/.*)?$ /murrplastik/#products [R=301,L]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
