@@ -2543,7 +2543,7 @@ const TRANSLATIONS = {
 };
 
 const SUPPORTED_LANGS = [
-  { code: 'vi', name: 'Tiếng Việt', short: 'VI', flag: '<svg viewBox="0 0 18 12" width="18" height="12" class="flag-icon"><rect width="18" height="12" fill="#DA251D"/><polygon fill="#FFFF00" points="9,2.2 10.18,5.82 13.98,5.82 10.9,8.06 12.08,11.68 9,9.44 5.92,11.68 7.1,8.06 4.02,5.82 7.82,5.82"/></svg>' },
+  { code: 'vi', name: 'Tiếng Việt', short: 'VI', flag: '<svg viewBox="0 0 18 12" width="18" height="12" class="flag-icon"><rect width="18" height="12" fill="#DA251D"/><polygon fill="#FFFF00" points="9,2.4 9.81,4.89 12.42,4.89 10.31,6.43 11.12,8.91 9,7.38 6.88,8.91 7.69,6.43 5.58,4.89 8.19,4.89"/></svg>' },
   { code: 'en', name: 'English', short: 'EN', flag: '<svg viewBox="0 0 18 12" width="18" height="12" class="flag-icon"><clipPath id="uk-clip-mp"><rect width="18" height="12"/></clipPath><g clipPath="url(#uk-clip-mp)"><rect width="18" height="12" fill="#012169"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#FFFFFF" stroke-width="2.4"/><path d="M0,0 L18,12 M18,0 L0,12" stroke="#C8102E" stroke-width="1.2"/><path d="M9,0 V12 M0,6 H18" stroke="#FFFFFF" stroke-width="4"/><path d="M9,0 V12 M0,6 H18" stroke="#C8102E" stroke-width="2.4"/></g></svg>' },
   { code: 'de', name: 'Deutsch', short: 'DE', flag: '<svg viewBox="0 0 18 12" width="18" height="12" class="flag-icon"><rect width="18" height="4" y="0" fill="#000000"/><rect width="18" height="4" y="4" fill="#DD0000"/><rect width="18" height="4" y="8" fill="#FFCE00"/></svg>' },
   { code: 'zh-CN', name: '中文', short: 'ZH', flag: '<svg viewBox="0 0 18 12" width="18" height="12" class="flag-icon"><rect width="18" height="12" fill="#DE2910"/><polygon fill="#FFDE00" points="3,1.5 3.5,3.1 5.1,3.1 3.8,4.1 4.3,5.6 3,4.6 1.7,5.6 2.2,4.1 0.9,3.1 2.5,3.1"/><circle cx="6" cy="1.6" r="0.45" fill="#FFDE00"/><circle cx="7.2" cy="2.7" r="0.45" fill="#FFDE00"/><circle cx="7.2" cy="4.4" r="0.45" fill="#FFDE00"/><circle cx="6" cy="5.5" r="0.45" fill="#FFDE00"/></svg>' },
@@ -2552,7 +2552,21 @@ const SUPPORTED_LANGS = [
   { code: 'th', name: 'ไทย', short: 'TH', flag: '<svg viewBox="0 0 18 12" width="18" height="12" class="flag-icon"><rect width="18" height="2" y="0" fill="#A51931"/><rect width="18" height="2" y="2" fill="#F4F5F8"/><rect width="18" height="4" y="4" fill="#2D2A4A"/><rect width="18" height="2" y="8" fill="#F4F5F8"/><rect width="18" height="2" y="10" fill="#A51931"/></svg>' }
 ];
 
-let currentLang = localStorage.getItem('tt_vina_locale') || localStorage.getItem('mp_lang') || 'vi';
+// URL param ?lang= has highest priority if explicitly specified
+// Default to 'vi' (Tiếng Việt) on entry, avoiding foreign localStorage leakage
+const urlParams = new URLSearchParams(window.location.search);
+const langParam = urlParams.get('lang');
+const isHomepage = window.location.pathname.endsWith('/murrplastik') || window.location.pathname.endsWith('/murrplastik/') || window.location.pathname.endsWith('/murrplastik/index.html');
+
+let currentLang = 'vi';
+if (langParam && SUPPORTED_LANGS.some(l => l.code === langParam)) {
+  currentLang = langParam;
+} else if (!isHomepage) {
+  const sessionLang = sessionStorage.getItem('mp_user_lang');
+  if (sessionLang && SUPPORTED_LANGS.some(l => l.code === sessionLang)) {
+    currentLang = sessionLang;
+  }
+}
 
 function t(key) {
   if (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) {
@@ -2630,6 +2644,7 @@ function applyTranslations() {
 function switchLang(lang) {
   if (lang === currentLang) return;
   currentLang = lang;
+  sessionStorage.setItem('mp_user_lang', lang);
   localStorage.setItem('mp_lang', lang);
   localStorage.setItem('tt_vina_locale', lang);
   applyTranslations();
