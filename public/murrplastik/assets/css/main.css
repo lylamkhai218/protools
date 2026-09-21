@@ -762,6 +762,17 @@ footer{background:var(--dark-2);border-top:1px solid rgba(255,255,255,0.06);widt
 .footer-bottom-center{color:rgba(255,255,255,0.45);font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:-0.2px;text-align:center}
 .footer-bottom-right{color:rgba(255,255,255,0.25);font-size:12px}
 .footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:10px 2% 0;line-height:1.6;margin-top:10px}
+/* High-contrast fallback styles for footer elements */
+.footer-col{display:flex;flex-direction:column}
+.footer-logo{margin-bottom:12px}
+.footer-logo-main{font-family:var(--font-heading);font-size:20px;font-weight:800;color:#fff;letter-spacing:1px}
+.footer-logo-main span{color:var(--red)}
+.footer-logo-sub{display:block;font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,0.75);margin-top:2px}
+.footer-desc{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.75) !important;margin-bottom:14px}
+.footer-contact-info p{font-size:13px;color:rgba(255,255,255,0.8) !important;margin-bottom:6px;line-height:1.5}
+.footer-contact-info p strong{color:#fff !important}
+.footer-heading{color:#fff !important;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+
 
 /* === FAQ SECTION === */
 #faq{padding:5rem 0;background:#141414;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}

@@ -990,3 +990,24 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   3. Tài nguyên ảnh & CSS/JS (HTTP 200):
      - 100% 6 file ảnh WebP/JPG mới tải thành công (HTTP 200).
      - CSS và từ điển i18n 7 ngôn ngữ đồng bộ hoàn hảo.
+
+### Rule 9.62: Quy Chuẩn Chuẩn Hóa Footer, Bao Phủ 7 Ngôn Ngữ Bảng Thông Số Kỹ Thuật, Xóa Phân Vùng Rác & Cập Nhật Nhận Diện Bản Quyền (21/09/2026)
+* **Khắc Phục Lỗi Chữ Footer Bị Mờ & Rò Rỉ Khóa Dịch Chưa Khai Báo**:
+  - Hiện tượng: Tại bài viết `thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky`, cấu trúc footer 4 cột tùy biến dùng sai class `.footer-desc`, `.footer-logo` (chưa có CSS trên nền tối `#111111`) khiến chữ bị chìm mờ khó đọc; đồng thời gắn các khóa `footer.col_products`, `footer.col_industries`, `footer.col_links`, `footer.desc` mà trong `i18n.js` chưa khai báo, dẫn đến hiển thị chuỗi khóa thô `footer.col_links`.
+  - Khắc phục:
+    1. Chuẩn hóa đồng bộ 100% sang cấu trúc footer 3 cột tiêu chuẩn (`.footer-top`, `.footer-brand`, `.footer-tagline`, `.footer-contact-line`, `.footer-col-title`) với độ tương phản cao, chữ sáng rõ ràng.
+    2. Khai báo đầy đủ các khóa fallback (`footer.col_products`, `footer.col_industries`, `footer.col_links`, `footer.desc`) vào từ điển `i18n.js` cho cả 7 ngôn ngữ (vi, en, de, zh-CN, ko, ja, th).
+* **Bản Địa Hóa Toàn Diện 7 Ngôn Ngữ Cho Bảng Dữ Liệu Kỹ Thuật (`class="tech-table"`)**:
+  - Gắn thuộc tính `data-i18n` cho toàn bộ 8 hàng (24 ô dữ liệu) gồm mô tả giai đoạn thử nghiệm (`news.rtec.row1_desc` -> `row8_desc`), số chu kỳ chuyển động (`news.rtec.row1_cycles` -> `row8_cycles`), và trạng thái kiểm định cơ lý tính (`news.rtec.row1_status` -> `row8_status`).
+  - Tích hợp 100% bản dịch kỹ thuật cơ khí chính xác vào từ điển `public/murrplastik/assets/js/i18n.js` cho toàn bộ 7 ngôn ngữ, giải quyết triệt để vấn đề đổi ngôn ngữ nhưng bảng dữ liệu vẫn giữ nguyên tiếng Việt.
+* **Thanh Lọc Phân Vùng Rác & Chuyển Hướng 301 Deprecated Products (`/murrplastik/products/`)**:
+  - Đánh giá phân vùng: Thư mục `/murrplastik/products/` (gồm 5 file HTML: `tem-nhan-va-he-thong-dan-nhan.html`, `ong-luon-day-cap-va-phu-kien.html`...) là tệp cào dữ liệu cũ còn sót lại từ domain `murrplastikvn.com`, giao diện vỡ nát, không nằm trong kiến trúc SPA/Landing page mới.
+  - Xử lý: Xóa bỏ hoàn toàn thư mục `public/murrplastik/products/` trên kho local và dọn sạch trên máy chủ Production.
+  - Điều hướng: Bổ sung cấu hình 301 chuyển hướng trong `public/murrplastik/.htaccess`:
+    `RewriteRule ^products(/.*)?$ /murrplastik/#products [R=301,L]`
+    đưa người dùng và bot tìm kiếm về khu vực trưng bày sản phẩm tương tác hiện đại tại `#products`.
+* **Cập Nhật Nhận Diện Bản Quyền Kỹ Thuật Toàn Hệ Thống**:
+  - Đổi thông tin tác giả/phát triển toàn bộ hệ thống Protools (gồm cả website mẹ và các trang landing page con) từ `Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)` và `Thiết kế & phát triển bởi KhaiLL` thành:
+    `Developed by Mr. Kai @ T&T Vina Digital`
+  - Cập nhật đồng bộ trên: `src/components/Footer.tsx`, 7 tệp ngôn ngữ React `src/i18n/locales/*.json`, `public/murrplastik/index.html`, `public/murrplastik/tin-tuc/index.html`, `trien-lam-vec-2026/index.html`, `thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html` và từ điển `i18n.js`.
+
