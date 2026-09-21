@@ -312,6 +312,39 @@ def test_korean_flag_and_news_updates():
     assert 'padding: 2.25rem 0 4rem;' in css or 'padding:2.25rem 0 4rem' in css, "Missing reduced padding for .news-content-section"
     print("  ✓ Reduced padding for .news-content-section verified in main.css - OK")
 
+def test_mid_autumn_promo_popup():
+    print("\n--- TEST 10: MID AUTUMN FESTIVAL PROMO POPUP ---")
+    webp_path = 'public/murrplastik/assets/images/Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.webp'
+    jpg_path = 'public/murrplastik/assets/images/Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.jpg'
+    
+    assert os.path.exists(webp_path), f"Missing WebP popup asset: {webp_path}"
+    assert os.path.exists(jpg_path), f"Missing JPG popup asset: {jpg_path}"
+    
+    img_webp = Image.open(webp_path)
+    assert img_webp.format == 'WEBP', f"Expected WEBP format, got {img_webp.format}"
+    assert img_webp.size == (2048, 2048), f"Expected (2048, 2048), got {img_webp.size}"
+    sz_webp = os.path.getsize(webp_path)
+    assert 100000 < sz_webp < 600000, f"WebP size out of expected bounds: {sz_webp} bytes"
+    print(f"  ✓ WebP asset valid: 2048x2048, {sz_webp:,} bytes - OK")
+
+    img_jpg = Image.open(jpg_path)
+    assert img_jpg.size == (2048, 2048), f"Expected (2048, 2048), got {img_jpg.size}"
+    sz_jpg = os.path.getsize(jpg_path)
+    assert sz_jpg > 200000, f"JPG size too small: {sz_jpg} bytes"
+    print(f"  ✓ JPG asset valid: 2048x2048, {sz_jpg:,} bytes - OK")
+
+    with open('public/murrplastik/index.html', 'r', encoding='utf-8') as f:
+        html = f.read()
+    assert 'Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.webp' in html, "Missing new WebP popup in index.html"
+    assert 'Popup_CTA_Murrplastik.webp' not in html, "Found residual old Popup_CTA_Murrplastik in index.html"
+    assert 'width="600" height="600"' in html, "Expected square dimensions width=600 height=600 for popup img"
+    print("  ✓ index.html references new Mid Autumn WebP popup with square 1:1 aspect ratio - OK")
+
+    with open('public/murrplastik/assets/js/main.js', 'r', encoding='utf-8') as f:
+        js = f.read()
+    assert 'promo_popup_mid_autumn_2026_dismissed' in js, "Missing promo_popup_mid_autumn_2026_dismissed cookie in main.js"
+    print("  ✓ main.js updated with dedicated campaign cookie promo_popup_mid_autumn_2026_dismissed - OK")
+
 if __name__ == '__main__':
     print("==================================================")
     print("   AUTOMATED VERIFICATION TEST SUITE RUNNER       ")
@@ -326,12 +359,14 @@ if __name__ == '__main__':
         test_industries_section()
         test_vietnam_flag_and_i18n_default()
         test_korean_flag_and_news_updates()
+        test_mid_autumn_promo_popup()
         print("\n==================================================")
-        print("   ALL 9 TEST MODULES PASSED WITH ZERO ERRORS!    ")
+        print("   ALL 10 TEST MODULES PASSED WITH ZERO ERRORS!   ")
         print("==================================================")
     except AssertionError as e:
         print(f"\n[TEST FAILED]: {e}")
         sys.exit(1)
+
 
 
 

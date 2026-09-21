@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const showPopup = () => {
       if (popupTriggered) return;
-      if (getCookie('promo_popup_dismissed') === 'true') return;
+      if (getCookie('promo_popup_mid_autumn_2026_dismissed') === 'true') return;
 
       popupTriggered = true;
       
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const dismissPopup = () => {
       promoPopup.classList.remove('open');
-      setCookie('promo_popup_dismissed', 'true', 1); // 1 Day Capping
+      setCookie('promo_popup_mid_autumn_2026_dismissed', 'true', 1); // 1 Day Capping
     };
 
     // Cache docHeight to avoid forced reflows on scroll
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
     promoLink.addEventListener('click', (e) => {
       e.preventDefault();
       promoPopup.classList.remove('open');
-      setCookie('promo_popup_dismissed', 'true', 1);
+      setCookie('promo_popup_mid_autumn_2026_dismissed', 'true', 1);
       // Scroll to #contact after popup close animation completes
       setTimeout(() => {
         const contactEl = document.getElementById('contact');
