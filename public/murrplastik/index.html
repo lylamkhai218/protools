@@ -500,12 +500,12 @@ src="https://www.facebook.com/tr?id=840930358488787&ev=PageView&noscript=1"
   <div class="ind-active-tag">Automotive</div>
   <div class="ind-icon ind-icon-box">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 13l2-5a2 2 0 0 1 1.8-1.2h10.4a2 2 0 0 1 1.8 1.2l2 5"></path>
-      <path d="M2 13h20v4a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1H7v1a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4z"></path>
-      <circle cx="7" cy="14" r="2"></circle>
-      <circle cx="17" cy="14" r="2"></circle>
-      <path d="M9 7l1 5"></path>
-      <path d="M15 7l-1 5"></path>
+      <path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2"></path>
+      <circle cx="7" cy="17" r="2"></circle>
+      <path d="M9 17h6"></path>
+      <circle cx="17" cy="17" r="2"></circle>
+      <path d="M5 11h14"></path>
+      <path d="M12 6v5"></path>
     </svg>
   </div>
   <div class="ind-name" data-i18n="ind.auto">Sản xuất Ô tô</div>
@@ -696,6 +696,48 @@ Khám phá không gian gian hàng ảo 3D thời gian thực, trực tiếp tr�
 
 </div>
 </section>
+<section id="contact">
+<div class="contact-inner">
+<div class="reveal">
+<div class="section-tag" data-i18n="contact.tag">Liên hệ</div>
+<div class="contact-info-title"><span data-i18n="contact.title.a">Nhận báo giá</span><br><em data-i18n="contact.title.b">miễn phí</em><span data-i18n="contact.title.c"> ngay</span></div>
+<p style="color:var(--gray);font-size:14px;line-height:1.7;margin-bottom:1rem" data-i18n="contact.sub">Đội ngũ kỹ thuật T&T Vina sẵn sàng tư vấn và báo giá trong vòng 24 giờ làm việc.</p>
+<div class="contact-items">
+<div class="contact-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5z"/><circle cx="10" cy="7" r="1.5" fill="currentColor" stroke="none"/></svg><div><div class="contact-item-label" data-i18n="contact.addr.label">Địa chỉ</div><div class="contact-item-val" data-i18n="contact.addr.val">Số 11/68/467 Lĩnh Nam, P.Vĩnh Hưng, Hoàng Mai, Hà Nội</div></div></div>
+<div class="contact-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h1.5l2 4.5-1.5 1.5a11 11 0 005 5l1.5-1.5L17 14.5V16a2 2 0 01-2 2C7.82 18 2 12.18 2 5a2 2 0 011-1.73V5z"/></svg><div><div class="contact-item-label" data-i18n="contact.phone.label">Hotline</div><a href="tel:0973363824" class="contact-item-val hotline">0973.363.824</a></div></div>
+<div class="contact-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg><div><div class="contact-item-label" data-i18n="contact.email.label">Email</div><a href="mailto:info@t2tvina.com" class="contact-item-val">info@t2tvina.com</a></div></div>
+<div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg><div><div class="contact-item-label">Facebook</div><a href="https://www.facebook.com/murrplastikvietnam" target="_blank" class="contact-item-val">T&T Vina</a></div></div>
+</div>
+</div>
+<div class="reveal">
+<div class="form-title" data-i18n="form.title">Gửi yêu cầu tư vấn</div>
+<form id="quoteForm" class="quote-form" novalidate>
+<div class="form-group"><label data-i18n="form.name">Họ và tên *</label><input id="f-name" type="text" placeholder="Nguyễn Văn A" required></div>
+<div class="form-row">
+<div class="form-group"><label data-i18n="form.phone">Số điện thoại *</label><input id="f-phone" type="tel" placeholder="09xx xxx xxx" required></div>
+<div class="form-group"><label data-i18n="form.email">Email</label><input id="f-email" type="email" placeholder="email@company.com"></div>
+</div>
+<div class="form-group"><label data-i18n="form.company">Tên công ty</label><input id="f-company" type="text" placeholder="Công ty TNHH..."></div>
+<div class="form-group"><label data-i18n="form.product">Sản phẩm quan tâm (có thể chọn nhiều)</label>
+<div class="checkbox-grid">
+<label class="check-item"><input type="checkbox" name="product" value="ACS"> <span data-i18n="form.product.p1">ACS — Tem nhãn & Dán nhãn</span></label>
+<label class="check-item"><input type="checkbox" name="product" value="SUV"> <span data-i18n="form.product.p2">SUV — Ống dẫn & Phụ kiện</span></label>
+<label class="check-item"><input type="checkbox" name="product" value="KDH"> <span data-i18n="form.product.p3">KDH — Đầu vào cáp & Giá đỡ</span></label>
+<label class="check-item"><input type="checkbox" name="product" value="EFK"> <span data-i18n="form.product.p4">EFK — Máng xích nhựa</span></label>
+<label class="check-item"><input type="checkbox" name="product" value="AUR"> <span data-i18n="form.product.p5">AUR — Phụ kiện Robot & Tự động hóa</span></label>
+<label class="check-item"><input type="checkbox" name="product" value="Other"> <span data-i18n="form.product.other">Khác</span></label>
+</div>
+</div>
+<div class="form-hint" style="font-size:12px;color:var(--gray);margin-bottom:1rem;line-height:1.5;">
+  * Quý khách có bản vẽ kỹ thuật (CAD/STEP) hoặc danh mục vật tư Excel, vui lòng gửi kèm qua Zalo Hotline <strong>0973.363.824</strong> hoặc Email <strong>info@t2tvina.com</strong>.
+</div>
+<div class="form-group"><label data-i18n="form.message">Nội dung yêu cầu</label><textarea id="f-message" data-i18n-attr="placeholder" data-i18n="form.message.ph" placeholder="Mô tả nhu cầu, số lượng, ứng dụng..."></textarea></div>
+<div class="form-msg"></div>
+<button type="submit" class="btn-submit" data-i18n="form.submit">Gửi yêu cầu báo giá →</button>
+</form>
+</div>
+</div>
+</section>
 <section id="faq">
 <div class="faq-inner">
 <div class="section-header reveal">
@@ -775,48 +817,6 @@ Khám phá không gian gian hàng ảo 3D thời gian thực, trực tiếp tr�
   ]
 }
 </script>
-<section id="contact">
-<div class="contact-inner">
-<div class="reveal">
-<div class="section-tag" data-i18n="contact.tag">Liên hệ</div>
-<div class="contact-info-title"><span data-i18n="contact.title.a">Nhận báo giá</span><br><em data-i18n="contact.title.b">miễn phí</em><span data-i18n="contact.title.c"> ngay</span></div>
-<p style="color:var(--gray);font-size:14px;line-height:1.7;margin-bottom:1rem" data-i18n="contact.sub">Đội ngũ kỹ thuật T&T Vina sẵn sàng tư vấn và báo giá trong vòng 24 giờ làm việc.</p>
-<div class="contact-items">
-<div class="contact-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5z"/><circle cx="10" cy="7" r="1.5" fill="currentColor" stroke="none"/></svg><div><div class="contact-item-label" data-i18n="contact.addr.label">Địa chỉ</div><div class="contact-item-val" data-i18n="contact.addr.val">Số 11/68/467 Lĩnh Nam, P.Vĩnh Hưng, Hoàng Mai, Hà Nội</div></div></div>
-<div class="contact-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h1.5l2 4.5-1.5 1.5a11 11 0 005 5l1.5-1.5L17 14.5V16a2 2 0 01-2 2C7.82 18 2 12.18 2 5a2 2 0 011-1.73V5z"/></svg><div><div class="contact-item-label" data-i18n="contact.phone.label">Hotline</div><a href="tel:0973363824" class="contact-item-val hotline">0973.363.824</a></div></div>
-<div class="contact-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M2 7l8 5 8-5"/></svg><div><div class="contact-item-label" data-i18n="contact.email.label">Email</div><a href="mailto:info@t2tvina.com" class="contact-item-val">info@t2tvina.com</a></div></div>
-<div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg><div><div class="contact-item-label">Facebook</div><a href="https://www.facebook.com/murrplastikvietnam" target="_blank" class="contact-item-val">T&T Vina</a></div></div>
-</div>
-</div>
-<div class="reveal">
-<div class="form-title" data-i18n="form.title">Gửi yêu cầu tư vấn</div>
-<form id="quoteForm" class="quote-form" novalidate>
-<div class="form-group"><label data-i18n="form.name">Họ và tên *</label><input id="f-name" type="text" placeholder="Nguyễn Văn A" required></div>
-<div class="form-row">
-<div class="form-group"><label data-i18n="form.phone">Số điện thoại *</label><input id="f-phone" type="tel" placeholder="09xx xxx xxx" required></div>
-<div class="form-group"><label data-i18n="form.email">Email</label><input id="f-email" type="email" placeholder="email@company.com"></div>
-</div>
-<div class="form-group"><label data-i18n="form.company">Tên công ty</label><input id="f-company" type="text" placeholder="Công ty TNHH..."></div>
-<div class="form-group"><label data-i18n="form.product">Sản phẩm quan tâm (có thể chọn nhiều)</label>
-<div class="checkbox-grid">
-<label class="check-item"><input type="checkbox" name="product" value="ACS"> <span data-i18n="form.product.p1">ACS — Tem nhãn & Dán nhãn</span></label>
-<label class="check-item"><input type="checkbox" name="product" value="SUV"> <span data-i18n="form.product.p2">SUV — Ống dẫn & Phụ kiện</span></label>
-<label class="check-item"><input type="checkbox" name="product" value="KDH"> <span data-i18n="form.product.p3">KDH — Đầu vào cáp & Giá đỡ</span></label>
-<label class="check-item"><input type="checkbox" name="product" value="EFK"> <span data-i18n="form.product.p4">EFK — Máng xích nhựa</span></label>
-<label class="check-item"><input type="checkbox" name="product" value="AUR"> <span data-i18n="form.product.p5">AUR — Phụ kiện Robot & Tự động hóa</span></label>
-<label class="check-item"><input type="checkbox" name="product" value="Other"> <span data-i18n="form.product.other">Khác</span></label>
-</div>
-</div>
-<div class="form-hint" style="font-size:12px;color:var(--gray);margin-bottom:1rem;line-height:1.5;">
-  * Quý khách có bản vẽ kỹ thuật (CAD/STEP) hoặc danh mục vật tư Excel, vui lòng gửi kèm qua Zalo Hotline <strong>0973.363.824</strong> hoặc Email <strong>info@t2tvina.com</strong>.
-</div>
-<div class="form-group"><label data-i18n="form.message">Nội dung yêu cầu</label><textarea id="f-message" data-i18n-attr="placeholder" data-i18n="form.message.ph" placeholder="Mô tả nhu cầu, số lượng, ứng dụng..."></textarea></div>
-<div class="form-msg"></div>
-<button type="submit" class="btn-submit" data-i18n="form.submit">Gửi yêu cầu báo giá →</button>
-</form>
-</div>
-</div>
-</section>
 <footer>
 <div class="footer-protools-ecosystem">
   <div class="footer-eco-content">
