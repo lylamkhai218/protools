@@ -657,3 +657,236 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     1. `localStorage`: Đồng bộ đồng thời cả 2 khóa `mp_lang` (nội bộ phân vùng Murrplastik) và `tt_vina_locale` (cổng mẹ T&T Vina).
     2. URL Search Param: Hỗ trợ nạp trực tiếp qua tham số `?lang=en` hoặc `?lang=vi` và tự động cập nhật URL bằng `history.replaceState()` không tải lại trang.
     3. Trạng thái DOM: Cập nhật đồng bộ `document.documentElement.lang` và `<title>` của trang.
+
+### Rule 9.54: Quy Chuẩn Quản Lý Tin Tức, Hình Ảnh Chuẩn SEO & Chuyển Đổi Tên Miền Murrplastik (21/09/2026)
+* **Quy Chuẩn Tên Ảnh Chuẩn SEO & Cấu Trúc Thư Mục Tài Nguyên**:
+  - Tên ảnh chuẩn SEO: Đổi từ `VEC_VIIF2026_Murrplastik_TTVina_booth.jpeg` sang định dạng chuẩn SEO viết thường, phân cách dấu gạch ngang: `gian-hang-trien-lam-vec-viif-2026-murrplastik-ttvina.jpg` và phiên bản nén WebP siêu nhẹ `gian-hang-trien-lam-vec-viif-2026-murrplastik-ttvina.webp`.
+  - Quy hoạch đường dẫn tài nguyên: Lưu trữ tập trung tại [`public/murrplastik/assets/images/tin-tuc/`](file:///d:/T&TVina/protools/public/murrplastik/assets/images/tin-tuc/) kèm bản sao tương thích tại thư mục bài viết [`public/murrplastik/tin-tuc/trien-lam-vec-2026/`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/trien-lam-vec-2026/).
+* **Mở Rộng Hệ Thống Tin Tức & Khối Giải Pháp Ngành Trên Trang Chủ Murrplastik (`#news`)**:
+  - **Hero Showcase Đầu Section**: Sử dụng ảnh toàn cảnh ứng dụng `applications_products_murrplastik_no_background_2` trên nền Slate tối gradient `#0B1120` -> `#1E293B` kèm vầng sáng Ambient Red Glow `#E30613` thể hiện tính đồng bộ của 6 hệ sinh thái.
+  - **Thẻ Hệ Sinh Thái Đi Kèm Ảnh Kỹ Thuật Thực Tế**:
+    - `ACS`: Ảnh máy in khắc laser `mp-LM 1M` kèm thẻ mẫu (`ACS_MP_LM_1M_produkt_02`).
+    - `AUR`: Ảnh cụm Dresspack & hộp hồi vị `R-Tec Box` cho robot 6 trục (`aur_cable_retraction_systems_group`).
+    - `KDH`: Ảnh tấm luồn cáp vi sinh Clean KDP/S chuẩn FDA kháng nước (`Clean_kdp_s_fda_murrplastik`).
+    - `EFK`: Ảnh máng xích dẫn cáp Evochain 420 tháo lắp nhanh (`Evochain_420_konfektioniert_freisteller`).
+    - `SUV`: Ảnh hệ thống ống ruột gà & cút nối công nghiệp (`image_Conduits_and_fittings_murrSystems`).
+    - `CST`: Ảnh cấu hình may đo CAD 3D Dresspack & ReadyChain (`eco_cst_custom`).
+  - Toàn bộ ảnh được tối ưu hóa chuẩn WebP nén không suy hao từ 35MB xuống dưới 900KB tổng thể, bọc trong khung `.eco-img-wrap` nền trắng tương phản cao và hiệu ứng zoom mượt khi hover.
+* **Showcase Bộ Quà Tặng Khách Tham Quan VIP (Section 4)**:
+  - Đặt khối `.vip-gifts-showcase` ngay cạnh Form Đăng Ký Tham Quan (`#register`), tạo động lực chuyển đổi thị giác trực quan:
+    1. Bút Ký Kim Loại Murrplastik chính hãng Đức (`gift_pen_murrplastik`).
+    2. Túi Canvas Tiện Ích Murrplastik chuyên dụng đựng tài liệu & catalogue (`gift_tupper_murrplastik`).
+    3. Thẻ Tên Kim Loại Khắc Laser Trực Tiếp bằng máy `mp-LM 1M` trong 30 giây theo tên đăng ký.
+
+### Rule 9.40: Tối Ưu Hóa UI/UX Mobile, Giao Diện Sáng Đồng Nhất & Huy Hiệu Scarcity Quà Tặng (08/09/2026)
+* **Quy Chuẩn Đồng Nhất Sắc Thái & Kích Thước Khối Hero Hệ Sinh Thái (`.eco-hero-showcase`)**:
+  - Chuyển đổi từ nền đen tương phản gắt sang phong cách Technical Light `#F8FAFC`, viền `#E2E8F0`, đổ bóng mềm `rgba(15, 23, 42, 0.04)`.
+  - Tối ưu chiều cao hiển thị: Thu hẹp `max-height` ảnh từ `420px` xuống `280px` trên Desktop và `200px` trên Mobile; giảm margin từ `2.5rem` xuống `1.25rem 0 2rem` (desktop) và `1rem 0 1.5rem` (mobile) để tránh chiếm dụng không gian cuộn dọc.
+* **Quy Chuẩn Tinh Gọn Nội Dung & Huy Hiệu Quà Tặng VIP Scarcity (Section 4)**:
+  - Lược bỏ hoàn toàn đoạn văn dẫn thừa thãi nhằm tăng tốc độ chuyển đổi trực tiếp vào Form.
+  - Tích hợp huy hiệu khẩn cấp thị giác (Visual Scarcity Badge): `SỐ LƯỢNG CÓ HẠN · 100 SUẤT ĐĂNG KÝ SỚM` với chấm đỏ phát xung (`gift-pulse-dot`) và tag `SỐ LƯỢNG CÓ HẠN` trên từng thẻ quà tặng (Bút ký, Túi Canvas).
+* **Quy Chuẩn Tương Thích Di Động Mobile-First & iOS Safari**:
+  - Khắc phục lỗi Auto-Zoom trên iOS Safari: Bắt buộc khai báo `font-size: 16px !important;` cho toàn bộ thẻ `input`, `select`, `textarea` trong form báo giá / đăng ký.
+  - Ngăn ngừa gãy dòng huy hiệu trên màn hình hẹp (<640px): Cấu hình `.gifts-label-row` tự động chuyển sang `flex-direction: column` căn lề trái.
+  - Giảm padding các thẻ container trên màn hình nhỏ để tránh chiếm dụng không gian hiển thị (`.eco-card` giảm xuống `1.25rem 1rem`, `.reg-left` / `.reg-right` giảm xuống `1.5rem 1.25rem`).
+
+### Rule 9.41: Quy Chuẩn Bảng Dữ Liệu Kỹ Thuật Di Động, Tiêu Đề Dính Đa Chiều & Chống Tràn Màn Hình (08/09/2026)
+* **Quy Chuẩn Tiêu Đề Bảng Dính Đa Chiều (Bidirectional Sticky Table Standard)**:
+  - Bắt buộc khai báo `border-collapse: separate; border-spacing: 0;` trên thẻ `table` khi dùng `position: sticky` để tránh lỗi biến mất viền hoặc giật layout trên trình duyệt di động WebKit / Chromium.
+  - Khối bao ngoài bảng (`.vec26-table-wrap`): Cấu hình `max-height: 60vh - 65vh; overflow: auto; -webkit-overflow-scrolling: touch;`.
+  - Tiêu đề bảng (`thead th`): Cấu hình `position: sticky; top: 0; z-index: 25; background: #0F172A; box-shadow: 0 2px 6px rgba(0,0,0,0.18);`.
+  - Ô góc trên cùng bên trái (`th.vec26-th-stt`): Khai báo `position: sticky; top: 0; left: 0; z-index: 35;` để cố định tuyệt đối trong cả hai chiều cuộn ngang và cuộn dọc.
+  - Cột mã thiết bị (`td.vec26-col-stt`): Khai báo `position: sticky; left: 0; z-index: 15;` kèm màu nền đồng nhất với hàng và đổ bóng nhẹ sang phải (`box-shadow: 2px 0 6px -2px rgba(0,0,0,0.08);`).
+* **Quy Chuẩn Chống Tràn Màn Hình & Trả Lại Không Gian Hiển Thị (Zero Mobile Overflow)**:
+  - Khắc phục triệt để lỗi padding `.container`: Trên màn hình di động (<768px), giảm padding từ `3rem` (48px) xuống `16px` (và `12px` trên <480px), giải phóng hơn 70px chiều ngang màn hình.
+  - Triệt tiêu hiện tượng Flexbox kéo giãn body (`bodyScrollWidth` vượt quá `window.innerWidth`): Luôn khai báo `min-width: 0; width: 100%; max-width: 100%;` cho các container cha chứa thanh tab lọc cuộn ngang (`.vec26-filter-tabs`).
+  - Thanh chỉ báo cuộn ngang thông minh (`.vec26-table-scroll-hint`): Tự động hiển thị trên di động với thông điệp hướng dẫn rõ ràng kèm icon chỉ báo.
+
+### Rule 9.42: Tối Ưu Bảng Di Động Liền Khối, Chuẩn Hóa Vị Trí Gian Hàng H2-15a & Triệt Tiêu Khe Hở Footer (08/09/2026)
+* **Chuẩn Hóa Vị Trí Gian Hàng & Tinh Gọn Nội Dung 3D**:
+  - Cập nhật đồng bộ toàn trang (Meta, Schema JSON-LD, Nav, Badges, 3D Canvas TV, Form) vị trí gian hàng chính thức: **`GIAN HÀNG H2-15a · SẢNH 2`**.
+  - Lược bỏ từ "Ảo 3D" trong tiêu đề thành `Mô Phỏng Gian Hàng (Ô H2-15a · Sảnh 2)` và xóa bỏ hoàn toàn dòng mô tả thao tác xoay camera 360 rườm rà.
+* **Tăng Tỷ Lệ Hiển Thị Ảnh Tổng Quan Hệ Sinh Thái (`hero_ecosystems.webp`)**:
+  - Nâng `max-width` lên `880px`, `max-height` lên `380px` trên Desktop và `260px` trên Mobile giúp sơ đồ kiến trúc 6 giải pháp Made in Germany hiển thị to rõ, nổi bật.
+* **Quy Chuẩn Bảng Thông Số Di Động Cuộn Liền Khối (Unified Mobile Spec Table)**:
+  - Loại bỏ `position: sticky; left: 0;` trên cột STT để các cột trượt ngang cùng nhau như một khối thống nhất, triệt tiêu hoàn toàn hiện tượng hở khe trắng hoặc lung lay khi vuốt sang phải.
+  - Bảo lưu nguyên vẹn `position: sticky; top: 0; z-index: 25;` cho `thead th` để cố định tiêu đề cột khi cuộn dọc xem danh mục 67 thiết bị.
+  - Thêm `overscroll-behavior-x: contain;` trên `.vec26-table-wrap` để thao tác vuốt ngang bảng không truyền cử chỉ ra ngoài document.
+* **Triệt Tiêu Tuyệt Đối Khe Hở Trắng Sau Footer Trên Màn Hình Điện Thoại**:
+  - Áp dụng `overflow-x: clip !important; width: 100% !important; max-width: 100vw !important;` trên `html`, `body` và `footer`. Thuộc tính `clip` khóa cứng viewport không cho phép document pan ngang khi vuốt chạm, đồng thời đảm bảo footer luôn phủ kín 100% chiều ngang màn hình không để lộ nền trắng.
+
+### Rule 9.43: Quy Chuẩn Bảng HTML Đơn Báo Giá B2B Trên AdminCP & Chuẩn Hóa Thời Gian create_time (09/09/2026)
+* **Bảng Báo Giá HTML Trong CSDL (`contact_list.content`)**:
+  - Khi nhận đơn báo giá từ giỏ hàng B2B (`?tab=cart`), API [`public/api/submit_quote.php`](file:///d:/T&TVina/protools/public/api/submit_quote.php) lưu nội dung dưới dạng bảng HTML có viền nét mảnh (`border="1"`, bordercolor `#cbd5e1`), tiêu đề xám nhạt (`#f1f5f9`), căn lề chuẩn (STT/SL ở giữa, SKU font monospace màu xanh `#005BAC`, Đơn giá căn phải).
+  - Khối "Ghi chú dự án" được bọc riêng trong thẻ div viền xanh `#005BAC` nổi bật phía trên bảng.
+  - Loại bỏ hoàn toàn các ký tự phân cách ASCII kiểu cũ (`=====` và `-----`).
+  - Đầu chuỗi HTML tích hợp thẻ ẩn `<span style="display:none;">Báo giá B2B (X mục)...</span>` để hàm `strip_tags()` tại màn hình danh sách AdminCP (`admincp/#contact`) hiển thị dòng trích dẫn tóm tắt gọn gàng, không bị vỡ giao diện.
+* **Chuẩn Hóa Cột Thời Gian Gửi (`create_time`)**:
+  - Mã nguồn CMS cũ dùng hàm `format_full_time()` quy ước chuỗi 14 số dạng `YmdHis` (ví dụ `20260909233650`).
+  - Giá trị lưu vào cột `create_time` trong CSDL MariaDB phải dùng `date('YmdHis')` thay vì Unix timestamp thô `time()`, đảm bảo AdminCP hiển thị chính xác ngày giờ `HH:mm DD/MM/YYYY`.
+* **Phân Tách Nội Dung Email (@mail)**:
+  - Tách riêng `$email_body` dạng plain-text phân cấp rõ ràng theo từng thiết bị, bỏ các đường kẻ thô ráp để email gửi đến Sales (`info@t2tvina.com`) luôn sạch sẽ và chuyên nghiệp.
+
+### Rule 9.44: Quy Chuẩn Nhận Diện Tác Giả Footer Toàn Hệ Thống (10/09/2026)
+* **Đồng Bộ Dòng Credit Thiết Kế & Phát Triển**:
+  - Toàn bộ chân trang hệ thống bao gồm Cổng Mẹ ([`src/components/Footer.tsx`](file:///d:/T&TVina/protools/src/components/Footer.tsx)) và Chuyên Trang Con Murrplastik ([`public/murrplastik/index.html`](file:///d:/T&TVina/protools/public/murrplastik/index.html), tin tức, triển lãm) hiển thị đồng nhất dòng credit:
+    `Designed & Developed by KhaiLL (T&T VINA INDUSTRIAL)`
+  - Định dạng: Font monospace, cỡ chữ nhỏ gọn `11px`, màu mờ nhẹ kỹ thuật (`text-slate-500/70` hoặc `rgba(255, 255, 255, 0.45)`).
+  - Vị trí trên Chuyên trang Murrplastik: Nằm ở vị trí trung tâm trong `.footer-bottom-row` giữa bản quyền bên trái (`.footer-bottom-left`) và đại lý ủy quyền bên phải (`.footer-bottom-right`), tận dụng hoàn hảo khoảng trống ở giữa; trên màn hình điện thoại tự động chuyển `flex-direction: column` căn giữa gọn gàng.
+
+### Rule 9.45: Bảo Toàn Tính Toàn Vẹn Song Ngữ i18n Murrplastik (10/09/2026)
+* **Quy Trình Kiểm Tra i18n Trước Khi Phát Hành**:
+  - Mọi thay đổi nội dung chữ (text content), thẻ điều hướng navbar, thông tin footer hoặc các component mới trong phân vùng `public/murrplastik/` phải được khai báo song ngữ đầy đủ cả 2 từ điển `TRANSLATIONS.vi` và `TRANSLATIONS.en` trong [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js).
+  - **Cơ chế ghi đè DOM của hàm `applyTranslations()`**: Vì `i18n.js` chạy tự động khi nạp trang và đọc các thẻ có `data-i18n`, nếu giá trị trong file JS chưa được cập nhật (ví dụ key `footer.copy` còn lưu năm 2025 hoặc domain cũ `murrplastikvn.com`), script sẽ tự động ghi đè ngược lại làm mất nội dung mới trên HTML.
+  - **Chỉ số kiểm thử bắt buộc**: Số lượng key giữa tiếng Việt và tiếng Anh phải luôn đạt tỉ lệ cân bằng 100% (ví dụ: `562 VI keys = 562 EN keys`), số lượng key thiếu sót (`Missing in VI` / `Missing in EN`) phải luôn bằng `0`.
+### Rule 9.46: Kiến Trúc Đa Ngôn Ngữ 7 Quốc Gia & Quy Chuẩn Cờ Vector SVG (10/09/2026)
+* **Thứ Tự 7 Ngôn Ngữ Chuẩn Hệ Thống**:
+  1. `vi`: 🇻🇳 Tiếng Việt (*Mặc định gốc*)
+  2. `en`: 🇬🇧 English (*Tiêu chuẩn kỹ thuật quốc tế*)
+  3. `de`: 🇩🇪 Deutsch (*Tiêu chuẩn xuất xứ Murrplastik Đức*)
+  4. `zh-CN`: 🇨🇳 中文 (*Ưu tiên phục vụ khách hàng B2B tại VEC 2026*)
+  5. `ko`: 🇰🇷 한국어 (*Nhà máy điện tử SMT Hàn Quốc*)
+  6. `ja`: 🇯🇵 日本語 (*Tiêu chuẩn thiết bị Nhật Bản Hakko/Hios*)
+  7. `th`: 🇹🇭 ไทย (*Trung tâm cơ khí & ô tô ASEAN*)
+* **Quy Chuẩn Cờ Vector SVG (Tuân thủ User Rule 1 - Cấm Tuyệt Đối Emoji Windows)**:
+  - Tất cả cờ quốc gia được tạo bằng vector SVG phẳng độc quyền tại [`src/components/FlagIcon.tsx`](file:///d:/T&TVina/protools/src/components/FlagIcon.tsx), kích thước chuẩn micro `18px × 12px`, bo góc nhẹ `1.5px` và có viền `0.5px border-black/10`. Tuyệt đối không dùng emoji hệ điều hành.
+* **Bộ Từ Điển Thuật Ngữ Kỹ Thuật Công Nghiệp Khóa Cứng (B2B Master Glossary)**:
+  - Khóa cứng thuật ngữ chuẩn ngành công nghiệp tránh lỗi dịch máy ngô nghê: Máng xích luồn cáp (`拖链`), Ống ruột gà & đầu nối (`电缆保护软管及接头`), Tấm luồn cáp kín nước (`电缆穿线板`), Bộ Dresspack cáp robot (`机器人管线包及回位系统`), Máy khắc laser (`工业激光打标机`), Trạm hàn thiếc SMT (`防静电焊台`), Robot bơm keo (`自动点胶机`), Máy cắt băng dính (`自动胶带切割机`), Quạt ion khử tĩnh điện (`防静电离子风机`).
+* **Đồng Bộ Bộ Nhớ Trình Duyệt (`localStorage`)**:
+  - Lưu trữ khóa `tt_vina_locale` xuyên suốt phiên làm việc, tự động khôi phục khi tải lại trang và cầu nối đồng bộ sang Chuyên trang Murrplastik ([`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js)).
+
+### Rule 9.47: Quy Chuẩn Bản Địa Hóa Sâu 100% & Triệt Tiêu Xung Đột Điểm Ngắt Đa Ngôn Ngữ (10/09/2026)
+* **Bản Địa Hóa Sâu Toàn Bộ Thiết Bị & Thông Số Kỹ Thuật (Deep Technical Localization)**:
+  - Tất cả 77 mã thiết bị thực tế trong hệ thống khi hiển thị tại Trang Chủ (`Home.tsx`), Trang Chi Tiết (`ProductDetail.tsx`) và Kính Lúp Xem Nhanh (`hoveredZoomProduct`) đều được bọc qua hàm `getLocalizedProduct(product, locale)` tại [`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts).
+  - Bản địa hóa 100% các trường: Tên máy, Danh mục, Nhãn xuất xứ, Trạng thái sẵn kho, Bảng thông số kỹ thuật (Spec-sheet rows), Đặc tính vận hành SMT/Robot, Nút Thêm báo giá và Hồ sơ chứng từ nhà máy (CO/CQ/VAT/Trial-test).
+* **Nâng Cấp Chuyên Trang Murrplastik Sang Hệ Thống 7 Ngôn Ngữ Hoàn Chỉnh**:
+  - Mở rộng từ điển [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js) hỗ trợ đầy đủ 7 thứ tiếng: `vi`, `en`, `de`, `zh-CN`, `ko`, `ja`, `th`.
+  - Thay thế cụm nút toggle cũ `[VI | EN]` bằng Dropdown chuẩn Swiss-Precision mang phong cách công nghiệp cao cấp (`#0F172A`, viền `#E30613`), tích hợp cờ vector SVG micro, hiển thị tên ngôn ngữ bản xứ và dấu tích kích hoạt `✓`.
+  - Bổ sung lưới chọn ngôn ngữ dạng Grid 2 cột trong Mobile Drawer Menu phục vụ người dùng smartphone tại sự kiện VEC 2026.
+* **Triệt Tiêu Tuyệt Đối Tình Trạng Trùng Lặp Bộ Đổi Ngôn Ngữ (Zero-Duplicate Breakpoint)**:
+  - Loại bỏ hoàn toàn bộ chọn ngôn ngữ ở thanh Utility Bar phía trên (`h-9 flex`).
+  - Tại thanh Navigation chính, phân định dứt khoát điểm ngắt:
+    - Màn hình Desktop & Tablet (`>= sm`): Chỉ hiển thị DUY NHẤT 1 dropdown `<LanguageSwitcher variant="header" />` (`hidden sm:inline-block`).
+    - Màn hình Điện thoại (`< sm`): Chỉ hiển thị DUY NHẤT 1 ô toggle gọn nhẹ `<LanguageSwitcher variant="utility" />` (`sm:hidden`).
+  - Đảm bảo trên mọi độ phân giải màn hình (desktop, tablet, mobile) luôn luôn chỉ tồn tại đúng 1 bộ chuyển đổi ngôn ngữ duy nhất.
+
+### Rule 9.48: Quy Chuẩn Tích Hợp Sản Phẩm Thiết Bị Hàn QUICK 205 & Bảng Phụ Kiện Tiêu Chuẩn (15/09/2026)
+* **Thông Tin Kỹ Thuật Sản Phẩm QUICK 205**:
+  - Mã định danh (ID): `QUICK-205` / SKU: `TTV-QUI-205`.
+  - Tên thiết bị: `Trạm hàn cao tần QUICK 205 ESD (150W)`.
+  - Hãng sản xuất: `QUICK (Phân phối chính hãng)` - Danh mục: `Thiết bị hàn công nghiệp / Trạm hàn ESD` (`categorySlug: 'thiet-bi-han'`).
+  - Xuất xứ: `Chính Hãng` · Trạng thái: `Sẵn hàng tại kho Hà Nội & Hưng Yên`.
+  - Công nghệ & Công suất: Gia nhiệt xoáy cao tần (High-Frequency Eddy Current Heating) 150W bù nhiệt siêu tốc, dải nhiệt 200°C ~ 600°C, độ ổn định ±2°C, điện áp 220V AC / 50Hz, điện trở nối đất < 2Ω, điện áp rò < 2mV, đạt chuẩn chống tĩnh điện ESD Safe.
+* **Tài Nguyên Hình Ảnh Studio Thực Tế**:
+  - Nguồn ảnh gốc: `D:\Design_hub\01_BRANDS\TT_VINA\ASSETS\1_thiết_bị_hàn_ESD_QUICK_205.png`.
+  - Đã sao lưu và tối ưu vào: `public/images/products/quick-205.png` (bản gốc studio trong suốt) và `public/images/products/quick-205.webp` (bản WebP 259KB).
+* **Bản Địa Hóa Đa Ngôn Ngữ & Nâng Cấp Giao Diện B2B**:
+  - Cập nhật bản dịch tên máy đa ngôn ngữ sang 6 thứ tiếng trong `PRODUCT_NAME_TRANSLATIONS` ([`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts)).
+  - Mở rộng từ điển `SPEC_KEY_TRANSLATIONS` dịch chuẩn xác 8 thông số kỹ thuật mới: Công suất định mức, Công nghệ gia nhiệt, Dải nhiệt độ cài đặt, Độ ổn định nhiệt độ, Điện áp hoạt động, Điện trở nối đất đầu mỏ hàn, Điện áp rò đầu mỏ hàn, Tiêu chuẩn chống tĩnh điện.
+  - Tối ưu hóa giao diện [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx): Tự động in đậm tiền tố tính năng khi có dấu hai chấm `:`, và hiển thị khối riêng lưới "Phụ Kiện Tiêu Chuẩn Đi Kèm (Standard Included Accessories)" gồm 7 thành phần chi tiết của trạm hàn QUICK 205.
+
+### Rule 9.49: Quy Chuẩn Tự Động Hóa Quản Trị Danh Mục & Bản Địa Hóa Sâu Toàn Diện (Catalog Automation & Deep Localization - 15/09/2026)
+* **Đóng Gói Kỹ Năng Quản Trị Danh Mục Hàng Loạt (Skill `protools-catalog-manager`)**:
+  - Mã nguồn thực thi: [`scripts/catalog_manager.py`](file:///d:/T&TVina/protools/scripts/catalog_manager.py).
+  - Lệnh CLI tự động hóa trong `package.json`:
+    - `pnpm catalog:add --input path/to/products.json`: Tự động thêm 1 hoặc N sản phẩm hàng loạt.
+    - `pnpm catalog:audit`: Quét toàn bộ danh mục, đối soát ảnh hỏng, kiểm tra 100% độ phủ dịch thuật thông số kỹ thuật.
+  - Quy trình xử lý tự động khép kín (End-to-End Pipeline):
+    1. Nhận danh sách N sản phẩm từ file JSON.
+    2. Đọc ảnh gốc từ đường dẫn máy nội bộ (local asset), tối ưu hóa nén chuẩn WebP chất lượng cao (PIL Pillow, quality 85) lưu vào `public/images/products/<slug>.webp`.
+    3. Tự động sinh dữ liệu dịch thuật B2B sang đầy đủ 7 ngôn ngữ (`vi`, `en`, `zh-CN`, `de`, `ko`, `ja`, `th`).
+    4. Ghi nối tiếp an toàn vào `PRODUCTS` trong [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) và cập nhật từ điển [`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts).
+    5. Tự động chạy `pnpm build` xác thực TypeScript và bundling trước khi hoàn tất.
+* **Bản Địa Hóa Sâu 100% Cột 1 & Cột 2 Bảng Thông Số Kỹ Thuật (Spec-Sheet Full Parity)**:
+  - Bổ sung toàn bộ 13 khóa thông số kỹ thuật còn thiếu vào `SPEC_KEY_TRANSLATIONS`: Chương trình lập trình hẹn giờ, Chức năng, Dự án tiêu biểu, Kích thước (D x R x C), Lượng keo tối thiểu, Model, Trọng lượng, Áp suất khí ra, Áp suất khí vào, Điện áp đầu ra, Điện áp đầu vào, Độ bền uốn, Ứng dụng Robot.
+  - Chuẩn hóa từ điển `COMMON_VALUE_TRANSLATIONS` cho 100% các giá trị văn bản kỹ thuật xuất hiện trong catalog: Nhà sản xuất, Xuất xứ, Trạng thái kho, Thiết bị phụ trợ, Robot hàn ABB/KUKA, Dự án Body Shop VinFast Cát Hải, v.v. Các đơn vị đo lường quốc tế (W, V, Hz, bar, ml, s, g, °C, Ω, mV) được giữ nguyên chuẩn kỹ thuật toàn cầu.
+* **Bản Địa Hóa Toàn Diện Tính Năng & Phụ Kiện Tiêu Chuẩn (Features & Accessories)**:
+  - Chuẩn hóa toàn bộ 16 điểm nổi bật (`ALL_HIGHLIGHTS_TRANSLATIONS`) và 7 phụ kiện tiêu chuẩn (`ALL_ACCESSORIES_TRANSLATIONS`) sang 7 ngôn ngữ.
+  - Nâng cấp `translateFeatureItem()` và `translateAccessoryItem()` xử lý trơn tru các chuỗi tính năng dạng tiền tố `Tiền_tố: Diễn_giải`.
+  - Loại bỏ hoàn toàn fallback tiếng Việt hoặc mảng tính năng mẫu chung chung, bảo toàn nội dung kỹ thuật chi tiết của từng sản phẩm.
+* **Bản Địa Hóa Giao Diện B2B Misumi Pricing Tiers & Case Study Banner**:
+- Tại [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx), chuyển đổi toàn bộ tiêu đề, nhãn bảng bậc giá số lượng B2B (Q'ty, Pricing Policy, Lead Time, Click hint) và thông điệp chứng thực dự án VinFast Body Shop sang hàm `t()` đa ngôn ngữ.
+### Rule 9.50: Quy Chuẩn Tải Nén Ảnh WebP Đa Luồng & Bóc Tách Làm Giàu Dữ Liệu B2B Hàng Loạt (15/09/2026)
+* **Đường Ống Tải & Nén Ảnh WebP Tự Động (Multithreaded Sapo Image Pipeline)**:
+- Mã nguồn thực thi: [`scripts/download_compress_sapo_images.py`](file:///d:/T&TVina/protools/scripts/download_compress_sapo_images.py).
+- Kết quả xử lý thực tế: 6.895 / 6.895 ảnh duy nhất từ CDN Sapo được tải và nén WebP thành công 100% trong 4.5 phút (0 lỗi, tốc độ ~25.3 ảnh/giây với 20 luồng song song).
+- Chuẩn nén: WebP Quality 82, kích thước cạnh tối đa 800px (thuật toán LANCZOS), giữ nguyên kênh Alpha trong suốt. Giảm dung lượng từ ~1.5 MB xuống ~37 KB/ảnh (giảm 95%), tổng dung lượng toàn bộ 6.895 ảnh chỉ còn 256.2 MB tại [`public/images/products/sapo/`](file:///d:/T&TVina/protools/public/images/products/sapo/).
+- Bảng ánh xạ tập trung: [`public/data/sapo_image_map.json`](file:///d:/T&TVina/protools/public/data/sapo_image_map.json) map 6.897 mã SKU sang đường dẫn file WebP nội bộ.
+* **Pipeline Phân Cụm Ngành Hàng & Sinh Mô Tả Kỹ Thuật B2B (Data Enrichment Pipeline)**:
+- Mã nguồn thực thi: [`scripts/enrich_sapo_descriptions.py`](file:///d:/T&TVina/protools/scripts/enrich_sapo_descriptions.py).
+- Giải quyết triệt để vấn đề 7.477 sản phẩm (99.97%) bị trống mô tả trong kho Sapo:
+1. Tự động bóc tách thông số kỹ thuật có sẵn trong chuỗi tên: Quy cách ren (`M12x40`), đường kính ống phi (`PV12` -> 12mm), kích thước băng tải (`2008*85*2mm`), nòng và hành trình xi lanh (`MGPM32-75Z` -> nòng 32mm, hành trình 75mm), điện áp (`220V`, `24V`).
+2. Tự động phân loại vào 16 nhóm ngành hàng công nghiệp (Khí nén, Xi lanh, Mũi vít, Kim bơm keo, Bu lông, Băng tải, Cảm biến, Mũi hàn, Rơ le, v.v.).
+3. Tự động sinh đoạn văn mô tả chuẩn văn phong B2B công nghiệp kèm tình trạng tồn kho thực tế, đơn vị tính và cam kết giao hàng KCN.
+- Bộ dữ liệu hoàn chỉnh lưu độc lập tại [`public/data/sapo_products_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_products_enriched.json) và bản mẫu 25 sản phẩm tại [`public/data/sapo_sample_25_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_sample_25_enriched.json) phục vụ nghiệm thu trước khi tích hợp frontend.
+### Rule 9.51: Quy Chuẩn Nhóm Biến Thể Murrplastik (Master-Variant Matrix) & Dashboard Quản Trị Excel B2B (15/09/2026)
+* **Mô Hình Dòng Sản Phẩm Cha & Biến Thể Quy Cách (Murrplastik Variantes Standard)**:
+- Học hỏi cấu trúc chuẩn từ Murrplastik Shop (`shop.murrplastik.com`), các sản phẩm cùng loại nhưng khác kích cỡ/thông số (ví dụ: `Cút nối góc PV12`, `PV10`, `PV8`) được gom nhóm về cùng một Dòng sản phẩm cha (`Cút nối góc PV (AKS)`) với bảng ma trận biến thể (`variants` array).
+- Tự động bóc tách quy cách: Kích thước phi ống (`Phi 12 mm`), ren bu lông (`M12 x 40 mm`), kích thước 3 chiều băng tải/phíp (`2008 x 85 x 2 mm`), nòng và hành trình xi lanh (`Nòng 32mm - Hành trình 75mm`), cỡ kim keo (`16G`), v.v.
+- Xuất bản tệp dữ liệu cấu trúc: [`public/data/sapo_grouped_families.json`](file:///d:/T&TVina/protools/public/data/sapo_grouped_families.json) (8.2 MB) chứa 6.995 Master Families, mỗi family lưu trữ mã `masterId`, tên gốc, nhóm ngành, mô tả kỹ thuật đại diện, ảnh đại diện và mảng `variants` chi tiết phục vụ render tab Variantes trên giao diện web.
+* **Quy Chuẩn Bảng Tính Quản Trị Excel B2B Đa Tương Tác**:
+- Cập nhật trực tiếp trên tệp: [`Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx`](file:///d:/T&TVina/protools/Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx).
+- Cấu trúc tích hợp:
+1. **Cột D (Mô tả sản phẩm)**: Cập nhật 100% (7.479 dòng) mô tả kỹ thuật chuẩn B2B công nghiệp.
+2. **Cột 34 (Ảnh WebP Local)**: Khởi tạo 6.820 công thức `=HYPERLINK("...", "Xem Ảnh WebP (XX KB)")` cho phép click chuột trực tiếp từ Excel để mở ảnh chất lượng cao trên máy tính Windows.
+3. **Cột 35 (Dòng sản phẩm cha - Master Family)**: Phục vụ lọc nhanh nhóm sản phẩm theo họ thiết bị.
+4. **Cột 36 (Quy cách biến thể - Variant Specs)**: Bóc tách rõ kích thước/thông số cụ thể.
+5. **Cột 37 (Trạng thái sẵn kho B2B)**: Phối màu trực quan (Xanh lá `#E8F5E9` cho 1.045 mặt hàng có sẵn tồn kho; Xám nhạt `#FAFAFA` cho 6.434 mặt hàng đặt theo dự án).
+6. **Sheet `TongQuanDanhMuc`**: Bảng điều khiển KPI (Tổng SKU, Số ảnh WebP nén thành công, Số dòng sản phẩm cha, Tỷ lệ sẵn kho) kèm bảng phân bổ theo 16 nhóm ngành hàng công nghiệp.
+7. **Cố định hàng tiêu đề (Freeze Panes B2)** và bật bộ lọc tự động (**AutoFilter**) trên toàn bộ bảng tính.
+### Rule 9.52: Bài Học Nghiệp Vụ - Tuyệt Đối Không Tự Ý Suy Đoán & Gán Nhãn Hãng OEM Quốc Tế Cho Dữ Liệu Kho Sapo (16/09/2026)
+* **Sự Cố & Nhận Định Nghiệp Vụ Từ User**:
+- Bộ mẫu thử nghiệm 30 sản phẩm đối soát nguồn OEM quốc tế (SMC, Festo, Musashi, HIOS...) đã được User kiểm tra và xác nhận **không chính xác** với nguồn hàng thực tế phân phối tại kho của công ty.
+- **Nguyên nhân gốc rễ**: Các linh kiện cơ khí, khí nén trong kho Sapo (như xi lanh, cút nối, kim keo, đầu vít...) dù mang mã quy cách kích thước tương thích với tiêu chuẩn thông dụng trên thị trường nhưng thực tế được cung cấp bởi các đối tác phụ trợ nội địa (`KHOA KIM`, `LKĐT`, cơ sở gia công...) hoặc là linh kiện thay thế tương đương, không phải sản phẩm chính hãng có chứng chỉ CO/CQ của các tập đoàn quốc tế nói trên. Việc tự ý gán nhãn làm sai lệch định danh hàng hóa và tính pháp lý thương mại của T&T Vina.
+* **Hành Động Khắc Phục & Nguyên Tắc Bất Biến**:
+1. **Hủy bỏ hoàn toàn**: Đã xóa triệt để bộ tệp thử nghiệm gồm `Mau_Xac_Thuc_Mo_Ta_B2B_30_San_Pham.xlsx`, `public/data/sapo_authentic_pilot_30.json` và script `scripts/enrich_authentic_pilot.py`.
+2. **Bảo toàn dữ liệu thực tế**: Mọi mô tả, thông số và nhãn hiệu của 7.479 sản phẩm BẮT BUỘC tôn trọng 100% trường dữ liệu gốc xuất từ Sapo (nhãn hiệu `KHOA KIM`, `LKĐT`, `Techno`, hoặc để ngỏ theo phân phối T&T Vina), tuyệt đối không suy đoán nguồn gốc bên ngoài.
+3. **Bộ dữ liệu chuẩn**: Duy trì và vận hành thống nhất trên tệp Excel [`Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx`](file:///d:/T&TVina/protools/Copy_local_path_danh_sach_san_pham_15.09.2026_4e66ee429923a8ae2a6763f69a3baac5.xlsx) và ma trận biến thể [`public/data/sapo_grouped_families.json`](file:///d:/T&TVina/protools/public/data/sapo_grouped_families.json).
+
+### Rule 9.53: Quy Chuẩn Song Ngữ Anh - Việt & Trình Chuyển Ngữ Tự Động Hóa Ô Tô (17/09/2026)
+* **Bản Địa Hóa Toàn Diện Trang Giải Pháp Ngành Ô Tô Murrplastik (`/murrplastik/industries/san-xuat-o-to/`)**:
+  - Giao diện: Tích hợp thanh toggle song ngữ `[ VI | EN ]` với cờ Vector SVG micro chuẩn thương hiệu tại Header (`.lang-switch-group`), tuyệt đối không sử dụng emoji hệ điều hành.
+  - Từ điển i18n (`TRANSLATIONS_AUTO`): Bao phủ 100% nội dung trang gồm Header, Biên bản cuộc họp 3 bên (VinFast - Murrplastik - T&T Vina), Khảo sát sự cố đứt gãy cáp tại xưởng Body Shop, Giải pháp cải tạo Dresspack & Trục 6 Rotary Base, Bảng BOM chi tiết 2 dòng Robot ABB IRB 7600/6700, Nhật ký thi công 2 giai đoạn, Thanh so sánh ảnh trước/sau, Video Shorts thực tế, và khối giải đáp 4 câu hỏi FAQ chuẩn kỹ thuật.
+  - Tích hợp 3D WebGL Viewer: Cập nhật động dòng trạng thái tải mô hình STL và nút bấm bật/tắt xoay tự động theo ngôn ngữ đã chọn.
+  - Cơ chế đồng bộ đa kênh:
+    1. `localStorage`: Đồng bộ đồng thời cả 2 khóa `mp_lang` (nội bộ phân vùng Murrplastik) và `tt_vina_locale` (cổng mẹ T&T Vina).
+    2. URL Search Param: Hỗ trợ nạp trực tiếp qua tham số `?lang=en` hoặc `?lang=vi` và tự động cập nhật URL bằng `history.replaceState()` không tải lại trang.
+    3. Trạng thái DOM: Cập nhật đồng bộ `document.documentElement.lang` và `<title>` của trang.
+
+### Rule 9.54: Quy Chuẩn Quản Lý Tin Tức, Hình Ảnh Chuẩn SEO & Chuyển Đổi Tên Miền Murrplastik (21/09/2026)
+* **Quy Chuẩn Tên Ảnh Chuẩn SEO & Cấu Trúc Thư Mục Tài Nguyên**:
+  - Tên ảnh chuẩn SEO: Đổi từ `VEC_VIIF2026_Murrplastik_TTVina_booth.jpeg` sang định dạng chuẩn SEO viết thường, phân cách dấu gạch ngang: `gian-hang-trien-lam-vec-viif-2026-murrplastik-ttvina.jpg` và phiên bản nén WebP siêu nhẹ `gian-hang-trien-lam-vec-viif-2026-murrplastik-ttvina.webp`.
+  - Quy hoạch đường dẫn tài nguyên: Lưu trữ tập trung tại [`public/murrplastik/assets/images/tin-tuc/`](file:///d:/T&TVina/protools/public/murrplastik/assets/images/tin-tuc/) kèm bản sao tương thích tại thư mục bài viết [`public/murrplastik/tin-tuc/trien-lam-vec-2026/`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/trien-lam-vec-2026/).
+* **Mở Rộng Hệ Thống Tin Tức & Khối Giải Pháp Ngành Trên Trang Chủ Murrplastik (`#news`)**:
+  - Cập nhật thẻ tin tiêu điểm Hero bằng ảnh chụp thực tế gian hàng T&T Vina × Murrplastik tại Triển lãm VEC VIIF 2026 (Mr. Kevin Wong - Murrplastik APAC và đội ngũ kỹ sư).
+  - Tích hợp lưới tin tức 2 cột chuẩn responsive (`.home-news-grid`):
+    1. **Ngành Thực phẩm & Đồ uống (F&B)**: Liên kết trực tiếp [`/murrplastik/industries/thuc-pham-va-do-uong/`](file:///d:/T&TVina/protools/public/murrplastik/industries/thuc-pham-va-do-uong/index.html) với hình ảnh tấm luồn cáp Inox V4A chuẩn FDA/EHEDG.
+    2. **Ngành Sản xuất Ô tô & Robotics**: Liên kết trực tiếp [`/murrplastik/industries/san-xuat-o-to/`](file:///d:/T&TVina/protools/public/murrplastik/industries/san-xuat-o-to/index.html) với hình ảnh giải pháp Dress Pack R-Tec Box cho Robot hàn thân xe.
+  - Tích hợp nút xem toàn bộ tin tức chuyển tiếp đến trang Hub tin tức [`/murrplastik/tin-tuc/`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/index.html).
+* **Triệt Tiêu Hoàn Toàn Tên Miền Cũ `murrplastikvn.com`**:
+  - Thay thế 100% các liên kết, schema JSON-LD, thẻ canonical, OpenGraph metadata, nút bấm liên hệ và mô tả mã QR tại trang F&B và tài liệu PDF brochure từ `murrplastikvn.com` sang cổng thông tin chính thức `protools.com.vn/murrplastik`.
+
+### Rule 9.55: Quy Chuẩn Tích Hợp Chứng Chỉ ISO 9001:2015 DEKRA & Báo Cáo Kiểm Định R-Tec Liner 17.75M Chu Kỳ (21/09/2026)
+* **Tái Cấu Trúc Khối "#why" (Tại Sao Chọn Chúng Tôi) - Tích Hợp Chứng Chỉ ISO 9001:2015 DEKRA**:
+  - Dàn trang 2 cột tương phản đối xứng (Split Showcase): Ảnh chụp chứng chỉ ISO 9001:2015 DEKRA ở bên **TRÁI** (`.why-cert-col`), nội dung cam kết chất lượng & 6 trụ cột dịch vụ lồng ghép ở bên **PHẢI** (`.why-content-col`).
+  - Dữ liệu thẩm định pháp lý & chứng chỉ:
+    - Tổ chức chứng nhận: **DEKRA Certification GmbH** (Handwerkstraße 15, D-70565 Stuttgart, Đức - `www.dekra-certification.de`).
+    - Đơn vị được chứng nhận: **Murrplastik Systemtechnik GmbH** (Dieselstraße 10, 71570 Oppenweiler, Đức).
+    - Tiêu chuẩn: **ISO 9001:2015** (Phạm vi: R&D, sản xuất, lắp đặt và thương mại linh kiện kỹ thuật tự động hóa và chế tạo máy).
+    - Mã số chứng chỉ: `31297761/9` · Báo cáo đánh giá (Audit Report): `A24091467`.
+    - Công nhận quốc tế: **DAkkS** (Deutsche Akkreditierungsstelle `D-ZM-16029-01-00`) & **IAF MLA** (Multilateral Recognition Arrangement).
+    - Hiệu lực: Từ ngày `2025-03-13` đến `2028-03-12` · Ký xác thực: `Dr. Rolf Krökel`.
+  - **Chính sách bảo mật tài liệu (No Public Download Button)**: Tuyệt đối không cung cấp nút tải file PDF trực tiếp trên giao diện công khai; khách hàng hoặc nhà thầu dự án cần bản sao công chứng liên hệ trực tiếp phòng kỹ thuật T&T Vina.
+* **Xuất Bản Bài Viết Kỹ Thuật Báo Cáo Kiểm Định R-Tec Liner (`thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky`)**:
+  - Trích xuất dữ liệu gốc từ tệp `Internal Test Report R-Tec Liner.pdf`:
+    - Thiết bị thử nghiệm: **R-Tec Liner 550mm EW/EWX 70** (Mã SKU `83693082`).
+    - Kỹ sư kiểm định: `H. Thaidigsmann` (Murrplastik Systemtechnik GmbH, Dieselstraße 10, Oppenweiler).
+    - Thời gian thử nghiệm: **219 ngày đêm liên tục** (bắt đầu ngày `09/02/2017`, kết thúc ngày `26/09/2017`).
+    - Tổng chu kỳ đạt được: **17,755,473 chu kỳ (17.75 triệu chu kỳ)**.
+    - Kết quả 8 cấu phần: 7 cấu phần đạt trọn vẹn 17.75 triệu chu kỳ; duy nhất ống luồn dẻo `EWX-PAE 70` (SKU `83182080`) nứt mỏi tại chu kỳ 13.1 triệu.
+    - Đánh giá của Ban Quản lý Sản phẩm (Product Management Team): Xếp loại Xuất sắc (**Very Successful**).
+  - Tương quan ứng dụng công nghiệp: 17.75 triệu chu kỳ tương đương với **8 – 10 năm vận hành liên tục** tại xưởng Body Shop (hàn thân xe ô tô) VinFast Cát Hải (Hải Phòng) trên các dàn Robot hàn ABB.
+  - Vị trí hiển thị: Đặt thành bài viết kỹ thuật chuyên sâu trong News Hub (`/murrplastik/tin-tuc/`), **giữ nguyên sự kiện VEC 2026 làm thẻ tiêu điểm Hero độc quyền**, không bị trộn lẫn hoặc thay thế thẻ Hero.
+* **Đa Ngôn Ngữ & Kiểm Thử Tự Động Hóa (i18n & Unit Test Suite)**:
+  - Bản địa hóa trọn vẹn 7 ngôn ngữ (`vi`, `en`, `de`, `zh-CN`, `ko`, `ja`, `th`) trong `i18n.js`.
+  - Bộ kiểm thử tự động hóa [`scratch_verify_suite.py`](file:///d:/T&TVina/protools/scratch_verify_suite.py) kiểm soát chặt chẽ 6 module: Toàn vẹn asset ảnh WebP/JPG, Cấu trúc HTML đối xứng `#why`, Dữ liệu bài viết kỹ thuật & zero `murrplastikvn.com`, Danh mục News Hub, Độ phủ 7 ngôn ngữ và Quy tắc Responsive CSS. Build Vite (`pnpm build`) đạt 100% thành công.
