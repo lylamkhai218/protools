@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải Pháp Đi Dây Cáp Hợp Vệ Sinh F&B - Murrplastik & T&T Vina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+        
+        @page {
+            size: 297mm 167mm; /* 16:9 Widescreen aspect ratio */
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E2E8F0;
+            color: #334155;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        /* Slide Container */
+        .slide {
+            width: 297mm;
+            height: 167mm;
+            background-color: #F4F8FA;
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            padding: 12mm 15mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        /* Dark Theme Slides (Cover & Contact) */
+        .slide.dark {
+            background: radial-gradient(circle at 10% 20%, #0B1E36 0%, #023047 100%);
+            color: #FFFFFF;
+        }
+        
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10mm;
+            flex-grow: 1;
+            align-items: center;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8mm;
+            flex-grow: 1;
+            align-items: stretch;
+            margin-top: 5mm;
+        }
+        
+        /* Header section */
+        .slide-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid rgba(0, 119, 182, 0.08);
+            padding-bottom: 3.5mm;
+            margin-bottom: 5.5mm;
+            height: 14mm;
+            position: relative;
+        }
+        
+        .slide.dark .slide-header {
+            border-bottom: 2px solid rgba(6, 182, 212, 0.2);
+        }
+        
+        .slide-header::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 35mm;
+            height: 2px;
+            background: linear-gradient(90deg, #0077B6, #06B6D4);
+            border-radius: 2px;
+        }
+        
+        .slide.dark .slide-header::after {
+            background: linear-gradient(90deg, #06B6D4, #FFFFFF);
+        }
+        
+        .slide-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #06B6D4;
+            margin-right: 6mm;
+        }
+        
+        .slide-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0B1E36;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .slide.dark .slide-title {
+            color: #FFFFFF;
+        }
+        
+        /* Cards (Catalog Style) */
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 119, 182, 0.12);
+            border-radius: 10px;
+            padding: 4mm 5.5mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            position: relative;
+            box-shadow: 0 4px 18px -2px rgba(11, 30, 54, 0.04), 0 2px 6px -1px rgba(11, 30, 54, 0.02);
+            transition: all 0.3s ease;
+        }
+        
+        .card-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #06B6D4;
+            margin-bottom: 2mm;
+        }
+        
+        .card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0B1E36;
+            margin-bottom: 3.5mm;
+            letter-spacing: 0.3px;
+        }
+        
+        .card-desc {
+            font-size: 11.5px;
+            line-height: 1.6;
+            color: #475569;
+        }
+        
+        /* Content lists */
+        .desc-list {
+            list-style: none;
+        }
+        
+        .desc-list li {
+            margin-bottom: 5mm;
+            position: relative;
+            padding-left: 6mm;
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #475569;
+        }
+        
+        .slide.dark .desc-list li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .desc-list li strong {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            color: #0B1E36;
+            display: block;
+            margin-bottom: 1mm;
+        }
+        
+        .slide.dark .desc-list li strong {
+            color: #06B6D4;
+        }
+        
+        .desc-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #0077B6;
+            font-size: 14px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        /* Tables (WINCOME style with custom border cuts) */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 4mm;
+            font-size: 11px;
+            border: 1px solid rgba(0, 119, 182, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .styled-table th {
+            background-color: #0077B6;
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2.5mm 3.5mm;
+            text-align: left;
+        }
+        
+        .styled-table td {
+            padding: 2mm 3.5mm;
+            border-bottom: 1px solid rgba(0, 119, 182, 0.08);
+            color: #334155;
+        }
+        
+        .styled-table tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+        
+        .styled-table tr:hover {
+            background-color: #F0F7FA;
+        }
+        
+        /* Image Wrappers */
+        .image-container {
+            border: 1px solid rgba(0, 119, 182, 0.1);
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            padding: 3mm;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 18px -2px rgba(11, 30, 54, 0.03);
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Spec Lens Badge Overlay (Signature Element) */
+        .spec-lens {
+            position: absolute;
+            bottom: 6mm;
+            right: 6mm;
+            background-color: #0B1E36;
+            border: 1.5px solid #06B6D4;
+            color: #FFFFFF;
+            padding: 3.5mm 4.5mm;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(11, 30, 54, 0.25);
+            max-width: 65mm;
+        }
+        
+        .spec-lens .eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 8px;
+            font-weight: 700;
+            color: #06B6D4;
+            text-transform: uppercase;
+            margin-bottom: 1.5mm;
+            letter-spacing: 0.8px;
+        }
+        
+        .spec-lens .value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 1.5mm;
+        }
+        
+        .spec-lens .caption {
+            font-size: 8.5px;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.75);
+        }
+        
+        /* Cover slide layouts */
+        .cover-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            padding-right: 8mm;
+        }
+        
+        .cover-watermark {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #06B6D4;
+            letter-spacing: 2px;
+            margin-bottom: 8mm;
+        }
+        
+        .cover-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.25;
+            margin-bottom: 4mm;
+        }
+        
+        .cover-subtitle {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #06B6D4;
+            margin-bottom: 6mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .cover-desc {
+            font-size: 12px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10mm;
+            max-width: 110mm;
+        }
+        
+        .cover-logos {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 1.5;
+            border-left: 2px solid #06B6D4;
+            padding-left: 4mm;
+        }
+        
+        /* Big Callout Text */
+        .big-callout {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #06B6D4;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+        
+        .big-callout.navy {
+            color: #0B1E36;
+        }
+        
+        /* Double Column Products */
+        .prod-split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6mm;
+            height: calc(100% - 38mm);
+        }
+        
+        .prod-split-container.short {
+            height: 75mm;
+        }
+        
+        .prod-col {
+            display: flex;
+            flex-direction: column;
+            gap: 4mm;
+            height: 100%;
+        }
+        
+        .prod-col-body {
+            flex-grow: 1;
+        }
+        
+        /* Split card layout for drag chains */
+        .split-card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+            height: calc(100% - 21mm);
+        }
+        
+        .split-card {
+            background-color: #FFFFFF;
+            border: 1px solid rgba(0, 119, 182, 0.12);
+            border-radius: 12px;
+            padding: 5mm;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            box-shadow: 0 4px 18px -2px rgba(11, 30, 54, 0.04);
+        }
+        
+        .split-card-img {
+            height: 25mm;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 4mm;
+            border-bottom: 1px solid #F1F5F9;
+            padding-bottom: 3mm;
+        }
+        
+        .split-card-img img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .split-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .split-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #0B1E36;
+            margin-bottom: 3.5mm;
+            text-transform: uppercase;
+        }
+        
+        .split-card-list {
+            list-style: none;
+        }
+        
+        .split-card-list li {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #475569;
+            margin-bottom: 2mm;
+            position: relative;
+            padding-left: 4.5mm;
+        }
+        
+        .split-card-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #06B6D4;
+            font-size: 11px;
+            font-weight: 800;
+        }
+        
+        /* Case study horizontal layout */
+        .case-study-list {
+            list-style: none;
+            margin-top: 2mm;
+        }
+        
+        .case-study-list li {
+            font-size: 11px;
+            line-height: 1.55;
+            color: #475569;
+            margin-bottom: 2.5mm;
+            position: relative;
+            padding-left: 4.5mm;
+        }
+        
+        .case-study-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #06B6D4;
+            font-size: 10px;
+            font-weight: 800;
+        }
+        
+        /* QR Code & info layout */
+        .contact-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            padding-left: 10mm;
+        }
+        
+        .contact-info-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #06B6D4;
+            margin-bottom: 5mm;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .contact-row {
+            margin-bottom: 5mm;
+        }
+        
+        .contact-label {
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5mm;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .contact-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        
+        .contact-value.large {
+            font-size: 18px;
+            color: #06B6D4;
+        }
+        
+        .contact-qr-container {
+            display: flex;
+            align-items: center;
+            margin-top: 6mm;
+        }
+        
+        .contact-qr-box {
+            width: 1.8in;
+            height: 1.8in;
+            background-color: #FFFFFF;
+            border: 2px solid #06B6D4;
+            padding: 3.5mm;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(11, 30, 54, 0.2);
+        }
+        
+        .contact-qr-inner {
+            background-color: #0B1E36;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #06B6D4;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+            border-radius: 6px;
+        }
+        
+        .contact-qr-inner span {
+            color: #FFFFFF;
+            font-size: 9px;
+            margin-top: 1mm;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SLIDE 1: TRANG BÌA -->
+    <div class="slide dark">
+        <div class="grid-2" style="height: 100%;">
+            <div class="cover-left">
+                <div class="cover-watermark">T&T VINA  |  MURRPLASTIK</div>
+                <h1 class="cover-title">GIẢI PHÁP ĐI DÂY CÁP<br>HỢP VỆ SINH</h1>
+                <div class="cover-subtitle">CHO NHÀ MÁY THỰC PHẨM & ĐỒ UỐNG (F&B)</div>
+                <p class="cover-desc">
+                    Hệ thống dẫn cáp, đầu vào cáp và ống bảo vệ đạt tiêu chuẩn vệ sinh nghiêm ngặt FDA, EHEDG & Ecolab – Chống nhiễm khuẩn chéo, chịu xịt rửa áp lực cao IP69K và hóa chất ăn mòn tẩy rửa.
+                </p>
+                <div class="cover-logos">
+                    NHÀ PHÂN PHỐI CHÍNH THỨC TẠI VIỆT NAM<br>
+                    <strong>CÔNG TY TNHH CÔNG NGHIỆP T&T VINA</strong>
+                </div>
+            </div>
+            
+            <div style="height: 100%; padding: 4mm;">
+                <div class="image-container" style="border-color: #00B4D8;">
+                    <img src="Ảnh sản phẩm/Multi_products.jpg" alt="Hệ thống đi dây hợp vệ sinh Murrplastik">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: THÁCH THỨC VẬN HÀNH -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">01</span>
+            <h2 class="slide-title">Thách Thức Vận Hành Trong Nhà Máy F&B</h2>
+        </div>
+        
+        <div class="grid-3">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3 class="card-title">AN TOÀN SINH HỌC & VỆ SINH DỊCH TỄ</h3>
+                <p class="card-desc">
+                    Kiểm soát và ngăn ngừa triệt để nguy cơ nhiễm khuẩn chéo trong dây chuyền. Các góc khuất, khe hở kết cấu, ren vít thông thường trong tủ điện và máy móc là nơi cực kỳ lý tưởng để bụi bẩn, nước đọng và vi sinh vật tích tụ phát triển.
+                </p>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3 class="card-title">TỐI ƯU HÓA THỜI GIAN VỆ SINH (DOWNTIME)</h3>
+                <p class="card-desc">
+                    Thời gian dừng máy để lau chùi, xịt rửa máy móc ảnh hưởng trực tiếp đến năng suất nhà máy. Quy trình vận hành hiện đại đòi hỏi các giải pháp có thiết kế hợp vệ sinh (Hygienic Design) để dễ dàng xịt rửa nhanh, giảm 50% thời gian làm sạch.
+                </p>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3 class="card-title">MÔI TRƯỜNG TẨY RỬA KHẮC NGHIỆT</h3>
+                <p class="card-desc">
+                    Các thiết bị cơ điện và cáp dẫn phải chịu đựng tần suất xịt rửa áp lực cao hàng ngày (tiêu chuẩn IP69K) cùng sự tác động ăn mòn cực mạnh của các loại hóa chất tẩy rửa công nghiệp (axit, bazơ, dầu mỡ) mà không bị gỉ sét, hư hỏng.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: GIẢI PHÁP HỢP VỆ SINH TỪ MURRPLASTIK -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">02</span>
+            <h2 class="slide-title">Giải Pháp Vệ Sinh Toàn Diện Từ Murrplastik</h2>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <h3 class="slide-title" style="font-size: 14.5px; margin-bottom: 5mm; color: #0077B6;">ĐIỂM KHÁC BIỆT CỦA CÔNG NGHỆ HYGIENIC DESIGN</h3>
+                <ul class="desc-list">
+                    <li>
+                        <strong>Thiết kế cơ khí không góc chết:</strong>
+                        Tất cả các cạnh bo tròn với bán kính đánh bóng tối thiểu 3 mm. Loại bỏ hoàn toàn các khe hở đọng nước và điểm mù kết cấu nhằm triệt tiêu cơ hội xâm nhập của vi khuẩn.
+                    </li>
+                    <li>
+                        <strong>Chứng nhận tiêu chuẩn quốc tế uy tín:</strong>
+                        Vật liệu đạt tiêu chuẩn FDA (Hoa Kỳ), thiết kế vệ sinh theo chỉ dẫn EHEDG (Châu Âu), kiểm tra kháng hóa chất bởi Ecolab, sản xuất theo tiêu chuẩn EC 1935/2004 và EU 10/2011.
+                    </li>
+                    <li>
+                        <strong>Thép không gỉ chất lượng cao đánh bóng:</strong>
+                        Sử dụng thép không gỉ V2A (1.4301) và V4A (1.4404) đánh bóng cơ học đạt độ nhám bề mặt Ra < 0.8 µm, đảm bảo các phân tử thực phẩm không thể bám dính.
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="height: 100%; position: relative;">
+                <div class="image-container">
+                    <img src="Ảnh sản phẩm/Conduits_and_fittings.jpg" alt="Ống dẫn và đầu nối hợp vệ sinh">
+                </div>
+                
+                <!-- Spec Lens Signature Element -->
+                <div class="spec-lens">
+                    <div class="eyebrow">ĐỘ NHÁM BỀ MẶT THÉP</div>
+                    <div class="value">Ra &lt; 0.8 µm</div>
+                    <div class="caption">Đánh bóng cơ học tối ưu, đạt tiêu chuẩn thép vô trùng V2A/V4A cho F&B.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: TẤM DẪN CÁP TÙY BIẾN KDP ON DEMAND -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">03</span>
+            <h2 class="slide-title">1.2 Tấm Dẫn Cáp Tùy Biến (KDP on Demand)</h2>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <h3 class="slide-title" style="font-size: 14.5px; margin-bottom: 5mm; color: #0077B6;">GIẢI PHÁP THIẾT KẾ CÁ NHÂN HÓA DUY NHẤT TRÊN THẾ GIỚI</h3>
+                <ul class="desc-list">
+                    <li>
+                        <strong>Tự do cấu hình kích thước và số lỗ luồn:</strong>
+                        Sản xuất cá nhân hóa hoàn toàn theo bản vẽ cơ khí của tủ điện hoặc máy móc, tương thích 100% với đường kính và số lượng cáp thực tế.
+                    </li>
+                    <li>
+                        <strong>Mật độ luồn cáp cực cao và lắp đặt nhanh:</strong>
+                        Đi dây cực nhanh chỉ bằng thao tác luồn trực tiếp cáp qua màng chắn dẻo. Tiết kiệm tới 80% không gian và thời gian lắp đặt so với việc dùng ốc siết cáp (cable gland) riêng lẻ.
+                    </li>
+                    <li>
+                        <strong>Độ kín khít cao và chịu áp lực nước:</strong>
+                        Màng ngăn bằng cao su đàn hồi cao ôm sát thân cáp, đạt cấp bảo vệ IP65 đến IP69K tùy chọn.
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="height: 100%; display: flex; flex-direction: column; gap: 4mm;">
+                <div style="height: 28mm;">
+                    <div class="image-container">
+                        <img src="Ảnh sản phẩm/KDP 24.jpg" alt="Tấm dẫn cáp KDP 24">
+                    </div>
+                </div>
+                
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 32%;">Đặc Tính</th>
+                            <th>Mô Tả Chi Tiết / Khả Năng Tùy Chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vật liệu tấm</strong></td>
+                            <td>Thép không gỉ V2A/V4A đánh bóng cơ học hoặc Nhựa thực phẩm trắng đạt chuẩn FDA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vật liệu màng</strong></td>
+                            <td>EPDM hoặc Silicone màu xanh lam dễ dàng phát hiện bẩn, chịu hóa chất</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cơ cấu cố định</strong></td>
+                            <td>Tích hợp bu lông ren ẩn hàn ở mặt sau tấm thép, mặt trước phẳng mịn hoàn toàn</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Đường kính cáp</strong></td>
+                            <td>Tùy chọn tự do đường kính từ 3.0 mm đến 33.0 mm trên cùng một tấm dẫn cáp</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: HỆ THỐNG TẤM DẪN CÁP BẰNG THÉP KHÔNG GỈ -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">04</span>
+            <h2 class="slide-title">Tấm Dẫn Cáp Thép Không Gỉ - Dòng Premium</h2>
+        </div>
+        
+        <div class="three-col-container" style="height: 62mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm;">
+            <!-- Card KDP/S -->
+            <div class="card" style="height: 100%;">
+                <h3 class="card-title" style="margin-bottom: 2mm; font-size: 13.5px;">KDP/S-FDA-HD (Tấm liền khối)</h3>
+                <p class="card-desc" style="margin-bottom: 2mm; line-height: 1.4;">
+                    Tấm dẫn cáp liền khối bằng thép không gỉ V2A/V4A cho cáp chưa bấm đầu cắm.
+                </p>
+                <ul class="split-card-list" style="margin-top: 1mm;">
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Bu lông ren hàn chìm mặt sau, bề mặt phẳng mịn chống đọng bụi.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Đạt chuẩn IP69K, chịu xịt rửa nước nóng áp lực lớn.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Bo tròn góc tối thiểu 3mm tuân thủ tiêu chuẩn EHEDG.</li>
+                </ul>
+            </div>
+            
+            <!-- Card KDL/H -->
+            <div class="card" style="height: 100%;">
+                <h3 class="card-title" style="margin-bottom: 2mm; font-size: 13.5px;">KDL/H-VA-FDA (Khung tháo rời)</h3>
+                <p class="card-desc" style="margin-bottom: 2mm; line-height: 1.4;">
+                    Hệ thống khung thép không gỉ V2A tháo rời cho cáp đã bấm sẵn phích cắm.
+                </p>
+                <ul class="split-card-list" style="margin-top: 1mm;">
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Đi dây cáp có sẵn đầu cắm mà không cần cắt jack gốc.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Khối gioăng TPE màu xanh chuẩn FDA, chứa tới 48 cáp.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Độ kín bảo vệ IP69K, tích hợp cơ cấu giảm căng cáp.</li>
+                </ul>
+            </div>
+            
+            <!-- Image & Callouts -->
+            <div class="prod-col" style="height: 100%;">
+                <div class="image-container" style="height: 42mm;">
+                    <img src="Ảnh sản phẩm/KDH_KDL_H-VA-FDA_Produkt.png" alt="Sản phẩm KDL/H-VA-FDA">
+                </div>
+                
+                <div style="display: flex; gap: 4mm; height: 14mm; align-items: center; justify-content: space-between; padding: 0 2mm;">
+                    <div>
+                        <div class="big-callout" style="font-size: 20px;">IP69K</div>
+                        <div style="font-size: 8px; color: #2B3A4A; font-weight: 600; text-transform: uppercase;">Cấp bảo vệ</div>
+                    </div>
+                    <div>
+                        <div class="big-callout navy" style="font-size: 20px;">V4A STEEL</div>
+                        <div style="font-size: 8px; color: #2B3A4A; font-weight: 600; text-transform: uppercase;">Thép kháng hóa chất</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <table class="styled-table" style="margin-top: 4mm;">
+            <thead>
+                <tr>
+                    <th style="width: 18%;">Mẫu Sản Phẩm</th>
+                    <th style="width: 15%;">Vật Liệu Khung</th>
+                    <th style="width: 12%;">Tiêu Chuẩn IP</th>
+                    <th style="width: 25%;">Đặc Tính Luồn Cáp</th>
+                    <th>Ưu Điểm Ứng Dụng Trong Nhà Máy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>KDP/S-FDA-HD</strong></td>
+                    <td>Thép V2A / V4A</td>
+                    <td><strong>IP69K</strong></td>
+                    <td>Cáp trần (chưa bấm đầu), màng kín EPDM</td>
+                    <td>Bề mặt phẳng tuyệt đối, dùng ở khu vực chế biến ướt tiếp xúc trực tiếp thực phẩm</td>
+                </tr>
+                <tr>
+                    <td><strong>KDL/H-VA-FDA</strong></td>
+                    <td>Thép V2A</td>
+                    <td><strong>IP69K</strong></td>
+                    <td>Cáp đã có jack/phích cắm, gioăng TPE xanh</td>
+                    <td>Đi dây tín hiệu điều khiển cảm biến, tủ máy đóng gói tự động hóa</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SLIDE 6: HỆ THỐNG TẤM DẪN CÁP BẰNG NHỰA THỰC PHẨM -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">05</span>
+            <h2 class="slide-title">Tấm Dẫn Cáp Nhựa Thực Phẩm - Dòng Standard</h2>
+        </div>
+        
+        <div class="three-col-container" style="height: 62mm; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm;">
+            <!-- Card KDP/Z -->
+            <div class="card" style="height: 100%;">
+                <h3 class="card-title" style="margin-bottom: 2mm; font-size: 13.5px;">KDP/Z-FDA (Tấm nhựa liền khối)</h3>
+                <p class="card-desc" style="margin-bottom: 2mm; line-height: 1.4;">
+                    Tấm dẫn cáp bằng nhựa Polyamide trắng FDA cho cáp chưa lắp đầu cắm.
+                </p>
+                <ul class="split-card-list" style="margin-top: 1mm;">
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Bo góc 3D bảo vệ vỏ cáp chống ma sát khi máy rung động.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Công nghệ đúc hai thành phần: cao su dẻo kết hợp nhựa cứng.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Đạt chuẩn IP69K, luồn đường kính cáp từ 3.0mm đến 33.0mm.</li>
+                </ul>
+            </div>
+            
+            <!-- Card KDL/D -->
+            <div class="card" style="height: 100%;">
+                <h3 class="card-title" style="margin-bottom: 2mm; font-size: 13.5px;">KDL/D-FDA (Khung nhựa tháo rời)</h3>
+                <p class="card-desc" style="margin-bottom: 2mm; line-height: 1.4;">
+                    Khung nhựa Polyamide trắng FDA có thể tháo rời cho cáp đã bấm sẵn phích.
+                </p>
+                <ul class="split-card-list" style="margin-top: 1mm;">
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Khung nhựa trắng dễ dàng nhận diện vết bám bẩn bằng mắt thường.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Không làm gián đoạn tín hiệu truyền thông của cáp đã bấm đầu.</li>
+                    <li style="font-size: 10.5px; line-height: 1.4; margin-bottom: 1.5mm;">Bảo vệ IP65, tích hợp các khối gioăng tháo rời linh động.</li>
+                </ul>
+            </div>
+            
+            <!-- Image & Callouts -->
+            <div class="prod-col" style="height: 100%;">
+                <div class="image-container" style="height: 42mm;">
+                    <img src="Ảnh sản phẩm/acs_1.jpg" alt="Sản phẩm nhựa trắng FDA">
+                </div>
+                
+                <div style="display: flex; gap: 4mm; height: 14mm; align-items: center; justify-content: space-between; padding: 0 2mm;">
+                    <div>
+                        <div class="big-callout" style="font-size: 20px;">FDA PLASTIC</div>
+                        <div style="font-size: 8px; color: #2B3A4A; font-weight: 600; text-transform: uppercase;">Nhựa trắng thực phẩm</div>
+                    </div>
+                    <div>
+                        <div class="big-callout navy" style="font-size: 20px;">EASY DETECT</div>
+                        <div style="font-size: 8px; color: #2B3A4A; font-weight: 600; text-transform: uppercase;">Phát hiện bẩn trực quan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <table class="styled-table" style="margin-top: 4mm;">
+            <thead>
+                <tr>
+                    <th style="width: 18%;">Mẫu Sản Phẩm</th>
+                    <th style="width: 15%;">Vật Liệu Khung</th>
+                    <th style="width: 12%;">Tiêu Chuẩn IP</th>
+                    <th style="width: 25%;">Cấu Trúc Lỗ Luồn Cáp</th>
+                    <th>Điểm Vượt Trội / Lợi Ích Vận Hành</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>KDP/Z-FDA</strong></td>
+                    <td>Nhựa Polyamide trắng FDA</td>
+                    <td><strong>IP69K</strong></td>
+                    <td>Lỗ mở từ 3.0 đến 33.0 mm, màng cao su liền</td>
+                    <td>Tải trọng nhẹ, lắp đặt siêu nhanh cho tủ phân phối điện chung nhà máy</td>
+                </tr>
+                <tr>
+                    <td><strong>KDL/D-FDA</strong></td>
+                    <td>Nhựa Polyamide trắng FDA</td>
+                    <td><strong>IP65</strong></td>
+                    <td>Gioăng nhựa chia nhỏ, tối đa 48 cáp</td>
+                    <td>Hỗ trợ đắc lực khi cần bảo trì, thay thế cáp hỏng nhanh chóng không cần cắt jack</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SLIDE 7: XÍCH DẪN CÁP ĐỘNG LỰC & ỐNG BẢO VỆ CÁP -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">06</span>
+            <h2 class="slide-title">Xích Dẫn Cáp Động Lực & Ống Bảo Vệ Cáp</h2>
+        </div>
+        
+        <div class="split-card-grid">
+            <!-- Evochain Card -->
+            <div class="split-card">
+                <div class="split-card-img">
+                    <img src="Ảnh sản phẩm/Evochain_420_konfektioniert_freisteller.png" alt="Xích dẫn MP 420">
+                </div>
+                <div class="split-card-content">
+                    <h3 class="split-card-title">EVOCHAIN® MAX MP 420 (Xích dẫn động)</h3>
+                    <ul class="split-card-list">
+                        <li>Thiết kế chuyên biệt cho các cơ cấu chuyển động tịnh tiến tốc độ cao trên robot đóng gói hoặc băng tải F&B.</li>
+                        <li>Cấu tạo bề mặt trơn nhẵn, hạn chế tối đa các khe hở và điểm đọng hữu cơ, ngăn nấm mốc phát triển.</li>
+                        <li>Chịu lực uốn gập liên tục hàng triệu chu kỳ, vận hành êm ái, giảm ma sát tối đa.</li>
+                        <li>Vật liệu nhựa cao cấp chịu ăn mòn hóa chất tẩy rửa tốt.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Conduits Card -->
+            <div class="split-card">
+                <div class="split-card-img">
+                    <img src="Ảnh sản phẩm/murrplastik_EWL-PAB.png" alt="Ống bảo vệ cáp EWL">
+                </div>
+                <div class="split-card-content">
+                    <h3 class="split-card-title">Ống Bảo Vệ Cáp EWX-PAE & Đầu Nối KSD-D</h3>
+                    <ul class="split-card-list">
+                        <li>Ống luồn dẻo EWX-PAE và EWL-PAB có độ bền uốn dẻo cao, chống dập nát, bảo vệ an toàn cho lõi cáp bên trong.</li>
+                        <li>Đầu nối hợp vệ sinh KSD-D và KSM-D với thiết kế bề mặt nhẵn phẳng, không tạo khe bám bụi ở ren bu lông.</li>
+                        <li>Đạt cấp độ kín nước IP69K, tạo hệ thống bảo vệ cáp khép kín từ tủ điện đến tận động cơ máy chế biến.</li>
+                        <li>Kháng chịu hóa chất ăn mòn cực tốt, được chứng nhận bởi Ecolab.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: AN TOÀN THỰC PHẨM - DÂY BUỘC CÁP PHÁT HIỆN ĐƯỢC -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">07</span>
+            <h2 class="slide-title">Dây Buộc Cáp & Nhãn Ghi Phát Hiện Được</h2>
+        </div>
+        
+        <div class="grid-2">
+            <div>
+                <h3 class="slide-title" style="font-size: 14.5px; margin-bottom: 5mm; color: #0077B6;">GIẢI PHÁP CHỐNG DỊ VẬT NHỰA RƠI VÀO DÂY CHUYỀN</h3>
+                <ul class="desc-list">
+                    <li>
+                        <strong>Nhựa Nylon tích hợp hạt kim loại siêu mịn:</strong>
+                        Các loại dây buộc cáp (cable ties) và thẻ nhãn được pha trộn hạt sắt siêu nhỏ phân bố đồng đều. Thiết bị máy dò kim loại (metal detector) hoặc máy quét tia X-ray trong dây chuyền sản xuất dễ dàng phát hiện và loại bỏ nếu mảnh nhựa bị đứt rơi vào thực phẩm.
+                    </li>
+                    <li>
+                        <strong>Màu xanh lam (Clinical Blue) đặc trưng:</strong>
+                        Màu sắc tương phản hoàn toàn với hầu hết các loại thực phẩm thông thường, giúp nhân viên vận hành dễ dàng phát hiện nhanh bằng mắt thường khi kiểm soát chất lượng ngoại quan.
+                    </li>
+                    <li>
+                        <strong>Hệ thống ghi nhãn chịu ẩm ướt:</strong>
+                        Nhãn đánh dấu cáp và thiết bị bằng thép không gỉ hoặc nhựa chịu nhiệt, in sắc nét bằng máy in laser chuyên dụng mp-LM 3, không bị bay màu hoặc bong tróc khi phun xịt hóa chất nóng.
+                    </li>
+                </ul>
+            </div>
+            
+            <div style="height: 100%; position: relative;">
+                <div class="image-container">
+                    <img src="Ảnh sản phẩm/SUV_EW_R_PP_produkt_01.png" alt="Dây buộc cáp và nhãn ghi phát hiện được">
+                </div>
+                
+                <!-- Detectable highlight card -->
+                <div class="spec-lens" style="background-color: #00B4D8; border-color: #FFFFFF; max-width: 55mm; bottom: 6mm; left: 6mm;">
+                    <div class="eyebrow" style="color: #FFFFFF;">TIÊU CHUẨN AN TOÀN F&B</div>
+                    <div class="value" style="font-size: 14px; margin-bottom: 0;">METAL DETECTABLE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: DỰ ÁN THỰC TẾ & KHÁCH HÀNG TIÊU BIỂU -->
+    <div class="slide">
+        <div class="slide-header">
+            <span class="slide-num">08</span>
+            <h2 class="slide-title">Dự Án Thực Tế & Khách Hàng Tiêu Biểu</h2>
+        </div>
+        
+        <div class="split-card-grid">
+            <!-- Case Study 1 -->
+            <div class="split-card">
+                <div class="split-card-img" style="height: 46mm; padding-bottom: 0; border-bottom: none; overflow: hidden; border-radius: 4px 4px 0 0;">
+                    <img src="Hình ảnh thực tế/Velec Systems (nhà sản xuất máy làm xúc xích)_1.png" alt="Máy làm xúc xích Velec Systems" style="object-fit: cover; width: 100%; height: 100%;">
+                </div>
+                <div class="split-card-content">
+                    <h3 class="split-card-title">Velec Systems (Pháp) - Máy Làm Xúc Xích Công Nghiệp</h3>
+                    <p class="card-desc" style="margin-bottom: 3mm; font-weight: 500;">
+                        Nhà sản xuất máy chế biến thực phẩm hàng đầu của Pháp yêu cầu tiêu chuẩn vệ sinh và rửa trôi chất bẩn tuyệt đối.
+                    </p>
+                    <ul class="case-study-list">
+                        <li>Ứng dụng các tấm dẫn cáp thép không gỉ Murrplastik trên các thành cabin điều khiển của máy.</li>
+                        <li>Được kiểm chứng giúp rút ngắn 45% thời gian xịt rửa hóa chất và dọn vệ sinh sau mỗi mẻ sản xuất.</li>
+                        <li>Hệ thống kín nước IP69K hoạt động tin cậy dưới vòi nước phun áp lực cao thường xuyên.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Case Study 2 -->
+            <div class="split-card">
+                <div class="split-card-img" style="height: 46mm; padding-bottom: 0; border-bottom: none; overflow: hidden; border-radius: 4px 4px 0 0;">
+                    <img src="Hình ảnh thực tế/Züger AG (Thụy Sĩ) Các đầu nối cáp kim loại.png" alt="Züger AG Dairy Switzerland" style="object-fit: cover; width: 100%; height: 100%;">
+                </div>
+                <div class="split-card-content">
+                    <h3 class="split-card-title">Züger AG (Thụy Sĩ) - Nhà Máy Chế Biến Sữa Quy Mô Lớn</h3>
+                    <p class="card-desc" style="margin-bottom: 3mm; font-weight: 500;">
+                        Nhà máy sản xuất phô mai và các sản phẩm từ sữa tại Thụy Sĩ đối mặt với độ ẩm 100% và axit lactic ăn mòn.
+                    </p>
+                    <ul class="case-study-list">
+                        <li>Sử dụng hệ thống đầu nối cáp bằng thép không gỉ và màng ngăn FDA màu xanh trên các tủ điện động cơ chính.</li>
+                        <li>Hoạt động bền bỉ qua hơn 5 năm vận hành liên tục mà không có sự cố rò điện hay tích tụ vi sinh.</li>
+                        <li>Được tổ chức EHEDG đánh giá đạt chuẩn thiết kế vệ sinh cao nhất ngành sữa.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: LIÊN HỆ & HỢP TÁC -->
+    <div class="slide dark">
+        <div class="grid-2" style="height: 100%;">
+            <div class="cover-left">
+                <h1 class="cover-title" style="font-size: 26px; margin-bottom: 4mm;">T&T VINA – ĐỐI TÁC ĐỒNG HÀNH TIN CẬY</h1>
+                <p class="cover-desc" style="margin-bottom: 6mm; max-width: 120mm;">
+                    Chúng tôi cam kết mang lại các giải pháp đi dây cáp cơ điện và bảo vệ cáp đạt chuẩn vệ sinh thực phẩm cao nhất từ tập đoàn Murrplastik (Đức).
+                </p>
+                
+                <ul class="desc-list" style="margin-bottom: 4mm;">
+                    <li style="margin-bottom: 3.5mm;">
+                        <strong>Sản phẩm chính hãng chất lượng Đức:</strong>
+                        Nhập khẩu trực tiếp đầy đủ CO/CQ, đạt chứng nhận quốc tế FDA, EHEDG và Ecolab.
+                    </li>
+                    <li style="margin-bottom: 3.5mm;">
+                        <strong>Tư vấn thiết kế & bóc tách bản vẽ kỹ thuật:</strong>
+                        Hỗ trợ đội ngũ kỹ sư nhà máy bóc tách, tùy biến tấm dẫn cáp (KDP on Demand) theo thiết kế tủ điện riêng biệt.
+                    </li>
+                    <li style="margin-bottom: 3.5mm;">
+                        <strong>Thời gian đáp ứng nhanh chóng:</strong>
+                        Kho hàng sẵn sàng phục vụ, hỗ trợ kỹ thuật tại công trình nhanh chóng trên toàn quốc.
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="contact-right">
+                <div class="contact-info-title">Thông Tin Liên Hệ Chào Dự Án</div>
+                
+                <div class="contact-row">
+                    <div class="contact-label">Hotline hỗ trợ kỹ thuật và báo giá:</div>
+                    <div class="contact-value large">+84 973 363 824</div>
+                </div>
+                
+                <div class="contact-row">
+                    <div class="contact-label">Email gửi yêu cầu báo giá dự án:</div>
+                    <div class="contact-value">info@t2tvina.com</div>
+                </div>
+                
+                <div class="contact-row">
+                    <div class="contact-label">Website thông tin sản phẩm chính thức:</div>
+                    <div class="contact-value">protools.com.vn/murrplastik</div>
+                </div>
+                
+                <div class="contact-qr-container">
+                    <div class="contact-qr-box">
+                        <div class="contact-qr-inner">
+                            WEBSITE
+                            <span>protools.com.vn/murrplastik</span>
+                        </div>
+                    </div>
+                    <div style="padding-left: 5mm; font-size: 11px; line-height: 1.5; color: rgba(255, 255, 255, 0.7); max-width: 45mm;">
+                        Quét mã QR để truy cập nhanh danh mục sản phẩm vệ sinh thực phẩm Murrplastik Việt Nam.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
