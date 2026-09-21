@@ -346,9 +346,9 @@ const TRANSLATIONS_AUTO = {
   }
 };
 
-// Detect initial language: URL ?lang=en > localStorage mp_lang > localStorage tt_vina_locale > 'vi'
+// Detect initial language: URL ?lang=en > sessionStorage mp_user_lang > 'vi'
 const urlParams = new URLSearchParams(window.location.search);
-let currentLang = urlParams.get('lang') || localStorage.getItem('mp_lang') || localStorage.getItem('tt_vina_locale') || 'vi';
+let currentLang = urlParams.get('lang') || sessionStorage.getItem('mp_user_lang') || 'vi';
 if (currentLang !== 'en' && currentLang !== 'vi') currentLang = 'vi';
 
 function t(key) {
@@ -363,6 +363,7 @@ function applyLanguage(lang) {
     document.documentElement.lang = lang;
 
     // Save preferences
+    sessionStorage.setItem('mp_user_lang', lang);
     localStorage.setItem('mp_lang', lang);
     localStorage.setItem('tt_vina_locale', lang);
 

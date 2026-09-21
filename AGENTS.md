@@ -924,3 +924,16 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Stroke vector chuẩn hóa: `stroke-width="1.8"`, `viewBox="0 0 24 24"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
   - Phản hồi xúc giác (Tactile micro-interactions): Khi hover thẻ active, hộp `.ind-icon-box` chuyển sang nền kính mờ `rgba(255,255,255,0.2)` với viền `rgba(255,255,255,0.38)`, stroke tự động chuyển màu trắng tinh khiết (`#ffffff`), phóng to nhẹ `scale(1.06)`. Thẻ tĩnh có hiệu ứng hover viền nhẹ không gây hiểu nhầm.
 
+### Rule 9.58: Quy Chuẩn Tỉ Lệ Hình Học Cờ Việt Nam & Cơ Chế Khóa Mặc Định Tiếng Việt (21/09/2026)
+* **Tỉ Lệ Hình Học Lá Cờ Việt Nam Chuẩn Quốc Gia (Vietnam Flag SVG Standard)**:
+  - Khung chuẩn viewBox `0 0 18 12`, tâm đối xứng tuyệt đối tại $(cx, cy) = (9, 6)$.
+  - Bán kính đường tròn ngoại tiếp $R = 3.6$ (đúng tỉ lệ 3/10 chiều cao), bán kính nội tiếp $r \approx 1.375$.
+  - Tọa độ 10 đỉnh polygon chuẩn xác: `points="9,2.4 9.81,4.89 12.42,4.89 10.31,6.43 11.12,8.91 9,7.38 6.88,8.91 7.69,6.43 5.58,4.89 8.19,4.89"`.
+  - Khắc phục hoàn toàn lỗi ngôi sao bị kéo dẹt chạm đáy (`y = 11.68`); ngôi sao mới nổi cân bằng ở tâm, khoảng cách từ đỉnh đáy đến mép dưới lá cờ đạt $3.09$ đơn vị (hơn 25% chiều cao).
+  - Đồng bộ 100% trên toàn bộ các tệp: `public/murrplastik/index.html`, `i18n.js`, `FlagIcon.tsx`, và các trang tin tức / ngành ô tô.
+* **Cơ Chế Khóa Mặc Định Ngôn Ngữ Tiếng Việt (`currentLang = 'vi'`)**:
+  - Khi người dùng truy cập trang chủ `/murrplastik/`, hệ thống mặc định 100% nạp Tiếng Việt (`vi`).
+  - Triệt tiêu hiện tượng rò rỉ khóa `tt_vina_locale` từ các ứng dụng React khác trong `localStorage` làm tự động nhảy sang tiếng Anh.
+  - Hỗ trợ đổi ngôn ngữ chủ động qua dropdown lưu trữ phiên `sessionStorage.setItem('mp_user_lang', lang)` và tham số URL trực tiếp `?lang=`.
+
+

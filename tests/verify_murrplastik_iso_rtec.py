@@ -235,6 +235,33 @@ def test_industries_section():
     assert 'border-radius:10px' in css or 'border-radius: 10px' in css, "Missing border-radius:10px in .ind-icon-box"
     print("  ✓ CSS micro-tile container rules for .ind-icon-box verified in main.css - OK")
 
+def test_vietnam_flag_and_i18n_default():
+    print("\n--- TEST 8: VIETNAM FLAG GEOMETRY & I18N DEFAULT 'VI' ---")
+    
+    # 1. Check Vietnam flag polygon points across key files
+    files_to_check = [
+        'public/murrplastik/index.html',
+        'public/murrplastik/assets/js/i18n.js',
+        'public/murrplastik/tin-tuc/index.html',
+        'src/components/FlagIcon.tsx'
+    ]
+    correct_points = '9,2.4 9.81,4.89 12.42,4.89 10.31,6.43 11.12,8.91 9,7.38 6.88,8.91 7.69,6.43 5.58,4.89 8.19,4.89'
+    flawed_points = '9,2.2 10.18,5.82 13.98,5.82 10.9,8.06 12.08,11.68 9,9.44 5.92,11.68 7.1,8.06 4.02,5.82 7.82,5.82'
+    
+    for fpath in files_to_check:
+        with open(fpath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        assert flawed_points not in content, f"Found flawed bottom-sticking flag star in {fpath}"
+        assert correct_points in content, f"Missing centered flag star in {fpath}"
+    print("  ✓ Vietnam flag star geometry mathematically centered at (9, 6) with zero bottom sticking - OK")
+
+    # 2. Check i18n default logic in i18n.js
+    with open('public/murrplastik/assets/js/i18n.js', 'r', encoding='utf-8') as f:
+        js = f.read()
+    assert "let currentLang = 'vi';" in js, "Missing let currentLang = 'vi' default in i18n.js"
+    assert "sessionStorage.getItem('mp_user_lang')" in js, "Missing sessionLang check in i18n.js"
+    print("  ✓ i18n language forcibly defaults to 'vi' on page entry - OK")
+
 if __name__ == '__main__':
     print("==================================================")
     print("   AUTOMATED VERIFICATION TEST SUITE RUNNER       ")
@@ -247,10 +274,12 @@ if __name__ == '__main__':
         test_i18n_coverage()
         test_css_rules()
         test_industries_section()
+        test_vietnam_flag_and_i18n_default()
         print("\n==================================================")
-        print("   ALL 7 TEST MODULES PASSED WITH ZERO ERRORS!    ")
+        print("   ALL 8 TEST MODULES PASSED WITH ZERO ERRORS!    ")
         print("==================================================")
     except AssertionError as e:
         print(f"\n[TEST FAILED]: {e}")
         sys.exit(1)
+
 
