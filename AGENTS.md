@@ -936,4 +936,21 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Triệt tiêu hiện tượng rò rỉ khóa `tt_vina_locale` từ các ứng dụng React khác trong `localStorage` làm tự động nhảy sang tiếng Anh.
   - Hỗ trợ đổi ngôn ngữ chủ động qua dropdown lưu trữ phiên `sessionStorage.setItem('mp_user_lang', lang)` và tham số URL trực tiếp `?lang=`.
 
+### Rule 9.59: Quy Chuẩn Biểu Tượng Mặt Ngang Ô Tô (Side Profile View) & Trật Tự Phân Đoạn Liên Hệ - FAQ (21/09/2026)
+* **Quy Chuẩn Biểu Tượng Ngành Sản Xuất Ô Tô (Automotive Side Profile Iconography)**:
+  - Vị trí: Khối `.ind-grid` tại [`public/murrplastik/index.html`](file:///d:/T&TVina/protools/public/murrplastik/index.html).
+  - Thay thế góc nhìn trực diện (frontal view) bằng hình chiếu cạnh mặt ngang (side profile view) tiêu chuẩn kỹ thuật công nghiệp B2B.
+  - Tọa độ hình học vector 24x24 (`stroke-width="1.8"`, `stroke-linecap="round"`, `stroke-linejoin="round"`):
+    - Khung thân xe khí động học: `d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2"`.
+    - Trục bánh xe sau & trước: 2 vòng tròn `<circle cx="7" cy="17" r="2"></circle>` và `<circle cx="17" cy="17" r="2"></circle>`.
+    - Gầm xe liên kết giữa 2 bánh: `d="M9 17h6"`.
+    - Đường gờ kính sườn (Beltline) và trụ cửa giữa (B-pillar): `d="M5 11h14"` và `d="M12 6v5"`.
+    - Đảm bảo nhận diện tức thì kiểu dáng ô tô công nghiệp từ mọi khoảng cách và kích thước hiển thị.
+* **Tối Ưu Trật Tự Dàn Trang Khối Liên Hệ & Hỏi Đáp Thường Gặp (Layout Flow Sequence)**:
+  - Cấu trúc trước đây: `#news` -> `#faq` (nền tối `#141414`) -> `#contact` (nền sáng `#ffffff`) -> `footer` (nền tối `#111111`) tạo hiệu ứng zigzag màu sắc gây ngắt quãng trải nghiệm thị giác.
+  - Trật tự mới chuẩn hóa: `#news` -> `#contact` (nền sáng tiếp nối tự nhiên sau tin tức) -> `#faq` (nền tối tạo nhịp nghỉ đệm) -> `footer` (nền tối chuyển tiếp liền mạch).
+  - Khối mã cấu trúc Google `JSON-LD FAQPage` được di chuyển đồng bộ liền kề phía sau `<section id="faq">`, bảo toàn 100% dữ liệu Rich Snippets phục vụ SEO.
+  - Tự động kiểm chứng toàn diện qua bộ test [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) với 8/8 modules đạt chuẩn PASS.
+
+
 

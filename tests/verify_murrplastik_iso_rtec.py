@@ -222,10 +222,10 @@ def test_industries_section():
     # 4. Verify specific B2B industrial iconography elements:
     assert 'x1="4" y1="21" x2="20" y2="21"' in grid, "Missing 6-axis robot arm base line"
     assert 'M10 2h4' in grid, "Missing sanitary bottle/vessel top flange"
-    assert 'M3 13l2-5' in grid, "Missing aerodynamic automotive chassis"
+    assert 'M5 17H3v-6l2-5h9' in grid, "Missing side profile automotive chassis"
     assert 'M12 9V3a1 1 0 0 1 1.5-.86' in grid, "Missing wind turbine rotor blade path"
     assert 'M8 2h8v3H8z' in grid, "Missing CNC spindle shank / cutter"
-    print("  ✓ All 6 bespoke B2B industrial icons (Robot, F&B, Auto, Energy, Machine tools, Electronics) verified - OK")
+    print("  ✓ All 6 bespoke B2B industrial icons (Robot, F&B, Auto side profile, Energy, Machine tools, Electronics) verified - OK")
 
     # 5. Check CSS contains .ind-icon-box rules
     with open('public/murrplastik/assets/css/main.css', 'r', encoding='utf-8') as f:
@@ -234,6 +234,12 @@ def test_industries_section():
     assert 'width:48px' in css or 'width: 48px' in css, "Missing width:48px in .ind-icon-box"
     assert 'border-radius:10px' in css or 'border-radius: 10px' in css, "Missing border-radius:10px in .ind-icon-box"
     print("  ✓ CSS micro-tile container rules for .ind-icon-box verified in main.css - OK")
+
+    # 6. Verify section order: #contact precedes #faq
+    pos_contact = html.find('id="contact"')
+    pos_faq = html.find('id="faq"')
+    assert 0 < pos_contact < pos_faq, f"Expected #contact (pos {pos_contact}) to precede #faq (pos {pos_faq})"
+    print("  ✓ Section order verified: #contact precedes #faq - OK")
 
 def test_vietnam_flag_and_i18n_default():
     print("\n--- TEST 8: VIETNAM FLAG GEOMETRY & I18N DEFAULT 'VI' ---")
