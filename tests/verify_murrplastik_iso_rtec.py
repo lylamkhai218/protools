@@ -268,6 +268,50 @@ def test_vietnam_flag_and_i18n_default():
     assert "sessionStorage.getItem('mp_user_lang')" in js, "Missing sessionLang check in i18n.js"
     print("  ✓ i18n language forcibly defaults to 'vi' on page entry - OK")
 
+def test_korean_flag_and_news_updates():
+    print("\n--- TEST 9: KOREAN FLAG GEOMETRY & HOME NEWS UPDATES ---")
+    
+    # 1. Check South Korean flag across all files
+    files_to_check = [
+        'public/murrplastik/index.html',
+        'public/murrplastik/assets/js/i18n.js',
+        'public/murrplastik/tin-tuc/index.html',
+        'public/murrplastik/tin-tuc/trien-lam-vec-2026/index.html',
+        'public/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html',
+        'src/components/FlagIcon.tsx'
+    ]
+    flawed_ko = 'M 9,3.5 A 2.5,2.5 0 0,1 9,8.5'
+    correct_ko = 'M -2.6,0 A 2.6,2.6 0 0,1 2.6,0'
+    for fpath in files_to_check:
+        with open(fpath, 'r', encoding='utf-8') as f:
+            content = f.read()
+        assert flawed_ko not in content, f"Found flawed vertical Korean flag in {fpath}"
+        assert correct_ko in content, f"Missing accurate Taegeuk Korean flag in {fpath}"
+    print("  ✓ South Korean flag accurate with horizontal Taegeuk (Red top, Blue bottom) & 4 trigrams - OK")
+
+    # 2. Check home news section contains R-Tec Liner card
+    with open('public/murrplastik/index.html', 'r', encoding='utf-8') as f:
+        home_html = f.read()
+    m_home_grid = re.search(r'<div class="home-news-grid reveal">(.*?)</div>\s*<div class="home-news-footer', home_html, re.DOTALL)
+    assert m_home_grid, "Missing home-news-grid in index.html"
+    grid_txt = m_home_grid.group(1)
+    assert 'thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky' in grid_txt, "R-Tec Liner news card missing from home-news-grid"
+    assert 'murrplastik-r-tec-liner-17-trieu-chu-ky-thumbnail.webp' in grid_txt, "Missing thumbnail in R-Tec Liner home card"
+    print("  ✓ Home news section includes R-Tec Liner test report card - OK")
+
+    # 3. Check status badge has 'BÁO CÁO' removed
+    with open('public/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html', 'r', encoding='utf-8') as f:
+        art_html = f.read()
+    assert 'BÁO CÁO THỬ NGHIỆM KỸ THUẬT · 17.75M CHU KỲ' not in art_html, "Found 'BÁO CÁO' in status badge"
+    assert 'THỬ NGHIỆM KỸ THUẬT · 17.75M CHU KỲ' in art_html, "Missing 'THỬ NGHIỆM KỸ THUẬT · 17.75M CHU KỲ' in article"
+    print("  ✓ Status badge updated to 'THỬ NGHIỆM KỸ THUẬT · 17.75M CHU KỲ' (removed 'BÁO CÁO') - OK")
+
+    # 4. Check reduced padding in main.css
+    with open('public/murrplastik/assets/css/main.css', 'r', encoding='utf-8') as f:
+        css = f.read()
+    assert 'padding: 2.25rem 0 4rem;' in css or 'padding:2.25rem 0 4rem' in css, "Missing reduced padding for .news-content-section"
+    print("  ✓ Reduced padding for .news-content-section verified in main.css - OK")
+
 if __name__ == '__main__':
     print("==================================================")
     print("   AUTOMATED VERIFICATION TEST SUITE RUNNER       ")
@@ -281,11 +325,13 @@ if __name__ == '__main__':
         test_css_rules()
         test_industries_section()
         test_vietnam_flag_and_i18n_default()
+        test_korean_flag_and_news_updates()
         print("\n==================================================")
-        print("   ALL 8 TEST MODULES PASSED WITH ZERO ERRORS!    ")
+        print("   ALL 9 TEST MODULES PASSED WITH ZERO ERRORS!    ")
         print("==================================================")
     except AssertionError as e:
         print(f"\n[TEST FAILED]: {e}")
         sys.exit(1)
+
 
 
