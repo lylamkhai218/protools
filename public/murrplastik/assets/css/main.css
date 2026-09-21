@@ -552,11 +552,42 @@ ul{list-style:none}
 /* === INDUSTRIES === */
 #industries{background:var(--white);padding:5rem 3rem}
 .ind-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:3rem}
-.ind-item{background:var(--light);padding:1.5rem 1rem;text-align:center;transition:all var(--t);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
-/* Regular items remain static */
-.ind-icon{font-size:28px;margin-bottom:10px;opacity:0.75;transition:all var(--t);display:flex;align-items:center;justify-content:center}
-.ind-icon svg{stroke:currentColor;transition:stroke var(--t)}
+.ind-item{background:var(--light);padding:1.6rem 1rem;text-align:center;transition:all var(--t);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;border:1px solid rgba(15,23,42,0.05)}
+/* Micro-Tile Icon Container (Anti-Slop / design-taste-frontend) */
+.ind-icon-box{
+  width:48px;
+  height:48px;
+  border-radius:10px;
+  background:rgba(15,23,42,0.04);
+  border:1px solid rgba(15,23,42,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+  color:var(--dark);
+  transition:all var(--t);
+  flex-shrink:0;
+}
+.ind-icon-box svg{
+  width:24px;
+  height:24px;
+  stroke:currentColor;
+  transition:stroke var(--t), transform var(--t);
+}
 .ind-name{font-size:12px;font-weight:700;letter-spacing:0.5px;color:var(--dark);transition:color var(--t)}
+
+/* Static items subtle hover polish */
+.ind-item:not(.ind-item-active):hover{
+  background:rgba(15,23,42,0.02);
+  border-color:rgba(15,23,42,0.12);
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+.ind-item:not(.ind-item-active):hover .ind-icon-box{
+  background:rgba(200,16,46,0.06);
+  border-color:rgba(200,16,46,0.18);
+  color:var(--red);
+}
 
 /* Active clickable item with hover effect */
 .ind-item-active {
@@ -566,6 +597,11 @@ ul{list-style:none}
   cursor: pointer;
   text-decoration: none;
   overflow: hidden;
+}
+.ind-item-active .ind-icon-box {
+  background: rgba(200, 16, 46, 0.06);
+  border-color: rgba(200, 16, 46, 0.16);
+  color: var(--red);
 }
 .ind-item-active .ind-active-tag {
   position: absolute;
@@ -590,7 +626,7 @@ ul{list-style:none}
   background: var(--red);
   border-color: var(--red);
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(200, 16, 46, 0.3);
+  box-shadow: 0 12px 28px rgba(200, 16, 46, 0.28);
 }
 .ind-item-active:hover .ind-name,
 .ind-item-active:hover .ind-arrow {
@@ -599,10 +635,11 @@ ul{list-style:none}
 .ind-item-active:hover .ind-arrow {
   transform: translateX(4px);
 }
-.ind-item-active:hover .ind-icon {
-  transform: scale(1.15);
-  opacity: 1;
+.ind-item-active:hover .ind-icon-box {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.38);
   color: var(--white);
+  transform: scale(1.06);
 }
 .ind-item-active:hover .ind-active-tag {
   background: var(--white);

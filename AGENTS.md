@@ -908,3 +908,19 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
 * **Bộ Kiểm Thử Toàn Diện & Build Production**:
   - Cập nhật [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) với Module 7 kiểm tra toàn diện: Liên kết Robot card, class active, tag 17.75M chu kỳ, và xác thực zero emoji Windows trong toàn bộ HTML.
   - Toàn bộ 7 modules kiểm thử đạt 100% PASS và build Vite (`pnpm build`) biên dịch thành công 0 lỗi.
+
+### Rule 9.57: Quy Chuẩn Tái Thiết Kế Biểu Tượng Ngành Ứng Dụng Chuẩn B2B Engineering (/design-taste-frontend - 21/09/2026)
+* **Định Hướng Thẩm Mỹ & Ngôn Ngữ Thiết Kế (Design Read)**:
+  - Catalog thiết bị công nghiệp tự động hóa B2B Đức, đề cao độ chính xác cơ khí, độ bền cao và tính thẩm mỹ kỹ thuật chống rườm rà (Anti-Slop).
+  - Tái lập toàn bộ 6 biểu tượng ngành ứng dụng bằng Vector SVG đơn sắc kỹ thuật chuyên sâu:
+    1. **F&B (Thực phẩm & Đồ uống)**: Bình vi sinh inox & chiết rót vô trùng (Sanitary Processing Vessel & Bottle Line chuẩn EHEDG/FDA/IP69K).
+    2. **Sản xuất Ô tô (Automotive)**: Khung gầm ô tô kết cấu hàn tự động Body Shop (Chassis & Body-in-White).
+    3. **Robot & Tự động hóa**: Cánh tay robot công nghiệp 6 trục (6-Axis Articulated Robot Arm) với khớp xoay và mỏ hàn/kẹp phôi chuyên dụng (chuẩn ABB/KUKA/FANUC).
+    4. **Điện tử & Bán dẫn**: Vi mạch bán dẫn tích hợp IC / Microchip & đường dẫn mạch PCB tủ điện PLC.
+    5. **Năng lượng & Điện gió**: Tuabin điện gió công nghiệp (Wind Turbine Generator) & hệ thống lưới điện truyền tải.
+    6. **Máy công cụ**: Đầu trục chính phay CNC (CNC Milling Spindle & Collet Chuck) kết hợp lưỡi phay xoắn ốc cơ khí chính xác.
+* **Cấu Trúc Khung Chứa Micro-Tile Container (`.ind-icon-box`)**:
+  - Kích thước 48x48px, bo góc `10px`, nền trung tính `rgba(15,23,42,0.04)`, viền kỹ thuật mỏng 1px `border: 1px solid rgba(15,23,42,0.08)`.
+  - Stroke vector chuẩn hóa: `stroke-width="1.8"`, `viewBox="0 0 24 24"`, `stroke-linecap="round"`, `stroke-linejoin="round"`.
+  - Phản hồi xúc giác (Tactile micro-interactions): Khi hover thẻ active, hộp `.ind-icon-box` chuyển sang nền kính mờ `rgba(255,255,255,0.2)` với viền `rgba(255,255,255,0.38)`, stroke tự động chuyển màu trắng tinh khiết (`#ffffff`), phóng to nhẹ `scale(1.06)`. Thẻ tĩnh có hiệu ứng hover viền nhẹ không gây hiểu nhầm.
+

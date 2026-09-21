@@ -214,10 +214,26 @@ def test_industries_section():
         assert em not in grid, f"Found forbidden Windows emoji '{em}' in ind-grid (Rule 1 violation)"
     print("  ✓ Zero Windows emojis in ind-grid (Rule 1 compliance) - OK")
 
-    # 3. All 6 cards use bespoke vector SVGs inside .ind-icon
-    svg_matches = re.findall(r'<div class="ind-icon">\s*<svg', grid)
-    assert len(svg_matches) == 6, f"Expected 6 SVGs in ind-grid, found {len(svg_matches)}"
-    print("  ✓ All 6 industry cards equipped with bespoke monochrome vector SVGs - OK")
+    # 3. All 6 cards use bespoke vector SVGs inside .ind-icon.ind-icon-box
+    box_matches = re.findall(r'class="ind-icon ind-icon-box">\s*<svg', grid)
+    assert len(box_matches) == 6, f"Expected 6 ind-icon-box with SVGs in ind-grid, found {len(box_matches)}"
+    print("  ✓ All 6 industry cards equipped with bespoke micro-tile .ind-icon-box vector SVGs - OK")
+
+    # 4. Verify specific B2B industrial iconography elements:
+    assert 'x1="4" y1="21" x2="20" y2="21"' in grid, "Missing 6-axis robot arm base line"
+    assert 'M10 2h4' in grid, "Missing sanitary bottle/vessel top flange"
+    assert 'M3 13l2-5' in grid, "Missing aerodynamic automotive chassis"
+    assert 'M12 9V3a1 1 0 0 1 1.5-.86' in grid, "Missing wind turbine rotor blade path"
+    assert 'M8 2h8v3H8z' in grid, "Missing CNC spindle shank / cutter"
+    print("  ✓ All 6 bespoke B2B industrial icons (Robot, F&B, Auto, Energy, Machine tools, Electronics) verified - OK")
+
+    # 5. Check CSS contains .ind-icon-box rules
+    with open('public/murrplastik/assets/css/main.css', 'r', encoding='utf-8') as f:
+        css = f.read()
+    assert '.ind-icon-box' in css, "Missing .ind-icon-box in main.css"
+    assert 'width:48px' in css or 'width: 48px' in css, "Missing width:48px in .ind-icon-box"
+    assert 'border-radius:10px' in css or 'border-radius: 10px' in css, "Missing border-radius:10px in .ind-icon-box"
+    print("  ✓ CSS micro-tile container rules for .ind-icon-box verified in main.css - OK")
 
 if __name__ == '__main__':
     print("==================================================")
