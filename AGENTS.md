@@ -970,3 +970,23 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Giảm khoảng cách đệm dọc `.news-content-section` từ `4rem 0` xuống `2.25rem 0 4rem`, giảm margin đỉnh của `.tech-metric-grid` từ `2.5rem` xuống `0.75rem`, rút ngắn tổng khoảng trống đầu bài từ ~104px xuống ~48px, tạo nhịp đọc tự nhiên, liền mạch.
 * **Bộ Kiểm Thử & Kiểm Định Tự Động (9/9 Modules Passed)**:
   - Nâng cấp [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) với Module 9 kiểm tra toàn diện hình học cờ Hàn Quốc, sự hiện diện của card tin R-Tec Liner tại trang chủ, tiêu đề badge tinh gọn và CSS padding tối ưu. 100% kiểm thử đạt chuẩn PASS.
+### Rule 9.61: Đóng Gói & Phát Hành Production Toàn Diện Murrplastik & Kiểm Chứng Trực Tiếp Live HTTP (21/09/2026)
+* **Quy Trình Phát Hành Production Gốc (`deploy_production_root.py`)**:
+  - Đóng gói bundle tĩnh qua Vite (`pnpm build`).
+  - Đồng bộ 61 tệp tĩnh mới lên máy chủ FTP Mắt Bão (`public_html`), bỏ qua 139 file media nhị phân trùng khớp để tối ưu thời gian deploy.
+  - Tự động áp dụng quyền `SITE CHMOD 644` trước khi ghi đè, chống lỗi `553 Permission Denied`.
+  - Cấu hình `.htaccess` tại root và phân vùng con `/murrplastik/`, đảm bảo LiteSpeed phục vụ trực tiếp static files và SPA pushState không xung đột.
+* **Biên Bản Kiểm Chứng Live HTTP Thực Tế Trên Production (100% PASS)**:
+  1. `https://protools.com.vn/murrplastik/` (HTTP 200):
+     - Chứng chỉ ISO 9001:2015 DEKRA bên trái, 6 cam kết chất lượng bên phải (`.why-cert-col`, `.why-content-col`), bảo mật không public nút tải PDF.
+     - Khối `#industries`: Thẻ Robot & Tự động hóa active trỏ về bài kiểm định R-Tec Liner kèm badge `Report · 17.75M`. 6 micro-tiles Vector SVG kỹ thuật (`.ind-icon-box`), 0 Windows emojis, icon ô tô mặt ngang.
+     - Khối `#news`: 3 cột tin tức cân đối (F&B, Robot ô tô, Báo cáo R-Tec Liner).
+     - Trật tự phân đoạn: `#contact` đứng trước `#faq`.
+     - Đồ họa cờ: Cờ Việt Nam tâm $(9, 6)$ cân đối; Cờ Hàn Quốc chuẩn Thái Cực đỏ trên/xanh dưới ngang và 4 quẻ Càn-Khôn-Khảm-Ly. Mặc định vào trang nạp Tiếng Việt (`vi`).
+  2. `https://protools.com.vn/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/` (HTTP 200):
+     - Badge/Title: `THỬ NGHIỆM KỸ THUẬT · 17.75M CHU KỲ` (đã bỏ chữ "BÁO CÁO").
+     - Khoảng cách đệm `.news-content-section` thu gọn còn `2.25rem 0 4rem`, giải phóng khoảng trống đầu bài.
+     - Dữ liệu kiểm định 17.75M chu kỳ, 2 trang scan chứng chỉ gốc hiển thị sắc nét.
+  3. Tài nguyên ảnh & CSS/JS (HTTP 200):
+     - 100% 6 file ảnh WebP/JPG mới tải thành công (HTTP 200).
+     - CSS và từ điển i18n 7 ngôn ngữ đồng bộ hoàn hảo.
