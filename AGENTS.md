@@ -1011,3 +1011,19 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     `Developed by Mr. Kai @ T&T Vina Digital`
   - Cập nhật đồng bộ trên: `src/components/Footer.tsx`, 7 tệp ngôn ngữ React `src/i18n/locales/*.json`, `public/murrplastik/index.html`, `public/murrplastik/tin-tuc/index.html`, `trien-lam-vec-2026/index.html`, `thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html` và từ điển `i18n.js`.
 
+### Rule 9.63: Quy Chuẩn Cập Nhật Popup CTA Chiến Dịch Mùa Vụ & Nén Chuẩn WebP Siêu Nhẹ (21/09/2026)
+* **Nén & Tối Ưu Hóa Ảnh Banner 2K Chất Lượng Cao**:
+  - File gốc: `Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.jpeg` (2048x2048, 1.71 MB).
+  - Tối ưu chuẩn WebP: Sử dụng thuật toán nén `method=6`, `quality=82` xuất ra [`Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.webp`](file:///d:/T&TVina/protools/public/murrplastik/assets/images/Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.webp) dung lượng chỉ **384 KB** (tiết kiệm gần **78%** băng thông tải trang), đồng thời duy trì bản fallback JPG chuẩn 809 KB.
+* **Cập Nhật Giao Diện & Tỉ Lệ Hiển Thị Khối Popup (`#promoPopup`)**:
+  - Tệp chỉnh sửa: [`public/murrplastik/index.html`](file:///d:/T&TVina/protools/public/murrplastik/index.html).
+  - Thay thế toàn bộ thẻ ảnh cũ `Popup_CTA_Murrplastik.webp` bằng banner Trung Thu `Popup_CTA_Mid_Autumn_Festival_2K_20260921155743.webp?v=1`.
+  - Cập nhật kích thước khung hiển thị: `width="600" height="600"` chuẩn tỉ lệ vuông 1:1, tự động co giãn theo responsive container `max-width: 460px` (desktop) và `max-width: 320px` (mobile) trong [`public/murrplastik/assets/css/main.css`](file:///d:/T&TVina/protools/public/murrplastik/assets/css/main.css).
+* **Làm Mới Cookie Chiến Dịch (Campaign Cookie Rotation)**:
+  - Tệp chỉnh sửa: [`public/murrplastik/assets/js/main.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/main.js).
+  - Nâng cấp định danh cookie từ `promo_popup_dismissed` sang `promo_popup_mid_autumn_2026_dismissed`. Điều này đảm bảo khách hàng cũ đã từng đóng popup trước đây vẫn được nhìn thấy chương trình ưu đãi Trung Thu mới mà không bị chặn bởi cookie cũ.
+* **Kiểm Thử & Triển Khai Production**:
+  - Bổ sung Module 10 vào [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) đạt 10/10 modules PASSED.
+  - Đóng gói Vite và tải lên máy chủ Production (`s2d34.cloudnetwork.vn`), xác nhận Live HTTP 200 tải trực tiếp banner WebP 384 KB.
+
+
