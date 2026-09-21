@@ -192,6 +192,33 @@ def test_css_rules():
     assert '.tech-inquiry-box' in css
     print("  ✓ All responsive breakpoints and layout rules verified in main.css - OK")
 
+def test_industries_section():
+    print("\n--- TEST 7: #INDUSTRIES & ROBOT ACTIVE CARD ---")
+    with open('public/murrplastik/index.html', 'r', encoding='utf-8') as f:
+        html = f.read()
+
+    m = re.search(r'<div class="ind-grid">(.*?)</div>\s*</section>', html, re.DOTALL)
+    assert m, "ind-grid not found in index.html"
+    grid = m.group(1)
+
+    # 1. Robot & Automation linked to R-Tec Liner test report
+    assert 'href="tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/"' in grid, "Robot item missing link to R-Tec Liner report"
+    assert 'class="ind-item ind-item-active reveal"' in grid, "Robot card missing ind-item-active class"
+    assert 'Report · 17.75M' in grid, "Missing 'Report · 17.75M' active tag"
+    assert 'ind.robot' in grid, "Missing ind.robot data-i18n"
+    print("  ✓ Robot item active with link to R-Tec Liner report & 'Report · 17.75M' badge - OK")
+
+    # 2. No Windows default emojis (🏭, 🚗, 🤖, ⚡, 🔋, ⚙️) in ind-grid
+    forbidden_emojis = ['🏭', '🚗', '🤖', '⚡', '🔋', '⚙️']
+    for em in forbidden_emojis:
+        assert em not in grid, f"Found forbidden Windows emoji '{em}' in ind-grid (Rule 1 violation)"
+    print("  ✓ Zero Windows emojis in ind-grid (Rule 1 compliance) - OK")
+
+    # 3. All 6 cards use bespoke vector SVGs inside .ind-icon
+    svg_matches = re.findall(r'<div class="ind-icon">\s*<svg', grid)
+    assert len(svg_matches) == 6, f"Expected 6 SVGs in ind-grid, found {len(svg_matches)}"
+    print("  ✓ All 6 industry cards equipped with bespoke monochrome vector SVGs - OK")
+
 if __name__ == '__main__':
     print("==================================================")
     print("   AUTOMATED VERIFICATION TEST SUITE RUNNER       ")
@@ -203,9 +230,11 @@ if __name__ == '__main__':
         test_news_hub()
         test_i18n_coverage()
         test_css_rules()
+        test_industries_section()
         print("\n==================================================")
-        print("   ALL 6 TEST MODULES PASSED WITH ZERO ERRORS!    ")
+        print("   ALL 7 TEST MODULES PASSED WITH ZERO ERRORS!    ")
         print("==================================================")
     except AssertionError as e:
         print(f"\n[TEST FAILED]: {e}")
         sys.exit(1)
+

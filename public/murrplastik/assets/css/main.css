@@ -554,7 +554,8 @@ ul{list-style:none}
 .ind-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:3rem}
 .ind-item{background:var(--light);padding:1.5rem 1rem;text-align:center;transition:all var(--t);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
 /* Regular items remain static */
-.ind-icon{font-size:28px;margin-bottom:10px;opacity:0.7;transition:all var(--t)}
+.ind-icon{font-size:28px;margin-bottom:10px;opacity:0.75;transition:all var(--t);display:flex;align-items:center;justify-content:center}
+.ind-icon svg{stroke:currentColor;transition:stroke var(--t)}
 .ind-name{font-size:12px;font-weight:700;letter-spacing:0.5px;color:var(--dark);transition:color var(--t)}
 
 /* Active clickable item with hover effect */
@@ -601,6 +602,7 @@ ul{list-style:none}
 .ind-item-active:hover .ind-icon {
   transform: scale(1.15);
   opacity: 1;
+  color: var(--white);
 }
 .ind-item-active:hover .ind-active-tag {
   background: var(--white);
