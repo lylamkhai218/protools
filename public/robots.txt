@@ -1,0 +1,61 @@
+# PROTOOLS.COM.VN - ROBOTS DIRECTIVE (B2B INDUSTRIAL CATALOG)
+# T&T VINA INDUSTRIAL CO., LTD
+# Target: Legitimate Search Engines & Generative AI Procurement Engines
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai-manifest.json
+Allow: /data/catalog_index.json
+Allow: /sitemap.xml
+Disallow: /admincp/
+Disallow: /api/
+Disallow: /old/
+Disallow: /preview/
+Disallow: /backups/
+Disallow: /*?*filter=
+
+# Google Search Engine & AI Overviews
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Bing & Copilot
+User-agent: Bingbot
+User-agent: msnbot
+Allow: /
+
+# Apple Search & Apple Intelligence
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# OpenAI ChatGPT & SearchGPT
+User-agent: GPTBot
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude & Claude Search
+User-agent: ClaudeBot
+User-agent: Claude-Web
+Allow: /
+
+# Perplexity AI Search Engine
+User-agent: PerplexityBot
+Allow: /
+
+# Other Major Enterprise AI Crawlers
+User-agent: Amazonbot
+User-agent: Bytespider
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: CCBot
+Allow: /
+
+# XML Sitemaps & Generative Engine Discovery
+Sitemap: https://protools.com.vn/sitemap.xml
+# LLM Context: https://protools.com.vn/llms.txt
+# Full LLM Knowledge Graph: https://protools.com.vn/llms-full.txt

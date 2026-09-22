@@ -23,10 +23,12 @@ import {
   ArrowRight,
   ExternalLink
 } from 'lucide-react';
-import { Product } from '../types';
-import { PRODUCTS, COMPANY_INFO } from '../data';
+import { Product, SalesRepInfo } from '../types';
+import { PRODUCTS, COMPANY_INFO, getSalesRepForProduct } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedProduct } from '../i18n/productTranslations';
+import { generateProductSEODescription } from '../utils/seoDescription';
+import { getProductPath } from '../utils/slugify';
 
 interface ProductDetailProps {
   product: Product;
@@ -45,6 +47,7 @@ export default function ProductDetail({
 }: ProductDetailProps) {
   const { t, locale } = useTranslation();
   const p = product ? getLocalizedProduct(product, locale) : product;
+  const seoData = p ? generateProductSEODescription(p) : null;
 
   const TIER_PRICING = [
     { qtyLabel: '1 – 5', minQty: 1, policy: t('product_detail.tier_p1'), leadTime: t('product_detail.lead_24h'), highlight: false },
@@ -60,6 +63,8 @@ export default function ProductDetail({
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'specs' | 'features' | 'docs'>('specs');
 
+  const [copiedZaloQuote, setCopiedZaloQuote] = useState<boolean>(false);
+
   const handleCopy = (text: string, key: string, e?: React.MouseEvent) => {
     if (e) {
       e.preventDefault();
@@ -70,6 +75,33 @@ export default function ProductDetail({
     setTimeout(() => {
       setCopiedKey(prev => prev === key ? null : prev);
     }, 2000);
+  };
+
+  const handleZaloFastQuote = (rep: SalesRepInfo) => {
+    const canonicalLink = product ? `https://protools.com.vn${getProductPath(product)}` : window.location.href;
+    const inquiryText = `Chào T&T Vina, tôi cần báo giá thiết bị sau:\n- Tên sản phẩm: ${product.name}\n- Mã SKU: ${product.sku}\n- Thương hiệu: ${product.brand || 'T&T Vina'}\n- Số lượng dự kiến: ${quantity} cái/bộ\n- Link tham khảo: ${canonicalLink}\nNhờ Quý công ty phản hồi báo giá và tồn kho sớm giúp tôi. Xin cảm ơn!`;
+    
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(inquiryText).catch(() => {});
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = inquiryText;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+    } catch (err) {
+      console.warn('Clipboard write fallback error:', err);
+    }
+
+    setCopiedZaloQuote(true);
+    setTimeout(() => setCopiedZaloQuote(false), 3000);
+    const targetUrl = rep.zaloUrl || `https://zalo.me/${rep.rawPhone}`;
+    window.open(targetUrl, '_blank');
   };
 
   useEffect(() => {
@@ -173,11 +205,22 @@ export default function ProductDetail({
             <div className="lg:col-span-6 space-y-4">
               
               <div className="relative aspect-4/3 rounded-xs bg-slate-50 border border-slate-200 overflow-hidden flex items-center justify-center p-6 group">
-                <img 
-                  src={selectedImage || p.image} 
-                  alt={p.name}
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
+                {selectedImage || p.image ? (
+                  <img 
+                    src={selectedImage || p.image} 
+                    alt={p.name}
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center p-6 text-slate-400">
+                    <Package className="w-16 h-16 text-slate-300 mb-2" />
+                    <span className="text-sm font-semibold text-slate-500">Hình ảnh thiết bị đang cập nhật</span>
+                    <span className="text-xs text-slate-400 mt-1 max-w-xs">Liên hệ nhân sự phụ trách để nhận hình ảnh thực tế & catalog kỹ thuật</span>
+                  </div>
+                )}
                 
                 <div className="absolute top-3 left-3 flex flex-col gap-1.5">
                   <span className="px-2.5 py-1 rounded-xs bg-[#00478D] text-white font-display font-bold text-xs uppercase tracking-wider">
@@ -263,7 +306,7 @@ export default function ProductDetail({
                 </h1>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
-                  {p.shortDesc}
+                  {p.shortDesc || seoData?.richDescription}
                 </p>
               </div>
 
@@ -407,55 +450,98 @@ export default function ProductDetail({
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs">
-                  <div className="flex items-center gap-1">
-                    <a
-                      href={`tel:${COMPANY_INFO.hotlineRaw}`}
-                      className="flex-1 h-10 px-3 rounded-xs bg-slate-900 hover:bg-slate-800 text-white font-display font-bold text-[11px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer truncate"
-                    >
-                      <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                      <span className="truncate">{t('nav.hotline')}: {COMPANY_INFO.hotline}</span>
-                    </a>
+                {/* 1-Click Zalo Fast Quote Direct CTA */}
+                {(() => {
+                  const assignedRep = getSalesRepForProduct(p);
+                  return (
                     <button
                       type="button"
-                      onClick={(e) => handleCopy(COMPANY_INFO.hotlineRaw, 'pd_hotline', e)}
-                      title="Sao chép Hotline"
-                      className="h-10 px-2.5 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0"
+                      onClick={() => handleZaloFastQuote(assignedRep)}
+                      className="w-full h-11 px-4 rounded-xs bg-[#0068FF] hover:bg-[#0055D4] text-white font-display font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
-                      {copiedKey === 'pd_hotline' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span className="w-5 h-5 rounded-full bg-white text-[#0068FF] font-black text-[10px] flex items-center justify-center shrink-0 shadow-2xs">Z</span>
+                      <span className="truncate">
+                        {copiedZaloQuote 
+                          ? (locale === 'vi' ? 'Đã sao chép & Đang mở Zalo...' : 'Inquiry copied! Opening Zalo...') 
+                          : (locale === 'vi' ? (
+                            <>
+                              <span className="hidden sm:inline">Nhận Báo Giá Nhanh Qua Zalo</span>
+                              <span className="sm:hidden">Báo Giá Nhanh Zalo</span> ({quantity} cái - 15-30P)
+                            </>
+                          ) : (
+                            <>
+                              <span className="hidden sm:inline">Quick Zalo Quote</span>
+                              <span className="sm:hidden">Zalo Quote</span> ({quantity} pcs - 15m)
+                            </>
+                          ))}
+                      </span>
                     </button>
-                  </div>
+                  );
+                })()}
 
-                  <div className="flex items-center gap-1">
-                    {(() => {
-                      const isMurr = product.brand?.toLowerCase().includes('murrplastik') || product.categorySlug === 'murrplastik' || product.sku?.startsWith('MP-');
-                      const rep = isMurr ? COMPANY_INFO.murrSalesTeam[0] : COMPANY_INFO.salesTeam[0];
-                      const label = isMurr ? `${t('contact_widget.murr_sales')}: ` : `${t('contact_widget.sales')}: `;
+                {/* Sales Rep / Contact Routing based on Sapo Tag */}
+                {(() => {
+                  const assignedRep = getSalesRepForProduct(p);
+                  const isHotlineRep = assignedRep.rawPhone === COMPANY_INFO.hotlineRaw;
 
-                      return (
-                        <>
+                  return (
+                    <div className="bg-slate-50 border border-slate-200/90 rounded-xs p-3 space-y-2.5">
+                      <div className="flex items-center justify-between text-[11px]">
+                        <span className="font-bold text-slate-800 flex items-center gap-1.5 uppercase tracking-wider">
+                          <PhoneCall className="w-3.5 h-3.5 text-[#00478D]" />
+                          <span>{assignedRep.role}: {assignedRep.name}</span>
+                        </span>
+                        {!isHotlineRep && (
+                          <span className="text-[10px] text-slate-500 font-mono hidden sm:inline-block">
+                            Hotline: {COMPANY_INFO.hotline} (Mrs. Nhung)
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        {/* Call Button */}
+                        <div className="flex items-center gap-1">
                           <a
-                            href={rep.zaloUrl}
+                            href={`tel:${assignedRep.rawPhone}`}
+                            className="flex-1 h-10 px-3 rounded-xs bg-slate-900 hover:bg-slate-800 text-white font-display font-bold text-[11px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer truncate"
+                          >
+                            <PhoneCall className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                            <span className="truncate">Gọi {assignedRep.name}: {assignedRep.phone}</span>
+                          </a>
+                          <button
+                            type="button"
+                            onClick={(e) => handleCopy(assignedRep.rawPhone, 'pd_rep_phone', e)}
+                            title={`Sao chép số ${assignedRep.name}`}
+                            className="h-10 px-2.5 rounded-xs bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0"
+                          >
+                            {copiedKey === 'pd_rep_phone' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                          </button>
+                        </div>
+
+                        {/* Zalo Button */}
+                        <div className="flex items-center gap-1">
+                          <a
+                            href={assignedRep.zaloUrl}
                             target="_blank"
                             rel="noreferrer"
                             className="flex-1 h-10 px-3 rounded-xs bg-[#0068FF] hover:bg-[#0055D4] text-white font-display font-bold text-[11px] uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer truncate shadow-2xs"
                           >
                             <span className="w-4 h-4 rounded-full bg-white text-[#0068FF] font-black text-[9px] flex items-center justify-center shrink-0">Z</span>
-                            <span className="truncate">{label}{rep.name} ({rep.phone})</span>
+                            <span className="truncate">Zalo {assignedRep.name}: {assignedRep.phone}</span>
                           </a>
                           <button
                             type="button"
-                            onClick={(e) => handleCopy(rep.rawPhone, 'pd_zalo', e)}
-                            title={`Sao chép số Zalo ${rep.name}`}
-                            className="h-10 px-2.5 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0"
+                            onClick={(e) => handleCopy(assignedRep.rawPhone, 'pd_rep_zalo', e)}
+                            title={`Sao chép số Zalo ${assignedRep.name}`}
+                            className="h-10 px-2.5 rounded-xs bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 transition-colors flex items-center justify-center cursor-pointer shrink-0"
                           >
-                            {copiedKey === 'pd_zalo' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                            {copiedKey === 'pd_rep_zalo' ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                           </button>
-                        </>
-                      );
-                    })()}
-                  </div>
-                </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
 
             </div>
@@ -521,7 +607,13 @@ export default function ProductDetail({
                 <div className="border border-slate-200 rounded-xs overflow-hidden">
                   <table className="w-full text-left border-collapse text-xs">
                     <tbody className="divide-y divide-slate-200">
-                      {Object.entries(p.specs || {}).map(([specKey, specVal], idx) => (
+                      {Object.entries((p.specs && Object.keys(p.specs).length > 0) ? p.specs : {
+                        'Hãng sản xuất': p.brand || 'T&T Vina Industrial',
+                        'Mã sản phẩm (SKU)': p.sku || p.id,
+                        'Chuyên mục': p.category || 'Linh kiện & Thiết bị công nghiệp',
+                        'Kho hàng': p.stockLocation || 'Kho Hà Nội & Hưng Yên',
+                        'Tình trạng': (p.stock || 0) > 0 ? `Sẵn hàng (${p.stock})` : 'Liên hệ đặt hàng'
+                      }).map(([specKey, specVal], idx) => (
                         <tr key={specKey} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'}>
                           <td className="p-3.5 sm:p-4 font-bold text-slate-700 w-1/3 sm:w-1/4 border-r border-slate-200 bg-slate-50/50">
                             {specKey}
@@ -545,12 +637,17 @@ export default function ProductDetail({
                     {t('product_detail.features_heading')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {(p.features || p.highlights || [
-                      'Hoạt động bền bỉ 24/7 trong môi trường sản xuất công nghiệp',
-                      'Độ chính xác và độ lặp lại cao theo tiêu chuẩn quốc tế',
-                      'Dễ dàng tích hợp vào hệ thống dây chuyền tự động hóa',
-                      'Sẵn sàng phụ tùng và linh kiện thay thế chính hãng'
-                    ]).map((feat, i) => (
+                    {((p.features && p.features.length > 0) 
+                      ? p.features 
+                      : (p.highlights && p.highlights.length > 0) 
+                        ? p.highlights 
+                        : (seoData?.defaultHighlights || [
+                            'Hoạt động bền bỉ 24/7 trong môi trường sản xuất công nghiệp',
+                            'Độ chính xác và độ lặp lại cao theo tiêu chuẩn quốc tế',
+                            'Dễ dàng tích hợp vào hệ thống dây chuyền tự động hóa',
+                            'Sẵn sàng phụ tùng và linh kiện thay thế chính hãng'
+                          ])
+                    ).map((feat, i) => (
                       <div key={i} className="p-4 rounded-xs bg-slate-50 border border-slate-200 flex items-start gap-3">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                         <span className="text-xs text-slate-700 leading-relaxed">

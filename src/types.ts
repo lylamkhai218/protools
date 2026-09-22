@@ -1,3 +1,11 @@
+export interface SalesRepInfo {
+  name: string;
+  phone: string;
+  rawPhone: string;
+  role: string;
+  zaloUrl: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -19,6 +27,8 @@ export interface Product {
   applications?: Array<{ name: string; desc: string; icon?: string }>;
   documents?: Array<{ name: string; type: string; size: string; url?: string }>;
   includedAccessories?: string[];
+  tags?: string;
+  salesRep?: SalesRepInfo;
 }
 
 export interface Document {

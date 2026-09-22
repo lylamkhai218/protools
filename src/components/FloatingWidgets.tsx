@@ -482,22 +482,14 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
           </div>
         )}
 
-        {/* 3. NÚT KÍCH HOẠT CHÍNH (FLOATING CONTACT BUTTON WITH REFINED COMPACT AURA) */}
+        {/* 3. NÚT KÍCH HOẠT CHÍNH (FLOATING CONTACT BUTTON - CLEAN SWISS PRECISION STYLING) */}
         <div className="relative group">
-          {/* Refined subtle radar pulse (not overly wide) */}
-          {!isContactOpen && (
-            <>
-              <span className="absolute -inset-0.5 rounded-full bg-blue-500 opacity-40 blur-xs animate-pulse"></span>
-              <span className="absolute -inset-0.5 rounded-full bg-blue-400 opacity-25 animate-ping"></span>
-            </>
-          )}
-
           <button
             onClick={() => setIsContactOpen(!isContactOpen)}
-            className={`relative flex items-center gap-2.5 px-4 sm:px-5 h-12 rounded-full font-display font-bold text-xs uppercase tracking-wider text-white shadow-xl transition-all duration-200 ease-out transform hover:scale-105 active:scale-95 cursor-pointer ${
+            className={`relative flex items-center gap-2.5 px-4 sm:px-5 h-12 rounded-full font-display font-bold text-xs uppercase tracking-wider text-white shadow-[0_8px_25px_rgba(0,71,141,0.35)] hover:shadow-[0_10px_30px_rgba(0,71,141,0.45)] transition-all duration-200 ease-out transform hover:scale-105 active:scale-95 cursor-pointer border border-white/20 ${
               isContactOpen 
-                ? 'bg-slate-800 hover:bg-slate-900 border border-slate-700' 
-                : 'bg-gradient-to-r from-[#00478D] to-[#005EB8] hover:from-[#003B75] hover:to-[#004E9A] ring-2 ring-blue-400/30'
+                ? 'bg-slate-800 hover:bg-slate-900 border-slate-700' 
+                : 'bg-gradient-to-r from-[#00478D] to-[#005EB8] hover:from-[#003B75] hover:to-[#004E9A]'
             }`}
             aria-label={t('contact_widget.btn_main')}
           >
@@ -510,8 +502,8 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
               <>
                 <div className="relative flex items-center justify-center">
                   <MessageCircle className="w-4.5 h-4.5" />
-                  <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+                  <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-ping opacity-60"></span>
                 </div>
                 <div className="flex flex-col text-left leading-tight">
                   <span className="font-extrabold tracking-wide text-[12px]">{t('contact_widget.btn_main')}</span>

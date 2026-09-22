@@ -9,7 +9,14 @@
     "murr_portal": "Murrplastik Germany Hub",
     "hotline": "Hotline",
     "sales": "Sales Dept",
-    "call_now": "Call Now"
+    "call_now": "Call Now",
+    "dropdown_title": "Industrial Equipment & Automation Catalog",
+    "genuine_badge": "100% Genuine",
+    "portal_btn": "Official Portal",
+    "tech_support_hint": "Technical Part Selection Support:",
+    "search_placeholder_mobile": "Search model, SKU: Hakko, Hios, Zcut...",
+    "authorized": "Authorized",
+    "murr_mobile_desc": "Industrial cable management, robotic dresspacks, 500+ SKU catalog & 3D virtual booth."
   },
   "hero": {
     "badge": "MASTER B2B INDUSTRIAL DISTRIBUTOR",
@@ -29,7 +36,9 @@
     "view_specsheet": "View Spec-Sheet",
     "official_ecosystem": "Official Ecosystem:",
     "enter_murr_portal": "Visit Murrplastik Portal",
-    "explore_solutions": "Explore Solutions & Catalog"
+    "explore_solutions": "Explore Solutions & Catalog",
+    "stat_genuine": "Genuine Japan / Germany / Korea",
+    "stat_delivery": "Fast Delivery to Industrial Parks"
   },
   "solutions": {
     "section_title": "Engineering Solution Ecosystems",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "Vietnam's leading industrial equipment distributor, SMT tools, cleanroom devices & robotic cable management.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "Leading supplier of industrial equipment, SMT assembly tools, cleanroom & factory automation supplies for FDI manufacturers in Vietnam.",
+    "hq_label": "Headquarters:",
+    "wh_label": "Office & Hanoi Warehouse:",
+    "directions_maps": "Directions on Google Maps",
+    "map_iframe_title": "Map of T&T Vina Linh Nam Office & Warehouse",
+    "categories_title": "Equipment Categories",
+    "cat_soldering": "Soldering Stations & Robotic Soldering",
+    "cat_screwdrivers": "Hios Screwdrivers & Fastening Robots",
+    "cat_dispensing": "Dispensing Tools & Dispensing Robots",
+    "cat_tape": "Tape Dispensers & Label Strippers",
+    "cat_testing": "Torque Meters & Temperature Testers",
+    "cat_microscope": "Stereo Microscopes & Inspection Cameras",
+    "cat_esd": "Ionizing Blowers & ESD Supplies",
+    "cat_murr": "Murrplastik Germany Portal",
+    "consult_quote_title": "Consultation & Quotation",
+    "hotline_label": "Hotline:",
+    "sales_label": "Sales Dept:",
+    "murr_sales_label": "Murr Sales:",
+    "project_dept_label": "Project Dept:",
+    "email_label": "Email:",
+    "featured_title": "FEATURED PRODUCTS",
+    "featured_origin": "100% Origin from Japan, Germany, Korea",
+    "feat_murr_title": "Murrplastik (Germany)",
+    "feat_murr_country": "DE",
+    "feat_murr_sub": "Energy Chains & Robot Dresspacks",
+    "feat_glue_title": "Dispenser 983A / SP-982",
+    "feat_glue_sub": "Auto & Semi-Auto Dispensing",
+    "feat_hios_title": "Hios CL-4000 Screwdriver",
+    "feat_hios_sub": "Torque Driver & HP-10 Tester",
+    "feat_solder_title": "Hakko / Quick Soldering",
+    "feat_solder_sub": "Hakko 936, irons & solder pots",
+    "feat_tape_title": "Zcut 9 Tape Dispenser",
+    "feat_tape_sub": "Dual Roll Cutting & Label Stripping",
+    "feat_micro_title": "SM-3TPZ Stereo Microscope",
+    "feat_micro_sub": "Component Inspection & Optical QA",
+    "btn_quick_bom": "Generate Quick BOM Quotation List",
+    "copyright_disclaimer": "All contents, product images, catalogs, and technical specifications are the intellectual property of T&T Vina Industrial Co., Ltd. Any unauthorized copying, extraction, or reproduction without written permission is strictly prohibited.",
+    "badge_b2b": "B2B Standard",
+    "badge_genuine": "100% Genuine",
+    "badge_support": "24/7 Support"
   },
   "header": {
     "hq_label": "Headquarters",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "Factory Hardware Catalog",
-    "section_title": "Specification & Equipment List",
+    "section_title": "Equipment Catalog",
     "hover_zoom": "Hover to zoom",
     "details": "Details",
     "add_rfq": "+ Quote",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "Microscopes & Inspection",
     "cat_dung_cu_chong_tinh_dien": "ESD Static Control",
     "cat_murrplastik": "Murrplastik Germany",
-    "cat_thiet_bi_dong_goi": "Packaging Automation"
+    "cat_thiet_bi_dong_goi": "Packaging Automation",
+    "warehouse_badge": "B2B INDUSTRIAL EQUIPMENT HUB",
+    "section_desc": "Quickly look up technical specifications, inventory status, and sales engineering contacts for quotation.",
+    "in_stock_toggle": "In Stock",
+    "view_grid": "Grid view mode",
+    "view_table": "Table list mode",
+    "search_placeholder": "Search by SKU, equipment name, technical specs, brand...",
+    "sales_rep_label": "Sales Rep:",
+    "all_reps": "All Sales Reps / Hotline",
+    "tab_all": "All",
+    "found": "Found",
+    "matching_items": "matching items",
+    "for_keyword": "for keyword",
+    "showing": "Showing",
+    "updating_image": "Updating image",
+    "in_stock_badge": "In Stock",
+    "project_order": "Project Order",
+    "btn_detail": "Details",
+    "btn_rfq": "+ Quote",
+    "btn_load_more": "Load More Products",
+    "showing_progress": "Showing",
+    "of_total": "/",
+    "products_unit": "products",
+    "table_no": "No.",
+    "table_sku": "SKU",
+    "table_name": "Equipment / Part Name",
+    "table_category": "Category",
+    "table_status": "Status",
+    "table_rep": "Sales Contact",
+    "table_actions": "Actions"
   },
   "product_detail": {
     "breadcrumb_home": "Home",
@@ -165,5 +243,23 @@
     "copied": "Copied",
     "copy": "Copy",
     "close": "Close"
+  },
+  "impact": {
+    "partner_factories_title": "Partner Factories",
+    "partner_factories_desc": "Major Industrial Parks Nationwide"
+  },
+  "faq": {
+    "badge": "Technical & Procurement FAQ",
+    "title": "Frequently Asked Questions (FAQ)",
+    "subtitle": "Detailed guidance on CO/CQ compliance, warranty, on-site trial tests, and quotation response time.",
+    "cta_question": "Have a specific engineering question for your factory production line?",
+    "cta_btn": "Consultation Hotline: "
+  },
+  "murr_banner": {
+    "badge": "Full Catalog & Technical CAD Drawings",
+    "title": "Explore 500+ SKUs, CAD Drawings & Ordering at Murrplastik Germany Portal",
+    "desc": "Need detailed dimensions, PDF technical data sheets, UL94 flammability certificates, or custom dresspack solutions for industrial robot arms? Visit Murrplastik Vietnam for 1-on-1 engineering support.",
+    "btn_portal": "Visit Murrplastik Vietnam Portal",
+    "btn_booth": "3D Simulation of VEC 2026 Booth"
   }
 }

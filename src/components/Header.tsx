@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { 
   Search, 
   ShoppingCart, 
   FileText, 
-  PhoneCall, 
   Menu, 
   X, 
   ChevronDown, 
@@ -22,16 +21,18 @@ import { Product } from '../types';
 import { PRODUCTS, SOLUTIONS, COMPANY_INFO } from '../data';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslation } from '../i18n/LanguageContext';
+import { getLocalizedSolution } from '../i18n/solutionsTranslations';
+import { loadCatalogIndex, searchCatalog } from '../utils/catalogLoader';
 
 interface HeaderProps {
   currentTab: string;
   cartCount: number;
-  onNavigate: (tab: string, filter?: string) => void;
+  onNavigate: (tab: string, filter?: string, search?: string) => void;
   onSelectProduct: (product: Product) => void;
 }
 
 export default function Header({ currentTab, cartCount, onNavigate, onSelectProduct }: HeaderProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,13 +52,15 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
     }, 2000);
   };
 
-  // Instant SKU & Product Autocomplete search
-  const searchResults = searchQuery.trim() === '' ? [] : PRODUCTS.filter(p => 
-    p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    p.category.toLowerCase().includes(searchQuery.toLowerCase())
-  ).slice(0, 6);
+  // Pre-warm the 7,500+ SKU catalog index on header mount for instant multi-field search
+  useEffect(() => {
+    loadCatalogIndex().catch(() => {});
+  }, []);
+
+  // Instant SKU, Model & Product Autocomplete search across all 7,500+ products
+  const { results: searchResults, totalMatches } = useMemo(() => {
+    return searchCatalog(searchQuery, 8);
+  }, [searchQuery]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -77,8 +80,13 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && searchResults.length > 0) {
-      handleProductClick(searchResults[0]);
+    if (e.key === 'Enter') {
+      if (searchResults.length === 1) {
+        handleProductClick(searchResults[0]);
+      } else if (searchQuery.trim() !== '') {
+        setIsSearchFocused(false);
+        onNavigate('home', undefined, searchQuery);
+      }
     }
   };
 
@@ -218,102 +226,105 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 >
                   <div className="px-4 py-1.5 border-b border-slate-100 mb-2 flex items-center justify-between">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                      Danh Mục Thiết Bị Công Nghiệp &amp; Tự Động Hóa
+                      {t('nav.dropdown_title')}
                     </span>
                     <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
-                      100% Chính Hãng
+                      {t('nav.genuine_badge')}
                     </span>
                   </div>
 
                   <div className="max-h-[460px] overflow-y-auto divide-y divide-slate-50 px-1">
-                    {SOLUTIONS.map((sol) => (
-                      <button
-                        key={sol.id}
-                        onClick={() => {
-                          onNavigate('home', sol.id);
-                          setIsCategoryOpen(false);
-                          setTimeout(() => {
-                            const el = document.getElementById('product-catalog');
-                            if (el) {
-                              const yOffset = -75;
-                              const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                              window.scrollTo({ top: y, behavior: 'smooth' });
-                            }
-                          }, 60);
-                        }}
-                        className={`w-full px-3 py-2.5 text-left rounded-xs flex items-center justify-between group transition-all cursor-pointer ${
-                          sol.id === 'murrplastik'
-                            ? 'bg-red-50/40 hover:bg-red-50 border border-red-100/80 my-1 shadow-2xs'
-                            : 'hover:bg-blue-50/70'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3 min-w-0">
+                    {SOLUTIONS.map((sol) => {
+                      const lSol = getLocalizedSolution(sol, locale);
+                      return (
+                        <button
+                          key={sol.id}
+                          onClick={() => {
+                            onNavigate('home', sol.id);
+                            setIsCategoryOpen(false);
+                            setTimeout(() => {
+                              const el = document.getElementById('product-catalog');
+                              if (el) {
+                                const yOffset = -75;
+                                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                window.scrollTo({ top: y, behavior: 'smooth' });
+                              }
+                            }, 60);
+                          }}
+                          className={`w-full px-3 py-2.5 text-left rounded-xs flex items-center justify-between group transition-all cursor-pointer ${
+                            sol.id === 'murrplastik'
+                              ? 'bg-red-50/40 hover:bg-red-50 border border-red-100/80 my-1 shadow-2xs'
+                              : 'hover:bg-blue-50/70'
+                          }`}
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            {sol.id === 'murrplastik' ? (
+                              <div className="w-11 h-9 rounded-xs bg-white border border-red-200 p-1 flex items-center justify-center shadow-2xs shrink-0">
+                                <img 
+                                  src={`${import.meta.env.BASE_URL}logos/logo_murrplastik.png`} 
+                                  alt="Murrplastik Germany" 
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-9 h-9 rounded-xs bg-slate-100 group-hover:bg-[#00478D] group-hover:text-white text-slate-600 flex items-center justify-center transition-colors shrink-0">
+                                {sol.id === 'thiet-bi-han' && <Zap className="w-4 h-4 text-amber-500 group-hover:text-white" />}
+                                {sol.id === 'may-bat-vit-nha-vit' && <Wrench className="w-4 h-4 text-blue-600 group-hover:text-white" />}
+                                {sol.id === 'dung-cu-bom-keo' && <PackageCheck className="w-4 h-4 text-emerald-600 group-hover:text-white" />}
+                                {sol.id === 'may-cat-bang-dinh-tu-dong' && <Cpu className="w-4 h-4 text-purple-600 group-hover:text-white" />}
+                                {sol.id === 'thiet-bi-kiem-tra' && <ShieldCheck className="w-4 h-4 text-cyan-600 group-hover:text-white" />}
+                                {sol.id === 'camera-kinh-soi-cong-nghiep' && <Search className="w-4 h-4 text-indigo-600 group-hover:text-white" />}
+                                {sol.id === 'dung-cu-chong-tinh-dien' && <Zap className="w-4 h-4 text-yellow-600 group-hover:text-white" />}
+                                {sol.id === 'thiet-bi-dong-goi-tu-dong' && <PackageCheck className="w-4 h-4 text-slate-600 group-hover:text-white" />}
+                              </div>
+                            )}
+
+                            <div className="min-w-0">
+                              <div className={`text-xs font-bold truncate transition-colors ${
+                                sol.id === 'murrplastik'
+                                  ? 'text-[#E30613] font-display'
+                                  : 'text-slate-800 group-hover:text-[#00478D]'
+                              }`}>
+                                {lSol.title}
+                              </div>
+                              <div className="text-[11px] text-slate-500 truncate flex items-center gap-1.5 mt-0.5">
+                                <span>{lSol.tag || sol.tag}</span>
+                                {lSol.badge && (
+                                  <span className={`text-[9px] font-bold px-1 rounded-xs uppercase tracking-tight ${
+                                    sol.id === 'murrplastik'
+                                      ? 'bg-red-100 text-[#E30613]'
+                                      : 'bg-slate-200/70 text-slate-700'
+                                  }`}>
+                                    {lSol.badge}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+
                           {sol.id === 'murrplastik' ? (
-                            <div className="w-11 h-9 rounded-xs bg-white border border-red-200 p-1 flex items-center justify-center shadow-2xs shrink-0">
-                              <img 
-                                src={`${import.meta.env.BASE_URL}logos/logo_murrplastik.png`} 
-                                alt="Murrplastik Germany" 
-                                className="w-full h-full object-contain"
-                              />
+                            <div className="flex items-center gap-1.5 shrink-0">
+                              <a
+                                href="/murrplastik/"
+                                onClick={(e) => e.stopPropagation()}
+                                title="Chuyển sang Chuyên Trang Murrplastik Đức"
+                                className="px-2 py-1 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-2xs transition-colors"
+                              >
+                                <span>{t('nav.portal_btn')}</span>
+                                <ExternalLink className="w-2.5 h-2.5" />
+                              </a>
+                              <ArrowRight className="w-4 h-4 text-[#E30613] group-hover:translate-x-1 transition-transform" />
                             </div>
                           ) : (
-                            <div className="w-9 h-9 rounded-xs bg-slate-100 group-hover:bg-[#00478D] group-hover:text-white text-slate-600 flex items-center justify-center transition-colors shrink-0">
-                              {sol.id === 'thiet-bi-han' && <Zap className="w-4 h-4 text-amber-500 group-hover:text-white" />}
-                              {sol.id === 'may-bat-vit-nha-vit' && <Wrench className="w-4 h-4 text-blue-600 group-hover:text-white" />}
-                              {sol.id === 'dung-cu-bom-keo' && <PackageCheck className="w-4 h-4 text-emerald-600 group-hover:text-white" />}
-                              {sol.id === 'may-cat-bang-dinh-tu-dong' && <Cpu className="w-4 h-4 text-purple-600 group-hover:text-white" />}
-                              {sol.id === 'thiet-bi-kiem-tra' && <ShieldCheck className="w-4 h-4 text-cyan-600 group-hover:text-white" />}
-                              {sol.id === 'camera-kinh-soi-cong-nghiep' && <Search className="w-4 h-4 text-indigo-600 group-hover:text-white" />}
-                              {sol.id === 'dung-cu-chong-tinh-dien' && <Zap className="w-4 h-4 text-yellow-600 group-hover:text-white" />}
-                              {sol.id === 'thiet-bi-dong-goi-tu-dong' && <PackageCheck className="w-4 h-4 text-slate-600 group-hover:text-white" />}
-                            </div>
+                            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1 transition-all shrink-0" />
                           )}
-
-                          <div className="min-w-0">
-                            <div className={`text-xs font-bold truncate transition-colors ${
-                              sol.id === 'murrplastik'
-                                ? 'text-[#E30613] font-display'
-                                : 'text-slate-800 group-hover:text-[#00478D]'
-                            }`}>
-                              {sol.title}
-                            </div>
-                            <div className="text-[11px] text-slate-500 truncate flex items-center gap-1.5 mt-0.5">
-                              <span>{sol.tag}</span>
-                              {sol.badge && (
-                                <span className={`text-[9px] font-bold px-1 rounded-xs uppercase tracking-tight ${
-                                  sol.id === 'murrplastik'
-                                    ? 'bg-red-100 text-[#E30613]'
-                                    : 'bg-slate-200/70 text-slate-700'
-                                }`}>
-                                  {sol.badge}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-
-                        {sol.id === 'murrplastik' ? (
-                          <div className="flex items-center gap-1.5 shrink-0">
-                            <a
-                              href="/murrplastik/"
-                              onClick={(e) => e.stopPropagation()}
-                              title="Chuyển sang Chuyên Trang Murrplastik Đức"
-                              className="px-2 py-1 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-2xs transition-colors"
-                            >
-                              <span>Chuyên Trang</span>
-                              <ExternalLink className="w-2.5 h-2.5" />
-                            </a>
-                            <ArrowRight className="w-4 h-4 text-[#E30613] group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        ) : (
-                          <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1 transition-all shrink-0" />
-                        )}
-                      </button>
-                    ))}
+                        </button>
+                      );
+                    })}
                   </div>
 
                   <div className="mt-2 pt-2 border-t border-slate-100 px-4 flex items-center justify-between text-xs text-slate-500">
-                    <span>Hỗ trợ chọn mã kỹ thuật:</span>
+                    <span>{t('nav.tech_support_hint')}</span>
                     <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="text-[#00478D] font-bold hover:underline font-mono">
                       Hotline: {COMPANY_INFO.hotline}
                     </a>
@@ -331,7 +342,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearchKeyDown}
-                onFocus={() => setIsSearchFocused(true)}
+                onFocus={() => {
+                  setIsSearchFocused(true);
+                  loadCatalogIndex().catch(() => {});
+                }}
                 placeholder={t('nav.search_placeholder')}
                 className="w-full h-11 pl-11 pr-12 rounded-sm bg-slate-50/90 border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#00478D] focus:ring-2 focus:ring-[#00478D]/10 transition-all"
               />
@@ -350,14 +364,14 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             {isSearchFocused && searchResults.length > 0 && (
               <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[520px] md:w-[580px] lg:w-[640px] max-w-[92vw] bg-white rounded-sm shadow-2xl border border-slate-200 py-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150 max-h-[80vh] overflow-y-auto">
                 <div className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
-                  <span>Kết quả tìm kiếm phù hợp ({searchResults.length})</span>
+                  <span>Kết quả ({searchResults.length} / {totalMatches} SKU)</span>
                   <span className="text-[10px] text-[#00478D] font-semibold">Bấm để xem thông số chi tiết</span>
                 </div>
 
                 <div className="divide-y divide-slate-100/80">
                   {searchResults.map((item) => (
                     <button
-                      key={item.id}
+                      key={item.id || item.sku}
                       onClick={() => handleProductClick(item)}
                       className="w-full px-4 py-3 text-left hover:bg-blue-50/50 flex items-center justify-between gap-3 group transition-colors cursor-pointer"
                     >
@@ -378,7 +392,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                               Mã: {item.sku}
                             </span>
                             <span className="bg-blue-50 text-[#00478D] font-bold px-2 py-0.5 rounded-xs whitespace-nowrap">
-                              {item.brand}
+                              {item.brand || 'T&T Vina'}
                             </span>
                             <span className="text-slate-500 bg-slate-50 px-2 py-0.5 rounded-xs whitespace-nowrap">
                               {item.category}
@@ -394,6 +408,32 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                     </button>
                   ))}
                 </div>
+
+                {totalMatches > searchResults.length && (
+                  <div className="p-2.5 bg-slate-50 border-t border-slate-100 text-center">
+                    <button
+                      onClick={() => {
+                        setIsSearchFocused(false);
+                        onNavigate('home', undefined, searchQuery);
+                      }}
+                      className="text-xs font-bold text-[#00478D] hover:underline cursor-pointer"
+                    >
+                      Xem tất cả {totalMatches} sản phẩm trong tổng kho &rarr;
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Empty search feedback */}
+            {isSearchFocused && searchQuery.trim() !== '' && searchResults.length === 0 && (
+              <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[480px] bg-white rounded-sm shadow-2xl border border-slate-200 p-4 z-50 text-center">
+                <p className="text-xs text-slate-600 font-medium">
+                  Không tìm thấy thiết bị nào khớp với từ khóa &ldquo;<strong className="text-slate-900">{searchQuery}</strong>&rdquo;.
+                </p>
+                <p className="text-[11px] text-slate-400 mt-1">
+                  Vui lòng thử tìm theo mã SKU, tên hãng (Murrplastik, Hakko, HIOS...) hoặc liên hệ Hotline: <strong className="text-[#00478D]">{COMPANY_INFO.hotline}</strong>
+                </p>
               </div>
             )}
           </div>
@@ -422,16 +462,6 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 {t('nav.cart')}
               </span>
             </button>
-
-            {/* Direct RFQ Project Consultation CTA */}
-            <a
-              href={`tel:${COMPANY_INFO.hotlines[0]}`}
-              className="h-11 px-4 sm:px-5 rounded-sm bg-gradient-to-r from-[#00478D] to-[#005EB8] hover:from-[#003B75] hover:to-[#004E9A] text-white font-display font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
-              <span className="hidden md:inline">{t('nav.hotline')}: {COMPANY_INFO.hotlines[0]}</span>
-              <span className="md:hidden">{t('nav.call_now')}</span>
-            </a>
 
             {/* Language Switcher in Main Nav (Desktop & Tablet: >= sm) */}
             <div className="hidden sm:inline-block">
@@ -466,7 +496,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleSearchKeyDown}
-              placeholder="Nhập tên máy, mã SKU: Hakko, Hios, Zcut..."
+              placeholder={t('nav.search_placeholder_mobile')}
               className="w-full h-12 pl-10 pr-10 rounded-sm bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#00478D] font-medium"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -484,7 +514,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           {searchQuery && searchResults.length > 0 && (
             <div className="bg-slate-50 rounded-sm border border-slate-200 divide-y divide-slate-200/70 max-h-64 overflow-y-auto">
               <div className="px-3 py-1.5 text-[10px] font-bold uppercase text-slate-500 bg-slate-100">
-                Tìm thấy {searchResults.length} sản phẩm
+                {t('catalog.found')} {searchResults.length} {t('catalog.matching_items')}
               </div>
               {searchResults.map((item) => (
                 <button
@@ -526,18 +556,18 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   </span>
                 </div>
                 <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-xs bg-red-100 text-[#E30613]">
-                  Ủy Quyền
+                  {t('nav.authorized')}
                 </span>
               </div>
               <p className="text-[11px] text-slate-600 leading-snug">
-                Hệ sinh thái quản lý cáp công nghiệp, xích dẫn cáp Robot, catalog 500+ mã hàng &amp; Gian hàng ảo 3D.
+                {t('nav.murr_mobile_desc')}
               </p>
               <a
                 href="/murrplastik/"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full h-9 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xs transition-colors"
               >
-                <span>Truy Cập Chuyên Trang</span>
+                <span>{t('nav.portal_btn')}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -545,38 +575,41 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             <div className="px-3 pt-2 pb-1 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
               {t('nav.categories')}
             </div>
-            {SOLUTIONS.map((sol) => (
-              <button
-                key={sol.id}
-                onClick={() => {
-                  onNavigate('home', sol.id);
-                  setIsMobileMenuOpen(false);
-                  setTimeout(() => {
-                    const el = document.getElementById('product-catalog');
-                    if (el) {
-                      const yOffset = -75;
-                      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                      window.scrollTo({ top: y, behavior: 'smooth' });
-                    }
-                  }, 60);
-                }}
-                className={`w-full text-left px-3 py-2.5 rounded-sm text-xs font-semibold hover:bg-slate-50 flex items-center justify-between transition-colors ${
-                  sol.id === 'murrplastik' ? 'bg-red-50/50 text-[#E30613] font-bold border border-red-100' : 'text-slate-700'
-                }`}
-              >
-                <div className="flex items-center gap-2 min-w-0">
-                  {sol.id === 'murrplastik' && (
-                    <img 
-                      src={`${import.meta.env.BASE_URL}logos/logo_murrplastik.png`} 
-                      alt="Murrplastik" 
-                      className="h-4 w-auto object-contain shrink-0" 
-                    />
-                  )}
-                  <span className="truncate">{sol.title}</span>
-                </div>
-                <span className="text-[10px] text-slate-400 shrink-0 ml-1.5">{sol.tag}</span>
-              </button>
-            ))}
+            {SOLUTIONS.map((sol) => {
+              const lSol = getLocalizedSolution(sol, locale);
+              return (
+                <button
+                  key={sol.id}
+                  onClick={() => {
+                    onNavigate('home', sol.id);
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => {
+                      const el = document.getElementById('product-catalog');
+                      if (el) {
+                        const yOffset = -75;
+                        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }, 60);
+                  }}
+                  className={`w-full text-left px-3 py-2.5 rounded-sm text-xs font-semibold hover:bg-slate-50 flex items-center justify-between transition-colors ${
+                    sol.id === 'murrplastik' ? 'bg-red-50/50 text-[#E30613] font-bold border border-red-100' : 'text-slate-700'
+                  }`}
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    {sol.id === 'murrplastik' && (
+                      <img 
+                        src={`${import.meta.env.BASE_URL}logos/logo_murrplastik.png`} 
+                        alt="Murrplastik" 
+                        className="h-4 w-auto object-contain shrink-0" 
+                      />
+                    )}
+                    <span className="truncate">{lSol.title}</span>
+                  </div>
+                  <span className="text-[10px] text-slate-400 shrink-0 ml-1.5">{lSol.tag || sol.tag}</span>
+                </button>
+              );
+            })}
 
             <button
               onClick={() => { onNavigate('cart'); setIsMobileMenuOpen(false); }}

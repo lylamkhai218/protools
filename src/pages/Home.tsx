@@ -29,40 +29,21 @@ import { Product } from '../types';
 import { PARTNERS, SOLUTIONS, PRODUCTS, TECHNICAL_DOCUMENTS, INDUSTRIES, COMPANY_INFO } from '../data';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { AnimatedCounter } from '../components/AnimatedCounter';
+import { VirtualCatalogGrid } from '../components/VirtualCatalogGrid';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedProduct } from '../i18n/productTranslations';
+import { getLocalizedSolution } from '../i18n/solutionsTranslations';
+import { getLocalizedFaqItems } from '../i18n/faqTranslations';
 
 interface HomeProps {
-  onNavigate: (tab: string, filter?: string) => void;
+  onNavigate: (tab: string, filter?: string, search?: string) => void;
   onSelectProduct: (product: Product) => void;
   onAddToCart: (product: Product) => void;
   initialFilter?: string;
+  initialSearch?: string;
 }
 
-const FAQ_ITEMS = [
-  {
-    q: 'Công ty TNHH Công Nghiệp T&T VINA chuyên cung cấp những nhóm thiết bị nào?',
-    a: 'T&T Vina (Protools.com.vn) chuyên phân phối thiết bị phụ trợ và giải pháp tự động hóa cho các nhà máy SMT, lắp ráp linh kiện điện tử, gồm: Robot hàn tự động, máy hàn Hakko/Quick, bể hàn thiếc CM-508/808, máy bắt vít HIOS CL-3000/4000, máy bơm keo SP-982, máy cắt băng dính tự động Zcut 9/RT-3700, máy tách tem nhãn, thiết bị đo lực siết HP-10, kính hiển vi soi nổi SM-3TPZ, quạt ion khử tĩnh điện Dr. Schneider SL-001, và toàn bộ hệ thống xích dẫn cáp, giá đỡ robot Murrplastik chính hãng Đức.'
-  },
-  {
-    q: 'Các sản phẩm tại Protools.com.vn có đầy đủ chứng từ hàng hóa không?',
-    a: '100% sản phẩm do T&T Vina cung cấp đều có đầy đủ chứng từ hàng hóa hợp pháp. Tất cả đơn hàng đều được cung cấp đầy đủ hồ sơ xuất xứ, chứng nhận chất lượng và hóa đơn giá trị gia tăng (VAT) theo quy định.'
-  },
-  {
-    q: 'Chính sách bảo hành và hỗ trợ kỹ thuật tận nơi tại nhà máy như thế nào?',
-    a: 'Toàn bộ thiết bị máy móc đều có chính sách bảo hành chính hãng. Đội ngũ chuyên gia kỹ thuật của T&T VINA (Hotline: 0915.168.824) sẵn sàng hỗ trợ khảo sát, tư vấn giải pháp, chạy thử mẫu (trial test) và hướng dẫn vận hành trực tiếp tại các nhà máy thuộc KCN Hà Nội, Bắc Ninh, Hưng Yên, Hải Phòng, Vĩnh Phúc, Thái Nguyên...'
-  },
-  {
-    q: 'Thời gian nhận báo giá dự án và giao hàng mất bao lâu?',
-    a: 'Sau khi quý khách gửi yêu cầu qua Giỏ Báo Giá hoặc liên hệ Hotline / Zalo Kinh Doanh (Ms. Hiền 0929.938.368 / Ms. Phương 0365.366.455 / Hotline 0915.168.824), chúng tôi sẽ gửi bảng báo giá chính thức trong vòng 15 - 30 phút. Với các mã hàng có sẵn tại kho Hà Nội & Hưng Yên, thời gian giao hàng hỏa tốc trong vòng 24 giờ.'
-  },
-  {
-    q: 'Địa chỉ văn phòng trụ sở và kho hàng chính thức của T&T VINA ở đâu?',
-    a: 'Trụ sở chính đặt tại: Thôn Nhạo Sơn - Xã Thụy Anh - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km). VPGD & Kho hàng Hà Nội: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội (Số 11 ngách 68 ngõ 467 Lĩnh Nam — có sẵn định vị chỉ đường trên Google Maps).'
-  }
-];
-
-export default function Home({ onNavigate, onSelectProduct, onAddToCart, initialFilter }: HomeProps) {
+export default function Home({ onNavigate, onSelectProduct, onAddToCart, initialFilter, initialSearch }: HomeProps) {
   const { t, locale } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<string>(initialFilter || 'all');
   const [selectedIndustry, setSelectedIndustry] = useState<string>('electronics');
@@ -131,23 +112,18 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
   useScrollReveal(activeCategory);
 
   // Filter products by category with robust matching
-  const filteredProducts = activeCategory === 'all' 
-    ? PRODUCTS 
-    : PRODUCTS.filter(p => {
-        if (activeCategory === 'murrplastik') {
-          return p.brand?.toLowerCase().includes('murrplastik') || p.categorySlug === 'murrplastik' || p.sku?.startsWith('MP-');
-        }
-        return p.categorySlug === activeCategory || p.category === activeCategory;
-      });
 
   const heroFeatured = PRODUCTS.find(p => p.id === '1081') || PRODUCTS[0]; // R-Tec Liner Murrplastik Đức
   const heroFeaturedLoc = getLocalizedProduct(heroFeatured, locale);
+
+  // Localized FAQ items
+  const faqItems = getLocalizedFaqItems(locale);
 
   // JSON-LD Structured Data Schema for Google SEO
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    'mainEntity': FAQ_ITEMS.map(item => ({
+    'mainEntity': faqItems.map(item => ({
       '@type': 'Question',
       'name': item.q,
       'acceptedAnswer': {
@@ -232,11 +208,11 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
               <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-5 border-t border-slate-200/80 text-xs">
                 <div>
                   <AnimatedCounter end={100} suffix="%" className="font-display text-xl sm:text-3xl font-black text-[#00478D] tracking-tight block" />
-                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">Chính Hãng Nhật / Đức / Hàn</div>
+                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">{t('hero.stat_genuine')}</div>
                 </div>
                 <div>
                   <AnimatedCounter end={24} suffix="h" className="font-display text-xl sm:text-3xl font-black text-[#D97706] tracking-tight block" />
-                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">Giao Hàng Tại Các KCN</div>
+                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">{t('hero.stat_delivery')}</div>
                 </div>
                 <div>
                   <AnimatedCounter end={76} suffix="+" className="font-display text-xl sm:text-3xl font-black text-slate-800 tracking-tight block" />
@@ -428,6 +404,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             {SOLUTIONS.map((sol) => {
+              const lSol = getLocalizedSolution(sol, locale);
               const repProduct = PRODUCTS.find(p => {
                 if (sol.id === 'murrplastik') {
                   return p.brand?.toLowerCase().includes('murrplastik') || p.categorySlug === 'murrplastik' || p.sku?.startsWith('MP-');
@@ -449,7 +426,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                         {sol.tag.split('/')[0].trim()}
                       </span>
                       <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-xs bg-slate-100 text-slate-600 shrink-0 hidden xs:inline-block">
-                        {sol.badge}
+                        {lSol.badge}
                       </span>
                     </div>
 
@@ -457,7 +434,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     <div className="h-28 sm:h-36 my-1 sm:my-2 rounded-xs bg-slate-50/90 border border-slate-100 p-2 sm:p-2.5 flex items-center justify-center relative overflow-hidden group-hover:bg-blue-50/30 transition-colors">
                       <img 
                         src={repProduct.image} 
-                        alt={sol.title} 
+                        alt={lSol.title} 
                         className="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-1.5 left-1.5 p-1 sm:p-1.5 rounded-xs bg-white/95 shadow-2xs border border-slate-200/90 text-[#00478D]">
@@ -474,19 +451,19 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
                     <div>
                       <h3 className="font-display font-bold text-xs sm:text-base text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-1 leading-snug">
-                        {sol.title}
+                        {lSol.title}
                       </h3>
                       <p className="text-[10px] sm:text-[11px] font-mono text-[#D97706] mt-0.5 line-clamp-1">
-                        {sol.subtitle}
+                        {lSol.subtitle}
                       </p>
                     </div>
 
                     <p className="text-[11px] sm:text-xs text-slate-600 leading-tight sm:leading-relaxed line-clamp-2 hidden sm:block">
-                      {sol.desc}
+                      {lSol.desc}
                     </p>
 
                     <div className="space-y-1 pt-1.5 border-t border-slate-100 hidden sm:block">
-                      {sol.standards.slice(0, 2).map((std, idx) => (
+                      {lSol.standards.slice(0, 2).map((std, idx) => (
                         <div key={idx} className="flex items-center gap-1.5 text-[11px] text-slate-500 truncate">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
                           <span className="truncate">{std}</span>
@@ -507,305 +484,53 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
         </div>
       </section>
 
-      {/* 4. REAL PRODUCTS SPEC-SHEET GRID */}
-      <section id="product-catalog" className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-[#00478D] uppercase tracking-wider mb-2">
-                <Settings2 className="w-4 h-4" />
-                <span>{t('catalog.section_badge')}</span>
-              </div>
-              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
-                {t('catalog.section_title')} ({filteredProducts.length})
-              </h2>
-            </div>
+      {/* 4. REAL PRODUCTS SPEC-SHEET GRID & 7,479 SAPO ITEMS */}
+      <VirtualCatalogGrid
+        onSelectProduct={(p) => {
+          onSelectProduct(p);
+          onNavigate('product-detail');
+        }}
+        onAddToCart={onAddToCart}
+        initialCategory={activeCategory}
+        initialSearch={initialSearch}
+      />
 
-            {/* Category Filter Chips */}
-            <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 p-1 rounded-sm border border-slate-200">
-              <button
-                onClick={() => setActiveCategory('all')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'all'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.filter_all')} ({PRODUCTS.length})
-              </button>
-              <button
-                onClick={() => setActiveCategory('thiet-bi-han')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'thiet-bi-han'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_thiet_bi_han')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('may-bat-vit-nha-vit')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'may-bat-vit-nha-vit'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_may_bat_vit')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('dung-cu-bom-keo')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'dung-cu-bom-keo'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_dung_cu_bom_keo')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('may-cat-bang-dinh-tu-dong')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'may-cat-bang-dinh-tu-dong'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_may_cat_bang_dinh')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('thiet-bi-kiem-tra')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'thiet-bi-kiem-tra'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_thiet_bi_kiem_tra')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('camera-kinh-soi-cong-nghiep')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'camera-kinh-soi-cong-nghiep'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_camera_kinh_soi')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('dung-cu-chong-tinh-dien')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'dung-cu-chong-tinh-dien'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_dung_cu_chong_tinh_dien')}
-              </button>
-              <button
-                onClick={() => setActiveCategory('murrplastik')}
-                className={`px-3 py-1.5 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  activeCategory === 'murrplastik'
-                    ? 'bg-white text-[#00478D] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t('catalog.cat_murrplastik')}
-              </button>
-            </div>
-          </div>
-
-          {/* Murrplastik Official Partner Spotlight Showcase Banner */}
-          {activeCategory === 'murrplastik' && (
-            <div className="mb-6 sm:mb-8 p-4 sm:p-6 rounded-sm bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white border-l-4 border-[#E30613] shadow-lg flex flex-col lg:flex-row lg:items-center justify-between gap-4 animate-in fade-in slide-in-from-top-2 duration-200">
-              <div className="space-y-2 max-w-2xl">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#E30613] animate-pulse" />
-                  <span className="text-[10px] sm:text-xs font-mono font-bold text-red-400 uppercase tracking-wider">
-                    ĐẠI LÝ ỦY QUYỀN CHÍNH THỨC TẠI VIỆT NAM
-                  </span>
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-xs bg-red-950 text-red-300 border border-red-800/80 hidden xs:inline-block">
-                    MURRPLASTIK GMBH · SINCE 1963
-                  </span>
-                </div>
-                <h3 className="font-display text-lg sm:text-2xl font-black uppercase tracking-tight text-white">
-                  Chuyên Trang Hệ Thống Quản Lý Cáp Murrplastik (CHLB Đức)
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  T&T Vina phân phối chính hãng 6 giải pháp Murrplastik: Xích dẫn cáp Robot, Luồn ống bảo vệ luồn dây, Đầu vào cáp KDL/KDP, Tem nhãn &amp; Máy in laser công nghiệp mp-LM 1M, kèm Mô phỏng 3D WebGL tương tác thời gian thực.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 shrink-0 pt-1 lg:pt-0">
-                <a
-                  href="/murrplastik/"
-                  className="w-full sm:w-auto h-11 px-5 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white font-display text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-red-900/40 group cursor-pointer"
-                  title="Khám phá chuyên trang giải pháp Murrplastik"
-                >
-                  <span>Xem Chi Tiết Về Hãng</span>
-                  <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <a
-                  href="/murrplastik/tin-tuc/trien-lam-vec-2026/"
-                  className="w-full sm:w-auto h-11 px-4 rounded-xs bg-white/10 hover:bg-white/20 text-white border border-white/20 font-display text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 group cursor-pointer"
-                  title="Mở mô phỏng 3D WebGL Gian Hàng Triển Lãm VEC 2026"
-                >
-                  <span>Gian Hàng Ảo 3D VEC 2026</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-              </div>
-            </div>
-          )}
-
-          {/* Product Cards Grid with Real Specs & Desktop Hover Preview (2 columns on mobile, 4 on desktop) */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2.5 sm:gap-6">
-            {filteredProducts.map((rawP, idx) => {
-              const p = getLocalizedProduct(rawP, locale);
-              return (
-                <div 
-                  key={p.id}
-                  style={{ animationDelay: `${Math.min(idx * 30, 300)}ms` }}
-                  className="rounded-sm bg-white border border-slate-200 hover:border-[#00478D] shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group overflow-hidden scroll-reveal opacity-0 translate-y-8"
-                >
-                  <div>
-                    
-                    {/* Top Bar: SKU & Origin */}
-                    <div className="p-2 sm:p-3.5 pb-0 flex items-center justify-between text-[9px] sm:text-[11px]">
-                      <span className="font-mono text-slate-500 font-semibold truncate max-w-[55%]">{p.sku}</span>
-                      <span className="text-[9px] sm:text-[10px] font-bold text-slate-600 bg-slate-100 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">
-                        {p.brand}
-                      </span>
-                    </div>
-
-                    {/* Studio Image Container with Hover Zoom Magnifier */}
-                    <div 
-                      onClick={() => {
-                        onSelectProduct(p);
-                        onNavigate('product-detail');
-                      }}
-                      onMouseEnter={(e) => {
-                        const rect = e.currentTarget.getBoundingClientRect();
-                        setHoveredZoomProduct({
-                          product: p,
-                          x: rect.right + 16,
-                          y: Math.max(20, rect.top - 20)
-                        });
-                      }}
-                      onMouseLeave={() => setHoveredZoomProduct(null)}
-                      className="h-32 sm:h-52 m-1.5 sm:m-3 rounded-sm bg-slate-50/80 p-2 sm:p-3 flex items-center justify-center border border-slate-100 group-hover:bg-blue-50/20 transition-colors cursor-pointer overflow-hidden relative"
-                    >
-                      <img 
-                        src={p.image} 
-                        alt={p.name}
-                        className="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-200"
-                      />
-                      <div className="absolute bottom-2 right-2 bg-white/90 text-[10px] font-bold text-[#00478D] px-1.5 py-0.5 rounded-xs opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block shadow-2xs border border-slate-200">
-                        {t('catalog.hover_zoom')}
-                      </div>
-                    </div>
-
-                    {/* Name & Short Description */}
-                    <div className="px-2 sm:px-4 pb-1 sm:pb-2">
-                      <h3 
-                        onClick={() => {
-                          onSelectProduct(p);
-                          onNavigate('product-detail');
-                        }}
-                        className="font-display font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 cursor-pointer min-h-[32px] sm:min-h-[40px] leading-snug"
-                      >
-                        {p.name}
-                      </h3>
-                      
-                      <p className="text-[11px] text-slate-500 line-clamp-2 mt-1.5 leading-relaxed hidden sm:block">
-                        {p.shortDesc}
-                      </p>
-                    </div>
-
-                    {/* Compact Spec Sheet */}
-                    <div className="px-2 py-1.5 sm:px-4 sm:py-2.5 my-1 sm:my-2 mx-1.5 sm:mx-3 rounded-xs bg-slate-50 border border-slate-200/60 text-[9px] sm:text-[11px] space-y-0.5 sm:space-y-1">
-                      {Object.entries(p.specs).slice(0, 2).map(([key, val]) => (
-                        <div key={key} className="flex justify-between items-center text-[9px] sm:text-[10px]">
-                          <span className="text-slate-500 truncate mr-1.5">{key}:</span>
-                          <span className="font-mono font-bold text-slate-700 shrink-0">{val}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                  </div>
-
-                  {/* Card Footer: Stock & Action Buttons */}
-                  <div className="p-2 sm:p-3.5 pt-1.5 sm:pt-2 border-t border-slate-100 space-y-1.5 sm:space-y-2">
-                    <div className="flex items-center justify-between text-[9px] sm:text-[11px]">
-                      <span className="text-slate-500 hidden xs:inline">{t('catalog.status_label')}</span>
-                      <span className="font-semibold text-emerald-700 bg-emerald-50 px-1 sm:px-1.5 py-0.5 rounded-xs text-[9px] sm:text-[10px] truncate max-w-full">
-                        {p.stockLocation || t('catalog.in_stock')}
-                      </span>
-                    </div>
-
-                    <div className="flex items-center gap-1 sm:gap-2 pt-0.5 sm:pt-1">
-                      <button
-                        onClick={() => {
-                          onSelectProduct(p);
-                          onNavigate('product-detail');
-                        }}
-                        className="flex-1 h-7 sm:h-9 rounded-sm bg-slate-100 hover:bg-slate-200 text-slate-800 text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-0.5 sm:gap-1 cursor-pointer"
-                      >
-                        <span>{t('catalog.details')}</span>
-                        <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                      </button>
-                      <button
-                        onClick={() => onAddToCart(p)}
-                        className="h-7 sm:h-9 px-1.5 sm:px-3 rounded-sm bg-[#00478D] hover:bg-[#003B75] text-white text-[10px] sm:text-xs font-bold transition-colors flex items-center gap-0.5 sm:gap-1 cursor-pointer shrink-0"
-                        title={t('catalog.add_rfq')}
-                      >
-                        <Plus className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                        <span className="hidden sm:inline">{t('catalog.add_rfq')}</span>
-                        <span className="sm:hidden">{t('catalog.add_rfq')}</span>
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Murrplastik Full Catalog & CAD Call-to-Action */}
-          {activeCategory === 'murrplastik' && (
-            <div className="mt-10 p-6 sm:p-8 rounded-sm bg-slate-50 border border-slate-200/90 text-center space-y-3 shadow-2xs animate-in fade-in slide-in-from-bottom-2 duration-200">
+      {/* Murrplastik Full Catalog & CAD Call-to-Action */}
+      {activeCategory === 'murrplastik' && (
+        <section className="bg-white pb-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="p-6 sm:p-8 rounded-sm bg-slate-50 border border-slate-200/90 text-center space-y-3 shadow-2xs animate-in fade-in slide-in-from-bottom-2 duration-200">
               <div className="inline-flex items-center gap-2 text-xs font-bold text-[#E30613] uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#E30613]" />
-                <span>Catalog &amp; Bản Vẽ Kỹ Thuật CAD Đầy Đủ</span>
+                <span>{t('murr_banner.badge')}</span>
               </div>
               <h4 className="font-display text-lg sm:text-xl font-bold text-slate-900 uppercase tracking-tight">
-                Khám Phá Hơn 500+ Mã Hàng, Bản Vẽ Kỹ Thuật &amp; Đặt Hàng Tại Chuyên Trang Murrplastik
+                {t('murr_banner.title')}
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                Quý khách cần tra cứu bảng kích thước chi tiết, tài liệu kỹ thuật PDF, chứng chỉ chống cháy UL94, hoặc đặt hàng các mã xích dẫn cáp đặc thù cho cánh tay Robot công nghiệp? Ghé thăm chuyên trang Murrplastik Việt Nam để được tư vấn kỹ thuật 1-on-1.
+                {t('murr_banner.desc')}
               </p>
               <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
                 <a
                   href="/murrplastik/"
                   className="inline-flex items-center gap-2 h-11 px-6 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white font-display text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
                 >
-                  <span>Truy Cập Chuyên Trang Murrplastik Việt Nam</span>
+                  <span>{t('murr_banner.btn_portal')}</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
                 <a
                   href="/murrplastik/tin-tuc/trien-lam-vec-2026/"
                   className="inline-flex items-center gap-2 h-11 px-5 rounded-xs bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-display text-xs font-bold uppercase tracking-wider transition-all"
                 >
-                  <span>Mô Phỏng 3D Gian Hàng VEC 2026</span>
+                  <span>{t('murr_banner.btn_booth')}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
-          )}
+          </div>
+        </section>
+      )}
 
-        </div>
-      </section>
 
       {/* 5. COMPANY IMPACT METRICS BAR (SMOOTH RUNNING COUNTERS) */}
       <section className="py-12 bg-gradient-to-r from-[#003366] via-[#00478D] to-[#005EB8] text-white border-y border-blue-900 shadow-inner scroll-reveal opacity-0 translate-y-8 transition-all duration-700 ease-out">
@@ -820,8 +545,8 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
             <div className="p-4 rounded-sm bg-white/5 backdrop-blur-xs border border-white/10">
               <AnimatedCounter end={500} suffix="+" className="font-display text-3xl sm:text-4xl font-black text-white tracking-tight block" />
-              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">Nhà Máy Đối Tác</div>
-              <p className="text-[11px] text-blue-200/80 mt-0.5">Các KCN trọng điểm toàn quốc</p>
+              <div className="text-xs uppercase tracking-wider text-blue-100 mt-1 font-bold">{t('impact.partner_factories_title')}</div>
+              <p className="text-[11px] text-blue-200/80 mt-0.5">{t('impact.partner_factories_desc')}</p>
             </div>
 
             <div className="p-4 rounded-sm bg-white/5 backdrop-blur-xs border border-white/10">
@@ -847,18 +572,18 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 text-xs font-bold text-[#00478D] uppercase tracking-wider mb-2">
               <HelpCircle className="w-4 h-4" />
-              <span>Hỏi Đáp Kỹ Thuật & Mua Hàng</span>
+              <span>{t('faq.badge')}</span>
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
-              Câu Hỏi Thường Gặp (FAQ)
+              {t('faq.title')}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto mt-2">
-              Giải đáp chi tiết về tiêu chuẩn CO/CQ, chính sách bảo hành, hỗ trợ chạy thử mẫu tại nhà máy và thời gian báo giá.
+              {t('faq.subtitle')}
             </p>
           </div>
 
           <div className="space-y-3">
-            {FAQ_ITEMS.map((item, idx) => {
+            {faqItems.map((item, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
                 <div 
@@ -892,14 +617,14 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
           {/* Quick FAQ Consultation CTA */}
           <div className="mt-8 p-4 rounded-sm bg-blue-50/80 border border-blue-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div className="text-xs text-slate-700 font-medium">
-              Bạn có câu hỏi kỹ thuật đặc thù cho dây chuyền sản xuất của nhà máy?
+              {t('faq.cta_question')}
             </div>
             <a 
               href={`tel:${COMPANY_INFO.hotlineRaw}`}
               className="px-4 py-2 rounded-xs bg-[#00478D] hover:bg-[#003366] text-white text-xs font-bold uppercase tracking-wider shrink-0 transition-colors flex items-center gap-1.5"
             >
               <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
-              <span>Hotline Tư Vấn: {COMPANY_INFO.hotline}</span>
+              <span>{t('faq.cta_btn')}{COMPANY_INFO.hotline}</span>
             </a>
           </div>
 

@@ -9,7 +9,14 @@
     "murr_portal": "พอร์ทัล Murrplastik เยอรมนี",
     "hotline": "สายด่วน",
     "sales": "ฝ่ายขาย",
-    "call_now": "โทรเลย"
+    "call_now": "โทรเลย",
+    "dropdown_title": "แคตตาล็อกอุปกรณ์อุตสาหกรรมและระบบอัตโนมัติ",
+    "genuine_badge": "ของแท้ 100%",
+    "portal_btn": "พอร์ทัลทางการ",
+    "tech_support_hint": "ฝ่ายสนับสนุนการเลือกสเปกเทคนิค:",
+    "search_placeholder_mobile": "ค้นหารุ่น, SKU: Hakko, Hios, Zcut...",
+    "authorized": "ตัวแทนที่ได้รับอนุญาต",
+    "murr_mobile_desc": "ระบบจัดการสายเคเบิลอุตสาหกรรม, ชุดรางกระดูกงูหุ่นยนต์, แคตตาล็อก 500+ รายการ และบูธ 3D"
   },
   "hero": {
     "badge": "ศูนย์กระจายอุปกรณ์อุตสาหกรรม B2B ในเวียดนาม",
@@ -29,7 +36,9 @@
     "view_specsheet": "ดูสเปกสินค้า",
     "official_ecosystem": "ระบบนิเวศอย่างเป็นทางการ:",
     "enter_murr_portal": "เข้าสู่หน้า Murrplastik",
-    "explore_solutions": "สำรวจโซลูชันและแคตตาล็อก"
+    "explore_solutions": "สำรวจโซลูชันและแคตตาล็อก",
+    "stat_genuine": "ของแท้ 100% ญี่ปุ่น/เยอรมนี/เกาหลี",
+    "stat_delivery": "จัดส่งด่วนไปยังนิคมอุตสาหกรรม"
   },
   "solutions": {
     "section_title": "ระบบนิเวศโซลูชันทางวิศวกรรม",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "ผู้นำเข้าและจัดจำหน่ายอุปกรณ์อุตสาหกรรม เครื่องมือ SMT ระบบควบคุม ESD และระบบจัดการสายไฟหุ่นยนต์ชั้นนำในเวียดนาม",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "ผู้นำเข้าและจัดจำหน่ายอุปกรณ์อุตสาหกรรม เครื่องมือประกอบ SMT ห้องคลีนรูม และระบบอัตโนมัติสำหรับโรงงาน FDI ในเวียดนาม",
+    "hq_label": "สำนักงานใหญ่:",
+    "wh_label": "สำนักงานและคลังสินค้าฮานอย:",
+    "directions_maps": "ดูเส้นทางบน Google Maps",
+    "map_iframe_title": "แผนที่สำนักงานและคลังสินค้า T&T Vina ลินห์นัม",
+    "categories_title": "หมวดหมู่อุปกรณ์",
+    "cat_soldering": "เครื่องบัดกรีและหุ่นยนต์บัดกรีอัตโนมัติ",
+    "cat_screwdrivers": "ไขควงไฟฟ้า Hios และหุ่นยนต์ขันสกรู",
+    "cat_dispensing": "อุปกรณ์หยอดกาวและหุ่นยนต์จ่ายกาว",
+    "cat_tape": "เครื่องตัดเทปและเครื่องลอกฉลาก",
+    "cat_testing": "เครื่องวัดแรงบิดและเครื่องวัดอุณหภูมิ",
+    "cat_microscope": "กล้องจุลทรรศน์สเตอริโอและกล้องตรวจสอบ",
+    "cat_esd": "พัดลมกำจัดไฟฟ้าสถิตและอุปกรณ์ ESD",
+    "cat_murr": "พอร์ทัล Murrplastik ประเทศเยอรมนี",
+    "consult_quote_title": "ปรึกษาและขอใบเสนอราคา",
+    "hotline_label": "สายด่วน:",
+    "sales_label": "ฝ่ายขาย:",
+    "murr_sales_label": "ฝ่ายขาย Murr:",
+    "project_dept_label": "แผนกโครงการ:",
+    "email_label": "อีเมล:",
+    "featured_title": "ผลิตภัณฑ์แนะนำ",
+    "featured_origin": "ของแท้ 100% นำเข้าจากญี่ปุ่น เยอรมนี เกาหลี",
+    "feat_murr_title": "Murrplastik (เยอรมนี)",
+    "feat_murr_country": "เยอรมัน",
+    "feat_murr_sub": "รางกระดูกงูและชุดสายหุ่นยนต์",
+    "feat_glue_title": "เครื่องหยอดกาว 983A / SP-982",
+    "feat_glue_sub": "การจ่ายกาวอัตโนมัติและกึ่งอัตโนมัติ",
+    "feat_hios_title": "ไขควงไฟฟ้า Hios CL-4000",
+    "feat_hios_sub": "เครื่องขันสกรูและเครื่องวัดแรงบิด HP-10",
+    "feat_solder_title": "สถานีบัดกรี Hakko / Quick",
+    "feat_solder_sub": "Hakko 936, หัวแร้ง และหม้อต้มตะกั่ว",
+    "feat_tape_title": "เครื่องตัดเทปอัตโนมัติ Zcut 9",
+    "feat_tape_sub": "ตัด 2 ม้วนพร้อมกันและลอกฉลาก",
+    "feat_micro_title": "กล้องจุลทรรศน์สเตอริโอ SM-3TPZ",
+    "feat_micro_sub": "ตรวจสอบชิ้นส่วน SMT และตรวจวัดทางแสง",
+    "btn_quick_bom": "สร้างรายการขอใบเสนอราคา BOM ด่วน",
+    "copyright_disclaimer": "เนื้อหา รูปภาพสินค้า แคตตาล็อก และข้อมูลทางเทคนิคทั้งหมดเป็นทรัพย์สินของ T&T Vina Industrial Co., Ltd. ห้ามคัดลอก ทำซ้ำ หรือดัดแปลงโดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร",
+    "badge_b2b": "มาตรฐาน B2B",
+    "badge_genuine": "ของแท้ 100%",
+    "badge_support": "สนับสนุน 24/7"
   },
   "header": {
     "hq_label": "สำนักงานใหญ่",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "แคตตาล็อกอุปกรณ์อุตสาหกรรม",
-    "section_title": "รายการสเปกและอุปกรณ์โรงงาน",
+    "section_title": "แคตตาล็อกอุปกรณ์",
     "hover_zoom": "ชี้เมาส์เพื่อซูมขยาย",
     "details": "ดูรายละเอียด",
     "add_rfq": "+ ขอใบเสนอราคา",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "กล้องจุลทรรศน์และกล้องตรวจ",
     "cat_dung_cu_chong_tinh_dien": "การควบคุมไฟฟ้าสถิต ESD",
     "cat_murrplastik": "Murrplastik เยอรมนี",
-    "cat_thiet_bi_dong_goi": "เครื่องจักรบรรจุภัณฑ์อัตโนมัติ"
+    "cat_thiet_bi_dong_goi": "เครื่องจักรบรรจุภัณฑ์อัตโนมัติ",
+    "warehouse_badge": "ศูนย์รวมอุปกรณ์อุตสาหกรรม B2B",
+    "section_desc": "ค้นหาข้อมูลจำเพาะทางเทคนิค สถานะสินค้าคงคลัง และผู้ติดต่อขอใบเสนอราคาได้อย่างรวดเร็ว",
+    "in_stock_toggle": "มีสินค้า",
+    "view_grid": "มุมมองแบบตาราง",
+    "view_table": "มุมมองแบบรายการ",
+    "search_placeholder": "ค้นหาด้วยรหัส SKU, ชื่ออุปกรณ์, ขนาดเกลียว, แบรนด์...",
+    "sales_rep_label": "ผู้รับผิดชอบ:",
+    "all_reps": "ตัวแทนขายทั้งหมด / สายด่วน",
+    "tab_all": "ทั้งหมด",
+    "found": "พบ",
+    "matching_items": "รายการที่ตรงกัน",
+    "for_keyword": "สำหรับคำค้น",
+    "showing": "แสดง",
+    "updating_image": "กำลังอัปเดตรูปภาพ",
+    "in_stock_badge": "มีสินค้าพร้อมส่ง",
+    "project_order": "สั่งผลิตตามโครงการ",
+    "btn_detail": "รายละเอียด",
+    "btn_rfq": "+ ขอใบเสนอราคา",
+    "btn_load_more": "ดูสินค้าเพิ่มเติม",
+    "showing_progress": "กำลังแสดง",
+    "of_total": "/",
+    "products_unit": "รายการสินค้า",
+    "table_no": "ลำดับ",
+    "table_sku": "SKU",
+    "table_name": "ชื่ออุปกรณ์ / ชิ้นส่วน",
+    "table_category": "หมวดหมู่",
+    "table_status": "สถานะ",
+    "table_rep": "ผู้รับผิดชอบเสนอราคา",
+    "table_actions": "การดำเนินการ"
   },
   "product_detail": {
     "breadcrumb_home": "หน้าแรก",
@@ -165,5 +243,23 @@
     "copied": "คัดลอกแล้ว",
     "copy": "คัดลอก",
     "close": "ปิด"
+  },
+  "impact": {
+    "partner_factories_title": "โรงงานพันธมิตร",
+    "partner_factories_desc": "นิคมอุตสาหกรรมหลักทั่วประเทศ"
+  },
+  "faq": {
+    "badge": "คำถามที่พบบ่อยด้านเทคนิคและการจัดซื้อ",
+    "title": "คำถามที่พบบ่อย (FAQ)",
+    "subtitle": "คำตอบโดยละเอียดเกี่ยวกับเอกสาร CO/CQ, นโยบายการรับประกัน, การทดสอบหน้างาน และระยะเวลาเสนอราคา",
+    "cta_question": "คุณมีคำถามทางเทคนิคเฉพาะสำหรับสายการผลิตในโรงงานของคุณหรือไม่?",
+    "cta_btn": "สายด่วนให้คำปรึกษา: "
+  },
+  "murr_banner": {
+    "badge": "แคตตาล็อกและแบบวาด CAD ทางเทคนิคฉบับสมบูรณ์",
+    "title": "สำรวจสินค้ากว่า 500+ รายการและแบบวาด CAD ที่พอร์ทัล Murrplastik เยอรมนี",
+    "desc": "ต้องการตารางขนาดอย่างละเอียด, เอกสารข้อมูล PDF, ใบรับรองมาตรฐานไม่ลามไฟ UL94 หรือสั่งทำรางกระดูกงูสำหรับแขนกลหุ่นยนต์? เยี่ยมชม Murrplastik เวียดนามเพื่อรับคำปรึกษาแบบตัวต่อตัว",
+    "btn_portal": "เข้าสู่พอร์ทัล Murrplastik เวียดนาม",
+    "btn_booth": "แบบจำลอง 3 มิติบูธ VEC 2026"
   }
 }

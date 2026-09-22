@@ -9,7 +9,14 @@
     "murr_portal": "독일 Murrplastik 공식 포털",
     "hotline": "핫라인",
     "sales": "영업부",
-    "call_now": "바로 통화"
+    "call_now": "바로 통화",
+    "dropdown_title": "산업 장비 및 공장 자동화 제품 카탈로그",
+    "genuine_badge": "100% 정품 보증",
+    "portal_btn": "공식 포털",
+    "tech_support_hint": "기술 규격 및 파트 선정 지원:",
+    "search_placeholder_mobile": "모델명, SKU 검색: Hakko, Hios, Zcut...",
+    "authorized": "공식 대리점",
+    "murr_mobile_desc": "산업용 케이블 보호 시스템, 로봇 드레스팩, 500+ 카탈로그 및 3D 가상 부스."
   },
   "hero": {
     "badge": "베트남 B2B 산업용 자동화 장비 총판",
@@ -29,7 +36,9 @@
     "view_specsheet": "사양서 보기",
     "official_ecosystem": "공식 파트너 생태계:",
     "enter_murr_portal": "Murrplastik 포털 방문",
-    "explore_solutions": "솔루션 및 카탈로그 탐색"
+    "explore_solutions": "솔루션 및 카탈로그 탐색",
+    "stat_genuine": "정품 보증 일본 / 독일 / 한국",
+    "stat_delivery": "공단 당일 특급 배송"
   },
   "solutions": {
     "section_title": "엔지니어링 솔루션 생태계",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "베트남 최고의 산업 자동화 장비, SMT 툴, 클린룸 정전기 제어 및 로봇 케이블 관리 시스템 유통 기업.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "베트남 내 FDI 글로벌 제조기업을 위한 산업 장비, SMT 조립 공구, 클린룸 및 공장 자동화 전문 종합 공급사.",
+    "hq_label": "본사:",
+    "wh_label": "하노이 사무소 및 물류창고:",
+    "directions_maps": "구글 지도에서 경로 찾기",
+    "map_iframe_title": "T&T Vina 린남 사무소 및 창고 지도",
+    "categories_title": "장비 제품 카테고리",
+    "cat_soldering": "솔더링 장비 & 자동 납땜 로봇",
+    "cat_screwdrivers": "Hios 전동 드라이버 & 체결 로봇",
+    "cat_dispensing": "디스펜싱 공구 & 도포 로봇",
+    "cat_tape": "테이프 디스펜서 & 라벨 박리기",
+    "cat_testing": "토크 테스터 & 인두 온도 측정기",
+    "cat_microscope": "실체 현미경 & 광학 검사 카메라",
+    "cat_esd": "이온 블로워 & 정전기 방지 공구",
+    "cat_murr": "독일 Murrplastik 공식 포털",
+    "consult_quote_title": "상담 및 견적 문의",
+    "hotline_label": "대표 핫라인:",
+    "sales_label": "영업 부서:",
+    "murr_sales_label": "Murr 영업:",
+    "project_dept_label": "프로젝트 사업부:",
+    "email_label": "이메일:",
+    "featured_title": "주요 추천 장비",
+    "featured_origin": "100% 일본, 독일, 한국 원산지 정품",
+    "feat_murr_title": "Murrplastik (독일)",
+    "feat_murr_country": "독일",
+    "feat_murr_sub": "케이블 체인 & 로봇 드레스팩",
+    "feat_glue_title": "디스펜서 983A / SP-982",
+    "feat_glue_sub": "자동 및 반자동 정밀 디스펜싱",
+    "feat_hios_title": "Hios CL-4000 전동 드라이버",
+    "feat_hios_sub": "조임 장비 & HP-10 토크 측정기",
+    "feat_solder_title": "Hakko / Quick 솔더링 스테이션",
+    "feat_solder_sub": "Hakko 936, 인두 핸들 및 납조",
+    "feat_tape_title": "Zcut 9 자동 테이프 커터기",
+    "feat_tape_sub": "2롤 동시 절단 및 라벨 박리",
+    "feat_micro_title": "SM-3TPZ 실체 현미경",
+    "feat_micro_sub": "SMT 부품 검사 및 광학 계측",
+    "btn_quick_bom": "빠른 BOM 견적 요청서 작성",
+    "copyright_disclaimer": "모든 콘텐츠, 제품 사진, 카탈로그 및 기술 사양은 T&T Vina Industrial Co., Ltd.의 자산입니다. 서면 승인 없는 무단 복제 및 전재를 엄격히 금합니다.",
+    "badge_b2b": "B2B 산업 표준",
+    "badge_genuine": "100% 정품 보증",
+    "badge_support": "24/7 기술 지원"
   },
   "header": {
     "hq_label": "본사 물류기지",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "산업용 장비 카탈로그",
-    "section_title": "규격 사양 및 설비 리스트",
+    "section_title": "산업 장비 카탈로그",
     "hover_zoom": "마우스 오버 확대",
     "details": "상세보기",
     "add_rfq": "+ 견적추가",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "현미경 & 비전 검사",
     "cat_dung_cu_chong_tinh_dien": "ESD 정전기 방지",
     "cat_murrplastik": "독일 Murrplastik",
-    "cat_thiet_bi_dong_goi": "자동 포장 설비"
+    "cat_thiet_bi_dong_goi": "자동 포장 설비",
+    "warehouse_badge": "B2B 산업 장비 물류 센터",
+    "section_desc": "기술 사양, 재고 현황 및 담당 영업 엔지니어 연락처를 빠르게 조회하세요.",
+    "in_stock_toggle": "재고 보유",
+    "view_grid": "그리드 보기",
+    "view_table": "테이블 목록 보기",
+    "search_placeholder": "SKU, 장비명, 규격, 제조사 검색...",
+    "sales_rep_label": "담당자:",
+    "all_reps": "전체 영업 담당자 / 핫라인",
+    "tab_all": "전체",
+    "found": "검색 결과",
+    "matching_items": "개 장비",
+    "for_keyword": "검색어:",
+    "showing": "표시 중",
+    "updating_image": "이미지 준비 중",
+    "in_stock_badge": "재고 있음",
+    "project_order": "주문 발주",
+    "btn_detail": "상세보기",
+    "btn_rfq": "+ 견적추가",
+    "btn_load_more": "제품 더 보기",
+    "showing_progress": "표시 중",
+    "of_total": "/",
+    "products_unit": "개 제품",
+    "table_no": "번호",
+    "table_sku": "SKU",
+    "table_name": "장비 및 부품명",
+    "table_category": "분류",
+    "table_status": "상태",
+    "table_rep": "견적 담당",
+    "table_actions": "작업"
   },
   "product_detail": {
     "breadcrumb_home": "홈",
@@ -165,5 +243,23 @@
     "copied": "복사됨",
     "copy": "복사",
     "close": "닫기"
+  },
+  "impact": {
+    "partner_factories_title": "협력 제조 공장",
+    "partner_factories_desc": "베트남 전국 주요 공단 공장"
+  },
+  "faq": {
+    "badge": "기술 및 구매 상담 FAQ",
+    "title": "자주 묻는 질문 (FAQ)",
+    "subtitle": "공식 CO/CQ 인증, 12개월 품질 보증, 현장 샘플 테스트 지원 및 견적 회신 시간 안내.",
+    "cta_question": "공장 제조 라인에 특화된 기술 문의가 있으십니까?",
+    "cta_btn": "상담 핫라인: "
+  },
+  "murr_banner": {
+    "badge": "공식 카탈로그 및 3D CAD 도면",
+    "title": "Murrplastik 독일 전용관에서 500+ 규격 및 도면 확인하기",
+    "desc": "상세 치수표, PDF 기술 데이터시트, UL94 난연 인증서 또는 로봇 케이블 드레스팩 주문이 필요하십니까? 전문 엔지니어 1:1 상담을 지원합니다.",
+    "btn_portal": "Murrplastik 베트남 포털 방문",
+    "btn_booth": "VEC 2026 부스 3D 시뮬레이션"
   }
 }

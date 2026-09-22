@@ -14,7 +14,8 @@
     "deploy:preview": "python deploy_preview.py",
     "deploy:prod": "python deploy_production_root.py",
     "catalog:add": "python scripts/catalog_manager.py add",
-    "catalog:audit": "python scripts/catalog_manager.py audit"
+    "catalog:audit": "python scripts/catalog_manager.py audit",
+    "test:catalog": "python scripts/verify_all_requirements.py"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

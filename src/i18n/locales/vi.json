@@ -9,7 +9,14 @@
     "murr_portal": "Chuyên Trang Murrplastik Đức",
     "hotline": "Hotline",
     "sales": "Kinh doanh",
-    "call_now": "Gọi Ngay"
+    "call_now": "Gọi Ngay",
+    "dropdown_title": "Danh Mục Thiết Bị Công Nghiệp & Tự Động Hóa",
+    "genuine_badge": "100% Chính Hãng",
+    "portal_btn": "Chuyên Trang",
+    "tech_support_hint": "Hỗ trợ chọn mã kỹ thuật:",
+    "search_placeholder_mobile": "Nhập tên máy, mã SKU: Hakko, Hios, Zcut...",
+    "authorized": "Ủy Quyền",
+    "murr_mobile_desc": "Hệ sinh thái quản lý cáp công nghiệp, xích dẫn cáp Robot, catalog 500+ mã hàng & Gian hàng ảo 3D."
   },
   "hero": {
     "badge": "TỔNG KHO PHÂN PHỐI THIẾT BỊ B2B",
@@ -29,7 +36,9 @@
     "view_specsheet": "Xem Spec-sheet",
     "official_ecosystem": "Hệ sinh thái chính hãng:",
     "enter_murr_portal": "Vào Chuyên Trang Murrplastik",
-    "explore_solutions": "Khám phá giải pháp & danh mục"
+    "explore_solutions": "Khám phá giải pháp & danh mục",
+    "stat_genuine": "Chính Hãng Nhật / Đức / Hàn",
+    "stat_delivery": "Giao Hàng Tại Các KCN"
   },
   "solutions": {
     "section_title": "Hệ Sinh Thái Giải Pháp Kỹ Thuật",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "CÔNG TY TNHH CÔNG NGHIỆP T&T VINA",
     "tagline": "Tổng kho thiết bị công nghiệp, dụng cụ SMT, phòng sạch & hệ quản lý cáp tự động hóa hàng đầu Việt Nam.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "Chuyên cung cấp các thiết bị công nghiệp, dụng cụ lắp ráp SMT, phòng sạch & vật tư tự động hóa cho các nhà máy FDI tại Việt Nam.",
+    "hq_label": "Trụ sở chính:",
+    "wh_label": "VPGD & Kho Hà Nội:",
+    "directions_maps": "Chỉ đường trên Google Maps",
+    "map_iframe_title": "Bản đồ VPGD & Kho T&T Vina Lĩnh Nam",
+    "categories_title": "Danh Mục Thiết Bị",
+    "cat_soldering": "Thiết bị hàn & Robot hàn tự động",
+    "cat_screwdrivers": "Máy bắt vít Hios & Robot bắt vít",
+    "cat_dispensing": "Dụng cụ & Robot tra bơm keo",
+    "cat_tape": "Máy cắt băng dính & Tem nhãn",
+    "cat_testing": "Thiết bị đo lực & Nhiệt độ hàn",
+    "cat_microscope": "Kính hiển vi & Kính lúp soi nổi",
+    "cat_esd": "Quạt thổi Ion & Dụng cụ ESD",
+    "cat_murr": "Chuyên Trang Murrplastik Đức",
+    "consult_quote_title": "Tư Vấn & Báo Giá",
+    "hotline_label": "Hotline:",
+    "sales_label": "Kinh Doanh:",
+    "murr_sales_label": "KD Murr:",
+    "project_dept_label": "Phòng Dự Án:",
+    "email_label": "Email:",
+    "featured_title": "CÁC SẢN PHẨM NỔI BẬT",
+    "featured_origin": "100% Xuất xứ Nhật Bản, Đức, Hàn Quốc",
+    "feat_murr_title": "Murrplastik (CHLB Đức)",
+    "feat_murr_country": "Đức",
+    "feat_murr_sub": "Xích dẫn cáp & Giá đỡ Robot",
+    "feat_glue_title": "Máy bơm keo 983A / SP-982",
+    "feat_glue_sub": "Bơm keo tự động & Bán tự động",
+    "feat_hios_title": "Tô vít điện tử Hios CL-4000",
+    "feat_hios_sub": "Máy bắt vít & Đo lực siết HP-10",
+    "feat_solder_title": "Trạm hàn thiếc Hakko / Quick",
+    "feat_solder_sub": "Máy hàn Hakko 936, mỏ hàn, bể hàn",
+    "feat_tape_title": "Máy cắt băng dính Zcut 9",
+    "feat_tape_sub": "Cắt 2 cuộn đồng thời & Cắt tem nhãn",
+    "feat_micro_title": "Kính hiển vi soi nổi SM-3TPZ",
+    "feat_micro_sub": "Kính soi linh kiện & Đo kiểm quang học",
+    "btn_quick_bom": "Tạo Danh Sách Yêu Cầu Báo Giá Nhanh",
+    "copyright_disclaimer": "Toàn bộ nội dung, hình ảnh sản phẩm, tài liệu catalog và thông số kỹ thuật thuộc quyền sở hữu của T&T Vina Industrial Co., Ltd. Nghiêm cấm mọi hành vi sao chép, trích xuất hoặc tái bản dưới mọi hình thức khi chưa có sự chấp thuận bằng văn bản.",
+    "badge_b2b": "Tiêu chuẩn B2B",
+    "badge_genuine": "Chính hãng 100%",
+    "badge_support": "Hỗ trợ 24/7"
   },
   "header": {
     "hq_label": "Trụ sở",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "Danh Mục Thiết Bị Thực Tế",
-    "section_title": "Bảng Thông Số & Thiết Bị",
+    "section_title": "Danh Mục Thiết Bị",
     "hover_zoom": "Rê chuột phóng to",
     "details": "Chi tiết",
     "add_rfq": "Báo Giá",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "Kính Soi & Hiển Vi",
     "cat_dung_cu_chong_tinh_dien": "Khử Tĩnh Điện ESD",
     "cat_murrplastik": "Murrplastik",
-    "cat_thiet_bi_dong_goi": "Thiết Bị Đóng Gói"
+    "cat_thiet_bi_dong_goi": "Thiết Bị Đóng Gói",
+    "warehouse_badge": "TỔNG KHO THIẾT BỊ CÔNG NGHIỆP B2B",
+    "section_desc": "Tra cứu nhanh chóng thông số kỹ thuật, tình trạng sẵn kho và số điện thoại phụ trách báo giá của từng thiết bị.",
+    "in_stock_toggle": "Sẵn kho",
+    "view_grid": "Chế độ xem dạng lưới",
+    "view_table": "Chế độ xem dạng bảng danh sách",
+    "search_placeholder": "Tìm nhanh theo mã SKU, tên thiết bị, quy cách ren/phi, nhãn hiệu...",
+    "sales_rep_label": "Phụ trách:",
+    "all_reps": "Tất cả NVKD / Hotline",
+    "tab_all": "Tất cả",
+    "found": "Tìm thấy",
+    "matching_items": "thiết bị phù hợp",
+    "for_keyword": "cho từ khóa",
+    "showing": "Hiển thị",
+    "updating_image": "Đang cập nhật ảnh",
+    "in_stock_badge": "Sẵn hàng",
+    "project_order": "Đặt dự án",
+    "btn_detail": "Chi Tiết",
+    "btn_rfq": "+ Báo Giá",
+    "btn_load_more": "Xem Thêm Sản Phẩm",
+    "showing_progress": "Đang hiển thị",
+    "of_total": "/",
+    "products_unit": "sản phẩm",
+    "table_no": "STT",
+    "table_sku": "Mã SKU",
+    "table_name": "Tên Thiết Bị / Linh Kiện",
+    "table_category": "Nhóm Ngành Hàng",
+    "table_status": "Tình Trạng",
+    "table_rep": "Phụ Trách Báo Giá",
+    "table_actions": "Thao Tác"
   },
   "product_detail": {
     "breadcrumb_home": "Trang chủ",
@@ -165,5 +243,23 @@
     "copied": "Đã chép",
     "copy": "Copy",
     "close": "Đóng"
+  },
+  "impact": {
+    "partner_factories_title": "Nhà Máy Đối Tác",
+    "partner_factories_desc": "Các KCN trọng điểm toàn quốc"
+  },
+  "faq": {
+    "badge": "Hỏi Đáp Kỹ Thuật & Mua Hàng",
+    "title": "Câu Hỏi Thường Gặp (FAQ)",
+    "subtitle": "Giải đáp chi tiết về tiêu chuẩn CO/CQ, chính sách bảo hành, hỗ trợ chạy thử mẫu tại nhà máy và thời gian báo giá.",
+    "cta_question": "Bạn có câu hỏi kỹ thuật đặc thù cho dây chuyền sản xuất của nhà máy?",
+    "cta_btn": "Hotline Tư Vấn: "
+  },
+  "murr_banner": {
+    "badge": "Catalog & Bản Vẽ Kỹ Thuật CAD Đầy Đủ",
+    "title": "Khám Phá Hơn 500+ Mã Hàng, Bản Vẽ Kỹ Thuật & Đặt Hàng Tại Chuyên Trang Murrplastik",
+    "desc": "Quý khách cần tra cứu bảng kích thước chi tiết, tài liệu kỹ thuật PDF, chứng chỉ chống cháy UL94, hoặc đặt hàng các mã xích dẫn cáp đặc thù cho cánh tay Robot công nghiệp? Ghé thăm chuyên trang Murrplastik Việt Nam để được tư vấn kỹ thuật 1-on-1.",
+    "btn_portal": "Truy Cập Chuyên Trang Murrplastik Việt Nam",
+    "btn_booth": "Mô Phỏng 3D Gian Hàng VEC 2026"
   }
 }

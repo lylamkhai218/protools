@@ -823,6 +823,69 @@ export const CATEGORY_TRANSLATIONS: Record<string, Record<SupportedLocale, strin
     ko: "자동 포장 설비",
     ja: "自動梱包機械設備",
     th: "เครื่องจักรบรรจุภัณฑ์อัตโนมัติ"
+  },
+  "thiet-bi-dong-goi-tu-dong": {
+    vi: "Đóng Gói Tự Động",
+    en: "Packaging Automation",
+    "zh-CN": "全自动包装机",
+    de: "Verpackungsautomation",
+    ko: "자동 포장 기계",
+    ja: "自動包装・封函設備",
+    th: "เครื่องจักรบรรจุภัณฑ์อัตโนมัติ"
+  },
+  "xi-lanh-khi-nen": {
+    vi: "Xi Lanh & Khí Nén",
+    en: "Pneumatics & Cylinders",
+    "zh-CN": "气缸与气动执行件",
+    de: "Pneumatikzylinder & Aktoren",
+    ko: "공압 실린더 & 액추에이터",
+    ja: "エアーシリンダ・空気圧機器",
+    th: "กระบอกลมและระบบนิวเมติกส์"
+  },
+  "khi-nen-phu-kien": {
+    vi: "Cút Nối & Khớp Nối Khí",
+    en: "Pneumatic Fittings & Tubing",
+    "zh-CN": "气动快速接头与气管",
+    de: "Pneumatik-Verschraubungen",
+    ko: "공압 원터치 피팅 & 호스",
+    ja: "ワンタッチ継手・エアチューブ",
+    th: "ข้อต่อลมและสายลม"
+  },
+  "bu-long-oc-vit": {
+    vi: "Bu Lông & Ốc Vít",
+    en: "Fasteners, Bolts & Screws",
+    "zh-CN": "紧固件与工业螺栓螺母",
+    de: "Schrauben & Verbindungstechnik",
+    ko: "산업용 볼트, 너트 & 나사",
+    ja: "ボルト・ナット・産業用締結部品",
+    th: "สลักภัณฑ์ โบลท์ และสกรู"
+  },
+  "bang-tai-day-curoa": {
+    vi: "Băng Tải & Dây Curoa",
+    en: "Conveyor Belts & Timing Belts",
+    "zh-CN": "PVC输送带与传动同步带",
+    de: "Förderbänder & Zahnriemen",
+    ko: "컨베이어 벨트 & 타이밍 벨트",
+    ja: "コンベアベルト・タイミングベルト",
+    th: "สายพานลำเลียงและสายพานไทม์มิ่ง"
+  },
+  "linh-kien-thiet-bi": {
+    vi: "Linh Kiện Cơ Khí & Phụ Trợ",
+    en: "Industrial Parts & Hardware",
+    "zh-CN": "工业通用五金与机械配件",
+    de: "Industriebedarf & Komponenten",
+    ko: "기계 부품 & 산업용 소모품",
+    ja: "機械部品・工場副資材",
+    th: "ชิ้นส่วนเครื่องจักรและอุปกรณ์อุตสาหกรรม"
+  },
+  "thiet-bi-tu-dong-hoa": {
+    vi: "Thiết Bị Tự Động Hóa",
+    en: "Automation & Factory Controls",
+    "zh-CN": "工厂自动化与控制电气",
+    de: "Automatisierungs- & Steuerungstechnik",
+    ko: "공장 자동화 & 제어 부품",
+    ja: "ファクトリーオートメーション機器",
+    th: "ระบบอัตโนมัติและอุปกรณ์ควบคุมโรงงาน"
   }
 };
 
