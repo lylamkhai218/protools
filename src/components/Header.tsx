@@ -15,7 +15,10 @@ import {
   PackageCheck,
   Copy,
   Check,
-  ExternalLink
+  ExternalLink,
+  Sparkles,
+  TrendingUp,
+  Layers
 } from 'lucide-react';
 import { Product } from '../types';
 import { PRODUCTS, SOLUTIONS, COMPANY_INFO } from '../data';
@@ -30,6 +33,32 @@ interface HeaderProps {
   onNavigate: (tab: string, filter?: string, search?: string) => void;
   onSelectProduct: (product: Product) => void;
 }
+
+// 1. Phím tắt từ khóa tìm kiếm nhanh phổ biến
+const POPULAR_SEARCH_TAGS = [
+  { label: 'R-Tec Liner (MP-1081)', query: 'MP-1081', isHero: true },
+  { label: 'Quick 205 ESD (150W)', query: 'Quick 205' },
+  { label: 'Hakko 936', query: 'Hakko 936' },
+  { label: 'HIOS CL-4000', query: 'CL-4000' },
+  { label: 'Zcut-9', query: 'Zcut-9' },
+  { label: 'Quạt ion SL-001', query: 'SL-001' },
+  { label: 'Bể hàn CM-808', query: 'CM-808' },
+  { label: 'Bơm keo SP-982', query: 'SP-982' },
+  { label: 'Đo lực siết HP-10', query: 'HP-10' },
+  { label: 'Murrplastik', query: 'Murrplastik' }
+];
+
+// 2. Phím tắt ngành hàng tra cứu nhanh
+const QUICK_CATEGORIES = [
+  { id: 'murrplastik', name: 'Xích Cáp Robot Murrplastik', tag: 'CHLB Đức', icon: Cpu, isMurr: true },
+  { id: 'thiet-bi-han', name: 'Thiết Bị Hàn & Bể Thiếc', tag: 'Hakko / Quick', icon: Zap },
+  { id: 'may-bat-vit-nha-vit', name: 'Máy Bắt Vít & Siết Lực', tag: 'HIOS Nhật', icon: Wrench },
+  { id: 'dung-cu-bom-keo', name: 'Robot & Máy Bơm Keo', tag: 'SP-982', icon: PackageCheck },
+  { id: 'may-cat-bang-dinh-tu-dong', name: 'Máy Cắt Băng Dính & Tem', tag: 'Zcut / RT', icon: Cpu },
+  { id: 'dung-cu-chong-tinh-dien', name: 'Phòng Sạch & Khử ESD', tag: 'Quạt ion SL-001', icon: ShieldCheck },
+  { id: 'xi-lanh-khi-nen', name: 'Xi Lanh & Thiết Bị Khí Nén', tag: 'Pneumatics', icon: Wrench },
+  { id: 'bu-long-oc-vit', name: 'Bu Lông, Ốc Vít & Fasteners', tag: 'Inox 304/316', icon: PackageCheck }
+];
 
 export default function Header({ currentTab, cartCount, onNavigate, onSelectProduct }: HeaderProps) {
   const { t, locale } = useTranslation();
@@ -62,6 +91,39 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
     return searchCatalog(searchQuery, 8);
   }, [searchQuery]);
 
+  // 4 thiết bị tiêu biểu công nghệ & sẵn kho phục vụ gợi ý tức thì
+  const featuredSuggestions = useMemo(() => {
+    const getProd = (id: string, fallbackSku: string) => {
+      return PRODUCTS.find(p => p.id === id || p.sku === fallbackSku) || PRODUCTS[0];
+    };
+    return [
+      {
+        product: getProd('1081', 'MP-1081'),
+        tag: 'Tiêu Điểm Robot',
+        highlight: 'ABB Body Shop VinFast',
+        badgeColor: 'bg-red-50 text-[#E30613] border-red-200'
+      },
+      {
+        product: getProd('QUICK-205', 'TTPC-0289'),
+        tag: 'Trạm Hàn Cao Tần',
+        highlight: '150W Eddy Current SMT',
+        badgeColor: 'bg-amber-50 text-amber-700 border-amber-200'
+      },
+      {
+        product: getProd('1041', 'PVN5224'),
+        tag: 'Tô Vít Siết Lực',
+        highlight: 'Chính xác cao Nhật Bản',
+        badgeColor: 'bg-blue-50 text-[#00478D] border-blue-200'
+      },
+      {
+        product: getProd('1048', 'PVN1561'),
+        tag: 'Khử Tĩnh Điện ESD',
+        highlight: 'Phòng sạch & SMT',
+        badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200'
+      }
+    ];
+  }, []);
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
@@ -80,6 +142,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Escape') {
+      setIsSearchFocused(false);
+      return;
+    }
     if (e.key === 'Enter') {
       if (searchResults.length === 1) {
         handleProductClick(searchResults[0]);
@@ -360,8 +426,179 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               )}
             </div>
 
-            {/* Live Autocomplete Results Dropdown (Swiss Precision Card Layout) */}
-            {isSearchFocused && searchResults.length > 0 && (
+            {/* 1. Quick Discovery Hub (When search is focused but query is empty) */}
+            {isSearchFocused && searchQuery.trim() === '' && (
+              <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[540px] md:w-[620px] lg:w-[680px] max-w-[92vw] bg-white rounded-sm shadow-2xl border border-slate-200 py-3 z-50 animate-in fade-in slide-in-from-top-1 duration-150 max-h-[82vh] overflow-y-auto">
+                
+                {/* Header Bar */}
+                <div className="px-4 pb-2.5 border-b border-slate-100 flex items-center justify-between text-slate-500">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider">
+                    <Sparkles className="w-3.5 h-3.5 text-[#00478D]" />
+                    <span>Gợi Ý Tìm Kiếm & Hàng Tiêu Biểu</span>
+                  </div>
+                  <span className="text-[10px] text-slate-400 font-medium">Bấm để lọc tức thì • Esc để đóng</span>
+                </div>
+
+                {/* Khối 1: Từ khóa tìm kiếm phổ biến */}
+                <div className="px-4 py-3 border-b border-slate-100/80 bg-slate-50/50">
+                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                    <TrendingUp className="w-3.5 h-3.5 text-[#00478D]" />
+                    <span>Từ Khóa Phổ Biến</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {POPULAR_SEARCH_TAGS.map((tag) => (
+                      <button
+                        key={tag.query}
+                        type="button"
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={() => {
+                          setSearchQuery(tag.query);
+                        }}
+                        className={`text-xs px-2.5 py-1 rounded-xs font-medium border transition-all cursor-pointer flex items-center gap-1 ${
+                          tag.isHero
+                            ? 'bg-red-50 text-[#E30613] border-red-200 hover:bg-red-100 font-bold shadow-2xs'
+                            : 'bg-white hover:bg-blue-50 text-slate-700 hover:text-[#00478D] border-slate-200/90 hover:border-[#00478D]/30 shadow-2xs'
+                        }`}
+                      >
+                        {tag.isHero && <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] animate-pulse" />}
+                        <span>{tag.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Khối 2: Hàng tiêu biểu sẵn kho */}
+                <div className="px-4 py-3 border-b border-slate-100/80">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                      <PackageCheck className="w-3.5 h-3.5 text-[#00478D]" />
+                      <span>Thiết Bị Tiêu Biểu Sẵn Kho</span>
+                    </div>
+                    <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
+                      Sẵn Kho • Giao 24h
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {featuredSuggestions.map((item) => (
+                      <button
+                        key={item.product.id || item.product.sku}
+                        type="button"
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={() => handleProductClick(item.product)}
+                        className="p-2.5 rounded-xs border border-slate-200/80 hover:border-[#00478D]/40 bg-white hover:bg-blue-50/40 text-left transition-all group flex items-start gap-2.5 cursor-pointer shadow-2xs"
+                      >
+                        <img
+                          src={item.product.image}
+                          alt={item.product.name}
+                          className="w-12 h-12 object-contain rounded-xs border border-slate-200 bg-white p-0.5 shrink-0 group-hover:scale-105 transition-transform"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-[#00478D] transition-colors truncate">
+                            {item.product.name}
+                          </div>
+                          <div className="flex items-center gap-1.5 text-[10px] mt-0.5">
+                            <span className="font-mono text-slate-500 bg-slate-100 px-1 py-0.2 rounded-xs">
+                              {item.product.sku}
+                            </span>
+                            <span className="text-slate-300">•</span>
+                            <span className="text-slate-600 font-medium truncate">
+                              {item.product.brand}
+                            </span>
+                          </div>
+                          <div className="text-[10px] text-slate-500 truncate mt-1">
+                            {item.highlight}
+                          </div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Khối 3: Ngành hàng tra cứu nhanh */}
+                <div className="px-4 py-3 bg-slate-50/30">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                      <Layers className="w-3.5 h-3.5 text-[#00478D]" />
+                      <span>Ngành Hàng Tra Cứu Nhanh</span>
+                    </div>
+                    <span className="text-[10px] text-slate-400">15 Nhóm Ngành B2B</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                    {QUICK_CATEGORIES.map((cat) => {
+                      const IconComp = cat.icon;
+                      return (
+                        <button
+                          key={cat.id}
+                          type="button"
+                          onMouseDown={(e) => e.preventDefault()}
+                          onClick={() => {
+                            setIsSearchFocused(false);
+                            onNavigate('home', cat.id);
+                            setTimeout(() => {
+                              const el = document.getElementById('product-catalog');
+                              if (el) {
+                                const yOffset = -75;
+                                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                window.scrollTo({ top: y, behavior: 'smooth' });
+                              }
+                            }, 60);
+                          }}
+                          className={`p-2 rounded-xs border text-left transition-all group flex flex-col justify-between cursor-pointer ${
+                            cat.isMurr
+                              ? 'bg-red-50/60 hover:bg-red-100/70 border-red-200 text-[#E30613]'
+                              : 'bg-white hover:bg-blue-50/60 border-slate-200/80 hover:border-[#00478D]/30 text-slate-700'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between w-full mb-1">
+                            <IconComp className={`w-3.5 h-3.5 ${cat.isMurr ? 'text-[#E30613]' : 'text-[#00478D]'}`} />
+                            <ArrowRight className="w-3 h-3 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-0.5 transition-all" />
+                          </div>
+                          <div className="text-[11px] font-bold truncate leading-tight">
+                            {cat.name}
+                          </div>
+                          <div className="text-[9px] text-slate-400 mt-0.5 truncate">
+                            {cat.tag}
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Footer Bar */}
+                <div className="px-4 pt-2.5 pb-1 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 bg-slate-50/80">
+                  <span>
+                    Hotline: <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="font-bold text-[#00478D] font-mono hover:underline">{COMPANY_INFO.hotline}</a>
+                  </span>
+                  <button
+                    type="button"
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={() => {
+                      setIsSearchFocused(false);
+                      onNavigate('home', 'all');
+                      setTimeout(() => {
+                        const el = document.getElementById('product-catalog');
+                        if (el) {
+                          const yOffset = -75;
+                          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                          window.scrollTo({ top: y, behavior: 'smooth' });
+                        }
+                      }, 60);
+                    }}
+                    className="text-[11px] font-bold text-[#00478D] hover:underline cursor-pointer flex items-center gap-1"
+                  >
+                    <span>Xem toàn kho 7.500 SKU</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+
+              </div>
+            )}
+
+            {/* 2. Live Autocomplete Results Dropdown (Swiss Precision Card Layout) */}
+            {isSearchFocused && searchQuery.trim() !== '' && searchResults.length > 0 && (
               <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[520px] md:w-[580px] lg:w-[640px] max-w-[92vw] bg-white rounded-sm shadow-2xl border border-slate-200 py-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150 max-h-[80vh] overflow-y-auto">
                 <div className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
                   <span>Kết quả ({searchResults.length} / {totalMatches} SKU)</span>
@@ -372,6 +609,8 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   {searchResults.map((item) => (
                     <button
                       key={item.id || item.sku}
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
                       onClick={() => handleProductClick(item)}
                       className="w-full px-4 py-3 text-left hover:bg-blue-50/50 flex items-center justify-between gap-3 group transition-colors cursor-pointer"
                     >
@@ -412,6 +651,8 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 {totalMatches > searchResults.length && (
                   <div className="p-2.5 bg-slate-50 border-t border-slate-100 text-center">
                     <button
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
                       onClick={() => {
                         setIsSearchFocused(false);
                         onNavigate('home', undefined, searchQuery);
@@ -425,7 +666,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               </div>
             )}
 
-            {/* Empty search feedback */}
+            {/* 3. Empty search feedback */}
             {isSearchFocused && searchQuery.trim() !== '' && searchResults.length === 0 && (
               <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[480px] bg-white rounded-sm shadow-2xl border border-slate-200 p-4 z-50 text-center">
                 <p className="text-xs text-slate-600 font-medium">
@@ -509,6 +750,33 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               </button>
             )}
           </div>
+
+          {/* Quick suggestions when search is empty in mobile menu */}
+          {!searchQuery && (
+            <div className="space-y-2 pt-1 pb-1">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase text-slate-500">
+                <TrendingUp className="w-3.5 h-3.5 text-[#00478D]" />
+                <span>Từ Khóa Gợi Ý Nhanh</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {POPULAR_SEARCH_TAGS.slice(0, 7).map((tag) => (
+                  <button
+                    key={tag.query}
+                    type="button"
+                    onClick={() => setSearchQuery(tag.query)}
+                    className={`text-xs px-2.5 py-1 rounded-xs border font-medium cursor-pointer transition-colors ${
+                      tag.isHero
+                        ? 'bg-red-50 text-[#E30613] border-red-200 font-bold'
+                        : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-white'
+                    }`}
+                  >
+                    {tag.isHero && <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] inline-block mr-1" />}
+                    {tag.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Live Mobile Search Results */}
           {searchQuery && searchResults.length > 0 && (

@@ -1238,6 +1238,28 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     - Các lĩnh vực tri thức công nghiệp chuyên sâu (`knowsAbout`): Xích dẫn cáp robot Murrplastik Đức, máy hàn cao tần Quick, tô vít điện chính xác HIOS, thiết bị phòng sạch ESD, và giải pháp Dresspack xưởng hàn thân xe ô tô VinFast.
   - **Kế thừa đồng bộ vào Static Snapshots ([`generate_static_snapshots.py`](file:///d:/T&TVina/protools/generate_static_snapshots.py))**: 100% các trang sản phẩm và danh mục tĩnh được tạo sẵn đều tích hợp thẻ Geo và Schema seller với tọa độ địa lý, bảo đảm các bot thu thập dữ liệu không chạy JS vẫn lập chỉ mục và trích dẫn chuẩn xác trong AI Overviews.
 
+### Rule 9.77: Khung Khám Phá Nhanh Khi Tương Tác Ô Tìm Kiếm (Header Search Quick Discovery Hub: Popular Tags, Featured Equipment & Quick Categories) (23/09/2026)
+* **1. Mục tiêu & Trải nghiệm Người dùng (B2B Procurement UX)**:
+  - Khi khách hàng hoặc cán bộ mua hàng nhấp chuột (focus) vào ô tìm kiếm trên thanh điều hướng nhưng chưa nhập từ khóa, thay vì để trống trơn, hệ thống lập tức xổ ra **Khung Khám Phá Nhanh (Quick Discovery Hub)** đa tiện ích.
+* **2. Ba Khối Chức Năng Cốt Lõi Tại [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx)**:
+  - **Khối 1: Từ Khóa Tìm Kiếm Phổ Biến (Popular Search Chips)**:
+    - Hiển thị danh sách các mã SKU và từ khóa có lượt tra cứu cao nhất: `R-Tec Liner (MP-1081)` (nổi bật thương hiệu đỏ Murrplastik), `Quick 205 ESD (150W)`, `Hakko 936`, `HIOS CL-4000`, `Zcut-9`, `Quạt ion SL-001`, `Bể hàn CM-808`, `Bơm keo SP-982`, `Đo lực siết HP-10`, `Murrplastik`.
+    - Bấm vào chip từ khóa lập tức điền vào ô tìm kiếm và kích hoạt đối sánh tức thì.
+  - **Khối 2: Hàng Tiêu Biểu Sẵn Kho (Featured Flagship Equipment)**:
+    - Hiển thị 4 thiết bị đầu bảng có sẵn tại kho Hà Nội & Hưng Yên (giao hàng 24h):
+      1. *Murrplastik R-Tec Liner* (`MP-1081`) - Tiêu điểm Robot hàn xưởng Body Shop VinFast.
+      2. *Trạm hàn cao tần Quick 205 ESD (150W)* (`TTPC-0289`) - Công suất 150W bù nhiệt tức thì SMT.
+      3. *Máy bắt vít tự động HIOS CL-4000* (`PVN5224`) - Siết lực chính xác Nhật Bản.
+      4. *Quạt thổi ion khử tĩnh điện Dr. Schneider SL-001* (`PVN1561`) - Khử ESD phòng sạch.
+    - Bấm trực tiếp vào thẻ thiết bị dẫn thẳng tới trang chi tiết sản phẩm.
+  - **Khối 3: Ngành Hàng Tra Cứu Nhanh (Quick Category Shortcuts)**:
+    - Lưới 8 nhóm ngành công nghiệp trọng điểm kèm icon chuyên ngành: Murrplastik Đức, Thiết bị hàn, Máy bắt vít, Dụng cụ bơm keo, Máy cắt băng dính, Phòng sạch ESD, Xi lanh khí nén, Bu lông ốc vít inox.
+    - Bấm vào ngành hàng tự động cuộn mượt xuống bảng `#product-catalog` và kích hoạt bộ lọc tương ứng.
+* **3. Tương Tác Bàn Phím & Đồng Bộ Mobile Drawer**:
+  - Hỗ trợ phím tắt `Escape` đóng nhanh popup, `onMouseDown={(e) => e.preventDefault()}` ngăn mất focus đột ngột trước khi click xử lý.
+  - Đồng bộ khối gợi ý từ khóa nhanh vào ngăn kéo điều hướng trên điện thoại di động (Mobile Menu Drawer).
+
+
 
 
 
