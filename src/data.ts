@@ -1,4 +1,4 @@
-import { Product, Document, Partner, Solution, IndustryApplication } from './types';
+import { Product, Document, Partner, Solution, IndustryApplication, SalesRepInfo } from './types';
 
 // THÔNG TIN DOANH NGHIỆP CHÍNH XÁC 100% TỪ PROTOOLS.COM.VN
 export const COMPANY_INFO = {
@@ -66,6 +66,114 @@ export const COMPANY_INFO = {
   email: 'info@t2tvina.com',
   website: 'https://protools.com.vn'
 };
+
+/**
+ * Phân luồng nhân viên phụ trách tư vấn & báo giá tự động theo Tags Sapo
+ * Fallback mặc định: Mrs. Nhung (Hotline: 0915.168.824)
+ */
+export function getSalesRepForProduct(product?: Partial<Product> | null): SalesRepInfo {
+  if (!product) {
+    return {
+      name: 'Mrs. Nhung (Hotline)',
+      phone: COMPANY_INFO.hotline,
+      rawPhone: COMPANY_INFO.hotlineRaw,
+      role: 'Hotline Tổng Đài & Báo Giá',
+      zaloUrl: `https://zalo.me/${COMPANY_INFO.hotlineRaw}`
+    };
+  }
+
+  // 1. Nếu sản phẩm đã được gán sẵn thông tin salesRep
+  if (product.salesRep && product.salesRep.phone) {
+    return product.salesRep;
+  }
+
+  const tags = (product.tags || '').toLowerCase();
+  const brand = (product.brand || '').toLowerCase();
+  const categorySlug = (product.categorySlug || '').toLowerCase();
+  const sku = (product.sku || '').toLowerCase();
+
+  // 2. Chuyên ngành Murrplastik (Đức)
+  if (brand.includes('murrplastik') || categorySlug === 'murrplastik' || sku.startsWith('mp-')) {
+    const murrRep = COMPANY_INFO.murrSalesTeam[0] || {
+      name: 'Mr. Bình',
+      phone: '0868.822.409',
+      rawPhone: '0868822409',
+      zaloUrl: 'https://zalo.me/0868822409'
+    };
+    return {
+      name: murrRep.name,
+      phone: murrRep.phone,
+      rawPhone: murrRep.rawPhone,
+      role: 'Kinh doanh Murrplastik',
+      zaloUrl: murrRep.zaloUrl
+    };
+  }
+
+  // 3. Phân luồng theo Tags từ hệ thống Sapo
+  if (tags.includes('phương') || tags.includes('phuong')) {
+    return {
+      name: 'Ms. Phương',
+      phone: '0365.366.455',
+      rawPhone: '0365366455',
+      role: 'Tư vấn Bán hàng & Báo giá',
+      zaloUrl: 'https://zalo.me/0365366455'
+    };
+  }
+  if (tags.includes('hiền') || tags.includes('hien')) {
+    return {
+      name: 'Ms. Hiền',
+      phone: '0929.938.368',
+      rawPhone: '0929938368',
+      role: 'Tư vấn Bán hàng & Báo giá',
+      zaloUrl: 'https://zalo.me/0929938368'
+    };
+  }
+  if (tags.includes('nhinh')) {
+    return {
+      name: 'Ms. Nhinh',
+      phone: '0964.920.025',
+      rawPhone: '0964920025',
+      role: 'Phòng Bán Hàng',
+      zaloUrl: 'https://zalo.me/0964920025'
+    };
+  }
+  if (tags.includes('phong')) {
+    return {
+      name: 'Mr. Phong',
+      phone: '0983.794.782',
+      rawPhone: '0983794782',
+      role: 'Hỗ trợ Kỹ thuật & Dự án',
+      zaloUrl: 'https://zalo.me/0983794782'
+    };
+  }
+  if (tags.includes('hai')) {
+    return {
+      name: 'Mr. Hai',
+      phone: '0981.919.590',
+      rawPhone: '0981919590',
+      role: 'Hỗ trợ Kỹ thuật & Dự án',
+      zaloUrl: 'https://zalo.me/0981919590'
+    };
+  }
+  if (tags.includes('thanh')) {
+    return {
+      name: 'Mr. Thanh',
+      phone: COMPANY_INFO.projectDept.phone,
+      rawPhone: COMPANY_INFO.projectDept.rawPhone,
+      role: 'Phòng Dự Án',
+      zaloUrl: COMPANY_INFO.projectDept.zaloUrl
+    };
+  }
+
+  // 4. Mặc định: Hotline Tổng Đài Mrs. Nhung
+  return {
+    name: 'Mrs. Nhung (Hotline)',
+    phone: COMPANY_INFO.hotline,
+    rawPhone: COMPANY_INFO.hotlineRaw,
+    role: 'Hotline Tổng Đài & Báo Giá',
+    zaloUrl: `https://zalo.me/${COMPANY_INFO.hotlineRaw}`
+  };
+}
 
 export const PARTNERS: Partner[] = [
   { 
@@ -443,7 +551,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1065",
     "name": "Robot bơm keo AB tự động",
-    "sku": "TTV-T&T-1065",
+    "sku": "TTPC 1409",
     "brand": "T&T Vina Industrial",
     "category": "Robot bơm keo tự động",
     "categorySlug": "dung-cu-bom-keo",
@@ -470,7 +578,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1055",
     "name": "Robot bơm keo tự động",
-    "sku": "TTV-T&T-1055",
+    "sku": "PVN9523",
     "brand": "T&T Vina Industrial",
     "category": "Robot bơm keo tự động",
     "categorySlug": "dung-cu-bom-keo",
@@ -497,7 +605,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1032",
     "name": "Máy bơm keo SP-982",
-    "sku": "TTV-T&T-1032",
+    "sku": "TTPC-0298",
     "brand": "T&T Vina Industrial",
     "category": "Máy bơm keo",
     "categorySlug": "dung-cu-bom-keo",
@@ -528,7 +636,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "983A",
     "name": "Máy bơm keo tự động 983A",
-    "sku": "TTV-983A",
+    "sku": "TTPC-0299",
     "brand": "T&T Vina Industrial",
     "category": "Máy bơm keo",
     "categorySlug": "dung-cu-bom-keo",
@@ -569,7 +677,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "736",
     "name": "Kim nhựa mũi sắt",
-    "sku": "TTV-T&T-736",
+    "sku": "TTPC-0161",
     "brand": "T&T Vina Industrial",
     "category": "Kim bơm keo",
     "categorySlug": "dung-cu-bom-keo",
@@ -596,7 +704,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "735",
     "name": "Kim chóp nhựa",
-    "sku": "TTV-T&T-735",
+    "sku": "TTPC 1009",
     "brand": "T&T Vina Industrial",
     "category": "Kim bơm keo",
     "categorySlug": "dung-cu-bom-keo",
@@ -623,7 +731,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1064",
     "name": "Robot hàn tự động 6 trục",
-    "sku": "TTV-T&T-1064",
+    "sku": "TTPC-0323",
     "brand": "T&T Vina Industrial",
     "category": "Robot hàn tự động",
     "categorySlug": "thiet-bi-han",
@@ -650,7 +758,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1063",
     "name": "Robot hàn tự động 3 trục",
-    "sku": "TTV-T&T-1063",
+    "sku": "TTPC-0594",
     "brand": "T&T Vina Industrial",
     "category": "Robot hàn tự động",
     "categorySlug": "thiet-bi-han",
@@ -677,7 +785,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1044",
     "name": "Bể hàn thiếc CM-808",
-    "sku": "TTV-CM -1044",
+    "sku": "TTPC-0017",
     "brand": "CM Solder",
     "category": "Bể hàn thiếc",
     "categorySlug": "thiet-bi-han",
@@ -704,7 +812,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1043",
     "name": "Bể hàn thiếc CM-508",
-    "sku": "TTV-CM -1043",
+    "sku": "TTPC-0015",
     "brand": "CM Solder",
     "category": "Bể hàn thiếc",
     "categorySlug": "thiet-bi-han",
@@ -731,7 +839,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "QUICK-205",
     "name": "Trạm hàn cao tần QUICK 205 ESD (150W)",
-    "sku": "TTV-QUI-205",
+    "sku": "TTPC-0289",
     "brand": "Quick",
     "category": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
     "categorySlug": "thiet-bi-han",
@@ -788,7 +896,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1039",
     "name": "Máy hàn Hakko 936",
-    "sku": "HK-1039",
+    "sku": "TTPC-0320",
     "brand": "Hakko",
     "category": "Máy hàn Hakko",
     "categorySlug": "thiet-bi-han",
@@ -815,7 +923,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "811",
     "name": "Kính lúp LT-86A",
-    "sku": "TTV-T&T-811",
+    "sku": "TTPC-0532",
     "brand": "T&T Vina Industrial",
     "category": "Kính lúp",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
@@ -842,7 +950,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "947",
     "name": "Camera VGA",
-    "sku": "TTV-T&T-947",
+    "sku": "PVN9934",
     "brand": "T&T Vina Industrial",
     "category": "Camera",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
@@ -869,7 +977,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "999",
     "name": "Kính hiển vi SM-3TPZ-144-HD2",
-    "sku": "TTV-T&T-999",
+    "sku": "PVN7764",
     "brand": "T&T Vina Industrial",
     "category": "Kính hiển vi",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
@@ -896,7 +1004,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "998",
     "name": "Kính hiển vi SM-3TZZ-144-B",
-    "sku": "TTV-T&T-998",
+    "sku": "PVN8625",
     "brand": "T&T Vina Industrial",
     "category": "Kính hiển vi",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
@@ -950,7 +1058,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1067",
     "name": "Máy co màng đóng gói sản phẩm",
-    "sku": "TTV-T&T-1067",
+    "sku": "PVN7215",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
@@ -977,7 +1085,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1062",
     "name": "Máy đóng dán mép thùng 4 cạnh ngang",
-    "sku": "TTV-T&T-1062",
+    "sku": "PVN1552",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
@@ -1004,7 +1112,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1061",
     "name": "Máy đóng dán mép thùng cạnh dọc",
-    "sku": "TTV-T&T-1061",
+    "sku": "PVN8398",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
@@ -1031,7 +1139,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1060",
     "name": "Máy bóc tách đóng thùng tự động",
-    "sku": "TTV-T&T-1060",
+    "sku": "TTPC 3837",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
@@ -1058,7 +1166,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1059",
     "name": "Dây truyền đóng gói khép kín",
-    "sku": "TTV-T&T-1059",
+    "sku": "PVN6174",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
@@ -1112,7 +1220,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "804",
     "name": "Hakko FG101",
-    "sku": "HK-804",
+    "sku": "TTPC-0308",
     "brand": "Hakko",
     "category": "Máy kiểm tra nhiệt độ hàn",
     "categorySlug": "thiet-bi-han",
@@ -1139,7 +1247,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "996",
     "name": "Máy đo lực HP-10",
-    "sku": "TTV-T&T-996",
+    "sku": "TTPC-0314",
     "brand": "T&T Vina Industrial",
     "category": "Máy đo lực",
     "categorySlug": "thiet-bi-kiem-tra",
@@ -1166,7 +1274,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1031",
     "name": "Máy đo nhiệt độ Quick 191AD",
-    "sku": "TTV-QUI-1031",
+    "sku": "PVN7871",
     "brand": "Quick",
     "category": "Máy kiểm tra nhiệt độ hàn",
     "categorySlug": "thiet-bi-han",
@@ -1301,7 +1409,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1037",
     "name": "Máy cắt băng dính RT-3700",
-    "sku": "TTV-ZCU-1037",
+    "sku": "PVN5066",
     "brand": "Zcut Automation",
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
@@ -1328,7 +1436,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1036",
     "name": "Máy cắt băng dính Zcut 9",
-    "sku": "TTV-ZCU-1036",
+    "sku": "PVN1956",
     "brand": "Zcut Automation",
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
@@ -1355,7 +1463,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1035",
     "name": "Máy cắt băng dính Zcut 2",
-    "sku": "TTV-ZCU-1035",
+    "sku": "TTPC-0310",
     "brand": "Zcut Automation",
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
@@ -1382,7 +1490,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1034",
     "name": "Máy cắt băng dính M1000S",
-    "sku": "TTV-ZCU-1034",
+    "sku": "TTPC-0303",
     "brand": "Zcut Automation",
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
@@ -1409,7 +1517,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1033",
     "name": "Máy cắt băng dính M1000",
-    "sku": "TTV-ZCU-1033",
+    "sku": "TTPC-0302",
     "brand": "Zcut Automation",
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
@@ -1436,7 +1544,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1066",
     "name": "Robot bắt vít tự động 6 trục",
-    "sku": "TTV-T&T-1066",
+    "sku": "TTPC-07030",
     "brand": "T&T Vina Industrial",
     "category": "Robot bắt vít tự động",
     "categorySlug": "may-bat-vit-nha-vit",
@@ -1463,7 +1571,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1053",
     "name": "Robot bắt vít tự động",
-    "sku": "TTV-T&T-1053",
+    "sku": "PVN6627",
     "brand": "T&T Vina Industrial",
     "category": "Robot bắt vít tự động",
     "categorySlug": "may-bat-vit-nha-vit",
@@ -1490,7 +1598,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1042",
     "name": "Nguồn máy bắt vít Hios CLT-50",
-    "sku": "HIOS-1042",
+    "sku": "TTPC-0422",
     "brand": "HIOS",
     "category": "Máy bắt vít",
     "categorySlug": "may-bat-vit-nha-vit",
@@ -1517,7 +1625,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1041",
     "name": "Máy bắt vít Hios CL-4000",
-    "sku": "HIOS-1041",
+    "sku": "PVN5224",
     "brand": "HIOS",
     "category": "Máy bắt vít",
     "categorySlug": "may-bat-vit-nha-vit",
@@ -1544,7 +1652,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1040",
     "name": "Máy bắt vít Hios CL-3000",
-    "sku": "HIOS-1040",
+    "sku": "TTPC-0424",
     "brand": "HIOS",
     "category": "Máy bắt vít",
     "categorySlug": "may-bat-vit-nha-vit",
@@ -1571,7 +1679,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "974",
     "name": "Nhíp SA Series",
-    "sku": "TTV-T&T-974",
+    "sku": "TTPC-0446",
     "brand": "T&T Vina Industrial",
     "category": "Nhíp SA Series",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1598,7 +1706,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "973",
     "name": "Nhíp Aaa Series",
-    "sku": "TTV-T&T-973",
+    "sku": "PVN9736",
     "brand": "T&T Vina Industrial",
     "category": "Nhíp gắp sản phẩm",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1625,7 +1733,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "928",
     "name": "Nhíp ST Series",
-    "sku": "TTV-T&T-928",
+    "sku": "TTPC-0447",
     "brand": "T&T Vina Industrial",
     "category": "Nhíp ST Series",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1652,7 +1760,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "927",
     "name": "Nhíp ESD",
-    "sku": "TTV-T&T-927",
+    "sku": "TTPC-0435",
     "brand": "T&T Vina Industrial",
     "category": "Nhíp ESD",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1679,7 +1787,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "926",
     "name": "Nhíp nhựa 93302-93308",
-    "sku": "TTV-T&T-926",
+    "sku": "TTPC-0456",
     "brand": "T&T Vina Industrial",
     "category": "Nhíp nhựa",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1706,7 +1814,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1048",
     "name": "Quạt thổi Ion SL-001",
-    "sku": "TTV-DR.-1048",
+    "sku": "PVN1561",
     "brand": "Dr. Schneider",
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1733,7 +1841,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "938",
     "name": "Quạt thổi Ion  SL-002",
-    "sku": "TTV-DR.-938",
+    "sku": "PVN10448",
     "brand": "Dr. Schneider",
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1814,7 +1922,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "934",
     "name": "Quạt thổi Ion SP-600",
-    "sku": "TTV-DR.-934",
+    "sku": "TTPC 22354",
     "brand": "Dr. Schneider",
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1895,7 +2003,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1045",
     "name": "Máy tách tem nhãn 1150D",
-    "sku": "TTV-T&T-1045",
+    "sku": "TTPC 0107",
     "brand": "T&T Vina Industrial",
     "category": "Máy tách tem nhãn",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
@@ -1922,7 +2030,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1023",
     "name": "Dây tiếp đất chống tĩnh điện",
-    "sku": "TTV-T&T-1023",
+    "sku": "TTPC-0658",
     "brand": "T&T Vina Industrial",
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1949,7 +2057,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "943",
     "name": "Dây chống tĩnh điện",
-    "sku": "TTV-T&T-943",
+    "sku": "TTPC 2354",
     "brand": "T&T Vina Industrial",
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -1976,7 +2084,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "897",
     "name": "Vòng đeo chân chống tĩnh điện",
-    "sku": "TTV-T&T-897",
+    "sku": "TTPC-0512",
     "brand": "T&T Vina Industrial",
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -2003,7 +2111,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "942",
     "name": "Ổ cắm tiếp đất",
-    "sku": "TTV-T&T-942",
+    "sku": "TTPC-0470",
     "brand": "T&T Vina Industrial",
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -2030,7 +2138,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "895",
     "name": "Vòng đeo tay chống tĩnh điện",
-    "sku": "TTV-T&T-895",
+    "sku": "TTPC-0513",
     "brand": "T&T Vina Industrial",
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
@@ -2057,7 +2165,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1052",
     "name": "RELAY SAMWON R4T-16P-S",
-    "sku": "TTV-SAM-1052",
+    "sku": "PVN10052",
     "brand": "Samwon",
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2084,7 +2192,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1051",
     "name": "Cầu đấu XTB-20H",
-    "sku": "TTV-SAM-1051",
+    "sku": "PVN6277",
     "brand": "Samwon",
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2111,7 +2219,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1050",
     "name": "Dây cable C20HH-10SL-2",
-    "sku": "TTV-SAM-1050",
+    "sku": "PVN6834",
     "brand": "Samwon",
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2138,7 +2246,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1049",
     "name": "CẦU ĐẤU XTB-COM40",
-    "sku": "TTV-SAM-1049",
+    "sku": "PVN5440",
     "brand": "Samwon",
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2165,7 +2273,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1068",
     "name": "Dây chun, dây thun",
-    "sku": "TTV-T&T-1068",
+    "sku": "PVN4637",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2192,7 +2300,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1027",
     "name": "Ống hút mùi - hút khói",
-    "sku": "TTV-T&T-1027",
+    "sku": "PVN6631",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2219,7 +2327,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1024",
     "name": "Khăn lau phòng sạch",
-    "sku": "TTV-T&T-1024",
+    "sku": "PVN8044",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2246,7 +2354,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1016",
     "name": "Lọ đựng cồn",
-    "sku": "TTV-T&T-1016",
+    "sku": "TTPC-0701",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
@@ -2273,7 +2381,7 @@ export const PRODUCTS: Product[] = [
   {
     "id": "1000",
     "name": "Bộ máy khoan mài mini",
-    "sku": "TTV-T&T-1000",
+    "sku": "PVN8199",
     "brand": "T&T Vina Industrial",
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",

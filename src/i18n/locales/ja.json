@@ -9,7 +9,14 @@
     "murr_portal": "ドイツ Murrplastik 専用ポータル",
     "hotline": "ホットライン",
     "sales": "営業担当",
-    "call_now": "今すぐお電話"
+    "call_now": "今すぐお電話",
+    "dropdown_title": "産業機器・ファクトリーオートメーション総合カタログ",
+    "genuine_badge": "100% メーカー純正品",
+    "portal_btn": "公式ポータル",
+    "tech_support_hint": "型番選定・技術仕様サポート:",
+    "search_placeholder_mobile": "型番・SKU検索: Hakko, Hios, Zcut...",
+    "authorized": "正規代理店",
+    "murr_mobile_desc": "産業用ケーブル保護システム、ロボットドレスパック、500+品目カタログ＆3Dバーチャルブース。"
   },
   "hero": {
     "badge": "ベトナムB2B産業機器ディストリビューター",
@@ -29,7 +36,9 @@
     "view_specsheet": "仕様書を見る",
     "official_ecosystem": "公式エコシステム:",
     "enter_murr_portal": "Murrplastik特設サイトへ",
-    "explore_solutions": "ソリューションとカタログを見る"
+    "explore_solutions": "ソリューションとカタログを見る",
+    "stat_genuine": "正規品 日本 / ドイツ / 韓国",
+    "stat_delivery": "工業団地へ迅速配送"
   },
   "solutions": {
     "section_title": "エンジニアリング・ソリューション体系",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "ベトナムをリードする産業オートメーション機器、SMT工具、クリーンルーム静電気対策およびロボット配管保護システムの総合商社。",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "ベトナム進出外資系工場向け 産業機器・SMT組立ツール・クリーンルーム・FA設備資材の正規総合サプライヤー。",
+    "hq_label": "本社所在地:",
+    "wh_label": "ハノイ営業所・物流倉庫:",
+    "directions_maps": "Google マップでルート案内",
+    "map_iframe_title": "T&T Vina リンナム営業所・倉庫マップ",
+    "categories_title": "製品カテゴリー",
+    "cat_soldering": "はんだ付け装置＆自動はんだ付けロボット",
+    "cat_screwdrivers": "Hios電動ドライバー＆ネジ締めロボット",
+    "cat_dispensing": "ディスペンサー機器＆塗布ロボット",
+    "cat_tape": "テープカッター＆ラベル剥離機",
+    "cat_testing": "トルクメーター＆こて先温度計",
+    "cat_microscope": "実体顕微鏡・拡大鏡・検査カメラ",
+    "cat_esd": "イオナイザー＆静電気対策品",
+    "cat_murr": "ドイツ Murrplastik 公式ポータル",
+    "consult_quote_title": "お見積り・技術相談",
+    "hotline_label": "代表番号:",
+    "sales_label": "営業担当:",
+    "murr_sales_label": "Murr担当:",
+    "project_dept_label": "プロジェクト開発部:",
+    "email_label": "Eメール:",
+    "featured_title": "注目製品・売れ筋機器",
+    "featured_origin": "100% 日本・ドイツ・韓国製 原産地証明",
+    "feat_murr_title": "Murrplastik (ドイツ)",
+    "feat_murr_country": "独",
+    "feat_murr_sub": "ケーブルベア＆ロボット周辺配管",
+    "feat_glue_title": "ディスペンサー 983A / SP-982",
+    "feat_glue_sub": "自動・半自動 高精度ディスペンス",
+    "feat_hios_title": "ハイオス Hios CL-4000 電動ドライバー",
+    "feat_hios_sub": "ネジ締め機＆HP-10トルクメーター",
+    "feat_solder_title": "白光Hakko / Quick はんだステーション",
+    "feat_solder_sub": "Hakko 936・こて台・はんだ槽",
+    "feat_tape_title": "Zcut 9 自動テープカッター",
+    "feat_tape_sub": "2巻同時カット＆ラベル剥離対応",
+    "feat_micro_title": "SM-3TPZ 実体顕微鏡",
+    "feat_micro_sub": "SMT電子部品外観検査＆光学測定",
+    "btn_quick_bom": "一括BOM見積もりリストを作成",
+    "copyright_disclaimer": "すべてのコンテンツ、製品画像、カタログ、および技術仕様は T&T Vina Industrial Co., Ltd. に帰属します。書面による許可のない無断転載・複製を固く禁じます。",
+    "badge_b2b": "B2B産業標準",
+    "badge_genuine": "100% 純正品保証",
+    "badge_support": "24/7 技術対応"
   },
   "header": {
     "hq_label": "本社物流センター",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "産業機器ハードウェア一覧",
-    "section_title": "設備仕様・型番カタログ",
+    "section_title": "機器カタログ",
     "hover_zoom": "マウスを乗せて拡大",
     "details": "詳細を見る",
     "add_rfq": "+ 見積追加",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "顕微鏡・外観検査カメラ",
     "cat_dung_cu_chong_tinh_dien": "静電気対策 ESD",
     "cat_murrplastik": "ドイツ Murrplastik",
-    "cat_thiet_bi_dong_goi": "自動梱包機械設備"
+    "cat_thiet_bi_dong_goi": "自動梱包機械設備",
+    "warehouse_badge": "B2B 産業機器ディストリビューション",
+    "section_desc": "仕様、在庫状況、見積担当エンジニアの連絡先を迅速に検索できます。",
+    "in_stock_toggle": "在庫あり",
+    "view_grid": "グリッド表示",
+    "view_table": "テーブル表示",
+    "search_placeholder": "SKU、製品名、規格寸法、ブランドを検索...",
+    "sales_rep_label": "担当:",
+    "all_reps": "全営業担当 / ホットライン",
+    "tab_all": "すべて",
+    "found": "検索結果",
+    "matching_items": "件の該当機器",
+    "for_keyword": "キーワード:",
+    "showing": "表示",
+    "updating_image": "画像更新中",
+    "in_stock_badge": "在庫あり",
+    "project_order": "手配・受注生産",
+    "btn_detail": "詳細",
+    "btn_rfq": "+ 見積追加",
+    "btn_load_more": "さらに表示",
+    "showing_progress": "表示中",
+    "of_total": "/",
+    "products_unit": "品目",
+    "table_no": "No.",
+    "table_sku": "SKU",
+    "table_name": "機器・部品名",
+    "table_category": "カテゴリ",
+    "table_status": "状態",
+    "table_rep": "見積担当",
+    "table_actions": "操作"
   },
   "product_detail": {
     "breadcrumb_home": "ホーム",
@@ -165,5 +243,23 @@
     "copied": "コピー完了",
     "copy": "コピー",
     "close": "閉じる"
+  },
+  "impact": {
+    "partner_factories_title": "提携製造工場",
+    "partner_factories_desc": "全国主要工業団地"
+  },
+  "faq": {
+    "badge": "技術＆調達 FAQ",
+    "title": "よくあるご質問 (FAQ)",
+    "subtitle": "CO/CQ規格適合証明、12ヶ月保証、工場現場での試運転サポート、見積納期について詳しく解説。",
+    "cta_question": "工場製造ラインに固有の技術課題がございますか？",
+    "cta_btn": "技術相談ホットライン: "
+  },
+  "murr_banner": {
+    "badge": "公式カタログ＆CAD図面完備",
+    "title": "Murrplastik ドイツ製品ポータルで 500+ 品目とCAD図面を検索",
+    "desc": "詳細寸法、PDF技術仕様書、UL94難燃規格証明書、または産業ロボット用ケーブルドレスパックをお探しですか？専任エンジニアが直接対応いたします。",
+    "btn_portal": "Murrplastik ベトナムポータルへ",
+    "btn_booth": "VEC 2026 ブース3D展示"
   }
 }

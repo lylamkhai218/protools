@@ -14,12 +14,14 @@ import {
   PhoneCall
 } from 'lucide-react';
 import { COMPANY_INFO, PARTNERS } from '../data';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface FooterProps {
   onNavigate: (tab: string, filter?: string) => void;
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
+  const { t } = useTranslation();
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const handleCopy = (text: string, key: string, e?: React.MouseEvent) => {
@@ -55,14 +57,14 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-md">
-              {COMPANY_INFO.slogan}
+              {t('footer.slogan')}
             </p>
 
             <div className="pt-1 space-y-3.5 text-xs">
               <div className="flex items-start gap-3">
                 <Building2 className="w-4 h-4 text-[#00478D] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-slate-200">Trụ sở chính:</span>
+                  <span className="font-semibold text-slate-200">{t('footer.hq_label')}</span>
                   <span className="text-slate-400 block mt-0.5">{COMPANY_INFO.headquarters}</span>
                 </div>
               </div>
@@ -70,7 +72,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <span className="font-semibold text-slate-200">VPGD & Kho Hà Nội:</span>
+                  <span className="font-semibold text-slate-200">{t('footer.wh_label')}</span>
                   <span className="text-slate-400 block mt-0.5">{COMPANY_INFO.vpgdAndWarehouse}</span>
                   
                   {/* Google Maps Actions */}
@@ -80,7 +82,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1 text-[11px] text-amber-300 hover:text-amber-200 hover:underline font-semibold mt-1"
                   >
-                    <span>Chỉ đường trên Google Maps</span>
+                    <span>{t('footer.directions_maps')}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
 
@@ -94,7 +96,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="strict-origin-when-cross-origin"
-                      title="Bản đồ VPGD & Kho T&T Vina Lĩnh Nam"
+                      title={t('footer.map_iframe_title')}
                       className="w-full block"
                     />
                   </div>
@@ -112,7 +114,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               {/* Sub-col A: Product Solution Groups */}
               <div className="space-y-3.5">
                 <h4 className="font-display font-bold text-sm tracking-wider text-white uppercase border-b border-slate-800 pb-2">
-                  Danh Mục Thiết Bị
+                  {t('footer.categories_title')}
                 </h4>
                 <ul className="space-y-2.5 text-xs text-slate-400">
                   <li>
@@ -121,7 +123,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Thiết bị hàn & Robot hàn tự động</span>
+                      <span>{t('footer.cat_soldering')}</span>
                     </button>
                   </li>
                   <li>
@@ -130,7 +132,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Máy bắt vít Hios & Robot bắt vít</span>
+                      <span>{t('footer.cat_screwdrivers')}</span>
                     </button>
                   </li>
                   <li>
@@ -139,16 +141,16 @@ export default function Footer({ onNavigate }: FooterProps) {
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Dụng cụ & Robot tra bơm keo</span>
+                      <span>{t('footer.cat_dispensing')}</span>
                     </button>
                   </li>
                   <li>
                     <button 
-                      onClick={() => onNavigate('home', 'may-cat-bang-dinh-tem-nhan')} 
+                      onClick={() => onNavigate('home', 'may-cat-bang-dinh-tu-dong')} 
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Máy cắt băng dính & Tem nhãn</span>
+                      <span>{t('footer.cat_tape')}</span>
                     </button>
                   </li>
                   <li>
@@ -157,25 +159,25 @@ export default function Footer({ onNavigate }: FooterProps) {
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Thiết bị đo lực & Nhiệt độ hàn</span>
+                      <span>{t('footer.cat_testing')}</span>
                     </button>
                   </li>
                   <li>
                     <button 
-                      onClick={() => onNavigate('home', 'camera-kinh-soi')} 
+                      onClick={() => onNavigate('home', 'camera-kinh-soi-cong-nghiep')} 
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Kính hiển vi & Kính lúp soi nổi</span>
+                      <span>{t('footer.cat_microscope')}</span>
                     </button>
                   </li>
                   <li>
                     <button 
-                      onClick={() => onNavigate('home', 'esd-phong-sach')} 
+                      onClick={() => onNavigate('home', 'dung-cu-chong-tinh-dien')} 
                       className="hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-[#00478D] shrink-0"></span>
-                      <span>Quạt thổi Ion & Dụng cụ ESD</span>
+                      <span>{t('footer.cat_esd')}</span>
                     </button>
                   </li>
                   <li className="pt-2 border-t border-slate-800/80">
@@ -185,7 +187,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                     >
                       <span className="flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] animate-pulse shrink-0"></span>
-                        <span>Chuyên Trang Murrplastik Đức</span>
+                        <span>{t('footer.cat_murr')}</span>
                       </span>
                       <ExternalLink className="w-3 h-3 text-red-400 group-hover:translate-x-0.5 transition-transform" />
                     </a>
@@ -196,13 +198,13 @@ export default function Footer({ onNavigate }: FooterProps) {
               {/* Sub-col B: Direct Contacts Roster */}
               <div className="space-y-3.5">
                 <h4 className="font-display font-bold text-sm tracking-wider text-white uppercase border-b border-slate-800 pb-2">
-                  Tư Vấn &amp; Báo Giá
+                  {t('footer.consult_quote_title')}
                 </h4>
                 
                 <div className="space-y-2.5 text-xs">
                   {/* Hotline */}
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-semibold text-slate-200">Hotline:</span>
+                    <span className="font-semibold text-slate-200">{t('footer.hotline_label')}</span>
                     <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="text-emerald-300 font-bold hover:underline font-mono">
                       {COMPANY_INFO.hotline}
                     </a>
@@ -218,7 +220,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
                   {/* Kinh Doanh General */}
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-semibold text-slate-200">Kinh Doanh:</span>
+                    <span className="font-semibold text-slate-200">{t('footer.sales_label')}</span>
                     <a href={COMPANY_INFO.salesTeam[0].zaloUrl} target="_blank" rel="noreferrer" className="text-sky-300 hover:underline">
                       {COMPANY_INFO.salesTeam[0].name} ({COMPANY_INFO.salesTeam[0].phone})
                     </a>
@@ -246,7 +248,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
                   {/* Kinh Doanh Murrplastik */}
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-semibold text-slate-200">KD Murr:</span>
+                    <span className="font-semibold text-slate-200">{t('footer.murr_sales_label')}</span>
                     <a href={COMPANY_INFO.murrSalesTeam[0].zaloUrl} target="_blank" rel="noreferrer" className="text-sky-300 hover:underline">
                       {COMPANY_INFO.murrSalesTeam[0].name} ({COMPANY_INFO.murrSalesTeam[0].phone})
                     </a>
@@ -274,7 +276,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
                   {/* Phòng Dự Án */}
                   <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-semibold text-amber-300">Phòng Dự Án:</span>
+                    <span className="font-semibold text-amber-300">{t('footer.project_dept_label')}</span>
                     <a href={`tel:${COMPANY_INFO.projectDept.rawPhone}`} className="text-amber-200 hover:underline font-mono font-bold">
                       {COMPANY_INFO.projectDept.phone} ({COMPANY_INFO.projectDept.name})
                     </a>
@@ -290,7 +292,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
                   {/* Email */}
                   <div className="flex items-center gap-1.5 pt-0.5">
-                    <span className="font-semibold text-slate-200">Email:</span>
+                    <span className="font-semibold text-slate-200">{t('footer.email_label')}</span>
                     <a href={`mailto:${COMPANY_INFO.email}`} className="text-sky-300 hover:underline font-mono">
                       {COMPANY_INFO.email}
                     </a>
@@ -312,9 +314,9 @@ export default function Footer({ onNavigate }: FooterProps) {
             <div className="space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h4 className="font-display font-bold text-sm tracking-wider text-white uppercase">
-                  CÁC SẢN PHẨM NỔI BẬT
+                  {t('footer.featured_title')}
                 </h4>
-                <span className="text-[11px] text-slate-400 hidden sm:inline">100% Xuất xứ Nhật Bản, Đức, Hàn Quốc</span>
+                <span className="text-[11px] text-slate-400 hidden sm:inline">{t('footer.featured_origin')}</span>
               </div>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -324,11 +326,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                   className="p-2.5 rounded-sm bg-slate-800/80 border border-slate-700/60 hover:border-slate-500 transition-all text-left group cursor-pointer"
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
-                    <span className="truncate group-hover:text-[#00478D]">Murrplastik (CHLB Đức)</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">Đức</span>
+                    <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_murr_title')}</span>
+                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">{t('footer.feat_murr_country')}</span>
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
-                    Xích dẫn cáp &amp; Giá đỡ Robot
+                    {t('footer.feat_murr_sub')}
                   </div>
                 </button>
 
@@ -338,11 +340,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                   className="p-2.5 rounded-sm bg-slate-800/80 border border-slate-700/60 hover:border-slate-500 transition-all text-left group cursor-pointer"
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
-                    <span className="truncate group-hover:text-[#00478D]">Máy bơm keo 983A / SP-982</span>
+                    <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_glue_title')}</span>
                     <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">0.01ml</span>
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
-                    Bơm keo tự động &amp; Bán tự động
+                    {t('footer.feat_glue_sub')}
                   </div>
                 </button>
 
@@ -352,11 +354,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                   className="p-2.5 rounded-sm bg-slate-800/80 border border-slate-700/60 hover:border-slate-500 transition-all text-left group cursor-pointer"
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
-                    <span className="truncate group-hover:text-[#00478D]">Tô vít điện tử Hios CL-4000</span>
+                    <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_hios_title')}</span>
                     <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">SMT</span>
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
-                    Máy bắt vít &amp; Đo lực siết HP-10
+                    {t('footer.feat_hios_sub')}
                   </div>
                 </button>
 
@@ -366,11 +368,11 @@ export default function Footer({ onNavigate }: FooterProps) {
                   className="p-2.5 rounded-sm bg-slate-800/80 border border-slate-700/60 hover:border-slate-500 transition-all text-left group cursor-pointer"
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
-                    <span className="truncate group-hover:text-[#00478D]">Trạm hàn thiếc Hakko / Quick</span>
+                    <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_solder_title')}</span>
                     <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">ESD</span>
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
-                    Máy hàn Hakko 936, mỏ hàn, bể hàn
+                    {t('footer.feat_solder_sub')}
                   </div>
                 </button>
 
@@ -380,25 +382,25 @@ export default function Footer({ onNavigate }: FooterProps) {
                   className="p-2.5 rounded-sm bg-slate-800/80 border border-slate-700/60 hover:border-slate-500 transition-all text-left group cursor-pointer"
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
-                    <span className="truncate group-hover:text-[#00478D]">Máy cắt băng dính Zcut 9</span>
+                    <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_tape_title')}</span>
                     <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">Auto</span>
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
-                    Cắt 2 cuộn đồng thời &amp; Cắt tem nhãn
+                    {t('footer.feat_tape_sub')}
                   </div>
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => onNavigate('home', 'camera-kinh-soi')}
+                  onClick={() => onNavigate('home', 'camera-kinh-soi-cong-nghiep')}
                   className="p-2.5 rounded-sm bg-slate-800/80 border border-slate-700/60 hover:border-slate-500 transition-all text-left group cursor-pointer"
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
-                    <span className="truncate group-hover:text-[#00478D]">Kính hiển vi soi nổi SM-3TPZ</span>
+                    <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_micro_title')}</span>
                     <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">7X-45X</span>
                   </div>
                   <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
-                    Kính soi linh kiện &amp; Đo kiểm quang học
+                    {t('footer.feat_micro_sub')}
                   </div>
                 </button>
               </div>
@@ -408,7 +410,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                   onClick={() => onNavigate('cart')}
                   className="w-full py-2.5 px-4 rounded-sm bg-slate-800 hover:bg-[#00478D] text-slate-200 hover:text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 border border-slate-700 hover:border-[#00478D] transition-all cursor-pointer shadow-sm"
                 >
-                  <span>Tạo Danh Sách Yêu Cầu Báo Giá Nhanh</span>
+                  <span>{t('footer.btn_quick_bom')}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-amber-300" />
                 </button>
               </div>
@@ -426,17 +428,17 @@ export default function Footer({ onNavigate }: FooterProps) {
                 © 2026 <strong>{COMPANY_INFO.name}</strong> ({COMPANY_INFO.fullNameEn}). All rights reserved.
               </div>
               <p className="text-[11px] text-slate-500 max-w-2xl leading-relaxed">
-                Toàn bộ nội dung, hình ảnh sản phẩm, tài liệu catalog và thông số kỹ thuật thuộc quyền sở hữu của T&T Vina Industrial Co., Ltd. Nghiêm cấm mọi hành vi sao chép, trích xuất hoặc tái bản dưới mọi hình thức khi chưa có sự chấp thuận bằng văn bản.
+                {t('footer.copyright_disclaimer')}
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center md:items-end gap-3 shrink-0">
               <div className="flex items-center gap-4 text-[11px] text-slate-400">
-                <span>Tiêu chuẩn B2B</span>
+                <span>{t('footer.badge_b2b')}</span>
                 <span>•</span>
-                <span>Chính hãng 100%</span>
+                <span>{t('footer.badge_genuine')}</span>
                 <span>•</span>
-                <span>Hỗ trợ 24/7</span>
+                <span>{t('footer.badge_support')}</span>
               </div>
               <div className="text-[11px] text-slate-500/70 hover:text-slate-400 transition-colors font-mono tracking-tight">
                 Developed by Mr. Kai @ T&amp;T Vina Digital

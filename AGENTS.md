@@ -1026,4 +1026,219 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Bổ sung Module 10 vào [`tests/verify_murrplastik_iso_rtec.py`](file:///d:/T&TVina/protools/tests/verify_murrplastik_iso_rtec.py) đạt 10/10 modules PASSED.
   - Đóng gói Vite và tải lên máy chủ Production (`s2d34.cloudnetwork.vn`), xác nhận Live HTTP 200 tải trực tiếp banner WebP 384 KB.
 
+### Rule 9.64: Quy Chuẩn Triệt Tiêu Hàng Nhái, Đồng Bộ SKU Sapo Prod & Phân Luồng Hotline/Zalo Theo Tag (21/09/2026)
+* **Triệt Tiêu Tuyệt Đối Từ Ngữ Hàng Nhái Trong Cơ Sở Dữ Liệu (Zero-Fake Tolerance)**:
+  - CẤM TUYỆT ĐỐI xuất hiện các từ ngữ `fake`, `fk`, `(fake)`, `<fk>`, `Fake SMC`, `nhái` trong bất kỳ file dữ liệu JSON nào (`sapo_products_enriched.json`, `sapo_grouped_families.json`, `sapo_sample_25_enriched.json`) để bảo vệ 100% uy tín thương hiệu B2B của T&T Vina.
+  - Xóa bỏ toàn bộ hậu tố `-FAKE` khỏi các `masterId` trong hệ thống gom nhóm biến thể.
+  - Phân biệt chính xác các mã linh kiện kỹ thuật chính hãng có chứa chuỗi ký tự `FK` (như trục vít me SFKR, xi lanh kẹp ngón tay SMC HFK/HFKL, bộ điều khiển nhiệt độ RKC Rex-C100FK02).
+* **Quy Chuẩn Đồng Bộ Mã SKU Sapo Vào Sản Phẩm Flagship & Bảo Toàn Ảnh Studio**:
+  - Khi ánh xạ mã SKU từ hệ thống kho Sapo vào các sản phẩm Flagship trên web ([`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts)):
+    - `Trạm hàn cao tần QUICK 205 ESD (150W)`: Cập nhật SKU chuẩn Sapo `TTPC-0289` (thay cho SKU ngẫu nhiên cũ `TTV-QUI-205`).
+    - Bảo toàn 100% tài nguyên ảnh studio chất lượng cao trên Production (`images/products/quick-205.png`, `images/products/quick-205.webp`).
+    - Đồng bộ tương tự cho các mã thiết bị đối soát được giữa Sapo và Prod (Hios CL-4000 -> `PVN5224`, Hios CLT-50 -> `TTPC-0422`, Zcut 9 -> `PVN1956`, Quạt SL-001 -> `PVN1561`).
+* **Quy Chuẩn Phân Luồng Liên Hệ Hotline & Zalo Tự Động Theo Tag Sapo (Tag-to-Rep Routing Matrix)**:
+  - Trích xuất trường `Tags` từ Cột 5 của file Sapo Excel vào 7.479 sản phẩm trong JSON catalog.
+  - Tích hợp hàm điều phối `getSalesRepForProduct(product)` tại [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) và component [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx):
+    1. Tag `Ms Phương`: Điều phối tới Ms. Phương (`0365.366.455` - Tư vấn Bán hàng & Báo giá).
+    2. Tag `Ms. Hiền`: Điều phối tới Ms. Hiền (`0929.938.368` - Tư vấn Bán hàng & Báo giá).
+    3. Tag `Ms. Nhinh`: Điều phối tới Ms. Nhinh (`0964.920.025` - Phòng Bán Hàng).
+    4. Tag `Mr Phong`: Điều phối tới Mr. Phong (`0983.794.782` - Kỹ thuật & Dự án).
+    5. Tag `Mr.Hai`: Điều phối tới Mr. Hai (`0981.919.590` - Kỹ thuật & Dự án).
+    6. Tag `Mr. Thanh`: Điều phối tới Mr. Thanh (`0943.301.886` - Phòng Dự Án).
+    7. Sản phẩm Murrplastik Đức: Tự động điều phối tới Mr. Bình (`0868.822.409` - NVKD Murrplastik).
+    8. Sản phẩm không có Tag / Ghi chú tồn kho: Mặc định điều phối về **Hotline Tổng Đài: Mrs. Nhung (`0915.168.824`)**.
+  - Tại giao diện chi tiết sản phẩm, cả 2 nút Gọi điện thoại và nút Chat Zalo đều trỏ trực tiếp đến nhân sự phụ trách tương ứng kèm nút Copy nhanh 1-click.
+
+### Rule 9.65: Kiến Trúc Phục Vụ 7,479 Sản Phẩm Sapo: Lightweight Index, Virtual Windowing & Chế Độ Dual View B2B (21/09/2026)
+* **Kiến Trúc Tối Ưu Tải Nhẹ (Lightweight In-Memory Catalog Index)**:
+  - Nén toàn bộ 7.479 sản phẩm từ file chi tiết 12.1 MB xuống [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json) đạt 3.85 MB thô (~380 KB gzipped / Brotli).
+  - Tải bất đồng bộ qua `requestIdleCallback` / microtask để không chặn rendering giao diện Hero trang chủ. Tốc độ tìm kiếm in-memory < 15ms qua 7.479 sản phẩm.
+* **Cơ Chế Virtual Windowing Chống Quá Tải DOM (36 Items/Chunk)**:
+  - Component [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx) chia nhỏ danh sách hiển thị thành từng khối 36 sản phẩm.
+  - Tích hợp nút cuộn tải thêm mượt mà (Load More Chunking) kết hợp `useTransition` giúp trình duyệt di động RAM yếu (iOS Safari, Android Chrome) không bị giật lag hay sập tiến trình.
+* **Quy Chuẩn Dual View B2B (Lưới Kỹ Thuật & Bảng Mua Hàng Procurement)**:
+  - **Chế độ Lưới (Spec-Sheet Grid)**: Thẻ sản phẩm tỷ lệ 1:1, ảnh kỹ thuật rõ nét, huy hiệu tồn kho (Sẵn kho / Đặt hàng theo PO), mã SKU in đậm font Mono, thông tin nhân viên phụ trách tư vấn trực tiếp kèm nút thêm vào giỏ B2B.
+  - **Chế độ Bảng (Procurement Table)**: Dành riêng cho cán bộ Mua hàng / Kế toán dự án đối soát nhanh hàng chục mã SKU cùng lúc với các cột: STT, Hình ảnh, Tên & Thương hiệu, Mã SKU, Quy cách & Tồn kho, NVKD phụ trách, Nút Thêm Giỏ & Báo Giá.
+* **Bộ Lọc Phân Khúc & Lọc Theo Nhân Viên Bán Hàng**:
+  - Tích hợp chip lọc danh mục động (Top 10 ngành hàng công nghiệp kèm số lượng SKU thực tế).
+  - Nút gạt nhanh chỉ hiện thiết bị Sẵn Kho (`In Stock`).
+  - Hộp chọn lọc theo từng nhân viên kinh doanh phụ trách (Ms. Phương, Ms. Hiền, Ms. Nhinh, Mr. Phong, Mr. Hai, Mr. Thanh, Murrplastik, Mrs. Nhung Hotline).
+* **Bộ Kiểm Thử Tự Động Định Kỳ 5 Pha (Automated Verification Suite)**:
+  - Tích hợp script [`scripts/verify_all_requirements.py`](file:///d:/T&TVina/protools/scripts/verify_all_requirements.py) chạy qua `pnpm test:catalog`.
+  - Kiểm soát nghiêm ngặt 5 pha:
+    1. Quét regex triệt tiêu 100% từ khóa hàng nhái (`fake`, `fk`, `nhái`, `replica`) trên toàn bộ 3 file JSON catalog.
+    2. Xác thực ánh xạ mã SKU Flagship (`TTPC-0289` cho QUICK 205 ESD) và bảo toàn ảnh studio.
+    3. Kiểm tra phân bổ nhân sự kinh doanh và tổng đài tiếp nhận.
+    4. Kiểm soát kích thước tải index < 4.5 MB thô.
+    5. Kiểm toán bảo mật bản build `dist/` theo tiêu chuẩn ECC AgentShield (chặn rò rỉ file cấu hình, script cấm).
+* **Deep Linking Toàn Diện**:
+  - [`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx) tích hợp fallback tra cứu động vào `catalog_index.json` khi người dùng truy cập trực tiếp URL `?product=[SKU_HOAC_ID]` giúp toàn bộ 7.479 sản phẩm đều có trang chi tiết hợp lệ.
+
+### Rule 9.66: Quy Chuẩn Ánh Xạ SKU Sapo Cho Toàn Bộ Hàng Cũ & Bảo Toàn Ảnh Studio Gốc (21/09/2026)
+* **Bảo Toàn 100% Ảnh Studio Kỹ Thuật (Studio Asset Preservation)**:
+  - Khi cập nhật mã SKU Sapo cho toàn bộ các thiết bị sẵn có trên hệ thống web cũ (src/data.ts), TUYỆT ĐỐI BẢO TOÀN toàn bộ đường dẫn ảnh sản phẩm chất lượng cao (/images/products/quick-205.png, images/stores/...).
+  - Đồng bộ ngược lại các ảnh studio này vào public/data/catalog_index.json và public/data/sapo_products_enriched.json để khi người dùng tìm kiếm hay xem bảng mua hàng, hình ảnh studio sắc nét luôn được hiển thị ưu tiên.
+* **Ma Trận Ánh Xạ SKU Sapo Toàn Diện Cho Hơn 50 Thiết Bị Cũ**:
+  - **Nhóm Bắt Vít & Nguồn HIOS**: Hios CL-3000 (TTPC-0424), Hios CL-4000 (PVN5224), Hios CLT-50 (TTPC-0422), Tay bắt vít Hios CL 6500 Robot (TTPC-07030), Nút ấn bắt vít tự động (PVN6627).
+  - **Nhóm Hàn & Đo Nhiệt Độ**: Quick 205 ESD (TTPC-0289), Hakko 936 / 907 (TTPC-0320), Bể hàn CM-808 (TTPC-0017), Bể hàn CM-508 (TTPC-0015), Hakko FG-100/101 (TTPC-0308), Quick 191AD (PVN7871), Tay hàn Quick 9018M Robot (TTPC-0323), Lõi heating 9018M (TTPC-0594).
+  - **Nhóm Cắt Băng Dính & Tách Tem**: Zcut 9 (PVN1956), Zcut 2 (TTPC-0310), M1000 (TTPC-0302), M1000S (TTPC-0303), RT-3700 (PVN5066), Máy tách tem nhãn 1150D (TTPC 0107).
+  - **Nhóm Bơm Keo & Kim**: Máy bơm keo 982 (TTPC-0298), Máy bơm keo 983A (TTPC-0299), Máy bơm keo AD-2000C (PVN9523), Xilanh bộ bơm keo Robot (TTPC 1409), Kim chóp 15G (TTPC 1009), Kim NMS 14G-13mm (TTPC-0161).
+
+  - **Nhóm Đo Lực & Quang Học**: Máy đo lực HP-10/HP-100 (TTPC-0314), Chân kẹp kính LT-86A (TTPC-0532), Kính hiển vi SZM7045-STL1 (PVN7764), Kính hiển vi 50x-1000X (PVN8625), Camera 14MP (PVN9934).
+  - **Nhóm Chống Tĩnh Điện & Quạt Ion**: Quạt Ion SL-001 (PVN1561), Quạt 2 cửa SL-002 (PVN10448), Quạt SP 600 (TTPC 22354), Vòng đeo tay Leko 1.8m (TTPC-0513), Vòng đeo chân (TTPC-0512), Ổ cắm tiếp địa 2 lỗ (TTPC-0470), Dây tiếp địa cao su kẹp (TTPC-0658), Dây tiếp địa sao vàng (TTPC 2354).
+  - **Nhóm Nhíp Kỹ Thuật**: Nhíp nhựa 93302 (TTPC-0456), Nhíp ESD 2A (TTPC-0435), Nhíp ST 11 (TTPC-0447), Nhíp AA_SA (TTPC-0446), Nhíp ST-16 (PVN9736).
+  - **Nhóm Tự Động Hóa & Đóng Gói Samwon**: Cầu đấu XTB-COM20B (PVN6277), Cầu đấu XTB-40H (PVN5440), Cáp Samwon C40HH-10SB-XBI (PVN6834), Relay Block Y420-4-O (PVN10052), Lọ cồn 120ml hồng (TTPC-0701), Khăn lau 1009/150P (PVN8044), Ống hút khói phi 75mm (PVN6631), Dây chun đôi 20cm (PVN4637), Máy mài mini Proskit (PVN8199), Máy dán thùng & Đai thùng (TTPC 3837, PVN1552, PVN8398, PVN7215, PVN6174).
+
+### Rule 9.67: Phát Hành Thành Công Toàn Bộ 7,479 Sản Phẩm Sapo Lên Root Production (21/09/2026)
+* **Triển Khai Thành Công Lên Máy Chủ Mắt Bão (s2d34.cloudnetwork.vn)**:
+  - Lệnh phát hành: pnpm deploy:prod thông qua script deploy_production_root.py.
+  - Đồng bộ 197 files tĩnh, trong đó tải mới 39 files (gồm bundle JS/CSS Vite mới, index.html, và toàn bộ 7.500 sản phẩm trong catalog_index.json).
+  - Bỏ qua tự động 160 media files trùng kích thước giúp tiến trình phát hành hoàn tất trong dưới 60 giây.
+* **Xác Thực Kiểm Tra Trực Tiếp Live HTTP (Zero-Downtime & Multi-Endpoints 200 OK)**:
+  - Homepage: https://protools.com.vn/ (HTTP 200 OK).
+  - API Index: https://protools.com.vn/data/catalog_index.json (HTTP 200 OK, phục vụ 7.500 items).
+  - Deep links: https://protools.com.vn/?product=TTPC-0289 (Quick 205), https://protools.com.vn/?product=TTPC-0424 (Hios CL-3000).
+  - AdminCP: https://protools.com.vn/admincp/ (Bypass rewrite an toàn, hoạt động bình thường).
+  - Murrplastik: https://protools.com.vn/murrplastik/ (Hoạt động ổn định song song).
+* **Tuân Thủ An Ninh Mạng Tuyệt Đối**:
+  - Không có file .env, .sql, script bridge vi phạm WAF Imunify360 (Rule 77218530).
+  - Quyền file .htaccess đạt chuẩn 644 trên LiteSpeed.
+
+### Rule 9.68: Khắc Phục Lỗi Hiển Thị Ảnh Sapo & Đồng Bộ 6,895 Ảnh WebP Song Song Lên Production (22/09/2026)
+* **Nguyên nhân gốc rễ (Root Cause Analysis)**:
+  1. File `deploy_production_root.py` cấu hình loại trừ `dirs[:] = [d for d in dirs if d != 'sapo']` để tránh nghẽn deploy đơn luồng, khiến 6.895 file ảnh WebP cục bộ tại `public/images/products/sapo/` chưa được đưa lên máy chủ `/public_html/images/products/sapo/`.
+  2. 578 sản phẩm trong tập dữ liệu Sapo mang URL hỏng `https://sapo.dktcdn.net/variants/PVN*.png` (trả về 404 Not Found) do sản phẩm trên Sapo không có ảnh gốc.
+* **Giải pháp kỹ thuật & Triển khai**:
+  1. **Đồng bộ hóa ảnh song song đa luồng (Multi-threaded FTP Sync)**: Xây dựng script [`scripts/upload_sapo_images_multithreaded.py`](file:///d:/T&TVina/protools/scripts/upload_sapo_images_multithreaded.py) với 6 luồng FTP song song ở chế độ Passive Mode (`set_pasv(True)`), tải thành công toàn bộ 4.643 ảnh còn thiếu lên `/public_html/images/products/sapo/` trong 184 giây (~25 files/giây), nâng tổng số ảnh remote đạt 6.897 file.
+  2. **Làm sạch liên kết CDN hỏng**: Chạy [`scripts/clean_dead_cdn_links.py`](file:///d:/T&TVina/protools/scripts/clean_dead_cdn_links.py) rà soát toàn bộ 7.500 sản phẩm, làm sạch 578 URL CDN 404 thành `image: ""` trong [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json) và [`public/data/sapo_products_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_products_enriched.json).
+  3. **UI Fallback Chuẩn B2B**: Nâng cấp [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx) và [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx): khi `!image`, hiển thị badge kỹ thuật sang trọng `"Đang cập nhật ảnh"` kèm icon SVG `Package` đơn sắc, loại bỏ hoàn toàn hiện tượng vỡ icon ảnh mặc định của trình duyệt và lỗi 404 console.
+  4. **Triển khai & Kiểm chứng Trực tiếp**: Chạy `pnpm deploy:prod` đưa bundle mới (`index-bKajiKpD.js`) và `catalog_index.json` sạch lên root. Chạy kiểm chứng qua [`scripts/verify_live_prod.py`](file:///d:/T&TVina/protools/scripts/verify_live_prod.py), xác thực 10/10 URL ảnh ngẫu nhiên (gồm `PVN10446`, `PVN10445`, `PVN10444`) đều trả về HTTPS 200 OK và `PVN10447` hiển thị badge chuẩn 100%.
+
+### Rule 9.69: Quy Chuẩn Ngôn Ngữ Khách Hàng B2B & Triệt Tiêu Thuật Ngữ Kỹ Thuật UI (22/09/2026)
+* **Nguyên tắc cốt lõi (Customer-Centric UX Copywriting)**:
+  - Khách hàng doanh nghiệp B2B và người dùng mua hàng chỉ quan tâm đến tính năng mua sắm, số lượng sản phẩm, giá trị sử dụng và thao tác tiện lợi; tuyệt đối không đưa các thuật ngữ kỹ thuật của lập trình viên (Developer Jargon) lên giao diện.
+* **Các cụm từ bị loại bỏ & Thay thế chuẩn hóa**:
+  - ❌ *Cấm*: `"Đang tải theo luồng ảo (Virtual Window) · Tiết kiệm 95% bộ nhớ RAM"` -> ✅ *Thay bằng*: Chỉ hiển thị tiến độ thân thiện `"Đang hiển thị {X} / {Y} sản phẩm"`.
+  - ❌ *Cấm*: `"Xem Thêm 36 Thiết Bị Tiếp Theo"` (số 36 là chunk size nội bộ) -> ✅ *Thay bằng*: `"Xem Thêm Sản Phẩm"`.
+  - ❌ *Cấm*: `"Chế độ bảng Procurement"` -> ✅ *Thay bằng*: `"Chế độ xem dạng bảng danh sách"`.
+  - ❌ *Cấm*: `"Đang đồng bộ lại bộ nhớ đệm sản phẩm Protools"` trong Error Boundary -> ✅ *Thay bằng*: `"Hệ thống đang được làm mới dữ liệu. Quý khách vui lòng bấm nút bên dưới để tải lại trang."`.
+
+### Rule 9.70: Quy Chuẩn Đa Ngôn Ngữ Toàn Diện Trang Chủ, Khắc Phục Lớp Hiển Thị Badge Sản Phẩm & Chuẩn Hóa Điều Hướng Danh Mục Footer (22/09/2026)
+* **1. Toàn diện hóa bản địa hóa 7 ngôn ngữ (Full-Spectrum 7-Language i18n)**:
+  - Tách và chuẩn hóa các mô-đun dịch thuật chuyên biệt:
+    - [`src/i18n/solutionsTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/solutionsTranslations.ts): Dịch trọn vẹn 8 trụ cột giải pháp (`title`, `subtitle`, `desc`, `badge`, `standards`) sang 7 ngôn ngữ (`vi`, `en`, `zh-CN`, `de`, `ko`, `ja`, `th`).
+    - [`src/i18n/faqTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/faqTranslations.ts): Dịch toàn bộ 5 câu hỏi thường gặp FAQ và cấu trúc dữ liệu Google SEO Schema (`FAQPage`).
+    - Bổ sung bộ khóa dịch thuật đầy đủ trong cả 7 file [`src/i18n/locales/`](file:///d:/T&TVina/protools/src/i18n/locales/) cho Hero Trust Stats, Murrplastik Banner, Company Impact Metrics Bar và bảng danh mục sản phẩm [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx).
+* **2. Khắc phục triệt để lỗi ảnh đè lên nhãn tình trạng kho (Badge Stacking Context Fix)**:
+  - Thẻ bao ngoài nhãn tình trạng kho `class="absolute top-1.5 right-1.5"` được nâng cấp bổ sung rõ ràng `z-10 pointer-events-none`.
+  - Đảm bảo thẻ luôn nổi lên trên ảnh sản phẩm ngay cả khi ảnh phóng to `group-hover:scale-105` hoặc áp dụng bộ lọc CSS.
+* **3. Chuẩn hóa điều hướng danh mục Footer & Cơ chế Alias URL Thông Minh**:
+  - **Footer Slug Alignment**: Sửa slug trong [`src/components/Footer.tsx`](file:///d:/T&TVina/protools/src/components/Footer.tsx) từ `camera-kinh-soi` thành mã định danh chuẩn `camera-kinh-soi-cong-nghiep`.
+
+### Rule 9.71: Bản Địa Hóa Menu Danh Mục Header & Toàn Diện Footer 7 Ngôn Ngữ, Khắc Phục Viền Nhấp Nháy Nút Contact Trên Webview In-App (Facebook, Zalo) (22/09/2026)
+* **1. Bản địa hóa Header Mega Dropdown & Mobile Menu Drawer**:
+  - Toàn bộ menu danh mục thả xuống (Desktop Mega Dropdown) và ngăn kéo di động (Mobile Menu Drawer) trong [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx) được chuyển sang dùng `getLocalizedSolution(sol, locale)` và hook `useTranslation()`.
+  - Bổ sung bộ từ khóa dịch thuật chuẩn hóa trong cả 7 file [`src/i18n/locales/`](file:///d:/T&TVina/protools/src/i18n/locales/): tiêu đề menu, huy hiệu chính hãng, nút chuyên trang, gợi ý hotline kỹ thuật, placeholder tìm kiếm và giới thiệu Murrplastik di động.
+* **2. Bản địa hóa 100% Toàn Diện Chân Trang ([`src/components/Footer.tsx`](file:///d:/T&TVina/protools/src/components/Footer.tsx))**:
+  - Tích hợp hook `useTranslation()`.
+  - Bản địa hóa trọn vẹn 40+ nhãn mục: Slogan công ty, nhãn địa chỉ Trụ sở / Kho Lĩnh Nam, chỉ đường Google Maps, danh sách 8 nhóm ngành hàng, khối Tư vấn & Báo giá (Hotline, Kinh Doanh, KD Murr, Phòng Dự Án, Email), bảng 6 sản phẩm nổi bật & nút tạo danh sách BOM nhanh, điều khoản bản quyền và 3 huy hiệu chuẩn B2B.
+* **3. Triệt tiêu viền nhấp nháy thô của nút Contact nổi trên Webview In-App (Facebook, Zalo)**:
+  - **Nguyên nhân kỹ thuật**: Lớp CSS `animate-ping` và `animate-pulse blur-xs` khi áp dụng trên phần tử hình con nhộng (pill-shaped capsule ~130x48px) trong trình duyệt nhúng Webview của Facebook/Zalo bị lỗi nội suy GPU rasterization, tạo ra vòng hào quang méo elip giật cục, vỡ hạt pixel và nhấp nháy thô ráp.
+  - **Giải pháp Swiss Precision**: Loại bỏ triệt để các thẻ `animate-ping` và `blur-xs` trên vỏ nút bấm con nhộng tại [`src/components/FloatingWidgets.tsx`](file:///d:/T&TVina/protools/src/components/FloatingWidgets.tsx). Thay bằng đổ bóng mềm mượt hardware-accelerated `shadow-[0_8px_25px_rgba(0,71,141,0.35)]` kèm viền kính thanh lịch `border border-white/20`. Giữ hiệu ứng ping tròn chuẩn 1:1 duy nhất trên chấm xanh trực tuyến `emerald-400` (8x8px) bên trong icon, đảm bảo giao diện sắc nét, cao cấp và đồng nhất 100% giữa PC và mọi Webview di động.
+
+### Rule 9.72: Triển Khai Toàn Diện 3 Giai Đoạn Chuẩn SEO B2B, Semantic Clean Slugs & Pre-rendering Snapshots Cho 7.500 Sản Phẩm (22/09/2026)
+* **Giai đoạn 1 (On-Page, Dynamic Head & Sitemaps XML)**:
+  - **Thẻ Head Baseline ([`index.html`](file:///d:/T&TVina/protools/index.html))**: Bổ sung đầy đủ thẻ `meta description` chuẩn thương hiệu T&T Vina Industrial, Open Graph (`og:title`, `og:description`, `og:image`, `og:url`, `og:type`), Twitter Card tags, Canonical link, và robots meta directive (`max-snippet:-1, max-image-preview:large`).
+  - **Component Quản Trị SEO Động ([`src/components/SEOHead.tsx`](file:///d:/T&TVina/protools/src/components/SEOHead.tsx))**: Tự động cập nhật `document.title` theo chuẩn B2B (`[Tên Thiết Bị] ([SKU]) | T&T VINA Industrial`), cập nhật linh hoạt `meta description`, `og:*`, `canonical`, và tiêm mã cấu trúc **Schema.org JSON-LD `@type: "Product"`** cho 7.500 sản phẩm (gồm tên, ảnh, sku, brand, tình trạng kho `InStock`, đơn vị tiền tệ `VND`).
+  - **Chỉ Dẫn Crawlers ([`public/robots.txt`](file:///d:/T&TVina/protools/public/robots.txt))**: Cho phép đầy đủ Googlebot, Bingbot, Applebot và các AI Bots hiện đại (`GPTBot`, `PerplexityBot`, `ClaudeBot`, `Bytespider`), đồng thời trỏ chính xác về `Sitemap: https://protools.com.vn/sitemap.xml`.
+  - **Bộ Sinh Sitemap Tự Động ([`generate_sitemaps.py`](file:///d:/T&TVina/protools/generate_sitemaps.py))**: Trích xuất toàn bộ 7.479 sản phẩm từ `catalog_index.json`, xuất ra `public/sitemap.xml` với **7.518 URLs** kèm thẻ chú thích ngôn ngữ `xhtml:link rel="alternate" hreflang="vi|en|x-default"`.
+* **Giai đoạn 2 (Semantic Clean Slugs & Pre-rendering Static Snapshots)**:
+  - **Cấu Trúc Đường Dẫn Thân Thiện ([`src/utils/slugify.ts`](file:///d:/T&TVina/protools/src/utils/slugify.ts))**: Chuyển đổi tên sản phẩm sang slug tiếng Việt không dấu: `/san-pham/[ten-thiet-bi]-[sku]`. Hỗ trợ đường dẫn danh mục: `/danh-muc/[categorySlug]`.
+  - **Bộ Định Tuyến Kép Đa Năng ([`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx))**: Nhận diện cả Clean URL pathname `/san-pham/:slug` và duy trì tương thích ngược 100% với query param cũ `?product=:sku`.
+  - **Hệ Thống Pre-rendered Static Snapshots ([`generate_static_snapshots.py`](file:///d:/T&TVina/protools/generate_static_snapshots.py))**: Sinh sẵn các bản snapshot HTML tĩnh cho các sản phẩm và danh mục chủ lực vào `dist/san-pham/` và `dist/danh-muc/`. Giúp Googlebot, Bingbot, Zalo/Facebook link scrapers đọc được đầy đủ thẻ H1, Meta tags, OG Image và Schema.org JSON-LD ngay trong lần tải đầu tiên mà không cần đợi chạy JavaScript.
+* **Giai đoạn 3 (Làm Giàu Nội Dung Kỹ Thuật & SEO Đa Ngôn Ngữ)**:
+  - **Bộ Máy Tự Động Sinh Mô Tả Kỹ Thuật ([`src/utils/seoDescription.ts`](file:///d:/T&TVina/protools/src/utils/seoDescription.ts))**: Nhận diện ngữ cảnh nhóm ngành (Khí nén, Bu lông cơ khí, Chống tĩnh điện ESD, Thiết bị hàn, Băng tải, Murrplastik) để tự động điền đoạn mô tả kỹ thuật 150-250 từ và danh sách đặc tính nổi bật (`defaultHighlights`) cho 7.400 sản phẩm Sapo, triệt tiêu hoàn toàn lỗi **Thin Content** theo thuật toán Google Helpful Content.
+  - **Đồng Bộ Ngôn Ngữ**: Đồng bộ thuộc tính `document.documentElement.lang` và thẻ `hreflang` trên toàn hệ thống.
+* **Quy Trình Phát Hành Tự Động Hóa ([`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py))**:
+  - Tích hợp 3 bước tự động: Sinh `sitemap.xml` -> Build Vite -> Sinh static snapshots -> Tải lên root `public_html`.
+  - Kiểm chứng trực tiếp Live Production: `robots.txt` (HTTP 200), `sitemap.xml` (HTTP 200, 7.518 URLs, 4.35 MB), Product Snapshot `/san-pham/tram-han-cao-tan-quick-205-esd-150w-ttpc-0289/` (HTTP 200, chứa Schema.org `Product`, OG, H1), Category Snapshot `/danh-muc/thiet-bi-han/` (HTTP 200).
+
+### Rule 9.73: Tinh Gọn Thanh Điều Hướng Header & Triệt Tiêu Nút Hotline Trùng Lặp (23/09/2026)
+* **Nguyên tắc thiết kế (Header Visual Hierarchy & De-duplication)**:
+  - Thanh tiện ích đỉnh trang (`top utility bar` cao 36px / `h-9`) đã hiển thị đầy đủ, chi tiết và sắc nét thông tin liên hệ chính thức: Hotline `0915.168.824` (Mrs. Nhung), số Zalo Sales Ms. Hiền, Ms. Phương kèm nút sao chép nhanh 1-click.
+  - Do đó, việc duy trì thêm một nút bấm Hotline lớn (`bg-gradient-to-r from-[#00478D] to-[#005EB8]`) tại thanh điều hướng chính (`main nav bar` cao 76px / `h-19`) gây lặp thừa thông tin, chiếm diện tích của ô tìm kiếm sản phẩm và các nút chức năng B2B khác.
+* **Xử lý kỹ thuật**:
+  - Gỡ bỏ hoàn toàn khối nút bấm `<a>` Hotline tại [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx).
+  - Dọn dẹp import `PhoneCall` không còn dùng trong `Header.tsx`.
+  - Giữ lại cấu trúc tinh gọn, thoáng đãng: Logo thương hiệu T&T VINA -> Ô tìm kiếm thông minh -> Mega Menu danh mục -> Nút Giỏ Báo Giá -> Bộ chọn đa ngôn ngữ -> Toggle Mobile Menu.
+  - Đóng gói và phát hành trực tiếp lên Production, kiểm chứng `https://protools.com.vn/` đạt chuẩn Live HTTP 200 OK.
+
+### Rule 9.74: Nâng Cấp Hệ Thống B2B Đột Phá Theo Chiến Lược CTO & CMO: Tra Cứu Toàn Kho 7.500 SKU, Brand Facets, 1-Click Zalo RFQ, Code-Splitting, LiteSpeed Cache & AI Search Manifest (23/09/2026)
+* **1. Bộ Nhớ Đệm Chia Sẻ & Tìm Kiếm Toàn Diện 7.500 SKU ([`src/utils/catalogLoader.ts`](file:///d:/T&TVina/protools/src/utils/catalogLoader.ts), [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx))**:
+  - Khởi tạo bộ nạp dữ liệu singleton có bộ nhớ đệm module-level (`cachedCatalog`), nạp ngầm (pre-warm) ngay khi Header mount hoặc khi người dùng focus vào ô tìm kiếm.
+  - Tích hợp thuật toán đối sánh đa trường (Multi-field fuzzy search) kèm hệ thống tính điểm tương quan (Relevance Scoring): Ưu tiên tuyệt đối mã SKU chính xác (Score 200), SKU bắt đầu bằng (Score 120), SKU chứa chuỗi (Score 80), Model/Tên thiết bị (Score 60/40), Thương hiệu & Ngành hàng (Score 30/20).
+  - Khung gợi ý tức thì (Live Autocomplete) hiển thị huy hiệu thống kê `(X / Y SKU)`, nút bấm trực tiếp "Xem tất cả Y sản phẩm trong tổng kho" và thông báo hướng dẫn khi không tìm thấy kết quả.
+* **2. Nút Báo Giá Nhanh 1-Click Qua Zalo Chuyên Viên Phụ Trách ([`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx))**:
+  - Tích hợp nút bấm nổi bật *"Nhận Báo Giá Nhanh Qua Zalo (Phản hồi 15-30P)"* ngay dưới khối chọn số lượng đặt hàng.
+  - Tự động định dạng văn bản yêu cầu báo giá chuyên nghiệp (Tên sản phẩm, Mã SKU, Hãng, Số lượng dự kiến, Link sản phẩm), sao chép tức thì vào clipboard của khách hàng và mở thẳng khung chat Zalo của đúng nhân viên kinh doanh phụ trách mã hàng đó.
+* **3. Bản Địa Hóa 100% Danh Mục Ngành Hàng 7 Ngôn Ngữ ([`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts), [`src/i18n/solutionsTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/solutionsTranslations.ts), [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx))**:
+  - Bổ sung bản dịch kỹ thuật chuẩn xác cho toàn bộ 7 nhóm ngành Sapo: Thiết bị đóng gói tự động, Xi lanh khí nén, Khí nén & phụ kiện, Bu lông ốc vít, Băng tải dây curoa, Linh kiện & thiết bị, Thiết bị tự động hóa.
+  - Sửa đổi các thẻ phụ đề tag menu (`lSol.tag || sol.tag`) trên cả Desktop Mega Dropdown và Mobile Drawer hiển thị đồng bộ 100% bằng 7 thứ tiếng: vi, en, zh-CN, de, ko, ja, th.
+* **4. Bộ Lọc Thương Hiệu Đa Diện (Brand Facet Filters) ([`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx))**:
+  - Tự động thống kê số lượng SKU thực tế của từng thương hiệu công nghiệp trong kho dữ liệu (Murrplastik, Hakko, HIOS, Quick, Zcut, Dr. Schneider, Samwon, Loctite, KHOA KIM, v.v.).
+  - Bổ sung thanh cuộn chip thương hiệu trực quan ngay dưới thanh danh mục, lọc tức thì mà không cần tải lại trang.
+* **5. Phân Đoạn Gói Mã Nguồn (Code-Splitting) & Tối Ưu Tốc Độ Tải ([`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx), [`vite.config.ts`](file:///d:/T&TVina/protools/vite.config.ts))**:
+  - Chuyển đổi các trang nặng (`ProductDetail`, `DocumentCenter`, `CartQuote`) sang `React.lazy()` kết hợp `<React.Suspense>`.
+  - Cấu hình Rollup `manualChunks` tách rời các thư viện `vendor-react` (~213 kB), `vendor-icons`, `vendor-motion`, `vendor-genai`.
+  - Giảm kích thước bundle chính `index.js` từ hơn 700 kB xuống còn **465 kB** (nén gzip chỉ 124 kB), triệt tiêu hoàn toàn cảnh báo Vite build warning.
+* **6. Chiến Lược Lưu Đệm LiteSpeed / HTTP Caching Tối Ưu ([`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py))**:
+  - Cấu hình `.htaccess` máy chủ Mắt Bão:
+    - Tài nguyên tĩnh có hash version (`.js`, `.css`, `.webp`, `.png`, `.woff2`): `Cache-Control: max-age=31536000, public, immutable` (Lưu 1 năm).
+    - Dữ liệu danh mục & tài liệu (`.json`, `.xml`, `.txt`, `.pdf`): `Cache-Control: max-age=7200, public, must-revalidate` (Lưu 2 giờ kèm kiểm tra cập nhật).
+    - Mã nguồn HTML (`.html`): `Cache-Control: no-cache, no-store, must-revalidate` (Bảo đảm mọi lần phát hành mới người dùng đều nhận bản cập nhật tức thì).
+* **7. Chuẩn Hóa Khám Phá AI Search & LLM Procurement ([`public/llms.txt`](file:///d:/T&TVina/protools/public/llms.txt), [`public/ai-manifest.json`](file:///d:/T&TVina/protools/public/ai-manifest.json), [`public/robots.txt`](file:///d:/T&TVina/protools/public/robots.txt))**:
+  - Thiết lập file chuẩn `llms.txt` cung cấp bối cảnh toàn diện về năng lực phân phối B2B, trụ sở, thông tin liên hệ, danh mục 7.500 SKU và case study VinFast Body Shop cho các trợ lý AI (ChatGPT, Claude, Perplexity, Gemini, Cursor).
+  - Thiết lập `ai-manifest.json` chứa định danh máy đọc (machine-readable) cho hệ thống thu mua vật tư tự động.
+
+### Rule 9.75: Kiểm Thử Chuyên Sâu Của Senior QA Lead (25 Năm Kinh Nghiệm): Vá Lỗi Luồng Tìm Kiếm Header, Bổ Sung Giao Diện Empty State, Hyphen-Tolerant SKU & Bảo Vệ Clipboard (23/09/2026)
+* **1. Vá Lỗi Nghiêm Trọng Về Luồng Dữ Liệu Khi Bấm "Xem Tất Cả Kết Quả Tìm Kiếm"**:
+  - **Phát hiện bug**: Khi người dùng gõ từ khóa trên Header và bấm "Xem tất cả {N} sản phẩm" hoặc gõ phím Enter, hàm `onNavigate('home', searchQuery)` trước đây truyền từ khóa vào `activeCategoryFilter`. Do từ khóa tìm kiếm (như "Quick", "Hakko") không phải slug danh mục hợp lệ, `VirtualCatalogGrid` bị lọc theo danh mục sai và `searchTerm` bị bỏ trống, dẫn đến màn hình thông báo "Tìm thấy 0 thiết bị" dù trong kho có hàng chục sản phẩm.
+  - **Khắc phục triệt để**:
+    - Nâng cấp `handleNavigate(tab, filter, search)` trên toàn bộ chuỗi: [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx) -> [`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx) -> [`src/pages/Home.tsx`](file:///d:/T&TVina/protools/src/pages/Home.tsx) -> [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx).
+    - Tách riêng `activeSearchQuery` độc lập với danh mục. Khi tìm kiếm từ Header, hệ thống tự động reset danh mục về `all`, kích hoạt `searchTerm`, cuộn mượt xuống bảng `#product-catalog` và hiển thị đầy đủ danh sách kết quả phù hợp.
+* **2. Bổ Sung Giao Diện Phản Hồi Rỗng (Zero-Results Empty State UX)**:
+  - **Phát hiện bug**: Khi bộ lọc hoặc từ khóa tìm kiếm không khớp với sản phẩm nào (`filteredProducts.length === 0`), giao diện trước đây hiển thị khoảng trắng trống trơn, không có nút thoát hay hướng dẫn cho người dùng.
+  - **Khắc phục**: Xây dựng khối Empty State chuẩn mực tại [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx): Icon kính lúp xám, thông báo chi tiết các tiêu chí đang lọc (Từ khóa, Hãng, Danh mục, Tồn kho, NVKD), nút bấm 1-click *"Đặt Lại Tất Cả Bộ Lọc"* (khôi phục 7.500 SKU), và nút bấm quay số gọi trực tiếp Hotline tổng đài.
+* **3. Nâng Cấp Thuật Toán Tìm Kiếm Bỏ Dấu Gạch Nối (Hyphen-Tolerant SKU Matching)**:
+  - **Tối ưu trải nghiệm B2B**: Khách hàng mua hàng công nghiệp thường gõ mã hàng liền mạch bỏ dấu gạch ngang (như `MP1081`, `CL4000`, `TTPC0289`, `FX888D`).
+  - **Xử lý kỹ thuật**: Tại [`src/utils/catalogLoader.ts`](file:///d:/T&TVina/protools/src/utils/catalogLoader.ts) và [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx), chuẩn hóa chuỗi `cleanSku` và `cleanToken` loại bỏ `[-_.\s]`, cho phép đối sánh chính xác mã gốc (`MP-1081`, `CL-4000`, `TTPC-0289`) trên cả Header autocomplete và Catalog Grid.
+* **4. An Toàn Sao Chép Clipboard & Link Sản Phẩm Chuẩn SEO Trên Nút Báo Giá Zalo**:
+  - Tại [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx), bọc lệnh `navigator.clipboard.writeText` bằng `try/catch` kèm cơ chế Fallback `document.execCommand('copy')` để chạy mượt mà trên cả các trình duyệt Webview In-App (Facebook, Zalo) bị hạn chế quyền clipboard.
+  - Thay thế `window.location.href` bằng đường dẫn chính thức chuẩn SEO `https://protools.com.vn${getProductPath(product)}`.
+  - Tối ưu chuỗi chữ hiển thị co giãn linh hoạt (`hidden sm:inline` / `sm:hidden`) tránh tràn dòng trên các màn hình điện thoại nhỏ hẹp (< 380px).
+
+### Rule 9.76: Chuẩn Hóa Toàn Diện LLMs (llms.txt / llms-full.txt) & Tối Ưu Hóa Công Cụ Tạo Sinh Kết Hợp Địa Phương Hóa (GEO & Local Entity Grounding) (23/09/2026)
+* **1. Chuẩn Hóa Cấu Trúc Khám Phá AI Search & Large Language Models (LLMs Standard)**:
+  - **Tập tin chỉ mục `public/llms.txt`**: Xây dựng theo đúng đặc tả chuẩn `llmstxt.org` (answer.ai). Bao gồm tiêu đề H1, blockquote tóm lược sứ mệnh nhà phân phối chính thức, hồ sơ pháp lý, địa chỉ tổng kho Hà Nội & Hưng Yên, danh sách thương hiệu ủy quyền (Murrplastik, Hakko, HIOS, Quick, Zcut, Loctite, Samwon), 15 nhóm danh mục ngành hàng kèm clean URL và liên kết đến các endpoint dữ liệu máy đọc (`catalog_index.json`, `sitemap.xml`, `ai-manifest.json`, `llms-full.txt`).
+  - **Tập tin ngữ cảnh chuyên sâu `public/llms-full.txt` (15.7 KB)**: Được thiết kế chuyên biệt để nạp trực tiếp vào ngữ cảnh của các mô hình LLM lớn (Perplexity, ChatGPT Search, Claude, Google Gemini, Cursor, Copilot). Chứa toàn bộ thông số kỹ thuật chi tiết của các thiết bị chủ lực (Murrplastik R-Tec Liner MP-1081 với case study VinFast Body Shop ABB Robots, Quick 205 ESD 150W, Hakko FX-888D, HIOS CL-4000/3000, HP-10, Zcut-9, quạt ion SL-001), điều khoản thương mại B2B (CO/CQ, hóa đơn VAT, điều khoản công nợ NET30 cho nhà máy, bảo hành 12 tháng) và bộ câu hỏi đáp kỹ thuật (FAQ Grounding) mật độ thông tin cao.
+  - **Hồ sơ định danh AI `public/ai-manifest.json`**: Cung cấp metadata về khả năng xử lý báo giá (turnaround 15-30 phút), phân vùng phục vụ, chính sách giao hàng cùng thông tin liên hệ của từng bộ phận kỹ thuật.
+  - **Chỉ thị `public/robots.txt`**: Khai báo quyền truy cập rõ ràng cho các AI bots hàng đầu (`GPTBot`, `ChatGPT-User`, `PerplexityBot`, `ClaudeBot`, `Claude-Web`, `Google-Extended`, `Amazonbot`, `Applebot-Extended`, `Bytespider`, `cohere-ai`, `Diffbot`), đồng thời cho phép truy xuất trực tiếp các file tri thức `/llms.txt`, `/llms-full.txt`, `/ai-manifest.json`.
+* **2. Tối Ưu Hóa GEO (Generative Engine Optimization & Geolocation / Local Authority Grounding)**:
+  - **Thẻ định vị địa lý (Geo Meta Tags)**: Khai báo chuẩn quốc tế trên toàn bộ hệ thống ([`index.html`](file:///d:/T&TVina/protools/index.html), [`src/components/SEOHead.tsx`](file:///d:/T&TVina/protools/src/components/SEOHead.tsx), và static snapshots):
+    - `geo.region`: `VN-HN`
+    - `geo.placename`: `Hà Nội, Hưng Yên, Việt Nam`
+    - `geo.position`: `20.982887;105.881468`
+    - `ICBM`: `20.982887, 105.881468`
+  - **Thẻ liên kết ngữ cảnh AI**: Khai báo `<link rel="alternate" type="text/plain" href="https://protools.com.vn/llms.txt" />` và `<link rel="alternate" type="text/plain" href="https://protools.com.vn/llms-full.txt" />` ngay trong `<head>`.
+  - **Mạng lưới thực thể Schema.org JSON-LD (Corporate & LocalBusiness Graph)**:
+    - Định danh doanh nghiệp đa loại hình: `@type: ["WholesaleStore", "LocalBusiness", "Corporation"]`.
+    - Tọa độ GPS chính xác (`GeoCoordinates` Lat: 20.982887, Long: 105.881468) kèm liên kết Google Maps CID chính thức.
+    - Khai báo chi nhánh phụ trợ (`department`): Kho vận & kỹ thuật Hưng Yên đặt liền kề KCN Liên Hà Thái.
+    - Phạm vi phục vụ công nghiệp (`areaServed`): 10 tỉnh thành trọng điểm Bắc Bộ tập trung chuỗi cung ứng FDI lớn (Hà Nội, Hưng Yên, Bắc Ninh, Bắc Giang, Hải Phòng, Vĩnh Phúc, Hải Dương, Hà Nam, Thái Nguyên, Quảng Ninh).
+    - Các lĩnh vực tri thức công nghiệp chuyên sâu (`knowsAbout`): Xích dẫn cáp robot Murrplastik Đức, máy hàn cao tần Quick, tô vít điện chính xác HIOS, thiết bị phòng sạch ESD, và giải pháp Dresspack xưởng hàn thân xe ô tô VinFast.
+  - **Kế thừa đồng bộ vào Static Snapshots ([`generate_static_snapshots.py`](file:///d:/T&TVina/protools/generate_static_snapshots.py))**: 100% các trang sản phẩm và danh mục tĩnh được tạo sẵn đều tích hợp thẻ Geo và Schema seller với tọa độ địa lý, bảo đảm các bot thu thập dữ liệu không chạy JS vẫn lập chỉ mục và trích dẫn chuẩn xác trong AI Overviews.
+
+
+
+
 

@@ -9,7 +9,14 @@
     "murr_portal": "德国Murrplastik官方专区",
     "hotline": "服务热线",
     "sales": "销售代表",
-    "call_now": "立即致电"
+    "call_now": "立即致电",
+    "dropdown_title": "工业设备与工厂自动化综合目录",
+    "genuine_badge": "100% 原装正品",
+    "portal_btn": "专区直通",
+    "tech_support_hint": "技术选型与规格咨询:",
+    "search_placeholder_mobile": "搜索设备名称、SKU型号: Hakko, Hios, Zcut...",
+    "authorized": "官方授权",
+    "murr_mobile_desc": "工业电缆管理系统、机器人拖链管线包、500+型号目录与3D虚拟展位。"
   },
   "hero": {
     "badge": "越南B2B工业自动化设备总仓",
@@ -29,7 +36,9 @@
     "view_specsheet": "查看技术规格表",
     "official_ecosystem": "官方授权生态:",
     "enter_murr_portal": "进入Murrplastik专页",
-    "explore_solutions": "探索工业解决方案与产品目录"
+    "explore_solutions": "探索工业解决方案与产品目录",
+    "stat_genuine": "原装正品 日本/德国/韩国",
+    "stat_delivery": "工业园区极速直达"
   },
   "solutions": {
     "section_title": "工程与技术解决方案生态",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "越南领先的工业自动化装备、SMT工具、无尘室防静电设备及机器人电缆保护系统总分销商。",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "为越南在境外商直接投资（FDI）制造业工厂提供高品质工业设备、SMT电子组装工具、无尘室防静电及工厂自动化备件。",
+    "hq_label": "公司总部:",
+    "wh_label": "河内办事处与总仓:",
+    "directions_maps": "在谷歌地图中查看导航路线",
+    "map_iframe_title": "T&T Vina 岭南办事处与总仓位置地图",
+    "categories_title": "工业设备与产品类目",
+    "cat_soldering": "焊接设备与全自动焊接机器人",
+    "cat_screwdrivers": "Hios电动螺丝刀与自动锁螺丝机",
+    "cat_dispensing": "自动点胶机与精密涂胶机器人",
+    "cat_tape": "自动胶带切割机与标签剥离机",
+    "cat_testing": "扭力测试仪与烙铁头测温仪",
+    "cat_microscope": "体视显微镜与光学检测相机",
+    "cat_esd": "离子风机与无尘室防静电设备",
+    "cat_murr": "德国Murrplastik莫尔塑料官方专区",
+    "consult_quote_title": "业务咨询与采购报价",
+    "hotline_label": "服务热线:",
+    "sales_label": "国内销售:",
+    "murr_sales_label": "Murr专线:",
+    "project_dept_label": "项目工程部:",
+    "email_label": "电子邮箱:",
+    "featured_title": "核心精选推荐产品",
+    "featured_origin": "100% 日本、德国、韩国原厂出入境正品",
+    "feat_murr_title": "德国莫尔塑料 Murrplastik",
+    "feat_murr_country": "德国",
+    "feat_murr_sub": "拖链系统与机器人管线包",
+    "feat_glue_title": "983A / SP-982 自动点胶机",
+    "feat_glue_sub": "自动与半自动精密点胶",
+    "feat_hios_title": "好握速 Hios CL-4000 电批",
+    "feat_hios_sub": "锁付工具与HP-10扭力计",
+    "feat_solder_title": "白光Hakko / 快克Quick 焊台",
+    "feat_solder_sub": "Hakko 936、焊枪与熔锡炉",
+    "feat_tape_title": "Zcut 9 自动胶带切割机",
+    "feat_tape_sub": "双卷同时切割与标签剥离",
+    "feat_micro_title": "SM-3TPZ 三目连续变倍体视显微镜",
+    "feat_micro_sub": "SMT元器件外观质检与光学检测",
+    "btn_quick_bom": "一键生成BOM采购报价清单",
+    "copyright_disclaimer": "所有产品内容、高清实物图片、技术目录和规格参数均归 T&T Vina Industrial Co., Ltd. 所有。未经书面授权，严禁任何形式的复制、爬取或转载。",
+    "badge_b2b": "B2B工业级交付",
+    "badge_genuine": "100% 原厂正品",
+    "badge_support": "24/7 全天候响应"
   },
   "header": {
     "hq_label": "总仓基地",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "实物工业装备目录",
-    "section_title": "设备参数与技术选型清单",
+    "section_title": "工业设备目录",
     "hover_zoom": "悬停鼠标局部放大",
     "details": "查看详情",
     "add_rfq": "+ 询价",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "工业显微镜与检测",
     "cat_dung_cu_chong_tinh_dien": "防静电 ESD 控制",
     "cat_murrplastik": "德国 Murrplastik 专区",
-    "cat_thiet_bi_dong_goi": "全自动包装设备"
+    "cat_thiet_bi_dong_goi": "全自动包装设备",
+    "warehouse_badge": "B2B 工业设备采购总库",
+    "section_desc": "快速查阅技术规格、现货库存状态以及各产品对接业务工程师联系方式。",
+    "in_stock_toggle": "现货库存",
+    "view_grid": "网格视图",
+    "view_table": "表格列表视图",
+    "search_placeholder": "按SKU编号、设备名称、螺纹规格、品牌快速检索...",
+    "sales_rep_label": "业务对接:",
+    "all_reps": "全部销售专员 / 热线",
+    "tab_all": "全部",
+    "found": "找到",
+    "matching_items": "款匹配设备",
+    "for_keyword": "关键词",
+    "showing": "显示",
+    "updating_image": "图片更新中",
+    "in_stock_badge": "现货",
+    "project_order": "订货",
+    "btn_detail": "详情",
+    "btn_rfq": "+ 询价",
+    "btn_load_more": "加载更多产品",
+    "showing_progress": "正在显示",
+    "of_total": "/",
+    "products_unit": "款产品",
+    "table_no": "序号",
+    "table_sku": "SKU编号",
+    "table_name": "设备/零件名称",
+    "table_category": "工业分类",
+    "table_status": "库存状态",
+    "table_rep": "报价负责人",
+    "table_actions": "快捷操作"
   },
   "product_detail": {
     "breadcrumb_home": "首页",
@@ -165,5 +243,23 @@
     "copied": "已复制",
     "copy": "复制",
     "close": "关闭"
+  },
+  "impact": {
+    "partner_factories_title": "合作制造工厂",
+    "partner_factories_desc": "覆盖越南全国重点工业园区"
+  },
+  "faq": {
+    "badge": "技术与采购常见问题",
+    "title": "常见问答 (FAQ)",
+    "subtitle": "解答关于原厂CO/CQ证书、12个月保修、在越工厂上门试样及报价周期的常见咨询。",
+    "cta_question": "针对工厂特定自动化或SMT生产线有技术疑问？",
+    "cta_btn": "工程师咨询热线: "
+  },
+  "murr_banner": {
+    "badge": "完整产品目录与 CAD 三维图纸",
+    "title": "前往 Murrplastik 德国专区，查阅 500+ 型号与技术选型图纸",
+    "desc": "需要查阅详细外形尺寸、PDF 技术手册、UL94 阻燃认证或工业机器人管线包选型？欢迎访问 Murrplastik 越南专区获取专属技术支持。",
+    "btn_portal": "访问 Murrplastik 越南专区",
+    "btn_booth": "VEC 2026 展位 3D 漫游"
   }
 }

@@ -9,7 +9,14 @@
     "murr_portal": "Murrplastik Deutschland Portal",
     "hotline": "Hotline",
     "sales": "Vertrieb",
-    "call_now": "Jetzt anrufen"
+    "call_now": "Jetzt anrufen",
+    "dropdown_title": "Industrieausrüstung & Automatisierungskatalog",
+    "genuine_badge": "100% Original",
+    "portal_btn": "Offizielles Portal",
+    "tech_support_hint": "Technische Auswahlberatung:",
+    "search_placeholder_mobile": "Modell, SKU suchen: Hakko, Hios, Zcut...",
+    "authorized": "Autorisiert",
+    "murr_mobile_desc": "Industrielles Kabelmanagement, Roboter-Dresspacks, 500+ Katalog & virtueller 3D-Messestand."
   },
   "hero": {
     "badge": "B2B-INDUSTRIEGROSSHANDEL VIETNAM",
@@ -29,7 +36,9 @@
     "view_specsheet": "Datenblatt ansehen",
     "official_ecosystem": "Offizielles Ökosystem:",
     "enter_murr_portal": "Zum Murrplastik-Portal",
-    "explore_solutions": "Lösungen & Katalog entdecken"
+    "explore_solutions": "Lösungen & Katalog entdecken",
+    "stat_genuine": "Original Japan / Deutschland / Korea",
+    "stat_delivery": "Lieferung an Industrieparks"
   },
   "solutions": {
     "section_title": "Technische Lösungssysteme",
@@ -68,7 +77,47 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "Vietnams führender B2B-Distributor für Industrieausrüstung, SMT-Werkzeuge, Reinraum & Roboterkabel-Management.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital"
+    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "slogan": "Führender Anbieter von Industrieausrüstung, SMT-Montagewerkzeugen, Reinraumtechnik und Fabrikautomation für FDI-Werke in Vietnam.",
+    "hq_label": "Hauptsitz:",
+    "wh_label": "Büro & Lager Hanoi:",
+    "directions_maps": "Wegbeschreibung auf Google Maps",
+    "map_iframe_title": "Karte T&T Vina Linh Nam Büro & Lager",
+    "categories_title": "Gerätekategorien",
+    "cat_soldering": "Lötstationen & Automatische Lötroboter",
+    "cat_screwdrivers": "Hios-Schrauber & Schraubroboter",
+    "cat_dispensing": "Dosierwerkzeuge & Dosierroboter",
+    "cat_tape": "Bandspender & Etikettenspender",
+    "cat_testing": "Drehmoment- & Temperaturprüfgeräte",
+    "cat_microscope": "Stereomikroskope & Prüfkameras",
+    "cat_esd": "Ionisationsgebläse & ESD-Bedarf",
+    "cat_murr": "Murrplastik Deutschland Portal",
+    "consult_quote_title": "Beratung & Angebot",
+    "hotline_label": "Hotline:",
+    "sales_label": "Vertrieb:",
+    "murr_sales_label": "Murr Vertrieb:",
+    "project_dept_label": "Projektabteilung:",
+    "email_label": "E-Mail:",
+    "featured_title": "HIGHLIGHT-PRODUKTE",
+    "featured_origin": "100% Herkunft aus Japan, Deutschland, Korea",
+    "feat_murr_title": "Murrplastik (Deutschland)",
+    "feat_murr_country": "DE",
+    "feat_murr_sub": "Energieführungsketten & Robotik",
+    "feat_glue_title": "Dosiergerät 983A / SP-982",
+    "feat_glue_sub": "Auto- & Halbautomatische Dosierung",
+    "feat_hios_title": "Hios CL-4000 Elektroschrauber",
+    "feat_hios_sub": "Schrauber & HP-10 Drehmomentmesser",
+    "feat_solder_title": "Hakko / Quick Lötstation",
+    "feat_solder_sub": "Hakko 936, Kolben & Löttiegel",
+    "feat_tape_title": "Zcut 9 Automatenspender",
+    "feat_tape_sub": "Doppelrollenschnitt & Etiketten",
+    "feat_micro_title": "SM-3TPZ Stereomikroskop",
+    "feat_micro_sub": "Bauteilprüfung & Optische QS",
+    "btn_quick_bom": "Schnelle BOM-Anfrageliste erstellen",
+    "copyright_disclaimer": "Alle Inhalte, Produktbilder, Kataloge und technischen Spezifikationen sind Eigentum der T&T Vina Industrial Co., Ltd. Jegliche Vervielfältigung ohne schriftliche Genehmigung ist untersagt.",
+    "badge_b2b": "B2B-Standard",
+    "badge_genuine": "100% Original",
+    "badge_support": "24/7 Support"
   },
   "header": {
     "hq_label": "Hauptsitz",
@@ -80,7 +129,7 @@
   },
   "catalog": {
     "section_badge": "Industrieausrüstungskatalog",
-    "section_title": "Spezifikations- und Geräteliste",
+    "section_title": "Gerätekatalog",
     "hover_zoom": "Mauszeiger zum Zoomen",
     "details": "Details",
     "add_rfq": "+ Angebot",
@@ -96,7 +145,36 @@
     "cat_camera_kinh_soi": "Mikroskope & Inspektion",
     "cat_dung_cu_chong_tinh_dien": "ESD-Statikkontrolle",
     "cat_murrplastik": "Murrplastik Deutschland",
-    "cat_thiet_bi_dong_goi": "Verpackungsautomation"
+    "cat_thiet_bi_dong_goi": "Verpackungsautomation",
+    "warehouse_badge": "B2B-INDUSTRIEAUSRÜSTUNGS-HUB",
+    "section_desc": "Schnelle Abfrage von technischen Daten, Lagerbestand und Vertriebskontakten.",
+    "in_stock_toggle": "Auf Lager",
+    "view_grid": "Rasteransicht",
+    "view_table": "Tabellenansicht",
+    "search_placeholder": "Nach SKU, Gerätename, Spezifikation, Marke suchen...",
+    "sales_rep_label": "Vertrieb:",
+    "all_reps": "Alle Vertriebsingenieure / Hotline",
+    "tab_all": "Alle",
+    "found": "Gefunden",
+    "matching_items": "passende Artikel",
+    "for_keyword": "für Suchbegriff",
+    "showing": "Anzeige",
+    "updating_image": "Bild wird aktualisiert",
+    "in_stock_badge": "Auf Lager",
+    "project_order": "Projektbestellung",
+    "btn_detail": "Details",
+    "btn_rfq": "+ Angebot",
+    "btn_load_more": "Weitere Produkte laden",
+    "showing_progress": "Angezeigt",
+    "of_total": "/",
+    "products_unit": "Produkte",
+    "table_no": "Nr.",
+    "table_sku": "SKU",
+    "table_name": "Geräte- / Teilebezeichnung",
+    "table_category": "Kategorie",
+    "table_status": "Status",
+    "table_rep": "Ansprechpartner",
+    "table_actions": "Aktionen"
   },
   "product_detail": {
     "breadcrumb_home": "Startseite",
@@ -165,5 +243,23 @@
     "copied": "Kopiert",
     "copy": "Kopieren",
     "close": "Schließen"
+  },
+  "impact": {
+    "partner_factories_title": "Partnerfabriken",
+    "partner_factories_desc": "Schwerpunkt-Industrieparks landesweit"
+  },
+  "faq": {
+    "badge": "Technik- & Beschaffungs-FAQ",
+    "title": "Häufig gestellte Fragen (FAQ)",
+    "subtitle": "Detaillierte Antworten zu CO/CQ-Zertifikaten, Garantie, Vor-Ort-Testläufen und Angebotszeiten.",
+    "cta_question": "Haben Sie spezielle technische Fragen zu Ihrer Fertigungslinie?",
+    "cta_btn": "Beratungs-Hotline: "
+  },
+  "murr_banner": {
+    "badge": "Vollständiger Katalog & Technische CAD-Zeichnungen",
+    "title": "Entdecken Sie 500+ Artikel & CAD-Modelle im Murrplastik-Portal",
+    "desc": "Benötigen Sie Maßzeichnungen, PDF-Datenblätter, UL94-Zertifikate oder Energieführungsketten für Industrieroboter? Besuchen Sie das Murrplastik-Portal für 1:1-Engineering-Support.",
+    "btn_portal": "Murrplastik-Portal aufrufen",
+    "btn_booth": "3D-Simulation des VEC 2026 Standes"
   }
 }

@@ -1,0 +1,105 @@
+{
+  "name": "Protools B2B Industrial Catalog & Engineering Hub",
+  "short_name": "Protools",
+  "url": "https://protools.com.vn",
+  "description": "B2B industrial distribution and engineering portal for 7,500+ genuine automation components, German Murrplastik robotics cable protection, Japanese Hakko/Quick soldering systems, HIOS precision electric screwdrivers, and ESD cleanroom solutions in Vietnam.",
+  "publisher": {
+    "name": "T&T VINA INDUSTRIAL CO., LTD",
+    "legal_name": "CÔNG TY TNHH CÔNG NGHIỆP T&T VINA",
+    "email": "t2t.vina@gmail.com",
+    "hotline": "0915.168.824",
+    "tax_id": "0108392186",
+    "headquarters": {
+      "address": "Thôn Trà Hồi, Xã Thái Thụy, Tỉnh Hưng Yên, Việt Nam",
+      "landmark": "1km from Lien Ha Thai Industrial Park"
+    },
+    "distribution_hub_hanoi": {
+      "address": "Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội, Việt Nam",
+      "geo": {
+        "latitude": 20.982887,
+        "longitude": 105.881468
+      },
+      "google_maps": "https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7",
+      "place_cid": "0x3135af26d2bb1e0f:0x65f178554a3bb4aa"
+    }
+  },
+  "geo_targeting": {
+    "primary_country": "VN",
+    "target_regions": [
+      "Hà Nội",
+      "Hưng Yên",
+      "Bắc Ninh",
+      "Bắc Giang",
+      "Hải Phòng",
+      "Vĩnh Phúc",
+      "Hải Dương",
+      "Hà Nam",
+      "Thái Nguyên",
+      "Quảng Ninh"
+    ],
+    "key_industrial_zones_served": [
+      "KCN Liên Hà Thái",
+      "KCN Đình Vũ - Cát Hải (VinFast Body Shop)",
+      "KCN Yên Phong (Samsung SEV)",
+      "KCN Yên Bình (Samsung SEVT)",
+      "KCN Quang Châu (Foxconn / Luxshare)",
+      "KCN VSIP Hải Phòng",
+      "KCN Thăng Long I & II",
+      "KCN Khai Quang"
+    ]
+  },
+  "capabilities": {
+    "total_skus": 7500,
+    "quote_turnaround_minutes": "15-30",
+    "delivery_sla": "Same-day to 24 hours for in-stock items",
+    "warranty_months": 12,
+    "statutory_compliance": ["CO", "CQ", "VAT Invoice"],
+    "rfq_endpoint": "https://protools.com.vn/gio-bao-gia",
+    "catalog_index": "https://protools.com.vn/data/catalog_index.json",
+    "sitemap": "https://protools.com.vn/sitemap.xml",
+    "llms_txt": "https://protools.com.vn/llms.txt",
+    "llms_full_txt": "https://protools.com.vn/llms-full.txt"
+  },
+  "authorized_brands": [
+    "Murrplastik",
+    "Hakko",
+    "HIOS",
+    "Quick",
+    "Zcut",
+    "Dr. Schneider",
+    "Loctite",
+    "Samwon"
+  ],
+  "supported_languages": [
+    "vi",
+    "en",
+    "zh-CN",
+    "de",
+    "ko",
+    "ja",
+    "th"
+  ],
+  "featured_solutions": [
+    {
+      "name": "Murrplastik 3D Robotics Cable Retraction (R-Tec Liner)",
+      "url": "https://protools.com.vn/san-pham/bo-chong-xoan-cap-robot-r-tec-liner-mp-1081/",
+      "case_study": "VinFast Automotive Complex Cat Hai - Body Shop ABB Welding Robots"
+    },
+    {
+      "name": "Murrplastik Cable Entry Systems (KDL/E, KDP)",
+      "url": "https://protools.com.vn/murrplastik/"
+    },
+    {
+      "name": "Quick 205 ESD High-Frequency Soldering Station (150W)",
+      "url": "https://protools.com.vn/san-pham/tram-han-cao-tan-quick-205-esd-150w-ttpc-0289/"
+    },
+    {
+      "name": "HIOS CL-4000 Precision Electric Torque Screwdriver",
+      "url": "https://protools.com.vn/danh-muc/may-bat-vit-nha-vit"
+    },
+    {
+      "name": "Dr. Schneider SL-001 Ionizing Blower",
+      "url": "https://protools.com.vn/danh-muc/dung-cu-chong-tinh-dien"
+    }
+  ]
+}

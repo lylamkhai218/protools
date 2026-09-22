@@ -25,5 +25,11 @@ upload_*.py
 backup_*.py
 *.py
 
+# Raw spreadsheets and heavy internal pipeline datasets
+*.xlsx
+!Xometry_Production_Competencies_Bilingual.xlsx
+public/images/products/sapo/
+public/data/sapo_*.json
+
 # Scratch and temporary agent files
 scratch/
