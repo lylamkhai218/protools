@@ -17,6 +17,7 @@ backups/
 *.tar.gz
 __pycache__/
 *.pyc
+~$*
 
 # Local deploy scripts containing server credentials
 deploy_*.py
@@ -27,6 +28,7 @@ backup_*.py
 
 # Raw spreadsheets and heavy internal pipeline datasets
 *.xlsx
+*.pptx
 !Xometry_Production_Competencies_Bilingual.xlsx
 public/images/products/sapo/
 public/data/sapo_*.json

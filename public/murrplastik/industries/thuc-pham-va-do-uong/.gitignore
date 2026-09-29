@@ -1,0 +1,10 @@
+# System generated
+.agents/
+.DS_Store
+Thumbs.db
+
+# Backups and copies
+* - Copy.*
+* - Copy
+*.tmp
+*.log
