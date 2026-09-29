@@ -1346,13 +1346,20 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     5. `https://protools.com.vn/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/` (200 OK)
     6. `https://protools.com.vn/murrplastik/tin-tuc/trien-lam-vec-2026/` (200 OK)
 
-
-
-
-
-
-
-
-
-
+### 🎨 Rule 9.83: Quy Chuẩn Floating Hub #0068FF, Iframe Zoom Controls & Cơ Chế Xử Lý Kẹt Custom Cursor (29/09/2026)
+* **1. Đồng Bộ Màu Thương Hiệu & Layout Floating Hub F&B**:
+  - Tại trang Thực phẩm & Đồ uống (`murrplastik/industries/thuc-pham-va-do-uong/`), chuyển toàn bộ nút liên hệ (`.float-btn`, `.float-btn.phone`, `.float-btn.zalo`, `.float-btn.messenger`) và hiệu ứng hào quang phát xung (`pulse-blue`) sang mã màu `#0068FF`.
+  - Tái định vị cụm liên hệ nổi sang góc dưới bên phải (`bottom: 90px; right: 30px;`), nằm thẳng hàng phía trên nút `#backToTop` (`bottom: 30px; right: 30px;`), đồng bộ màu nền `#0068FF` cho cả nút Back to Top.
+* **2. Kích Hoạt Điều Khiển Thu/Phóng (Zoom Controls) Cho Iframe Google Maps**:
+  - Google Maps Embed API tự động ẩn các nút zoom `+` / `-` nếu khung iframe có chiều cao < 250px.
+  - Tăng chiều cao lên `height="280"` (CSS `height: 280px; width: 100%;`) trên toàn bộ 6 trang Murrplastik để hiển thị đầy đủ bộ công cụ thu phóng và điều hướng bản đồ.
+* **3. Cơ Chế Triệt Tiêu Lỗi Kẹt Custom Cursor Khi Hover Vào Iframe (Iframe Cursor Decoupling)**:
+  - **Nguyên nhân**: Sự kiện `mousemove` của trình duyệt bị gián đoạn khi chuột di chuyển vào khung `<iframe>` khác nguồn (Cross-Origin), dẫn đến con trỏ chuột custom (`.cursor-arrow-svg`, `.cursor-glow-aura`) bị đóng băng tại mép iframe trong khi chuột mặc định xuất hiện bên trong.
+  - **Giải pháp kỹ thuật**:
+    - Bổ sung class `body.cursor-inside-iframe` trong `main.css` ẩn triệt để cả 2 phần tử custom cursor (`opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;`).
+    - Lắng nghe sự kiện `mouseenter` / `mouseover` trên `.footer-map-container` và `iframe` trong `main.js` để kích hoạt class này.
+    - Kết hợp lắng nghe `window.addEventListener('blur')` (khi user click vào map) và tự động khôi phục ngược lại khi chuột quay lại cửa sổ chính (`mousemove` / `focus`).
+    - Tăng tốc độ bám theo (lerp `0.35`), loại bỏ transition width/height gây lag / reflow trên màn hình.
+* **4. Chuẩn Hóa Đường Dẫn Thumbnail Trang Tin Tức `murrplastik/tin-tuc/`**:
+  - Đối với trang danh sách tin tức tại thư mục con cấp 1 (`/murrplastik/tin-tuc/`), đường dẫn tài nguyên ảnh cần sử dụng tiền tố `../` (`../Hình ảnh thực tế/...`, `../Ảnh thi công/...`) để trỏ chính xác vào thư mục tài nguyên gốc của Murrplastik.
 
