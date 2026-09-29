@@ -1363,3 +1363,16 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
 * **4. Chuẩn Hóa Đường Dẫn Thumbnail Trang Tin Tức `murrplastik/tin-tuc/`**:
   - Đối với trang danh sách tin tức tại thư mục con cấp 1 (`/murrplastik/tin-tuc/`), đường dẫn tài nguyên ảnh cần sử dụng tiền tố `../` (`../Hình ảnh thực tế/...`, `../Ảnh thi công/...`) để trỏ chính xác vào thư mục tài nguyên gốc của Murrplastik.
 
+### 🚨 Rule 9.84: Hồ Sơ Phân Tích Sự Cố DNS Cụm Mắt Bão & Phương Án Dự Phòng Cao Cấp (29/09/2026)
+* **1. Bản Chất Sự Cố (Root Cause Verdict)**:
+  - Mã lỗi trình duyệt: `net::ERR_NAME_NOT_RESOLVED` (*"protools.com.vn's server IP address could not be found"*).
+  - Trạng thái Hosting Server (`112.78.2.34` - `s2d34.cloudnetwork.vn`): 100% Hoạt động bình thường. Máy chủ LiteSpeed, Database MariaDB, Chứng chỉ SSL và mã nguồn đều nguyên vẹn (Port 21, 80, 443, 2222 đều phản hồi `TcpTestSucceeded: True`; lệnh `curl -I -k --resolve` trả về `HTTP/1.1 200 OK` trong 50ms).
+  - Nguyên nhân gốc: Cụm máy chủ phân giải tên miền (Authoritative Nameservers) truyền thống của Mắt Bão (`ns1/ns2.matbao.vn` và `ns1/ns2.matbao.com` tại các IP `103.110.128.60`, `103.138.89.11`, `35.198.203.127`, `13.250.228.99`) bị sập dịch vụ / treo mạng trên diện rộng. Cả tên miền chính thức của nhà mạng là `matbao.vn` cũng bị lỗi phân giải tương tự.
+* **2. Bằng Chứng Kỹ Thuật (Live Forensics Proof)**:
+  - Google DNS DoH: `Name servers did not respond [103.110.128.60, 103.138.89.11, 35.198.203.127, 13.250.228.99]` (Status 2 / SERVFAIL / EDE 22: *No Reachable Authority at delegation protools.com.vn*).
+  - Cloudflare DNS DoH: `EDE(22): No Reachable Authority at delegation protools.com.vn`.
+  - Phân giải đối chứng `matbao.vn`: `Name servers did not respond [35.198.203.127, 13.250.228.99, 103.110.128.60, 103.138.89.11]`.
+* **3. Kế Hoạch Ứng Phó Khẩn Cấp & Dài Hạn (Emergency Playbook)**:
+  - **Khắc phục tức thì phía Client (Zero-Wait Local Workaround)**: Thêm trực tiếp dòng `112.78.2.34 protools.com.vn www.protools.com.vn` vào file `C:\Windows\System32\drivers\etc\hosts` (chạy PowerShell bằng quyền Administrator) để bỏ qua tầng DNS trung gian và truy cập website tốc độ cao ngay lập tức.
+  - **Khắc phục triệt để tầng hạ tầng (Permanent Global Mitigation)**: Đăng nhập trang quản trị tên miền `https://id.matbao.net/`, chuyển cặp NameServer từ cụm truyền thống sang Cloudflare DNS (`*.ns.cloudflare.com`) hoặc cụm Cloud DNS mới của Mắt Bão (`ns-cloud1.matbao.com` / `ns-cloud2.matbao.com` tại IP Google Cloud `104.199.192.117`).
+
