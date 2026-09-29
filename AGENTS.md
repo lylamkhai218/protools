@@ -1257,7 +1257,99 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     - Bấm vào ngành hàng tự động cuộn mượt xuống bảng `#product-catalog` và kích hoạt bộ lọc tương ứng.
 * **3. Tương Tác Bàn Phím & Đồng Bộ Mobile Drawer**:
   - Hỗ trợ phím tắt `Escape` đóng nhanh popup, `onMouseDown={(e) => e.preventDefault()}` ngăn mất focus đột ngột trước khi click xử lý.
-  - Đồng bộ khối gợi ý từ khóa nhanh vào ngăn kéo điều hướng trên điện thoại di động (Mobile Menu Drawer).
+
+### Rule 9.78: Chuẩn Hóa Thumbnail Thực Địa Robot ABB & Credit Tác Giả Bài Viết Chuyên Ngành Ô Tô (Automotive Case Study Thumbnail & Author Byline Standard) (29/09/2026)
+* **1. Cập Nhật Thumbnail Thực Địa Bài Viết Ô Tô (`protools.com.vn/murrplastik/industries/san-xuat-o-to`)**:
+  - **Tài nguyên ảnh gốc**: Sử dụng ảnh thi công thực địa chất lượng cao `Setup R-Tec-Liner lên thân robot ABB.jpg` (2568x1926) từ xưởng Body Shop VinFast Cát Hải.
+  - **Khối Hero Thumbnail trực tiếp trên bài viết**: Bổ sung khối ảnh đại diện tiêu điểm ngay dưới phần thông tin biên bản họp với thẻ `<img src="./Ảnh thi công/Setup R-Tec-Liner lên thân robot ABB.jpg" alt="Setup R-Tec-Liner lên thân robot ABB tại VinFast">` kèm chú thích ảnh chuyên nghiệp và tag tác giả.
+  - **Đồng bộ toàn diện ảnh thẻ đại diện (News Card Thumbnails)**: Chuyển đổi và tối ưu ảnh sang tỉ lệ vàng 16:9 (`1200x675`) định dạng WebP và JPG chất lượng cao tại [`public/murrplastik/assets/images/tin-tuc/giai-phap-dress-pack-robot-o-to-murrplastik.webp`](file:///d:/T&TVina/protools/public/murrplastik/assets/images/tin-tuc/giai-phap-dress-pack-robot-o-to-murrplastik.webp) và `.jpg`, giúp đồng bộ sắc nét tức thì trên:
+    1. Trang chủ Murrplastik ([`public/murrplastik/index.html`](file:///d:/T&TVina/protools/public/murrplastik/index.html)).
+    2. Danh mục tin tức & sự kiện ([`public/murrplastik/tin-tuc/index.html`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/index.html)).
+    3. Thẻ bài viết liên quan trong báo cáo thử nghiệm 17.75M chu kỳ ([`public/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html`](file:///d:/T&TVina/protools/public/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/index.html)).
+  - **SEO & Social Open Graph**: Cập nhật thẻ `og:image`, `twitter:image` và cấu trúc `TechArticle` schema trỏ trực tiếp đến ảnh thumbnail mới, chuẩn hóa canonical domain về `https://protools.com.vn/murrplastik/industries/san-xuat-o-to/`.
+* **2. Bổ Sung Credit Người Viết Bài Tại Chân Trang (Footer Author Byline)**:
+  - Bổ sung chỉ định tác giả chính thức tại footer trang `san-xuat-o-to`: `by Mr. Kai @ T&T Vina Digital`.
+  - Hỗ trợ đầy đủ cơ chế song ngữ VI / EN qua [`public/murrplastik/industries/san-xuat-o-to/app.js`](file:///d:/T&TVina/protools/public/murrplastik/industries/san-xuat-o-to/app.js) với key `footer.author` (`Người viết bài: by Mr. Kai @ T&T Vina Digital` / `Author / Contributor: by Mr. Kai @ T&T Vina Digital`).
+  - Đồng bộ khai báo thực thể tác giả `@type: Person` (`Mr. Kai @ T&T Vina Digital`) vào JSON-LD Schema của bài viết.
+* **3. Đầy Đủ Tài Nguyên Bản Quyền & Thư Mục Thi Công Thực Tế**:
+  - Sao chép toàn bộ các thư mục vật tư và tài liệu gốc vào [`public/murrplastik/industries/san-xuat-o-to/`](file:///d:/T&TVina/protools/public/murrplastik/industries/san-xuat-o-to/): `Ảnh thi công`, `Ảnh hiện trạng`, `Ảnh giải pháp`, `Ảnh phụ kiện ABB 6700 Murrplastik`, `Ảnh phụ kiện ABB 7600 Murrplastik`, `Bao_cao_giai_phap_Vinfast_Murrplastik.pdf`, `R-Tec_Liner_550mm.stl`.
+
+### Rule 9.79: Chuẩn Hóa Thư Viện Tài Liệu Ngành Thực Phẩm & Đồ Uống F&B (F&B Industry Document Library & Assets Consolidation) (29/09/2026)
+* **1. Mục tiêu & Phạm vi**:
+  - Cập nhật chính xác 3 tài liệu kỹ thuật cốt lõi tại section `#library` của trang chuyên ngành Thực phẩm & Đồ uống (`protools.com.vn/murrplastik/industries/thuc-pham-va-do-uong/`).
+* **2. Chi tiết 3 Tài liệu Thay thế**:
+  - **Tài liệu 1 - Brochure Giải Pháp Đi Dây F&B**:
+    - Nguồn: `D:\T&TVina\murrplastik_code\industries\thuc-pham-va-do-uong\Exp\f&b_hygienic_cabling_murrplastik_pdf.pdf` (1.2 MB).
+    - Đường dẫn web: `Exp/f%26b_hygienic_cabling_murrplastik_pdf.pdf` (tạo kèm bản URL-encoded để phòng ngừa lỗi ký tự `&` trên web server LiteSpeed).
+    - Đồng bộ link tải tại khối Hero và Footer CTA của trang.
+  - **Tài liệu 2 - Catalog Tấm Dẫn Cáp FDA Murrplastik**:
+    - Nguồn: `D:\T&TVina\murrplastik_code\industries\thuc-pham-va-do-uong\Catalog\cable_entry_systems_FDA_broshure_murrplastik_vn.pdf` (8.9 MB).
+    - Đường dẫn web: `Catalog/cable_entry_systems_FDA_broshure_murrplastik_vn.pdf`.
+  - **Tài liệu 3 - Poster Sơ Đồ Đi Dây F&B A2 (Bản Việt)**:
+    - Nguồn: `D:\T&TVina\murrplastik_code\industries\thuc-pham-va-do-uong\Catalog\Poster_A2_FoodBeverage_murrplastik_preview_VN.pdf` (5.7 MB).
+    - Đường dẫn web: `Catalog/Poster_A2_FoodBeverage_murrplastik_preview_VN.pdf`.
+* **3. Quy chuẩn Thẩm mỹ & Giao diện (No Windows Emoji Standard)**:
+  - Loại bỏ hoàn toàn các emoji mặc định hệ điều hành trong các thẻ badge/button của section `#library` (thay thế bằng icon vector SVG đơn sắc kỹ thuật).
+  - Cập nhật nhãn dung lượng chính xác (1.2 MB, 8.9 MB, 5.7 MB) trên cả giao diện tĩnh và từ điển đa ngữ [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js) (hỗ trợ cả tiếng Việt và tiếng Anh).
+* **4. Đồng bộ Toàn bộ Tài nguyên Trực quan F&B**:
+  - Sao chép toàn bộ các thư mục vật tư gốc từ `murrplastik_code` sang [`public/murrplastik/industries/thuc-pham-va-do-uong/`](file:///d:/T&TVina/protools/public/murrplastik/industries/thuc-pham-va-do-uong/): `Exp/`, `Catalog/`, `Facebook/`, `Hình ảnh thực tế/`, `Ảnh sản phẩm/` và các video trình diễn `.mp4`, giải quyết triệt để lỗi thiếu asset 404 khi người dùng tải tài liệu hoặc xem video demo.
+
+### Rule 9.80: Cơ Chế Khử Cache Cho Modal Xem Trực Tiếp Tài Liệu & Đồng Bộ Production F&B (PDF Viewer Cache-Busting & Live Production Sync) (29/09/2026)
+* **1. Sự cố Phản hồi Chậm Đổi Nội Dung Trên Trình Duyệt**:
+  - Khi xem tài liệu qua iframe modal (`openPdf`), trình duyệt (Chrome/Edge) và LiteSpeed Web Server lưu cache file PDF theo URL tĩnh (`max-age=7200`), khiến người dùng vẫn nhìn thấy nội dung file PDF cũ ngay cả khi file mới đã tải lên.
+* **2. Giải pháp Kỹ thuật Khử Cache Tức thì (Cache-Busting)**:
+  - Cập nhật hàm `openPdf(url, title)` tại [`public/murrplastik/industries/thuc-pham-va-do-uong/index.html`](file:///d:/T&TVina/protools/public/murrplastik/industries/thuc-pham-va-do-uong/index.html): Tự động nối chuỗi tham số timestamp `v=Date.now()` vào URL (`fullUrl = url + (url.indexOf('?') !== -1 ? '&' : '?') + 'v=' + Date.now()`).
+  - Áp dụng đồng bộ cho cả chế độ Iframe Modal trên máy tính và `window.open(fullUrl, '_blank')` trên thiết bị di động.
+* **3. Chuẩn Hóa Nhãn Nút Hành Động**:
+  - Đồng bộ nhãn nút bấm từ "Xem trực tuyến" thành **"Xem trực tiếp"** trên thẻ HTML và từ điển [`public/murrplastik/assets/js/i18n.js`](file:///d:/T&TVina/protools/public/murrplastik/assets/js/i18n.js) (`fb.doc.online`).
+* **4. Xác Thực Đồng Bộ Production Trực Tiếp (Live Verification)**:
+  - Tải thành công toàn bộ bundle và 3 file PDF mới lên máy chủ Production (`s2d34.cloudnetwork.vn`):
+    - `Exp/f%26b_hygienic_cabling_murrplastik_pdf.pdf`: `1,237,916 bytes` (HTTP 200 OK, timestamp cập nhật hôm nay).
+    - `Catalog/cable_entry_systems_FDA_broshure_murrplastik_vn.pdf`: `9,313,914 bytes` (HTTP 200 OK).
+    - `Catalog/Poster_A2_FoodBeverage_murrplastik_preview_VN.pdf`: `5,945,241 bytes` (HTTP 200 OK).
+
+### Rule 9.81: Đồng Bộ Màu Sắc Nhận Diện F&B & Cập Nhật Thumbnail Thẻ Tin Tức Hub Murrplastik (F&B Theme Blue Sync & Hub News Cards Thumbnails Update) (29/09/2026)
+* **1. Đồng Bộ Màu Nhận Diện Trang F&B (`/murrplastik/industries/thuc-pham-va-do-uong/`)**:
+  - **Nút Chuyển Ngôn Ngữ (`.lang-btn button.active`)**: Đổi nền từ màu đỏ sang màu xanh đại dương `var(--blue)` (`#0077B6`) và hover `color: var(--blue)` để đồng bộ toàn diện với bảng màu vệ sinh ATTP.
+  - **Liên Kết Điều Hướng Trang Chủ (`.nav-link` Trang chủ)**: Đổi style màu từ đỏ (`color:var(--red)`) sang xanh (`color:var(--blue); font-weight:700`).
+  - **Nút Liên Hệ Nổi (`.float-btn.phone`)**: Đổi từ màu đỏ sang xanh `var(--blue)` kèm hiệu ứng lan tỏa ánh sáng xanh `@keyframes pulse-blue` (`rgba(0, 119, 182, 0.6)`), đồng bộ với 2 nút Zalo và Messenger bên dưới.
+* **2. Cập Nhật Thumbnail Thẻ Tin Tức Hub Murrplastik (`https://protools.com.vn/murrplastik/`)**:
+  - **Thẻ Ô Tô & Robotics (`news-item-card`)**: Thay thế thumbnail bằng ảnh thi công thực tế tại VinFast:
+    `<img src="./Ảnh thi công/Setup R-Tec-Liner lên thân robot ABB.jpg" alt="Giải pháp cáp & Dress Pack ngành sản xuất ô tô tự động hóa" loading="lazy" width="600" height="300">`.
+  - **Thẻ Tiêu Điểm F&B (`news-item-card`)**: Thay thế thumbnail bằng ảnh ứng dụng thực tế đầu nối kim loại:
+    `<img src="Hình ảnh thực tế/Züger AG (Thụy Sĩ) Các đầu nối cáp kim loại.png" alt="Giải pháp đi dây cáp vệ sinh ngành Thực phẩm & Đồ uống FDA EHEDG" loading="lazy" width="600" height="300">`.
+  - **Bảo Đảm Đường Dẫn Trực Tiếp**: Sao chép thư mục `Ảnh thi công/` và `Hình ảnh thực tế/` lên root `/murrplastik/` trên máy chủ để đảm bảo cả đường dẫn tương đối `./Ảnh thi công/...` và `Hình ảnh thực tế/...` đều trả về HTTP 200 OK ngay lập tức.
+* **3. Xác Thực Production Trực Tiếp (Live Verification)**:
+  - Cả 4 yêu cầu đã được xác thực thành công qua curl trên `https://protools.com.vn/`:
+    - `https://protools.com.vn/murrplastik/industries/thuc-pham-va-do-uong/`: `.lang-btn button.active`, `.nav-link` Trang chủ và `.float-btn.phone` đều mang sắc xanh `var(--blue)` / `pulse-blue`.
+    - `https://protools.com.vn/murrplastik/`: Cả 2 ảnh thumbnail thẻ tin tức đều hiển thị sắc nét với mã phản hồi HTTP 200 OK.
+
+### Rule 9.82: Tích Hợp Google Maps Iframe & Chuẩn Hóa Thông Tin Trụ Sở Tại Chân Trang Hệ Thống Murrplastik (Footer Google Maps Integration Standard) (29/09/2026)
+* **1. Mục Tiêu & Trải Nghiệm Doanh Nghiệp (B2B Trust & Local SEO)**:
+  - Đồng bộ khối địa chỉ trụ sở/kho hàng và bản đồ tương tác Google Maps vào footer của toàn bộ 6 trang trong phân vùng Murrplastik (`/murrplastik/`, 2 trang chuyên ngành `san-xuat-o-to`, `thuc-pham-va-do-uong`, và 3 trang `tin-tuc/`), bảo đảm phong cách thị giác thích ứng theo từng trang con.
+* **2. Cấu Trúc Thông Tin & Bản Đồ Đồng Bộ**:
+  - **Trụ sở chính**: Thôn Nhạo Sơn – Xã Thụy Anh – Tỉnh Hưng Yên (cách KCN Liên Hà Thái 1km).
+  - **VPGD & Kho Hà Nội**: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội.
+  - **Link Điều Hướng Maps**: `https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7` ("Chỉ đường trên Google Maps").
+  - **Mã Nhúng Bản Đồ Google Maps Chuẩn**:
+    `src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.13591034401!2d105.88146848700326!3d20.982886742453424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135af26d2bb1e0f%3A0x65f178554a3bb4aa!2zQ8O0bmcgdHkgVE5ISCBDw7RuZyBuZ2hp4buHcCBUJlQgVmluYQ!5e0!3m2!1svi!2s!4v1788060518008!5m2!1svi!2s"`.
+* **3. Quy Chuẩn Thẩm Mỹ Theo Bản Sắc Từng Trang Con (Child-Theme Adaptive Styling)**:
+  - **Hub Murrplastik & Tin tức (`index.html`, `tin-tuc/`)**: Nền tối kỹ thuật, viền `1px solid rgba(255,255,255,0.12)`, link chỉ đường màu vàng hổ phách `#FBBF24`, chiều cao 180px, bo góc `8px`.
+  - **Chuyên ngành Ô tô (`san-xuat-o-to/`)**: Nền sáng `background: #f8fafc; border: 1px solid var(--border-color);`, icon đỏ `var(--accent-red)`, link chỉ đường cam hổ phách `#d97706`, chiều cao 200px, bo góc `6px`. Đặt độc lập ngoài vùng `data-i18n-html="footer.info"` để tránh bị `app.js` ghi đè khi đổi ngôn ngữ.
+  - **Chuyên ngành Thực phẩm & Đồ uống (`thuc-pham-va-do-uong/`)**: Nền xanh biển đậm vệ sinh, icon và link màu cyan `var(--cyan)` (`#06B6D4`), bo góc `var(--radius-sm)` (`8px`), chiều cao 180px.
+* **4. Xác Thực Production Trực Tiếp (Live Verification)**:
+  - Cả 6 trang đã được build Vite tĩnh và tải lên máy chủ Mắt Bão thành công. Lệnh kiểm chứng `curl.exe` xác thực 6/6 URL đều hiển thị mã iframe Google Map hoạt động chuẩn xác:
+    1. `https://protools.com.vn/murrplastik/` (200 OK)
+    2. `https://protools.com.vn/murrplastik/industries/san-xuat-o-to/` (200 OK)
+    3. `https://protools.com.vn/murrplastik/industries/thuc-pham-va-do-uong/` (200 OK)
+    4. `https://protools.com.vn/murrplastik/tin-tuc/` (200 OK)
+    5. `https://protools.com.vn/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/` (200 OK)
+    6. `https://protools.com.vn/murrplastik/tin-tuc/trien-lam-vec-2026/` (200 OK)
+
+
+
+
+
 
 
 

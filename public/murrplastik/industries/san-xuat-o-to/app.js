@@ -171,7 +171,11 @@ const TRANSLATIONS_AUTO = {
     'sec6.a4': '<p><strong>Công ty TNHH Công nghiệp T&T Vina (T&T Vina Industrial Co., Ltd)</strong> là Đại lý phân phối ủy quyền chính thức các sản phẩm của Murrplastik Systemtechnik GmbH (Đức) tại Việt Nam.</p><p>Chúng tôi cung cấp đầy đủ giải pháp từ khảo sát hiện trường, thiết kế mô hình 3D, cung cấp vật tư chính hãng có CO/CQ đến hỗ trợ lắp đặt, bảo trì kỹ thuật cho các nhà máy sản xuất ô tô và tự động hóa.</p>',
     'footer.info': '<p><strong>CÔNG TY TNHH CÔNG NGHIỆP T&T VINA</strong> — ĐẠI LÝ PHÂN PHỐI ỦY QUYỀN CÁC SẢN PHẨM CỦA <a href="https://www.murrplastik.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-red); text-decoration:underline;">MURRPLASTIK SYSTEMTECHNIK GMBH (ĐỨC)</a> TẠI VIỆT NAM</p><p>Email liên hệ kỹ thuật & báo giá: <a href="mailto:info@t2tvina.com" style="color:inherit;">info@t2tvina.com</a> | Website đại lý: <a href="https://protools.com.vn/murrplastik/" style="color:var(--accent-red);">https://protools.com.vn/murrplastik/</a></p>',
     'footer.warning': '<i class="fa-solid fa-shield-halved" style="color:var(--accent-red);"></i> <strong>CẢNH BÁO BẢN QUYỀN & SỞ HỮU TRÍ TUỆ BẢO HỘ:</strong> Toàn bộ nội dung giải pháp kỹ thuật cải tiến Dress Pack, dữ liệu mô phỏng 3D, bản vẽ thiết kế, hình ảnh khảo sát hiện trạng và nhật ký thi công thực tế tại VinFast trên trang web này thuộc sở hữu trí tuệ của <strong>T&T Vina</strong> và <strong>Murrplastik Germany</strong>. Murrplastik® là thương hiệu đã đăng ký của Murrplastik Systemtechnik GmbH. Nghiêm cấm mọi hành vi sao chép, trích dẫn hoặc tái sử dụng thương mại khi chưa có sự chấp thuận bằng văn bản.',
-    'footer.rights': '© 2026 T&T Vina Industrial Co., Ltd. Tất cả quyền được bảo lưu.'
+    'footer.rights': '© 2026 T&T Vina Industrial Co., Ltd. Tất cả quyền được bảo lưu.',
+    'footer.author': 'Người viết bài: by Mr. Kai @ T&T Vina Digital',
+    'hero.thumb_title': 'Thực địa thi công:',
+    'hero.thumb_desc': 'Lắp đặt cụm Dress Pack R-Tec Liner trên Robot ABB Body Shop VinFast Hải Phòng',
+    'hero.thumb_author': 'by Mr. Kai @ T&T Vina Digital'
   },
   en: {
     'page.title': 'Robotic Cable Management & Dress Pack Solution for Automotive Industry | Murrplastik & T&T Vina',
@@ -342,7 +346,11 @@ const TRANSLATIONS_AUTO = {
     'sec6.a4': '<p><strong>T&T Vina Industrial Co., Ltd</strong> is the official authorized distributor of Murrplastik Systemtechnik GmbH (Germany) in Vietnam.</p><p>We provide turn-key engineering support from on-site technical surveys, 3D CAD modeling, genuine supply with full CO/CQ documentation, to professional installation and maintenance for automotive plants and industrial automation.</p>',
     'footer.info': '<p><strong>T&T VINA INDUSTRIAL CO., LTD</strong> — AUTHORIZED DISTRIBUTOR OF <a href="https://www.murrplastik.com/" target="_blank" rel="noopener noreferrer" style="color:var(--accent-red); text-decoration:underline;">MURRPLASTIK SYSTEMTECHNIK GMBH (GERMANY)</a> IN VIETNAM</p><p>Technical & Quotation Inquiries: <a href="mailto:info@t2tvina.com" style="color:inherit;">info@t2tvina.com</a> | Distributor Website: <a href="https://protools.com.vn/murrplastik/" style="color:var(--accent-red);">https://protools.com.vn/murrplastik/</a></p>',
     'footer.warning': '<i class="fa-solid fa-shield-halved" style="color:var(--accent-red);"></i> <strong>COPYRIGHT & INTELLECTUAL PROPERTY NOTICE:</strong> All engineering solution content, 3D simulation data, blueprints, on-site assessment logs, and photographic documentation at VinFast on this page are the intellectual property of <strong>T&T Vina</strong> and <strong>Murrplastik Germany</strong>. Murrplastik® is a registered trademark of Murrplastik Systemtechnik GmbH. Any unauthorized reproduction, excerpting, or commercial re-use without written approval is strictly prohibited.',
-    'footer.rights': '© 2026 T&T Vina Industrial Co., Ltd. All rights reserved.'
+    'footer.rights': '© 2026 T&T Vina Industrial Co., Ltd. All rights reserved.',
+    'footer.author': 'Author / Contributor: by Mr. Kai @ T&T Vina Digital',
+    'hero.thumb_title': 'On-site Deployment:',
+    'hero.thumb_desc': 'Installation of R-Tec Liner Dress Pack on ABB Robots at VinFast Hai Phong Body Shop',
+    'hero.thumb_author': 'by Mr. Kai @ T&T Vina Digital'
   }
 };
 
