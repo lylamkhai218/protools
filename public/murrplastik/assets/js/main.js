@@ -324,18 +324,52 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let mouseX = -100, mouseY = -100;
+    let targetX = -100, targetY = -100;
     let auraX = -100, auraY = -100;
+    let isInsideIframe = false;
+
+    function hideCustomCursor() {
+      isInsideIframe = true;
+      document.body.classList.add('cursor-inside-iframe');
+      if (arrowSvg) arrowSvg.style.opacity = '0';
+      if (glowAura) glowAura.style.opacity = '0';
+    }
+
+    function showCustomCursor() {
+      isInsideIframe = false;
+      document.body.classList.remove('cursor-inside-iframe');
+      if (arrowSvg) arrowSvg.style.opacity = '1';
+      if (glowAura) glowAura.style.opacity = '1';
+    }
+
+    // Attach to all iframe elements and map containers
+    const bindIframeGuards = () => {
+      document.querySelectorAll('iframe, .footer-map-container, .map-embed-wrapper').forEach(el => {
+        el.addEventListener('mouseenter', hideCustomCursor);
+        el.addEventListener('mouseover', hideCustomCursor);
+        el.addEventListener('mouseleave', showCustomCursor);
+      });
+    };
+    bindIframeGuards();
+
+    window.addEventListener('blur', hideCustomCursor);
+    window.addEventListener('focus', showCustomCursor);
 
     window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      arrowSvg.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      targetX = e.clientX;
+      targetY = e.clientY;
+      if (isInsideIframe) {
+        showCustomCursor();
+      }
+      arrowSvg.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
     }, { passive: true });
 
     const animateAura = () => {
-      auraX += (mouseX - auraX) * 0.2;
-      auraY += (mouseY - auraY) * 0.2;
-      glowAura.style.transform = `translate3d(${auraX - 60}px, ${auraY - 60}px, 0)`;
+      if (!isInsideIframe) {
+        auraX += (targetX - auraX) * 0.35;
+        auraY += (targetY - auraY) * 0.35;
+        glowAura.style.transform = `translate3d(${auraX - 70}px, ${auraY - 70}px, 0)`;
+      }
       requestAnimationFrame(animateAura);
     };
     animateAura();
@@ -343,6 +377,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hover interactive listeners
     const interactiveSelectors = 'a, button, input, textarea, select, .gallery-item, .model-tab-btn, .btn-primary, .btn-control, .card, .product-card, .float-btn, .back-to-top';
     document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('iframe, .footer-map-container')) {
+        hideCustomCursor();
+        return;
+      }
       if (e.target.closest('#threejs-container, .viewer-mock, .model-canvas-container')) {
         document.body.classList.add('cursor-3d');
       } else if (e.target.closest(interactiveSelectors)) {
@@ -361,14 +399,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Smooth fade out when mouse leaves window
     document.addEventListener('mouseleave', () => {
-      arrowSvg.style.opacity = '0';
-      glowAura.style.opacity = '0';
+      hideCustomCursor();
       document.body.classList.remove('cursor-hover', 'cursor-3d', 'cursor-active');
     });
 
-    document.addEventListener('mouseenter', () => {
-      arrowSvg.style.opacity = '1';
-      glowAura.style.opacity = '1';
+    document.addEventListener('mouseenter', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      auraX = targetX;
+      auraY = targetY;
+      showCustomCursor();
     });
 
     document.addEventListener('mousedown', () => {

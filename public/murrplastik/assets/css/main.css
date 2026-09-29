@@ -75,13 +75,13 @@ body::-webkit-scrollbar-thumb:hover,
     z-index: 999999;
     will-change: transform;
     opacity: 1;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.15s ease;
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
   }
   .cursor-arrow-svg svg {
     width: 100%;
     height: 100%;
-    transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.2s ease;
+    transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.15s ease;
   }
 
   /* Soft Ambient Red Glow Aura Floating Behind */
@@ -89,46 +89,53 @@ body::-webkit-scrollbar-thumb:hover,
     position: fixed;
     top: 0;
     left: 0;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(200, 16, 46, 0.38) 0%, rgba(200, 16, 46, 0.1) 45%, rgba(200, 16, 46, 0) 70%);
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(200, 16, 46, 0.4) 0%, rgba(200, 16, 46, 0.12) 45%, rgba(200, 16, 46, 0) 70%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 999997;
-    will-change: transform;
+    will-change: transform, opacity;
     opacity: 1;
-    transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                background 0.3s ease, 
-                opacity 0.25s ease;
+    transition: opacity 0.15s ease;
     mix-blend-mode: screen;
   }
 
   /* Hover State: Clickable Elements */
   body.cursor-hover .cursor-arrow-svg svg {
-    transform: scale(1.28) rotate(-8deg);
+    transform: scale(1.25) rotate(-8deg);
     filter: drop-shadow(0 0 10px rgba(200, 16, 46, 0.9));
   }
   body.cursor-hover .cursor-glow-aura {
-    width: 170px;
-    height: 170px;
-    background: radial-gradient(circle, rgba(200, 16, 46, 0.55) 0%, rgba(200, 16, 46, 0.15) 50%, rgba(200, 16, 46, 0) 70%);
+    background: radial-gradient(circle, rgba(200, 16, 46, 0.55) 0%, rgba(200, 16, 46, 0.18) 50%, rgba(200, 16, 46, 0) 70%);
   }
 
   /* Hover State: 3D Viewer Canvas */
   body.cursor-3d .cursor-arrow-svg svg {
-    transform: scale(1.4) rotate(15deg);
+    transform: scale(1.35) rotate(15deg);
     filter: drop-shadow(0 0 12px rgba(200, 16, 46, 1));
   }
   body.cursor-3d .cursor-glow-aura {
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(200, 16, 46, 0.6) 0%, rgba(200, 16, 46, 0.2) 50%, rgba(200, 16, 46, 0) 75%);
+    background: radial-gradient(circle, rgba(200, 16, 46, 0.65) 0%, rgba(200, 16, 46, 0.22) 50%, rgba(200, 16, 46, 0) 75%);
   }
 
   /* Click Active State */
   body.cursor-active .cursor-arrow-svg svg {
     transform: scale(0.92) rotate(-3deg);
+  }
+
+  /* Embedded iframe safety: restore native cursor and hide custom cursor */
+  body.cursor-inside-iframe .cursor-arrow-svg,
+  body.cursor-inside-iframe .cursor-glow-aura {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.1s ease, visibility 0.1s ease !important;
+  }
+  .footer-map-container,
+  .footer-map-container *,
+  iframe {
+    cursor: auto !important;
   }
 }
 
