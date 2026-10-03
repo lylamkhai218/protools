@@ -1523,3 +1523,31 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com https://www.youtube-nocookie.com;
     ```
   - Cho phép trình duyệt nhúng an toàn bản đồ Google Maps (`https://www.google.com/maps/embed?...`) và video kỹ thuật YouTube, trong khi vẫn khóa chặt các nguồn iframe lạ khác để chống Clickjacking và Malicious Framing.
+
+### 🛡️ Rule 9.94: Quy Chuẩn Khắc Phục Lỗi Hiển Thị Biểu Tượng Kỹ Thuật (SVG Hardening & CSP Whitelist Cho CDN Font Awesome / Three.js) (03/10/2026)
+* **1. Phân Tích Hiện Trạng & Nguyên Nhân Gốc (Root Cause Diagnostics)**:
+  - **Hiện tượng**: Tại trang chuyên ngành ô tô [`https://protools.com.vn/murrplastik/industries/san-xuat-o-to/`](https://protools.com.vn/murrplastik/industries/san-xuat-o-to/), khu vực 4 thẻ ghi nhận sự cố `.issues-summary-cards` bị mất toàn bộ biểu tượng, chỉ còn 4 ô vuông trống màu vàng/đỏ.
+  - **Bằng chứng Console DevTools**:
+    ```
+    Refused to load the stylesheet 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' because it violates the following Content Security Policy directive: "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com".
+    ```
+  - **Cơ chế lỗi**: Khi thiết lập chính sách CSP bảo mật tầng Web Server trong `.htaccess`, các chỉ thị `style-src` và `font-src` chưa khai báo tên miền CDN `https://cdnjs.cloudflare.com`. Trình duyệt đã chặn nạp file CSS Font Awesome và font chữ `fa-solid-900.woff2`, khiến các thẻ `<i class="fa-solid ..."></i>` có kích thước 0x0px.
+* **2. Giải Pháp Toàn Diện 2 Lớp (2-Layer Defense & Resilience Architecture)**:
+  - **Lớp 1 - Khơi Thông CSP Header Tầng Máy Chủ Web**:
+    - Bổ sung `https://cdnjs.cloudflare.com` vào `style-src`, `font-src` và `script-src` (đồng thời mở quyền nạp thư viện 3D `three.min.js`), bổ sung `https://connect.facebook.net` vào `script-src` trong file cấu hình `.htaccess` gốc qua [`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py):
+      ```apache
+      Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com; frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self';"
+      ```
+    - Khôi phục hoạt động cho toàn bộ icon Font Awesome trên thanh điều hướng, nút bấm, thư viện ảnh và chân trang.
+  - **Lớp 2 - Kiên Cố Hóa Biểu Tượng Bằng Vector SVG Tự Thân (SVG Hardening - Rule 1)**:
+    - Thay thế toàn bộ 4 thẻ `<i class="fa-solid ..."></i>` trong `.issues-summary-cards` tại [`public/murrplastik/industries/san-xuat-o-to/index.html`](file:///d:/T&TVina/protools/public/murrplastik/industries/san-xuat-o-to/index.html) bằng các biểu tượng vector SVG kỹ thuật đơn sắc inline:
+      1. Card 1 (*Thân Robot & Ống dẫn*): Shield SVG (Khiên bảo vệ phân tách).
+      2. Card 2 (*Nguyên nhân vỡ gá*): Bolt SVG (Tia sét ứng lực xung động).
+      3. Card 3 (*Điểm yếu vật liệu*): Circle X-Mark SVG (Vòng tròn cảnh báo điểm gãy nứt).
+      4. Card 4 (*Sai lệch thiết kế*): Inspection Magnifier SVG (Kính lúp kiểm tra vòng định vị hành trình).
+    - Các biểu tượng SVG sử dụng `stroke="currentColor"` tự động thừa hưởng màu thương hiệu sắc nét của `.icon-yellow` (`#f59e0b`) và `.icon-red` (`var(--accent-red)`), render tức thì 0ms, miễn nhiễm hoàn toàn trước tình trạng trễ mạng hoặc sự cố CDN bên thứ ba.
+* **3. Xác Thực Trực Tiếp Trên Production (Live Verification)**:
+  - Máy chủ phản hồi `HTTP/1.1 200 OK`.
+  - Header `Content-Security-Policy` xác nhận có mặt `https://cdnjs.cloudflare.com` trong cả 3 chỉ thị `script-src`, `style-src`, `font-src`.
+  - DOM phản hồi chứa trọn vẹn 4 khối SVG vector trong `.issues-summary-cards`, triệt tiêu hoàn toàn lỗi màn hình và lỗi cảnh báo đỏ trên DevTools Console.
+
