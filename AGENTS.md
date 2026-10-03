@@ -1512,3 +1512,14 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
 * **7. Kết Quả Kiểm Thử Thực Tế (Live Production Verification)**:
   - Tất cả các endpoint chưa đăng nhập đều trả về HTTP 403 Forbidden thay vì thực thi script.
   - Toàn bộ HTTP Header an ninh (CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy) được máy chủ LiteSpeed phản hồi chính xác trên mọi request tới [`https://protools.com.vn/`](https://protools.com.vn/).
+
+### Rule 9.93: Cấu Hình CSP Cho Phép Nhúng Iframe Bản Đồ Google Maps & YouTube (03/10/2026)
+* **1. Hiện Tượng (Root Cause)**:
+  - Khi thiết lập chính sách bảo mật Content-Security-Policy (CSP) với chỉ thị giới hạn `frame-src 'self'`, trình duyệt chặn toàn bộ các iframe tải từ domain bên ngoài.
+  - Hậu quả: Khối bản đồ chỉ đường Google Maps tại chân trang (`Footer.tsx` và `public/murrplastik/index.html`) bị trình duyệt Chromium chặn với thông báo lỗi: `This content is blocked. Contact the site owner to fix the issue.`
+* **2. Giải Pháp Chuẩn Hóa (CSP Whitelist Standard)**:
+  - Cập nhật chỉ thị `frame-src` trong file cấu hình `.htaccess` gốc qua [`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py):
+    ```apache
+    frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com https://www.youtube-nocookie.com;
+    ```
+  - Cho phép trình duyệt nhúng an toàn bản đồ Google Maps (`https://www.google.com/maps/embed?...`) và video kỹ thuật YouTube, trong khi vẫn khóa chặt các nguồn iframe lạ khác để chống Clickjacking và Malicious Framing.
