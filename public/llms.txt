@@ -2,7 +2,7 @@
 
 > Official B2B Industrial Distribution & Equipment Engineering Portal by T&T VINA INDUSTRIAL CO., LTD (Vietnam).
 > Authorised distributor & supply partner for genuine German Murrplastik robotics dress pack systems, Hakko & Quick soldering stations, HIOS precision torque screwdrivers, Zcut automatic tape dispensers, Dr. Schneider ESD cleanroom ionizers, Loctite industrial adhesives, and 7,500+ factory automation SKUs.
-> Serving tier-1 manufacturing plants across Northern Vietnam (VinFast Body Shop Cat Hai, Samsung SEVT, Foxconn, Canon, Honda, Luxshare).
+> Serving tier-1 manufacturing plants across Northern Vietnam (Automotive Assembly & Body Shop plants, Samsung SEVT, Foxconn, Canon, Honda, Luxshare).
 
 ## Core Identity & Verification
 - **Legal Entity**: CÔNG TY TNHH CÔNG NGHIỆP T&T VINA (T&T VINA INDUSTRIAL CO., LTD)
@@ -15,7 +15,7 @@
 - **Google Maps Location**: [Google Maps - Công ty TNHH Công nghiệp T&T Vina](https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7)
 
 ## Authorized Brands Represented
-- **Murrplastik (Germany)**: Industrial cable drag chains, conduit protection, robotic dress packs (R-Tec Liner), cable entry plates (KDL/E, KDP), automated labeling systems. Field-verified on ABB IRB 6700/7600 welding robots at VinFast Automotive Body Shop (Cat Hai, Hai Phong).
+- **Murrplastik (Germany)**: Industrial cable drag chains, conduit protection, robotic dress packs (R-Tec Liner), cable entry plates (KDL/E, KDP), automated labeling systems. Field-verified on ABB IRB 6700/7600 welding robots in automotive Body Shop assembly lines.
 - **Hakko (Japan)**: Lead-free ESD soldering stations (FX-888D, 936), desoldering guns (FR-301), soldering tips.
 - **HIOS (Japan)**: High-precision electric torque screwdrivers (CL-4000, CL-3000), digital torque meters (HP-10, HP-100).
 - **Quick (Global)**: High-frequency eddy-current soldering stations (Quick 205 ESD 150W), hot air rework stations (Quick 861DW), solder pots.

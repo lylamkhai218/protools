@@ -40,6 +40,7 @@ export default defineConfig(() => {
       host: '0.0.0.0'
     },
     build: {
+      emptyOutDir: false,
       chunkSizeWarningLimit: 800,
       rollupOptions: {
         output: {

@@ -20,6 +20,7 @@ export interface Product {
   stockStatus: 'In Stock' | 'Low Stock' | 'Contact Order';
   stockLocation?: string; // e.g. "Kho Bắc Ninh (Sẵn 15 bộ)", "Kho TP.HCM (Sẵn 8 bộ)"
   price?: string; // e.g. "2.450.000 đ" or "Liên hệ báo giá dự án"
+  unit?: string; // e.g. "cái", "bộ", "cuộn"
   shortDesc: string;
   highlights?: string[];
   specs: Record<string, string>;

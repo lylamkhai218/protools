@@ -46,12 +46,16 @@ if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST')
     exit;
 }
 
-// 2. Client IP Resolution
-$client_ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
+// 2. Client IP Resolution & Strict Validation (Anti-Spoofing & Anti-XSS)
+$raw_ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
 if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     $ip_list = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-    $client_ip = trim($ip_list[0]);
+    $candidate_ip = trim($ip_list[0]);
+    if (filter_var($candidate_ip, FILTER_VALIDATE_IP)) {
+        $raw_ip = $candidate_ip;
+    }
 }
+$client_ip = filter_var($raw_ip, FILTER_VALIDATE_IP) ? $raw_ip : '0.0.0.0';
 
 // 3. Rate Limiting (Max 5 submissions per 60s per IP)
 $rate_limit_dir = sys_get_temp_dir() . '/protools_rate_limits';

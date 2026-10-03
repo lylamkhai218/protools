@@ -1,0 +1,290 @@
+/*--------------------------------*/
+.Header { font-size: 11px; background-color:#c6c2a5; color: #ffffff; font-family: Verdana; height: 22px }
+.Button { border: #909090 1px solid; font-size: 11px; padding:2px; background-color: #005FA7; cursor: hand; color: #FFFFFF; font-family: Verdana }
+.Item { font-size: 11px; background-color: #f5f5f4; width: 25px; color: #336699; font-family: Verdana }
+.SelectedItem {border: red 1px solid; font-size: 11px; background-color: #f5f5f4; width: 20px; color: #ff0000; font-family: Verdana }
+.Container {height: 17px; border: #909090 1px solid; font-size: 11px; background-color: #f5f5f4; color: #336699; font-family: Verdana }
+.checkbox { font-size: 11px; font-family: Verdana,Verdana; }
+
+/*----------------*/
+.table-style {
+	font-family: Arial, Helvetica, sans-serif;
+	border-width: 0; 
+	border-style: solid; 
+	border-color: #c6c2a5;
+	border-top:#c6c2a5 1px solid;
+	border-left:#c6c2a5 1px solid;
+	border-bottom:#c6c2a5 1px solid;
+	border-right:#c6c2a5 1px solid;
+	background-color: #c6c2a5;
+	color: #000000;
+	font-size: 11px;
+}
+/* Default attributes of DIV containing table container for entire calendar. */
+.div-style
+{
+	z-index: 999;
+	position: absolute;
+	visibility: hidden;
+}
+
+/* Default attributes used in calendar title (month and year columns).*/
+.title-style {
+	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px;
+	color: #ffffff;
+	text-align:center;
+}
+
+/* Default attributes used in calendar title background.*/
+.title-background-style {
+	border-bottom:#ffffff 1px solid;
+	border-right:#ffffff 1px solid;
+	border-left:#ffffff 1px solid;
+	border-top:#ffffff 1px solid;
+	background-color: #168301;
+}
+
+/* Month + Year Titles */
+.title-control-style 
+{
+	cursor: default;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+/* Normal appearance of controls in calendar title. */
+.title-control-normal-style {
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 8px;
+	/*font-weight: bold;*/
+	color: #ffffff;
+}
+
+/* Moused-over (selected) appearance of controls in calendar title. */
+.title-control-select-style {
+	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 8px;
+	/*font-weight: bold;*/
+	color: #ffffff;
+}
+
+/* Default attributes of drop down lists (month and year). */
+.dropdown-style {
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	border: solid 1px #cccccc;
+	background-color: #0066cc;
+	color: #ffffff;
+	cursor: default;
+}
+
+/* Default attributes selected (mouse-over) item in drop down lists (month and year). */
+.dropdown-select-style {
+	background-color: #fafef5;
+	color: red;
+	cursor: hand;
+}
+
+/* Default attributes unselected (mouse-off) item in drop down lists (month and year). */
+.dropdown-normal-style {
+	/*background-color: #000000;*/
+}
+
+/* Default attributes of calendar body (weekday titles and numbers). */
+.body-style {
+	padding: 0px;
+	background-color: white;
+	font-family: Arial, Helvetica, sans-serif; 
+	font-size: 11px;
+}
+
+/* Attributes of current day in calendar body. */
+a.current-day-style {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a.current-day-style:hover {
+	color:#f0f0f0;
+	background-color: #DD0000;
+}
+
+.disabled-current-day-style {
+	color:#000066;
+	background-color: #ffffff;
+	font-weight:bold;
+	text-decoration: none;
+}
+
+/* Attributes of end-of-week days (Sundays) in calendar body. */
+a.end-of-weekday-style {
+	width:22px;
+	/*color: #4f4f4f;*/
+	color:#FF0000;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+a.end-of-weekday-style:hover
+{
+	/*background-color: #4f4f4f;*/
+	color: white;
+	text-decoration: none;
+	background-color: #99DAF9;
+	border:#0099CC 1px solid;
+}
+
+.disabled-end-of-weekday-style {
+	width:22px;
+	/*color: silver;*/
+	color:#FFCECF;
+	font-weight: lighter;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+/* Attributes of all other days in calendar body. */
+.disabled-normal-day-style {
+	width:22px;
+	color: silver;
+	font-weight: lighter;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+a.normal-day-style {
+	width:22px;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+a.normal-day-style:hover {
+	width:22px;
+	color: white;
+	font-weight: bold;
+	background-color: #99DAF9;
+	text-decoration: none;
+	border:#0099CC 1px solid;
+}
+
+a.closecal 
+{
+	color: #ffffff;
+	text-decoration: none;
+	/*font-weight: bold;*/
+}
+
+a.closecal:hover
+{
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* Attributes of border around selected day in calendar body. */
+a.selected-day-style {
+	font-size: 11px;
+	width:22px;
+	background-color: #99DAF9;
+	border:#0099CC 1px solid;
+}
+
+/* Default attributes of designated holidays. */
+a.holiday-style {
+	background-color: #FFDDDD;
+	font-size: 11px;
+}
+
+/* Sub Header Days of Week */
+.dayofweeks
+{
+	color: #323232; 
+	font-size: 11px;
+	/*font-weight: bold;*/
+	height:18px;
+	background-color: #F5F5F5;
+}
+
+/* Attributes of Footer today display at bottom on calendar */
+.today-style, .today-style a, .today-style a:hover, .today-style a:visited, .today-style a:active
+{
+	font-size: 11px;
+	/*font-weight: bold;*/
+	color: #FFFFFF; 
+	height:20px;
+	background-color: #168301;
+	text-align: center;
+	/*text-decoration: underline;*/
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Attributes of week number division (divider.gif) */
+.weeknumber-div-style {
+	background-color: #F5F5F5; 
+	padding: 0px;
+}
+
+/* Combined styles to solve the conflict between stylesheets */
+td.cal_day a.normal-day-style
+{
+	font-size: 11px;
+	color: black;
+}
+
+td.cal_day a.normal-day-style:hover
+{
+	font-size: 11px;
+	color: white;
+	font-weight:bold; 
+	/*background-color: #808080; */
+	width: 22px;
+	background-color: #99daf9;
+	text-decoration: none;
+}
+
+td.cal_day a.end-of-weekday-style 
+{
+	font-size: 11px;
+	/*color: #4f4f4f;*/
+	color:#FF0000;
+}
+
+td.cal_day a.end-of-weekday-style:hover
+{
+	font-size: 11px;
+	font-weight:bold; 
+	color: white;
+	/*background-color: #808080; */
+	width: 22px;
+	background-color: #99daf9;
+	text-decoration: none;
+}
+
+td.cal_day a.current-day-style
+{
+	font-size: 11px;
+	font-weight:bold; 
+	color: #DD0000;
+}
+
+td.cal_day a.selected-day-style 
+{
+	font-size: 11px;
+	font-weight:bold;
+	color: #ffffff;
+	text-decoration:none;
+}
+
+td.cal_day 
+{
+	height:18px;
+}#Request {
+	height: 40px;
+	width: 300px;
+}

@@ -26,7 +26,7 @@
     "subtitle": "Offizieller Hauptdistributor für Murrplastik-Kabelmanagementsysteme (Deutschland), Hakko/Quick-Lötstationen, Hios-Elektroschrauber, Dosierroboter, Zcut-Bandspender und ESD-Entladungsgeräte in Vietnam.",
     "btn_explore": "Katalog durchsuchen",
     "btn_rfq": "B2B-Angebot anfordern",
-    "trust_vinfast": "Installiert und im Dauereinsatz auf ABB-Schweißrobotern im VinFast-Karosseriewerk Hai Phong",
+    "trust_automotive": "Installiert und im Dauereinsatz auf ABB-Schweißrobotern im Karosseriewerk der Automobilfertigung",
     "spotlight_badge": "DEUTSCHE ROBOTIK HIGHLIGHT",
     "stat_devices": "Standardgeräte auf Lager",
     "spotlight_app_label": "Anwendung",
@@ -225,7 +225,7 @@
     "quote_btn": "Anfrage",
     "tier_table_title": "B2B-Mengenstaffelpreise (Misumi-Standard)",
     "tier_click_hint": "Klicken zur Mengenauswahl",
-    "vinfast_case_study": "Das R-Tec Liner System von Murrplastik ist im Karosseriebau (Body Shop) des VinFast-Automobilwerks Cat Hai (Hai Phong) auf ABB-Schweißrobotern im industriellen 24/7-Dauereinsatz erfolgreich erprobt.",
+    "automotive_case_study": "Industrielle Referenzanwendung im Karosseriebau: Das R-Tec Liner System von Murrplastik ist auf ABB-Schweißrobotern im industriellen 24/7-Dauereinsatz erfolgreich erprobt.",
     "view_auto_solution": "Automotive-Lösungen ansehen"
   },
   "contact_widget": {
