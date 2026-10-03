@@ -1376,3 +1376,139 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - **Khắc phục tức thì phía Client (Zero-Wait Local Workaround)**: Thêm trực tiếp dòng `112.78.2.34 protools.com.vn www.protools.com.vn` vào file `C:\Windows\System32\drivers\etc\hosts` (chạy PowerShell bằng quyền Administrator) để bỏ qua tầng DNS trung gian và truy cập website tốc độ cao ngay lập tức.
   - **Khắc phục triệt để tầng hạ tầng (Permanent Global Mitigation)**: Đăng nhập trang quản trị tên miền `https://id.matbao.net/`, chuyển cặp NameServer từ cụm truyền thống sang Cloudflare DNS (`*.ns.cloudflare.com`) hoặc cụm Cloud DNS mới của Mắt Bão (`ns-cloud1.matbao.com` / `ns-cloud2.matbao.com` tại IP Google Cloud `104.199.192.117`).
 
+
+### Rule 9.85: Quy Chuẩn Bảo Vệ Bí Mật Thương Mại (NDA Sanitization) & Chống Cạnh Tranh Không Lành Mạnh (02/10/2026)
+* **1. Căn Cứ Pháp Lý & Nguyên Nhân Kỹ Thuật (Legal & Technical Grounds)**:
+  - **Bảo Vệ Bí Mật Kinh Doanh & Hợp Đồng Bảo Mật (NDA Compliance)**: Tuân thủ nghiêm ngặt thỏa thuận không tiết lộ thông tin (Non-Disclosure Agreement) đã ký kết với khách hàng đối tác sản xuất ô tô công nghệ cao. Tuyệt đối không sử dụng tên thương hiệu hoặc địa danh dự án của đối tác trên bất kỳ kênh công khai nào (website, URL, metadata, alt ảnh, JSON-LD, hay LLMs manifest), ngăn chặn hoàn toàn việc rò rỉ thông tin hoặc bị máy chủ tìm kiếm index từ khóa dự án.
+  - **Tuân Thủ Luật Cạnh Tranh 2018 (Anti-Unfair Competition Compliance)**: Căn cứ Điều 45 Luật Cạnh tranh Việt Nam 2018 về hành vi lôi kéo khách hàng bất chính hoặc gièm pha doanh nghiệp khác, nghiêm cấm chỉ đích danh tên thương hiệu của bên thứ ba / đối thủ cạnh tranh (như Becker) trên các bài phân tích kỹ thuật.
+* **2. Tiêu Chuẩn Hóa Thuật Ngữ Thay Thế (Standardized Industrial Nomenclature)**:
+  - Thay thế danh xưng đối tác bằng thuật ngữ công nghiệp chuẩn B2B: *"dàn robot hàn thân xe ô tô"*, *"robot lắp ráp ô tô tự động"*, *"dây chuyền sản xuất và lắp ráp ô tô công nghệ cao"*, *"xưởng Body Shop công nghệ cao"*.
+  - Thay thế linh kiện đối thủ bằng định danh kỹ thuật: *"bộ gá kẹp/giá đỡ truyền thống thế hệ cũ"*, *"cơ cấu gá cố định thế hệ trước"* được thay thế hoàn toàn bởi giải pháp Murrplastik R-Tec Liner.
+  - Loại bỏ hoàn toàn chuyên mục/tệp tin "Báo cáo" (Report PDF), chuẩn hóa tiêu đề và chủ đề bài viết thành: *"Ứng dụng kỹ thuật tiêu biểu trong ngành sản xuất và lắp ráp ô tô công nghệ cao"*.
+* **3. Quy Trình Vệ Sinh Dữ Liệu 5 Tầng (5-Layer Zero-Footprint Sanitization Standard)**:
+  - **Tầng 1 (Giao Diện & UI Text)**: Rà soát toàn bộ các thành phần hiển thị trên trang chủ (`Home.tsx`), trang chi tiết (`ProductDetail.tsx`), trang chuyên ngành ô tô (`san-xuat-o-to`), bài tin tức và hệ thống đa ngôn ngữ (`i18n`).
+  - **Tầng 2 (SEO, Structured Data & Metadata)**: Làm sạch thẻ `<title>`, `<meta name="keywords">`, `<meta property="og:...">`, schema `JSON-LD` (`TechArticle`, `FAQPage`, `knowsAbout`), tọa độ Google Maps liên kết ra ngoài.
+  - **Tầng 3 (Tệp Tin & Tên Tài Nguyên Asset)**: Xóa triệt để các file PDF nội bộ (`Bao_cao_giai_phap_...pdf`); đổi tên toàn bộ file hình ảnh chứa tên đối thủ thành tên kỹ thuật thuần túy trước khi tải lên hosting.
+  - **Tầng 4 (AI Manifest & LLMs Indexing)**: Rà soát và loại bỏ sạch từ khóa tại `public/llms.txt`, `public/llms-full.txt`, `public/ai-manifest.json` để các mô hình Generative AI và bot thu thập dữ liệu không gắn nhãn keyword nhạy cảm.
+  - **Tầng 5 (Mã Nguồn & Chú Thích CSS/JS)**: Dọn sạch mọi chú thích mã nguồn nội bộ (CSS/JS comments), đổi tên các translation keys (`trust_vinfast` -> `trust_automotive`, `vinfast_case_study` -> `automotive_case_study`) để bundle đóng gói không chứa bất kỳ chuỗi tìm kiếm nhạy cảm nào.
+* **4. Cổng Xác Thực Bắt Buộc (Mandatory Verification Gate)**:
+  - Trước khi triển khai hoặc đóng gói phát hành, bắt buộc thực thi lệnh quét Regex đối chứng phân biệt hoa thường và không phân biệt hoa thường trên toàn bộ workspace (`public`, `src`, `dist`, `index.html`) đạt tỷ lệ: **0 MATCHES**.
+
+### Rule 9.86: Quy Chuẩn Hiện Đại Hóa AdminCP Legacy & Xóa Bỏ Dấu Vết Web123 (03/10/2026)
+* **1. Chiến Lược Phát Hành 2 Pha An Toàn (2-Phase Staging & Production Promotion)**:
+  - **Pha 1 (Preview Cô Lập)**: Phát hành bản xem thử tại `/public_html/admincp_preview/` để Ban giám đốc và nhân sự duyệt UI thực tế trước khi áp dụng. Tích hợp chỉ thị `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet` và `robots.txt Disallow: /` chặn máy chủ tìm kiếm. Bổ sung rule bypass trong root `.htaccess` (`^(admincp|admincp_preview|...)(/.*)?$ - [L]`).
+  - **Pha 2 (Chính thức hóa - Promotion)**: Tự động nén toàn bộ `/public_html/admincp/` cũ thành file zip backup `backups/admincp_backup_before_modernize_[timestamp].zip` trước khi ghi đè bản mới; sau đó dọn dẹp thư mục tạm preview trên hosting bằng script [`promote_admincp.py`](file:///d:/T&TVina/protools/promote_admincp.py).
+* **2. Cơ Chế Triệt Tiêu 100% Dấu Vết Bên Thứ 3 (Zero Web123 Footprint)**:
+  - Loại bỏ hoàn toàn chuỗi `Web123`, `web123.vn` và hình ảnh ngoại bộ trên toàn bộ tệp tin PHP, JS, CSS.
+  - Cập nhật bản quyền chuẩn mực: `© 2026 CÔNG TY TNHH CÔNG NGHIỆP T&T VINA (T&T VINA INDUSTRIAL CO., LTD). All rights reserved.`
+  - Tích hợp logo nội bộ chính thức [`admincp_preview/media/logo_ttvina.png`](file:///d:/T&TVina/protools/admincp_preview/media/logo_ttvina.png) thay cho link ngoài tránh lỗi Mixed Content HTTPS.
+  - Nút "Trợ giúp" tại Header mở Popup Modal liên hệ nội bộ (Mr. Kai: `0968.597.131` / Mr. Thanh: `0943.301.886` / `info@t2tvina.com`).
+* **3. Bảo Tồn Thói Quen Thao Tác (Muscle-Memory Preservation Standard)**:
+  - Giữ nguyên 100% vị trí không gian (Menu Top, Sidebar trái, Bảng dữ liệu, Form thêm/sửa) và bộ chọn DOM (`name`, `id`, `class`) để đảm bảo các tiến trình AJAX, iframe form post và cơ sở dữ liệu cũ hoạt động trơn tru.
+  - Nâng cấp tầng CSS (`style.css`) sang phong cách công nghiệp hiện đại B2B: Bảng màu Navy Slate (`#0f172a`), font hệ thống sắc nét, nút bấm thuần CSS thay thế ảnh cắt bitmap, thẻ Card đăng nhập chuyên nghiệp.
+* **4. Tính Năng Sắp Xếp Sản Phẩm Theo Thời Gian Tạo (Creation Time Sorting)**:
+  - Bổ sung cơ chế Sort 2 chiều tại cột `Thời gian tạo` của danh mục Sản phẩm (`content_group=6`): Mới nhất trước (DESC, mặc định) ↔ Cũ nhất trước (ASC) kèm icon mũi tên chỉ báo (▲/▼).
+  - Tích hợp lưu trữ trạng thái sắp xếp qua Cookie `product_sort_time` và tham số URL `&sort_by=time_asc|time_desc` đảm bảo giữ nguyên thứ tự sắp xếp khi phân trang (Pagination) hoặc thay đổi số lượng hàng hiển thị.
+
+### Rule 9.87: Quy Chuẩn Tinh Chỉnh Giao Diện AdminCP 2026 (Unified Header, Sticky Layout & 2-Stage Scroll) (03/10/2026)
+* **1. Hợp Nhất Header & Thanh Điều Hướng (Unified Header Navigation)**:
+  - Di chuyển menu `.menu_top` lên vị trí khoảng trắng trong `.admin_header` (`.header_nav` nằm giữa Logo T&T Vina và Customer Info), giúp tiết kiệm diện tích theo chiều dọc màn hình và tạo bố cục phẳng hiện đại.
+* **2. Khôi Phục & Chuẩn Hóa Dropdown Bar Trong Khối Thao Tác (Dropdown Mechanics Fix)**:
+  - Khôi phục triệt để cơ chế ẩn/hiện của các menu hành động `.function .col4` ("Thay đổi trạng thái", "Hiển thị cột") và `.filter`: Giữ nguyên `display: none !important; position: absolute;` và chỉ hiển thị khi hover chuột (`:hover > ul { display: block !important; }`). Triệt tiêu hoàn toàn lỗi danh sách gạch đầu dòng (bullet points) bị bung rộng trên giao diện.
+* **3. Cố Định Thanh Đầu Trang & Bảng Danh Mục Trái Khi Cuộn (Sticky Navigation & Left Sidebar)**:
+  - Bọc toàn bộ Header trong `.sticky_top_container` (`position: sticky; top: 0; z-index: 2000; box-shadow: 0 1px 3px rgba(0,0,0,0.08)`).
+  - Cố định cột danh mục `#content_left` tại `position: sticky; top: 66px; max-height: calc(100vh - 76px); overflow-y: auto;` với thanh cuộn mượt, cho phép người dùng cuộn xem hàng trăm sản phẩm ở bên phải mà vẫn giữ nguyên cây danh mục ở bên trái để lọc nhanh.
+* **4. Nút Cuộn Về Đầu Trang 2 Giai Đoạn Chống Giật Mình (2-Stage Back-To-Top Engine - Rule 9.8)**:
+  - Tự động xuất hiện tại góc dưới bên phải (`bottom: 24px; right: 24px;`) khi người dùng cuộn đạt từ **`50%`** chiều cao trang trở lên (`scrollTop >= totalHeight * 0.5`).
+  - Khi bấm, thực thi hiệu ứng chuyển động 2 giai đoạn: Nhịp 1 cuộn nhẹ nhàng từ từ lên một đoạn trong ~700ms (`scrollTop - initialStep`) để mắt người dùng bắt kịp nhịp chuyển động, nhịp 2 lướt vút êm ái lên đỉnh trang (`scrollTop: 0` trong 450ms).
+* **5. Biểu Tượng Kỹ Thuật SVG Đơn Sắc & Tự Động Thu Gọn Responsive (Item 5)**:
+  - Tích hợp 100% icon SVG kỹ thuật monochrome (`stroke="currentColor"`) cho Thông báo, Trợ giúp, Đăng xuất, Tài khoản và Website; tuyệt đối không dùng emoji hệ điều hành Windows.
+  - Trên màn hình máy tính bảng và điện thoại di động (`max-width: 1024px`), CSS tự động ẩn text label (`.label-text`, `.user-text`) và chỉ hiển thị các biểu tượng SVG tinh gọn kèm tooltip, chống vỡ dòng header.
+* **6. Chuẩn Hóa Căn Chỉnh Cột Bảng Dữ Liệu (Pixel-Perfect Table Grid)**:
+  - Cấu hình Flexbox căn giữa theo trục dọc (`display: flex; align-items: center; min-width: 1100px;`) trên cả `.header` và `.rows`, khóa kích thước từng cột bằng `flex: 0 0 [width]px; width: [width]px; flex-shrink: 0;`, đảm bảo các cột dữ liệu và tiêu đề bảng khớp chính xác từng pixel.
+
+### Rule 9.88: Quy Chuẩn Tối Ưu Mobile, Triệt Tiêu Lỗ Hổng Reset Database, Căn Cột Đối Xứng, Hover Tooltip & Git Pipeline (03/10/2026)
+* **1. Thiết Kế Responsive Mobile-First Thực Thụ (True Mobile Viewport & Swipeable Table)**:
+  - Khắc phục hiện tượng hiển thị thu nhỏ như trang desktop trên iPhone 12 Pro (390x844) bằng thẻ chuẩn: `<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />` trên cả [`index.php`](file:///d:/T&TVina/protools/admincp_preview/index.php) và [`login.php`](file:///d:/T&TVina/protools/admincp_preview/login.php).
+  - Áp dụng breakpoint `@media (max-width: 800px)`: Tự động ẩn Sidebar trái (`#content_left`), chuyển Header sang dạng co giãn 2 hàng với các nút icon SVG gọn gàng, hỗ trợ vuốt chạm cảm ứng ngang cho bảng dữ liệu `.listnews_content` mà không làm vỡ tỉ lệ toàn trang.
+* **2. Triệt Tiêu Lỗ Hổng Web123 Reset Database Cực Kỳ Nguy Hiểm (Zero Truncate Vulnerability)**:
+  - Loại bỏ hoàn toàn nút Reset (`class="button_style1 reset"`) khỏi giao diện Home [`modules/home_admin_message.php`](file:///d:/T&TVina/protools/admincp_preview/modules/home_admin_message.php).
+  - Vô hiệu hóa vĩnh viễn lệnh `TRUNCATE TABLE` (xóa trắng 20 bảng cơ sở dữ liệu) trong [`modules/content_process.php`](file:///d:/T&TVina/protools/admincp_preview/modules/content_process.php), thay thế bằng hàm ghi log cảnh báo an toàn.
+  - Làm sạch danh sách bot tìm kiếm thô trong [`modules/home_counter.php`](file:///d:/T&TVina/protools/admincp_preview/modules/home_counter.php), chuẩn hóa bảng thống kê gọn gàng.
+* **3. Favicon Nhận Diện Thương Hiệu T&T Vina Chính Thức (Brand Identity Favicon)**:
+  - Tích hợp thẻ `<link rel="icon" type="image/png" href=".../media/logo_ttvina.png" />` trên toàn bộ các trang AdminCP.
+* **4. Sắp Xếp Thời Gian Tạo & Căn Chỉnh Cột Bảng Dữ Liệu Đối Xứng (Sort & Symmetrical Grid)**:
+  - Thiết lập gán tường minh `$GLOBALS["sort_by"]` và `$GLOBALS["sort_dir"]` trên cả luồng tải trực tiếp và AJAX; hàm JavaScript `sort_content_by_time` ghi cookie an toàn và gửi tham số `&sort_by=time_asc|time_desc`.
+  - Cột Tiêu đề / Tên sản phẩm cấu hình `flex: 1 1 260px !important; min-width: 200px !important;` giúp bảng co giãn đối xứng 100% bề ngang card trên mọi độ phân giải màn hình.
+  - Đồng bộ chuẩn hóa tên class `time_google_index` cho Cột 10 ở tất cả các nhóm nội dung (`content_group=1, 2, 6, 7`).
+* **5. Kiểm Soát Bounding-Box Ảnh Phóng To Khi Hover (Product Preview Tooltip)**:
+  - Viết lại bộ điều khiển [`js/tooltip.js`](file:///d:/T&TVina/protools/admincp_preview/js/tooltip.js) với thuật toán phát hiện va chạm góc màn hình (`e.clientX`, `e.clientY` so với `window.width`, `window.height`), tự động lật ảnh sang hướng đối diện khi gần mép viewport.
+  - Khống chế kích thước tối đa `#tooltip img` ở mức `350px` (lớn hơn 10% so với bản cũ 300px), đảm bảo hình ảnh sản phẩm luôn nằm trọn vẹn trong vùng nhìn thấy của người dùng.
+* **6. Thiết Kế Lịch Sử Hoạt Động Theo Phong Cách Git Pipeline (CI/CD Pipeline History)**:
+  - Cấu trúc lại hàm `get_history_from_system_log` trong [`modules/content_left.php`](file:///d:/T&TVina/protools/admincp_preview/modules/content_left.php) và bổ sung bộ style `.git_pipeline`: Ray dẫn dọc (`pipeline_rail`), nốt trạng thái Success xanh lá / Warning vàng hổ phách (`pipeline_node`) có vầng sáng lan tỏa, nhãn `commit` tag, mốc thời gian monospace và liên kết nhật ký mượt mà.
+
+
+### 🎛️ Rule 9.89: Quy Chuẩn Dọn Dẹp Di Tích Cũ & Tối Ưu Thanh Điều Hướng AdminCP (03/10/2026)
+* **1. Loại bỏ triệt để di tích template bất động sản / vé máy bay cũ (Legacy Relic Purge)**:
+  - Loại bỏ hoàn toàn 6 mục menu rác thừa kế từ template cũ 2012 trong [`modules/menu.php`](file:///d:/T&TVina/protools/admincp_preview/modules/menu.php): "Dự án" (`content_group=2`), "Sơ đồ căn hộ" (`content_group=7`), "Thông tin khác" (`contenttype`), "Khu vực" (`content_group=10`), "Hãng máy bay" (`content_group=5`), "Sân bay" (`content_group=12`).
+  - Menu chỉ giữ lại đúng 100% nghiệp vụ phân phối công nghiệp B2B của T&T Vina Protools (Home, Bài viết, Sản phẩm, Danh mục, Đặt hàng, Liên hệ, Phản hồi, Thành viên, Quảng cáo, Hỗ trợ, Cấu hình).
+  - Bổ sung quy tắc CSS chặn hiển thị thẻ ẩn trên mobile: `.admin_header .header_nav .menu_top ul li[style*="display: none"] { display: none !important; }`, triệt tiêu hoàn toàn các yêu cầu 404 đến các module không tồn tại.
+* **2. Khắc phục nút Hamburger Mobile Nav trên Desktop (Strict Responsive Breakpoint)**:
+  - Thiết lập `.mobile_nav_btn { display: none !important; }` ở stylesheet desktop chính (`> 800px`), chỉ kích hoạt `display: flex !important;` bên trong `@media (max-width: 800px)`.
+* **3. Cấu trúc lại Header và Nút Thu Gọn / Mở Lại Sidebar (Non-Overlapping Catalog Header & Root-Level Show Tab)**:
+  - **Khối Thống Kê Truy Cập**: Tại `.catalog` trong [`modules/content_left.php`](file:///d:/T&TVina/protools/admincp_preview/modules/content_left.php), xóa bỏ nút `img.hide_left` đè lên dòng "Truy cập hôm nay: 0", thay thế bằng thanh tiêu đề độc lập `.catalog_header` chứa nhãn "Thống kê truy cập", icon vector SVG biểu đồ và nút bấm `.hide_left_btn` SVG chevron tinh tế. Giải phóng 100% khoảng trống cho 4 hàng chỉ số truy cập bên dưới.
+  - **Nút Mở Lại Sidebar Khi Thu Gọn (`.show_left`)**: Đặt nút `.show_left` trực tiếp ở tầng thẻ gốc `#wrap` trong [`index.php`](file:///d:/T&TVina/protools/admincp_preview/index.php) (bên ngoài `#content_left` và độc lập với `#admin_content`). Định vị `position: fixed; top: 130px; left: 0; z-index: 99999;` dạng tab nổi bo góc phải có hiệu ứng hover mở rộng và vầng sáng thương hiệu. Đồng bộ class `.left_collapsed` qua jQuery trên cả `#wrap` và `#admin_content`, loại bỏ hoàn toàn hiện tượng nút bị nuốt mất khi `#content_left` ẩn đi.
+
+### 🔄 Rule 9.90: Cơ Chế Đồng Bộ Trạng Thái 2 Chiều AdminCP <-> Production & Bộ Dữ Liệu 7.479 SKU Sapo (03/10/2026)
+* **1. Bản Đóng Gói SQL Nạp 7.479 SKU Vào MariaDB ([`import_sapo_to_admincp.sql`](file:///d:/T&TVina/protools/import_sapo_to_admincp.sql))**:
+  - Trích xuất 100% dữ liệu từ [`public/data/sapo_products_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_products_enriched.json) thông qua script [`scripts/generate_sapo_admincp_import_sql.py`](file:///d:/T&TVina/protools/scripts/generate_sapo_admincp_import_sql.py).
+  - Tự động gán dải ID `2001 -> 9479` (tránh xung đột với dải ID cũ `<= 1083`), đóng gói chia khối 500 rows/lệnh trên 5 bảng liên kết: `content` (phân nhóm 6), `content_process` (trạng thái xuất bản), `content_info` (mã SKU, giá, đơn vị, ảnh), `content_meta` (tiêu đề, slug, mô tả tóm tắt), `content_body` (bảng thông số kỹ thuật HTML).
+  - Quy trình import: Người quản trị import trực tiếp file này qua phpMyAdmin trên DirectAdmin (`https://s2d34.cloudnetwork.vn:2222`), tuyệt đối tuân thủ Rule 2.1 & 2.2 về an toàn WAF Imunify360.
+* **2. Cơ Chế Real-time Sync Hook Giữa AdminCP và Production Frontend**:
+  - **Phía AdminCP PHP**: Hàm `sync_status_to_production_catalog($contentid, $status)` được tích hợp trong [`modules/mdl_global_admincp.php`](file:///d:/T&TVina/protools/admincp_preview/modules/mdl_global_admincp.php), tự động kích hoạt tại [`modules/content_process.php`](file:///d:/T&TVina/protools/admincp_preview/modules/content_process.php) (khi `publish`, `republish`, `down`, `delete`) và [`modules/content_insert.php`](file:///d:/T&TVina/protools/admincp_preview/modules/content_insert.php). Khi gỡ/tắt, SKU và ID lập tức được ghi vào file JSON nhẹ `/data/disabled_products.json`; khi xuất bản, SKU và ID được gỡ khỏi danh sách tắt.
+  - **Phía Frontend React**: [`src/utils/catalogLoader.ts`](file:///d:/T&TVina/protools/src/utils/catalogLoader.ts) tự động fetch `/data/disabled_products.json?v=[timestamp]` và loại trừ toàn diện khỏi bộ nhớ đệm danh mục, thanh tìm kiếm Header và lưới sản phẩm `VirtualCatalogGrid`.
+  - **Hiệu Quả**: Bật/tắt sản phẩm trên AdminCP có hiệu lực tức thì trên website Production chỉ sau 1 lần refresh trang (F5) mà không cần build lại mã nguồn hay restart dịch vụ.
+
+
+### 🚀 Rule 9.91: Quy Chuẩn Chuyển Giao Chính Thức AdminCP (Promotion to Live) & Kích Hoạt Đồng Bộ 2 Chiều Production (03/10/2026)
+* **1. Quy Trình Chuyển Giao Pha 2 Tuyệt Đối An Toàn ([`promote_admincp.py`](file:///d:/T&TVina/protools/promote_admincp.py))**:
+  - **Sao Lưu Tự Động Toàn Phần**: Trước khi ghi đè, toàn bộ mã nguồn `/public_html/admincp/` cũ từ năm 2012 được tải về và đóng gói thành file nén zip tại [`backups/admincp_backup_before_modernize_20261003_141852.zip`](file:///d:/T&TVina/protools/backups/admincp_backup_before_modernize_20261003_141852.zip) cho mục đích rollback khẩn cấp.
+  - **Chuyển Đổi Namespace Tự Động**: Toàn bộ định danh `admincp_preview` được chuyển thành `admincp` chính thức trên 163 tệp (loại trừ các file error_log/debug).
+  - **Cấp Quyền & Vệ Sinh Máy Chủ**: Cấp quyền `SITE CHMOD 644` cho toàn bộ file, đệ quy xóa sạch phân vùng thử nghiệm `/public_html/admincp_preview/` và dọn sạch các chỉ thị rewrite của preview trong root `.htaccess`.
+* **2. Đồng Bộ Hóa Frontend Production ([`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py))**:
+  - Build hoàn tất bộ bundle React Vite mới và đẩy 204 files lên máy chủ production.
+  - Website [`https://protools.com.vn/`](https://protools.com.vn/) chính thức kết nối với cơ chế lọc động `/data/disabled_products.json`.
+* **3. Kết Quả Xác Thực Cuối Cùng**:
+  - URL Quản trị chính thức: [`https://protools.com.vn/admincp/login.php`](https://protools.com.vn/admincp/login.php) trả về HTTP 200, hiển thị logo T&T VINA INDUSTRIAL, 0 kết quả Web123.
+  - Quản lý danh mục Sản phẩm: [`https://protools.com.vn/admincp/#content?content_group=6&mn=mn_room`](https://protools.com.vn/admincp/#content?content_group=6&mn=mn_room) nạp đủ 7.479 sản phẩm với dải ID `2001 -> 9479`.
+  - Tính năng Sort: Cột "Thời gian tạo" hoạt động 2 chiều DESC / ASC mượt mà, lưu trạng thái cookie và phân trang ổn định.
+
+### Rule 9.92: Quy Chuẩn Khắc Phục Toàn Diện Lỗ Hổng AppSec, XSS, DOM Injection & Thiết Lập Content-Security-Policy (03/10/2026)
+* **1. Khắc Phục Stored XSS & Spoofing Header IP (`SEC-XSS-001`)**:
+  - Áp dụng tại [`public/api/submit_quote.php`](file:///d:/T&TVina/protools/public/api/submit_quote.php) và [`dist/api/submit_quote.php`](file:///d:/T&TVina/protools/dist/api/submit_quote.php).
+  - Tách chuỗi IP từ `HTTP_X_FORWARDED_FOR` và xác thực chặt chẽ qua `filter_var($candidate_ip, FILTER_VALIDATE_IP)`. Nếu không thỏa mãn IP hợp lệ, hệ thống tự động gán fallback về `0.0.0.0`, triệt tiêu hoàn toàn nguy cơ chèn mã độc HTML/JS qua header proxy vào bảng `contact_list.ip_address`.
+* **2. Khắc Phục Reflected XSS & JS Injection Không Cần Xác Thực Trong Tải Ảnh (`SEC-XSS-002`, `SEC-XSS-003`, `SEC-XSS-004`)**:
+  - **CKEditor Image Handler (`SEC-XSS-002`)**: Tại [`admincp/upload_image_ckeditor.php`](file:///d:/T&TVina/protools/admincp/upload_image_ckeditor.php), chặn đứng truy cập chưa đăng nhập bằng `http_response_code(403); exit;`. Ép kiểu bắt buộc `intval($_GET['CKEditorFuncNum'])`, mã hóa URL ảnh bằng `htmlspecialchars()` + `addslashes()`, loại bỏ `text/html` và chặn triệt để các đuôi file nguy hiểm (`.php`, `.html`, `.svg`, `.swf`, `.exe`).
+  - **Fast Image Upload Handler (`SEC-XSS-003`)**: Tại [`admincp/modules/upload_image_fast.php`](file:///d:/T&TVina/protools/admincp/modules/upload_image_fast.php), cưỡng chế xác thực 403, lọc whitelist `preg_replace('/[^a-zA-Z0-9_]/', '', $_POST["fFunction"])`, làm sạch các đối số callback trong thẻ `<script>` và loại trừ MIME `text/html`, Flash SWF.
+  - **Uploadfile Module (`SEC-XSS-004`)**: Tại [`admincp/modules/uploadfile.php`](file:///d:/T&TVina/protools/admincp/modules/uploadfile.php), cưỡng chế 403, lọc whitelist `preg_replace('/[^a-zA-Z0-9_\-]/', '', $_POST["fTarget"])` và escape toàn bộ biến URL trước khi đưa vào script sink.
+* **3. Khắc Phục Attribute-Context Reflected XSS & SQL Injection Trong Tìm Kiếm (`SEC-XSS-005`)**:
+  - Tại [`admincp/modules/content.php`](file:///d:/T&TVina/protools/admincp/modules/content.php), làm sạch `$_GET["search_text"]` qua `strip_tags()` và `filter_sql_inject()` trước khi đưa vào truy vấn MariaDB; mã hóa `htmlspecialchars(..., ENT_QUOTES, 'UTF-8')` đối với biến toàn cục `$GLOBALS["search_text"]`.
+  - Tham số `$_GET["catid"]` được chuẩn hóa thành `intval()` hoặc `'all'`, và `$_GET["mn"]` được lọc qua whitelist chữ và số, bảo vệ an toàn các thuộc tính DOM `catid="..."` và `onchange="..."`.
+* **4. Khắc Phục Stored XSS Trong Quản Lý Liên Hệ Khách Hàng (`SEC-XSS-006`)**:
+  - Tại [`admincp/modules/contact_add.php`](file:///d:/T&TVina/protools/admincp/modules/contact_add.php) và [`admincp/modules/contact.php`](file:///d:/T&TVina/protools/admincp/modules/contact.php), toàn bộ các trường dữ liệu do người dùng nhập (`fullname`, `phone`, `email`, `address`, `title`, `ip_address`) đều được bọc qua `htmlspecialchars(..., ENT_QUOTES, 'UTF-8')`.
+  - Trường `contact_list.content` được lọc regex loại bỏ triệt để các thẻ thực thi `<script>`, `<iframe>`, `<object>`, `<embed>`, `<svg>`, `<style>`, sự kiện inline `on*` và giao thức `javascript:`.
+* **5. Khắc Phục DOM Open Redirect & Protocol Navigation (`SEC-DOM-001`)**:
+  - Tại [`admincp/login.php`](file:///d:/T&TVina/protools/admincp/login.php), hàm `login_status()` kiểm tra nghiêm ngặt `location_referer`: cấm bắt đầu bằng `//`, `javascript:`, `data:` và bắt buộc phải nằm trong phạm vi tiền tố `base_folder + 'admincp/'` hoặc hash fragment `#`.
+* **6. Thiết Lập Content-Security-Policy (CSP) Tầng Máy Chủ Web (`SEC-CSP-001`)**:
+  - Tích hợp trực tiếp vào file cấu hình gốc `.htaccess` qua [`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py):
+    ```apache
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://code.jquery.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self';"
+    ```
+  - Triệt tiêu 100% nguy cơ nhúng Object/Flash, chặn Base Tag hijacking, chống Clickjacking và bảo vệ luồng kết nối API.
+* **7. Kết Quả Kiểm Thử Thực Tế (Live Production Verification)**:
+  - Tất cả các endpoint chưa đăng nhập đều trả về HTTP 403 Forbidden thay vì thực thi script.
+  - Toàn bộ HTTP Header an ninh (CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy) được máy chủ LiteSpeed phản hồi chính xác trên mọi request tới [`https://protools.com.vn/`](https://protools.com.vn/).

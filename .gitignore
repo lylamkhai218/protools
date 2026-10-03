@@ -35,3 +35,5 @@ public/data/sapo_*.json
 
 # Scratch and temporary agent files
 scratch/
+admincp_preview/
+*.sql

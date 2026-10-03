@@ -27,7 +27,28 @@ export async function loadCatalogIndex(): Promise<Product[]> {
       if (Array.isArray(data) && data.length > 0) {
         const flagshipSkus = new Set(PRODUCTS.map(p => p.sku.toLowerCase()));
         const extraProducts = data.filter(p => !flagshipSkus.has(p.sku.toLowerCase()));
-        cachedCatalog = [...PRODUCTS, ...extraProducts];
+        const fullCatalog = [...PRODUCTS, ...extraProducts];
+
+        // Real-time sync: Check if any products have been disabled (status=0) via AdminCP
+        try {
+          const disabledRes = await fetch('/data/disabled_products.json?v=' + Date.now(), { cache: 'no-cache' });
+          if (disabledRes.ok) {
+            const disabledList = await disabledRes.json();
+            if (Array.isArray(disabledList) && disabledList.length > 0) {
+              const disabledSet = new Set(disabledList.map(s => String(s).toLowerCase().trim()));
+              cachedCatalog = fullCatalog.filter(p => {
+                const sku = String(p.sku || '').toLowerCase().trim();
+                const id = String(p.id || '').toLowerCase().trim();
+                return !disabledSet.has(sku) && !disabledSet.has(id);
+              });
+              return cachedCatalog;
+            }
+          }
+        } catch {
+          // Graceful fallback: ignore if disabled_products.json does not exist
+        }
+
+        cachedCatalog = fullCatalog;
         return cachedCatalog;
       }
     } catch (err) {

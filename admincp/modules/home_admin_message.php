@@ -1,0 +1,1 @@
+<div class="message_from_admin">Hệ thống Quản trị Protools &bull; T&T Vina Industrial Co., Ltd &mdash; Kỹ thuật phụ trách: Mr. Kai (<a href="mailto:info@t2tvina.com" style="color:#0284c7;text-decoration:none;font-weight:600;">info@t2tvina.com</a>)</div>

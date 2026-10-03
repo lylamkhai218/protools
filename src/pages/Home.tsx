@@ -261,7 +261,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   </div>
                 </div>
 
-                {/* 3. Hardware Title & VinFast Body Shop Case Study (Stagger 3: 450ms) */}
+                {/* 3. Hardware Title & Automotive Body Shop Case Study (Stagger 3: 450ms) */}
                 <div className={`space-y-2.5 transition-all duration-500 ease-out delay-450 ${
                   isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                 }`}>
@@ -272,14 +272,14 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     {heroFeaturedLoc.name}
                   </h3>
 
-                  {/* Verified Case Study VinFast Body Shop */}
+                  {/* Verified Case Study Automotive Body Shop */}
                   <div className="p-2.5 rounded-xs bg-emerald-50/90 border border-emerald-200/90 text-xs text-slate-800 space-y-1">
                     <div className="flex items-center gap-1.5 font-bold text-emerald-800 text-[11px] uppercase">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Case Study VinFast Cát Hải:</span>
+                      <span>Case Study Robot Hàn Thân Xe Ô Tô:</span>
                     </div>
                     <p className="text-[11px] text-slate-700 leading-snug">
-                      {t('hero.trust_vinfast')}
+                      {t('hero.trust_automotive')}
                     </p>
                   </div>
 

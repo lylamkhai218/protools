@@ -47,7 +47,7 @@
 1. **Hệ AUR — Robot & Tự động hóa (Màu Cam `#FF8C00`):**
    - *Sản phẩm chính:* Hộp thu hồi cáp robot `R-Tec Box`, ống luồn `R-Tec Liner 2.0`, khớp cầu xoay 3D, kẹp giữ trục robot 1–6.
    - *Phương án trưng bày:* Trưng bày trên trụ sa bàn cơ khí cho khách tự tay kéo nhả lò xo thử nghiệm (không mang robot thật).
-   - *Case study tiêu biểu:* Đang vận hành ổn định trên dàn robot hàn ABB tại xưởng Body Shop Nhà máy Ô tô VinFast Cát Hải.
+   - *Case study tiêu biểu:* Đang vận hành ổn định trên dàn robot hàn ABB tại xưởng Body Shop dây chuyền sản xuất ô tô công nghệ cao.
 2. **Hệ ACS — Hệ thống tem nhãn công nghiệp (Màu Xanh lá `#73AE42`):**
    - *Sản phẩm chính:* Máy khắc laser để bàn `mp-LM 1M`, thẻ nhãn Inox 316, nhôm anode, nhựa polycarbonate.
    - *Phương án demo:* Khắc laser trực tiếp tên/logo hoặc mã thiết bị làm quà tặng lấy ngay trong 30 giây (Laser Class 1 an toàn).

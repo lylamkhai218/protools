@@ -100,7 +100,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
       {
         product: getProd('1081', 'MP-1081'),
         tag: 'Tiêu Điểm Robot',
-        highlight: 'ABB Body Shop VinFast',
+        highlight: 'Robot Body Shop Ô Tô',
         badgeColor: 'bg-red-50 text-[#E30613] border-red-200'
       },
       {

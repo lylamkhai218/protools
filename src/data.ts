@@ -477,9 +477,9 @@ export const PRODUCTS: Product[] = [
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
     "price": "Liên hệ Báo giá",
-    "shortDesc": "Hệ thống thu hồi và dẫn hướng xích cáp đàn hồi cho Robot 6 trục. Đã lắp đặt và hoạt động bền bỉ trên dàn Robot hàn ABB tại xưởng Body Shop Tổ hợp nhà máy VinFast Cát Hải (Hải Phòng).",
+    "shortDesc": "Ứng dụng kỹ thuật tiêu biểu trong ngành sản xuất và lắp ráp ô tô công nghệ cao: Hệ thống thu hồi và dẫn hướng ống bảo vệ cáp đàn hồi cho Robot 6 trục, hoạt động bền bỉ trên dàn Robot hàn và lắp ráp tự động.",
     "highlights": [
-      "Case Study thực tế: Đã lắp đặt và hoạt động ổn định trên dàn Robot ABB tại Body Shop Tổ hợp nhà máy VinFast Cát Hải.",
+      "Case Study thực tế: Đã lắp đặt và hoạt động ổn định trên dàn Robot hàn ABB tại xưởng Body Shop dây chuyền sản xuất ô tô.",
       "Hệ thống lò xo đàn hồi thu hồi ống mượt mà, triệt tiêu ma sát và chống xoắn gập cáp khi Robot di chuyển đa trục tốc độ cao.",
       "100% Chính hãng Murrplastik CHLB Đức, đầy đủ chứng từ hàng hóa và có bảo hành chính hãng."
     ],
@@ -487,7 +487,7 @@ export const PRODUCTS: Product[] = [
       "Hãng sản xuất": "Murrplastik (CHLB Đức)",
       "Mã sản phẩm (ID)": "1081 (R-Tec Liner)",
       "Ứng dụng Robot": "Robot hàn ABB, KUKA, FANUC, YASKAWA 6 trục",
-      "Dự án tiêu biểu": "Xưởng Body Shop - VinFast Cát Hải",
+      "Dự án tiêu biểu": "Xưởng Hàn Thân Xe (Body Shop) - Dây Chuyền Ô Tô",
       "Chức năng": "Thu hồi & chống xoắn gập ống dẫn khí/điện",
       "Độ bền uốn": "Hàng triệu chu kỳ chuyển động liên tục 24/7",
       "Xuất xứ": "CHLB Đức (Made in Germany)",

@@ -310,20 +310,20 @@ export default function ProductDetail({
                 </p>
               </div>
 
-              {/* VinFast Body Shop Case Study & Automotive Link for R-Tec Liner / Murrplastik */}
+              {/* Automotive Body Shop Case Study & Link for R-Tec Liner / Murrplastik */}
               {(product.id === '1081' || product.categorySlug === 'murrplastik' || product.brand === 'Murrplastik') && (
                 <div className="p-4 rounded-xs bg-gradient-to-r from-slate-900 via-slate-800 to-[#00478D] text-white space-y-2.5 shadow-sm border border-slate-700">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] uppercase font-bold tracking-wider text-amber-300 flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                      <span>Ứng Dụng Ngành Sản Xuất Ô Tô (VinFast Body Shop)</span>
+                      <span>Ứng Dụng Ngành Sản Xuất Ô Tô (Automotive Body Shop)</span>
                     </span>
                     <span className="px-2 py-0.5 rounded-xs bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold border border-emerald-500/40">
                       Verified Case Study
                     </span>
                   </div>
                   <p className="text-xs text-slate-200 leading-relaxed">
-                    {t('product_detail.vinfast_case_study')}
+                    {t('product_detail.automotive_case_study')}
                   </p>
                   <div className="pt-1">
                     <a

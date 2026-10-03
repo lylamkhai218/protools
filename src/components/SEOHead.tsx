@@ -289,7 +289,7 @@ export default function SEOHead({
               'HIOS Precision Electric Screwdrivers',
               'Quick High-Frequency Soldering 150W',
               'Factory Automation & Pneumatics',
-              'VinFast Body Shop Robot Dresspack Solutions'
+              'Automotive Body Shop Robot Dresspack Solutions'
             ],
             'contactPoint': [
               {

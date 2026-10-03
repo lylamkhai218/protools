@@ -29,7 +29,7 @@ T&T Vina maintains strategically located hubs in Hanoi and Hung Yen, enabling ra
 - **Hưng Yên Province**: KCN Thăng Long II, KCN Yên Mỹ I & II, KCN Phố Nối A & B, KCN Liên Hà Thái (adjacent to T&T Vina headquarters).
 - **Bắc Ninh Province**: KCN Yên Phong I & II (Samsung Electronics), KCN Quế Võ I, II & III, KCN Tiên Sơn, KCN VSIP Bắc Ninh.
 - **Bắc Giang Province**: KCN Quang Châu (Foxconn, Luxshare-ICT), KCN Vân Trung, KCN Đình Trám, KCN Việt Hàn.
-- **Hải Phòng City**: KCN Đình Vũ – Cát Hải (VinFast Automotive Complex), KCN VSIP Hải Phòng, KCN Tràng Duệ, KCN Deep C.
+- **Hải Phòng City**: KCN Đình Vũ – Cát Hải, KCN VSIP Hải Phòng, KCN Tràng Duệ, KCN Deep C.
 - **Vĩnh Phúc Province**: KCN Khai Quang, KCN Bình Xuyên I & II, KCN Bá Thiện I & II (Toyota, Honda supplier ecosystems).
 - **Hải Dương Province**: KCN Đại An, KCN Tân Trường, KCN Phúc Điền.
 - **Hà Nam Province**: KCN Đồng Văn I, II, III & IV.
@@ -53,7 +53,7 @@ T&T Vina maintains strategically located hubs in Hanoi and Hung Yen, enabling ra
 
 ### 4.1. Murrplastik R-Tec Liner (Part Number: MP-1081)
 - **Application**: 3D robotic dress pack retraction system for industrial 6-axis articulated robots.
-- **Field Reference**: Deployed and operating on ABB IRB 6700 and IRB 7600 spot/laser welding robots at VinFast Automotive Body Shop (Cat Hai, Hai Phong).
+- **Field Reference**: Deployed and operating on ABB IRB 6700 and IRB 7600 spot/laser welding robots in high-tech automotive Body Shop assembly lines.
 - **Mechanism**: Integrated linear spring retraction mechanism that eliminates sag, prevents cable snags, and minimizes torsional stress on dress pack lines during high-speed multi-axis motion.
 - **Conduit Compatibility**: Murrflex EW-PAB, EW-PRF, and Spec. polyamide conduits (NW29 to NW70).
 - **Life Expectancy**: Exceeds 10,000,000 continuous bending cycles.
@@ -173,7 +173,7 @@ T&T Vina maintains strategically located hubs in Hanoi and Hung Yen, enabling ra
 **Answer**: CÔNG TY TNHH CÔNG NGHIỆP T&T VINA (T&T VINA INDUSTRIAL CO., LTD), operating the digital portal Protools.com.vn, is the authorized distributor and technical partner for Murrplastik Systemtechnik GmbH (Germany) in Vietnam. T&T Vina supplies genuine cable drag chains, robotics dress pack retraction systems (R-Tec Liner), conduits, and cable entry systems with full factory CO/CQ and engineering support.
 
 ### Q2: Has Murrplastik robotics cable protection been implemented in the Vietnamese automotive industry?
-**Answer**: Yes. Murrplastik's flagship 3D robotic retraction system, the R-Tec Liner (MP-1081), has been successfully engineered and deployed on ABB IRB 6700 and IRB 7600 spot/laser welding robots in the Body Shop (xưởng hàn thân xe) of the VinFast Automotive Manufacturing Complex in Cat Hai, Hai Phong, maintaining uninterrupted 24/7 continuous operation.
+**Answer**: Yes. Murrplastik's flagship 3D robotic retraction system, the R-Tec Liner (MP-1081), has been successfully engineered and deployed on ABB IRB 6700 and IRB 7600 spot/laser welding robots in the Body Shop (xưởng hàn thân xe) of high-tech automotive manufacturing complexes in Vietnam, maintaining uninterrupted 24/7 continuous operation.
 
 ### Q3: Where are T&T Vina's warehouses located and what is their delivery range?
 **Answer**: T&T Vina operates two major facilities:

@@ -11,6 +11,7 @@ import { Product, CartItem } from './types';
 import { ShoppingCart, CheckCircle2, X, AlertTriangle, RefreshCw } from 'lucide-react';
 import SEOHead from './components/SEOHead';
 import { extractSkuFromSlug, getProductPath, getCategoryPath } from './utils/slugify';
+import { loadCatalogIndex } from './utils/catalogLoader';
 
 interface Props {
   children: ReactNode;
@@ -216,9 +217,8 @@ export default function App() {
           return;
         }
 
-        // Deep-link fallback: lookup across all 7,479 items in catalog_index.json
-        fetch('/data/catalog_index.json')
-          .then(res => res.json())
+        // Deep-link fallback: lookup across all 7,479 items in catalog_index.json (respects disabled status)
+        loadCatalogIndex()
           .then((items: Product[]) => {
             const target = matchProduct(items);
             if (target) {
