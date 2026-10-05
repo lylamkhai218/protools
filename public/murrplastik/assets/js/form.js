@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let data;
       try {
         data = await res.json();
-      } catch (jsonErr) {
+      } catch {
         console.warn('Response is not JSON, checking status...');
         if (res.ok || res.status === 0) {
           // Status 0 might happen with some CORS/Redirect scenarios but data often still arrives
@@ -158,7 +158,7 @@ function showSuccessPopup() {
   }
 }
 
-function closeSuccessPopup() {
+window.closeSuccessPopup = function closeSuccessPopup() {
   const popup = document.getElementById('successPopup');
   if (popup) {
     popup.classList.remove('open');

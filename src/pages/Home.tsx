@@ -1,32 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
-  Download, 
   CheckCircle2, 
-  ShieldCheck, 
   Zap, 
   Cpu, 
   Wrench, 
   PackageCheck, 
-  FileText, 
   ExternalLink,
-  ChevronRight,
-  Filter,
-  Eye,
   Plus,
-  Building,
   PhoneCall,
-  Sparkles,
   Layers,
   Settings2,
-  Building2, 
   HelpCircle, 
-  ChevronDown,
-  Copy,
-  Check
+  ChevronDown
 } from 'lucide-react';
 import { Product } from '../types';
-import { PARTNERS, SOLUTIONS, PRODUCTS, TECHNICAL_DOCUMENTS, INDUSTRIES, COMPANY_INFO } from '../data';
+import { SOLUTIONS, PRODUCTS, COMPANY_INFO } from '../data';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { AnimatedCounter } from '../components/AnimatedCounter';
 import { VirtualCatalogGrid } from '../components/VirtualCatalogGrid';
@@ -46,11 +35,8 @@ interface HomeProps {
 export default function Home({ onNavigate, onSelectProduct, onAddToCart, initialFilter, initialSearch }: HomeProps) {
   const { t, locale } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<string>(initialFilter || 'all');
-  const [selectedIndustry, setSelectedIndustry] = useState<string>('electronics');
-  const [hoveredZoomProduct, setHoveredZoomProduct] = useState<{ product: Product; x: number; y: number } | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [heroScrollSpread, setHeroScrollSpread] = useState<number>(0);
-  const [isHeroCardMounted, setIsHeroCardMounted] = useState<boolean>(false);
 
   // Sync activeCategory when initialFilter prop updates from Header navigation & scroll to catalog
   useEffect(() => {
@@ -83,9 +69,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
   // Staggered entrance trigger on initial mount
   useEffect(() => {
-    const t = setTimeout(() => setIsHeroCardMounted(true), 60);
-    return () => clearTimeout(t);
-  }, []);
+      }, []);
 
   // Dynamic scroll listener with RAF throttle for smooth iOS 18 performance
   useEffect(() => {
@@ -111,7 +95,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
   // Trigger dynamic scroll reveal when category filter changes or page scrolls
   useScrollReveal(activeCategory);
 
-  // Filter products by category with robust matching
+  // products by category with robust matching
 
   const heroFeatured = PRODUCTS.find(p => p.id === '1081') || PRODUCTS[0]; // R-Tec Liner Murrplastik Đức
   const heroFeaturedLoc = getLocalizedProduct(heroFeatured, locale);
@@ -208,44 +192,38 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
               <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-5 border-t border-slate-200/80 text-xs">
                 <div>
                   <AnimatedCounter end={100} suffix="%" className="font-display text-xl sm:text-3xl font-black text-[#00478D] tracking-tight block" />
-                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">{t('hero.stat_genuine')}</div>
+                  <div className="text-slate-600 text-xs mt-0.5 font-medium leading-tight">{t('hero.stat_genuine')}</div>
                 </div>
                 <div>
                   <AnimatedCounter end={24} suffix="h" className="font-display text-xl sm:text-3xl font-black text-[#D97706] tracking-tight block" />
-                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">{t('hero.stat_delivery')}</div>
+                  <div className="text-slate-600 text-xs mt-0.5 font-medium leading-tight">{t('hero.stat_delivery')}</div>
                 </div>
                 <div>
                   <AnimatedCounter end={76} suffix="+" className="font-display text-xl sm:text-3xl font-black text-slate-800 tracking-tight block" />
-                  <div className="text-slate-500 text-[10px] sm:text-[11px] mt-0.5 font-medium leading-tight">{t('hero.stat_devices')}</div>
+                  <div className="text-slate-600 text-xs mt-0.5 font-medium leading-tight">{t('hero.stat_devices')}</div>
                 </div>
               </div>
 
             </div>
 
-            {/* Right Column: Hero Spotlight Hardware Card with Staggered Entrance */}
+            {/* Right Column: Hero Spotlight Hardware Card */}
             <div className="lg:col-span-5">
-              <div className={`relative rounded-sm bg-white p-6 shadow-xl border border-slate-200/90 group transition-all duration-700 ease-out ${
-                isHeroCardMounted ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-[0.97]'
-              }`}>
+              <div className="relative rounded-sm bg-white p-6 shadow-xl border border-slate-200/90 group transition-all duration-300">
                 
-                {/* 1. Tech Badge (Stagger 1: 150ms) */}
-                <div className={`flex items-center justify-between pb-4 border-b border-slate-100 transition-all duration-500 ease-out delay-150 ${
-                  isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                }`}>
+                {/* 1. Tech Badge */}
+                <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                     <span className="text-xs font-mono font-bold text-slate-700 uppercase">{t('hero.spotlight_badge')}</span>
                   </div>
-                  <span className="text-[11px] font-bold text-[#00478D] bg-blue-50 px-2 py-0.5 rounded-xs border border-blue-200">
+                  <span className="text-xs font-bold text-[#00478D] bg-blue-50 px-2 py-0.5 rounded-xs border border-blue-200">
                     {t('catalog.in_stock')}
                   </span>
                 </div>
 
-                {/* 2. Hardware Image with Optical Zoom (Stagger 2: 300ms) */}
+                {/* 2. Hardware Image with Optical Zoom (LCP Optimized) */}
                 <div 
-                  className={`relative h-64 sm:h-72 my-4 rounded-sm bg-slate-50 flex items-center justify-center p-4 border border-slate-100 overflow-hidden cursor-pointer transition-all duration-600 ease-out delay-300 ${
-                    isHeroCardMounted ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
-                  }`}
+                  className="relative h-64 sm:h-72 my-4 rounded-sm bg-slate-50 flex items-center justify-center p-4 border border-slate-100 overflow-hidden cursor-pointer"
                   onClick={() => {
                     onSelectProduct(heroFeatured);
                     onNavigate('product-detail');
@@ -254,53 +232,52 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                   <img 
                     src={heroFeaturedLoc.image} 
                     alt={heroFeaturedLoc.name}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    width="400"
+                    height="286"
                     className="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-slate-200 text-[11px] font-mono text-slate-600 shadow-2xs">
+                  <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-slate-200 text-xs font-mono text-slate-600 shadow-2xs">
                     SKU: {heroFeaturedLoc.sku}
                   </div>
                 </div>
 
-                {/* 3. Hardware Title & Automotive Body Shop Case Study (Stagger 3: 450ms) */}
-                <div className={`space-y-2.5 transition-all duration-500 ease-out delay-450 ${
-                  isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                }`}>
+                {/* 3. Hardware Title & Automotive Body Shop Case Study */}
+                <div className="space-y-2.5">
                   <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                     {heroFeaturedLoc.category} • {heroFeaturedLoc.brand}
                   </div>
-                  <h3 className="font-display text-xl font-bold text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-1">
+                  <h2 className="font-display text-xl font-bold text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-1">
                     {heroFeaturedLoc.name}
-                  </h3>
+                  </h2>
 
                   {/* Verified Case Study Automotive Body Shop */}
                   <div className="p-2.5 rounded-xs bg-emerald-50/90 border border-emerald-200/90 text-xs text-slate-800 space-y-1">
-                    <div className="flex items-center gap-1.5 font-bold text-emerald-800 text-[11px] uppercase">
+                    <div className="flex items-center gap-1.5 font-bold text-emerald-800 text-xs uppercase">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       <span>Case Study Robot Hàn Thân Xe Ô Tô:</span>
                     </div>
-                    <p className="text-[11px] text-slate-700 leading-snug">
+                    <p className="text-xs text-slate-700 leading-snug">
                       {t('hero.trust_automotive')}
                     </p>
                   </div>
 
-                  {/* 4. Specs Grid (Stagger 4: 600ms) */}
-                  <div className={`grid grid-cols-2 gap-2 pt-1 text-[11px] transition-all duration-500 ease-out delay-600 ${
-                    isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                  }`}>
+                  {/* 4. Specs Grid */}
+                  <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
                     <div className="bg-slate-50 p-2 rounded-xs border border-slate-200/70">
-                      <span className="text-slate-400 block text-[10px]">{t('hero.spotlight_app_label')}</span>
-                      <span className="font-mono font-bold text-slate-800">{t('hero.spotlight_app_val')}</span>
+                      <span className="text-slate-500 block text-xs">{t('hero.spotlight_app_label')}</span>
+                      <span className="font-mono font-bold text-slate-800 text-xs">{t('hero.spotlight_app_val')}</span>
                     </div>
                     <div className="bg-slate-50 p-2 rounded-xs border border-slate-200/70">
-                      <span className="text-slate-400 block text-[10px]">{t('hero.spotlight_mech_label')}</span>
-                      <span className="font-mono font-bold text-slate-800">{t('hero.spotlight_mech_val')}</span>
+                      <span className="text-slate-500 block text-xs">{t('hero.spotlight_mech_label')}</span>
+                      <span className="font-mono font-bold text-slate-800 text-xs">{t('hero.spotlight_mech_val')}</span>
                     </div>
                   </div>
 
-                  {/* 5. Actions (Stagger 5: 750ms) */}
-                  <div className={`flex items-center gap-2 pt-2 transition-all duration-500 ease-out delay-700 ${
-                    isHeroCardMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-                  }`}>
+                  {/* 5. Actions */}
+                  <div className="flex items-center gap-2 pt-2">
                     <button
                       onClick={() => {
                         onSelectProduct(heroFeatured);
@@ -313,7 +290,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     </button>
                     <button
                       onClick={() => onAddToCart(heroFeatured)}
-                      className="h-10 px-3.5 rounded-sm bg-amber-50 hover:bg-amber-100 text-[#D97706] border border-amber-300 text-xs font-bold transition-colors flex items-center gap-1 cursor-pointer"
+                      className="h-10 px-3.5 rounded-sm bg-amber-50 hover:bg-amber-100 text-[#B45309] border border-amber-300 text-xs font-bold transition-colors flex items-center gap-1 cursor-pointer"
                       title={t('catalog.add_rfq')}
                     >
                       <Plus className="w-4 h-4" />
@@ -352,9 +329,9 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                 }
               }}
               className="group flex flex-col items-center gap-2 cursor-pointer focus:outline-none transition-all"
-              aria-label="Cuộn xuống xem danh mục & giải pháp"
+              aria-label={t('hero.explore_solutions', 'Khám phá giải pháp & danh mục')}
             >
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 group-hover:text-[#00478D] transition-colors">
+              <span className="text-xs font-semibold uppercase tracking-widest text-slate-500 group-hover:text-[#00478D] transition-colors">
                 {t('hero.explore_solutions')}
               </span>
               
@@ -422,10 +399,10 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                     
                     {/* Top Row: Brand Tag & Badge */}
                     <div className="flex items-center justify-between gap-1.5">
-                      <span className="font-display font-extrabold text-[9px] sm:text-[11px] text-[#00478D] bg-blue-50 px-1.5 sm:px-2 py-0.5 rounded-xs border border-blue-200 tracking-wider uppercase truncate max-w-[65%]">
+                      <span className="font-display font-extrabold text-xs text-[#00478D] bg-blue-50 px-2 py-0.5 rounded-xs border border-blue-200 tracking-wider uppercase truncate max-w-[65%]">
                         {sol.tag.split('/')[0].trim()}
                       </span>
-                      <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-xs bg-slate-100 text-slate-600 shrink-0 hidden xs:inline-block">
+                      <span className="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-xs bg-slate-100 text-slate-600 shrink-0 hidden xs:inline-block">
                         {lSol.badge}
                       </span>
                     </div>
@@ -435,6 +412,10 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                       <img 
                         src={repProduct.image} 
                         alt={lSol.title} 
+                        loading="lazy"
+                        decoding="async"
+                        width="160"
+                        height="112"
                         className="max-h-full max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-1.5 left-1.5 p-1 sm:p-1.5 rounded-xs bg-white/95 shadow-2xs border border-slate-200/90 text-[#00478D]">
@@ -444,7 +425,7 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                         {sol.id === 'murrplastik' && <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
                         {sol.id !== 'thiet-bi-han' && sol.id !== 'may-bat-vit-nha-vit' && sol.id !== 'dung-cu-bom-keo' && sol.id !== 'murrplastik' && <Settings2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
                       </div>
-                      <div className="absolute bottom-1.5 right-1.5 px-1 sm:px-1.5 py-0.5 bg-white/90 backdrop-blur-xs rounded-xs border border-slate-200 text-[9px] sm:text-[10px] font-mono text-slate-600 shadow-2xs">
+                      <div className="absolute bottom-1.5 right-1.5 px-1.5 py-0.5 bg-white/90 backdrop-blur-xs rounded-xs border border-slate-200 text-xs font-mono text-slate-600 shadow-2xs">
                         {sol.featuredProductsCount} {t('solutions.items_count')}
                       </div>
                     </div>
@@ -453,18 +434,18 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
                       <h3 className="font-display font-bold text-xs sm:text-base text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-1 leading-snug">
                         {lSol.title}
                       </h3>
-                      <p className="text-[10px] sm:text-[11px] font-mono text-[#D97706] mt-0.5 line-clamp-1">
+                      <p className="text-xs font-mono text-[#B45309] mt-0.5 line-clamp-1">
                         {lSol.subtitle}
                       </p>
                     </div>
 
-                    <p className="text-[11px] sm:text-xs text-slate-600 leading-tight sm:leading-relaxed line-clamp-2 hidden sm:block">
+                    <p className="text-xs text-slate-600 leading-tight sm:leading-relaxed line-clamp-2 hidden sm:block">
                       {lSol.desc}
                     </p>
 
                     <div className="space-y-1 pt-1.5 border-t border-slate-100 hidden sm:block">
                       {lSol.standards.slice(0, 2).map((std, idx) => (
-                        <div key={idx} className="flex items-center gap-1.5 text-[11px] text-slate-500 truncate">
+                        <div key={idx} className="flex items-center gap-1.5 text-xs text-slate-500 truncate">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
                           <span className="truncate">{std}</span>
                         </div>
@@ -630,43 +611,6 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
 
         </div>
       </section>
-
-      {/* 6. FLOATING PRODUCT ZOOM PREVIEW MAGNIFIER (DESKTOP INTERACTIVE HOVER) */}
-      {hoveredZoomProduct && (() => {
-        const hp = getLocalizedProduct(hoveredZoomProduct.product, locale);
-        return (
-          <div 
-            style={{ 
-              top: `${hoveredZoomProduct.y}px`, 
-              left: hoveredZoomProduct.x + 340 > (typeof window !== 'undefined' ? window.innerWidth : 1200) 
-                ? `${hoveredZoomProduct.x - 360}px` 
-                : `${hoveredZoomProduct.x}px` 
-            }}
-            className="fixed z-50 pointer-events-none hidden lg:block w-76 sm:w-80 bg-white rounded-md shadow-[0_25px_70px_rgba(0,31,63,0.35)] border-2 border-[#00478D]/40 p-4 animate-in fade-in zoom-in-95 duration-150 backdrop-blur-md"
-          >
-            <div className="text-[11px] font-bold text-[#00478D] uppercase tracking-wider mb-1 flex items-center justify-between">
-              <span>{hp.brand}</span>
-              <span className="font-mono text-slate-400 text-[10px]">{hp.sku}</span>
-            </div>
-            <div className="font-bold text-xs text-slate-900 line-clamp-1 mb-2">
-              {hp.name}
-            </div>
-            <div className="h-60 w-full bg-slate-50/90 rounded-xs border border-slate-100 p-3 flex items-center justify-center overflow-hidden">
-              <img 
-                src={hp.image} 
-                alt={hp.name}
-                className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300 scale-110"
-              />
-            </div>
-            <div className="mt-2.5 pt-2 border-t border-slate-100 text-[10px] text-slate-500 flex items-center justify-between">
-              <span>{t('catalog.origin_label')} <strong className="text-slate-700">{hp.origin}</strong></span>
-              <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded-xs">
-                {hp.stockStatus}
-              </span>
-            </div>
-          </div>
-        );
-      })()}
 
     </div>
   );

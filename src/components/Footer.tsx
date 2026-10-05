@@ -2,18 +2,12 @@ import React, { useState } from 'react';
 import { 
   Building2, 
   MapPin, 
-  Phone, 
-  Mail, 
-  ShieldCheck, 
-  Award, 
-  CheckCircle2, 
   ArrowUpRight,
   ExternalLink,
   Copy,
-  Check,
-  PhoneCall
+  Check
 } from 'lucide-react';
-import { COMPANY_INFO, PARTNERS } from '../data';
+import { COMPANY_INFO } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
 
 interface FooterProps {

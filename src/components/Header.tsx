@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { 
   Search, 
   ShoppingCart, 
-  FileText, 
   Menu, 
   X, 
   ChevronDown, 
@@ -181,12 +180,12 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             <span className="text-slate-300">|</span>
             <a
               href="/murrplastik/"
-              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 text-[#E30613] hover:bg-red-100/90 border border-red-200/90 font-bold tracking-tight transition-all shadow-2xs group"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 hover:bg-red-100/90 border border-red-200/90 font-bold tracking-tight transition-all shadow-2xs group"
               title="Truy cập Chuyên Trang Ủy Quyền Murrplastik (CHLB Đức)"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E30613] animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-red-700 animate-pulse"></span>
               <span>{t('nav.murr_portal')}</span>
-              <ExternalLink className="w-2.5 h-2.5 text-red-500 group-hover:translate-x-0.5 transition-transform" />
+              <ExternalLink className="w-2.5 h-2.5 text-red-700 group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
 

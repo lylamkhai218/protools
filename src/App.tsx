@@ -8,7 +8,7 @@ const DocumentCenter = React.lazy(() => import('./pages/DocumentCenter'));
 const CartQuote = React.lazy(() => import('./pages/CartQuote'));
 import { PRODUCTS } from './data';
 import { Product, CartItem } from './types';
-import { ShoppingCart, CheckCircle2, X, AlertTriangle, RefreshCw } from 'lucide-react';
+import { CheckCircle2, X, AlertTriangle, RefreshCw } from 'lucide-react';
 import SEOHead from './components/SEOHead';
 import { extractSkuFromSlug, getProductPath, getCategoryPath } from './utils/slugify';
 import { loadCatalogIndex } from './utils/catalogLoader';

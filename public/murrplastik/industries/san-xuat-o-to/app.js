@@ -384,7 +384,7 @@ function applyLanguage(lang) {
             url.searchParams.delete('lang');
         }
         window.history.replaceState({}, '', url);
-    } catch (e) {}
+    } catch {}
 
     // Translate document title & meta tags
     const titleEl = document.querySelector('title[data-i18n]');

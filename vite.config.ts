@@ -59,6 +59,9 @@ export default defineConfig(() => {
                 return 'vendor-genai';
               }
             }
+            if (id.includes('src/data.ts') || id.includes('productTranslations') || id.includes('solutionsTranslations')) {
+              return 'catalog-data';
+            }
           }
         }
       }

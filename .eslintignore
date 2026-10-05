@@ -1,0 +1,5 @@
+admincp/
+admincp_preview/
+backups/
+dist/
+node_modules/

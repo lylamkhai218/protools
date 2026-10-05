@@ -19,7 +19,6 @@ export function generateProductSEODescription(product: Product): SEODescriptionO
   const brand = product.brand || 'T&T Vina Industrial';
   const category = product.category || 'Thiết bị công nghiệp';
   const catSlug = product.categorySlug || '';
-  const origin = product.origin || 'Chính hãng';
   const warehouse = product.stockLocation || 'Kho Hà Nội & Hưng Yên';
 
   // 1. Meta Description (Tối ưu 150 - 160 ký tự cho Google Snippet)

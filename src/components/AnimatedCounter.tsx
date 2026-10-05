@@ -57,7 +57,7 @@ export function AnimatedCounter({
   }, [end, duration, hasAnimated]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`tabular-nums inline-block ${className}`}>
       {prefix}{count}{suffix}
     </span>
   );
