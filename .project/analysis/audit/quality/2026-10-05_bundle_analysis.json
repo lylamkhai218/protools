@@ -1,0 +1,120 @@
+{
+  "auditDate": "2026-10-05",
+  "generatedAt": "2026-10-05T11:06:17.889391",
+  "scanDirectory": "dist/assets",
+  "summary": {
+    "totalFiles": 7,
+    "totalRawBytes": 832831,
+    "totalRawKb": 813.31,
+    "totalRawMb": 0.79,
+    "totalGzipBytes": 217506,
+    "totalGzipKb": 212.41,
+    "totalGzipMb": 0.21,
+    "overallCompressionRatio": 73.9,
+    "largeChunksCountExceeding500Kb": 0,
+    "warningChunksCountExceeding250Kb": 0
+  },
+  "byType": {
+    ".js": {
+      "count": 6,
+      "rawBytes": 742340,
+      "rawKb": 724.94,
+      "gzipBytes": 203455,
+      "gzipKb": 198.69
+    },
+    ".css": {
+      "count": 1,
+      "rawBytes": 90491,
+      "rawKb": 88.37,
+      "gzipBytes": 14051,
+      "gzipKb": 13.72
+    }
+  },
+  "largeChunkWarnings": [],
+  "files": [
+    {
+      "file": "assets/index-C0nyRD2y.js",
+      "name": "index-C0nyRD2y.js",
+      "extension": ".js",
+      "rawBytes": 255286,
+      "rawKb": 249.3,
+      "gzipBytes": 71532,
+      "gzipKb": 69.86,
+      "compressionRatio": 72.0,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    },
+    {
+      "file": "assets/catalog-data-CpE-4kMk.js",
+      "name": "catalog-data-CpE-4kMk.js",
+      "extension": ".js",
+      "rawBytes": 224261,
+      "rawKb": 219.0,
+      "gzipBytes": 53153,
+      "gzipKb": 51.91,
+      "compressionRatio": 76.3,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    },
+    {
+      "file": "assets/vendor-react-D2rEsFzV.js",
+      "name": "vendor-react-D2rEsFzV.js",
+      "extension": ".js",
+      "rawBytes": 213629,
+      "rawKb": 208.62,
+      "gzipBytes": 65140,
+      "gzipKb": 63.61,
+      "compressionRatio": 69.5,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    },
+    {
+      "file": "assets/index-TLANUVIA.css",
+      "name": "index-TLANUVIA.css",
+      "extension": ".css",
+      "rawBytes": 90491,
+      "rawKb": 88.37,
+      "gzipBytes": 14051,
+      "gzipKb": 13.72,
+      "compressionRatio": 84.5,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    },
+    {
+      "file": "assets/ProductDetail-DRZOxdqU.js",
+      "name": "ProductDetail-DRZOxdqU.js",
+      "extension": ".js",
+      "rawBytes": 27588,
+      "rawKb": 26.94,
+      "gzipBytes": 6760,
+      "gzipKb": 6.6,
+      "compressionRatio": 75.5,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    },
+    {
+      "file": "assets/CartQuote-CXjVv2Jw.js",
+      "name": "CartQuote-CXjVv2Jw.js",
+      "extension": ".js",
+      "rawBytes": 15645,
+      "rawKb": 15.28,
+      "gzipBytes": 4814,
+      "gzipKb": 4.7,
+      "compressionRatio": 69.2,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    },
+    {
+      "file": "assets/DocumentCenter-Dt1oJ4Qv.js",
+      "name": "DocumentCenter-Dt1oJ4Qv.js",
+      "extension": ".js",
+      "rawBytes": 5931,
+      "rawKb": 5.79,
+      "gzipBytes": 2056,
+      "gzipKb": 2.01,
+      "compressionRatio": 65.3,
+      "isLargeChunk": false,
+      "isWarningChunk": false
+    }
+  ]
+}

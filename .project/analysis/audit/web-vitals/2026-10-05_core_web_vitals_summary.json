@@ -1,0 +1,189 @@
+{
+  "auditDate": "2026-10-05",
+  "generatedAt": "2026-10-05T10:23:15.244082",
+  "target": "https://protools.com.vn/",
+  "overview": {
+    "desktop": {
+      "device": "desktop",
+      "url": "https://protools.com.vn/",
+      "fetchTime": "2026-10-05T02:48:14.950Z",
+      "lighthouseVersion": "12.2.1",
+      "scores": {
+        "performance": 97,
+        "accessibility": 91,
+        "bestPractices": 59,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "LCP": {
+          "title": "Largest Contentful Paint",
+          "displayValue": "0.8 s",
+          "numericValue": 773.2465,
+          "numericUnit": "millisecond",
+          "score": 0.98,
+          "status": "GOOD"
+        },
+        "CLS": {
+          "title": "Cumulative Layout Shift",
+          "displayValue": "0.002",
+          "numericValue": 0.0021340146664340517,
+          "numericUnit": "unitless",
+          "score": 1,
+          "status": "GOOD"
+        },
+        "TBT": {
+          "title": "Total Blocking Time",
+          "displayValue": "120 ms",
+          "numericValue": 118.67900000000009,
+          "numericUnit": "millisecond",
+          "score": 0.95,
+          "status": "GOOD"
+        },
+        "FCP": {
+          "title": "First Contentful Paint",
+          "displayValue": "0.8 s",
+          "numericValue": 773.2465,
+          "numericUnit": "millisecond",
+          "score": 0.96,
+          "status": "GOOD"
+        },
+        "TTFB": {
+          "title": "Initial server response time was short",
+          "displayValue": "Root document took 30 ms",
+          "numericValue": 32.937,
+          "numericUnit": "millisecond",
+          "score": 1,
+          "status": "GOOD"
+        },
+        "SpeedIndex": {
+          "title": "Speed Index",
+          "displayValue": "1.1 s",
+          "numericValue": 1090.9287029838033,
+          "numericUnit": "millisecond",
+          "score": 0.95,
+          "status": "GOOD"
+        },
+        "TTI": {
+          "title": "Time to Interactive",
+          "displayValue": "1.2 s",
+          "numericValue": 1180.5755000000001,
+          "numericUnit": "millisecond",
+          "score": 1,
+          "status": "GOOD"
+        }
+      }
+    },
+    "mobile": {
+      "device": "mobile",
+      "url": "https://protools.com.vn/",
+      "fetchTime": "2026-10-05T02:42:17.097Z",
+      "lighthouseVersion": "12.2.1",
+      "scores": {
+        "performance": 31,
+        "accessibility": 91,
+        "bestPractices": 57,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "LCP": {
+          "title": "Largest Contentful Paint",
+          "displayValue": "11.1 s",
+          "numericValue": 11139.267,
+          "numericUnit": "millisecond",
+          "score": 0,
+          "status": "POOR"
+        },
+        "CLS": {
+          "title": "Cumulative Layout Shift",
+          "displayValue": "0.245",
+          "numericValue": 0.244545147280268,
+          "numericUnit": "unitless",
+          "score": 0.51,
+          "status": "NEEDS_IMPROVEMENT"
+        },
+        "TBT": {
+          "title": "Total Blocking Time",
+          "displayValue": "1,430 ms",
+          "numericValue": 1427.455500000001,
+          "numericUnit": "millisecond",
+          "score": 0.15,
+          "status": "POOR"
+        },
+        "FCP": {
+          "title": "First Contentful Paint",
+          "displayValue": "2.9 s",
+          "numericValue": 2903.6349999999993,
+          "numericUnit": "millisecond",
+          "score": 0.53,
+          "status": "NEEDS_IMPROVEMENT"
+        },
+        "TTFB": {
+          "title": "Initial server response time was short",
+          "displayValue": "Root document took 30 ms",
+          "numericValue": 31.162000000000003,
+          "numericUnit": "millisecond",
+          "score": 1,
+          "status": "GOOD"
+        },
+        "SpeedIndex": {
+          "title": "Speed Index",
+          "displayValue": "3.7 s",
+          "numericValue": 3691.3985688619377,
+          "numericUnit": "millisecond",
+          "score": 0.85,
+          "status": "NEEDS_IMPROVEMENT"
+        },
+        "TTI": {
+          "title": "Time to Interactive",
+          "displayValue": "11.4 s",
+          "numericValue": 11396.6305,
+          "numericUnit": "millisecond",
+          "score": 0.19,
+          "status": "POOR"
+        }
+      }
+    }
+  },
+  "comparisonTable": {
+    "Performance": {
+      "desktop": 97,
+      "mobile": 31
+    },
+    "Accessibility": {
+      "desktop": 91,
+      "mobile": 91
+    },
+    "BestPractices": {
+      "desktop": 59,
+      "mobile": 57
+    },
+    "SEO": {
+      "desktop": 100,
+      "mobile": 100
+    },
+    "LCP": {
+      "desktop": "0.8 s",
+      "mobile": "11.1 s"
+    },
+    "CLS": {
+      "desktop": "0.002",
+      "mobile": "0.245"
+    },
+    "TBT": {
+      "desktop": "120 ms",
+      "mobile": "1,430 ms"
+    },
+    "FCP": {
+      "desktop": "0.8 s",
+      "mobile": "2.9 s"
+    },
+    "TTFB": {
+      "desktop": "Root document took 30 ms",
+      "mobile": "Root document took 30 ms"
+    },
+    "SpeedIndex": {
+      "desktop": "1.1 s",
+      "mobile": "3.7 s"
+    }
+  }
+}

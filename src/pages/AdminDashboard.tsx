@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
 import { 
-  PlusCircle, Search, TrendingUp, AlertTriangle, Globe, Inbox, Filter, Edit, 
-  Trash2, RefreshCw, Upload, CloudLightning, LogOut, CheckCircle, Bell, User, 
-  ChevronLeft, ChevronRight, X, FileImage, ShieldAlert
+  PlusCircle, Search, TrendingUp, AlertTriangle, Globe, Filter, Edit, 
+  Trash2, RefreshCw, Upload, CloudLightning, LogOut, CheckCircle, Bell, ChevronLeft, ChevronRight, X, FileImage
 } from 'lucide-react';
 
 interface AdminDashboardProps {

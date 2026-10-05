@@ -10,17 +10,9 @@ import {
   Building2, 
   PhoneCall, 
   Mail, 
-  User, 
-  Plus, 
-  Minus,
-  Download,
-  Layers,
-  HelpCircle,
-  FileCode,
-  Tag
+  User
 } from 'lucide-react';
 import { CartItem, Product } from '../types';
-import { PRODUCTS, COMPANY_INFO } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
 
 interface CartQuoteProps {
@@ -38,9 +30,9 @@ export default function CartQuote({
   onRemoveItem,
   onClearCart,
   onNavigate,
-  onAddToCart
+  onAddToCart: _onAddToCart
 }: CartQuoteProps) {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   const [companyName, setCompanyName] = useState('');
   const [contactName, setContactName] = useState('');
   const [phone, setPhone] = useState('');

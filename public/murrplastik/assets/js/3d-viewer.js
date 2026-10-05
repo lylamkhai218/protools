@@ -19,7 +19,7 @@ function getDecodedModelUrl(key) {
     if (!MODEL_REGISTRY[key]) return null;
     try {
         return atob(MODEL_REGISTRY[key]);
-    } catch (e) {
+    } catch {
         return null;
     }
 }

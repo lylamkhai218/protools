@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Phone, 
   MessageCircle, 
   Mail, 
   ArrowUp, 
   X, 
-  ShoppingBag,
   ExternalLink,
-  ChevronUp,
   Copy,
   Check,
   PhoneCall,
@@ -20,7 +17,7 @@ interface FloatingWidgetsProps {
   onOpenCart?: () => void;
 }
 
-export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) => {
+export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart: _onOpenCart }) => {
   const { t } = useTranslation();
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -491,7 +488,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                 ? 'bg-slate-800 hover:bg-slate-900 border-slate-700' 
                 : 'bg-gradient-to-r from-[#00478D] to-[#005EB8] hover:from-[#003B75] hover:to-[#004E9A]'
             }`}
-            aria-label={t('contact_widget.btn_main')}
+            aria-label={isContactOpen ? t('contact_widget.close') : undefined}
           >
             {isContactOpen ? (
               <>
@@ -506,8 +503,8 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart }) 
                   <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-ping opacity-60"></span>
                 </div>
                 <div className="flex flex-col text-left leading-tight">
-                  <span className="font-extrabold tracking-wide text-[12px]">{t('contact_widget.btn_main')}</span>
-                  <span className="text-[9px] text-amber-300 font-medium tracking-normal lowercase -mt-0.5">{t('contact_widget.btn_sub')}</span>
+                  <span className="font-extrabold tracking-wide text-xs">{t('contact_widget.btn_main')}</span>
+                  <span className="text-[11px] text-amber-300 font-medium tracking-normal lowercase -mt-0.5">{t('contact_widget.btn_sub')}</span>
                 </div>
               </>
             )}

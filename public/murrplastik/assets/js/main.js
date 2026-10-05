@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.appendChild(glowAura);
     }
 
-    let mouseX = -100, mouseY = -100;
+    // let mouseX = -100, mouseY = -100;
     let targetX = -100, targetY = -100;
     let auraX = -100, auraY = -100;
     let isInsideIframe = false;

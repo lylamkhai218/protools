@@ -1551,3 +1551,58 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Header `Content-Security-Policy` xác nhận có mặt `https://cdnjs.cloudflare.com` trong cả 3 chỉ thị `script-src`, `style-src`, `font-src`.
   - DOM phản hồi chứa trọn vẹn 4 khối SVG vector trong `.issues-summary-cards`, triệt tiêu hoàn toàn lỗi màn hình và lỗi cảnh báo đỏ trên DevTools Console.
 
+### 📊 Rule 9.95: Quy Chuẩn Quản Trị Hồ Sơ Thẩm Định Toàn Diện Hệ Thống (System Audit Architecture & Quality Gates) (05/10/2026)
+* **1. Cấu Trúc Hồ Sơ Kiểm Toán Chuẩn Hóa ([`.project/analysis/audit/`](file:///d:/T&TVina/protools/.project/analysis/audit/))**:
+  - Toàn bộ dữ liệu kiểm toán hệ thống (Lighthouse, Core Web Vitals, AppSec, Bundle & Linting) được lưu trữ tập trung tại phân vùng kiến trúc dài hạn `.project/analysis/audit/`, tuyệt đối không lưu tại public web server:
+    1. `lighthouse/`: Báo cáo Lighthouse JSON chi tiết (`YYYY-MM-DD_homepage_desktop.json`, `YYYY-MM-DD_homepage_mobile.json`).
+    2. `web-vitals/`: Báo cáo tổng hợp Core Web Vitals (`YYYY-MM-DD_core_web_vitals_summary.json`) trích xuất LCP, CLS, TBT, FCP, TTFB, Speed Index.
+    3. `appsec/`: Báo cáo an toàn phụ thuộc (`YYYY-MM-DD_package_audit.json` từ `pnpm audit --json`) và an ninh header (`YYYY-MM-DD_security_headers_audit.json`).
+    4. `quality/`: Báo cáo linter tĩnh (`YYYY-MM-DD_linter_report.json` từ `oxlint`) và kích thước bundle (`YYYY-MM-DD_bundle_analysis.json`).
+* **2. Ngưỡng Cảnh Báo Chất Lượng (Quality & Security Baselines)**:
+  - **SEO & Accessibility**: Duy trì tối thiểu 90/100 (Hiện đạt SEO 100/100, Accessibility 91/100).
+  - **Security Headers**: Đạt tối thiểu Điểm 80/100 Grade A (Hiện đạt 85/100 Grade A).
+  - **Bundle Budget**: Không có chunk mã nguồn nào vượt quá ngưỡng tới hạn 500 KB (Hiện tại chunk lớn nhất là `~470 KB` raw, `~123 KB` gzip).
+* **3. Tự Động Hóa Công Cụ Kiểm Toán (Automation Tooling)**:
+  - Sử dụng [`scripts/extract_web_vitals.py`](file:///d:/T&TVina/protools/scripts/extract_web_vitals.py), [`scripts/audit_security_headers.py`](file:///d:/T&TVina/protools/scripts/audit_security_headers.py) và [`scripts/analyze_bundle.py`](file:///d:/T&TVina/protools/scripts/analyze_bundle.py) để tự động hóa định kỳ sau mỗi đợt release lớn.
+
+### 🛡️ Rule 9.96: Quy Chuẩn Tối Ưu Hóa & Khắc Phục Toàn Diện Hồ Sơ Kiểm Toán Hệ Thống (05/10/2026)
+* **1. Bảo Mật Phụ Thuộc & An Ninh Headers (AppSec & HSTS)**:
+  - Gỡ bỏ hoàn toàn các gói thừa không phục vụ SPA (`express`, `@types/express`) nhằm triệt tiêu nguy cơ lỗ hổng phụ thuộc cấp trung (`qs`).
+  - Khai báo override phiên bản an toàn (`nanoid >= 3.3.18`) trong cả `pnpm-workspace.yaml` và `package.json` để duy trì `pnpm audit` đạt 0 lỗi.
+  - Luôn đảm bảo header `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload` trong file phát hành máy chủ [`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py), đảm bảo điểm số Security Headers 100/100 Grade A+.
+* **2. Chuẩn Hóa Dữ Liệu HTTPS Tuyệt Đối (Zero Mixed Content)**:
+  - 100% tài nguyên ảnh sản phẩm trong [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) và [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json) phải dùng tiền tố `https://protools.com.vn/`. Tuyệt đối cấm giao thức `http://` để tránh lỗi Passive Mixed Content và độ trễ chuyển hướng mạng.
+* **3. Tối Ưu Hóa Hiển Thị Di Động & Core Web Vitals (Mobile Performance & CWV)**:
+  - Ảnh Hero Spotlight LCP bắt buộc cấu hình `<link rel="preload" as="image" href="..." fetchpriority="high">` trong [`index.html`](file:///d:/T&TVina/protools/index.html) và gắn `loading="eager"`, `fetchPriority="high"`, `decoding="async"` kèm kích thước cố định `width/height` trên thẻ `<img>`.
+  - Khắc phục triệt để CLS: Thẻ số chạy AnimatedCounter phải gắn class `tabular-nums inline-block`; ảnh catalog và solution cards phải có tỉ lệ khung hình cố định và kích thước rõ ràng.
+  - Quy chuẩn cỡ chữ di động: Toàn bộ chữ hiển thị trên mobile phải đạt tối thiểu `12px` (`text-xs`), triệt tiêu cảnh báo chữ không rõ của Google Lighthouse.
+* **4. Khả Năng Tiếp Cận (WCAG AA Accessibility)**:
+  - Thứ tự tiêu đề trang tuân thủ phân cấp chặt chẽ: `h1` (Tiêu đề chính) -> `h2` (Khối tiêu điểm/Giải pháp) -> `h3` (Mục con).
+  - Thuộc tính `aria-label` trên nút bấm phải đồng nhất và chứa toàn bộ chuỗi ký tự hiển thị trực quan (`label-content-name-mismatch`).
+  - Mọi thẻ `<select>` đều phải có nhãn `<label>` hoặc `aria-label` tương ứng.
+  - Màu sắc nút bấm và badge phải đạt độ tương phản tối thiểu `4.5:1` (nút Báo Giá dùng `text-[#B45309]` trên nền `bg-amber-50` đạt `4.8:1`).
+* **5. Phân Tách Bundle & Mã Nguồn Sạch (Linter 0 Warnings & Code Splitting)**:
+  - Cấu hình Rollup trong [`vite.config.ts`](file:///d:/T&TVina/protools/vite.config.ts) tách riêng `catalog-data` (`src/data.ts`, `productTranslations.ts`, `solutionsTranslations.ts`) ra khỏi `index.js`, giữ dung lượng mọi chunk dưới ngưỡng khuyến nghị `250 KB`.
+  - Loại bỏ triệt để duplicate keys trong từ điển i18n và unused variables trong toàn bộ component React, đảm bảo `oxlint` và `tsc --noEmit` đạt 0 cảnh báo, 0 lỗi.
+
+
+### ⚡ Rule 9.97: Quy Chuẩn Tối Ưu Hóa Tải Font Bất Đồng Bộ, Tương Phản Màu Sắc & Khớp Nhãn Trợ Năng (Audit V2 Remediation) (05/10/2026)
+* **1. Triệt Tiêu Tài Nguyên Chặn Render Google Fonts (Non-Blocking Web Fonts)**:
+  - **Hiện tượng**: Thẻ `<link href="https://fonts.googleapis.com/css2?..." rel="stylesheet">` truyền thống khiến trình duyệt chặn toàn bộ tiến trình render trong 790 ms - 990 ms trên mạng di động.
+  - **Chuẩn hóa**: Bắt buộc nạp Google Fonts bất đồng bộ thông qua mô hình:
+    ```html
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?..." onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?...">
+    </noscript>
+    ```
+  - **Kết quả**: Triệt tiêu hoàn toàn cảnh báo `render-blocking-resources` cho font, giảm mạnh Render Delay của phần tử LCP Hero, giúp Mobile Performance tăng tốc vượt trội.
+* **2. Chuẩn Hóa Tương Phản Màu Sắc WCAG AA Trên Thanh Tiện Ích (Color Contrast Standard)**:
+  - **Hiện tượng**: Chữ đỏ thương hiệu `#E30613` đặt trên nền hồng nhạt `bg-red-50` (`#FEF2F2`) chỉ đạt tỷ lệ tương phản `4.46:1` (thiếu `0.04` để đạt ngưỡng tối thiểu `4.5:1` của WCAG AA).
+  - **Giải pháp**: Thay thế màu chữ bằng đỏ đậm công nghiệp `text-red-700` (`#B91C1C`), đưa tỷ lệ tương phản lên **`5.91:1`** (vượt xa chuẩn WCAG AA).
+* **3. Khớp Chuẩn Nhãn Trợ Năng Với Văn Bản Trực Quan (WCAG SC 2.5.3 Label in Name)**:
+  - **Hiện tượng**: Nút Floating Contact có `aria-label="Liên Hệ - tư vấn 24/7"` trong khi văn bản hiển thị trên nút là `"LIÊN HỆ \n tư vấn 24/7"` (khác ký tự gạch ngang `-` và khác biệt ngắt dòng), khiến công cụ kiểm toán đánh lỗi `label-content-name-mismatch`.
+  - **Giải pháp**: Gỡ bỏ thuộc tính `aria-label` khi nút ở trạng thái đóng (`aria-label={isContactOpen ? t('contact_widget.close') : undefined}`), cho phép Accessibility Tree của trình duyệt tự động đọc chuỗi văn bản trực quan nội tại, đạt điểm tuyệt đối 100/100 Accessibility.
+* **4. Cô Lập Môi Trường Kiểm Toán Khỏi Tiện Ích Mở Rộng Trình Duyệt (Clean Audit Environment)**:
+  - Khi chạy Google Lighthouse hoặc PageSpeed Insights trên môi trường trình duyệt thực tế, các Chrome Extensions (như `Jam`, `LastPass`, `Grammarly`) sẽ tự động chèn các script bên thứ ba vào DOM, gây lỗi giả `Uses deprecated APIs (UnloadHandler)` và kéo giảm điểm `Best Practices`.
+  - **Quy chuẩn**: Mọi lần kiểm toán điểm số chính thức BẮT BUỘC phải thực hiện trong **Cửa sổ ẩn danh (Incognito Mode / InPrivate Window)** hoặc thông qua Lighthouse CLI cô lập hoàn toàn extension.

@@ -1,26 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  FileText, 
-  Download, 
-  Search, 
-  Filter, 
-  ShieldCheck, 
-  Layers, 
-  CheckCircle2, 
-  ArrowRight,
-  ChevronRight,
-  ExternalLink,
-  BookOpen,
-  Sparkles
+import {
+  Download,
+  Search,
+  BookOpen
 } from 'lucide-react';
-import { Document } from '../types';
 import { TECHNICAL_DOCUMENTS, PARTNERS } from '../data';
 
 interface DocumentCenterProps {
   onNavigate: (tab: string) => void;
 }
 
-export default function DocumentCenter({ onNavigate }: DocumentCenterProps) {
+export default function DocumentCenter({ onNavigate: _onNavigate }: DocumentCenterProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBrand, setSelectedBrand] = useState('all');
   const [selectedType, setSelectedType] = useState('all');
@@ -79,6 +69,7 @@ export default function DocumentCenter({ onNavigate }: DocumentCenterProps) {
             {/* Brand Filter */}
             <div className="sm:col-span-3">
               <select
+                aria-label="Lọc theo thương hiệu"
                 value={selectedBrand}
                 onChange={(e) => setSelectedBrand(e.target.value)}
                 className="w-full h-11 px-3 rounded-xs bg-slate-50 border border-slate-200 text-xs text-slate-700 font-semibold focus:outline-none focus:border-[#00478D] cursor-pointer"
@@ -93,6 +84,7 @@ export default function DocumentCenter({ onNavigate }: DocumentCenterProps) {
             {/* Document Type Filter */}
             <div className="sm:col-span-3">
               <select
+                aria-label="Lọc theo loại tài liệu"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
                 className="w-full h-11 px-3 rounded-xs bg-slate-50 border border-slate-200 text-xs text-slate-700 font-semibold focus:outline-none focus:border-[#00478D] cursor-pointer"
