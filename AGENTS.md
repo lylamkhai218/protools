@@ -1606,3 +1606,17 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
 * **4. Cô Lập Môi Trường Kiểm Toán Khỏi Tiện Ích Mở Rộng Trình Duyệt (Clean Audit Environment)**:
   - Khi chạy Google Lighthouse hoặc PageSpeed Insights trên môi trường trình duyệt thực tế, các Chrome Extensions (như `Jam`, `LastPass`, `Grammarly`) sẽ tự động chèn các script bên thứ ba vào DOM, gây lỗi giả `Uses deprecated APIs (UnloadHandler)` và kéo giảm điểm `Best Practices`.
   - **Quy chuẩn**: Mọi lần kiểm toán điểm số chính thức BẮT BUỘC phải thực hiện trong **Cửa sổ ẩn danh (Incognito Mode / InPrivate Window)** hoặc thông qua Lighthouse CLI cô lập hoàn toàn extension.
+
+### 🤖 Rule 9.98: Quy Chuẩn Tác Nghiệp Skill Dresspack Robot Murrplastik (murrplastik-robot-dresspack) (05/10/2026)
+* **1. Vị Trí Lưu Trữ Skill Chuẩn Hệ Thống**:
+  - Thư mục skill: `C:\Users\OS\.gemini\config\skills\murrplastik-robot-dresspack\`
+  - Hướng dẫn tác nghiệp: [`SKILL.md`](file:///C:/Users/OS/.gemini/config/skills/murrplastik-robot-dresspack/SKILL.md)
+  - Công cụ CLI tự động: [`scripts/murr_robot_dresspack.py`](file:///C:/Users/OS/.gemini/config/skills/murrplastik-robot-dresspack/scripts/murr_robot_dresspack.py)
+  - Bookmarklet 1-Click: [`scripts/bookmarklet.js`](file:///C:/Users/OS/.gemini/config/skills/murrplastik-robot-dresspack/scripts/bookmarklet.js)
+  - Mẫu tài liệu A4: [`templates/solution_template.html`](file:///C:/Users/OS/.gemini/config/skills/murrplastik-robot-dresspack/templates/solution_template.html)
+* **2. Nguyên Tắc Bóc Tách & Chiến Lược Báo Giá**:
+  - **Bản xem trước giải pháp kỹ thuật (Technical Preview)**: Ẩn 100% cột giá. Khách hàng xem duyệt giải pháp cơ khí, ảnh studio và tỷ lệ điền đầy trước; chỉ gửi báo giá thương mại sau khi chốt phương án.
+  - **Auto-Crop Alpha Padding**: Quét kênh alpha (`alpha > 25`) bằng PIL với margin an toàn `40px` để cắt bỏ khoảng trống trong suốt thừa, phóng to mô hình 3D robot gấp 2-3 lần trên bản in.
+  - **Tỷ lệ điền đầy (Fill Factor)**: Đảm bảo $\le 60\%$ theo công thức $\frac{\sum \pi (d/2)^2}{\pi (ID/2)^2} \times 100\%$.
+* **3. Phòng Vệ Server Murrplastik HQ**:
+  - Ưu tiên tải trực tiếp từ CDN Cloudinary (`res.cloudinary.com`), đặt độ trễ `0.5s` giữa các request để đảm bảo an toàn tuyệt đối, không gây quá tải origin server.
