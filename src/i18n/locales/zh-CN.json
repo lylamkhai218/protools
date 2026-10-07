@@ -16,7 +16,15 @@
     "tech_support_hint": "技术选型与规格咨询:",
     "search_placeholder_mobile": "搜索设备名称、SKU型号: Hakko, Hios, Zcut...",
     "authorized": "官方授权",
-    "murr_mobile_desc": "工业电缆管理系统、机器人拖链管线包、500+型号目录与3D虚拟展位。"
+    "murr_mobile_desc": "工业电缆管理系统、机器人拖链管线包、500+型号目录与3D虚拟展位。",
+    "digital_toolbox": "数字化工具箱",
+    "toolbox_tag": "Murrplastik",
+    "toolbox_dresspack_title": "工业机器人管线包配置器",
+    "toolbox_dresspack_desc": "ABB、Fanuc机械臂模拟与管线充盈率精确测算",
+    "toolbox_bom_title": "BOM物料表快速报价计算器",
+    "toolbox_bom_desc": "支持批量粘贴Excel型号并即时生成B2B报价清单",
+    "toolbox_cad_title": "CAD STEP 3D图纸与CO/CQ原产地证书查询",
+    "toolbox_cad_desc": "下载原厂技术白皮书、PDF规格书及UL94阻燃测试报告"
   },
   "hero": {
     "badge": "越南B2B工业自动化设备总仓",
@@ -77,7 +85,8 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "越南领先的工业自动化装备、SMT工具、无尘室防静电设备及机器人电缆保护系统总分销商。",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "credit": "由 KhaiLL 设计与开发",
+    "all_rights_reserved": "版权所有，保留一切权利。",
     "slogan": "为越南在境外商直接投资（FDI）制造业工厂提供高品质工业设备、SMT电子组装工具、无尘室防静电及工厂自动化备件。",
     "hq_label": "公司总部:",
     "wh_label": "河内办事处与总仓:",
@@ -261,5 +270,16 @@
     "desc": "需要查阅详细外形尺寸、PDF 技术手册、UL94 阻燃认证或工业机器人管线包选型？欢迎访问 Murrplastik 越南专区获取专属技术支持。",
     "btn_portal": "访问 Murrplastik 越南专区",
     "btn_booth": "VEC 2026 展位 3D 漫游"
+  },
+  "configurator": {
+    "download_files": "下载 CAD 文件",
+    "request_quote": "申请报价",
+    "parts_list": "物料清单",
+    "col_image": "图片",
+    "col_part": "零件型号",
+    "col_qty": "数量",
+    "change_pkg": "更换配置包",
+    "synced_rfq": "已同步至询价清单！",
+    "open_cart": "查看询价清单"
   }
 }

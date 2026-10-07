@@ -31,9 +31,26 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [locale, setLocaleState] = useState<SupportedLocale>(() => {
     try {
-      const saved = localStorage.getItem(LOCALE_STORAGE_KEY) as SupportedLocale;
-      if (saved && SUPPORTED_LOCALES.some(l => l.code === saved)) {
-        return saved;
+      // 1. Clean legacy keys that may have trapped the user in English
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.removeItem('tt_vina_locale');
+        localStorage.removeItem('tt_vina_locale_v2');
+
+        // 2. Check URL search param (?lang=vi / ?lang=en)
+        if (window.location.search) {
+          const urlParams = new URLSearchParams(window.location.search);
+          const urlLang = urlParams.get('lang') as SupportedLocale;
+          if (urlLang && SUPPORTED_LOCALES.some(l => l.code === urlLang)) {
+            localStorage.setItem(LOCALE_STORAGE_KEY, urlLang);
+            return urlLang;
+          }
+        }
+
+        // 3. Read current versioned storage key
+        const saved = localStorage.getItem(LOCALE_STORAGE_KEY) as SupportedLocale;
+        if (saved && SUPPORTED_LOCALES.some(l => l.code === saved)) {
+          return saved;
+        }
       }
     } catch (e) {
       console.warn('Cannot read locale from storage:', e);

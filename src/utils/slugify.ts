@@ -47,17 +47,20 @@ export function extractSkuFromSlug(slug: string): string | null {
   if (!slug) return null;
   const clean = slug.trim().replace(/^\/san-pham\//, '').replace(/\/$/, '');
   
-  // Trường hợp slug chính là SKU (VD: PVN10465 hoặc TTPC-0289)
-  if (/^[a-zA-Z0-9_-]+$/.test(clean) && clean.length <= 20 && !clean.includes(' ')) {
+  // Trường hợp slug chính là SKU (VD: PVN8044, 92-600, MP-1081, TTPC-0289)
+  const hyphens = (clean.match(/-/g) || []).length;
+  if (/^[a-zA-Z0-9_-]+$/.test(clean) && clean.length <= 15 && hyphens <= 1) {
     return clean;
   }
   
-  // Trích xuất phần đuôi sau dấu gạch ngang cuối cùng
+  // Trích xuất phần đuôi sau dấu gạch ngang cuối cùng hoặc 2 phần cuối nếu SKU có gạch nối
   const parts = clean.split('-');
   if (parts.length >= 2) {
-    // Thử ghép 2 phần cuối nếu SKU có gạch nối (VD: ttpc-0289 hoặc mp-1081)
     const lastTwo = `${parts[parts.length - 2]}-${parts[parts.length - 1]}`;
-    return lastTwo;
+    // Kiểm tra mẫu SKU có dấu gạch nối (VD: 92-600, MP-1081, TTPC-0289, CL-4000)
+    if (/^[a-zA-Z]{1,5}-\d+$/i.test(lastTwo) || /^\d+-\d+$/i.test(lastTwo)) {
+      return lastTwo;
+    }
   }
   
   return parts[parts.length - 1] || null;

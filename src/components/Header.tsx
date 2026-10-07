@@ -11,13 +11,17 @@ import {
   Zap,
   Cpu,
   Wrench,
+  Package,
   PackageCheck,
   Copy,
   Check,
   ExternalLink,
-  Sparkles,
-  TrendingUp,
-  Layers
+  Cable,
+  Flame,
+  Pipette,
+  Scissors,
+  Gauge,
+  Microscope
 } from 'lucide-react';
 import { Product } from '../types';
 import { PRODUCTS, SOLUTIONS, COMPANY_INFO } from '../data';
@@ -36,28 +40,43 @@ interface HeaderProps {
 // 1. Phím tắt từ khóa tìm kiếm nhanh phổ biến
 const POPULAR_SEARCH_TAGS = [
   { label: 'R-Tec Liner (MP-1081)', query: 'MP-1081', isHero: true },
-  { label: 'Quick 205 ESD (150W)', query: 'Quick 205' },
+  { label: 'Quick 205 ESD', query: 'Quick 205' },
   { label: 'Hakko 936', query: 'Hakko 936' },
   { label: 'HIOS CL-4000', query: 'CL-4000' },
   { label: 'Zcut-9', query: 'Zcut-9' },
   { label: 'Quạt ion SL-001', query: 'SL-001' },
   { label: 'Bể hàn CM-808', query: 'CM-808' },
   { label: 'Bơm keo SP-982', query: 'SP-982' },
-  { label: 'Đo lực siết HP-10', query: 'HP-10' },
+  { label: 'Đo lực HP-10', query: 'HP-10' },
   { label: 'Murrplastik', query: 'Murrplastik' }
 ];
 
-// 2. Phím tắt ngành hàng tra cứu nhanh
+// 2. Phím tắt ngành hàng tra cứu nhanh (9 nhóm ngành B2B chính hãng chuẩn xác 100%)
 const QUICK_CATEGORIES = [
-  { id: 'murrplastik', name: 'Xích Cáp Robot Murrplastik', tag: 'CHLB Đức', icon: Cpu, isMurr: true },
-  { id: 'thiet-bi-han', name: 'Thiết Bị Hàn & Bể Thiếc', tag: 'Hakko / Quick', icon: Zap },
-  { id: 'may-bat-vit-nha-vit', name: 'Máy Bắt Vít & Siết Lực', tag: 'HIOS Nhật', icon: Wrench },
-  { id: 'dung-cu-bom-keo', name: 'Robot & Máy Bơm Keo', tag: 'SP-982', icon: PackageCheck },
-  { id: 'may-cat-bang-dinh-tu-dong', name: 'Máy Cắt Băng Dính & Tem', tag: 'Zcut / RT', icon: Cpu },
+  { id: 'murrplastik', name: 'Xích Cáp & Bó Cáp Robot', tag: 'Murrplastik Đức', icon: Cable },
+  { id: 'thiet-bi-han', name: 'Thiết Bị Hàn & Bể Thiếc', tag: 'Hakko • Quick', icon: Flame },
+  { id: 'may-bat-vit-nha-vit', name: 'Máy Bắt Vít & Siết Lực', tag: 'HIOS Nhật Bản', icon: Wrench },
+  { id: 'dung-cu-bom-keo', name: 'Robot & Máy Bơm Keo', tag: 'Tra keo SP-982', icon: Pipette },
+  { id: 'may-cat-bang-dinh-tu-dong', name: 'Máy Cắt Băng Dính & Tem', tag: 'Zcut • RT-7000', icon: Scissors },
+  { id: 'thiet-bi-kiem-tra', name: 'Thiết Bị Đo Lực Siết', tag: 'Máy đo lực HP-10', icon: Gauge },
+  { id: 'camera-kinh-soi-cong-nghiep', name: 'Kính Soi & Kính Hiển Vi', tag: 'Kính hiển vi SMT', icon: Microscope },
   { id: 'dung-cu-chong-tinh-dien', name: 'Phòng Sạch & Khử ESD', tag: 'Quạt ion SL-001', icon: ShieldCheck },
-  { id: 'xi-lanh-khi-nen', name: 'Xi Lanh & Thiết Bị Khí Nén', tag: 'Pneumatics', icon: Wrench },
-  { id: 'bu-long-oc-vit', name: 'Bu Lông, Ốc Vít & Fasteners', tag: 'Inox 304/316', icon: PackageCheck }
+  { id: 'thiet-bi-dong-goi-tu-dong', name: 'Máy Đóng Gói Tự Động', tag: 'Dán thùng carton', icon: Package }
 ];
+
+// 3. Ảnh sản phẩm thật đại diện cho từng danh mục ngành hàng
+const CATEGORY_IMAGE_MAP: Record<string, string> = {
+  'murrplastik': 'https://protools.com.vn/images/stores/2025/10/15/0-image%20(19).jpg', // R-Tec Liner Murrplastik Đức
+  'thiet-bi-han': 'https://protools.com.vn/images/stores/2019/10/07/0-hakko%20936.jpg', // Trạm hàn Hakko 936
+  'may-bat-vit-nha-vit': 'https://protools.com.vn/images/stores/2019/10/07/0-CL-4000.jpg', // Tô vít điện tử Hios CL-4000
+  'dung-cu-bom-keo': 'https://protools.com.vn/images/stores/2021/09/25/Robot%20b%C6%A1m%20keo%20t%E1%BB%B1%20%C4%91%E1%BB%99ng.jpg', // Robot bơm keo tự động
+  'may-cat-bang-dinh-tu-dong': 'https://protools.com.vn/images/stores/2019/10/05/Zcut%209.jpg', // Máy cắt băng dính Zcut 9
+  'thiet-bi-kiem-tra': 'https://protools.com.vn/images/stores/2019/10/05/HP-10.png', // Máy đo lực siết HP-10
+  'camera-kinh-soi-cong-nghiep': 'https://protools.com.vn/images/stores/2017/12/14/0-stereo-microscope-sm-3t-144-hd2%20(1).jpg', // Kính hiển vi SM-3TPZ
+  'dung-cu-chong-tinh-dien': 'https://protools.com.vn/images/stores/2019/10/09/SL-001.jpg', // Quạt thổi Ion SL-001
+  'thiet-bi-dong-goi-tu-dong': 'https://protools.com.vn/images/stores/2021/09/25/0-m%C3%A1y%20%C4%91%C3%B3ng%20th%C3%B9ng%204%20c%E1%BA%A1nh.jpg', // Máy đóng thùng carton tự động
+  'thiet-bi-tu-dong-hoa': 'https://protools.com.vn/images/stores/2019/10/12/0-R4T-16P-S.jpg' // Relay Samwon R4T-16P-S
+};
 
 export default function Header({ currentTab, cartCount, onNavigate, onSelectProduct }: HeaderProps) {
   const { t, locale } = useTranslation();
@@ -65,8 +84,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isToolboxOpen, setIsToolboxOpen] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const searchRef = useRef<HTMLDivElement>(null);
+  const toolboxRef = useRef<HTMLDivElement>(null);
 
   const handleCopy = (text: string, key: string, e?: React.MouseEvent) => {
     if (e) {
@@ -127,6 +148,9 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
     function handleClickOutside(event: MouseEvent) {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
         setIsSearchFocused(false);
+      }
+      if (toolboxRef.current && !toolboxRef.current.contains(event.target as Node)) {
+        setIsToolboxOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -247,160 +271,197 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
 
       {/* 2. MAIN NAVIGATION BAR */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 sm:h-20 gap-4 sm:gap-8">
+        <div className="flex items-center justify-between h-18 sm:h-20 gap-3 sm:gap-6">
           
-          {/* Logo & Brand Identity */}
-          <div className="flex items-center gap-8 shrink-0">
+          {/* Logo & Navigation Menu Links */}
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-5 shrink-0">
+            {/* Logo T&T VINA (Chỉ giữ lại Logo SVG tinh gọn) */}
             <button 
               onClick={() => onNavigate('home')}
-              className="flex items-center gap-3 text-left group cursor-pointer focus:outline-none"
+              className="flex items-center text-left group cursor-pointer focus:outline-none shrink-0"
+              title="Trang chủ T&T Vina (Protools.com.vn)"
             >
               <img 
                 src={`${import.meta.env.BASE_URL}logos/TTV_LOGO_Color_Master.svg`} 
-                alt="T&T VINA INDUSTRIAL CO., LTD" 
-                className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform" 
+                alt="T&T VINA" 
+                className="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" 
               />
-              <div className="hidden sm:block">
-                <div className="flex items-center">
-                  <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-[#0F172A] uppercase">
-                    T&T VINA
-                  </span>
-                </div>
-                <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
-                  INDUSTRIAL CO., LTD
-                </p>
-              </div>
             </button>
 
-            {/* Desktop Category Menu Dropdown */}
-            <div className="relative hidden lg:block">
+            {/* Desktop Category Menu Dropdown with Hover Bridge */}
+            <div 
+              className="relative hidden lg:block"
+              onMouseEnter={() => setIsCategoryOpen(true)}
+              onMouseLeave={() => setIsCategoryOpen(false)}
+            >
               <button
                 onClick={() => setIsCategoryOpen(!isCategoryOpen)}
-                onMouseEnter={() => setIsCategoryOpen(true)}
-                className="flex items-center gap-2 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-[#00478D] hover:bg-slate-50 rounded-sm border border-slate-200/80 transition-all cursor-pointer shadow-2xs"
+                className="flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-700 hover:text-[#00478D] hover:bg-slate-50 rounded-sm border border-slate-200/80 transition-all cursor-pointer shadow-2xs"
               >
                 <span>{t('nav.categories')}</span>
-                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isCategoryOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isCategoryOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Mega Dropdown */}
               {isCategoryOpen && (
-                <div 
-                  onMouseLeave={() => setIsCategoryOpen(false)}
-                  className="absolute top-full left-0 mt-1.5 w-[460px] bg-white rounded-sm shadow-2xl border border-slate-200 py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
-                >
-                  <div className="px-4 py-1.5 border-b border-slate-100 mb-2 flex items-center justify-between">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                      {t('nav.dropdown_title')}
-                    </span>
-                    <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
-                      {t('nav.genuine_badge')}
-                    </span>
-                  </div>
+                <div className="absolute top-full left-0 pt-1.5 w-[460px] z-50">
+                  {/* Invisible hover bridge to eliminate gap */}
+                  <div className="absolute -top-3 inset-x-0 h-3" />
+                  <div className="bg-white rounded-sm shadow-2xl border border-slate-200 py-3 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="px-4 py-1.5 border-b border-slate-100 mb-2 flex items-center justify-between">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                        {t('nav.dropdown_title')}
+                      </span>
+                      <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
+                        {t('nav.genuine_badge')}
+                      </span>
+                    </div>
 
-                  <div className="max-h-[460px] overflow-y-auto divide-y divide-slate-50 px-1">
-                    {SOLUTIONS.map((sol) => {
-                      const lSol = getLocalizedSolution(sol, locale);
-                      return (
-                        <button
-                          key={sol.id}
-                          onClick={() => {
-                            onNavigate('home', sol.id);
-                            setIsCategoryOpen(false);
-                            setTimeout(() => {
-                              const el = document.getElementById('product-catalog');
-                              if (el) {
-                                const yOffset = -75;
-                                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                                window.scrollTo({ top: y, behavior: 'smooth' });
-                              }
-                            }, 60);
-                          }}
-                          className={`w-full px-3 py-2.5 text-left rounded-xs flex items-center justify-between group transition-all cursor-pointer ${
-                            sol.id === 'murrplastik'
-                              ? 'bg-red-50/40 hover:bg-red-50 border border-red-100/80 my-1 shadow-2xs'
-                              : 'hover:bg-blue-50/70'
-                          }`}
-                        >
-                          <div className="flex items-center gap-3 min-w-0">
-                            {sol.id === 'murrplastik' ? (
-                              <div className="w-11 h-9 rounded-xs bg-white border border-red-200 p-1 flex items-center justify-center shadow-2xs shrink-0">
+                    <div className="max-h-[460px] overflow-y-auto divide-y divide-slate-50 px-1">
+                      {SOLUTIONS.map((sol) => {
+                        const lSol = getLocalizedSolution(sol, locale);
+                        const isMurr = sol.id === 'murrplastik';
+                        const productImage = CATEGORY_IMAGE_MAP[sol.id] || 'https://protools.com.vn/images/stores/2025/10/15/0-image%20(19).jpg';
+
+                        return (
+                          <button
+                            key={sol.id}
+                            onClick={() => {
+                              onNavigate('home', sol.id);
+                              setIsCategoryOpen(false);
+                              setTimeout(() => {
+                                const el = document.getElementById('product-catalog');
+                                if (el) {
+                                  const yOffset = -75;
+                                  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                                  window.scrollTo({ top: y, behavior: 'smooth' });
+                                }
+                              }, 60);
+                            }}
+                            className="w-full px-3 py-2.5 text-left rounded-xs flex items-center justify-between group transition-all cursor-pointer hover:bg-blue-50/70"
+                          >
+                            <div className="flex items-center gap-3 min-w-0">
+                              {/* Ảnh hàng thật đại diện (Không dùng icon) */}
+                              <div className="w-10 h-10 rounded-xs bg-slate-50 border border-slate-200/90 p-0.5 flex items-center justify-center shrink-0 shadow-2xs group-hover:border-[#00478D]/40 group-hover:bg-white transition-all overflow-hidden">
                                 <img 
-                                  src={`${import.meta.env.BASE_URL}logos/logo_murrplastik.png`} 
-                                  alt="Murrplastik Germany" 
-                                  className="w-full h-full object-contain"
+                                  src={productImage} 
+                                  alt={isMurr ? 'MURRPLASTIK (quản lý cáp)' : lSol.title} 
+                                  className="w-full h-full object-contain filter drop-shadow-2xs group-hover:scale-105 transition-transform"
+                                  loading="lazy"
                                 />
                               </div>
-                            ) : (
-                              <div className="w-9 h-9 rounded-xs bg-slate-100 group-hover:bg-[#00478D] group-hover:text-white text-slate-600 flex items-center justify-center transition-colors shrink-0">
-                                {sol.id === 'thiet-bi-han' && <Zap className="w-4 h-4 text-amber-500 group-hover:text-white" />}
-                                {sol.id === 'may-bat-vit-nha-vit' && <Wrench className="w-4 h-4 text-blue-600 group-hover:text-white" />}
-                                {sol.id === 'dung-cu-bom-keo' && <PackageCheck className="w-4 h-4 text-emerald-600 group-hover:text-white" />}
-                                {sol.id === 'may-cat-bang-dinh-tu-dong' && <Cpu className="w-4 h-4 text-purple-600 group-hover:text-white" />}
-                                {sol.id === 'thiet-bi-kiem-tra' && <ShieldCheck className="w-4 h-4 text-cyan-600 group-hover:text-white" />}
-                                {sol.id === 'camera-kinh-soi-cong-nghiep' && <Search className="w-4 h-4 text-indigo-600 group-hover:text-white" />}
-                                {sol.id === 'dung-cu-chong-tinh-dien' && <Zap className="w-4 h-4 text-yellow-600 group-hover:text-white" />}
-                                {sol.id === 'thiet-bi-dong-goi-tu-dong' && <PackageCheck className="w-4 h-4 text-slate-600 group-hover:text-white" />}
-                              </div>
-                            )}
 
-                            <div className="min-w-0">
-                              <div className={`text-xs font-bold truncate transition-colors ${
-                                sol.id === 'murrplastik'
-                                  ? 'text-[#E30613] font-display'
-                                  : 'text-slate-800 group-hover:text-[#00478D]'
-                              }`}>
-                                {lSol.title}
-                              </div>
-                              <div className="text-[11px] text-slate-500 truncate flex items-center gap-1.5 mt-0.5">
-                                <span>{lSol.tag || sol.tag}</span>
-                                {lSol.badge && (
-                                  <span className={`text-[9px] font-bold px-1 rounded-xs uppercase tracking-tight ${
-                                    sol.id === 'murrplastik'
-                                      ? 'bg-red-100 text-[#E30613]'
-                                      : 'bg-slate-200/70 text-slate-700'
-                                  }`}>
-                                    {lSol.badge}
-                                  </span>
-                                )}
+                              <div className="min-w-0 flex-1">
+                                {/* Tên danh mục */}
+                                <div className="text-xs font-bold truncate text-slate-800 group-hover:text-[#00478D] transition-colors">
+                                  {isMurr ? 'MURRPLASTIK (quản lý cáp)' : lSol.title}
+                                </div>
+
+                                {/* Dòng mô tả / nhãn bên dưới */}
+                                <div className="text-[11px] text-slate-500 truncate flex items-center gap-1.5 mt-0.5">
+                                  {isMurr ? (
+                                    <span className="font-mono font-bold text-[10px] text-slate-500 uppercase tracking-wider">
+                                      MADE IN GERMANY
+                                    </span>
+                                  ) : (
+                                    <>
+                                      <span>{lSol.tag || sol.tag}</span>
+                                      {lSol.badge && (
+                                        <span className="text-[9px] font-bold px-1 rounded-xs uppercase tracking-tight bg-slate-200/70 text-slate-700">
+                                          {lSol.badge}
+                                        </span>
+                                      )}
+                                    </>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          {sol.id === 'murrplastik' ? (
-                            <div className="flex items-center gap-1.5 shrink-0">
-                              <a
-                                href="/murrplastik/"
-                                onClick={(e) => e.stopPropagation()}
-                                title="Chuyển sang Chuyên Trang Murrplastik Đức"
-                                className="px-2 py-1 rounded-xs bg-[#E30613] hover:bg-[#C8102E] text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-2xs transition-colors"
-                              >
-                                <span>{t('nav.portal_btn')}</span>
-                                <ExternalLink className="w-2.5 h-2.5" />
-                              </a>
-                              <ArrowRight className="w-4 h-4 text-[#E30613] group-hover:translate-x-1 transition-transform" />
-                            </div>
-                          ) : (
-                            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1 transition-all shrink-0" />
-                          )}
-                        </button>
-                      );
-                    })}
+                            <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-2 pt-2 border-t border-slate-100 px-4 flex items-center justify-between text-xs text-slate-500">
+                      <span>{t('nav.tech_support_hint')}</span>
+                      <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="text-[#00478D] font-bold hover:underline font-mono">
+                        Hotline: {COMPANY_INFO.hotline}
+                      </a>
+                    </div>
                   </div>
+                </div>
+              )}
+            </div>
 
-                  <div className="mt-2 pt-2 border-t border-slate-100 px-4 flex items-center justify-between text-xs text-slate-500">
-                    <span>{t('nav.tech_support_hint')}</span>
-                    <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="text-[#00478D] font-bold hover:underline font-mono">
-                      Hotline: {COMPANY_INFO.hotline}
-                    </a>
+            {/* Digital Toolbox Menu with Unbreakable Hover Bridge */}
+            <div 
+              ref={toolboxRef} 
+              className="relative hidden md:block"
+              onMouseEnter={() => setIsToolboxOpen(true)}
+              onMouseLeave={() => setIsToolboxOpen(false)}
+            >
+              <button
+                onClick={() => {
+                  onNavigate('robot-dresspack');
+                  setIsToolboxOpen(false);
+                }}
+                className={`flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-sm border transition-all cursor-pointer ${
+                  currentTab === 'robot-dresspack'
+                    ? 'bg-red-50 text-[#C8102E] border-red-200 font-bold'
+                    : 'text-slate-700 hover:text-[#00478D] hover:bg-slate-50 border-slate-200/80 shadow-2xs'
+                }`}
+              >
+                <span>{t('nav.digital_toolbox', 'Digital Toolbox')}</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isToolboxOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Digital Toolbox Dropdown */}
+              {isToolboxOpen && (
+                <div className="absolute top-full left-0 pt-1.5 w-[320px] z-50">
+                  {/* Invisible hover bridge to eliminate gap */}
+                  <div className="absolute -top-3 inset-x-0 h-3" />
+                  <div className="bg-white rounded-sm shadow-2xl border border-slate-200 p-2.5 animate-in fade-in slide-in-from-top-1 duration-150">
+                    <div className="px-2.5 py-1 border-b border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500 mb-1.5">
+                      <span className="font-bold uppercase tracking-wider text-slate-700">{t('nav.digital_toolbox', 'DIGITAL TOOLBOX')}</span>
+                      <span className="text-[10px] text-red-600 font-semibold bg-red-50 px-1.5 py-0.2 rounded-xs">Murrplastik</span>
+                    </div>
+
+                    <div className="space-y-1">
+                      {/* Tool: Robot Dresspack */}
+                      <button
+                        onClick={() => {
+                          onNavigate('robot-dresspack');
+                          setIsToolboxOpen(false);
+                        }}
+                        className="w-full p-2.5 rounded-xs hover:bg-red-50 text-left transition-all group cursor-pointer border border-transparent hover:border-red-200"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-[#C8102E]">
+                            {t('nav.toolbox_dresspack_title', 'Cấu hình Robot dresspack & bó cáp')}
+                          </span>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-0.5 transition-all" />
+                        </div>
+                        <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                          {t('nav.toolbox_dresspack_desc', 'Mô phỏng cánh tay robot & tính fill factor bó cáp')}
+                        </p>
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}
             </div>
           </div>
 
-          {/* 3. FAST SEARCH AUTOCOMPLETE WITH REAL PRODUCTS */}
-          <div ref={searchRef} className="relative flex-1 max-w-md lg:max-w-lg xl:max-w-xl hidden sm:block">
+          {/* 3. EXPANDABLE SEARCH BAR (COMPACT BY DEFAULT, SMOOTHLY EXPANDS ON FOCUS/TYPING) */}
+          <div 
+            ref={searchRef} 
+            className={`relative transition-all duration-300 ease-out hidden sm:block ${
+              isSearchFocused
+                ? 'w-72 sm:w-96 lg:w-[480px] z-50 shadow-lg ring-2 ring-[#00478D]/20 rounded-sm'
+                : 'w-36 sm:w-48 lg:w-56'
+            }`}
+          >
             <div className="relative">
               <input
                 type="text"
@@ -411,16 +472,16 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   setIsSearchFocused(true);
                   loadCatalogIndex().catch(() => {});
                 }}
-                placeholder={t('nav.search_placeholder')}
-                className="w-full h-11 pl-11 pr-12 rounded-sm bg-slate-50/90 border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#00478D] focus:ring-2 focus:ring-[#00478D]/10 transition-all"
+                placeholder={isSearchFocused ? t('nav.search_placeholder') : "Tìm thiết bị, SKU..."}
+                className="w-full h-10 pl-9 pr-9 rounded-sm bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#00478D] transition-all"
               />
-              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               {searchQuery && (
                 <button 
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-700 px-1.5 py-0.5 rounded-xs hover:bg-slate-200 transition-colors"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-slate-700 px-1 py-0.5 rounded-xs hover:bg-slate-200 transition-colors cursor-pointer"
                 >
-                  Xóa
+                  <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
@@ -430,19 +491,17 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[540px] md:w-[620px] lg:w-[680px] max-w-[92vw] bg-white rounded-sm shadow-2xl border border-slate-200 py-3 z-50 animate-in fade-in slide-in-from-top-1 duration-150 max-h-[82vh] overflow-y-auto">
                 
                 {/* Header Bar */}
-                <div className="px-4 pb-2.5 border-b border-slate-100 flex items-center justify-between text-slate-500">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider">
-                    <Sparkles className="w-3.5 h-3.5 text-[#00478D]" />
-                    <span>Gợi Ý Tìm Kiếm & Hàng Tiêu Biểu</span>
-                  </div>
+                <div className="px-4 sm:px-5 pb-2.5 border-b border-slate-100 flex items-center justify-between text-slate-500">
+                  <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                    Gợi Ý Tìm Kiếm & Thiết Bị Tiêu Biểu
+                  </span>
                   <span className="text-[10px] text-slate-400 font-medium">Bấm để lọc tức thì • Esc để đóng</span>
                 </div>
 
                 {/* Khối 1: Từ khóa tìm kiếm phổ biến */}
-                <div className="px-4 py-3 border-b border-slate-100/80 bg-slate-50/50">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
-                    <TrendingUp className="w-3.5 h-3.5 text-[#00478D]" />
-                    <span>Từ Khóa Phổ Biến</span>
+                <div className="px-4 sm:px-5 py-3 border-b border-slate-100/80 bg-slate-50/50">
+                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                    Từ Khóa Tra Cứu Phổ Biến
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {POPULAR_SEARCH_TAGS.map((tag) => (
@@ -467,25 +526,24 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 </div>
 
                 {/* Khối 2: Hàng tiêu biểu sẵn kho */}
-                <div className="px-4 py-3 border-b border-slate-100/80">
+                <div className="px-4 sm:px-5 py-3 border-b border-slate-100/80">
                   <div className="flex items-center justify-between mb-2.5">
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                      <PackageCheck className="w-3.5 h-3.5 text-[#00478D]" />
-                      <span>Thiết Bị Tiêu Biểu Sẵn Kho</span>
-                    </div>
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                      Thiết Bị Tiêu Biểu Sẵn Kho
+                    </span>
                     <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
                       Sẵn Kho • Giao 24h
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {featuredSuggestions.map((item) => (
                       <button
                         key={item.product.id || item.product.sku}
                         type="button"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => handleProductClick(item.product)}
-                        className="p-2.5 rounded-xs border border-slate-200/80 hover:border-[#00478D]/40 bg-white hover:bg-blue-50/40 text-left transition-all group flex items-start gap-2.5 cursor-pointer shadow-2xs"
+                        className="p-2.5 rounded-xs border border-slate-200/80 hover:border-[#00478D]/40 bg-white hover:bg-blue-50/40 text-left transition-all group flex items-start gap-3 cursor-pointer shadow-2xs"
                       >
                         <img
                           src={item.product.image}
@@ -493,11 +551,11 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           className="w-12 h-12 object-contain rounded-xs border border-slate-200 bg-white p-0.5 shrink-0 group-hover:scale-105 transition-transform"
                         />
                         <div className="min-w-0 flex-1">
-                          <div className="text-xs font-bold text-slate-900 group-hover:text-[#00478D] transition-colors truncate">
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 leading-snug min-h-[2rem]">
                             {item.product.name}
                           </div>
-                          <div className="flex items-center gap-1.5 text-[10px] mt-0.5">
-                            <span className="font-mono text-slate-500 bg-slate-100 px-1 py-0.2 rounded-xs">
+                          <div className="flex items-center gap-1.5 text-[10px] mt-1">
+                            <span className="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.2 rounded-xs font-semibold">
                               {item.product.sku}
                             </span>
                             <span className="text-slate-300">•</span>
@@ -505,7 +563,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                               {item.product.brand}
                             </span>
                           </div>
-                          <div className="text-[10px] text-slate-500 truncate mt-1">
+                          <div className="text-[10px] text-slate-500 truncate mt-0.5">
                             {item.highlight}
                           </div>
                         </div>
@@ -514,17 +572,16 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   </div>
                 </div>
 
-                {/* Khối 3: Ngành hàng tra cứu nhanh */}
-                <div className="px-4 py-3 bg-slate-50/30">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                      <Layers className="w-3.5 h-3.5 text-[#00478D]" />
-                      <span>Ngành Hàng Tra Cứu Nhanh</span>
-                    </div>
-                    <span className="text-[10px] text-slate-400">15 Nhóm Ngành B2B</span>
+                {/* Khối 3: Ngành hàng tra cứu nhanh (3 cột rộng rãi, layout ngang, icon chuẩn xác 100%) */}
+                <div className="px-4 sm:px-5 py-3 bg-slate-50/30">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                      Ngành Hàng Tra Cứu Nhanh
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-400">9 Nhóm Ngành B2B</span>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                     {QUICK_CATEGORIES.map((cat) => {
                       const IconComp = cat.icon;
                       return (
@@ -544,21 +601,18 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                               }
                             }, 60);
                           }}
-                          className={`p-2 rounded-xs border text-left transition-all group flex flex-col justify-between cursor-pointer ${
-                            cat.isMurr
-                              ? 'bg-red-50/60 hover:bg-red-100/70 border-red-200 text-[#E30613]'
-                              : 'bg-white hover:bg-blue-50/60 border-slate-200/80 hover:border-[#00478D]/30 text-slate-700'
-                          }`}
+                          className="p-2 sm:p-2.5 rounded-xs border border-slate-200/80 bg-white hover:bg-blue-50/60 hover:border-[#00478D]/30 transition-all group flex items-center gap-2.5 text-left cursor-pointer shadow-2xs"
                         >
-                          <div className="flex items-center justify-between w-full mb-1">
-                            <IconComp className={`w-3.5 h-3.5 ${cat.isMurr ? 'text-[#E30613]' : 'text-[#00478D]'}`} />
-                            <ArrowRight className="w-3 h-3 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-0.5 transition-all" />
+                          <div className="w-8 h-8 rounded-xs bg-slate-100 flex items-center justify-center shrink-0 text-slate-600 group-hover:text-[#00478D] group-hover:bg-blue-100/60 transition-colors">
+                            <IconComp className="w-4 h-4" />
                           </div>
-                          <div className="text-[11px] font-bold truncate leading-tight">
-                            {cat.name}
-                          </div>
-                          <div className="text-[9px] text-slate-400 mt-0.5 truncate">
-                            {cat.tag}
+                          <div className="min-w-0 flex-1">
+                            <div className="text-xs font-bold text-slate-800 group-hover:text-[#00478D] transition-colors truncate">
+                              {cat.name}
+                            </div>
+                            <div className="text-[10px] text-slate-400 truncate mt-0.5 font-mono">
+                              {cat.tag}
+                            </div>
                           </div>
                         </button>
                       );
@@ -567,7 +621,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 </div>
 
                 {/* Footer Bar */}
-                <div className="px-4 pt-2.5 pb-1 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 bg-slate-50/80">
+                <div className="px-4 sm:px-5 pt-2.5 pb-1 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 bg-slate-50/80">
                   <span>
                     Hotline: <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="font-bold text-[#00478D] font-mono hover:underline">{COMPANY_INFO.hotline}</a>
                   </span>
@@ -679,26 +733,27 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           </div>
 
           {/* 4. ACTIONS & QUOTE BASKET */}
-          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
             
             {/* Quick RFQ Basket Button */}
             <button
               onClick={() => onNavigate('cart')}
-              className={`relative flex items-center gap-2 h-11 px-4 rounded-sm border transition-all cursor-pointer ${
+              className={`relative flex items-center justify-center h-10 px-2.5 sm:px-3 rounded-sm border transition-all cursor-pointer ${
                 currentTab === 'cart'
                   ? 'bg-[#00478D] text-white border-[#00478D] shadow-md'
-                  : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200/90 shadow-xs'
+                  : 'bg-white hover:bg-slate-50 text-slate-800 border-slate-200/90 shadow-2xs'
               }`}
+              title={t('nav.cart')}
             >
-              <div className="relative">
-                <ShoppingCart className="w-4 h-4" />
+              <div className="relative flex items-center justify-center">
+                <ShoppingCart className="w-4 h-4 text-slate-700 group-hover:text-[#00478D]" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 w-4.5 h-4.5 rounded-full bg-[#D97706] text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+                  <span className="absolute -top-2 -right-2.5 min-w-4.5 h-4.5 px-1 rounded-full bg-[#D97706] text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
                     {cartCount}
                   </span>
                 )}
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline-block">
+              <span className="text-xs font-bold uppercase tracking-wider hidden xl:inline-block ml-1.5">
                 {t('nav.cart')}
               </span>
             </button>
@@ -716,7 +771,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-sm text-slate-700 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer"
+              className="lg:hidden p-2 rounded-sm text-slate-700 hover:bg-slate-100 border border-slate-200 transition-colors cursor-pointer"
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -753,8 +808,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           {/* Quick suggestions when search is empty in mobile menu */}
           {!searchQuery && (
             <div className="space-y-2 pt-1 pb-1">
-              <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase text-slate-500">
-                <TrendingUp className="w-3.5 h-3.5 text-[#00478D]" />
+              <div className="text-[11px] font-bold uppercase text-slate-500">
                 <span>Từ Khóa Gợi Ý Nhanh</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -811,6 +865,17 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               }`}
             >
               {t('nav.home')}
+            </button>
+
+            {/* Robot Dresspack Configurator Link on Mobile */}
+            <button
+              onClick={() => { onNavigate('robot-dresspack'); setIsMobileMenuOpen(false); }}
+              className={`w-full text-left px-3 py-3 rounded-sm text-sm font-bold tracking-wide uppercase transition-colors flex items-center justify-between ${
+                currentTab === 'robot-dresspack' ? 'bg-red-50 text-[#C8102E]' : 'text-slate-800 hover:bg-slate-50'
+              }`}
+            >
+              <span>{t('nav.toolbox_dresspack_title', 'Cấu hình Robot dresspack & bó cáp')}</span>
+              <ArrowRight className="w-4 h-4 text-slate-400" />
             </button>
 
             {/* Featured Murrplastik Subsite Card on Mobile */}

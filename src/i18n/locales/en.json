@@ -5,7 +5,7 @@
     "cart": "RFQ Basket",
     "docs": "Docs & CO/CQ",
     "contact": "Contact",
-    "search_placeholder": "Search model, part number: Hakko 936, Hios CL-4000, SP-982, Zcut 9...",
+    "search_placeholder": "Search SKU, model: Hakko 936, CL-4000, MP-1081...",
     "murr_portal": "Murrplastik Germany Hub",
     "hotline": "Hotline",
     "sales": "Sales Dept",
@@ -16,7 +16,15 @@
     "tech_support_hint": "Technical Part Selection Support:",
     "search_placeholder_mobile": "Search model, SKU: Hakko, Hios, Zcut...",
     "authorized": "Authorized",
-    "murr_mobile_desc": "Industrial cable management, robotic dresspacks, 500+ SKU catalog & 3D virtual booth."
+    "murr_mobile_desc": "Industrial cable management, robotic dresspacks, 500+ SKU catalog & 3D virtual booth.",
+    "digital_toolbox": "Digital Toolbox",
+    "toolbox_tag": "Murrplastik",
+    "toolbox_dresspack_title": "Robot Dresspack & Cable Assembly Configuration",
+    "toolbox_dresspack_desc": "Robot arm simulation & cable bundle fill factor calculation",
+    "toolbox_bom_title": "BOM Quick Quote Calculator",
+    "toolbox_bom_desc": "Paste bulk SKUs from Excel & export instant B2B quotation",
+    "toolbox_cad_title": "CAD STEP & CO/CQ Lookup",
+    "toolbox_cad_desc": "Download PDF technical datasheets, UL94 flame-retardant certificates"
   },
   "hero": {
     "badge": "MASTER B2B INDUSTRIAL DISTRIBUTOR",
@@ -77,7 +85,8 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "Vietnam's leading industrial equipment distributor, SMT tools, cleanroom devices & robotic cable management.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "credit": "Designed & Developed by KhaiLL",
+    "all_rights_reserved": "All rights reserved.",
     "slogan": "Leading supplier of industrial equipment, SMT assembly tools, cleanroom & factory automation supplies for FDI manufacturers in Vietnam.",
     "hq_label": "Headquarters:",
     "wh_label": "Office & Hanoi Warehouse:",
@@ -261,5 +270,16 @@
     "desc": "Need detailed dimensions, PDF technical data sheets, UL94 flammability certificates, or custom dresspack solutions for industrial robot arms? Visit Murrplastik Vietnam for 1-on-1 engineering support.",
     "btn_portal": "Visit Murrplastik Vietnam Portal",
     "btn_booth": "3D Simulation of VEC 2026 Booth"
+  },
+  "configurator": {
+    "download_files": "Download files",
+    "request_quote": "Request a quote",
+    "parts_list": "Parts list",
+    "col_image": "Image",
+    "col_part": "Part",
+    "col_qty": "Qty",
+    "change_pkg": "Change Package",
+    "synced_rfq": "Synced {count} parts to RFQ basket!",
+    "open_cart": "Open Cart"
   }
 }

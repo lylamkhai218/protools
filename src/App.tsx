@@ -6,6 +6,7 @@ import Home from './pages/Home';
 const ProductDetail = React.lazy(() => import('./pages/ProductDetail'));
 const DocumentCenter = React.lazy(() => import('./pages/DocumentCenter'));
 const CartQuote = React.lazy(() => import('./pages/CartQuote'));
+const RobotConfigurator = React.lazy(() => import('./pages/RobotConfigurator'));
 import { PRODUCTS } from './data';
 import { Product, CartItem } from './types';
 import { CheckCircle2, X, AlertTriangle, RefreshCw } from 'lucide-react';
@@ -172,6 +173,8 @@ export default function App() {
         targetPath = '/tai-lieu';
       } else if (tab === 'cart') {
         targetPath = '/gio-bao-gia';
+      } else if (tab === 'robot-dresspack') {
+        targetPath = '/robot-dresspack';
       }
 
       window.history.pushState({ tab, extra }, '', targetPath);
@@ -242,13 +245,17 @@ export default function App() {
         }
       }
 
-      // 3. Semantic Clean URL: /tai-lieu, /gio-bao-gia
+      // 3. Semantic Clean URL: /tai-lieu, /gio-bao-gia, /robot-dresspack
       if (pathname === '/tai-lieu') {
         setCurrentTab('document-center');
         return;
       }
       if (pathname === '/gio-bao-gia' || pathname === '/cart') {
         setCurrentTab('cart');
+        return;
+      }
+      if (pathname === '/robot-dresspack' || pathname === '/cau-hinh-dresspack') {
+        setCurrentTab('robot-dresspack');
         return;
       }
 
@@ -418,6 +425,13 @@ export default function App() {
                 onUpdateQuantity={handleUpdateQuantity}
                 onRemoveItem={handleRemoveItem}
                 onClearCart={handleClearCart}
+                onNavigate={handleNavigate}
+                onAddToCart={handleAddToCart}
+              />
+            )}
+
+            {currentTab === 'robot-dresspack' && (
+              <RobotConfigurator
                 onNavigate={handleNavigate}
                 onAddToCart={handleAddToCart}
               />

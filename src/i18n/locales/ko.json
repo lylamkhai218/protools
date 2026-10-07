@@ -16,7 +16,15 @@
     "tech_support_hint": "기술 규격 및 파트 선정 지원:",
     "search_placeholder_mobile": "모델명, SKU 검색: Hakko, Hios, Zcut...",
     "authorized": "공식 대리점",
-    "murr_mobile_desc": "산업용 케이블 보호 시스템, 로봇 드레스팩, 500+ 카탈로그 및 3D 가상 부스."
+    "murr_mobile_desc": "산업용 케이블 보호 시스템, 로봇 드레스팩, 500+ 카탈로그 및 3D 가상 부스.",
+    "digital_toolbox": "디지털 툴박스",
+    "toolbox_tag": "Murrplastik",
+    "toolbox_dresspack_title": "로봇 드레스팩 구성기",
+    "toolbox_dresspack_desc": "ABB, Fanuc 6축 로봇 시뮬레이션 및 케이블 충진율 계산",
+    "toolbox_bom_title": "BOM 빠른 견적 계산기",
+    "toolbox_bom_desc": "엑셀 SKU 대량 붙여넣기 및 즉시 B2B 견적서 생성",
+    "toolbox_cad_title": "CAD STEP 3D도면 및 CO/CQ 조회",
+    "toolbox_cad_desc": "PDF 기술 사양서 및 UL94 난연 인증서 다운로드"
   },
   "hero": {
     "badge": "베트남 B2B 산업용 자동화 장비 총판",
@@ -77,7 +85,8 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "베트남 최고의 산업 자동화 장비, SMT 툴, 클린룸 정전기 제어 및 로봇 케이블 관리 시스템 유통 기업.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "credit": "KhaiLL 설계 및 개발",
+    "all_rights_reserved": "모든 권리 보유.",
     "slogan": "베트남 내 FDI 글로벌 제조기업을 위한 산업 장비, SMT 조립 공구, 클린룸 및 공장 자동화 전문 종합 공급사.",
     "hq_label": "본사:",
     "wh_label": "하노이 사무소 및 물류창고:",
@@ -261,5 +270,16 @@
     "desc": "상세 치수표, PDF 기술 데이터시트, UL94 난연 인증서 또는 로봇 케이블 드레스팩 주문이 필요하십니까? 전문 엔지니어 1:1 상담을 지원합니다.",
     "btn_portal": "Murrplastik 베트남 포털 방문",
     "btn_booth": "VEC 2026 부스 3D 시뮬레이션"
+  },
+  "configurator": {
+    "download_files": "CAD 파일 다운로드",
+    "request_quote": "견적 요청",
+    "parts_list": "부품 목록",
+    "col_image": "이미지",
+    "col_part": "부품",
+    "col_qty": "수량",
+    "change_pkg": "패키지 변경",
+    "synced_rfq": "견적 바구니에 동기화되었습니다!",
+    "open_cart": "견적함 열기"
   }
 }

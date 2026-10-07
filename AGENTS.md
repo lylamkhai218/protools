@@ -1620,3 +1620,339 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - **Tỷ lệ điền đầy (Fill Factor)**: Đảm bảo $\le 60\%$ theo công thức $\frac{\sum \pi (d/2)^2}{\pi (ID/2)^2} \times 100\%$.
 * **3. Phòng Vệ Server Murrplastik HQ**:
   - Ưu tiên tải trực tiếp từ CDN Cloudinary (`res.cloudinary.com`), đặt độ trễ `0.5s` giữa các request để đảm bảo an toàn tuyệt đối, không gây quá tải origin server.
+
+### 🚀 Rule 9.99: Quy Chuẩn Robot Dresspack Configurator & Fill Factor Calculator (05/10/2026)
+* **1. Cấu Trúc Wizard 4 Bước Chuẩn Murrplastik & T&T Vina**:
+  - Giao diện Wizard gồm 4 bước tại [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx):
+    - `Bước 1`: Chọn Hãng (Lưới 12 thương hiệu ABB, Fanuc, KUKA, Yaskawa...).
+    - `Bước 2`: Chọn Model (Dòng tải trọng & tầm vươn cánh tay).
+    - `Bước 3`: Chọn Gói Giải Pháp (Hành trình A3-A6, cỡ ống M40/M50/Jumbo 70).
+    - `Bước 4`: BOM 13/9 linh kiện đồng bộ, Studio 3D đa góc nhìn, Fill Factor Calculator & 1-Click Sync RFQ.
+* **2. Quy Chuẩn Thuật Toán Fill Factor Calculator**:
+  - Công thức tính toán thời gian thực:
+    $$A_{\text{conduit}} = \pi \times \left(\frac{ID}{2}\right)^2, \quad A_{\text{cables}} = \sum_{i=1}^n \left(N_i \times \pi \times \left(\frac{d_i}{2}\right)^2\right), \quad FF = \left(\frac{A_{\text{cables}}}{A_{\text{conduit}}}\right) \times 100\%$$
+  - Ngưỡng đánh giá an toàn động học:
+    - $\le 50\%$: Tối ưu hoàn hảo (vùng đệm động học an toàn).
+    - $50\% - 60\%$: Đạt tiêu chuẩn Murrplastik / DIN EN.
+    - $> 60\%$: Quá tải nguy hiểm (Hiển thị cảnh báo đỏ và nút đề xuất nâng cấp ống lớn hơn).
+* **3. Quy Chuẩn Tích Hợp Giỏ Hàng B2B RFQ**:
+  - Nút bấm `Thêm Toàn Bộ Cấu Hình Vào Giỏ Báo Giá (RFQ)` tự động lặp qua toàn bộ linh kiện BOM với số lượng tùy chỉnh của kỹ sư, map sang đối tượng `Product` chuẩn Protools và đồng bộ vào `localStorage('tt_vina_quote_cart_v3')`.
+* **4. Điều Hướng & Deep Linking**:
+  - Hỗ trợ tham số URL 2 chiều: `http://localhost:3000/?tab=robot-dresspack` và route sạch `/robot-dresspack`.
+
+### 📐 Rule 9.100: Tiêu Chuẩn Quốc Tế Cáp Robot & Bản Vẽ Mặt Cắt 2D CAD (05/10/2026)
+* **1. Hệ Thống Tiêu Chuẩn Dây & Ống Đi Trên Thân Robot**:
+  - **Chuẩn Ống Khí Nén PU/PA (ISO 14743 & DIN 73378)**: Đường kính ngoài OD chuẩn hóa toàn cầu ($\varnothing 4, \varnothing 6, \varnothing 8, \varnothing 10, \varnothing 12\text{ mm}$), khớp 100% đầu nối cắm nhanh One-touch của SMC, Festo, CKD, Sang-A.
+  - **Chuẩn Dây Cáp Điện & Tín Hiệu (DESINA / IEC Standards)**:
+    - Cáp động lực Servo / Power (Cam RAL 2003): Ruột đồng siêu dẻo chuyên uốn mỏi **IEC 60228 Class 6**, đường kính $\approx \varnothing 12 - \varnothing 16\text{ mm}$.
+    - Cáp Encoder / Feedback (Xanh RAL 6018): Đường kính $\approx \varnothing 7.0 - \varnothing 8.5\text{ mm}$.
+    - Cáp mạng PROFINET / EtherCAT: Tiêu chuẩn **IEC 61158**, đường kính danh định $\varnothing 6.5\text{ mm}$.
+    - Cáp sensor M8/M12: Tiêu chuẩn đầu nối **IEC 61076-2**, đường kính $\approx \varnothing 4.0 - \varnothing 5.0\text{ mm}$.
+* **2. Mô Phỏng Mặt Cắt 2D Kỹ Thuật (CAD Section A-A)**:
+  - Thành phần [`src/components/ConduitCadCrossSection.tsx`](file:///d:/T&TVina/protools/src/components/ConduitCadCrossSection.tsx) sử dụng SVG vector với hệ tọa độ tâm (Crosshair Axes), đường tròn ống danh định $ID$, đường gióng kích thước mũi tên CAD (`d0`, `d1`, `d2`, `d_ống`).
+  - Tích hợp thuật toán nén vòng tròn (Circle Packing Relaxation) tương tác thời gian thực khi người dùng tăng giảm số lượng hoặc nhập đường kính tùy chọn.
+### 🎯 Rule 9.101: Tiêu Chuẩn Giao Diện Parts List & Mũi Tên Kỹ Thuật 2D CAD Murrplastik (06/10/2026)
+* **1. Giao Diện Danh Sách Linh Kiện (Parts List) Chuẩn Murrplastik Thụy Điển/Đức**:
+  - Tiêu đề cấu hình: `Dresspack {Model}`, đi kèm mã gói `{PackageCode}` và `{ConfigID}`.
+  - Card hiển thị dạng `Parts list¹⁵` gồm 3 cột chuẩn:
+    - **`Image`**: Ảnh linh kiện to rõ (56x56px), nền trắng viền mảnh, click mở Lightbox phóng to.
+    - **`Part`**: Dòng trên là mã MPN màu xám (`text-slate-400 font-mono text-[11px]`), dòng dưới là tên linh kiện in đậm (`font-bold text-slate-900`), kèm phụ đề tiếng Việt tinh tế.
+    - **`Qty`**: Ô hiển thị số mét (ví dụ `4 m`) đối với ruột gà hoặc bộ đếm tinh gọn `[-] [qty] [+]` đối với linh kiện cơ khí.
+  - Bộ nút điều hướng chân trang: `Download files` (tải bản vẽ CAD PDF / STEP) và `Request a quote` (nút xanh navy `#002244` đồng bộ giỏ RFQ).
+* **2. Tinh Giản Khối 3D Tránh Quá Tải Chữ**:
+  - Xóa bỏ toàn bộ tiêu đề thừa thãi `MÔ PHỎNG 3D THỰC TẾ TRÊN ROBOT`. Người dùng tự quan sát hình ảnh cánh tay robot trực quan.
+  - Chỉ duy trì một badge góc nhìn nhỏ gọn (`Isometric`, `Front`, `Top`...) ở góc trên bên phải khung 3D.
+* **3. Quy Chuẩn Mũi Tên Đo Kích Thước Bản Vẽ 2D CAD (CAD Section A-A)**:
+  - Khắc phục triệt để lỗi thiếu mũi tên đường kính: Thay thế SVG `<marker>` bằng hàm `renderCadArrow()` sinh polygon tam giác cơ khí chuẩn AutoCAD / SolidWorks (`fill="#FFFFFF" stroke="#000000"`).
+  - Mọi đường kính (cả ruột gà ngoài và các lõi cáp bên trong $d_0, d_1, d_2\dots$) đều có đường gióng xuyên tâm với **2 đầu mũi tên nhọn trỏ ra ngoài chạm sát chu vi đường tròn**.
+  - Tích hợp đường dóng chỉ dẫn gập góc (leader line) trỏ ra nhãn đo $d_0 = 14\text{ mm}$, $d_1 = 6\text{ mm}$, $d_2 = 6\text{ mm}$, $d_3 = 24\text{ mm}$ trên nền blueprint CAD `#E6EDF5`.
+* **4. Loại Bỏ Hoàn Toàn Chức Năng In Phiếu A4**:
+  - Xóa bỏ hàm `window.print()` gây đơ/treo trình duyệt. Thay thế bằng tải trực tiếp tài liệu kỹ thuật CAD PDF và yêu cầu CAD STEP.
+### 🌐 Rule 9.102: Quy Chuẩn Đa Ngôn Ngữ Cho Configurator & Đánh Giá Vị Trí Điều Hướng B2B (06/10/2026)
+* **1. Bản Địa Hóa Đồng Bộ Toàn Diện Robot Configurator (7 Ngôn Ngữ)**:
+  - Tích hợp hook `useTranslation()` tại [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx):
+    - `Download files` $\rightarrow$ `{t('configurator.download_files')}` (Tiếng Việt: *Tải tài liệu CAD*, Tiếng Anh: *Download files*, Tiếng Đức: *Dateien herunterladen*, Tiếng Trung: *下载 CAD 文件*).
+    - `Request a quote` $\rightarrow$ `{t('configurator.request_quote')}` (Tiếng Việt: *Yêu cầu báo giá*, Tiếng Anh: *Request a quote*, Tiếng Đức: *Angebot anfordern*, Tiếng Trung: *申请报价*).
+    - `Parts list` $\rightarrow$ *Danh mục linh kiện* khi ở ngôn ngữ Tiếng Việt, giữ *Parts list* cho các ngôn ngữ quốc tế.
+    - Tiêu đề cột `Image`, `Part`, `Qty` $\rightarrow$ *Hình ảnh*, *Linh kiện*, *Số lượng*.
+* **2. Đánh Giá & Định Vị Nút Điều Hướng Dresspack 3D (UX/UI Architecture)**:
+  - Tham chiếu chuẩn Murrplastik toàn cầu (`shop.murrplastik.com/service-support/digital-toolbox`): Không đặt nút to choán chỗ cụm Global Actions bên cạnh Search Bar.
+  - Gom các công cụ tính toán vào nhóm **`Configurators / Digital Toolbox`** trong menu Danh mục hoặc tích hợp link phẳng tại Top Utility Bar và Chuyên trang Murrplastik.
+### 🧭 Rule 9.103: Chuẩn Hóa Tinh Gọn Header & Expandable Search Bar Theo Murrplastik (06/10/2026)
+* **1. Tinh Gọn Logo & Loại Bỏ Text Thừa**:
+  - Logo trên [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx): Giữ lại duy nhất biểu tượng vector chính hãng `TTV_LOGO_Color_Master.svg` (`h-9 sm:h-11`), xóa bỏ khối text `T&T VINA INDUSTRIAL CO., LTD` giúp tiết kiệm ~120px chiều ngang.
+* **2. Nút Đổi Ngôn Ngữ Tối Giản Dạng Icon Flag**:
+  - Tại [`src/components/LanguageSwitcher.tsx`](file:///d:/T&TVina/protools/src/components/LanguageSwitcher.tsx): Bên ngoài chỉ hiển thị **Lá cờ quốc gia + Chevron ▾** (`~36px`), không chứa label chữ dài dòng. Click vào dropdown mới hiển thị đầy đủ tên từng quốc gia (Tiếng Việt, English, Deutsch...). Tiết kiệm ~90px.
+* **3. Thanh Tìm Kiếm Co Giãn Thông Minh (Adaptive Expandable Search)**:
+  - Trạng thái mặc định: Chiều rộng cố định gọn gàng `w-36 sm:w-48 lg:w-56` (~200px) thanh thoát.
+  - Trạng thái Focus / Nhập liệu: Tự động mở rộng mượt mà (`transition-all duration-300`) ra `w-72 sm:w-96 lg:w-[480px]` (`z-50`) phủ tràn lên không gian trung tâm, tối ưu trải nghiệm tra cứu SKU mà không làm vỡ bố cục tổng thể.
+* **4. Tích Hợp Menu Digital Toolbox Chuẩn Murrplastik**:
+  - Xóa bỏ nút đỏ cồng kềnh `Dresspack 3D` ở cụm Actions.
+  - Bổ sung menu dropdown **`Digital Toolbox [3D] ▾`** cạnh menu Danh Mục với 3 công cụ:
+    1. *Dresspack Robot 3D Configurator »* (Mô phỏng 3D ABB, Fanuc, tính Fill Factor DIN EN).
+    2. *BOM Quick Quote Calculator »* (Dán SKU từ Excel & báo giá Misumi).
+    3. *Tra Cứu Bản Vẽ CAD STEP & CO/CQ »*.
+* **5. Nút Giỏ Hàng (Cart RFQ) Tối Giản Icon-First**:
+  - Rút gọn nút giỏ hàng thành Icon ShoppingCart + Badge số lượng nổi bật, trả lại không gian thoáng đạt cho Header.
+
+### 🌐 Rule 9.104: Quy Chuẩn Mặc Định Ngôn Ngữ Tiếng Việt & Khắc Phục Stale LocalStorage Locale (06/10/2026)
+* **Hiện tượng**: Khi truy cập `http://localhost:3000/`, trang web bị kẹt hiển thị Tiếng Anh (`en`) do giá trị `localStorage` cũ (`tt_vina_locale = 'en'`) từ các phiên kiểm thử trước đó được lưu trữ trong trình duyệt. Đồng thời, chân trang bị sót dòng credit viết bằng tiếng Anh `Developed by Mr. Kai @ T&T Vina Digital` (sai lệch chuẩn Rule 9.7).
+* **Giải pháp khắc phục triệt để**:
+  1. **Nâng cấp Storage Key & Dọn rác**: Đổi `LOCALE_STORAGE_KEY` sang `'tt_vina_locale_v3'` trong [`src/i18n/config.ts`](file:///d:/T&TVina/protools/src/i18n/config.ts); trong [`src/i18n/LanguageContext.tsx`](file:///d:/T&TVina/protools/src/i18n/LanguageContext.tsx) tự động gọi `localStorage.removeItem('tt_vina_locale')` và `localStorage.removeItem('tt_vina_locale_v2')`.
+  2. **Ưu tiên tham số URL**: Hỗ trợ query parameter `?lang=vi` / `?lang=en` ghi đè ngay lập tức và lưu vào state.
+  3. **Mặc định tuyệt đối Tiếng Việt**: Khi không có cấu hình hợp lệ mới, luôn trả về `DEFAULT_LOCALE = 'vi'`.
+  4. **Chuẩn hóa Credit Rule 9.7**: Cập nhật toàn bộ các file từ điển `locales/*.json` và [`src/components/Footer.tsx`](file:///d:/T&TVina/protools/src/components/Footer.tsx) hiển thị chính xác `{t('footer.credit')}` là `Thiết kế & phát triển bởi KhaiLL` (Tiếng Việt) và `Designed & Developed by KhaiLL` (Tiếng Anh).
+  5. **Bản địa hóa Digital Toolbox**: Dịch toàn bộ các nhãn trong menu `Digital Toolbox [3D]` qua `t('nav.*')` để không bị sót tiếng Anh thô trên giao diện tiếng Việt.
+
+### 🧰 Rule 9.105: Tinh Giản Digital Toolbox & Loại Bỏ Hoàn Toàn Icon/Badge 3D (06/10/2026)
+* **Quy chuẩn hiển thị Header**:
+  1. **Nút Digital Toolbox**: Chỉ hiển thị text `Digital Toolbox` + Chevron ▾. Tuyệt đối **xóa bỏ icon CPU** và **xóa bỏ badge `3D`** nhằm tối đa hóa diện tích trống và giữ layout thanh thoát chuẩn công nghiệp B2B.
+  2. **Nội dung menu**: Chỉ giữ lại duy nhất công cụ **`Cấu Hình Bó Cáp Robot Dresspack`** (`robot-dresspack`), loại bỏ `BOM Quick Quote Calculator` và `Document Portal`.
+  3. **Loại bỏ Tài Liệu CO/CQ trên Header**: Xóa bỏ hoàn toàn nút direct link `Tài Liệu & CO/CQ` trên thanh điều hướng chính, chuyển trọng tâm trải nghiệm tra cứu sản phẩm vào trực tiếp Catalog và trang chi tiết sản phẩm.
+  4. **Đồng bộ Mobile Drawer**: Tương tự trên Mobile, bỏ icon CPU và bỏ chữ `3D`, chuyển thành link phẳng `Cấu Hình Bó Cáp Robot Dresspack`.
+
+
+### Rule 9.106: Quy Chuẩn Unbreakable Hover Bridge & Ảnh Hàng Thật Dropdown Danh Mục (06/10/2026)
+* **1. Cầu Nối Chuột Vô Hình (Unbreakable Hover Bridge Architecture)**:
+  - Hiện tượng: Khoảng cách margin-top (`mt-1.5`) giữa nút trigger và mega menu dropdown khiến con trỏ chuột rơi vào khoảng hở quang học, kích hoạt sự kiện `onMouseLeave` khiến dropdown lập tức bị đóng khi di chuyển chuột xuống.
+  - Giải pháp triệt để:
+    - Loại bỏ hoàn toàn `mt-1.5` tách rời.
+    - Đặt container dropdown bắt đầu từ mép đáy nút `top-full`, dùng `pt-1.5` để tạo khoảng đệm thị giác mà vẫn duy trì vùng hit-test liên tục.
+    - Bổ sung pseudo hover bridge vô hình `<div className="absolute -top-3 inset-x-0 h-3" />` che kín mọi góc rê chuột chéo hoặc lướt nhanh.
+    - Gắn `onMouseEnter` / `onMouseLeave` trực tiếp trên thẻ container bao bọc cha để bảo toàn state hiển thị.
+* **2. Loại Bỏ Hoàn Toàn Icon & Sử Dụng Ảnh Sản Phẩm Thật Cho Danh Mục Thiết Bị**:
+  - Tại dropdown `Danh Mục Thiết Bị`: Xóa bỏ 100% các icon SVG trừu tượng (`Zap`, `Wrench`, `PackageCheck`, v.v.).
+  - Thay thế bằng ảnh sản phẩm thật chất lượng cao (`w-10 h-10 object-contain`) trích xuất từ catalog thực tế của `protools.com.vn` cho toàn bộ 10 ngành hàng (R-Tec Liner, Trạm hàn Hakko 936, Tô vít Hios CL-4000, Robot bơm keo, Máy cắt băng dính Zcut-9, Máy đo lực HP-10, Kính hiển vi SM-3TPZ, Quạt ion SL-001, Máy đóng thùng carton, Relay Samwon).
+  - Chuẩn hóa mục Murrplastik:
+    - Tên hiển thị: `MURRPLASTIK (quản lý cáp)`.
+    - Nhãn phụ bên dưới: Chỉ giữ lại duy nhất chữ `MADE IN GERMANY` (font mono, text xám slate-500).
+    - Xóa bỏ viền đỏ (`border-red-100`) và nền đỏ nổi bật (`bg-red-50/40`), áp dụng layout và hiệu ứng hover đồng nhất chuẩn B2B kỹ thuật cao.
+
+
+### Rule 9.107: Chuẩn Hóa Content Dropdown Digital Toolbox (06/10/2026)
+* **Quy chuẩn hiển thị nội dung công cụ trong Digital Toolbox**:
+  1. **Tiêu đề công cụ**: `Cấu hình Robot dresspack & bó cáp` (áp dụng cho cả Header desktop, dropdown menu và mobile drawer link).
+  2. **Dòng mô tả bên dưới**: `Mô phỏng cánh tay robot & tính fill factor bó cáp`.
+  3. **Đồng bộ đa ngôn ngữ & Header**:
+     - Tiếng Việt ([`src/i18n/locales/vi.json`](file:///d:/T&TVina/protools/src/i18n/locales/vi.json)): Khóa `nav.toolbox_dresspack_title` và `nav.toolbox_dresspack_desc`.
+     - Tiếng Anh ([`src/i18n/locales/en.json`](file:///d:/T&TVina/protools/src/i18n/locales/en.json)): `Robot Dresspack & Cable Assembly Configuration` / `Robot arm simulation & cable bundle fill factor calculation`.
+     - Header ([`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx)): Khai báo chuỗi fallback mặc định chuẩn xác đồng bộ.
+
+
+### Rule 9.108: Chuẩn Hóa Bảng Gợi Ý Tìm Kiếm Ô Search B2B (06/10/2026)
+* **1. Triệt Tiêu Lỗi Tràn Chữ & Layout 3 Cột Rộng Rãi**:
+  - Tại [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx):
+    - Khối *Ngành hàng tra cứu nhanh*: Thay thế grid 4 cột bị ép hẹp (~135px) bằng **grid 3 cột thoáng đãng** (`grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2`), độ rộng mỗi ô đạt ~210px giúp toàn bộ tên ngành hàng không bao giờ bị tràn hay lòi ra mép viền.
+    - Chuyển sang bố cục ngang (`flex items-center gap-2.5`): Icon nằm trong badge chuẩn `w-8 h-8 rounded-xs bg-slate-100` bên trái, tiêu đề và tag nằm bên phải.
+    - Xóa bỏ toàn bộ icon mũi tên `ArrowRight` nhồi nhét trong từng card nhỏ nhằm giải phóng không gian và triệt tiêu cảm giác rối mắt.
+    - Khối *Thiết bị tiêu biểu sẵn kho*: Chuyển tiêu đề từ `truncate` đơn dòng sang `line-clamp-2 leading-snug min-h-[2rem]` để hiển thị đầy đủ tên máy (R-Tec Liner, Trạm hàn QUICK 205 ESD) không bị cắt cụt khó coi.
+    - Rút gọn placeholder ô input ([`src/i18n/locales/vi.json`](file:///d:/T&TVina/protools/src/i18n/locales/vi.json)) thành `"Tìm mã SKU, tên máy: Hakko 936, CL-4000, MP-1081..."` để không bị tràn viền input.
+* **2. Khắc Phục Triệt Để Icon Lệch Nghĩa & Rối Mắt**:
+  - Xóa bỏ 100% các icon trang trí rườm rà ở các tiêu đề mục (`Sparkles`, `TrendingUp`, `PackageCheck`, `Layers`), giữ phong cách typography kỹ thuật chuẩn B2B.
+  - Chuẩn hóa 9 nhóm ngành thực tế khớp 100% với danh mục catalog chính hãng:
+    1. *Xích Cáp & Bó Cáp Robot*: Icon `Cable` (dây cáp/ống bảo vệ robot - thay thế CPU sai lệch).
+    2. *Thiết Bị Hàn & Bể Thiếc*: Icon `Flame` (nhiệt hàn thiếc chính xác).
+    3. *Máy Bắt Vít & Siết Lực*: Icon `Wrench` (cờ lê/siết lực).
+    4. *Robot & Máy Bơm Keo*: Icon `Pipette` (tra keo/bơm keo chính xác - thay thế hộp carton).
+    5. *Máy Cắt Băng Dính & Tem*: Icon `Scissors` (cắt băng dính - thay thế CPU sai lệch).
+    6. *Thiết Bị Đo Lực Siết*: Icon `Gauge` (đồng hồ kiểm tra lực siết HP-10 - thay thế cờ lê).
+    7. *Kính Soi & Kính Hiển Vi*: Icon `Microscope` (kính hiển vi kiểm tra mạch SMT).
+    8. *Phòng Sạch & Khử ESD*: Icon `ShieldCheck` (bảo vệ chống tĩnh điện ion).
+    9. *Máy Đóng Gói Tự Động*: Icon `Package` (đóng dán thùng carton).
+
+
+### Rule 9.109: Quy Chuẩn Phân Loại Biến Thể Sản Phẩm (Variant Selection) & Tích Hợp Găng Tay Ansell TouchNTuff (06/10/2026)
+* **1. Hệ Thống Đa Biến Thể Sản Phẩm (Interactive Product Variants)**:
+  - Khai báo giao diện `ProductVariant` và trường `variants?: ProductVariant[]`, `variantLabel?: string` tại [`src/types.ts`](file:///d:/T&TVina/protools/src/types.ts).
+  - Component [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx) tự động hiển thị bộ chọn biến thể (Variant Selector) công nghiệp dạng thẻ chip kèm chỉ báo radio check khi sản phẩm có khai báo `variants`.
+  - Tự động đồng bộ hóa hai chiều với URL query `?type=` hoặc `?variant=`: Cho phép lưu bookmark hoặc gửi link trực tiếp đến biến thể được chọn.
+  - Khi người dùng chuyển đổi phân loại: Tự động cập nhật tức thì Mã SKU, Bảng Spec-Sheet chi tiết, Khối điểm nổi bật (Highlights), Tên sản phẩm khi thêm vào Giỏ Báo Giá và nội dung Báo Giá Nhanh Zalo.
+* **2. Cập Nhật Khăn Lau Phòng Sạch PVN8044**:
+  - Mã SKU gốc: `PVN8044`.
+  - Hai phân loại chất liệu chuyên dụng:
+    1. **Loại Microfiber** (SKU: `PVN8044-MF`): Sợi siêu mịn 80/20, viền hàn siêu âm (Ultrasonic seal), thấm hút nước & cồn IPA gấp 5 lần, chuyên lau màn hình cảm ứng, thấu kính quang học và vi mạch SMT không gây trầy xước.
+    2. **Loại Polyester** (SKU: `PVN8044-PE`): 100% sợi liên tục dệt kép (Double knit interlock), viền cắt laser nhiệt, siêu dai bền cơ học, độ phát sinh bụi cực thấp, kháng dung môi mạnh (IPA, MEK, Acetone).
+  - Trỏ ảnh chuẩn WebP độ nét cao: [`public/images/products/sapo/PVN8044.webp`](file:///d:/T&TVina/protools/public/images/products/sapo/PVN8044.webp).
+* **3. Tích Hợp Mặt Hàng Mới - Găng Tay Nitrile Ansell TouchNTuff® 92-600**:
+  - Mã sản phẩm / SKU: `92-600`.
+  - Hãng sản xuất: **Ansell** (Đã bổ sung đối tác Ansell vào danh sách `PARTNERS` với dải màu thương hiệu `#00843D`).
+  - Tối ưu hóa tài nguyên ảnh: Tự động chuyển đổi ảnh gốc 1.76 MB sang định dạng WebP siêu nhẹ 123 KB tại [`public/images/products/touchntuff-92-600.webp`](file:///d:/T&TVina/protools/public/images/products/touchntuff-92-600.webp) kèm file dự phòng [`touchntuff-92-600.png`](file:///d:/T&TVina/protools/public/images/products/touchntuff-92-600.png).
+  - Tích hợp 4 biến thể kích cỡ: `Size S (6.5-7.0)`, `Size M (7.5-8.0)`, `Size L (8.5-9.0)`, `Size XL (9.5-10.0)`.
+  - Thông số kỹ thuật B2B toàn diện: Tiêu chuẩn EN ISO 374-1:2016 Type B (JKPT), EN ISO 374-5 (Virus), EN 1149 (Antistatic ESD), FDA 21 CFR 177.2600, AQL 1.5, độ dày 0.12mm (5.0 mil), dài 240mm, không bột, công nghệ độc quyền TNT™ chống văng bắn hóa chất.
+  - Đồng bộ localization dịch thuật 7 ngôn ngữ tại [`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts).
+
+
+### Rule 9.109: Bóc Tách 49 Ảnh 3D Studio Dresspack & Tích Hợp Toàn Diện 12 Thương Hiệu Robot (06/10/2026)
+* **1. Khai Thác Tài Nguyên 3D Studio Chuẩn Murrplastik Configurator**:
+  - Thực thi quy trình kỹ thuật `/murrplastik-robot-dresspack` bóc tách trực tiếp từ CDN máy chủ cấu hình Murrplastik và lưu trữ cục bộ tại [`public/images/dresspack/`](file:///d:/T&TVina/protools/public/images/dresspack/).
+  - Tải về và tự động cắt lề trong suốt (`PIL auto_crop_transparent`, `margin=25px`) thành công 100% 49 ảnh WebP studio chất lượng cao:
+    - **KUKA (9 models)**: KR 210 R2700 Prime, KR 120, KR 150, KR 16, KR 180, KR 20, KR 240, KR 300, KR 70, LBR iiwa Cobot.
+    - **Yaskawa Motoman (7 models)**: MOTOMAN GP50, GP180, GP225, GP35L, GP7, GP8, HC10 Cobot.
+    - **Universal Robots (6 models)**: UR20 Next-Gen, UR30 Heavy Lift, UR10e, UR16e, UR5e, UR10.
+    - **Kawasaki (3 models)**: RS080N High Speed, RS007L Compact, MX500N Ultra Heavy.
+    - **Doosan Robotics (3 models)**: M-Series, H-Series, A-Series.
+    - **Comau Robotics (2 models)**: NJ 370 Body Shop, NJ 650 Ultra Heavy.
+    - **Techman Robot (3 models)**: TM20 AI Vision, TM12, TM5-900.
+    - **Delta Electronics (3 models)**: DC06, DC08, DC10.
+    - **Kassow Robots & NEURA (2 models)**: Kassow 7-Axis KR Series, NEURA MAIRA Cognitive.
+* **2. Nâng Cấp Hệ Thống Dữ Liệu Configurator**:
+  - Tại [`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts):
+    - Xóa bỏ hoàn toàn ảnh placeholder Unsplash cũ, thay thế bằng ảnh render 3D chính hãng Murrplastik.
+    - Kích hoạt `hasActiveConfig: true` cho toàn bộ các hãng robot.
+    - Bổ sung các gói giải pháp cấu hình linh kiện: `KUKA_KR210_PACKAGE`, `YASKAWA_GP50_PACKAGE`, `UNIVERSAL_ROBOTS_UR_PACKAGE`.
+    - Mở rộng danh mục từ 7 model ban đầu lên **40+ models robot thực tế** kèm đầy đủ thông số kỹ thuật (Payload Kg, Reach M) và ảnh render 3D sắc nét.
+
+### Rule 9.110: Bóc Tách Chi Tiết Linh Kiện Dresspack (BOM Items), Tải Ảnh Studio Gốc & Chuẩn Hóa products_metadata.json Toàn Diện (07/10/2026)
+* **1. Bóc Tách Đồ Thị Linh Kiện Murrplastik Configurator Qua Next.js RSC Payload**:
+  - Khám phá kiến trúc dữ liệu nội bộ của hệ thống `configuration.murrplastik.com`: Bóc tách đồ thị React Server Components (RSC) thông qua các chunk `self.__next_f.push` trên các route cấu hình robot (`/kr210-r2700-2`, `/irb6700-150kg-3-2m-p1815611`, `/gp50-p1838111`, `/ur10e`, `/kawasaki-dresspack-1`).
+  - Ánh xạ chính xác từng đối tượng `ProductPackageItem` gồm `sku` (Matnr), `name`, `url` (shop slug), `quantity` cùng ảnh studio độ phân giải cao tại `DefaultImage.image` từ Cloudinary CDN (`res.cloudinary.com/murr-elektronik/image/upload/v1/{UUID}.png`).
+* **2. Đồng Bộ Hóa Toàn Diện 55 Linh Kiện & 4 Góc Chụp Phối Cảnh 3D**:
+  - Tải về và tự động cắt lề trong suốt (`PIL auto_crop_transparent`, `margin=30px`) 66 tệp hình ảnh studio độ phân giải cao vào thư mục tĩnh:
+    - **FANUC (9 items)**: `public/images/dresspack/fanuc/` (Base Plate M710, R-Tec Box 100N, R-SSR 125-1, R-FKE 32, KEG/K-M50, SH M40/M50-M, PR/SV-EWX 48, R-ZL/N1, EWX-PAE-M50).
+    - **KUKA (9 items)**: `public/images/dresspack/kuka/` (R-SSR 140-2 `82390067`, R-FKE 32 `83952614`, R-ZL/N1 `83951610`, KEG/K-M50 `83692464`, SH M40/M50-M `83691501`, PR/SV-EWX 48 `83691264`, EWX-PAE-M50 `83182064`, R-GP A-Profil KUKA Quantec `83697211`, R-Tec Box 100N `83692656`) + 4 góc chụp 3D.
+    - **ABB (13 items)**: `public/images/dresspack/abb/` (Base Plate 6700 `83692622`, R-Tec Box 80N `83692652`, Halteblech A3 `83692768`, Befestigungsblech A1 `83692771`, R-SSR 200-1 `83952642`, R-FKE 32 `83952614`, KEG/K-M40 `83692462`, SH-P `83691460`, SH M40/M50-M `83691501`, PR/SV 36 `83691262`, KMG/F-M40 `83691662`, R-ZL/N1 `83951610`, EWX-PAE-M40 `83182062`) + 4 góc chụp 3D.
+    - **YASKAWA (9 items)**: `public/images/dresspack/yaskawa/` (Base Plate Motoman MH50/GP50 `83692772`, R-Tec Box 80N `83692652`, R-SSR 100-1 `83952626`, R-FKE 32 `83952614`, KEG/ZL-M40 `83692262`, SH M40/M50-M `83691501`, PR/SV 36 `83691262`, SRF/ZL-70 `83692266`, EWX-PAE-M40 `83182062`) + 4 góc chụp 3D.
+    - **UNIVERSAL ROBOTS (7 items)**: `public/images/dresspack/universal-robots/` (EWX-PAE-LS M50 `83182264`, SH-P `83691460`, KMG/F-M50 `83691664`, KEG/ZL-M50 `83692264`, SHS 88 `83693584`, SHS 108 `83693587`, R-SSR 63 `83952699`) + 4 góc chụp 3D.
+    - **KAWASAKI (8 items)**: `public/images/dresspack/kawasaki/` (EW-PAE-M32 `83181662`, FHS-SH 550 `83693427`, FHS-SH 450 `83693425`, KMG/F-M32 `83691660`, PR/SV-EW 29 `83691060`, SH-P M25/M32 `83691462`, KEG/ZL-M32 `83692260`, Mounting Axis 6 `83692753`) + 4 góc chụp 3D.
+* **3. Chuẩn Hóa products_metadata.json Đầy Đủ Cho Mọi Thương Hiệu**:
+  - Cấu trúc chuẩn hóa: Mỗi thư mục thương hiệu sở hữu 1 tệp `products_metadata.json` chứa:
+    ```json
+    {
+      "<matnr>": {
+        "matnr": "<matnr>",
+        "name": "<Tên chính thức>",
+        "url": "https://shop.murrplastik.com/<slug>",
+        "image_url": "https://res.cloudinary.com/.../{UUID}.png",
+        "description": "<Mô tả kỹ thuật tiếng Anh>",
+        "local_image": "/images/dresspack/<brand>/<filename>.png",
+        "vn_name": "<Tên tiếng Việt chuẩn kỹ thuật>",
+        "position": "<Vị trí lắp đặt trên robot>",
+        "role": "<Vai trò động học cơ khí>",
+        "spec": "<Thông số kích thước & vật liệu>",
+        "default_qty": 1,
+        "unit": "Bộ/Cái/Mét"
+      }
+    }
+    ```
+* **4. Tích Hợp Toàn Diện Vào CSDL Ứng Dụng ([`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts))**:
+  - Cập nhật toàn bộ các gói cấu hình:
+    - `ABB_IRB6700_PACKAGE`: 13 linh kiện chính xác, ảnh local tại `abb/`.
+    - `KUKA_KR210_PACKAGE`: 9 linh kiện chính xác, mã cấu hình `MS82501000000752`, ảnh local tại `kuka/`.
+    - `YASKAWA_GP50_PACKAGE`: 9 linh kiện chính xác, mã cấu hình `MS82501000000370`, ảnh local tại `yaskawa/`.
+    - `UNIVERSAL_ROBOTS_UR_PACKAGE`: 7 linh kiện Cobot chính xác, mã cấu hình `MS82501000000379`, ảnh local tại `universal-robots/`.
+    - `KAWASAKI_RS_PACKAGE`: 8 linh kiện chính xác, mã cấu hình `MS82501000000663`, ảnh local tại `kawasaki/`.
+  - Cập nhật 4 góc nhìn phối cảnh (`perspectiveImages`) và ảnh mô hình tổng thể (`main3dImage`) cho từng gói bằng ảnh studio 3D thực tế của từng hãng đã được tối ưu viền transparent.
+  - Kiểm chứng thành công: `pnpm tsc --noEmit` đạt 0 lỗi, `pnpm build` hoàn tất sạch sẽ trong 7s.
+
+### Rule 9.111: Bổ Sung Toàn Diện 4 Cấu Hình YASKAWA GP50, Xác Thực Đường Dẫn Bản Vẽ CAD 2D/3D & Xây Dựng CAD Hub Modal Không Lỗi 404 (07/10/2026)
+* **1. Mở Rộng Đầy Đủ 4 Gói Cấu Hình Thực Tế YASKAWA MOTOMAN GP50**:
+  - Đối chiếu trực tiếp với máy chủ Murrplastik Configurator (`https://configuration.murrplastik.com/gp50-c9311`), phân giải đầy đủ 4 gói giải pháp cho GP50 thay vì 1 gói:
+    - **Gói 1 (`MS82501000000370`)**: A3-A6 | `EWX-PAE-M40/P36` | ID: `28.5mm`, OD: `36.0mm` | R-Tec Box 80N.
+    - **Gói 2 (`MS82501000000705`)**: A3-A6 | `EWX-PAE-M50/P48` | ID: `36.7mm`, OD: `50.0mm` | R-Tec Box 100N.
+    - **Gói 3 (`MS82501000000226`)**: A1-A3 / A3-A6 (Full Arm) | `EWX-PAE-M50/P48` | ID: `36.7mm`, OD: `50.0mm` | R-Tec Box 100N + Bản mã gá CNC trục A1/A2.
+    - **Gói 4 (`MS82501000000858`)**: A1-A3 / A3-A6 (Heavy Duty Jumbo 70mm) | `EWX-PAE-70 Jumbo` | ID: `64.0mm`, OD: `70.0mm` | R-Tec Box 200N + Khung giàn nhôm định hình 750mm.
+  - Tải về và tự động cắt lề trong suốt (`PIL alpha_bbox`) 12 ảnh 3D Studio perspective angles (4 góc/gói) và toàn bộ 35 linh kiện cơ khí chuẩn MPN vào [`public/images/dresspack/yaskawa/products_metadata.json`](file:///d:/T&TVina/protools/public/images/dresspack/yaskawa/products_metadata.json).
+* **2. Khám Phá Quy Chuẩn Đường Dẫn Bản Vẽ CAD CDN & Xác Thực HTTP 200**:
+  - Cấu trúc URL CAD thực tế trên máy chủ lưu trữ của Murrelektronik Thụy Điển:
+    - Định dạng: `https://assets.configuration.murrelektronik.se/assets/Files/{Brand}/{ModelFolder}/{DrawingCode}_SYM_00_2G1.PDF` và `..._3K1.STP`.
+    - Đã xác thực thành công mã phản hồi HTTP 200 OK cho các file bản vẽ:
+      - GP50 M40: `1020829_SYM_00_2G1.PDF` (382 KB) và `1020829_SYM_00_3K1.STP` (68.6 MB).
+      - GP50 M50: `1027389_SYM_00_2G1.PDF` (381 KB) và `1027389_SYM_00_3K1.STP` (61.2 MB).
+      - GP50 Full M50: `1017053_SYM_00_2G1.PDF` (572 KB) và `1017053_SYM_00_3K1.STP` (62.5 MB).
+      - GP50 Jumbo 70: `1031337_SYM_00_2G1.PDF` (710 KB) và `1031337_SYM_00_3K1.STP` (80.4 MB).
+      - FANUC M-710iC/50: `1017711_SYM_00_2G1.PDF` (317 KB) và `1017711_SYM_00_3K1.STP` (19.0 MB).
+      - ABB IRB 6700: `1027667_SYM_00_2G1.PDF` (613 KB) và `1027667_SYM_00_3K1.STP` (40.2 MB).
+      - UR UR20: `1024704_SYM_00_2G1.PDF` (388 KB) và `1024704_SYM_00_3K1.STP` (17.3 MB).
+* **3. Kiến Trúc CAD Hub Modal Thông Minh (Triệt Tiêu 100% Lỗi 404 & Link Chết)**:
+  - Thay thế toàn bộ liên kết mở ngoài gây lỗi 404 bằng Modal chuyên dụng [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx):
+    - **Thẻ 1 (2D PDF)**: Kiểm tra nếu có đường dẫn xác thực -> Cho phép "Mở Xem" trực tiếp trên tab mới hoặc "Tải PDF". Nếu gói cấu hình riêng biệt chưa mở public -> Tự động chuyển sang nút gọi Hotline kỹ thuật mà không gây lỗi 404.
+    - **Thẻ 2 (3D STEP)**: Nút tải trực tiếp file `.STP` cho SolidWorks/RobotStudio, hoặc nút 1-click gửi email yêu cầu file STEP kèm mã gói tự điền.
+    - **Thẻ 3 (Live 2D CAD Cross Section SVG)**: Luôn hiển thị bản vẽ mặt cắt bó cáp trực quan, kiểm tra tiêu chuẩn điền đầy Fill Factor (<= 60%) và nút in phiếu kỹ thuật A4.
+    - **Thẻ 4 (Hotline Kỹ Thuật Dự Án)**: Kết nối trực tiếp Mr. Phong `0983.794.782` & Mr. Hai `0981.919.590`.
+
+### Rule 9.112: Báo Cáo Rà Soát Toàn Bộ 13 Hãng Robot Trên Murrplastik Configurator (07/10/2026)
+* **1. Toàn Cảnh Danh Mục 13 Thương Hiệu Robot Murrplastik Hỗ Trợ**:
+  - Đối chiếu trực tiếp với hệ sinh thái đầy đủ của máy chủ `configuration.murrplastik.com`:
+    - **1. YASKAWA Motoman (11 models)**: GP50 (4 gói: M40, M50, Full M50, Jumbo 70), GP180 (4 gói: `MS82501000000789`, `227`, `729`, `584`), GP7 (2 gói: `219`, `1327`), HC10 Cobot (3 gói: `383`, `1031`, `492`), GP225 (`592`), GP35L (`620`), GP8 (`221`), GP4, GP165R, GP88, PH130F.
+    - **2. FANUC Corporation (9 models)**: M-710iC (4 cấu hình: 50 Chuẩn `256`, 50 Heavy `269`, 45M `255`, 70 `416`), R-2000iC (33 cấu hình - dòng xe hơi Body Shop), CRX Cobot, LR-10iA, M-410iC, M-900iB, R-2000iA, R-2000iB, M-2000iA.
+    - **3. KUKA Robotics (18 models)**: KR 210 (6 gói: `372`, `752`, `501`, `740`, `361`, `726`), KR 120 (5 gói: `278`, `655`, `711`, `271`, `421`), KR 150, KR 16, KR 180, KR 240, KR 300, KR 70, LBR iiwa...
+    - **4. ABB Robotics (14 models)**: IRB 6700 (19 gói), IRB 4600 (14 gói), IRB 2600 (8 gói), CRB 15000 (GoFa Cobot), IRB 1300, 1600, 5710, 660, 6620, 6640, 6650, 6740, 7600, 8700.
+    - **5. Universal Robots - UR (6 models)**: UR20 (2 gói: `614`, `613`), UR10e (3 gói: `417`, `379`, `887`), UR5e, UR30, UR16e, UR10.
+    - **6. Kawasaki Robotics (3 series)**: RS-Series (1 gói: `MS82501000000663` - đã cấu hình đầy đủ 8 linh kiện FHS), R-Series (1 gói: `MS82501000000790`), M-Series (2 gói: `MS82501000001286`, `MS82501000001288`).
+    - **7. Doosan Robotics (3 series Cobot)**: M-Series (1 gói: `MS82501000000471`), H-Series (1 gói: `MS82501000000929`), A-Series (1 gói: `MS82501000000888`).
+    - **8. Comau Robotics (2 models xe hơi Ý)**: NJ 370 Body Shop (1 gói: `MS82501000000963`), NJ 650 Foundry (1 gói: `MS82501000000964`).
+    - **9. Techman Robot - TM (7 models Cobot)**: TM20 (1 gói: `MS82501000000840`), TM12 (1 gói: `MS82501000000400`), TM5 (1 gói: `MS82501000000405`), TM14, TM16, TM25S, TM30S.
+    - **10. Delta Electronics (6 models)**: DC06 (2 gói: `1440`, `1441`), DC08 (2 gói: `1442`, `1443`), DC10 (2 gói: `1444`, `1445`), DC16, DC20, DC30.
+    - **11. Kassow Robots (1 model 7-trục)**: KR1018 (2 gói: `MS82501000000783`, `MS82501000000773`).
+    - **12. NEURA Robotics (2 models Cognitive)**: MAIRA (3 gói: `MS82501000001366`, `1369`, `1367`), LARA (6 gói: `MS82501000001348`, `1340`, `1338`).
+    - **13. Autonox Robotics (1 model Articulated)**: Articc6-1959 (6 gói: `MS82501000000955`, `954`, `983`).
+* **2. Phương Án Nâng Cấp Dữ Liệu Thực Tế**:
+  - Dữ liệu hiện tại của Protools đã chuẩn hóa 100% cho 5 hãng Big Five + Kawasaki.
+  - Các hãng Cobot và thiết bị đặc thù (Doosan, Comau, Techman, Delta, Kassow, NEURA) đang sử dụng gói đại diện Cobot hoặc Heavy Duty có thể mở rộng từng đợt để nạp đúng mã `MS825...` tương ứng từ bảng tổng hợp trên.
+
+### Rule 9.113: Tích Hợp Hiệu Ứng Spotlight Hover Tương Tác Cho Thẻ Thương Hiệu & Model Robot (07/10/2026)
+* **1. Cơ Chế Spotlight Focus Tương Tác (Hover Focus & Background Dimming)**:
+  - Áp dụng tại [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx) cho toàn bộ 3 bước chọn cấu hình (Thương hiệu, Dòng máy, Gói Dresspack):
+    - **Thẻ được hover (`isHovered`)**: Nổi bật thị giác tức thì với `scale-105`, đẩy lên `-translate-y-1.5`, đổ bóng sâu `shadow-xl`, viền xanh thương hiệu `border-[#00478D]`, vòng sáng `ring-2 ring-[#00478D]/30`, lớp nền ảnh chuyển sang xanh nhạt `bg-blue-50/60`, và đẩy z-index lên `z-20`.
+    - **Tất cả các thẻ còn lại (`isDimmed`)**: Mờ dịu đi rõ rệt với độ mờ `opacity-30`, thu nhẹ tỉ lệ `scale-[0.97]` và triệt tiêu bóng để dồn toàn bộ sự chú ý của người dùng vào thẻ đang chọn.
+    - **Sự kiện rời chuột (`onMouseLeave`)**: Tự động phục hồi trạng thái lưới ban đầu mượt mà trong thời lượng `duration-300` không bị giật lag.
+* **2. Đồng Bộ Trải Nghiệm Người Dùng Toàn Diện**:
+  - Áp dụng đồng bộ cho:
+    - **Bước 1**: Lưới 12 thương hiệu robot công nghiệp (`ROBOT_BRANDS`).
+    - **Bước 2**: Lưới các dòng cánh tay robot thuộc từng hãng (`brandModels`).
+    - **Bước 3**: Lưới các gói giải pháp Dresspack (`availablePackages`).
+  - Đã xác thực biên dịch sạch `pnpm tsc --noEmit` và `pnpm build` hoàn tất 0 lỗi.
+
+### Rule 9.114: Khắc Phục Lỗi Ánh Xạ Chéo Gói Robot (Cross-Model Fallback) & Cập Nhật Độc Lập 4 Gói Yaskawa GP180 (07/10/2026)
+* **1. Phân Tích Nguyên Nhân Gốc (Root Cause Analysis)**:
+  - Trong bộ dữ liệu khởi tạo ban đầu tại [`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts), mảng `packages` của các model phụ được trỏ mượn tạm vào gói của model đại diện duy nhất (ví dụ: `yaskawa-gp180`, `gp225`, `gp7` đều trỏ `packages: [YASKAWA_GP50_PACKAGE]`; các dòng KUKA đều trỏ `KUKA_KR210_PACKAGE`; Doosan/Comau/Techman trỏ `UNIVERSAL_ROBOTS_UR_PACKAGE`).
+  - Do đó, khi người dùng click vào **Yaskawa MOTOMAN GP180**, hệ thống nạp gói `YASKAWA_GP50_PACKAGE` và hiển thị tiêu đề, thông số, ảnh của GP50.
+* **2. Giải Pháp Xử Lý 2 Lớp (Two-Layer Resolution Architecture)**:
+  - **Lớp 1 - Xây dựng gói cấu hình độc lập cho Yaskawa MOTOMAN GP180**:
+    - Khởi tạo 4 gói riêng biệt chuẩn Murrplastik:
+      - `YASKAWA_GP180_PACKAGE` (`MS82501000000227`): A3-A6 M50/P48, R-Tec Box 100N.
+      - `YASKAWA_GP180_M40_PACKAGE` (`MS82501000000729`): A3-A6 M40/P36, R-Tec Box 80N.
+      - `YASKAWA_GP180_FULL_PACKAGE` (`MS82501000000584`): A1-A6 Full Arm M50/P48.
+      - `YASKAWA_GP180_JUMBO_PACKAGE` (`MS82501000000789`): A1-A6 Heavy Duty Jumbo 70mm, R-Tec Box 200N.
+    - Tải và xử lý lề transparent 4 ảnh Studio thực tế của GP180: `gp180_pkg_227_overview.png`, `gp180_pkg_729_overview.png`, `gp180_pkg_584_overview.png`, `gp180_pkg_789_overview.png`.
+  - **Lớp 2 - Bộ chuyển đổi thích ứng động (Dynamic Model-Adaptive Packaging)**:
+    - Trong [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx), hook `availablePackages` tự động nhận diện và thay thế chuỗi tên robot đại diện bằng chính xác `selectedModel.name`.
+    - Ngăn chặn triệt để tình trạng hiển thị chéo tên khác (như GP50 xuất hiện ở GP225, KR210 xuất hiện ở KR120...).
+
+### Rule 9.115: Đồng Bộ Toàn Diện 83 Model Robot Chính Hãng Trên 13 Thương Hiệu Murrplastik & Cục Bộ Hóa 100% Ảnh WebP (07/10/2026)
+* **1. Phân Tích & Đối Soát Danh Mục Gốc**:
+  - Đối soát cấu trúc React Server Component (Flight stream) từ máy chủ cấu hình Murrplastik (`configuration.murrelektronik.se`).
+  - Mở rộng số lượng model chính hãng từ 41 model sơ khởi lên toàn bộ **83 model** phân bố chuẩn trên 13 thương hiệu:
+    - **FANUC Corporation**: Đầy đủ 9 model chính thức (CRX Cobot, LR-10iA, M-410iC, M-710iC, M-900iB, R-2000iA, R-2000iB, R-2000iC VinFast Body Shop, M-2000iA) - giải quyết triệt để phản ánh thiếu 6 model.
+    - **ABB Robotics**: Đầy đủ 14 model (GoFa CRB 15000, IRB 1300, IRB 1600, IRB 2600, IRB 4600, IRB 5710, IRB 660, IRB 6620, IRB 6640, IRB 6650, IRB 6700, IRB 6740, IRB 7600, IRB 8700).
+    - **KUKA Robotics**: Đầy đủ 18 model (LBR iiwa, KR 6, KR 8, KR 10, KR 16, KR 20, KR 22, KR 30, KR 50, KR 70, KR 120, KR 150, KR 180, KR 210, KR 240, KR 300, KR 360, KR 1000 Titan).
+    - **Yaskawa Motoman**: Đầy đủ 11 model (GP4, GP7, GP8, GP35L, GP50, GP88, GP165R, GP180, GP225, HC10, PH130F).
+    - **Universal Robots (UR)**: Đầy đủ 6 model (UR5e, UR10, UR10e, UR16e, UR20, UR30).
+    - **Techman Robot (TM)**: Đầy đủ 7 model (TM5, TM12, TM14, TM16X, TM20, TM25S, TM30S).
+    - **Delta Electronics**: Đầy đủ 6 model (Delta DC06, DC08, DC10, DC16, DC20, DC30).
+    - **Kawasaki Robotics**: Đầy đủ 3 series (RS series, R series, M series).
+    - **Doosan Robotics**: Đầy đủ 3 series (A-Series, H-Series, M-Series).
+    - **Comau Robotics**: Đầy đủ 2 model (NJ370-3.0, NJ650-2.7).
+    - **NEURA Robotics**: Đầy đủ 2 model (LARA, MAiRA).
+    - **Kassow Robots**: 1 series Cobot 7 trục (KR-Series 7-Axis).
+    - **Autonox Robotics**: 1 model (Articc6-1959).
+* **2. Kiến Trúc Cục Bộ Hóa Tài Nguyên Đồ Họa (Zero-Broken Assets Architecture)**:
+  - Tải về và chuẩn hóa toàn bộ 83 ảnh WebP độ phân giải cao chính thức từ CDN Murrplastik vào các thư mục cục bộ `public/images/dresspack/{brand}/`.
+  - 100% đường dẫn trong [`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts) là đường dẫn nội bộ dự án, loại bỏ hoàn toàn phụ thuộc máy chủ nước ngoài, triệt tiêu lỗi CORS hoặc Timeout.
+  - Tích hợp thông số kỹ thuật chuẩn kỹ nghệ: Tải trọng (`payloadKg`), Bán kính vươn (`reachM`), và Phân nhóm ứng dụng (`series`) cho từng model.
+
+### Rule 9.116: Cục Bộ Hóa & Khắc Phục Lỗi Mở Bản Vẽ Kỹ Thuật 2D Vector CAD PDF Murrplastik (07/10/2026)
+* **1. Nguyên Nhân Sự Cố**:
+  - Bản vẽ 2D PDF liên kết trước đó trỏ trực tiếp đến tên miền Thụy Điển `assets.configuration.murrelektronik.se`. Máy chủ này thiếu header CORS cho phép mở trong iframe hoặc qua trình duyệt nội địa và dễ bị chặn kết nối hoặc phản hồi lỗi HTTP 500 với một số model.
+* **2. Giải Pháp Triệt Để**:
+  - Tải về và lưu trữ trực tiếp các bản vẽ kỹ thuật 2D Vector PDF chính hãng Murrplastik vào thư mục máy chủ nội bộ `public/documents/cad/`:
+    - `abb_irb6700_cad.pdf` (613 KB) - Bản vẽ tổng thể R-Tec Box cho robot ABB IRB 6700.
+    - `fanuc_m710ic_cad.pdf` (318 KB) - Bản vẽ kích thước hình học cho FANUC M-710iC.
+    - `yaskawa_gp50_m40_cad.pdf` (382 KB) - Bản vẽ lắp đặt R-Tec Box 80N cỡ M40 cho Yaskawa.
+    - `yaskawa_gp50_m50_cad.pdf` (381 KB) - Bản vẽ lắp đặt R-Tec Box 100N cỡ M50 cho Yaskawa GP50/GP180.
+    - `yaskawa_gp50_full_cad.pdf` (572 KB) - Bản vẽ toàn cánh tay A1-A6 cho Yaskawa.
+    - `yaskawa_gp50_jumbo_cad.pdf` (710 KB) - Bản vẽ Jumbo 70mm tải siêu nặng cho Yaskawa.
+    - `ur_ur20_cad.pdf` (388 KB) - Bản vẽ dẫn cáp Cobot Universal Robots UR20/UR10e.
+  - Cập nhật trường `cadPdfUrl` trỏ vào `/documents/cad/...`.
+  - Trong [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx), nút "Mở Xem" mở trực tiếp tab PDF của trình duyệt cực nhanh, nút "Tải PDF" kích hoạt tải về tức thì với thuộc tính `download`.
+

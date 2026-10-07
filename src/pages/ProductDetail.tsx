@@ -15,9 +15,10 @@ import {
   Tag,
   Plus,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Layers
 } from 'lucide-react';
-import { Product, SalesRepInfo } from '../types';
+import { Product, SalesRepInfo, ProductVariant } from '../types';
 import { PRODUCTS, COMPANY_INFO, getSalesRepForProduct } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedProduct } from '../i18n/productTranslations';
@@ -52,12 +53,51 @@ export default function ProductDetail({
 
   const defaultImage = product?.image || (PRODUCTS[0]?.image || '');
   const [selectedImage, setSelectedImage] = useState<string>(defaultImage);
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
   const [quantity, setQuantity] = useState<number>(1);
   const [copiedSku, setCopiedSku] = useState<boolean>(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'specs' | 'features' | 'docs'>('specs');
 
   const [copiedZaloQuote, setCopiedZaloQuote] = useState<boolean>(false);
+
+  // Initialize and sync variant from URL query (?type= or ?variant=)
+  useEffect(() => {
+    if (product?.variants && product.variants.length > 0) {
+      const searchParams = new URLSearchParams(window.location.search);
+      const param = (searchParams.get('type') || searchParams.get('variant') || '').toLowerCase().trim();
+      
+      const matched = product.variants.find(v => 
+        v.id.toLowerCase() === param || 
+        v.name.toLowerCase().includes(param) ||
+        (v.sku && v.sku.toLowerCase() === param)
+      );
+
+      setSelectedVariant(matched || product.variants[0]);
+    } else {
+      setSelectedVariant(null);
+    }
+  }, [product?.id, product?.variants]);
+
+  const handleSelectVariant = (variant: ProductVariant) => {
+    setSelectedVariant(variant);
+    if (variant.image) {
+      setSelectedImage(variant.image);
+    }
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set('type', variant.id);
+      window.history.replaceState({}, '', url.toString());
+    } catch (e) {
+      console.warn('URL variant update failed:', e);
+    }
+  };
+
+  const effectiveSku = selectedVariant?.sku || p?.sku || '';
+  const effectiveName = selectedVariant ? `${p?.name} (${selectedVariant.name})` : (p?.name || '');
+  const effectiveShortDesc = selectedVariant?.shortDesc || p?.shortDesc || seoData?.richDescription;
+  const effectiveHighlights = selectedVariant?.highlights || p?.highlights;
+  const effectiveSpecs = selectedVariant?.specs ? { ...p?.specs, ...selectedVariant.specs } : (p?.specs || {});
 
   const handleCopy = (text: string, key: string, e?: React.MouseEvent) => {
     if (e) {
@@ -73,7 +113,8 @@ export default function ProductDetail({
 
   const handleZaloFastQuote = (rep: SalesRepInfo) => {
     const canonicalLink = product ? `https://protools.com.vn${getProductPath(product)}` : window.location.href;
-    const inquiryText = `Chào T&T Vina, tôi cần báo giá thiết bị sau:\n- Tên sản phẩm: ${product.name}\n- Mã SKU: ${product.sku}\n- Thương hiệu: ${product.brand || 'T&T Vina'}\n- Số lượng dự kiến: ${quantity} cái/bộ\n- Link tham khảo: ${canonicalLink}\nNhờ Quý công ty phản hồi báo giá và tồn kho sớm giúp tôi. Xin cảm ơn!`;
+    const variantLine = selectedVariant ? `\n- Phân loại: ${selectedVariant.name} (SKU: ${effectiveSku})` : '';
+    const inquiryText = `Chào T&T Vina, tôi cần báo giá thiết bị sau:\n- Tên sản phẩm: ${p?.name || product.name}${variantLine}\n- Mã SKU: ${effectiveSku}\n- Thương hiệu: ${product.brand || 'T&T Vina'}\n- Số lượng dự kiến: ${quantity} ${selectedVariant?.unit || product.unit || 'cái/hộp'}\n- Link tham khảo: ${canonicalLink}\nNhờ Quý công ty phản hồi báo giá và tồn kho sớm giúp tôi. Xin cảm ơn!`;
     
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -96,6 +137,23 @@ export default function ProductDetail({
     setTimeout(() => setCopiedZaloQuote(false), 3000);
     const targetUrl = rep.zaloUrl || `https://zalo.me/${rep.rawPhone}`;
     window.open(targetUrl, '_blank');
+  };
+
+  const handleAddToCartWithVariant = () => {
+    const productToAdd: Product = selectedVariant ? {
+      ...product,
+      id: `${product.id}-${selectedVariant.id}`,
+      name: `${product.name} (${selectedVariant.name})`,
+      sku: effectiveSku,
+      image: selectedVariant.image || product.image,
+      specs: effectiveSpecs,
+      shortDesc: effectiveShortDesc || product.shortDesc,
+      highlights: effectiveHighlights,
+      unit: selectedVariant.unit || product.unit
+    } : product;
+
+    onAddToCart(productToAdd, quantity);
+    onNavigate('cart');
   };
 
   useEffect(() => {
@@ -123,8 +181,8 @@ export default function ProductDetail({
     : [p.image];
 
   const handleCopySku = () => {
-    if (p.sku) {
-      navigator.clipboard.writeText(p.sku);
+    if (effectiveSku) {
+      navigator.clipboard.writeText(effectiveSku);
       setCopiedSku(true);
       setTimeout(() => setCopiedSku(false), 2000);
     }
@@ -172,8 +230,8 @@ export default function ProductDetail({
 
             <ChevronRight className="w-3 h-3 text-slate-300 shrink-0" />
 
-            <span className="font-bold text-slate-900 truncate max-w-[200px] sm:max-w-xs md:max-w-md" title={p.name}>
-              {p.name}
+            <span className="font-bold text-slate-900 truncate max-w-[200px] sm:max-w-xs md:max-w-md" title={effectiveName}>
+              {effectiveName}
             </span>
           </div>
 
@@ -202,7 +260,7 @@ export default function ProductDetail({
                 {selectedImage || p.image ? (
                   <img 
                     src={selectedImage || p.image} 
-                    alt={p.name}
+                    alt={effectiveName}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
@@ -221,7 +279,7 @@ export default function ProductDetail({
                     {p.brand}
                   </span>
                   <span className="px-2 py-0.5 rounded-xs bg-white/90 text-slate-800 text-[11px] font-mono border border-slate-200 font-bold">
-                    SKU: {p.sku}
+                    SKU: {effectiveSku}
                   </span>
                 </div>
 
@@ -296,13 +354,71 @@ export default function ProductDetail({
                 </div>
 
                 <h1 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
-                  {p.name}
+                  {effectiveName}
                 </h1>
 
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1">
-                  {p.shortDesc || seoData?.richDescription}
+                  {effectiveShortDesc}
                 </p>
               </div>
+
+              {/* 2.1 VARIANT SELECTION (LOẠI MICROFIBER / LOẠI POLYESTER / KÍCH CỠ) */}
+              {product.variants && product.variants.length > 0 && (
+                <div className="p-3.5 sm:p-4 rounded-xs bg-slate-50 border border-slate-200/90 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                      <Layers className="w-3.5 h-3.5 text-[#00478D]" />
+                      <span>{product.variantLabel || 'Lựa chọn phân loại'}:</span>
+                    </span>
+                    {selectedVariant && (
+                      <span className="text-[11px] font-mono font-bold text-[#00478D] bg-blue-100/70 px-2 py-0.5 rounded-xs border border-blue-200">
+                        SKU: {effectiveSku}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {product.variants.map((v) => {
+                      const isSelected = selectedVariant?.id === v.id;
+                      return (
+                        <button
+                          key={v.id}
+                          type="button"
+                          onClick={() => handleSelectVariant(v)}
+                          className={`p-2.5 rounded-xs border text-left transition-all cursor-pointer relative flex flex-col gap-1 ${
+                            isSelected 
+                              ? 'border-[#00478D] bg-white text-[#00478D] shadow-xs ring-1 ring-[#00478D]' 
+                              : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
+                                isSelected ? 'border-[#00478D] bg-[#00478D] text-white' : 'border-slate-300 bg-white'
+                              }`}>
+                                {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                              </span>
+                              <span className="text-xs font-bold font-display">
+                                {v.name}
+                              </span>
+                            </div>
+                            {v.sku && (
+                              <span className="text-[10px] font-mono text-slate-400">
+                                {v.sku}
+                              </span>
+                            )}
+                          </div>
+                          {v.badge && (
+                            <span className={`text-[10px] pl-5.5 ${isSelected ? 'text-[#00478D] font-medium' : 'text-slate-500'}`}>
+                              • {v.badge}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               {/* Automotive Body Shop Case Study & Link for R-Tec Liner / Murrplastik */}
               {(product.id === '1081' || product.categorySlug === 'murrplastik' || product.brand === 'Murrplastik') && (
@@ -386,7 +502,7 @@ export default function ProductDetail({
                   {t('product_detail.highlights_title')}
                 </span>
                 <ul className="space-y-1.5 text-xs text-slate-700">
-                  {(p.highlights || [
+                  {(effectiveHighlights || [
                     'Sản phẩm công nghiệp chính xác cao tiêu chuẩn nhà máy',
                     'Có đầy đủ chứng từ hàng hóa và bảo hành chính hãng',
                     'Hỗ trợ kỹ thuật lắp đặt & hướng dẫn vận hành'
@@ -433,10 +549,7 @@ export default function ProductDetail({
                   </div>
 
                   <button
-                    onClick={() => {
-                      onAddToCart(product, quantity);
-                      onNavigate('cart');
-                    }}
+                    onClick={handleAddToCartWithVariant}
                     className="flex-1 h-12 px-6 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white font-display font-bold text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ShoppingCart className="w-4 h-4 text-amber-300" />
@@ -593,7 +706,7 @@ export default function ProductDetail({
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="font-display text-lg font-bold uppercase text-[#0F172A]">
-                    {t('product_detail.spec_heading')} ({p.name})
+                    {t('product_detail.spec_heading')} ({effectiveName})
                   </h3>
                   <span className="text-xs text-slate-400 font-mono">{t('product_detail.unit_standard')}</span>
                 </div>
@@ -601,9 +714,9 @@ export default function ProductDetail({
                 <div className="border border-slate-200 rounded-xs overflow-hidden">
                   <table className="w-full text-left border-collapse text-xs">
                     <tbody className="divide-y divide-slate-200">
-                      {Object.entries((p.specs && Object.keys(p.specs).length > 0) ? p.specs : {
+                      {Object.entries((effectiveSpecs && Object.keys(effectiveSpecs).length > 0) ? effectiveSpecs : {
                         'Hãng sản xuất': p.brand || 'T&T Vina Industrial',
-                        'Mã sản phẩm (SKU)': p.sku || p.id,
+                        'Mã sản phẩm (SKU)': effectiveSku || p.id,
                         'Chuyên mục': p.category || 'Linh kiện & Thiết bị công nghiệp',
                         'Kho hàng': p.stockLocation || 'Kho Hà Nội & Hưng Yên',
                         'Tình trạng': (p.stock || 0) > 0 ? `Sẵn hàng (${p.stock})` : 'Liên hệ đặt hàng'
