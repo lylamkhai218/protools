@@ -1956,3 +1956,24 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Cập nhật trường `cadPdfUrl` trỏ vào `/documents/cad/...`.
   - Trong [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx), nút "Mở Xem" mở trực tiếp tab PDF của trình duyệt cực nhanh, nút "Tải PDF" kích hoạt tải về tức thì với thuộc tính `download`.
 
+### Rule 9.117: Phát Hành Toàn Diện Production Root (Protools.com.vn) & Xác Thực Live Endpoints (07/10/2026)
+* **1. Phạm Vi Phát Hành & Đồng Bộ**:
+  - Thực thi thành công pipeline phát hành máy chủ Mắt Bão (`deploy_production_root.py`):
+    - Đóng gói toàn bộ React SPA mới bằng `pnpm build` (18.65s, 0 lỗi).
+    - Tạo sitemap XML chuẩn Google gồm 7.518 URLs tại `public/sitemap.xml`.
+    - Tạo 135 Static SEO Snapshots cho Googlebot và công cụ tìm kiếm.
+    - Đồng bộ 592 file tĩnh lên máy chủ LiteSpeed Web Server tại thư mục Root `public_html`.
+    - Bảo vệ cách ly phân vùng `/public_html/old/` và phân quyền `.htaccess` cho AdminCP.
+* **2. Khắc Phục Lỗi Phân Quyền Thư Mục Tĩnh Mới (Directory CHMOD 755)**:
+  - Khi tạo các thư mục mới trên hosting qua FTP (`mkd`), Linux LiteSpeed mặc định đặt quyền `700`/`750` dẫn đến lỗi `403 Forbidden` khi trình duyệt truy cập tài nguyên ảnh.
+  - Giải pháp tự động: Kích hoạt quy trình đệ quy `SITE CHMOD 755` cho toàn bộ thư mục `/public_html/images/dresspack/` và `/public_html/documents/`, đồng thời cấp quyền `644` cho tất cả các file ảnh và PDF.
+* **3. Bằng Chứng Xác Thực Trực Tiếp Trên Production (Live Verification HTTP 200)**:
+  - Trang chủ SPA: `https://protools.com.vn/` (HTTP 200).
+  - Cấu hình Robot Dresspack: `https://protools.com.vn/robot-dresspack` (HTTP 200).
+  - Trang chi tiết Găng tay Ansell 92-600: `https://protools.com.vn/san-pham/gang-tay-nitrile-xanh-ansell-touchntuff-92-600-92-600` (HTTP 200).
+  - Ảnh WebP Găng tay: `https://protools.com.vn/images/products/touchntuff-92-600.webp` (HTTP 200, 123.976 bytes).
+  - Ảnh WebP Khăn lau PVN8044: `https://protools.com.vn/images/products/sapo/PVN8044.webp` (HTTP 200, 19.268 bytes).
+  - Bản vẽ Vector CAD PDF: `https://protools.com.vn/documents/cad/yaskawa_gp50_m40_cad.pdf` (HTTP 200, 382.228 bytes).
+  - Ảnh đại diện 13 hãng robot: 100% trả về HTTP 200 trên Production.
+
+
