@@ -419,7 +419,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div className="space-y-1 text-center md:text-left">
               <div>
-                © 2026 <strong>{COMPANY_INFO.name}</strong> ({COMPANY_INFO.fullNameEn}). All rights reserved.
+                © 2026 <strong>{COMPANY_INFO.name}</strong> ({COMPANY_INFO.fullNameEn}). {t('footer.all_rights_reserved', 'Bảo lưu mọi quyền.')}
               </div>
               <p className="text-[11px] text-slate-500 max-w-2xl leading-relaxed">
                 {t('footer.copyright_disclaimer')}
@@ -435,7 +435,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <span>{t('footer.badge_support')}</span>
               </div>
               <div className="text-[11px] text-slate-500/70 hover:text-slate-400 transition-colors font-mono tracking-tight">
-                Developed by Mr. Kai @ T&amp;T Vina Digital
+                {t('footer.credit', 'Thiết kế & phát triển bởi KhaiLL')}
               </div>
             </div>
           </div>

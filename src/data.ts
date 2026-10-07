@@ -248,6 +248,18 @@ export const PARTNERS: Partner[] = [
     hoverBgClass: 'hover:bg-indigo-50/60',
     hoverTextClass: 'group-hover:text-[#003399]',
     categorySlug: 'may-bat-vit-nha-vit'
+  },
+  { 
+    name: 'Ansell', 
+    logoText: 'ANSELL', 
+    country: 'Úc / USA', 
+    category: 'Găng tay nitrile bảo hộ & phòng sạch',
+    description: 'Thương hiệu bảo hộ lao động và phòng sạch số 1 thế giới, nổi tiếng với dòng găng tay nitrile TouchNTuff® 92-600 kháng hóa chất.',
+    brandColor: '#00843D',
+    hoverBorderClass: 'hover:border-[#00843D]',
+    hoverBgClass: 'hover:bg-emerald-50/60',
+    hoverTextClass: 'group-hover:text-[#00843D]',
+    categorySlug: 'dung-cu-chong-tinh-dien'
   }
 ];
 
@@ -2329,27 +2341,195 @@ export const PRODUCTS: Product[] = [
     "name": "Khăn lau phòng sạch",
     "sku": "PVN8044",
     "brand": "T&T Vina Industrial",
-    "category": "Thiết bị phụ trợ khác",
-    "categorySlug": "thiet-bi-tu-dong-hoa",
+    "category": "Vật tư Chống Tĩnh Điện & Phòng Sạch (ESD)",
+    "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/25/product_s350.jpg",
-    "stock": 50,
+    "image": `${import.meta.env.BASE_URL}images/products/sapo/PVN8044.webp`,
+    "images": [
+      `${import.meta.env.BASE_URL}images/products/sapo/PVN8044.webp`
+    ],
+    "stock": 500,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
     "price": "Liên hệ Báo giá",
-    "shortDesc": "Khăn lau phòng sạch chính hãng phân phối bởi T&T Vina Industrial Co., Ltd, đáp ứng tiêu chuẩn nhà máy lắp ráp & SMT.",
+    "unit": "Túi",
+    "shortDesc": "Khăn lau phòng sạch chuyên dụng chuẩn Class 10 – Class 1000 cho nhà máy lắp ráp SMT, quang học và vi mạch điện tử. Tùy chọn 2 dòng chất liệu cao cấp: Microfiber siêu mịn chống xước và 100% Polyester dệt kép bền dai.",
     "highlights": [
-      "100% Chính hãng, có đầy đủ chứng từ hàng hóa",
-      "Độ bền cao, hoạt động ổn định trong dây chuyền sản xuất công nghiệp 24/7",
-      "Hỗ trợ kỹ thuật lắp đặt và giao hàng nhanh tại các KCN trên toàn quốc"
+      "Đạt tiêu chuẩn phòng sạch Cleanroom Class 10 – Class 1000 (ISO Class 4 – 6)",
+      "Cắt viền công nghệ Laser nhiệt & Siêu âm ngăn ngừa tối đa phát sinh tưa xơ sợi",
+      "Độ phát sinh hạt bụi và hàm lượng ion cực thấp, kháng cồn IPA và dung môi mạnh",
+      "Đóng gói 2 lớp túi hút chân không phòng sạch, sẵn hàng số lượng lớn tại kho Hà Nội & Hưng Yên"
+    ],
+    "variantLabel": "Phân loại chất liệu",
+    "variants": [
+      {
+        "id": "microfiber",
+        "name": "Loại Microfiber",
+        "sku": "PVN8044-MF",
+        "badge": "Sợi siêu mịn - Chống xước",
+        "shortDesc": "Khăn lau phòng sạch Microfiber cấu tạo sợi siêu mịn (80% Polyester + 20% Polyamide), hấp thụ nước và cồn IPA gấp 5 lần trọng lượng khăn, chuyên lau bề mặt nhạy cảm, màn hình LCD/OLED, chip bán dẫn và thấu kính quang học không để lại vết xước.",
+        "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã SKU": "PVN8044-MF",
+          "Phân loại chất liệu": "Microfiber (80% Polyester + 20% Polyamide / Nylon)",
+          "Cấu trúc sợi": "Sợi siêu mảnh dạng nêm bẫy bụi vi mô & dầu mỡ",
+          "Cấp độ phòng sạch": "Class 10 – Class 1000 (ISO Class 4 – 6)",
+          "Kỹ thuật cắt mép": "Cắt Laser / Siêu âm (Ultrasonic Sealed Edge)",
+          "Kích thước tiêu chuẩn": "9\" x 9\" (22.5cm x 22.5cm)",
+          "Khả năng hấp thụ chất lỏng": "> 450 ml/m² (Hấp thụ nước & cồn IPA gấp 5 lần trọng lượng)",
+          "Độ giải phóng hạt bụi": "Cực thấp (LPC ≤ 600 counts/m² đối với hạt ≥ 0.5µm)",
+          "Độ bền dung môi": "Không phản ứng với cồn IPA, Ethanol, Acetone",
+          "Quy cách đóng gói": "100 tờ/túi (Đóng gói 2 lớp hút chân không Cleanroom)",
+          "Ứng dụng khuyên dùng": "Lau màn hình cảm ứng, thấu kính camera, chip bán dẫn, cảm biến quang học",
+          "Tình trạng kho": "Sẵn hàng tại Kho Hà Nội & Hưng Yên"
+        },
+        "highlights": [
+          "Sợi Microfiber siêu mềm mịn, hoàn toàn không gây trầy xước bề mặt kính & quang học",
+          "Hấp thụ dầu mỡ và dung môi IPA cực nhanh, gom giữ hạt bụi vi mô vào khe sợi",
+          "Viền hàn siêu âm 4 cạnh ngăn chặn tuyệt đối tình trạng rơi rụng xơ sợi",
+          "Phù hợp cho phòng sạch Class 10 - Class 1000 nhà máy SMT và sản xuất màn hình điện tử"
+        ]
+      },
+      {
+        "id": "polyester",
+        "name": "Loại Polyester",
+        "sku": "PVN8044-PE",
+        "badge": "100% Sợi dệt kép - Bền dai",
+        "shortDesc": "Khăn lau phòng sạch 100% Polyester dệt kép liên tục (Double knit continuous filament), độ dai cơ học cao, chống mài mòn, chịu hóa chất mạnh, chuyên vệ sinh khuôn in thiếc SMT, bàn thao tác và dây chuyền lắp ráp.",
+        "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã SKU": "PVN8044-PE",
+          "Phân loại chất liệu": "100% Continuous Filament Polyester",
+          "Cấu trúc dệt": "Dệt kim sợi kép liên tục (Double Knit Interlock)",
+          "Cấp độ phòng sạch": "Class 100 – Class 1000 (ISO Class 5 – 6)",
+          "Kỹ thuật cắt mép": "Cắt nhiệt Laser 4 cạnh (Laser Sealed Border)",
+          "Kích thước tiêu chuẩn": "9\" x 9\" (22.5cm x 22.5cm)",
+          "Trọng lượng định lượng": "110 – 140 g/m²",
+          "Khả năng chịu lực kéo": "Độ dai cơ học cao, chịu ma sát mạnh không xơ rách",
+          "Độ bền hóa chất": "Chịu cồn công nghiệp, IPA, MEK, Acetone, dầu máy",
+          "Độ giải phóng hạt bụi": "Mức độ cực thấp, không chứa silicon và tạp chất ion",
+          "Quy cách đóng gói": "150 tờ/túi (Đóng gói 2 lớp phòng sạch tiệt trùng)",
+          "Ứng dụng khuyên dùng": "Lau khuôn in Stencil SMT, gạt kem hàn, vệ sinh máy móc & bàn thao tác",
+          "Tình trạng kho": "Sẵn hàng tại Kho Hà Nội & Hưng Yên"
+        },
+        "highlights": [
+          "100% Sợi Polyester dệt kép liên tục, độ bền cơ học cao, không bị xơ rách khi cọ sát mạnh",
+          "Cắt nhiệt Laser phong kín 4 viền giúp mép khăn không bị tưa khi lau chùi",
+          "Kháng dung môi công nghiệp và hóa chất tẩy rửa bản mạch chuyên dụng",
+          "Lựa chọn kinh tế tối ưu cho dây chuyền SMT, gạt thiếc hàn và vệ sinh thiết bị phòng sạch"
+        ]
+      }
     ],
     "specs": {
       "Hãng sản xuất": "T&T Vina Industrial",
-      "Mã sản phẩm (ID)": "1024",
-      "Chuyên mục": "Thiết bị phụ trợ khác",
-      "Xuất xứ": "Chính Hãng",
-      "Tình trạng": "Sẵn hàng tại kho"
+      "Mã SKU": "PVN8044",
+      "Phân loại chất liệu": "Tùy chọn: Microfiber (80/20) hoặc 100% Polyester",
+      "Cấp độ phòng sạch": "Class 10 – Class 1000 (ISO Class 4 – 6)",
+      "Kích thước tiêu chuẩn": "9\" x 9\" (22.5cm x 22.5cm)",
+      "Kỹ thuật xử lý viền": "Cắt viền Laser nhiệt & Cắt siêu âm (Ultrasonic seal)",
+      "Đóng gói": "Túi hút chân không 2 lớp (100 - 150 tờ/túi)",
+      "Tình trạng kho": "Sẵn hàng tại Kho Hà Nội & Hưng Yên"
     }
+  },
+  {
+    "id": "92-600",
+    "name": "Găng tay nitrile xanh Ansell TouchNTuff® 92-600",
+    "sku": "92-600",
+    "brand": "Ansell",
+    "category": "Vật tư Chống Tĩnh Điện & Phòng Sạch (ESD)",
+    "categorySlug": "dung-cu-chong-tinh-dien",
+    "origin": "Chính Hãng Ansell (Thái Lan / Malaysia)",
+    "image": `${import.meta.env.BASE_URL}images/products/touchntuff-92-600.webp`,
+    "images": [
+      `${import.meta.env.BASE_URL}images/products/touchntuff-92-600.webp`,
+      `${import.meta.env.BASE_URL}images/products/touchntuff-92-600.png`
+    ],
+    "stock": 1000,
+    "stockStatus": "In Stock",
+    "stockLocation": "Kho Hà Nội & Hưng Yên",
+    "price": "Liên hệ Báo giá",
+    "unit": "Hộp (100 chiếc)",
+    "shortDesc": "Găng tay bảo hộ nitrile dùng một lần hàng đầu thế giới Ansell TouchNTuff® 92-600. Công nghệ độc quyền TNT™ kháng văng bắn hóa chất nguy hiểm, 100% Nitrile không bột, chống tĩnh điện ESD, độ bền chống đâm thủng vượt trội gấp 4 lần so với găng cao su tự nhiên.",
+    "highlights": [
+      "Công nghệ độc quyền Ansell TNT™ Chemical Splash Resistance bảo vệ chống văng bắn nhiều loại hóa chất",
+      "Chất liệu 100% Nitrile cao cấp, không bột (Powder-Free), không silicon, chống dị ứng da Latex-Free",
+      "Độ bền chống đâm thủng vượt trội gấp 4 lần găng cao su tự nhiên và gấp 3 lần găng neoprene",
+      "Đầu ngón tay tạo nhám (Textured fingers) bám dính chắc chắn khi thao tác linh kiện và dung môi trơn ướt",
+      "Đạt chuẩn quốc tế EN ISO 374-1 Type B (JKPT), EN ISO 374-5 (Virus), EN 1149 (Antistatic), FDA 21 CFR 177.2600"
+    ],
+    "variantLabel": "Kích cỡ găng tay (Size)",
+    "variants": [
+      {
+        "id": "size-s",
+        "name": "Size S (6.5 – 7.0)",
+        "sku": "92-600-S",
+        "badge": "Chiều dài 240mm - Dày 0.12mm"
+      },
+      {
+        "id": "size-m",
+        "name": "Size M (7.5 – 8.0)",
+        "sku": "92-600-M",
+        "badge": "Kích cỡ thông dụng nhất"
+      },
+      {
+        "id": "size-l",
+        "name": "Size L (8.5 – 9.0)",
+        "sku": "92-600-L",
+        "badge": "Chiều dài 240mm - Dày 0.12mm"
+      },
+      {
+        "id": "size-xl",
+        "name": "Size XL (9.5 – 10.0)",
+        "sku": "92-600-XL",
+        "badge": "Chiều dài 240mm - Dày 0.12mm"
+      }
+    ],
+    "specs": {
+      "Hãng sản xuất": "Ansell (Thương hiệu bảo hộ lao động số 1 thế giới)",
+      "Model / Dòng sản phẩm": "TouchNTuff® 92-600",
+      "Mã SKU": "92-600",
+      "Chất liệu": "100% Nitrile cao cấp (Không chứa protein cao su tự nhiên - Latex Free)",
+      "Màu sắc": "Xanh lục đặc trưng (Green)",
+      "Bề mặt tiếp xúc": "Nhám đầu ngón tay (Textured Fingers)",
+      "Độ dày lòng bàn tay": "0.12 mm (5.0 mil)",
+      "Độ dày ngón tay": "0.14 mm (5.5 mil)",
+      "Chiều dài găng": "240 mm (9.5 inch)",
+      "Kiểu cổ tay": "Se viền tròn (Beaded cuff)",
+      "Đặc tính bột": "Không bột (Powder-Free), không silicone",
+      "Tiêu chuẩn chống hóa chất": "EN ISO 374-1:2016 Type B (JKPT)",
+      "Tiêu chuẩn chống vi sinh vật": "EN ISO 374-5:2016 (Bảo vệ chống Virus / Vi khuẩn)",
+      "Tiêu chuẩn chống tĩnh điện": "EN 1149-1/2/3 (Antistatic ESD Safe)",
+      "Tiêu chuẩn tiếp xúc thực phẩm": "FDA 21 CFR 177.2600 & European Food Contact",
+      "Chỉ số chất lượng (AQL)": "1.5 (Chuẩn kiểm định lỗ kim y tế & công nghiệp)",
+      "Quy cách đóng gói": "100 chiếc/hộp, 10 hộp/thùng carton (1.000 chiếc/thùng)",
+      "Ứng dụng tiêu biểu": "Sản xuất SMT, bán dẫn, pha chế hóa chất, phòng lab, bảo trì cơ khí chính xác, chế biến thực phẩm",
+      "Tình trạng kho": "Sẵn hàng tại kho Hà Nội & Hưng Yên"
+    },
+    "features": [
+      "Kháng hóa chất vượt trội: Bảo vệ an toàn trước sự văng bắn ngẫu nhiên của các dung môi, bazơ và axit loãng.",
+      "Cảm giác xúc giác tuyệt vời: Mềm dẻo và ôm sát bàn tay, giảm mỏi cơ khi thao tác liên tục trong ca làm việc dài.",
+      "Đầu ngón tay tạo nhám: Thao tác linh hoạt, cầm nắm chính xác các linh kiện điện tử nhỏ và dụng cụ dính dầu mỡ.",
+      "An toàn cho làn da: Không chứa protein mủ cao su, loại trừ nguy cơ dị ứng da Type I cho người sử dụng.",
+      "Độ tinh sạch cao: Không chứa silicone và không bột, loại trừ rủi ro gây nhiễm bẩn lên bề mặt sản phẩm và phòng sạch."
+    ],
+    "applications": [
+      {
+        "name": "Điện tử & Bán dẫn SMT",
+        "desc": "Thao tác gắn chip, gắp linh kiện nhạy cảm, lắp ráp thiết bị điện tử chính xác."
+      },
+      {
+        "name": "Phòng thí nghiệm & Pha chế",
+        "desc": "Pha chế dung môi, kiểm nghiệm mẫu hóa học, phân tích sinh học và nghiên cứu dược phẩm."
+      },
+      {
+        "name": "Chế biến Thực phẩm (F&B)",
+        "desc": "Đạt chuẩn FDA tiếp xúc an toàn với mọi loại thực phẩm tươi sống và chế biến."
+      },
+      {
+        "name": "Bảo dưỡng Cơ khí & Ô tô",
+        "desc": "Lắp ráp động cơ, lau chùi chi tiết máy dính dầu nhờn và chất tẩy rửa cơ khí."
+      }
+    ]
   },
   {
     "id": "1016",

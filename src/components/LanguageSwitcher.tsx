@@ -91,25 +91,27 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
   return (
     <div ref={dropdownRef} className={`relative inline-block text-left ${className}`}>
-      {/* Trigger Button */}
+      {/* Trigger Button (Chuẩn Murrplastik: Chỉ hiển thị Lá Cờ + Chevron, không để chữ dài dòng) */}
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         title={`Chuyển ngôn ngữ / Switch Language (Hiện tại: ${currentLocaleConfig.nativeName})`}
-        className={`flex items-center gap-1.5 rounded-sm border transition-all cursor-pointer select-none ${
+        className={`flex items-center justify-center gap-1.5 rounded-sm border transition-all cursor-pointer select-none ${
           isUtility
             ? 'h-6.5 px-2 text-[11px] font-semibold bg-white/90 hover:bg-white text-slate-700 hover:text-[#00478D] border-slate-200/90 shadow-2xs'
-            : 'h-11 px-3 text-xs font-bold bg-white hover:bg-slate-50 text-slate-800 border-slate-200/90 shadow-2xs min-w-[94px]'
+            : 'h-10 px-2.5 bg-white hover:bg-slate-50 text-slate-800 border-slate-200/90 shadow-2xs'
         } ${isOpen ? 'border-[#00478D] ring-2 ring-[#00478D]/10 bg-white' : ''}`}
       >
-        <FlagIcon country={currentLocaleConfig.code} width={18} height={12} />
-        <span className="font-mono uppercase tracking-tight">
-          {isUtility ? currentLocaleConfig.shortLabel : currentLocaleConfig.nativeName}
-        </span>
+        <FlagIcon country={currentLocaleConfig.code} width={20} height={14} />
+        {isUtility && (
+          <span className="font-mono text-[10px] uppercase tracking-tight">
+            {currentLocaleConfig.shortLabel}
+          </span>
+        )}
         <ChevronDown
-          className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-150 shrink-0 ${
+          className={`w-3 h-3 text-slate-400 transition-transform duration-150 shrink-0 ${
             isOpen ? 'rotate-180 text-[#00478D]' : ''
           }`}
         />

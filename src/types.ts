@@ -6,6 +6,19 @@ export interface SalesRepInfo {
   zaloUrl: string;
 }
 
+export interface ProductVariant {
+  id: string;
+  name: string;
+  sku?: string;
+  badge?: string;
+  image?: string;
+  shortDesc?: string;
+  specs?: Record<string, string>;
+  highlights?: string[];
+  unit?: string;
+  price?: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -30,6 +43,8 @@ export interface Product {
   includedAccessories?: string[];
   tags?: string;
   salesRep?: SalesRepInfo;
+  variantLabel?: string;
+  variants?: ProductVariant[];
 }
 
 export interface Document {

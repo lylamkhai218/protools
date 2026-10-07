@@ -16,7 +16,15 @@
     "tech_support_hint": "Technische Auswahlberatung:",
     "search_placeholder_mobile": "Modell, SKU suchen: Hakko, Hios, Zcut...",
     "authorized": "Autorisiert",
-    "murr_mobile_desc": "Industrielles Kabelmanagement, Roboter-Dresspacks, 500+ Katalog & virtueller 3D-Messestand."
+    "murr_mobile_desc": "Industrielles Kabelmanagement, Roboter-Dresspacks, 500+ Katalog & virtueller 3D-Messestand.",
+    "digital_toolbox": "Digital Toolbox",
+    "toolbox_tag": "Murrplastik",
+    "toolbox_dresspack_title": "Roboter Dresspack Konfigurator",
+    "toolbox_dresspack_desc": "Simulation für ABB, Fanuc Arme & Füllgradberechnung",
+    "toolbox_bom_title": "BOM Schnellangebot-Kalkulator",
+    "toolbox_bom_desc": "Massen-SKUs aus Excel einfügen & Sofortangebot erhalten",
+    "toolbox_cad_title": "CAD STEP & CO/CQ Suche",
+    "toolbox_cad_desc": "PDF-Datenblätter & UL94-Zertifikate herunterladen"
   },
   "hero": {
     "badge": "B2B-INDUSTRIEGROSSHANDEL VIETNAM",
@@ -77,7 +85,8 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "Vietnams führender B2B-Distributor für Industrieausrüstung, SMT-Werkzeuge, Reinraum & Roboterkabel-Management.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "credit": "Design & Entwicklung von KhaiLL",
+    "all_rights_reserved": "Alle Rechte vorbehalten.",
     "slogan": "Führender Anbieter von Industrieausrüstung, SMT-Montagewerkzeugen, Reinraumtechnik und Fabrikautomation für FDI-Werke in Vietnam.",
     "hq_label": "Hauptsitz:",
     "wh_label": "Büro & Lager Hanoi:",
@@ -261,5 +270,16 @@
     "desc": "Benötigen Sie Maßzeichnungen, PDF-Datenblätter, UL94-Zertifikate oder Energieführungsketten für Industrieroboter? Besuchen Sie das Murrplastik-Portal für 1:1-Engineering-Support.",
     "btn_portal": "Murrplastik-Portal aufrufen",
     "btn_booth": "3D-Simulation des VEC 2026 Standes"
+  },
+  "configurator": {
+    "download_files": "Dateien herunterladen",
+    "request_quote": "Angebot anfordern",
+    "parts_list": "Stückliste",
+    "col_image": "Bild",
+    "col_part": "Komponente",
+    "col_qty": "Menge",
+    "change_pkg": "Paket wechseln",
+    "synced_rfq": "In den Angebotskorb synchronisiert!",
+    "open_cart": "Warenkorb öffnen"
   }
 }

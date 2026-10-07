@@ -55,4 +55,4 @@ export const SUPPORTED_LOCALES: LocaleConfig[] = [
 ];
 
 export const DEFAULT_LOCALE: SupportedLocale = 'vi';
-export const LOCALE_STORAGE_KEY = 'tt_vina_locale';
+export const LOCALE_STORAGE_KEY = 'tt_vina_locale_v3';

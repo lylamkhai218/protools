@@ -5,7 +5,7 @@
     "cart": "Giỏ Báo Giá",
     "docs": "Tài Liệu & CO/CQ",
     "contact": "Liên Hệ",
-    "search_placeholder": "Tìm mã máy, linh kiện: Hakko 936, Hios CL-4000, SP-982, Zcut 9...",
+    "search_placeholder": "Tìm mã SKU, tên máy: Hakko 936, CL-4000, MP-1081...",
     "murr_portal": "Chuyên Trang Murrplastik Đức",
     "hotline": "Hotline",
     "sales": "Kinh doanh",
@@ -16,7 +16,15 @@
     "tech_support_hint": "Hỗ trợ chọn mã kỹ thuật:",
     "search_placeholder_mobile": "Nhập tên máy, mã SKU: Hakko, Hios, Zcut...",
     "authorized": "Ủy Quyền",
-    "murr_mobile_desc": "Hệ sinh thái quản lý cáp công nghiệp, xích dẫn cáp Robot, catalog 500+ mã hàng & Gian hàng ảo 3D."
+    "murr_mobile_desc": "Hệ sinh thái quản lý cáp công nghiệp, xích dẫn cáp Robot, catalog 500+ mã hàng & Gian hàng ảo 3D.",
+    "digital_toolbox": "Digital Toolbox",
+    "toolbox_tag": "Murrplastik",
+    "toolbox_dresspack_title": "Cấu hình Robot dresspack & bó cáp",
+    "toolbox_dresspack_desc": "Mô phỏng cánh tay robot & tính fill factor bó cáp",
+    "toolbox_bom_title": "Báo Giá Nhanh Theo Danh Sách BOM",
+    "toolbox_bom_desc": "Dán mã SKU hàng loạt từ Excel & xuất báo giá B2B tức thì",
+    "toolbox_cad_title": "Tra Cứu Bản Vẽ CAD STEP & CO/CQ",
+    "toolbox_cad_desc": "Tải tài liệu kỹ thuật PDF, chứng chỉ chống cháy UL94 chính hãng"
   },
   "hero": {
     "badge": "TỔNG KHO PHÂN PHỐI THIẾT BỊ B2B",
@@ -77,7 +85,8 @@
   "footer": {
     "company_name": "CÔNG TY TNHH CÔNG NGHIỆP T&T VINA",
     "tagline": "Tổng kho thiết bị công nghiệp, dụng cụ SMT, phòng sạch & hệ quản lý cáp tự động hóa hàng đầu Việt Nam.",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "credit": "Thiết kế & phát triển bởi KhaiLL",
+    "all_rights_reserved": "Bảo lưu mọi quyền.",
     "slogan": "Chuyên cung cấp các thiết bị công nghiệp, dụng cụ lắp ráp SMT, phòng sạch & vật tư tự động hóa cho các nhà máy FDI tại Việt Nam.",
     "hq_label": "Trụ sở chính:",
     "wh_label": "VPGD & Kho Hà Nội:",
@@ -261,5 +270,16 @@
     "desc": "Quý khách cần tra cứu bảng kích thước chi tiết, tài liệu kỹ thuật PDF, chứng chỉ chống cháy UL94, hoặc đặt hàng các mã xích dẫn cáp đặc thù cho cánh tay Robot công nghiệp? Ghé thăm chuyên trang Murrplastik Việt Nam để được tư vấn kỹ thuật 1-on-1.",
     "btn_portal": "Truy Cập Chuyên Trang Murrplastik Việt Nam",
     "btn_booth": "Mô Phỏng 3D Gian Hàng VEC 2026"
+  },
+  "configurator": {
+    "download_files": "Tải tài liệu CAD",
+    "request_quote": "Yêu cầu báo giá",
+    "parts_list": "Danh mục linh kiện",
+    "col_image": "Hình ảnh",
+    "col_part": "Linh kiện",
+    "col_qty": "Số lượng",
+    "change_pkg": "Đổi Gói",
+    "synced_rfq": "Đã đồng bộ {count} mã linh kiện vào Giỏ Báo Giá!",
+    "open_cart": "Mở Giỏ Hàng"
   }
 }

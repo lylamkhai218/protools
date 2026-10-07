@@ -16,7 +16,15 @@
     "tech_support_hint": "型番選定・技術仕様サポート:",
     "search_placeholder_mobile": "型番・SKU検索: Hakko, Hios, Zcut...",
     "authorized": "正規代理店",
-    "murr_mobile_desc": "産業用ケーブル保護システム、ロボットドレスパック、500+品目カタログ＆3Dバーチャルブース。"
+    "murr_mobile_desc": "産業用ケーブル保護システム、ロボットドレスパック、500+品目カタログ＆3Dバーチャルブース。",
+    "digital_toolbox": "デジタルツールボックス",
+    "toolbox_tag": "Murrplastik",
+    "toolbox_dresspack_title": "ロボット用ドレスパック構成ツール",
+    "toolbox_dresspack_desc": "ABB、Fanuc 6軸ロボットシミュレーション＆ケーブル占有率計算",
+    "toolbox_bom_title": "BOM一括見積り計算ツール",
+    "toolbox_bom_desc": "Excelから型番を一括ペーストして即時B2B見積書を作成",
+    "toolbox_cad_title": "CAD STEP 3D図面＆CO/CQ検索",
+    "toolbox_cad_desc": "PDF技術仕様書およびUL94難燃性認証書のダウンロード"
   },
   "hero": {
     "badge": "ベトナムB2B産業機器ディストリビューター",
@@ -77,7 +85,8 @@
   "footer": {
     "company_name": "T&T VINA INDUSTRIAL CO., LTD",
     "tagline": "ベトナムをリードする産業オートメーション機器、SMT工具、クリーンルーム静電気対策およびロボット配管保護システムの総合商社。",
-    "credit": "Developed by Mr. Kai @ T&T Vina Digital",
+    "credit": "KhaiLLによる設計・開発",
+    "all_rights_reserved": "無断転載を禁じます。",
     "slogan": "ベトナム進出外資系工場向け 産業機器・SMT組立ツール・クリーンルーム・FA設備資材の正規総合サプライヤー。",
     "hq_label": "本社所在地:",
     "wh_label": "ハノイ営業所・物流倉庫:",
@@ -261,5 +270,16 @@
     "desc": "詳細寸法、PDF技術仕様書、UL94難燃規格証明書、または産業ロボット用ケーブルドレスパックをお探しですか？専任エンジニアが直接対応いたします。",
     "btn_portal": "Murrplastik ベトナムポータルへ",
     "btn_booth": "VEC 2026 ブース3D展示"
+  },
+  "configurator": {
+    "download_files": "CADファイルダウンロード",
+    "request_quote": "見積依頼",
+    "parts_list": "部品リスト",
+    "col_image": "画像",
+    "col_part": "部品",
+    "col_qty": "数量",
+    "change_pkg": "パッケージ変更",
+    "synced_rfq": "見積カートに同期しました！",
+    "open_cart": "カートを開く"
   }
 }
