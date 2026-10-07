@@ -2030,3 +2030,38 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - `https://protools.com.vn/images/dresspack/comau/nj370.webp` (HTTP 200, 19.254 bytes).
   - `https://protools.com.vn/images/dresspack/comau/nj650.webp` (HTTP 200, 19.720 bytes).
   - Bundle `RobotConfigurator-D9sIFYV2.js` chứa chính xác mã gói `MS83701000000370` và chuỗi `"Gói Dresspack Comau NJ370"`.
+
+### Rule 9.120: Chuẩn Hóa 4 Góc Phối Cảnh Kỹ Thuật (Perspective Standard Theo ABB IRB 6700) & Khắc Phục Lỗi Ảnh Base Plate 83692622 (07/10/2026)
+* **1. Khắc Phục Lỗi Ảnh Vỡ Linh Kiện Base Plate `83692622`**:
+  - **Hiện tượng**: Tại bảng Parts List của gói Dresspack Comau NJ370-3.0 (`MS83701000000370`), sản phẩm `83692622 Base Plate Comau NJ Series` bị lỗi icon vỡ ảnh.
+  - **Nguyên nhân gốc rễ**: File `imageUrl` trong [`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts) trỏ sai vào `/images/dresspack/fanuc/83692622_Base_Plate_M710_20-45.png` (tệp không tồn tại trên đĩa máy chủ).
+  - **Giải pháp**: Cập nhật chuẩn hóa về đường dẫn thực tế chính xác: `/images/dresspack/abb/83692622_Base_Plate_ABB_6700.png` (đã xác thực tồn tại trên hosting Mắt Bão, dung lượng 1.294.107 bytes). Đồng thời phát hiện và khắc phục đường dẫn `83691460` trong `TECHMAN_TM_PACKAGE` sang `/images/dresspack/universal-robots/83691460_SH-P_M40_M50.png`, đưa số lượng ảnh thiếu trên toàn bộ dự án về con số **0**.
+* **2. Chuẩn Hóa 4 Góc Phối Cảnh Độc Bản (Perspective Standard Theo ABB IRB 6700)**:
+  - **Hiện tượng**: Tại gói Comau NJ370 (`MS83701000000370`), NJ650, Yaskawa GP180 và các robot được chuyển đổi thích ứng (Adapted models), cả 4 thumbnails ảnh ở khung 3D đều hiển thị cùng một file ảnh tổng quan duy nhất, khiến thao tác bấm chuyển giữa các góc không có sự khác biệt thị giác.
+  - **Nguyên lý chuẩn hóa (Học tập kiến trúc ABB IRB 6700 `MS82501000000700`)**: Mỗi góc nhìn đại diện cho một giác độ kỹ thuật chuyên biệt:
+    1. **Góc 1 - Tổng quan hệ thống (Overview / Isometric View)**: Thể hiện toàn thân robot và hành trình xích dẫn cáp tổng thể.
+    2. **Góc 2 - Góc nhìn từ trên xuống (Top View / Plan View)**: Thể hiện đường đi và độ chùng an toàn của ruột gà dọc theo bắp tay trên A3 - A6.
+    3. **Góc 3 - Góc nhìn ngang cánh tay (Side View / Lateral View & R-Tec Box)**: Thể hiện vị trí gá đặt bản mã đế và hộp thu hồi lực lò xo R-Tec Box.
+    4. **Góc 4 - Cận cảnh cổ tay trục 6 (Wrist Detail / Axis 6 Flange & Tool)**: Cận cảnh cùm kẹp ôm cổ tay, khớp cầu xoay 360° và đầu ra cáp kết nối công cụ.
+  - **Triển khai kỹ thuật**:
+    - **Comau NJ370 & NJ650**: Tải render 2500x2500 transparent chính hãng từ Cloudinary Murrplastik CDN và trích xuất 4 góc độc bản độ nét cao:
+      * `00_Robot_Angle_1_Overview.png` (2470x2470, 2.149 KB)
+      * `00_Robot_Angle_2_Top.png` (2150x2150, 1.140 KB)
+      * `00_Robot_Angle_3_Side.png` (1420x1420, 1.135 KB)
+      * `00_Robot_Angle_4_Wrist.png` (1130x1130, 291 KB)
+      * Áp dụng tương tự bộ 4 góc cho dòng siêu tải trọng NJ650 (`nj650_00_Robot_Angle_*.png`).
+    - **Yaskawa GP180**: Cập nhật 4 gói cấu hình GP180 trỏ về 4 góc studio thực tế của Yaskawa trên máy chủ (`00_Robot_Angle_2_Top.png`, `00_Robot_Angle_3_Side.png`, `00_Robot_Angle_4_Wrist.png`).
+    - **Techman, Doosan, Delta**: Tự động sinh và cấu hình 4 góc kỹ thuật độc bản vào các thư mục tĩnh tương ứng.
+    - **Bảo tồn góc nhìn trong `RobotConfigurator.tsx`**: Khi người dùng chọn bất kỳ model nào khác trong 83 model của 13 hãng (`isExactModel = false`), thuật toán `resolvedPerspectives` bảo toàn trọn vẹn 3 góc chuyên sâu (Top View, Side View, Wrist Detail) của giải pháp dresspack và chỉ cập nhật Góc 1 (Overview) sang ảnh render của robot được chọn, triệt tiêu hoàn toàn tình trạng 4 thumbnail trùng lặp trên mọi model.
+* **3. Bằng Chứng Xác Thực Trực Tiếp Live Production (HTTP 200)**:
+  - `https://protools.com.vn/images/dresspack/abb/83692622_Base_Plate_ABB_6700.png` (HTTP 200, 1.294.107 bytes).
+  - `https://protools.com.vn/images/dresspack/universal-robots/83691460_SH-P_M40_M50.png` (HTTP 200, 1.208.106 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/00_Robot_Angle_1_Overview.png` (HTTP 200, 2.149.930 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/00_Robot_Angle_2_Top.png` (HTTP 200, 1.140.084 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/00_Robot_Angle_3_Side.png` (HTTP 200, 1.135.457 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/00_Robot_Angle_4_Wrist.png` (HTTP 200, 291.612 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/nj650_00_Robot_Angle_1_Overview.png` (HTTP 200, 2.116.053 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/nj650_00_Robot_Angle_2_Top.png` (HTTP 200, 1.099.745 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/nj650_00_Robot_Angle_3_Side.png` (HTTP 200, 1.130.039 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/nj650_00_Robot_Angle_4_Wrist.png` (HTTP 200, 279.481 bytes).
+  - `https://protools.com.vn/robot-dresspack` (HTTP 200, hoạt động hoàn hảo).
