@@ -1,5 +1,6 @@
 import { Product } from '../types';
 import { PRODUCTS } from '../data';
+import { isExcludedSku } from './brandNormalizer';
 
 let cachedCatalog: Product[] | null = null;
 let catalogPromise: Promise<Product[]> | null = null;
@@ -19,15 +20,27 @@ export async function loadCatalogIndex(): Promise<Product[]> {
 
   catalogPromise = (async () => {
     try {
-      const res = await fetch('/data/catalog_index.json');
+      const isInternal = typeof window !== 'undefined' && localStorage.getItem('protools_internal_mode') === 'true';
+      const endpoint = isInternal ? '/data/catalog_index_full.json' : '/data/catalog_index.json';
+      const res = await fetch(endpoint);
       if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: Failed to load catalog_index.json`);
+        throw new Error(`HTTP ${res.status}: Failed to load ${endpoint}`);
       }
       const data: Product[] = await res.json();
       if (Array.isArray(data) && data.length > 0) {
         const flagshipSkus = new Set(PRODUCTS.map(p => p.sku.toLowerCase()));
-        const extraProducts = data.filter(p => !flagshipSkus.has(p.sku.toLowerCase()));
-        const fullCatalog = [...PRODUCTS, ...extraProducts];
+        
+        if (isInternal) {
+          // In internal staff mode: preserve all 7500 items for review
+          const extraProducts = data.filter(p => !flagshipSkus.has(p.sku.toLowerCase()));
+          cachedCatalog = [...PRODUCTS, ...extraProducts];
+          return cachedCatalog;
+        }
+
+        const extraProducts = data
+          .filter(p => !flagshipSkus.has(p.sku.toLowerCase()))
+          .filter(p => !isExcludedSku(p.sku));
+        const fullCatalog = [...PRODUCTS.filter(p => !isExcludedSku(p.sku)), ...extraProducts];
 
         // Real-time sync: Check if any products have been disabled (status=0) via AdminCP
         try {

@@ -1,0 +1,1764 @@
+{
+  "metadata": {
+    "updatedAt": "2026-10-07T13:10:00+07:00",
+    "description": "Danh sách SKU sản phẩm bị gỡ bỏ vĩnh viễn khỏi website Protools theo chỉ đạo Ban Giám Đốc (Đợt 1 + Đợt 2)",
+    "totalCount": 175,
+    "batch1Count": 59,
+    "batch2Count": 116,
+    "normalizedPatterns": [
+      "PVN10183",
+      "PVN10380",
+      "PVN1145",
+      "PVN1156",
+      "PVN1227",
+      "PVN1258",
+      "PVN1260",
+      "PVN1273",
+      "PVN1307",
+      "PVN1605",
+      "PVN1639",
+      "PVN1662",
+      "PVN1678",
+      "PVN1747",
+      "PVN1787",
+      "PVN1880",
+      "PVN2050",
+      "PVN2053",
+      "PVN2077",
+      "PVN2088",
+      "PVN2155",
+      "PVN2601",
+      "PVN2636",
+      "PVN2679",
+      "PVN2721",
+      "PVN2781",
+      "PVN2894",
+      "PVN3087",
+      "PVN3112",
+      "PVN3198",
+      "PVN3224",
+      "PVN3225",
+      "PVN3247",
+      "PVN3257",
+      "PVN3376",
+      "PVN3454",
+      "PVN3468",
+      "PVN3520",
+      "PVN3530",
+      "PVN3559",
+      "PVN3619",
+      "PVN3696",
+      "PVN3804",
+      "PVN3922",
+      "PVN3941",
+      "PVN4151",
+      "PVN4171",
+      "PVN4199",
+      "PVN4204",
+      "PVN4329",
+      "PVN4330",
+      "PVN4353",
+      "PVN4354",
+      "PVN4397",
+      "PVN4498",
+      "PVN4503",
+      "PVN4684",
+      "PVN4691",
+      "PVN4692",
+      "PVN4715",
+      "PVN4856",
+      "PVN4862",
+      "PVN4988",
+      "PVN5033",
+      "PVN5068",
+      "PVN5072",
+      "PVN5133",
+      "PVN5137",
+      "PVN5202",
+      "PVN5322",
+      "PVN5379",
+      "PVN5561",
+      "PVN5576",
+      "PVN5578",
+      "PVN5609",
+      "PVN5669",
+      "PVN5734",
+      "PVN5741",
+      "PVN5784",
+      "PVN5968",
+      "PVN6208",
+      "PVN6314",
+      "PVN6329",
+      "PVN6452",
+      "PVN6485",
+      "PVN6488",
+      "PVN6530",
+      "PVN6531",
+      "PVN6575",
+      "PVN6616",
+      "PVN6714",
+      "PVN6728",
+      "PVN6729",
+      "PVN6733",
+      "PVN6734",
+      "PVN6740",
+      "PVN6782",
+      "PVN6805",
+      "PVN6814",
+      "PVN6856",
+      "PVN6919",
+      "PVN6920",
+      "PVN7002",
+      "PVN7023",
+      "PVN7237",
+      "PVN7282",
+      "PVN7317",
+      "PVN7437",
+      "PVN7438",
+      "PVN7439",
+      "PVN7446",
+      "PVN7471",
+      "PVN7492",
+      "PVN7601",
+      "PVN7630",
+      "PVN7690",
+      "PVN7765",
+      "PVN7802",
+      "PVN7872",
+      "PVN7873",
+      "PVN7898",
+      "PVN7899",
+      "PVN7901",
+      "PVN7926",
+      "PVN7927",
+      "PVN7930",
+      "PVN7981",
+      "PVN8210",
+      "PVN8278",
+      "PVN8464",
+      "PVN8483",
+      "PVN8593",
+      "PVN8607",
+      "PVN8608",
+      "PVN8669",
+      "PVN8721",
+      "PVN8725",
+      "PVN8893",
+      "PVN8968",
+      "PVN9671",
+      "PVN9672",
+      "PVN9673",
+      "PVN9674",
+      "TPC0524",
+      "TTPC0176",
+      "TTPC0179",
+      "TTPC0180",
+      "TTPC0182",
+      "TTPC0210",
+      "TTPC0212",
+      "TTPC0213",
+      "TTPC0214",
+      "TTPC0215",
+      "TTPC0219",
+      "TTPC0227",
+      "TTPC0230",
+      "TTPC0316",
+      "TTPC0317",
+      "TTPC0395",
+      "TTPC0397",
+      "TTPC0524",
+      "TTPC0547",
+      "TTPC0684",
+      "TTPC1207",
+      "TTPC1357",
+      "TTPC1809",
+      "TTPC2210",
+      "TTPC2410",
+      "TTPC2986",
+      "TTPC3002",
+      "TTPC3245",
+      "TTPC3345",
+      "TTPC3826",
+      "TTPC5257",
+      "TTPC8623",
+      "TTPC9612"
+    ]
+  },
+  "items": [
+    {
+      "sku": "PVN9674",
+      "id": "PVN9674",
+      "normSku": "PVN9674",
+      "name": "Mũi hàn dùng cho tay hàn 907 T-B",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN9673",
+      "id": "PVN9673",
+      "normSku": "PVN9673",
+      "name": "Mũi hàn dùng cho tay hàn 907 T-3C",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN9672",
+      "id": "PVN9672",
+      "normSku": "PVN9672",
+      "name": "Mũi hàn dùng cho tay hàn 907 T-I",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN9671",
+      "id": "PVN9671",
+      "normSku": "PVN9671",
+      "name": "Mũi hàn dùng cho tay hàn 907 T-K",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN8669",
+      "id": "PVN8669",
+      "normSku": "PVN8669",
+      "name": "Mũi hàn 200-k ( tốt)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN8464",
+      "id": "PVN8464",
+      "normSku": "PVN8464",
+      "name": "Mũi hàn QSS 200-1.5K (200-1c)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN7926",
+      "id": "PVN7926",
+      "normSku": "PVN7926",
+      "name": "Nắp chụp tay hàn quick 203H",
+      "brand": "Quick",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN7765",
+      "id": "PVN7765",
+      "normSku": "PVN7765",
+      "name": "Cuộn thiếc hàn alpha 0.64mm SAC305",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN7437",
+      "id": "PVN7437",
+      "normSku": "PVN7437",
+      "name": "Tay hàn Quick 902A FR (cho máy 205)",
+      "brand": "Quick",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN7282",
+      "id": "PVN7282",
+      "normSku": "PVN7282",
+      "name": "Mũi hàn 911G-10PC",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN7237",
+      "id": "PVN7237",
+      "normSku": "PVN7237",
+      "name": "Tay hàn Hakko FX600 chính hãng loại 2 chân",
+      "brand": "Hakko",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN7002",
+      "id": "PVN7002",
+      "normSku": "PVN7002",
+      "name": "Mũi hàn 900MT-I",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6814",
+      "id": "PVN6814",
+      "normSku": "PVN6814",
+      "name": "Hút chì chống tĩnh điện 8PK-366NA",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6734",
+      "id": "PVN6734",
+      "normSku": "PVN6734",
+      "name": "Dép chống tĩnh điện",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6733",
+      "id": "PVN6733",
+      "normSku": "PVN6733",
+      "name": "Bộ chổi cọ chống tĩnh điện",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6729",
+      "id": "PVN6729",
+      "normSku": "PVN6729",
+      "name": "Túi ziplock chống tĩnh điện 15*14",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6728",
+      "id": "PVN6728",
+      "normSku": "PVN6728",
+      "name": "Túi ziplock chống tĩnh điện 30*30",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6485",
+      "id": "PVN6485",
+      "normSku": "PVN6485",
+      "name": "Thảm cao su chống tĩnh điện 1m xanh bóng",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6329",
+      "id": "PVN6329",
+      "normSku": "PVN6329",
+      "name": "Găng tay vải mỏng",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN6314",
+      "id": "PVN6314",
+      "normSku": "PVN6314",
+      "name": "Mũi hàn 200-K <CH>",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5741",
+      "id": "PVN5741",
+      "normSku": "PVN5741",
+      "name": "Mũi hàn 200-SK <CH>",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5734",
+      "id": "PVN5734",
+      "normSku": "PVN5734",
+      "name": "Tăm bông thân gỗ <lẻ>",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5669",
+      "id": "PVN5669",
+      "normSku": "PVN5669",
+      "name": "Nhíp gỗ TV 150A",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5561",
+      "id": "PVN5561",
+      "normSku": "PVN5561",
+      "name": "Nhíp Vetus SSJP",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5202",
+      "id": "PVN5202",
+      "normSku": "PVN5202",
+      "name": "Đầu chụp tay hàn 20H (phần màu đen)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5133",
+      "id": "PVN5133",
+      "normSku": "PVN5133",
+      "name": "Mũi hàn 200-1,6D",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN5033",
+      "id": "PVN5033",
+      "normSku": "PVN5033",
+      "name": "Xốp lau mũi hàn vuông 6*6*12mm (mỏng)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN4684",
+      "id": "PVN4684",
+      "normSku": "PVN4684",
+      "name": "Vòng đeo tay posh 1.8m <sợi nhỏ>",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN4151",
+      "id": "PVN4151",
+      "normSku": "PVN4151",
+      "name": "Mũi hàn 200-1c ( đầu to)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN3257",
+      "id": "PVN3257",
+      "normSku": "PVN3257",
+      "name": "Mũi hàn 200-T-K",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN2721",
+      "id": "PVN2721",
+      "normSku": "PVN2721",
+      "name": "Thiếc hàn SUNCHI 0.9mm loại nhỏ",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN2636",
+      "id": "PVN2636",
+      "normSku": "PVN2636",
+      "name": "Mũi hàn Weller LTKN LF",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN2155",
+      "id": "PVN2155",
+      "normSku": "PVN2155",
+      "name": "Mũi hàn 900MT-SK (bé)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN2077",
+      "id": "PVN2077",
+      "normSku": "PVN2077",
+      "name": "Tay hàn FX9501",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN1787",
+      "id": "PVN1787",
+      "normSku": "PVN1787",
+      "name": "Đầu chụp tay hàn FX888D",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN1747",
+      "id": "PVN1747",
+      "normSku": "PVN1747",
+      "name": "Mũi hàn 900MT-K (to)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN1678",
+      "id": "PVN1678",
+      "normSku": "PVN1678",
+      "name": "Bản mạch cho tay hàn FX 8801",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN1605",
+      "id": "PVN1605",
+      "normSku": "PVN1605",
+      "name": "Xốp đen chống tĩnh điện 1mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN1307",
+      "id": "PVN1307",
+      "normSku": "PVN1307",
+      "name": "Đầu chụp tay hàn 20H",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-2210",
+      "id": "TTPC-2210",
+      "normSku": "TTPC2210",
+      "name": "Mũi hàn 200-b ( tốt )",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 9612",
+      "id": "TTPC 9612",
+      "normSku": "TTPC9612",
+      "name": "Tay hàn Keliew SL 90308",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 8623",
+      "id": "TTPC 8623",
+      "normSku": "TTPC8623",
+      "name": "Tay hàn 907-936A ( Quick)",
+      "brand": "Quick",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 1809",
+      "id": "TTPC 1809",
+      "normSku": "TTPC1809",
+      "name": "Ruột mũi hàn 60W",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 2986",
+      "id": "TTPC 2986",
+      "normSku": "TTPC2986",
+      "name": "Mũi hàn T18-B",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 3826",
+      "id": "TTPC 3826",
+      "normSku": "TTPC3826",
+      "name": "Nhíp nhựa 707",
+      "brand": "T&T Vina Industrial",
+      "category": "Vật tư ESD & Phòng sạch",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 1207",
+      "id": "TTPC 1207",
+      "normSku": "TTPC1207",
+      "name": "Đầu chụp tay hàn 937",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 3245",
+      "id": "TTPC 3245",
+      "normSku": "TTPC3245",
+      "name": "Mũi hàn 200-I ( B )",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-3345",
+      "id": "TTPC-3345",
+      "normSku": "TTPC3345",
+      "name": "Mũi hàn 500-5C-90*",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 5257",
+      "id": "TTPC 5257",
+      "normSku": "TTPC5257",
+      "name": "Tay hàn 20H",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 1357",
+      "id": "TTPC 1357",
+      "normSku": "TTPC1357",
+      "name": "Tay hàn 20H Chính Hãng",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 3002",
+      "id": "TTPC 3002",
+      "normSku": "TTPC3002",
+      "name": "Búi đồng lau mũi hàn A1561 -A",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN1145",
+      "id": "PVN1145",
+      "normSku": "PVN1145",
+      "name": "Tay hàn 20H Rẻ, không hộp- tem mác",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0684",
+      "id": "TTPC-0684",
+      "normSku": "TTPC0684",
+      "name": "Mũi hàn 200-I (A )",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0547",
+      "id": "TTPC-0547",
+      "normSku": "TTPC0547",
+      "name": "Mũi hàn 200-b (b)",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0524",
+      "id": "TTPC-0524",
+      "normSku": "TTPC0524",
+      "name": "Búi đồng lau mũi hàn A1561 <B>",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0397",
+      "id": "TTPC-0397",
+      "normSku": "TTPC0397",
+      "name": "Đầu chụp tay hàn 902A",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0395",
+      "id": "TTPC-0395",
+      "normSku": "TTPC0395",
+      "name": "Mũi hàn T18-C2",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0317",
+      "id": "TTPC-0317",
+      "normSku": "TTPC0317",
+      "name": "Tay hàn 902A-A",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0316",
+      "id": "TTPC-0316",
+      "normSku": "TTPC0316",
+      "name": "Tay hàn FX9501 < chính hãng>",
+      "brand": "T&T Vina Industrial",
+      "category": "Mũi hàn & Phụ kiện trạm hàn",
+      "reason": "Chỉ đạo Ban Giám Đốc: Gỡ bỏ vĩnh viễn khỏi website public (07/10/2026)"
+    },
+    {
+      "sku": "PVN10380",
+      "id": "PVN10380",
+      "normSku": "PVN10380",
+      "name": "Kim nms 18g-117mm ( tổng dài kim) , k ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN10183",
+      "id": "PVN10183",
+      "normSku": "PVN10183",
+      "name": "Kim nms 12G-30mm tổng chiều dài",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8968",
+      "id": "PVN8968",
+      "normSku": "PVN8968",
+      "name": "Đầu kim chuyển đổi ren G1/4",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8893",
+      "id": "PVN8893",
+      "normSku": "PVN8893",
+      "name": "Dây bơm keo 10cc đầu sắt dài 1.2m - <loại đầu vuông>",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8725",
+      "id": "PVN8725",
+      "normSku": "PVN8725",
+      "name": "DÂY BƠM KEO 10CC ĐẦU SẮT DÀI 1.5M",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8721",
+      "id": "PVN8721",
+      "normSku": "PVN8721",
+      "name": "Kim nms 20g-25mm, có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8608",
+      "id": "PVN8608",
+      "normSku": "PVN8608",
+      "name": "Kim nms 16g-50mm ( tổng dài 67mm)",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8607",
+      "id": "PVN8607",
+      "normSku": "PVN8607",
+      "name": "Kim nms 19g-50mm( tổng dài 67mm)",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8593",
+      "id": "PVN8593",
+      "normSku": "PVN8593",
+      "name": "Kim bơm keo 110",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8483",
+      "id": "PVN8483",
+      "normSku": "PVN8483",
+      "name": "Bộ nối dây bơm keo 300cc nắp inox",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8278",
+      "id": "PVN8278",
+      "normSku": "PVN8278",
+      "name": "Kim nms 14G-56mm có ren oliu <tổng dài 56mm>",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN8210",
+      "id": "PVN8210",
+      "normSku": "PVN8210",
+      "name": "Kim NMS 20G-43mm( tổng chiều dài, có ren)",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7981",
+      "id": "PVN7981",
+      "normSku": "PVN7981",
+      "name": "Kim sắt 16g-80mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7930",
+      "id": "PVN7930",
+      "normSku": "PVN7930",
+      "name": "Kim NMS 18G-38mm ( có ren)",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7927",
+      "id": "PVN7927",
+      "normSku": "PVN7927",
+      "name": "Kim NMS 18G-68mm ( tổng chiều dài) hồng k ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7901",
+      "id": "PVN7901",
+      "normSku": "PVN7901",
+      "name": "Kim sắt 26g-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7899",
+      "id": "PVN7899",
+      "normSku": "PVN7899",
+      "name": "Kim sắt 25g-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7898",
+      "id": "PVN7898",
+      "normSku": "PVN7898",
+      "name": "Kim sắt 24g-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7873",
+      "id": "PVN7873",
+      "normSku": "PVN7873",
+      "name": "Kim nms 14G-38mm (tổng dài 55mm), màu xanh ko ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7872",
+      "id": "PVN7872",
+      "normSku": "PVN7872",
+      "name": "Kim nms 18G-50mm màu hồng không ren (tổng dài 50mm)",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7802",
+      "id": "PVN7802",
+      "normSku": "PVN7802",
+      "name": "Gioăng cao su làm dây bơm keo 50cc - KT 17*26.5",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7690",
+      "id": "PVN7690",
+      "normSku": "PVN7690",
+      "name": "Kim NMS 22g-26mm màu đen",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7630",
+      "id": "PVN7630",
+      "normSku": "PVN7630",
+      "name": "Kim nms 14G-43mm tổng dài 43mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7601",
+      "id": "PVN7601",
+      "normSku": "PVN7601",
+      "name": "Kim sắt 12G-50mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7492",
+      "id": "PVN7492",
+      "normSku": "PVN7492",
+      "name": "Kim NMS 24G-13mm màu tím ko ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7471",
+      "id": "PVN7471",
+      "normSku": "PVN7471",
+      "name": "Kim bơm keo MC06-18 dài 149mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7446",
+      "id": "PVN7446",
+      "normSku": "PVN7446",
+      "name": "Kim sắt 35,5mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7439",
+      "id": "PVN7439",
+      "normSku": "PVN7439",
+      "name": "Kim NMS 23G-60mm màu xanh dương",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7438",
+      "id": "PVN7438",
+      "normSku": "PVN7438",
+      "name": "Kim NMS 14G-60mm màu xanh lá",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7317",
+      "id": "PVN7317",
+      "normSku": "PVN7317",
+      "name": "Dây bơm keo 17T",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN7023",
+      "id": "PVN7023",
+      "normSku": "PVN7023",
+      "name": "Dây bơm keo 10cc ĐS <loại đầu vuông>",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6920",
+      "id": "PVN6920",
+      "normSku": "PVN6920",
+      "name": "Kim NMS 19g-50mm màu vàng",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6919",
+      "id": "PVN6919",
+      "normSku": "PVN6919",
+      "name": "Kim NMS 16G-25mm có ren màu đen",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6856",
+      "id": "PVN6856",
+      "normSku": "PVN6856",
+      "name": "Nắp dây bơm keo 10cc < loại đầu vuông >",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6805",
+      "id": "PVN6805",
+      "normSku": "PVN6805",
+      "name": "Kim sắt 14G -38mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6782",
+      "id": "PVN6782",
+      "normSku": "PVN6782",
+      "name": "Kim sắt 13G-25mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6740",
+      "id": "PVN6740",
+      "normSku": "PVN6740",
+      "name": "Dây bơm keo 30cc - 50cc - 70cc ĐS < loại đầu vuông >",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6714",
+      "id": "PVN6714",
+      "normSku": "PVN6714",
+      "name": "Nắp dây bơm keo 50cc < loại đầu vuông >",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6616",
+      "id": "PVN6616",
+      "normSku": "PVN6616",
+      "name": "Kim chóp 20G cong màu hồng",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6575",
+      "id": "PVN6575",
+      "normSku": "PVN6575",
+      "name": "Kim sắt đôi 17G-30mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6531",
+      "id": "PVN6531",
+      "normSku": "PVN6531",
+      "name": "Kim chóp nhựa 18G xanh lá cong",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6530",
+      "id": "PVN6530",
+      "normSku": "PVN6530",
+      "name": "Dây bơm keo 200cc Blue",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6488",
+      "id": "PVN6488",
+      "normSku": "PVN6488",
+      "name": "Kim sắt 16g-50mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6452",
+      "id": "PVN6452",
+      "normSku": "PVN6452",
+      "name": "Kim NMS 20G-25mm màu vàng",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN6208",
+      "id": "PVN6208",
+      "normSku": "PVN6208",
+      "name": "Kim NMS 16G-13mmmàu đen cong 45*",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5968",
+      "id": "PVN5968",
+      "normSku": "PVN5968",
+      "name": "Kim nms 17g-13mm có ren cong 45*",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5784",
+      "id": "PVN5784",
+      "normSku": "PVN5784",
+      "name": "Kim chóp 18G Xanh lá",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5609",
+      "id": "PVN5609",
+      "normSku": "PVN5609",
+      "name": "Dây bơm keo 30cc - 50cc - 70cc ĐN <xoắn xanh >",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5578",
+      "id": "PVN5578",
+      "normSku": "PVN5578",
+      "name": "Đai siết dây bơm keo loại có gờ",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5576",
+      "id": "PVN5576",
+      "normSku": "PVN5576",
+      "name": "kim sắt 15g-50mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5379",
+      "id": "PVN5379",
+      "normSku": "PVN5379",
+      "name": "Dây bơm keo 300cc",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5322",
+      "id": "PVN5322",
+      "normSku": "PVN5322",
+      "name": "Kim chóp 27g đen",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5137",
+      "id": "PVN5137",
+      "normSku": "PVN5137",
+      "name": "Dây bơm keo 10cc ĐN xoắn xanh",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5072",
+      "id": "PVN5072",
+      "normSku": "PVN5072",
+      "name": "Đầu kim đo",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN5068",
+      "id": "PVN5068",
+      "normSku": "PVN5068",
+      "name": "Kim sắt 20g-16.5mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4988",
+      "id": "PVN4988",
+      "normSku": "PVN4988",
+      "name": "Kim NMS 16G -38mm -nâu- có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4862",
+      "id": "PVN4862",
+      "normSku": "PVN4862",
+      "name": "Kim sắt 26G-25mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4856",
+      "id": "PVN4856",
+      "normSku": "PVN4856",
+      "name": "Kim NMS 18G-1'' xanh",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4715",
+      "id": "PVN4715",
+      "normSku": "PVN4715",
+      "name": "Kim sắt 26G-13mm cong 45 độ",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4692",
+      "id": "PVN4692",
+      "normSku": "PVN4692",
+      "name": "Đầu nhựa dây bơm keo",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4691",
+      "id": "PVN4691",
+      "normSku": "PVN4691",
+      "name": "Đầu sắt dây bơm keo",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4503",
+      "id": "PVN4503",
+      "normSku": "PVN4503",
+      "name": "Nắp dây bơm keo 200cc ĐA",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4498",
+      "id": "PVN4498",
+      "normSku": "PVN4498",
+      "name": "Kim sắt 14G - 50mm MSS",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4397",
+      "id": "PVN4397",
+      "normSku": "PVN4397",
+      "name": "Kim NMS 19G -38mm sữa tổng dài 55mm < k ren>",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4354",
+      "id": "PVN4354",
+      "normSku": "PVN4354",
+      "name": "Kim NMS 19G-55mm màu sữa không ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4353",
+      "id": "PVN4353",
+      "normSku": "PVN4353",
+      "name": "Kim NMS 20G-55 màu vàng không ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4330",
+      "id": "PVN4330",
+      "normSku": "PVN4330",
+      "name": "Kim NMS 19G-27mm sữa",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4329",
+      "id": "PVN4329",
+      "normSku": "PVN4329",
+      "name": "Kim NMS 19G-21mm màu sữa không ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4204",
+      "id": "PVN4204",
+      "normSku": "PVN4204",
+      "name": "Dây bơm keo 100cc green",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4199",
+      "id": "PVN4199",
+      "normSku": "PVN4199",
+      "name": "Nắp dây bơm keo 10cc ( nắp quai xanh)",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN4171",
+      "id": "PVN4171",
+      "normSku": "PVN4171",
+      "name": "Dây bơm keo 30cc - 50cc - 70cc không đầu cắm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3941",
+      "id": "PVN3941",
+      "normSku": "PVN3941",
+      "name": "Kim NMS 23G-53mm cong",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3922",
+      "id": "PVN3922",
+      "normSku": "PVN3922",
+      "name": "Kim NMS 22G-25mm màu xanh có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3804",
+      "id": "PVN3804",
+      "normSku": "PVN3804",
+      "name": "Kim sắt 16G-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3696",
+      "id": "PVN3696",
+      "normSku": "PVN3696",
+      "name": "Dây bơm keo 19T",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3619",
+      "id": "PVN3619",
+      "normSku": "PVN3619",
+      "name": "Dây bơm keo 11T",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3559",
+      "id": "PVN3559",
+      "normSku": "PVN3559",
+      "name": "dây bơm keo 15t",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3530",
+      "id": "PVN3530",
+      "normSku": "PVN3530",
+      "name": "Kim sắt 20G-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3520",
+      "id": "PVN3520",
+      "normSku": "PVN3520",
+      "name": "Kim NMS 20G-20mm màu hồng có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3468",
+      "id": "PVN3468",
+      "normSku": "PVN3468",
+      "name": "Kim sắt 32G-13mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3454",
+      "id": "PVN3454",
+      "normSku": "PVN3454",
+      "name": "Kim NMS 19G-33mm sữa",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3376",
+      "id": "PVN3376",
+      "normSku": "PVN3376",
+      "name": "Dây bơm keo 5cc Đầu sắt VN",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3247",
+      "id": "PVN3247",
+      "normSku": "PVN3247",
+      "name": "Dây bơm keo 10cc ko đầu cắm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3225",
+      "id": "PVN3225",
+      "normSku": "PVN3225",
+      "name": "Kim NMS 25G-26mm màu cam không ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3224",
+      "id": "PVN3224",
+      "normSku": "PVN3224",
+      "name": "Kim nms 17g-6.5mm có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3198",
+      "id": "PVN3198",
+      "normSku": "PVN3198",
+      "name": "Dây bơm keo 10cc Đầu sắt VN",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3112",
+      "id": "PVN3112",
+      "normSku": "PVN3112",
+      "name": "Cuộn dây bơm keo 300m",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN3087",
+      "id": "PVN3087",
+      "normSku": "PVN3087",
+      "name": "Nắp dây bơm keo 200cc blue",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2894",
+      "id": "PVN2894",
+      "normSku": "PVN2894",
+      "name": "Dây bơm keo 13T",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2781",
+      "id": "PVN2781",
+      "normSku": "PVN2781",
+      "name": "Kim NMS 15G-25mm oliu",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2679",
+      "id": "PVN2679",
+      "normSku": "PVN2679",
+      "name": "Dây bơm keo 200cc VN",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2601",
+      "id": "PVN2601",
+      "normSku": "PVN2601",
+      "name": "Kim sắt 18G-4mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2088",
+      "id": "PVN2088",
+      "normSku": "PVN2088",
+      "name": "Kim sắt 15G-13",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2053",
+      "id": "PVN2053",
+      "normSku": "PVN2053",
+      "name": "Kim NMS 25G-4mm màu đỏ có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN2050",
+      "id": "PVN2050",
+      "normSku": "PVN2050",
+      "name": "Kim sắt 16G-13mm MSS",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1880",
+      "id": "PVN1880",
+      "normSku": "PVN1880",
+      "name": "Kim sắt 14G-13mm MSS",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1662",
+      "id": "PVN1662",
+      "normSku": "PVN1662",
+      "name": "Kim NMS 34G-6.5mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1639",
+      "id": "PVN1639",
+      "normSku": "PVN1639",
+      "name": "Kim NMS 34G-13mm màu xanh ngọc có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC 2410",
+      "id": "TTPC 2410",
+      "normSku": "TTPC2410",
+      "name": "Kim NMS 18G-50mm(tổng dài 67mm) màu hồng không ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1273",
+      "id": "PVN1273",
+      "normSku": "PVN1273",
+      "name": "Kim NMS 23G-26mm màu cam có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1260",
+      "id": "PVN1260",
+      "normSku": "PVN1260",
+      "name": "Kim sắt 13G-13mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1258",
+      "id": "PVN1258",
+      "normSku": "PVN1258",
+      "name": "Kim NMS 15G-37mm oliu",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1227",
+      "id": "PVN1227",
+      "normSku": "PVN1227",
+      "name": "Nắp dây bơm keo 30cc - 50cc - 70cc",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "PVN1156",
+      "id": "PVN1156",
+      "normSku": "PVN1156",
+      "name": "Kim NMS 18G-37mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0230",
+      "id": "TTPC-0230",
+      "normSku": "TTPC0230",
+      "name": "Kim sắt 30G-13mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0227",
+      "id": "TTPC-0227",
+      "normSku": "TTPC0227",
+      "name": "Kim sắt 27G-13mm MSS",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0219",
+      "id": "TTPC-0219",
+      "normSku": "TTPC0219",
+      "name": "Kim sắt 19G-13mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0215",
+      "id": "TTPC-0215",
+      "normSku": "TTPC0215",
+      "name": "Kim sắt đôi 22G-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0214",
+      "id": "TTPC-0214",
+      "normSku": "TTPC0214",
+      "name": "Kim sắt đôi 25G-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0213",
+      "id": "TTPC-0213",
+      "normSku": "TTPC0213",
+      "name": "Kim sắt đôi 23G-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0212",
+      "id": "TTPC-0212",
+      "normSku": "TTPC0212",
+      "name": "Kim sắt đôi 21G-20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0210",
+      "id": "TTPC-0210",
+      "normSku": "TTPC0210",
+      "name": "Kim sắt đôi 19G -20mm",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0182",
+      "id": "TTPC-0182",
+      "normSku": "TTPC0182",
+      "name": "Kim NMS 22G,6mm xanh",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0180",
+      "id": "TTPC-0180",
+      "normSku": "TTPC0180",
+      "name": "Kim NMS 21G-27mm tím",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0179",
+      "id": "TTPC-0179",
+      "normSku": "TTPC0179",
+      "name": "Kim NMS 21G-6.5mm màu tím có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    },
+    {
+      "sku": "TTPC-0176",
+      "id": "TTPC-0176",
+      "normSku": "TTPC0176",
+      "name": "Kim NMS 21G-37mm màu tím có ren",
+      "brand": "T&T Vina Industrial",
+      "category": "Kim bơm keo & Phụ kiện tra keo",
+      "reason": "Chỉ đạo Ban Giám Đốc đợt 2: Dụng cụ bơm keo, robot tự động - Gỡ bỏ vĩnh viễn (07/10/2026)"
+    }
+  ]
+}
