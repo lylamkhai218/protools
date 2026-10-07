@@ -2065,3 +2065,229 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - `https://protools.com.vn/images/dresspack/comau/nj650_00_Robot_Angle_3_Side.png` (HTTP 200, 1.130.039 bytes).
   - `https://protools.com.vn/images/dresspack/comau/nj650_00_Robot_Angle_4_Wrist.png` (HTTP 200, 279.481 bytes).
   - `https://protools.com.vn/robot-dresspack` (HTTP 200, hoạt động hoàn hảo).
+
+### Rule 9.121: Triệt Tiêu Lộ Nguồn Nhập Hàng Nội Bộ (Shopee, MISUMI, LKĐT, NCC Địa Phương) & Chuẩn Hóa Thương Hiệu Công Nghiệp (07/10/2026)
+* **Bối cảnh & Vấn đề phát hiện**:
+  - Khi xem thanh lọc "THƯƠNG HIỆU" trên danh mục 7.500 SKU, xuất hiện các mục: `LKĐT (1.929)`, `MISUMI (117)`, `AN HẢI (55)`, `LỤA (51)`, `KHOA KIM (41)`, `Shope (40)`, `ĐỨC THÀNH ĐẠT (36)`, `MUA CHỢ (30)`, `TUYẾT NHUNG (17)`, v.v.
+  - **Nguyên nhân gốc rễ**: Khi nhân viên vận hành nhập hàng trên hệ thống phần mềm quản lý Sapo ERP, cột "Nhãn hiệu" đã bị ghi nhầm thành kênh mua hàng / tên nhà cung cấp nội bộ / đầu mối gom hàng cá nhân (ví dụ: đặt qua sàn Shopee, mua sàn Misumi, NCC An Hải, chị Lụa, Khoa Kim, Đức Thành Đạt, mua chợ...).
+  - **Rủi ro kinh doanh & bảo mật B2B**:
+    1. Lộ toàn bộ đầu mối nguồn hàng (Procurement Sources Confidentiality) ra cho khách hàng và đối thủ cạnh tranh.
+    2. Gây mất uy tín thương hiệu nghiêm trọng khi một website phân phối B2B chuyên nghiệp lại hiển thị các thương hiệu như "Shope", "Chị Lụa", "Mua chợ".
+    3. Hiểu sai lệch bản chất thương hiệu: Misumi là sàn phân phối/thương mại điện tử B2B, Shopee là sàn TMĐT, không phải nhà sản xuất thiết bị.
+* **Giải pháp kỹ thuật triệt để**:
+  1. **Khởi tạo bộ lọc bảo vệ Brand Normalization (`src/utils/brandNormalizer.ts`)**:
+     - Định nghĩa `DISALLOWED_VENDOR_TERMS`: Danh sách đen toàn bộ các tên nhà cung cấp nội bộ, kênh mua hàng và từ khóa kho bãi.
+     - Định nghĩa `GENUINE_BRAND_PATTERNS`: Nhận diện chuẩn xác các thương hiệu sản xuất công nghiệp thực sự (Murrplastik, Hakko, HIOS, Quick, Loctite, Samwon, Ansell, Keyence, Zcut, Dr. Schneider, CM Solder, SMC, Omron, Panasonic, Mitsubishi, Airtac, Festo, Koganei, Hiwin, THK, NSK, Schneider Electric, LIOA).
+     - Hàm `getSafeBrand(rawBrand, productName)`: Tự động trích xuất thương hiệu OEM từ tên sản phẩm; nếu thương hiệu nằm trong danh sách nhà cung cấp nội bộ hoặc không có thương hiệu riêng, tự động chuẩn hóa về thương hiệu mặc định: **`T&T Vina Industrial`**.
+  2. **Thực thi Script Dọn Dẹp Dữ Liệu (`scripts/sanitize_procurement_sources_and_brands.py`)**:
+     - Chuẩn hóa 2.838 sản phẩm trong `public/data/sapo_products_enriched.json` và `catalog_index.json`.
+     - Dọn sạch 2.674 họ sản phẩm trong `public/data/sapo_grouped_families.json`.
+     - Làm sạch câu mô tả sản phẩm (`shortDesc`): Thay thế triệt để các câu như `"thương hiệu Shope"`, `"thương hiệu MISUMI"`, `"thương hiệu LỤA"` thành `"tiêu chuẩn công nghiệp"` hoặc `"tiêu chuẩn T&T Vina Industrial"`.
+     - Làm sạch tên sản phẩm bị gài ghi chú mua hàng (ví dụ: `< bán shope>`, `- bán shopee`).
+     - Thanh lọc toàn bộ các tag kho nội bộ nhạy cảm (`Ms điệp`, `hàng hương về...`, `tồn lâu`, `hàng dùng rồi`).
+  3. **Đồng bộ Frontend & Xây dựng Lớp Phòng Ngự Đa Tầng**:
+     - Cập nhật [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx): Bộ lọc thương hiệu chỉ hiển thị các thương hiệu công nghiệp chuẩn; sản phẩm có nhãn nguồn nội bộ tự động gộp vào `T&T Vina Industrial`.
+     - Cập nhật [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx): Breadcrumb, badge ảnh, bảng thông số kỹ thuật (Spec-sheet) và tin nhắn Zalo RFQ luôn hiển thị `effectiveBrand` đã được bảo vệ.
+     - Cập nhật [`src/pages/CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx): Thẻ sản phẩm trong giỏ hàng, payload API gửi báo giá và file xuất CSV chỉ xuất thương hiệu an toàn.
+* **Kết quả nghiệm thu**:
+  - T&T Vina Industrial: 7.330 thiết bị
+  - Murrplastik: 14 thiết bị
+  - Quick: 33 thiết bị
+  - Zcut Automation: 14 thiết bị
+  - SMC: 16 thiết bị
+  - Loctite (Henkel): 16 thiết bị
+  - Omron: 12 thiết bị
+  - Panasonic: 12 thiết bị
+  - Hakko: 11 thiết bị
+  - Airtac: 8 thiết bị
+  - Keyence: 6 thiết bị
+  - LIOA: 5 thiết bị
+  - HIOS: 4 thiết bị
+  - Hiwin, Dr. Schneider, Mitsubishi, NSK, Samwon, CKD, Festo, THK: Nhận diện chính xác 100%.
+  - 0% rò rỉ bất kỳ tên NCC hay kênh mua cá nhân nào trên website.
+
+### Rule 9.122: Thanh Lọc Ghi Chú Kho Nội Bộ Trên Tên Hàng & Gỡ Bỏ Bộ Lọc Hãng Danh Mục (07/10/2026)
+* **Bối cảnh & Yêu cầu nghiệp vụ**:
+  1. Gỡ bỏ dải chip lọc `Thương hiệu` (`class="flex items-center gap-1.5 overflow-x-auto..."`) tại `Danh Mục Thiết Bị` ([`VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx)).
+  2. Rà soát, làm sạch toàn bộ các từ ngữ ghi chú nội bộ mà nhân viên kho tự ghi trên phần mềm Sapo ERP (ví dụ: `"bán shopee"`, `"bản shopee"`, `"Giá chưa VC"`, `"<hàng tồn>"`, `"<ko lên nguồn>"`).
+  3. Kiểm toán diện rộng toàn bộ 7.479 sản phẩm để phát hiện mọi nguy cơ rò rỉ thông tin nhạy cảm trước khi đưa lên public website.
+* **Kết quả Kiểm toán Toàn Diện (9 Nhóm Nguy Cơ Phát Hiện)**:
+  1. *Ghi chú Cước & Phí Vận Chuyển (257 sản phẩm)*: `- giá chưa VC`, `- giá chưa bao gồm vc`, `- chưa ship`, `giác chưa bao gồm VC` -> Đã lọc sạch qua regex chuẩn hóa.
+  2. *Kênh Bán Sàn TMĐT (2 sản phẩm)*: `- bán shopee`, `< bán shope>` -> Đã xóa bỏ hoàn toàn.
+  3. *Trạng thái Tồn Kho Nội Bộ (1 sản phẩm)*: `<hàng tồn>` -> Đã thanh lọc.
+  4. *Tình trạng Hàng Lỗi / Mẫu Thử / Đã Dùng (5 sản phẩm)*: `PVN5754` (`< ko lên nguồn>`), `PVN8895` (`<hàng dùng rồi>`), `PVN5638` (`<hàng mẫu>`), `PVN8891` (`<mẫu>`), `PVN7498` (`(mẫu)`) -> Đã xóa bỏ các thẻ ghi chú lỗi/mẫu.
+  5. *Lộ Thông Tin Khách Hàng B2B / Vi phạm Bảo mật Hợp đồng NDA (2 sản phẩm)*:
+     - `PVN3257`: `Mũi hàn 200-T-K<A, bán cho arcadyan>` -> Lộ tên khách hàng tập đoàn Arcadyan. Đã thanh lọc sạch thành `Mũi hàn 200-T-K`.
+     - `PVN5548`: `... <Hàng genbyte hoàn về >` -> Lộ khách hàng Genbyte và tình trạng hàng hoàn. Đã làm sạch.
+  6. *Ghi chú Kế Toán / Thuế / Hóa Đơn Nhạy Cảm (1 sản phẩm)*:
+     - `PVN9356`: `Thảm cao su chống tĩnh điện 1m2 xanh bóng <nhập đầu vào ko bán khách lấy hóa đơn>` -> Rủi ro thuế/kế toán cực kỳ nghiêm trọng. Đã thanh lọc 100%.
+  7. *Nguồn Nhập Gom Cá Nhân / Tên Nhân Viên (2 sản phẩm)*: `PVN7002` (`<nhập Hương>`), `PVN7222` (`- hàng LK`) -> Đã làm sạch.
+  8. *Đánh giá Phẩm Cấp Chủ Quan Nội Bộ (4 sản phẩm)*: `<thường - tốt>`, `<rẻ>`, `<tốt>`, `<Tốt, có hộp-tem mác>` -> Đã làm sạch về đúng tên kỹ thuật.
+  9. *Mã Đơn Nhập PO Trong Ngoặc Nhọn (98 sản phẩm)*: Dạng `<001747>` đến `<001887>` -> Đã loại bỏ hoàn toàn mã PO nội bộ.
+* **Giải Pháp Kỹ Thuật & Bảo Vệ 2 Lớp**:
+  - **Lớp 1 (Data Layer Pipeline)**: Cập nhật hàm `clean_product_name(name)` trong [`scripts/sanitize_procurement_sources_and_brands.py`](file:///d:/T&TVina/protools/scripts/sanitize_procurement_sources_and_brands.py), làm sạch đồng loạt `catalog_index.json`, `sapo_products_enriched.json`, `sapo_grouped_families.json`.
+  - **Lớp 2 (Client Display Shield)**: Xuất hàm `cleanProductName(name)` trong [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts), tự động khử chuỗi rác trên mọi tầng hiển thị ([`VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx), [`ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx), [`CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx)).
+  - **Bảo toàn Dữ liệu**: Bảo toàn nguyên vẹn 21 thiết bị showcase flagship (Murrplastik R-Tec Liner, Dr. Schneider, Hakko HK-801, Quick 196) đảm bảo quy mô 7.500 sản phẩm và 7.518 sitemap URLs không bị hao hụt. Bảo toàn toàn bộ thông số kỹ thuật thực tế (`<sợi nhỏ>`, `Phi 12mm`, `M4x10`).
+
+### Rule 9.123: Gỡ Bỏ Vĩnh Viễn & Thiết Lập Danh Sách Đen 59 Mã Hàng Nội Bộ (Executive Blacklist Standard - 07/10/2026)
+* **Bối cảnh & Chỉ đạo từ Ban Giám Đốc**:
+  - Ban Giám Đốc yêu cầu gỡ bỏ vĩnh viễn 59 mã sản phẩm nhạy cảm (gồm các dòng tay hàn, mũi hàn loại rẻ không tem mác, thiết bị hàn cũ, búi đồng, nhíp gỗ, găng tay, dép chống tĩnh điện, thiếc hàn, v.v.) khỏi toàn bộ website public Protools.
+  - Đồng thời yêu cầu lưu lại danh sách các mã này để trong tương lai, khi có bất kỳ đợt cập nhật hay đồng bộ dữ liệu mới nào từ file Sapo ERP, hệ thống tự động nhận diện và chặn tuyệt đối không cho phép đưa các mã này lên website.
+* **Danh Sách 59 Mã Hàng Bị Gỡ Bỏ Vĩnh Viễn (Case-Insensitive & Formats Tolerant)**:
+  - `PVN1145`: Tay hàn 20H Rẻ, không hộp- tem mác
+  - `PVN1307`: Đầu chụp tay hàn 20H
+  - `PVN1605`: Xốp đen chống tĩnh điện 1mm
+  - `PVN1678`: Bản mạch cho tay hàn FX 8801
+  - `PVN1747`: Mũi hàn 900MT-K (to)
+  - `PVN1787`: Đầu chụp tay hàn FX888D
+  - `PVN2077`: Tay hàn FX9501
+  - `PVN2155`: Mũi hàn 900MT-SK (bé)
+  - `PVN2636`: Mũi hàn Weller LTKN LF (thiết bị hàn, bể hàn)
+  - `PVN2721`: Thiếc hàn SUNCHI 0.9mm loại nhỏ
+  - `PVN3257`: Mũi hàn 200-T-K
+  - `PVN4151`: Mũi hàn 200-1c ( đầu to)
+  - `PVN4684`: Vòng đeo tay posh 1.8m <sợi nhỏ>
+  - `PVN5033`: Xốp lau mũi hàn vuông 6*6*12mm (mỏng)
+  - `PVN5133`: Mũi hàn 200-1,6D
+  - `PVN5202`: Đầu chụp tay hàn 20H (phần màu đen)
+  - `PVN5561`: Nhíp Vetus SSJP
+  - `PVN5669`: Nhíp gỗ TV 150A
+  - `PVN5734`: Tăm bông thân gỗ <lẻ>
+  - `PVN5741`: Mũi hàn 200-SK <CH>
+  - `PVN6314`: Mũi hàn 200-K <CH>
+  - `PVN6329`: Găng tay vải mỏng
+  - `PVN6485`: Thảm cao su chống tĩnh điện 1m xanh bóng
+  - `PVN6728`: Túi ziplock chống tĩnh điện 30*30
+  - `PVN6729`: Túi ziplock chống tĩnh điện 15*14
+  - `PVN6733`: Bộ chổi cọ chống tĩnh điện
+  - `PVN6734`: Dép chống tĩnh điện
+  - `PVN6814`: Hút chì chống tĩnh điện 8PK-366NA
+  - `PVN7002`: Mũi hàn 900MT-I
+  - `PVN7237`: Tay hàn Hakko FX600 chính hãng loại 2 chân
+  - `PVN7282`: Mũi hàn 911G-10PC
+  - `PVN7437`: Tay hàn Quick 902A FR (cho máy 205)
+  - `PVN7765`: Cuộn thiếc hàn alpha 0.64mm SAC305
+  - `PVN7926`: Nắp chụp tay hàn quick 203H
+  - `PVN8464`: Mũi hàn QSS 200-1.5K (200-1c)
+  - `PVN8669`: Mũi hàn 200-k ( tốt)
+  - `PVN9671`: Mũi hàn dùng cho tay hàn 907 T-K
+  - `PVN9672`: Mũi hàn dùng cho tay hàn 907 T-I
+  - `PVN9673`: Mũi hàn dùng cho tay hàn 907 T-3C
+  - `PVN9674`: Mũi hàn dùng cho tay hàn 907 T-B
+  - `TTPC-0316`: Tay hàn FX9501 < chính hãng>
+  - `TTPC-0317`: Tay hàn 902A-A
+  - `TTPC-0395`: Mũi hàn T18-C2
+  - `TTPC-0397`: Đầu chụp tay hàn 902A
+  - `TTPC-0524` (gốc ghi nhầm TPC-0524): Búi đồng lau mũi hàn A1561 <B>
+  - `TTPC-0547`: Mũi hàn 200-b (b)
+  - `TTPC-0684`: Mũi hàn 200-I (A )
+  - `TTPC 1207`: Đầu chụp tay hàn 937
+  - `TTPC 1357`: Tay hàn 20H Chính Hãng
+  - `TTPC 1809`: Ruột mũi hàn 60W
+  - `TTPC-2210`: Mũi hàn 200-b ( tốt )
+  - `TTPC 2986`: Mũi hàn T18-B
+  - `TTPC 3002`: Búi đồng lau mũi hàn A1561 -A
+  - `TTPC 3245`: Mũi hàn 200-I ( B )
+  - `TTPC-3345`: Mũi hàn 500-5C-90*
+  - `TTPC 3826`: Nhíp nhựa 707
+  - `TTPC 5257`: Tay hàn 20H
+  - `TTPC 8623`: Tay hàn 907-936A ( Quick)
+  - `TTPC 9612`: Tay hàn Keliew SL 90308
+* **Kiến Trúc Phòng Ngự & Lưu Trữ Đa Tầng (Multi-Layer Blacklist Architecture)**:
+  1. **Nguồn Chân Lý Duy Nhất (Single Source of Truth)**:
+     - Tập tin cấu hình [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json) lưu trữ đầy đủ metadata ngày ban hành, danh sách mã SKU gốc, mã SKU chuẩn hóa (`normalizedPatterns`) và chi tiết từng sản phẩm.
+  2. **Thanh Lọc Triệt Để Nguồn Dữ Liệu Tĩnh (Data Purge)**:
+     - Đã loại bỏ hoàn toàn 59 sản phẩm khỏi [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json) (quy mô catalog giảm từ 7.500 xuống 7.441 items).
+     - Đã làm sạch [`public/data/sapo_products_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_products_enriched.json) (từ 7.479 xuống 7.420 items).
+     - Đã loại bỏ 59 biến thể và 57 họ rỗng khỏi [`public/data/sapo_grouped_families.json`](file:///d:/T&TVina/protools/public/data/sapo_grouped_families.json).
+     - Đồng bộ toàn diện sang thư mục phân phối `dist/data/`.
+  3. **Lá Chắn Đồng Bộ Dữ Liệu Tương Lai (Future Import Shield)**:
+     - Toàn bộ các script xử lý dữ liệu ([`scripts/sanitize_procurement_sources_and_brands.py`](file:///d:/T&TVina/protools/scripts/sanitize_procurement_sources_and_brands.py) và [`scripts/generate_catalog_index.py`](file:///d:/T&TVina/protools/scripts/generate_catalog_index.py)) đã tích hợp cơ chế nạp động `src/data/excluded_skus.json`. Bất kỳ lần update dữ liệu nào từ Sapo sau này đều tự động loại bỏ các mã này ngay từ vòng nạp đầu tiên.
+  4. **Lớp Chặn Thời Gian Thực Client (Client Runtime Guard)**:
+     - Hàm `isExcludedSku()` trong [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts) sử dụng tập `Set` chuẩn hóa, chặn mọi truy vấn tìm kiếm hoặc click.
+     - [`src/utils/catalogLoader.ts`](file:///d:/T&TVina/protools/src/utils/catalogLoader.ts) lọc bỏ sản phẩm thuộc blacklist ngay khi nạp JSON vào bộ nhớ.
+     - [`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx) chặn trực tiếp các URL deep link (`/san-pham/:slug` hoặc `?product=:sku`) trỏ đến các mã này, tự động chuyển hướng về trang chủ thay vì render chi tiết.
+  5. **Đồng Bộ SEO & Cổng Danh Mục**:
+     - Chạy lại [`generate_sitemaps.py`](file:///d:/T&TVina/protools/generate_sitemaps.py): Sitemap [`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml) được làm mới về chuẩn 7.459 URLs (7.441 sản phẩm + 18 đường dẫn danh mục/tĩnh), 100% không còn chứa bất kỳ URL nào của 59 sản phẩm trên.
+     - Xuất danh sách 59 ID/SKU vào [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json) phục vụ cơ chế disable động tức thì qua HTTP cache-busting.
+
+### Rule 9.124: Gỡ Bỏ Vĩnh Viễn Đợt 2 (116 Sản Phẩm Bơm Keo & Robot Tự Động) & Mở Rộng Danh Sách Đen (07/10/2026)
+* **Bối cảnh & Chỉ đạo từ Ban Giám Đốc (Đợt 2)**:
+  - Ban Giám Đốc yêu cầu tiếp tục gỡ bỏ hoàn toàn **116 sản phẩm** thuộc nhóm Dụng cụ bơm keo và Robot tự động (gồm các dòng van bơm keo, dây bơm keo, xylanh bơm keo, đầu kim bơm keo, máy bơm keo tự động, tay robot cấp keo...).
+  - Tích hợp toàn diện 116 mã này vào danh sách đen vĩnh viễn (nâng tổng số lên **175 sản phẩm** / 176 mẫu mã chuẩn hóa), ngăn chặn triệt để nguy cơ xuất hiện lại khi đồng bộ Sapo ERP trong tương lai.
+* **Nhóm 116 Mã Hàng Đợt 2 Được Gỡ Bỏ Vĩnh Viễn**:
+  - `PVN10183`, `PVN10380`, `PVN1156`, `PVN1227`, `PVN1258`, `PVN1260`, `PVN1273`, `PVN1639`, `PVN1662`, `PVN1880`,
+  - `PVN2050`, `PVN2053`, `PVN2088`, `PVN2601`, `PVN2679`, `PVN2781`, `PVN2894`, `PVN3087`, `PVN3112`, `PVN3198`,
+  - `PVN3224`, `PVN3225`, `PVN3247`, `PVN3376`, `PVN3454`, `PVN3468`, `PVN3520`, `PVN3530`, `PVN3559`, `PVN3619`,
+  - `PVN3696`, `PVN3804`, `PVN3922`, `PVN3941`, `PVN4171`, `PVN4199`, `PVN4204`, `PVN4329`, `PVN4330`, `PVN4353`,
+  - `PVN4354`, `PVN4397`, `PVN4498`, `PVN4503`, `PVN4691`, `PVN4692`, `PVN4715`, `PVN4856`, `PVN4862`, `PVN4988`,
+  - `PVN5068`, `PVN5072`, `PVN5137`, `PVN5322`, `PVN5379`, `PVN5576`, `PVN5578`, `PVN5609`, `PVN5784`, `PVN5968`,
+  - `PVN6208`, `PVN6452`, `PVN6488`, `PVN6530`, `PVN6531`, `PVN6575`, `PVN6616`, `PVN6714`, `PVN6740`, `PVN6782`,
+  - `PVN6805`, `PVN6856`, `PVN6919`, `PVN6920`, `PVN7023`, `PVN7317`, `PVN7438`, `PVN7439`, `PVN7446`, `PVN7471`,
+  - `PVN7492`, `PVN7601`, `PVN7630`, `PVN7690`, `PVN7802`, `PVN7872`, `PVN7873`, `PVN7898`, `PVN7899`, `PVN7901`,
+  - `PVN7927`, `PVN7930`, `PVN7981`, `PVN8210`, `PVN8278`, `PVN8483`, `PVN8593`, `PVN8607`, `PVN8608`, `PVN8721`,
+  - `PVN8725`, `PVN8893`, `PVN8968`,
+  - `TTPC-0176`, `TTPC-0179`, `TTPC-0180`, `TTPC-0182`, `TTPC-0210`, `TTPC-0212`, `TTPC-0213`, `TTPC-0214`,
+  - `TTPC-0215`, `TTPC-0219`, `TTPC-0227`, `TTPC-0230`, `TTPC 2410`.
+* **Cập Nhật Quy Mô & Hệ Thống Bảo Vệ**:
+  1. **Tập tin cấu hình**: Cập nhật [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json) lên **175 sản phẩm** (59 đợt 1 + 116 đợt 2).
+  2. **Dữ liệu phân phối**:
+     - [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json): Giảm từ 7.441 xuống **7.325 sản phẩm**.
+     - [`public/data/sapo_products_enriched.json`](file:///d:/T&TVina/protools/public/data/sapo_products_enriched.json): Giảm từ 7.420 xuống **7.304 sản phẩm**.
+     - [`public/data/sapo_grouped_families.json`](file:///d:/T&TVina/protools/public/data/sapo_grouped_families.json): Loại bỏ 116 biến thể và dọn sạch 93 họ sản phẩm rỗng.
+  3. **Google Sitemap**: Chạy lại [`generate_sitemaps.py`](file:///d:/T&TVina/protools/generate_sitemaps.py), cập nhật [`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml) về **7.343 URLs** chuẩn SEO (7.325 sản phẩm + 18 URLs tĩnh/danh mục).
+  4. **Client & Dynamic Shield**: Cập nhật tập `EXCLUDED_NORM_SKUS` trong [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts) và danh sách 175 mã trong [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json).
+
+### Rule 9.125: Kích Hoạt Màn Hình Bảo Trì (Public Maintenance Screen) & Cổng Soát Mã SKU Nội Bộ 7.500 Sản Phẩm (07/10/2026)
+* **Bối cảnh & Yêu cầu nghiệp vụ**:
+  1. Ban Giám Đốc chỉ đạo tạm thời đưa toàn bộ website public về **Màn hình Bảo trì (Maintenance Mode)** để che giấu các thông tin/mã hàng nhạy cảm còn sót lại trong khi tiếp tục rà soát.
+  2. Thiết kế màn hình bảo trì lấy chuẩn hoạt họa Lottie từ [`public/images/Maintenance web.json`](file:///d:/T&TVina/protools/public/images/Maintenance%20web.json), bổ sung thông điệp bảo trì & nâng cấp, kênh tiếp nhận thông tin khẩn cấp: Hotline `0915168824` / `0915.168.824` và Email `info@t2tvina.com`.
+  3. Cung cấp đường dẫn bảo mật riêng (`https://protools.com.vn/noi-bo/`) cho nhân viên kho và kinh doanh nội bộ đăng nhập/truy cập để duyệt toàn bộ 7.500 sản phẩm gốc, lọc tìm kiếm và lấy mã SKU gửi admin gỡ xuống tiếp.
+* **Giải Pháp Kiến Trúc Kỹ Thuật Đa Tầng**:
+  1. **Màn Hình Bảo Trì Khách Ngoài ([`src/components/MaintenanceScreen.tsx`](file:///d:/T&TVina/protools/src/components/MaintenanceScreen.tsx))**:
+     - Tích hợp thư viện `lottie-web` render hoạt họa vector chất lượng cao từ `public/images/Maintenance web.json`.
+     - Hiển thị thông báo: *"Website Đang Tiến Hành Bảo Trì & Nâng Cấp Hệ Thống. Sẽ sớm quay trở lại phục vụ Quý khách."*
+     - Hai card liên hệ khẩn cấp 24/7 tích hợp nút gọi nhanh và nút sao chép (Copy) 1-click:
+       * Hotline: `0915.168.824` (`tel:0915168824`)
+       * Email: `info@t2tvina.com` (`mailto:info@t2tvina.com`)
+     - Chân trang tích hợp kín đáo nút liên kết sang *Cổng Nhân Sự Nội Bộ*.
+  2. **Cổng Soát Mã SKU Nội Bộ ([`src/components/InternalReviewHub.tsx`](file:///d:/T&TVina/protools/src/components/InternalReviewHub.tsx))**:
+     - Đường dẫn truy cập hỗ trợ:
+       * `https://protools.com.vn/noi-bo/`
+       * `https://protools.com.vn/internal/`
+       * `https://protools.com.vn/kiem-duyet/`
+       * Hoặc thêm tham số `?mode=internal` / `?access=noi-bo`.
+     - Cơ chế phiên làm việc: Tự động ghi nhớ cờ `localStorage.setItem('protools_internal_mode', 'true')` để nhân sự thoải mái duyệt web không bị văng về màn hình bảo trì.
+     - **3 Chế độ tương tác linh hoạt**:
+       * *Trạm Soát Mã SKU Nhanh*: Bảng dữ liệu tìm kiếm tức thì theo Tên / SKU / Hãng / Ngành hàng, phân loại rõ 3 tab (Tất cả 7.500 / Đang mở 7.325 / Đã gỡ 175), nút Copy từng mã và checkbox chọn nhiều mã.
+       * *Thanh Công Cụ Sao Chép Hàng Loạt (Floating Batch Bar)*: Tích chọn nhiều sản phẩm và bấm nút *"SAO CHÉP TẤT CẢ MÃ ĐÃ CHỌN (GỬI SẾP)"* để tự động tạo chuỗi phân tách bằng dấu phẩy (`PVN1234, PVN5678, TTPC-0210...`) sẵn sàng paste gửi qua Zalo!
+       * *Xem Giao Diện Trang Chủ (Full Home View)*: Cho phép nhân viên trải nghiệm toàn bộ trang chủ Protools bình thường kèm thanh điều khiển Sticky Bar ghim trên cùng.
+       * *Xem Thử Trang Bảo Trì*: Xem trước trải nghiệm của khách ngoài bất cứ lúc nào.
+  3. **Tập Tin Chỉ Mục Phục Vụ Nội Bộ ([`public/data/catalog_index_full.json`](file:///d:/T&TVina/protools/public/data/catalog_index_full.json))**:
+     - Khởi tạo qua [`scripts/generate_internal_catalog.py`](file:///d:/T&TVina/protools/scripts/generate_internal_catalog.py), lưu trữ trọn vẹn 7.500 sản phẩm gốc kèm thuộc tính nhận diện `isExcluded: true/false` giúp nhân sự phân biệt rõ ràng các sản phẩm đã gỡ và sản phẩm còn hiển thị.
+  4. **Bảo Mật & Chặn Thu Thập Dữ Liệu SEO ([`public/robots.txt`](file:///d:/T&TVina/protools/public/robots.txt))**:
+     - Khai báo chỉ thị `Disallow: /noi-bo/`, `Disallow: /internal/`, `Disallow: /kiem-duyet/` ngăn chặn tuyệt đối Googlebot và các công cụ tìm kiếm thu thập dữ liệu cổng nội bộ.
+
+### Rule 9.126: Chuẩn Hóa Giao Diện Màn Hình Bảo Trì Nền Sáng & Cổng Soát Mã Nội Bộ Tinh Gọn (07/10/2026)
+* **Tinh Chỉnh Màn Hình Bảo Trì Khách Ngoài ([`src/components/MaintenanceScreen.tsx`](file:///d:/T&TVina/protools/src/components/MaintenanceScreen.tsx))**:
+  1. **Nhận diện thương hiệu chuẩn**: Tích hợp Logo màu Master chính hãng của T&T Vina (`/logos/TTV_LOGO_Color_Master.svg`).
+  2. **Giao diện nền sáng (Light Theme)**: Chuyển toàn bộ màn hình sang phong cách nền sáng thanh lịch (`bg-gradient-to-b from-slate-50 via-white to-slate-100`), tương phản cao, hiện đại.
+  3. **Không cần cuộn trang (Zero Scroll Fit)**: Đẩy hoạt họa Lottie SVG lên trên, thu gọn tỉ lệ và khoảng cách để toàn bộ nội dung vừa vặn chính xác chiều cao màn hình (`h-[100dvh]`), đảm bảo trải nghiệm hoàn hảo trên cả máy tính và điện thoại thông minh (iPhone/Android).
+  4. **Gỡ bỏ liên kết cổng nội bộ**: Tuyệt đối không để lộ bất kỳ nút hay liên kết nào dẫn tới Cổng nội bộ ở chân trang công khai.
+* **Tinh Chỉnh Cổng Soát Mã SKU Nội Bộ ([`src/components/InternalReviewHub.tsx`](file:///d:/T&TVina/protools/src/components/InternalReviewHub.tsx))**:
+  1. **Đơn giản hóa giao diện**: Gỡ bỏ hộp thông báo hướng dẫn cồng kềnh, gỡ nhãn `KHÁCH NGOÀI ĐANG THẤY BẢO TRÌ`, và gỡ 3 nút điều hướng ở góc trên bên phải để nhân sự tập trung 100% vào việc kiểm duyệt mã hàng.
+  2. **Bổ sung hình ảnh sản phẩm trực quan**: Thêm cột `ẢNH` hiển thị thumbnail sản phẩm sắc nét, hỗ trợ tự động sửa giao thức `https://` và fallback icon gói hàng nếu ảnh lỗi.
+  3. **Bộ lọc theo Ngành hàng (Category Filter)**: Thêm menu thả xuống cho phép lọc theo 15+ nhóm ngành kỹ thuật kèm số lượng sản phẩm chi tiết của từng ngành.
+  4. **Chuẩn hóa nhãn nút gom mã**: Đổi nút bấm thành **`SAO CHÉP TẤT CẢ MÃ ĐÃ CHỌN`** (lược bỏ chữ "Gửi sếp" theo chỉ đạo).
+
+### Rule 9.127: Cải Tiến Cột Hiển Thị Bảng Soát Mã & Modal Phóng To Ảnh Sản Phẩm (07/10/2026)
+* **Tăng kích thước ảnh & Lightbox Zoom Modal ([`src/components/InternalReviewHub.tsx`](file:///d:/T&TVina/protools/src/components/InternalReviewHub.tsx))**:
+  1. **Kích thước thumbnail**: Nâng kích thước từ `12x12` lên `16x16` (64x64px), tích hợp hover icon `ZoomIn` và viền màu thương hiệu `#00478D`.
+  2. **Trải nghiệm phóng to (Click-to-Zoom Lightbox)**: Khi bấm vào ảnh thumbnail, mở modal overlay phủ mờ hiển thị ảnh phóng to độ phân giải cao, tên thiết bị đầy đủ, SKU, hãng, ngành hàng và nút copy mã nhanh trong popup.
+* **Tái cấu trúc thứ tự cột ưu tiên nghiệp vụ**:
+  - Thứ tự mới: `[Checkbox]` → `[ẢNH]` → `[MÃ SKU]` → `[TÊN SẢN PHẨM]` → `[NGÀNH HÀNG]` → `[THƯƠNG HIỆU]` → `[TRẠNG THÁI]` → `[THAO TÁC]`.
+  - Đưa `Tên sản phẩm` và `Ngành hàng` lên trước `Thương hiệu` giúp nhân sự kho đối chiếu trực quan tên hàng và nhóm hàng nhanh hơn.
+
+
+
+

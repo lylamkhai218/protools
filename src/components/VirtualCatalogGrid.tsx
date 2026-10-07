@@ -18,6 +18,7 @@ import { getSalesRepForProduct, PRODUCTS, COMPANY_INFO } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedProduct, CATEGORY_TRANSLATIONS } from '../i18n/productTranslations';
 import { loadCatalogIndex } from '../utils/catalogLoader';
+import { getSafeBrand, cleanProductName } from '../utils/brandNormalizer';
 
 interface VirtualCatalogGridProps {
   onSelectProduct: (product: Product) => void;
@@ -120,11 +121,11 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
     return Object.values(catMap).sort((a, b) => b.count - a.count);
   }, [catalogItems]);
 
-  // Compute Brands with Count
+  // Compute Brands with Count (strictly sanitizes and protects internal procurement vendors)
   const brandsList = useMemo(() => {
     const brandMap: Record<string, { name: string; count: number }> = {};
     for (const item of catalogItems) {
-      const b = (item.brand || '').trim();
+      const b = getSafeBrand(item.brand, item.name);
       if (!b) continue;
       const key = b.toLowerCase();
       if (!brandMap[key]) {
@@ -146,7 +147,7 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
         const cleanSku = (item.sku || '').toLowerCase().replace(/[-_.\s]/g, '');
         const matchSku = item.sku.toLowerCase().includes(q) || (cleanQ.length >= 2 && cleanSku.includes(cleanQ));
         const matchName = item.name.toLowerCase().includes(q);
-        const matchBrand = (item.brand || '').toLowerCase().includes(q);
+        const matchBrand = getSafeBrand(item.brand, item.name).toLowerCase().includes(q);
         const matchCategory = (item.category || '').toLowerCase().includes(q);
         const matchTags = (item.tags || '').toLowerCase().includes(q);
         if (!matchSku && !matchName && !matchBrand && !matchCategory && !matchTags) {
@@ -171,7 +172,7 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
 
       // 3. Brand facet filter
       if (selectedBrand !== 'all') {
-        const itemBrand = (item.brand || '').trim().toLowerCase();
+        const itemBrand = getSafeBrand(item.brand, item.name).trim().toLowerCase();
         if (itemBrand !== selectedBrand.trim().toLowerCase()) {
           return false;
         }
@@ -352,37 +353,6 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
               );
             })}
           </div>
-
-          {/* Brand Facet Chips Scroll */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-2.5 text-xs whitespace-nowrap scrollbar-thin border-t border-slate-200/70">
-            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider pr-1 shrink-0 flex items-center gap-1">
-              <Tag className="w-3.5 h-3.5 text-[#00478D]" />
-              <span>{locale === 'vi' ? 'Thương hiệu:' : 'Brand:'}</span>
-            </span>
-            <button
-              onClick={() => setSelectedBrand('all')}
-              className={`px-2.5 py-1 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                selectedBrand === 'all'
-                  ? 'bg-slate-800 text-white shadow-2xs'
-                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-              }`}
-            >
-              {locale === 'vi' ? 'Tất cả hãng' : 'All Brands'}
-            </button>
-            {brandsList.slice(0, 12).map(b => (
-              <button
-                key={b.name}
-                onClick={() => setSelectedBrand(b.name)}
-                className={`px-2.5 py-1 rounded-xs text-xs font-bold transition-all cursor-pointer ${
-                  selectedBrand.toLowerCase() === b.name.toLowerCase()
-                    ? 'bg-[#00478D] text-white shadow-2xs'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                {b.name} <span className="text-slate-600 text-xs font-semibold">({b.count.toLocaleString(numLocale)})</span>
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* RESULTS SUMMARY BAR */}
@@ -416,7 +386,7 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                     <div className="p-2.5 pb-0 flex items-center justify-between text-[10px]">
                       <span className="font-mono text-slate-500 font-bold truncate max-w-[60%]">{p.sku}</span>
                       <span className="font-bold text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded-xs shrink-0 truncate max-w-[38%]">
-                        {p.brand || 'T&T Vina'}
+                        {getSafeBrand(p.brand, p.name)}
                       </span>
                     </div>
 
@@ -471,9 +441,9 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                       <h3 
                         onClick={() => onSelectProduct(p)}
                         className="font-display font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 leading-snug cursor-pointer mt-0.5 min-h-[2.5rem]"
-                        title={lp.name}
+                        title={cleanProductName(lp.name)}
                       >
-                        {lp.name}
+                        {cleanProductName(lp.name)}
                       </h3>
                     </div>
                   </div>
@@ -558,10 +528,10 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                           onClick={() => onSelectProduct(p)}
                           className="font-semibold text-slate-900 hover:text-[#00478D] cursor-pointer line-clamp-1"
                         >
-                          {lp.name}
+                          {cleanProductName(lp.name)}
                         </span>
                         <span className="text-[10px] text-slate-400 block font-mono">
-                          {p.brand || 'T&T Vina'} · {p.unit || 'cái'}
+                          {getSafeBrand(p.brand, p.name)} · {p.unit || 'cái'}
                         </span>
                       </td>
                       <td className="p-3 text-slate-600 truncate max-w-[180px]">{catName}</td>

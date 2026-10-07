@@ -24,6 +24,7 @@ import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedProduct } from '../i18n/productTranslations';
 import { generateProductSEODescription } from '../utils/seoDescription';
 import { getProductPath } from '../utils/slugify';
+import { getSafeBrand, cleanProductName } from '../utils/brandNormalizer';
 
 interface ProductDetailProps {
   product: Product;
@@ -94,7 +95,8 @@ export default function ProductDetail({
   };
 
   const effectiveSku = selectedVariant?.sku || p?.sku || '';
-  const effectiveName = selectedVariant ? `${p?.name} (${selectedVariant.name})` : (p?.name || '');
+  const effectiveName = selectedVariant ? `${cleanProductName(p?.name)} (${cleanProductName(selectedVariant.name)})` : cleanProductName(p?.name || '');
+  const effectiveBrand = getSafeBrand(p?.brand || product.brand, effectiveName);
   const effectiveShortDesc = selectedVariant?.shortDesc || p?.shortDesc || seoData?.richDescription;
   const effectiveHighlights = selectedVariant?.highlights || p?.highlights;
   const effectiveSpecs = selectedVariant?.specs ? { ...p?.specs, ...selectedVariant.specs } : (p?.specs || {});
@@ -114,7 +116,7 @@ export default function ProductDetail({
   const handleZaloFastQuote = (rep: SalesRepInfo) => {
     const canonicalLink = product ? `https://protools.com.vn${getProductPath(product)}` : window.location.href;
     const variantLine = selectedVariant ? `\n- Phân loại: ${selectedVariant.name} (SKU: ${effectiveSku})` : '';
-    const inquiryText = `Chào T&T Vina, tôi cần báo giá thiết bị sau:\n- Tên sản phẩm: ${p?.name || product.name}${variantLine}\n- Mã SKU: ${effectiveSku}\n- Thương hiệu: ${product.brand || 'T&T Vina'}\n- Số lượng dự kiến: ${quantity} ${selectedVariant?.unit || product.unit || 'cái/hộp'}\n- Link tham khảo: ${canonicalLink}\nNhờ Quý công ty phản hồi báo giá và tồn kho sớm giúp tôi. Xin cảm ơn!`;
+    const inquiryText = `Chào T&T Vina, tôi cần báo giá thiết bị sau:\n- Tên sản phẩm: ${p?.name || product.name}${variantLine}\n- Mã SKU: ${effectiveSku}\n- Thương hiệu: ${effectiveBrand}\n- Số lượng dự kiến: ${quantity} ${selectedVariant?.unit || product.unit || 'cái/hộp'}\n- Link tham khảo: ${canonicalLink}\nNhờ Quý công ty phản hồi báo giá và tồn kho sớm giúp tôi. Xin cảm ơn!`;
     
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -221,11 +223,11 @@ export default function ProductDetail({
 
             <button 
               type="button"
-              onClick={() => onNavigate('home', p.brand?.toLowerCase().includes('murrplastik') ? 'murrplastik' : (p.categorySlug || 'all'))}
+              onClick={() => onNavigate('home', effectiveBrand.toLowerCase().includes('murrplastik') ? 'murrplastik' : (p.categorySlug || 'all'))}
               className="hover:text-[#00478D] font-mono text-slate-500 hover:underline cursor-pointer transition-colors px-1.5 py-0.5 rounded-xs hover:bg-slate-100"
-              title={`Lọc theo hãng ${p.brand}`}
+              title={`Lọc theo hãng ${effectiveBrand}`}
             >
-              {p.brand}
+              {effectiveBrand}
             </button>
 
             <ChevronRight className="w-3 h-3 text-slate-300 shrink-0" />
@@ -276,7 +278,7 @@ export default function ProductDetail({
                 
                 <div className="absolute top-3 left-3 flex flex-col gap-1.5">
                   <span className="px-2.5 py-1 rounded-xs bg-[#00478D] text-white font-display font-bold text-xs uppercase tracking-wider">
-                    {p.brand}
+                    {effectiveBrand}
                   </span>
                   <span className="px-2 py-0.5 rounded-xs bg-white/90 text-slate-800 text-[11px] font-mono border border-slate-200 font-bold">
                     SKU: {effectiveSku}
@@ -715,21 +717,24 @@ export default function ProductDetail({
                   <table className="w-full text-left border-collapse text-xs">
                     <tbody className="divide-y divide-slate-200">
                       {Object.entries((effectiveSpecs && Object.keys(effectiveSpecs).length > 0) ? effectiveSpecs : {
-                        'Hãng sản xuất': p.brand || 'T&T Vina Industrial',
+                        'Hãng sản xuất': effectiveBrand,
                         'Mã sản phẩm (SKU)': effectiveSku || p.id,
                         'Chuyên mục': p.category || 'Linh kiện & Thiết bị công nghiệp',
                         'Kho hàng': p.stockLocation || 'Kho Hà Nội & Hưng Yên',
                         'Tình trạng': (p.stock || 0) > 0 ? `Sẵn hàng (${p.stock})` : 'Liên hệ đặt hàng'
-                      }).map(([specKey, specVal], idx) => (
-                        <tr key={specKey} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'}>
-                          <td className="p-3.5 sm:p-4 font-bold text-slate-700 w-1/3 sm:w-1/4 border-r border-slate-200 bg-slate-50/50">
-                            {specKey}
-                          </td>
-                          <td className="p-3.5 sm:p-4 font-mono font-medium text-slate-900">
-                            {specVal}
-                          </td>
-                        </tr>
-                      ))}
+                      }).map(([specKey, specVal], idx) => {
+                        const displayVal = specKey === 'Hãng sản xuất' ? getSafeBrand(String(specVal), effectiveName) : specVal;
+                        return (
+                          <tr key={specKey} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'}>
+                            <td className="p-3.5 sm:p-4 font-bold text-slate-700 w-1/3 sm:w-1/4 border-r border-slate-200 bg-slate-50/50">
+                              {specKey}
+                            </td>
+                            <td className="p-3.5 sm:p-4 font-mono font-medium text-slate-900">
+                              {displayVal}
+                            </td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
@@ -859,7 +864,7 @@ export default function ProductDetail({
                   <div>
                     <div className="flex items-center justify-between text-[9px] sm:text-[10px] mb-1.5 sm:mb-2">
                       <span className="font-mono font-bold text-slate-500 truncate max-w-[55%]">{relLoc.sku}</span>
-                      <span className="font-bold text-[#00478D] bg-blue-50 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">{relLoc.brand}</span>
+                      <span className="font-bold text-[#00478D] bg-blue-50 px-1 sm:px-1.5 py-0.5 rounded-xs shrink-0">{getSafeBrand(relLoc.brand, relLoc.name)}</span>
                     </div>
 
                     <div 

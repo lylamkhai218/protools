@@ -13,6 +13,9 @@ import { CheckCircle2, X, AlertTriangle, RefreshCw } from 'lucide-react';
 import SEOHead from './components/SEOHead';
 import { extractSkuFromSlug, getProductPath, getCategoryPath } from './utils/slugify';
 import { loadCatalogIndex } from './utils/catalogLoader';
+import { isExcludedSku } from './utils/brandNormalizer';
+import MaintenanceScreen from './components/MaintenanceScreen';
+import InternalReviewHub from './components/InternalReviewHub';
 
 interface Props {
   children: ReactNode;
@@ -79,6 +82,40 @@ export default function App() {
   const [activeSearchQuery, setActiveSearchQuery] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[0]);
   const [dresspackKey, setDresspackKey] = useState<number>(0);
+
+  // Maintenance & Internal Mode state
+  const [isInternalMode, setIsInternalMode] = useState<boolean>(() => {
+    try {
+      const path = window.location.pathname.toLowerCase();
+      const params = new URLSearchParams(window.location.search);
+      if (
+        path.startsWith('/noi-bo') ||
+        path.startsWith('/internal') ||
+        path.startsWith('/kiem-duyet') ||
+        params.get('mode') === 'internal' ||
+        params.get('access') === 'noi-bo'
+      ) {
+        localStorage.setItem('protools_internal_mode', 'true');
+        return true;
+      }
+      return localStorage.getItem('protools_internal_mode') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const [internalViewMode, setInternalViewMode] = useState<'hub' | 'home' | 'maintenance_preview'>('hub');
+
+  const handleExitInternal = () => {
+    try {
+      localStorage.removeItem('protools_internal_mode');
+    } catch {
+      // Ignore
+    }
+    setIsInternalMode(false);
+    setInternalViewMode('hub');
+    window.history.pushState({}, '', '/');
+  };
   
   // Toast notification state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -193,13 +230,29 @@ export default function App() {
       const categoryParam = params.get('category');
       const tabParam = params.get('tab');
 
+      // 0. Internal Review Portal Route: /noi-bo, /internal, /kiem-duyet
+      if (
+        pathname.startsWith('/noi-bo') ||
+        pathname.startsWith('/internal') ||
+        pathname.startsWith('/kiem-duyet') ||
+        params.get('mode') === 'internal' ||
+        params.get('access') === 'noi-bo'
+      ) {
+        localStorage.setItem('protools_internal_mode', 'true');
+        setIsInternalMode(true);
+        setInternalViewMode('hub');
+        return;
+      }
+
       // 1. Semantic Clean URL: /san-pham/:slug
       if (pathname.startsWith('/san-pham/')) {
         const rawSlug = decodeURIComponent(pathname.replace('/san-pham/', '').replace(/\/$/, ''));
         const extractedSku = extractSkuFromSlug(rawSlug);
 
         const matchProduct = (items: Product[]): Product | undefined => {
+          if (isExcludedSku(extractedSku)) return undefined;
           return items.find(p => {
+            if (isExcludedSku(p.sku) || isExcludedSku(p.id)) return false;
             const pSku = (p.sku || '').toLowerCase().trim();
             const pId = (p.id || '').toLowerCase().trim();
             const targetSku = (extractedSku || '').toLowerCase().trim();
@@ -261,12 +314,14 @@ export default function App() {
       }
 
       // 4. Backward-compatible Query Params Check: ?product=...
-      if (productParam) {
+      if (productParam && !isExcludedSku(productParam)) {
         const found = PRODUCTS.find(p => 
-          p.sku === productParam || 
-          p.id === productParam || 
-          p.sku.toLowerCase() === productParam.toLowerCase() ||
-          p.id.toLowerCase() === productParam.toLowerCase()
+          !isExcludedSku(p.sku) && (
+            p.sku === productParam || 
+            p.id === productParam || 
+            p.sku.toLowerCase() === productParam.toLowerCase() ||
+            p.id.toLowerCase() === productParam.toLowerCase()
+          )
         );
         if (found) {
           setSelectedProduct(found);
@@ -278,10 +333,12 @@ export default function App() {
           .then(res => res.json())
           .then((items: Product[]) => {
             const target = items.find(p => 
-              p.sku === productParam || 
-              p.id === productParam || 
-              p.sku?.toLowerCase() === productParam.toLowerCase() ||
-              p.id?.toLowerCase() === productParam.toLowerCase()
+              !isExcludedSku(p.sku) && !isExcludedSku(p.id) && (
+                p.sku === productParam || 
+                p.id === productParam || 
+                p.sku?.toLowerCase() === productParam.toLowerCase() ||
+                p.id?.toLowerCase() === productParam.toLowerCase()
+              )
             );
             if (target) {
               setSelectedProduct(target);
@@ -357,10 +414,97 @@ export default function App() {
 
   const totalCartCount = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
 
+  // 1. PUBLIC VISITOR VIEW: If not in internal mode, render MaintenanceScreen!
+  if (!isInternalMode) {
+    return (
+      <MaintenanceScreen
+        onEnterInternal={() => {
+          try {
+            localStorage.setItem('protools_internal_mode', 'true');
+          } catch {
+            // Ignore
+          }
+          setIsInternalMode(true);
+          setInternalViewMode('hub');
+          window.history.pushState({}, '', '/noi-bo/');
+        }}
+      />
+    );
+  }
+
+  // 2. INTERNAL STAFF MODE:
+  // 2.1 Previewing Maintenance Mode
+  if (internalViewMode === 'maintenance_preview') {
+    return (
+      <div className="flex flex-col min-h-screen">
+        <div className="bg-amber-500 text-slate-900 px-4 py-2.5 text-xs font-bold flex flex-wrap justify-between items-center z-50 sticky top-0 shadow-md">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-900 animate-pulse" />
+            <span>[CHẾ ĐỘ XEM THỬ: MÀN HÌNH BẢO TRÌ DÀNH CHO KHÁCH NGOÀI]</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setInternalViewMode('hub')}
+            className="px-3 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded-xs text-xs font-bold cursor-pointer transition-colors"
+          >
+            Quay Lại Cổng Soát Mã SKU
+          </button>
+        </div>
+        <MaintenanceScreen
+          onEnterInternal={() => setInternalViewMode('hub')}
+        />
+      </div>
+    );
+  }
+
+  // 2.2 Internal SKU Review Hub (Table view with 7500 SKUs and batch copy)
+  if (internalViewMode === 'hub') {
+    return (
+      <InternalReviewHub
+        onBackToHome={() => setInternalViewMode('home')}
+        onPreviewMaintenance={() => setInternalViewMode('maintenance_preview')}
+        onExitInternal={handleExitInternal}
+      />
+    );
+  }
+
+  // 2.3 Internal Full Website View (Browse catalog on Home with sticky control bar on top)
   return (
     <ErrorBoundary>
       <div className="min-h-screen w-full max-w-full overflow-x-clip flex flex-col bg-white text-slate-900 selection:bg-[#00478D] selection:text-white">
         
+        {/* INTERNAL CONTROL BAR (Active when staff browses full website) */}
+        <div className="bg-slate-900 text-white text-xs px-4 py-2.5 flex flex-wrap items-center justify-between z-50 border-b border-amber-500 sticky top-0 shadow-md">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="font-bold text-amber-300">[CHẾ ĐỘ NỘI BỘ]</span>
+            <span className="text-slate-300 hidden sm:inline">Đang xem toàn bộ 7.500 sản phẩm gốc (Khách ngoài đang thấy bảo trì)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setInternalViewMode('hub')}
+              className="px-2.5 py-1 rounded-xs bg-[#00478D] hover:bg-blue-600 text-white font-bold cursor-pointer transition-colors shadow-xs"
+            >
+              Mở Trạm Soát Mã SKU (Copy Mã Gửi Sếp)
+            </button>
+            <button
+              type="button"
+              onClick={() => setInternalViewMode('maintenance_preview')}
+              className="px-2.5 py-1 rounded-xs bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
+            >
+              Xem Thử Trang Bảo Trì
+            </button>
+            <button
+              type="button"
+              onClick={handleExitInternal}
+              className="px-2 py-1 rounded-xs bg-rose-950 hover:bg-rose-900 text-rose-300 border border-rose-800 cursor-pointer"
+            >
+              Thoát Nội Bộ
+            </button>
+          </div>
+        </div>
+
         {/* DYNAMIC SEO HEAD CONTROLLER */}
         <SEOHead 
           product={currentTab === 'product-detail' ? selectedProduct : null}

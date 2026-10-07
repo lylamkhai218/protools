@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { CartItem, Product } from '../types';
 import { useTranslation } from '../i18n/LanguageContext';
+import { getSafeBrand, cleanProductName } from '../utils/brandNormalizer';
 
 interface CartQuoteProps {
   cartItems: CartItem[];
@@ -104,8 +105,8 @@ export default function CartQuote({
       items: cartItems.map((item, idx) => ({
         stt: idx + 1,
         sku: item.product.sku,
-        name: item.product.name,
-        brand: item.product.brand,
+        name: cleanProductName(item.product.name),
+        brand: getSafeBrand(item.product.brand, item.product.name),
         quantity: item.quantity,
         price: item.product.price || 'Báo giá dự án'
       }))
@@ -160,7 +161,8 @@ export default function CartQuote({
     let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
     csvContent += "STT,Mã SKU,Tên Thiết Bị,Hãng,Số Lượng,Đơn Giá Tham Khảo\n";
     cartItems.forEach((item, idx) => {
-      csvContent += `${idx + 1},"${item.product.sku}","${item.product.name}","${item.product.brand}",${item.quantity},"${item.product.price || 'Báo giá dự án'}"\n`;
+      const safeB = getSafeBrand(item.product.brand, item.product.name);
+      csvContent += `${idx + 1},"${item.product.sku}","${cleanProductName(item.product.name)}","${safeB}",${item.quantity},"${item.product.price || 'Báo giá dự án'}"\n`;
     });
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
@@ -306,7 +308,7 @@ export default function CartQuote({
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
                             <span className="px-1.5 py-0.5 rounded-xs bg-[#00478D] text-white text-[9px] font-bold font-display uppercase">
-                              {item.product.brand}
+                              {getSafeBrand(item.product.brand, item.product.name)}
                             </span>
                             <span className="text-[10px] font-mono text-slate-400">
                               SKU: {item.product.sku}
@@ -314,7 +316,7 @@ export default function CartQuote({
                           </div>
 
                           <h4 className="font-display text-sm font-bold text-slate-900 line-clamp-1">
-                            {item.product.name}
+                            {cleanProductName(item.product.name)}
                           </h4>
 
                           <div className="text-xs font-semibold text-[#00478D]">
