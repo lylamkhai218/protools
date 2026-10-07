@@ -34,6 +34,15 @@ import {
   ABB_IRB6700_PACKAGE,
   ABB_IRB6700_HEAVY_PACKAGE,
   FANUC_M710_PACKAGE,
+  COMAU_NJ370_PACKAGE,
+  COMAU_NJ650_PACKAGE,
+  TECHMAN_TM_PACKAGE,
+  DOOSAN_PACKAGE,
+  DELTA_PACKAGE,
+  KUKA_KR210_PACKAGE,
+  YASKAWA_GP50_PACKAGE,
+  UNIVERSAL_ROBOTS_UR_PACKAGE,
+  KAWASAKI_RS_PACKAGE,
   RobotBrand, 
   RobotModel, 
   DresspackPackage, 
@@ -101,21 +110,80 @@ export default function RobotConfigurator({
       ? selectedModel.packages
       : (selectedBrandId === 'fanuc' 
           ? [FANUC_M710_PACKAGE] 
+          : selectedBrandId === 'comau'
+          ? [COMAU_NJ370_PACKAGE, COMAU_NJ650_PACKAGE]
+          : selectedBrandId === 'techman-robot'
+          ? [TECHMAN_TM_PACKAGE]
+          : selectedBrandId === 'doosan'
+          ? [DOOSAN_PACKAGE]
+          : selectedBrandId === 'delta'
+          ? [DELTA_PACKAGE]
+          : selectedBrandId === 'kuka'
+          ? [KUKA_KR210_PACKAGE]
+          : selectedBrandId === 'yaskawa'
+          ? [YASKAWA_GP50_PACKAGE]
+          : selectedBrandId === 'universal-robots'
+          ? [UNIVERSAL_ROBOTS_UR_PACKAGE]
+          : selectedBrandId === 'kawasaki'
+          ? [KAWASAKI_RS_PACKAGE]
           : [ABB_IRB6700_PACKAGE, ABB_IRB6700_HEAVY_PACKAGE]);
 
     return basePkgs.map(pkg => {
-      if (pkg.robotModelId === selectedModel.id) {
-        return pkg;
+      const isExactModel = pkg.robotModelId === selectedModel.id;
+
+      // Brand & Model name normalization regex
+      const brandPatterns = /KUKA Robotics|KUKA|ABB Robotics|ABB|FANUC Corporation|FANUC|Yaskawa Motoman|Yaskawa|Universal Robots \(UR\)|Universal Robots|Kawasaki Robotics|Kawasaki|Comau Robotics|Comau|Techman Robot \(TM\)|Techman Robot|Doosan Robotics|Doosan|Delta Electronics|Delta/gi;
+      const modelPatterns = /GP50|GP180|IRB 6700|KR 210|UR20|UR30|UR10e|UR16e|UR5e|UR10|M-710iC|NJ370-3\.0|NJ650-2\.7|TM5|TM12|TM20|TM14|TM16X|RS080N/gi;
+
+      let name = pkg.name;
+      let desc = pkg.description;
+
+      if (!isExactModel) {
+        name = name
+          .replace(brandPatterns, selectedBrand.name)
+          .replace(modelPatterns, selectedModel.name);
+        desc = desc
+          .replace(brandPatterns, selectedBrand.name)
+          .replace(modelPatterns, selectedModel.name);
       }
+
+      // Hero 3D model render image: always prefer selectedModel.imageUrl so Comau shows Comau, Techman shows Techman, etc.
+      const resolvedHeroImg = isExactModel ? pkg.main3dImage : (selectedModel.imageUrl || pkg.main3dImage);
+
+      // Perspective images: if adapted, show the model's actual 3D render
+      const resolvedPerspectives = isExactModel 
+        ? pkg.perspectiveImages 
+        : [
+            { id: `${pkg.id}-ang-1`, label: 'Tổng quan hệ thống (Overview)', angle: 'Isometric View', url: resolvedHeroImg },
+            { id: `${pkg.id}-ang-2`, label: 'Góc nhìn nghiêng (Angle View)', angle: 'Perspective View', url: resolvedHeroImg },
+            { id: `${pkg.id}-ang-3`, label: 'Mặt bên cánh tay (Side View)', angle: 'Lateral View', url: resolvedHeroImg },
+            { id: `${pkg.id}-ang-4`, label: 'Cận cảnh cổ tay (Wrist Detail)', angle: 'Axis 6 Flange', url: resolvedHeroImg }
+          ];
+
+      // Parts adaptation: ensure brand name on custom mounts matches selectedBrand
+      const cleanedParts = (pkg.parts || []).map(part => {
+        if (isExactModel) return part;
+        return {
+          ...part,
+          name: part.name.replace(brandPatterns, selectedBrand.name),
+          vnName: part.vnName.replace(brandPatterns, selectedBrand.name),
+          role: part.role.replace(brandPatterns, selectedBrand.name),
+          spec: part.spec.replace(brandPatterns, selectedBrand.name)
+        };
+      });
+
       return {
         ...pkg,
         robotModelId: selectedModel.id,
-        robotModelName: selectedModel.name,
-        name: pkg.name.replace(/GP50|GP180|IRB 6700|KR 210|UR20|UR10e/gi, selectedModel.name),
-        description: pkg.description.replace(/GP50|GP180|IRB 6700|KR 210|UR20|UR10e/gi, selectedModel.name)
+        robotModelName: isExactModel ? pkg.robotModelName : `${selectedBrand.name} ${selectedModel.name}`,
+        name,
+        description: desc,
+        main3dImage: resolvedHeroImg,
+        perspectiveImages: resolvedPerspectives,
+        parts: cleanedParts
       };
     });
-  }, [selectedModel, selectedBrandId]);
+  }, [selectedModel, selectedBrand, selectedBrandId]);
 
   const currentPackage = useMemo(() => {
     const match = availablePackages.find(p => p.id === selectedPackageId);
@@ -286,7 +354,25 @@ export default function RobotConfigurator({
     setSelectedModelId(model.id);
     const targetPkg = (model.packages && model.packages.length > 0) 
       ? model.packages[0] 
-      : (selectedBrandId === 'fanuc' ? FANUC_M710_PACKAGE : ABB_IRB6700_PACKAGE);
+      : (selectedBrandId === 'fanuc' 
+          ? FANUC_M710_PACKAGE 
+          : selectedBrandId === 'comau' 
+          ? COMAU_NJ370_PACKAGE 
+          : selectedBrandId === 'techman-robot'
+          ? TECHMAN_TM_PACKAGE
+          : selectedBrandId === 'doosan'
+          ? DOOSAN_PACKAGE
+          : selectedBrandId === 'delta'
+          ? DELTA_PACKAGE
+          : selectedBrandId === 'kuka'
+          ? KUKA_KR210_PACKAGE
+          : selectedBrandId === 'yaskawa'
+          ? YASKAWA_GP50_PACKAGE
+          : selectedBrandId === 'universal-robots'
+          ? UNIVERSAL_ROBOTS_UR_PACKAGE
+          : selectedBrandId === 'kawasaki'
+          ? KAWASAKI_RS_PACKAGE
+          : ABB_IRB6700_PACKAGE);
     setSelectedPackageId(targetPkg.id);
     setCurrentStep(3); // Chuyển thẳng sang Bước 3 (Gói)
   };

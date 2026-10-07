@@ -2010,3 +2010,23 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - `https://protools.com.vn/robot-dresspack` (HTTP 200, hiển thị Step 1 gồm 13 hãng).
   - `https://protools.com.vn/san-pham/gang-tay-nitrile-xanh-ansell-touchntuff-92-600-92-600` (HTTP 200, 0 ký tự CO/CQ).
   - `https://protools.com.vn/` (HTTP 200, 0 ký tự CO/CQ).
+### Rule 9.119: Triệt Tiêu Lỗi Lộ Tên Hãng Chéo (Brand Leak) & Khởi Tạo Gói Giải Pháp Chuẩn Hóa Cho Comau, Techman, Doosan, Delta (07/10/2026)
+* **1. Nguyên Nhân Sự Cố**:
+  - Khi người dùng chọn `Comau Robotics` > model `NJ370-3.0`, giao diện Bước 3 (Gói Dresspack) và Bước 4 (BOM & 3D) hiển thị tiêu đề: *"Gói Dresspack KUKA NJ370-3.0 R2700"* kèm hình ảnh robot KUKA màu cam.
+  - **Lý do gốc rễ**:
+    1. Trong [`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts), các model của Comau (`comau-nj370-3-0`, `comau-nj650-2-7`) được gán tạm `packages: [KUKA_KR210_PACKAGE]`, trong khi Techman/Doosan/Delta được gán `UNIVERSAL_ROBOTS_UR_PACKAGE`.
+    2. Hàm `availablePackages` trong [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx) chỉ thay thế tên model bằng regex (`GP50|KR 210`) mà không thay thế tên thương hiệu (`KUKA`, `Universal Robots`) và không cập nhật ảnh 3D `main3dImage` sang ảnh thực của model được chọn.
+* **2. Giải Pháp Kỹ Thuật Toàn Diện**:
+  - **Khởi tạo các gói giải pháp độc lập chính hãng**:
+    - `COMAU_NJ370_PACKAGE` (`MS83701000000370`): Tiêu đề *"Gói Dresspack Comau NJ370-3.0 - A3 sang A6 (Chuẩn M50/P48)"*, ảnh 3D `/images/dresspack/comau/nj370.webp`, bóc tách 9 linh kiện chuẩn xe hơi Body Shop.
+    - `COMAU_NJ650_PACKAGE` (`MS83701000000650`): Tiêu đề *"Gói Dresspack Comau NJ650-2.7 Heavy Foundry - A3 sang A6"*, ảnh `/images/dresspack/comau/nj650.webp`.
+    - `TECHMAN_TM_PACKAGE` (`MS83601000000012`): Gói đai dán FHS chuyên dụng Cobot Techman AI Vision (`/images/dresspack/techman-robot/tm5.webp`).
+    - `DOOSAN_PACKAGE` (`MS83501000000008`): Gói Cobot Doosan Robotics (`/images/dresspack/doosan/A-Series.webp`).
+    - `DELTA_PACKAGE` (`MS83401000000006`): Gói đa khớp Delta Electronics (`/images/dresspack/delta/Delta-DC06.webp`).
+  - **Cơ chế phòng thủ 2 lớp trong `RobotConfigurator.tsx`**:
+    - Quét regex toàn bộ các tên hãng (`KUKA|ABB|FANUC|Yaskawa|Universal Robots|Kawasaki|Comau|Techman|Doosan|Delta`) và tự động chuẩn hóa sang `selectedBrand.name`.
+    - Gán `main3dImage` và `perspectiveImages` luôn ưu tiên `selectedModel.imageUrl` để đảm bảo 100% hình ảnh hiển thị trên card Bước 3 và khung xoay 3D Bước 4 là robot thật của chính hãng đó.
+* **3. Bằng Chứng Xác Thực Trực Tiếp Live Production (HTTP 200)**:
+  - `https://protools.com.vn/images/dresspack/comau/nj370.webp` (HTTP 200, 19.254 bytes).
+  - `https://protools.com.vn/images/dresspack/comau/nj650.webp` (HTTP 200, 19.720 bytes).
+  - Bundle `RobotConfigurator-D9sIFYV2.js` chứa chính xác mã gói `MS83701000000370` và chuỗi `"Gói Dresspack Comau NJ370"`.
