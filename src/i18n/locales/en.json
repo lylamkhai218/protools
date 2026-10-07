@@ -3,7 +3,7 @@
     "home": "Home",
     "categories": "Equipment Catalog",
     "cart": "RFQ Basket",
-    "docs": "Docs & CO/CQ",
+    "docs": "Docs & Certification",
     "contact": "Contact",
     "search_placeholder": "Search SKU, model: Hakko 936, CL-4000, MP-1081...",
     "murr_portal": "Murrplastik Germany Hub",
@@ -23,7 +23,7 @@
     "toolbox_dresspack_desc": "Robot arm simulation & cable bundle fill factor calculation",
     "toolbox_bom_title": "BOM Quick Quote Calculator",
     "toolbox_bom_desc": "Paste bulk SKUs from Excel & export instant B2B quotation",
-    "toolbox_cad_title": "CAD STEP & CO/CQ Lookup",
+    "toolbox_cad_title": "CAD STEP & Documentation",
     "toolbox_cad_desc": "Download PDF technical datasheets, UL94 flame-retardant certificates"
   },
   "hero": {
@@ -65,8 +65,8 @@
     "view_category": "View Category"
   },
   "b2b_benefits": {
-    "co_cq_title": "100% Genuine with Full CO/CQ",
-    "co_cq_desc": "Official Certificate of Origin and Quality from German, Japanese, and Korean manufacturers.",
+    "co_cq_title": "100% Genuine with Full Documentation",
+    "co_cq_desc": "Full verification certificates & origin documentation from German, Japanese, and Korean makers.",
     "quote_speed": "Express RFQ within 15–30 Mins",
     "quote_speed_desc": "Dedicated sales engineering team providing instant technical advice and competitive pricing.",
     "stock_title": "Ready Stock in Hanoi & Hung Yen Hubs",
@@ -192,8 +192,8 @@
     "delivery_title": "Delivery & Warehouse Commitment:",
     "delivery_desc_1": "In stock at Hanoi & Hung Yen warehouses (Next to Lien Ha Thai IP).",
     "delivery_desc_2": "Order before 15:00 today — Same-day express delivery across Northern IPs.",
-    "co_cq_title": "CO / CQ",
-    "co_cq_sub": "Official Certificates",
+    "co_cq_title": "Full Compliance",
+    "co_cq_sub": "Verified paperwork",
     "warranty_title": "12-Month Warranty",
     "warranty_sub": "Factory Genuine",
     "nationwide_title": "Nationwide Delivery",
@@ -223,8 +223,8 @@
     "accessories_heading": "Standard Included Accessories",
     "docs_heading": "Compliance Documentation & Factory Technical Support",
     "docs_sub": "Certification & Order Documents Provided:",
-    "doc_1": "Full legal Certificate of Origin (CO) from authorized makers.",
-    "doc_2": "Factory Quality Inspection Certificate (CQ) & packing slip.",
+    "doc_1": "Full legal documentation of origin and authorized manufacturer provenance.",
+    "doc_2": "Factory quality inspection records, packing slip, and technical compliance certificate.",
     "doc_3": "Official VAT Invoice issued by T&T Vina Industrial Co., Ltd.",
     "doc_4": "Factory sample trial-test report & technical handover protocol.",
     "tech_support_hotline": "Technical Support Hotline",
@@ -260,7 +260,7 @@
   "faq": {
     "badge": "Technical & Procurement FAQ",
     "title": "Frequently Asked Questions (FAQ)",
-    "subtitle": "Detailed guidance on CO/CQ compliance, warranty, on-site trial tests, and quotation response time.",
+    "subtitle": "Detailed guidance on documentation compliance, warranty, on-site trial tests, and quotation response time.",
     "cta_question": "Have a specific engineering question for your factory production line?",
     "cta_btn": "Consultation Hotline: "
   },

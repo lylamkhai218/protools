@@ -3,7 +3,7 @@
     "home": "首页",
     "categories": "设备产品目录",
     "cart": "采购报价单",
-    "docs": "技术资料与CO/CQ",
+    "docs": "技术资料与合规凭证",
     "contact": "联系我们",
     "search_placeholder": "搜索型号、零部件: 白光Hakko 936, 好握速Hios, 点胶机SP-982, Zcut 9...",
     "murr_portal": "德国Murrplastik官方专区",
@@ -23,7 +23,7 @@
     "toolbox_dresspack_desc": "ABB、Fanuc机械臂模拟与管线充盈率精确测算",
     "toolbox_bom_title": "BOM物料表快速报价计算器",
     "toolbox_bom_desc": "支持批量粘贴Excel型号并即时生成B2B报价清单",
-    "toolbox_cad_title": "CAD STEP 3D图纸与CO/CQ原产地证书查询",
+    "toolbox_cad_title": "CAD STEP 3D图纸与官方资质查询",
     "toolbox_cad_desc": "下载原厂技术白皮书、PDF规格书及UL94阻燃测试报告"
   },
   "hero": {
@@ -65,8 +65,8 @@
     "view_category": "查看该品类"
   },
   "b2b_benefits": {
-    "co_cq_title": "100% 正品保障（附带原厂CO/CQ证书）",
-    "co_cq_desc": "提供德国、日本、韩国原厂出具的官方原产地证明书（CO）与品质检验书（CQ）。",
+    "co_cq_title": "100% 正品保障（全套证明文件）",
+    "co_cq_desc": "提供德国、日本、韩国原厂品质合格与出厂检验完整文件。",
     "quote_speed": "15–30分钟极速报价响应",
     "quote_speed_desc": "专业技术销售工程师团队在线，快速提供选型方案与具备竞争力的批量采购底价。",
     "stock_title": "河内与兴安两大现货总仓",
@@ -192,8 +192,8 @@
     "delivery_title": "极速发货承诺与总仓现货保障:",
     "delivery_desc_1": "河内总仓与兴安总仓现货常备（紧邻莲河泰工业区）。",
     "delivery_desc_2": "今日 15:00 前下单 — 越南北部各工业园区当天极速派送出库。",
-    "co_cq_title": "CO / CQ",
-    "co_cq_sub": "官方全套质检文件",
+    "co_cq_title": "资质齐全",
+    "co_cq_sub": "全套合规凭证",
     "warranty_title": "12 个月质保",
     "warranty_sub": "官方原厂联保",
     "nationwide_title": "全越快速发货",
@@ -223,8 +223,8 @@
     "accessories_heading": "出厂标准配置与随机配件清单",
     "docs_heading": "产品合规证明文件与原厂技术支持",
     "docs_sub": "随订单提供的出厂认证与合规文件:",
-    "doc_1": "原厂出具的合法原产地证明书 (CO)。",
-    "doc_2": "原厂出厂质量合格证明 (CQ) 及出库检验单。",
+    "doc_1": "附带完整合法的原厂产地溯源与进出口报关凭证。",
+    "doc_2": "出厂品质检验合格证明与官方出库装箱单。",
     "doc_3": "越南T&T Vina工业有限公司开具的正规增值税发票 (VAT)。",
     "doc_4": "工厂实样打样测试报告 (Trial Test) 与现场技术交接记录。",
     "tech_support_hotline": "技术咨询热线",
@@ -260,7 +260,7 @@
   "faq": {
     "badge": "技术与采购常见问题",
     "title": "常见问答 (FAQ)",
-    "subtitle": "解答关于原厂CO/CQ证书、12个月保修、在越工厂上门试样及报价周期的常见咨询。",
+    "subtitle": "解答关于产品合规证书、12个月保修、在越工厂上门试样及报价周期的常见咨询。",
     "cta_question": "针对工厂特定自动化或SMT生产线有技术疑问？",
     "cta_btn": "工程师咨询热线: "
   },

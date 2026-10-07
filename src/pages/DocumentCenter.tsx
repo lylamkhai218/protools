@@ -92,7 +92,7 @@ export default function DocumentCenter({ onNavigate: _onNavigate }: DocumentCent
                 <option value="all">Tất cả định dạng file</option>
                 <option value="PDF">Tài liệu PDF (Catalog/HDSD)</option>
                 <option value="3D STEP">Bản vẽ 3D STEP / CAD</option>
-                <option value="Cert">Chứng nhận xuất xưởng (CO/CQ)</option>
+                <option value="Cert">Chứng nhận xuất xưởng & Kiểm định</option>
               </select>
             </div>
 

@@ -361,7 +361,7 @@ export default function CartQuote({
               <div className="grid grid-cols-3 gap-3 text-center text-[11px] text-slate-600 bg-white p-4 rounded-sm border border-slate-200">
                 <div className="flex flex-col items-center gap-1">
                   <ShieldCheck className="w-4 h-4 text-[#00478D]" />
-                  <span>100% Đầy đủ CO/CQ</span>
+                  <span>100% Đầy đủ giấy tờ chứng từ</span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                   <Building2 className="w-4 h-4 text-[#D97706]" />

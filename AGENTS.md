@@ -1977,3 +1977,36 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Ảnh đại diện 13 hãng robot: 100% trả về HTTP 200 trên Production.
 
 
+### Rule 9.118: Khắc Phục Lỗi Ảnh Case Sensitivity, Điều Hướng Menu Robot Dresspack & Chuẩn Hóa Bỏ Thuật Ngữ CO/CQ Toàn Diện (07/10/2026)
+* **1. Khắc Phục Lỗi Ảnh Vỡ Do Tính Phân Biệt Chữ Hoa/Thường (Linux Case Sensitivity)**:
+  - **Hiện tượng**: Hệ thống máy chủ Linux/LiteSpeed trên Mắt Bão phân biệt tuyệt đối chữ hoa/chữ thường (Case-Sensitive). Một số model như Techman Robot (`TM5`, `TM12`, `TM20`), Yaskawa (`GP50`, `GP180`), KUKA (`KR16`) được gọi bằng chữ hoa trong mã nguồn nhưng tệp trên đĩa lưu dạng chữ thường, dẫn đến lỗi ảnh vỡ HTTP 404 trên Production.
+  - **Giải pháp 2 lớp (Dual-Pronged Solution)**:
+    1. Chuẩn hóa toàn bộ 29 đường dẫn trong [`src/data/dresspackData.ts`](file:///d:/T&TVina/protools/src/data/dresspackData.ts) sang chữ thường chuẩn (`tm5.webp`, `tm12.webp`, `tm20.webp`, `gp50.webp`, `gp180.webp`, `kr16.webp`).
+    2. Khởi tạo và tải lên 352 biến thể tệp alias hai chiều (cả chữ hoa và chữ thường) trực tiếp trên máy chủ FTP `/public_html/images/dresspack/` để đảm bảo tương thích 100% mọi request.
+* **2. Khắc Phục Logic Điều Hướng Menu Digital Toolbox Cho Robot Dresspack**:
+  - **Hiện tượng**: Trước đây khi người dùng hover vào `Digital Toolbox` > chọn `Cấu hình robot dresspack & bó cáp`, component bị cưỡng chế vào Bước 4 của dòng robot ABB IRB 6700 do state khởi tạo mặc định là `currentStep = 4`.
+  - **Giải pháp kỹ thuật**:
+    - Trong [`src/pages/RobotConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/RobotConfigurator.tsx): Đổi trạng thái khởi tạo thành `const [currentStep, setCurrentStep] = useState<number>(initialBrandId ? 2 : 1)`. Khi truy cập từ menu không có tham số thương hiệu, hệ thống luôn mở trực tiếp **Bước 1: Chọn Hãng Robot Công Nghiệp** với đầy đủ 13 thương hiệu toàn cầu kèm hiệu ứng tiêu điểm phóng to (Hover Spotlight).
+    - Trong [`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx): Bổ sung `key={dresspackKey}` và bộ đếm `setDresspackKey(prev => prev + 1)` trong `handleNavigate('robot-dresspack')` để đảm bảo mỗi khi người dùng bấm vào liên kết trên Header/Dropdown/Mobile Menu, component đều tự động reset sạch về Bước 1.
+* **3. Chuẩn Hóa Loại Bỏ Triệt Để Thuật Ngữ "CO/CQ" Trên Toàn Bộ Hệ Thống**:
+  - **Yêu cầu kinh doanh**: Bỏ chữ `CO CQ` / `CO/CQ` tại mục `Tài Liệu Kỹ Thuật` và các chứng thực niềm tin trên website, thay thế bằng cách diễn đạt tiêu chuẩn chung: *"Đầy đủ giấy tờ chứng từ xuất xứ & kiểm định chất lượng chính hãng"*.
+  - **Phạm vi xử lý toàn diện**:
+    - **7 tệp ngôn ngữ Locale i18n**: [`vi.json`](file:///d:/T&TVina/protools/src/i18n/locales/vi.json), [`en.json`](file:///d:/T&TVina/protools/src/i18n/locales/en.json), [`zh-CN.json`](file:///d:/T&TVina/protools/src/i18n/locales/zh-CN.json), [`de.json`](file:///d:/T&TVina/protools/src/i18n/locales/de.json), [`ja.json`](file:///d:/T&TVina/protools/src/i18n/locales/ja.json), [`ko.json`](file:///d:/T&TVina/protools/src/i18n/locales/ko.json), [`th.json`](file:///d:/T&TVina/protools/src/i18n/locales/th.json).
+    - **Trang Chi Tiết Sản Phẩm**: [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx) tại tab *"3. Tài Liệu Kỹ Thuật"* và huy hiệu *"Giấy Tờ Hợp Lệ - Đầy đủ chứng từ"*.
+    - **Giỏ Báo Giá B2B**: [`src/pages/CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx) cập nhật thành *"100% Đầy đủ giấy tờ chứng từ"*.
+    - **Trung Tâm Tài Liệu**: [`src/pages/DocumentCenter.tsx`](file:///d:/T&TVina/protools/src/pages/DocumentCenter.tsx) cập nhật bộ lọc thành *"Chứng nhận xuất xưởng & Kiểm định"*.
+    - **Dữ liệu Dịch & FAQ**: [`faqTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/faqTranslations.ts), [`solutionsTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/solutionsTranslations.ts), [`productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts).
+    - **Thẻ Meta SEO & OpenGraph**: [`index.html`](file:///d:/T&TVina/protools/index.html), [`SEOHead.tsx`](file:///d:/T&TVina/protools/src/components/SEOHead.tsx), [`seoDescription.ts`](file:///d:/T&TVina/protools/src/utils/seoDescription.ts).
+    - **Công cụ Pre-rendering**: [`generate_static_snapshots.py`](file:///d:/T&TVina/protools/generate_static_snapshots.py).
+    - **Chuyên trang Murrplastik**: [`public/murrplastik/`](file:///d:/T&TVina/protools/public/murrplastik/).
+* **4. Bằng Chứng Xác Thực Trực Tiếp Live Production (HTTP 200)**:
+  - `https://protools.com.vn/images/dresspack/techman-robot/tm5.webp` (HTTP 200).
+  - `https://protools.com.vn/images/dresspack/techman-robot/TM5.webp` (HTTP 200).
+  - `https://protools.com.vn/images/dresspack/techman-robot/tm12.webp` (HTTP 200).
+  - `https://protools.com.vn/images/dresspack/techman-robot/tm20.webp` (HTTP 200).
+  - `https://protools.com.vn/images/dresspack/yaskawa/gp50.webp` (HTTP 200).
+  - `https://protools.com.vn/images/dresspack/yaskawa/gp180.webp` (HTTP 200).
+  - `https://protools.com.vn/images/dresspack/fanuc/crx-10ia.webp` (HTTP 200).
+  - `https://protools.com.vn/robot-dresspack` (HTTP 200, hiển thị Step 1 gồm 13 hãng).
+  - `https://protools.com.vn/san-pham/gang-tay-nitrile-xanh-ansell-touchntuff-92-600-92-600` (HTTP 200, 0 ký tự CO/CQ).
+  - `https://protools.com.vn/` (HTTP 200, 0 ký tự CO/CQ).

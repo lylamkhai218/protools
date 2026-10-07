@@ -3,7 +3,7 @@
     "home": "Startseite",
     "categories": "Gerätekatalog",
     "cart": "Angebotskorb",
-    "docs": "Dokumentation & CO/CQ",
+    "docs": "Dokumentation & Nachweise",
     "contact": "Kontakt",
     "search_placeholder": "Modell, Artikelnummer suchen: Hakko 936, Hios CL-4000, SP-982...",
     "murr_portal": "Murrplastik Deutschland Portal",
@@ -23,7 +23,7 @@
     "toolbox_dresspack_desc": "Simulation für ABB, Fanuc Arme & Füllgradberechnung",
     "toolbox_bom_title": "BOM Schnellangebot-Kalkulator",
     "toolbox_bom_desc": "Massen-SKUs aus Excel einfügen & Sofortangebot erhalten",
-    "toolbox_cad_title": "CAD STEP & CO/CQ Suche",
+    "toolbox_cad_title": "CAD STEP & Dokumente",
     "toolbox_cad_desc": "PDF-Datenblätter & UL94-Zertifikate herunterladen"
   },
   "hero": {
@@ -65,8 +65,8 @@
     "view_category": "Kategorie ansehen"
   },
   "b2b_benefits": {
-    "co_cq_title": "100% Originalware mit CO/CQ",
-    "co_cq_desc": "Offizielle Ursprungs- und Qualitätszertifikate deutscher, japanischer und koreanischer Hersteller.",
+    "co_cq_title": "100% Originalware mit vollständigen Nachweisen",
+    "co_cq_desc": "Hersteller-Ursprungsnachweise und Werksprüfzeugnisse aus Deutschland, Japan und Korea.",
     "quote_speed": "Express-Angebot in 15–30 Minuten",
     "quote_speed_desc": "Erfahrene Vertriebsingenieure bieten umgehende technische Beratung und wettbewerbsfähige Preise.",
     "stock_title": "Lagerbestände in Hanoi & Hung Yen",
@@ -192,8 +192,8 @@
     "delivery_title": "Liefer- und Lagerversprechen:",
     "delivery_desc_1": "Auf Lager in den Lagern Hanoi & Hung Yen (direkt am IP Lien Ha Thai).",
     "delivery_desc_2": "Bestellung bis 15:00 Uhr — Expresslieferung am selben Tag.",
-    "co_cq_title": "CO / CQ",
-    "co_cq_sub": "Offizielle Zertifikate",
+    "co_cq_title": "Zertifiziert",
+    "co_cq_sub": "Lückenlose Papiere",
     "warranty_title": "12 Monate Garantie",
     "warranty_sub": "Herstellergarantie",
     "nationwide_title": "Landesweite Lieferung",
@@ -223,8 +223,8 @@
     "accessories_heading": "Standardmäßig enthaltenes Zubehör",
     "docs_heading": "Konformitätsdokumente & technischer Werkssupport",
     "docs_sub": "Mitgelieferte Konformitäts- & Auftragsdokumente:",
-    "doc_1": "Vollständiges legales Ursprungszeugnis (CO) des Herstellers.",
-    "doc_2": "Werksprüfzeugnis (CQ) & Lieferschein.",
+    "doc_1": "Lückenlose Nachweise über Herkunft und autorisierte Lieferkette.",
+    "doc_2": "Werksprüfbericht, Qualitätszeugnis und Werksausgangsprotokoll.",
     "doc_3": "Offizielle Mehrwertsteuerrechnung der T&T Vina Industrial Co., Ltd.",
     "doc_4": "Werks-Mustertestbericht (Trial Test) & technische Übergabe.",
     "tech_support_hotline": "Technische Beratungshotline",
@@ -260,7 +260,7 @@
   "faq": {
     "badge": "Technik- & Beschaffungs-FAQ",
     "title": "Häufig gestellte Fragen (FAQ)",
-    "subtitle": "Detaillierte Antworten zu CO/CQ-Zertifikaten, Garantie, Vor-Ort-Testläufen und Angebotszeiten.",
+    "subtitle": "Detaillierte Antworten zu Konformitätsdokumenten, Garantie, Vor-Ort-Testläufen und Angebotszeiten.",
     "cta_question": "Haben Sie spezielle technische Fragen zu Ihrer Fertigungslinie?",
     "cta_btn": "Beratungs-Hotline: "
   },

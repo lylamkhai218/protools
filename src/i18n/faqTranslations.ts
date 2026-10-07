@@ -34,8 +34,8 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
       a: 'T&T Vina (Protools.com.vn) specializes in SMT assembly and automation equipment for factories, including: Robotic soldering systems, Hakko/Quick soldering stations, CM-508/808 solder pots, HIOS CL-3000/4000 precision torque screwdrivers, SP-982 fluid dispensers, Zcut 9/RT-3700 automatic tape cutters, label peelers, HP-10 torque meters, SM-3TPZ stereo inspection microscopes, Dr. Schneider SL-001 ionizing blowers, and genuine German Murrplastik robotic cable management systems.'
     },
     {
-      q: 'Do products from Protools.com.vn include full CO/CQ and VAT invoices?',
-      a: '100% of products supplied by T&T Vina include full legal factory documentation. Every order comes complete with Certificate of Origin (CO), Certificate of Quality (CQ), and official Vietnamese VAT invoices.'
+      q: 'Do products from Protools.com.vn include full official documentation and VAT invoices?',
+      a: '100% of products supplied by T&T Vina include full legal factory documentation. Every order comes complete with Certificate of Origin, Certificate of Quality, and official Vietnamese VAT invoices.'
     },
     {
       q: 'What is the warranty policy and on-site technical support for factories?',
@@ -56,8 +56,8 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
       a: 'T&T Vina (Protools.com.vn) 专注为越南及外资 SMT 电子制造产线提供一站式设备与辅料：全自动点焊机器人、快克/白光烙铁焊台、CM-508/808锡炉、HIOS好芝电动螺丝刀、SP-982定量点胶机、Zcut-9/RT-3700自动胶带切割机、自动剥离机、HP-10扭力计、SM-3TPZ显微镜、SL-001离子风机及德国原装 Murrplastik 机器人管线包系统。'
     },
     {
-      q: 'Protools.com.vn 供应的产品是否具备完整的原厂 CO/CQ 与越南发票？',
-      a: 'T&T Vina 供应的所有产品 100% 具备正规合法进出口手续，随单提供原厂原产地证明 (CO)、品质合格证 (CQ) 以及符合越南税务标准的红字增值税发票 (VAT)。'
+      q: 'Protools.com.vn 供应的产品是否具备完整的官方合规证明与越南发票？',
+      a: 'T&T Vina 供应的所有产品 100% 具备正规合法进出口手续，随单提供原厂原厂官方证明与品质合格文件 以及符合越南税务标准的红字增值税发票 (VAT)。'
     },
     {
       q: '在越工厂售后保修与技术工程师上门支持政策如何？',
@@ -78,8 +78,8 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
       a: 'T&T Vina (Protools.com.vn) liefert schlüsselfertige Ausrüstung für SMT- und Elektronikmontagewerke: Lötroboter, Hakko/Quick-Lötstationen, CM-Löttiegel, HIOS-Elektroschrauber, SP-982 Dosiergeräte, automatische Zcut-Bandschneider, HP-10 Drehmomentmessgeräte, SM-3TPZ Stereomikroskope, SL-001 Ionengebläse und originale deutsche Murrplastik Roboterkabelführungen.'
     },
     {
-      q: 'Verfügen alle Produkte über vollständige CO/CQ-Zertifikate?',
-      a: '100% der von T&T Vina gelieferten Geräte besitzen vollständige Werksprüfzeugnisse (CO/CQ) sowie offizielle Mehrwertsteuerrechnungen nach vietnamesischem Recht.'
+      q: 'Verfügen alle Produkte über vollständige offizielle Nachweise?',
+      a: '100% der von T&T Vina gelieferten Geräte besitzen vollständige Werksprüfzeugnisse und Ursprungsnachweise sowie offizielle Mehrwertsteuerrechnungen nach vietnamesischem Recht.'
     },
     {
       q: 'Wie gestalten sich Garantie und technischer Vor-Ort-Support in Vietnam?',
@@ -100,8 +100,8 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
       a: 'T&T Vina (Protools.com.vn)는 SMT 전자 조립 및 자동화 공장을 위한 전문 장비를 공급합니다: 자동 납땜 로봇, Hakko/Quick 솔더링 스테이션, HIOS 정밀 전동 드라이버, SP-982 디스펜서, Zcut 9 테이프 커터, 라벨 박리기, HP-10 토크 테스터, SM-3TPZ 실체 현미경, SL-001 이온 블로어 및 독일 Murrplastik 정품 로봇 케이블 드레스팩 시스템.'
     },
     {
-      q: '공급 제품에 정품 CO/CQ 인증서와 세금계산서가 발행됩니까?',
-      a: 'T&T Vina가 공급하는 모든 장비는 100% 제조사 정품 원산지 증명서(CO), 품질 시험 성적서(CQ) 및 베트남 정식 VAT 세금계산서가 제공됩니다.'
+      q: '공급 제품에 공식 인증 서류와 세금계산서가 발행됩니까?',
+      a: 'T&T Vina가 공급하는 모든 장비는 100% 제조사 정품 공식 원산지 증빙 및 품질 시험 성적서 및 베트남 정식 VAT 세금계산서가 제공됩니다.'
     },
     {
       q: '베트남 현지 공장 무상 보증 및 엔지니어 기술 지원은 어떻게 진행됩니까?',
@@ -122,8 +122,8 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
       a: 'T&T Vina (Protools.com.vn) はSMT実装・自動化工場向け設備をワンストップで供給しています：自動はんだ付けロボット、白光(Hakko)／Quickはんだステーション、HIOS電動トルクドライバー、SP-982ディスペンサー、Zcut 9自動テープカッター、ラベル剥離機、HP-10トルクメーター、SM-3TPZ実体顕微鏡、SL-001イオナイザー、ドイツMurrplastik正規ロボットケーブル保護システム。'
     },
     {
-      q: '取扱製品には原産地証明(CO)・品質検査書(CQ)およびVATインボイスが付きますか？',
-      a: 'T&T Vinaが販売する全製品は100%正規メーカー純正品であり、原産地証明書(CO)、品質検査成績書(CQ)、およびベトナム正規VAT付加価値税インボイスを完備しています。'
+      q: '取扱製品には原産地証明・品質検査書およびVATインボイスが付きますか？',
+      a: 'T&T Vinaが販売する全製品は100%正規メーカー純正品であり、正規原産地証明書、品質検査成績書、およびベトナム正規VAT付加価値税インボイスを完備しています。'
     },
     {
       q: '工場現地での製品保証およびエンジニアの技術サポートについて教えてください。',
@@ -144,8 +144,8 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
       a: 'T&T Vina (Protools.com.vn) เชี่ยวชาญการจัดจำหน่ายเครื่องมือสำหรับโรงงานประกอบ SMT และระบบอัตโนมัติ: หุ่นยนต์บัดกรี, เครื่องบัดกรี Hakko/Quick, ไขควงไฟฟ้า HIOS, เครื่องหยอดกาว SP-982, เครื่องตัดเทป Zcut 9, เครื่องลอกฉลาก, เครื่องวัดแรงบิด HP-10, กล้องจุลทรรศน์ SM-3TPZ, พัดลมสลายไฟฟ้าสถิต SL-001 และระบบท่อร้อยสายหุ่นยนต์ Murrplastik แท้จากเยอรมนี'
     },
     {
-      q: 'สินค้าทุกรายการมีเอกสาร CO/CQ และใบกำกับภาษี VAT ครบถ้วนหรือไม่?',
-      a: 'สินค้าทั้งหมด 100% จาก T&T Vina มีเอกสารรับรองถิ่นกำเนิด (CO) และเอกสารรับรองคุณภาพ (CQ) จากโรงงานผู้ผลิต พร้อมใบกำกับภาษี VAT อย่างถูกต้องตามกฎหมาย'
+      q: 'สินค้าทุกรายการมีเอกสารรับรองมาตรฐานและใบกำกับภาษี VAT ครบถ้วนหรือไม่?',
+      a: 'สินค้าทั้งหมด 100% จาก T&T Vina มีเอกสารรับรองถิ่นกำเนิดและคุณภาพ จากโรงงานผู้ผลิต พร้อมใบกำกับภาษี VAT อย่างถูกต้องตามกฎหมาย'
     },
     {
       q: 'นโยบายการรับประกันและการบริการทางเทคนิคหน้างานเป็นอย่างไร?',

@@ -53,15 +53,15 @@ interface RobotConfiguratorProps {
 export default function RobotConfigurator({ 
   onNavigate, 
   onAddToCart,
-  initialBrandId = 'abb',
-  initialModelId = 'abb-irb-6700'
+  initialBrandId,
+  initialModelId
 }: RobotConfiguratorProps) {
   const { t, locale } = useTranslation();
   // Wizard Steps: 1 = Brand, 2 = Model, 3 = Package, 4 = Detail & 3D/CAD/BOM
-  const [currentStep, setCurrentStep] = useState<number>(4);
-  const [selectedBrandId, setSelectedBrandId] = useState<string>(initialBrandId);
-  const [selectedModelId, setSelectedModelId] = useState<string>(initialModelId);
-  const [selectedPackageId, setSelectedPackageId] = useState<string>('pkg-abb-irb6700-m40');
+  const [currentStep, setCurrentStep] = useState<number>(initialBrandId ? 2 : 1);
+  const [selectedBrandId, setSelectedBrandId] = useState<string>(initialBrandId || 'fanuc');
+  const [selectedModelId, setSelectedModelId] = useState<string>(initialModelId || 'fanuc-crx');
+  const [selectedPackageId, setSelectedPackageId] = useState<string>('pkg-fanuc-m710-m50');
   
   // Angle & 3D Studio state
   const [activeAngleIndex, setActiveAngleIndex] = useState<number>(0);
@@ -377,7 +377,7 @@ export default function RobotConfigurator({
                   1. Chọn Hãng Robot Công Nghiệp
                 </h2>
                 <p className="text-xs text-slate-500">
-                  Hỗ trợ 12 thương hiệu robot công nghiệp toàn cầu
+                  Hỗ trợ 13 thương hiệu robot công nghiệp toàn cầu (83 dòng model)
                 </p>
               </div>
               <div className="relative w-64">
