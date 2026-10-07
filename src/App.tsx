@@ -78,6 +78,7 @@ export default function App() {
   const [activeCategoryFilter, setActiveCategoryFilter] = useState<string>('all');
   const [activeSearchQuery, setActiveSearchQuery] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[0]);
+  const [dresspackKey, setDresspackKey] = useState<number>(0);
   
   // Toast notification state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -320,6 +321,9 @@ export default function App() {
   };
 
   const handleNavigate = (tab: string, filter?: string, search?: string) => {
+    if (tab === 'robot-dresspack') {
+      setDresspackKey(prev => prev + 1);
+    }
     setCurrentTab(tab);
     if (search !== undefined) {
       setActiveSearchQuery(search);
@@ -432,6 +436,7 @@ export default function App() {
 
             {currentTab === 'robot-dresspack' && (
               <RobotConfigurator
+                key={dresspackKey}
                 onNavigate={handleNavigate}
                 onAddToCart={handleAddToCart}
               />

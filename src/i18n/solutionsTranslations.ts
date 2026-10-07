@@ -26,7 +26,7 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       desc: 'EVOCHAIN energy chains, KEG/ZL ball joints, SRF hose rings, R-Tec Box / Liner retraction systems, FHS brackets and mp-LM 1 laser markers.',
       tag: 'Murrplastik Germany',
       badge: 'Made in Germany',
-      standards: ['Full CO/CQ compliance', 'High flex endurance >17M cycles', 'Official factory warranty']
+      standards: ['Full documentation & compliance', 'High flex endurance >17M cycles', 'Official factory warranty']
     },
     'zh-CN': {
       title: '德国 MURRPLASTIK (官方授权)',
@@ -34,7 +34,7 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       desc: '德国莫尔塑料 EVOCHAIN 拖链、KEG/ZL 球头万向节、SRF 软管保护环、R-Tec Box/Liner 管线包回位系统、FHS 机器人支架与 mp-LM 1 激光打标机。',
       tag: '德国原装 Murrplastik',
       badge: '德国原装制造',
-      standards: ['合规原厂CO/CQ', '超1700万次耐弯折寿命', '官方原厂质保']
+      standards: ['合规原厂证明文件', '超1700万次耐弯折寿命', '官方原厂质保']
     },
     de: {
       title: 'MURRPLASTIK (ORIGINAL DEUTSCHLAND)',
@@ -42,7 +42,7 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       desc: 'EVOCHAIN Energieführungsketten, KEG/ZL Kugelgelenke, SRF Schlauchringe, R-Tec Box / Liner Rückzugssysteme, FHS Halterungen und mp-LM 1 Lasermarkierer.',
       tag: 'Murrplastik Deutschland',
       badge: 'Made in Germany',
-      standards: ['Vollständiges CO/CQ', '>17 Mio. Biegezyklen Lebensdauer', 'Herstellergarantie']
+      standards: ['Lückenlose Dokumentation', '>17 Mio. Biegezyklen Lebensdauer', 'Herstellergarantie']
     },
     ko: {
       title: '독일 MURRPLASTIK (공식 유통)',
@@ -50,7 +50,7 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       desc: '독일 Murrplastik EVOCHAIN 케이블 트레이, KEG/ZL 볼 조인트, SRF 호스 링, R-Tec Box/Liner 로봇 드레스팩 회수 시스템, FHS 브래킷 및 mp-LM 1 레이저 마킹기.',
       tag: '독일 Murrplastik',
       badge: '독일 완제품 생산',
-      standards: ['공식 CO/CQ 인증', '1700만 회 이상 내구성 검증', '제조사 공식 보증']
+      standards: ['공식 인증 서류 완비', '1700만 회 이상 내구성 검증', '제조사 공식 보증']
     },
     ja: {
       title: 'ドイツ MURRPLASTIK (正規代理店)',
@@ -58,7 +58,7 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       desc: 'EVOCHAIN ケーブルベア、KEG/ZL ボールジョイント、SRF ホースリング、R-Tec Box/Liner ロボットケーブル引き戻しシステム、FHS 取付ブラケット、レーザーマーカー。',
       tag: 'ドイツ Murrplastik',
       badge: 'ドイツ製',
-      standards: ['CO/CQ証明書完備', '1,775万回屈曲耐久試験クリア', '正規メーカー保証']
+      standards: ['正規証明書類完備', '1,775万回屈曲耐久試験クリア', '正規メーカー保証']
     },
     th: {
       title: 'MURRPLASTIK (ของแท้จากเยอรมนี)',
@@ -66,7 +66,7 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       desc: 'รางกระดูกงูร้อยสายไฟ EVOCHAIN, ข้อต่อลูกหมาก KEG/ZL, แหวนรัดท่อ SRF, ระบบดึงกลับท่อร้อยสาย R-Tec Box / Liner และขายึดหุ่นยนต์ FHS',
       tag: 'Murrplastik เยอรมนี',
       badge: 'ผลิตในเยอรมนี',
-      standards: ['มีใบรับรอง CO/CQ ครบถ้วน', 'ทนทานต่อการดัดงอกว่า 17 ล้านรอบ', 'รับประกันจากศูนย์']
+      standards: ['เอกสารรับรองครบถ้วน', 'ทนทานต่อการดัดงอกว่า 17 ล้านรอบ', 'รับประกันจากศูนย์']
     }
   },
   'thiet-bi-han': {
@@ -82,42 +82,42 @@ export const SOLUTIONS_TRANSLATIONS: Record<string, Partial<Record<SupportedLoca
       subtitle: 'Soldering Stations & Robotic Soldering',
       desc: '3-6 axis automatic soldering robots, Quick 205 high-frequency stations, Hakko 936, CM-508/808 solder pots and replacement tips.',
       badge: '100% Genuine',
-      standards: ['Full CO/CQ compliance', 'Official factory warranty', 'Ready in stock']
+      standards: ['Full documentation & compliance', 'Official factory warranty', 'Ready in stock']
     },
     'zh-CN': {
       title: 'SMT焊接设备与全自动焊接机器人',
       subtitle: 'Soldering Stations & Robotic Soldering',
       desc: '3-6轴全自动点焊机器人、快克Quick 205高频焊台、白光Hakko 936、CM-508/808熔锡炉及各型烙铁头配件。',
       badge: '原装正品',
-      standards: ['合规原厂CO/CQ', '官方原厂质保', '现货即发']
+      standards: ['合规原厂证明文件', '官方原厂质保', '现货即发']
     },
     de: {
       title: 'SMT-LÖTSYSTEME & AUTOMATISCHE LÖTROBOTER',
       subtitle: 'Soldering Stations & Robotic Soldering',
       desc: '3-6-Achs-Lötroboter, Quick 205 Hochfrequenz-Lötstationen, Hakko 936, CM-508/808 Löttiegel und Lötspitzen.',
       badge: '100% Original',
-      standards: ['Vollständiges CO/CQ', 'Herstellergarantie', 'Auf Lager']
+      standards: ['Lückenlose Dokumentation', 'Herstellergarantie', 'Auf Lager']
     },
     ko: {
       title: 'SMT 솔더링 장비 & 자동 납땜 로봇',
       subtitle: 'Soldering Stations & Robotic Soldering',
       desc: '3-6축 자동 납땜 로봇, Quick 205 고주파 인두기, Hakko 936, CM-508/808 납조 및 인두 팁 부품.',
       badge: '정품 보증',
-      standards: ['공식 CO/CQ 인증', '제조사 무상 보증', '창고 재고 완비']
+      standards: ['공식 인증 서류 완비', '제조사 무상 보증', '창고 재고 완비']
     },
     ja: {
       title: 'SMTはんだ付け装置＆自動はんだ付けロボット',
       subtitle: 'Soldering Stations & Robotic Soldering',
       desc: '3〜6軸自動はんだ付けロボット、Quick 205高周波はんだ付けステーション、白光Hakko 936、CM-508/808はんだ槽。',
       badge: 'メーカー純正品',
-      standards: ['CO/CQ証明書完備', 'メーカー保証付き', '国内即納在庫']
+      standards: ['正規証明書類完備', 'メーカー保証付き', '国内即納在庫']
     },
     th: {
       title: 'อุปกรณ์บัดกรี SMT และหุ่นยนต์บัดกรีอัตโนมัติ',
       subtitle: 'Soldering Stations & Robotic Soldering',
       desc: 'หุ่นยนต์บัดกรี 3-6 แกน, เครื่องบัดกรีความถี่สูง Quick 205, Hakko 936, หม้อต้มตะกั่ว CM-508/808 และปลายหัวแร้ง',
       badge: 'ของแท้ 100%',
-      standards: ['เอกสาร CO/CQ ครบถ้วน', 'รับประกันศูนย์', 'มีสินค้าพร้อมส่ง']
+      standards: ['เอกสารรับรองครบถ้วน', 'รับประกันศูนย์', 'มีสินค้าพร้อมส่ง']
     }
   },
   'may-bat-vit-nha-vit': {

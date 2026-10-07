@@ -60,7 +60,7 @@ export default function SEOHead({
     } else if (categorySlug && categorySlug !== 'all') {
       const catTitle = categoryName || categorySlug;
       pageTitle = `${catTitle} Chính Hãng | Báo Giá & Thông Số Kỹ Thuật - T&T VINA`;
-      pageDesc = `Danh mục ${catTitle} phân phối chính hãng bởi T&T Vina Industrial. Đầy đủ chứng chỉ CO/CQ, bảng báo giá B2B số lượng lớn, giao hàng nhanh 24h.`;
+      pageDesc = `Danh mục ${catTitle} phân phối chính hãng bởi T&T Vina Industrial. Đầy đủ giấy tờ chứng nhận hợp pháp, bảng báo giá B2B số lượng lớn, giao hàng nhanh 24h.`;
       pageCanonical = `${BASE_URL}${getCategoryPath(categorySlug)}`;
     } else if (propTitle) {
       pageTitle = propTitle;

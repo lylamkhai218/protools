@@ -1914,30 +1914,30 @@ export function translateSpecValue(k: string, v: string, locale: SupportedLocale
 export const ALL_HIGHLIGHTS_TRANSLATIONS: Record<string, Record<SupportedLocale, string>> = {
   "100% Chính hãng Murrplastik CHLB Đức, đầy đủ chứng từ hàng hóa và có bảo hành chính hãng.": {
     vi: "100% Chính hãng Murrplastik CHLB Đức, đầy đủ chứng từ hàng hóa và có bảo hành chính hãng.",
-    en: "100% Genuine Murrplastik Germany, complete CO/CQ documentation and official factory warranty.",
-    "zh-CN": "100% 德国莫尔塑料 Murrplastik 原装正品，具备完整原产地与合格证明 (CO/CQ) 及官方质保。",
-    de: "100% Original Murrplastik Deutschland, vollständige CO/CQ-Dokumentation und offizielle Werksgarantie.",
-    ko: "100% 독일 Murrplastik 정품 보장, 완벽한 CO/CQ 서류 및 공식 제조사 품질 보증 제공.",
-    ja: "100% ドイツ Murrplastik 社純正品、CO/CQ 証明書完備およびメーカー正規保証付き。",
-    th: "ของแท้ 100% จาก Murrplastik ประเทศเยอรมนี พร้อมเอกสารรับรอง CO/CQ และการรับประกันอย่างเป็นทางการ",
+    en: "100% Genuine Murrplastik Germany, complete chứng từ kiểm định documentation and official factory warranty.",
+    "zh-CN": "100% 德国莫尔塑料 Murrplastik 原装正品，具备完整原产地与合格证明 (giấy tờ & chứng nhận đầy đủ) 及官方质保。",
+    de: "100% Original Murrplastik Deutschland, vollständige chứng từ kiểm định-Dokumentation und offizielle Werksgarantie.",
+    ko: "100% 독일 Murrplastik 정품 보장, 완벽한 chứng từ kiểm định 서류 및 공식 제조사 품질 보증 제공.",
+    ja: "100% ドイツ Murrplastik 社純正品、chứng từ kiểm định 証明書完備およびメーカー正規保証付き。",
+    th: "ของแท้ 100% จาก Murrplastik ประเทศเยอรมนี พร้อมเอกสารรับรอง chứng từ kiểm định และการรับประกันอย่างเป็นทางการ",
   },
   "100% Chính hãng, có đầy đủ chứng từ hàng hóa": {
     vi: "100% Chính hãng, có đầy đủ chứng từ hàng hóa",
-    en: "100% Genuine product with full official CO/CQ certificates",
-    "zh-CN": "100% 原厂正品保证，提供完整官方原产地及品质合格证明 (CO/CQ)",
-    de: "100% Originalware mit vollständigen offiziellen Werksprüfzeugnissen (CO/CQ)",
-    ko: "100% 제조사 정품 보장, 공식 원산지(CO) 및 품질(CQ) 인증서 완비",
-    ja: "100% メーカー正規純正品、原産地証明書(CO)および品質検査書(CQ)完備",
-    th: "ของแท้ 100% พร้อมเอกสารรับรองถิ่นกำเนิดและคุณภาพ (CO/CQ) ครบถ้วน",
+    en: "100% Genuine product with full official official certificates & documentation",
+    "zh-CN": "100% 原厂正品保证，提供完整官方原产地及品质合格证明 (giấy tờ & chứng nhận đầy đủ)",
+    de: "100% Originalware mit vollständigen offiziellen Werksprüfzeugnissen (giấy tờ & chứng nhận đầy đủ)",
+    ko: "100% 제조사 정품 보장, 공식 원산지 증빙 및 품질 인증 서류 완비",
+    ja: "100% メーカー正規純正品、正規原産地証明書および品質検査書完備",
+    th: "ของแท้ 100% พร้อมเอกสารรับรองถิ่นกำเนิดและคุณภาพ (giấy tờ & chứng nhận đầy đủ) ครบถ้วน",
   },
   "100% Chính hãng, có đầy đủ chứng từ hàng hóa: Đầy đủ giấy tờ thủ tục, hóa đơn, cam kết bảo vệ dây chuyền lắp ráp điện tử đạt chuẩn xuất khẩu.": {
     vi: "100% Chính hãng, có đầy đủ chứng từ hàng hóa: Đầy đủ giấy tờ thủ tục, hóa đơn, cam kết bảo vệ dây chuyền lắp ráp điện tử đạt chuẩn xuất khẩu.",
-    en: "100% Genuine with full documentation: Official invoices and CO/CQ protecting export-standard electronic assembly lines.",
+    en: "100% Genuine with full documentation: Official invoices and chứng từ kiểm định protecting export-standard electronic assembly lines.",
     "zh-CN": "100% 原厂正品保证：手续合规、增值税专用发票完备，确保外资出口级电子装配产线符合国际稽核标准。",
-    de: "100% Originalware mit vollständigen Nachweisen: Offizielle Rechnungen und CO/CQ für exportorientierte Elektronikfertigung.",
-    ko: "100% 제조사 정품 및 완벽한 증빙: 공식 세금계산서, CO/CQ 구비로 수출형 전자 조립 라인 규격 완벽 충족.",
-    ja: "100% メーカー正規純正品・書類完備：公式インボイス・CO/CQ完備で輸出仕様の電子実装ラインに最適。",
-    th: "ของแท้ 100% พร้อมเอกสารครบถ้วน: มีใบกำกับภาษีและใบรับรอง CO/CQ รับรองมาตรฐานสายการผลิตอิเล็กทรอนิกส์เพื่อการส่งออก",
+    de: "100% Originalware mit vollständigen Nachweisen: Offizielle Rechnungen und chứng từ kiểm định für exportorientierte Elektronikfertigung.",
+    ko: "100% 제조사 정품 및 완벽한 증빙: 공식 세금계산서, chứng từ kiểm định 구비로 수출형 전자 조립 라인 규격 완벽 충족.",
+    ja: "100% メーカー正規純正品・書類完備：公式インボイス・chứng từ kiểm định完備で輸出仕様の電子実装ラインに最適。",
+    th: "ของแท้ 100% พร้อมเอกสารครบถ้วน: มีใบกำกับภาษีและใบรับรอง chứng từ kiểm định รับรองมาตรฐานสายการผลิตอิเล็กทรอนิกส์เพื่อการส่งออก",
   },
   "Case Study thực tế: Đã lắp đặt và hoạt động ổn định trên dàn Robot hàn ABB tại xưởng Body Shop dây chuyền sản xuất ô tô.": {
     vi: "Case Study thực tế: Đã lắp đặt và hoạt động ổn định trên dàn Robot hàn ABB tại xưởng Body Shop dây chuyền sản xuất ô tô.",
@@ -2203,37 +2203,37 @@ export function getLocalizedProduct(product: Product, locale: SupportedLocale): 
     localizedHighlights = product.highlights.map(h => translateFeatureItem(h, locale));
   } else if (locale === 'zh-CN') {
     localizedHighlights = [
-      '100% 原厂正品保证，提供完整官方原产地及品质合格证明 (CO/CQ)',
+      '100% 原厂正品保证，提供完整官方原产地及品质合格证明 (giấy tờ & chứng nhận đầy đủ)',
       '高耐磨、高精度、适应工业自动化产线 24/7 全天候严苛稳定运行',
       '在越外资企业专项服务：专业技术工程师现场协助安装、调试与试样'
     ];
   } else if (locale === 'en') {
     localizedHighlights = [
-      '100% Genuine product with full official CO/CQ certificates',
+      '100% Genuine product with full official official certificates & documentation',
       'High durability and precision for continuous 24/7 industrial production lines',
       'Comprehensive on-site technical installation, calibration, and delivery support across industrial parks'
     ];
   } else if (locale === 'de') {
     localizedHighlights = [
-      '100% Originalware mit vollständigen offiziellen Werksprüfzeugnissen (CO/CQ)',
+      '100% Originalware mit vollständigen offiziellen Werksprüfzeugnissen (giấy tờ & chứng nhận đầy đủ)',
       'Hohe Belastbarkeit und Präzision für den industriellen 24/7-Dauerbetrieb',
       'Technischer Vor-Ort-Support, Installation und Express-Lieferung in alle Industrieparks'
     ];
   } else if (locale === 'ko') {
     localizedHighlights = [
-      '100% 제조사 정품 보장, 공식 원산지(CO) 및 품질(CQ) 인증서 완비',
+      '100% 제조사 정품 보장, 공식 원산지 증빙 및 품질 인증 서류 완비',
       '산업용 제조 공정 24/7 연속 가동을 위한 우수한 내구성과 정밀도',
       '베트남 북부/남부 공단 엔지니어 현장 설치, 샘플 테스트 및 기술 지원'
     ];
   } else if (locale === 'ja') {
     localizedHighlights = [
-      '100% メーカー正規純正品、原産地証明書(CO)および品質検査書(CQ)完備',
+      '100% メーカー正規純正品、正規原産地証明書および品質検査書完備',
       '24時間連続稼働の過酷な工場環境に耐える高耐久・高精度スペック',
       '各工業団地への即日納入、現地技術者による設置・試運転サポート'
     ];
   } else if (locale === 'th') {
     localizedHighlights = [
-      'ของแท้ 100% พร้อมเอกสารรับรองถิ่นกำเนิดและคุณภาพ (CO/CQ) ครบถ้วน',
+      'ของแท้ 100% พร้อมเอกสารรับรองถิ่นกำเนิดและคุณภาพ (giấy tờ & chứng nhận đầy đủ) ครบถ้วน',
       'ทนทานสูง แม่นยำ รองรับการทำงานในสายการผลิตอุตสาหกรรมต่อเนื่อง 24/7',
       'บริการจัดส่งด่วนและมีวิศวกรเทคนิคช่วยทดสอบและติดตั้งหน้างาน'
     ];

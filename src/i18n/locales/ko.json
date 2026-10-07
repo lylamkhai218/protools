@@ -3,7 +3,7 @@
     "home": "홈",
     "categories": "장비 카탈로그",
     "cart": "견적 바구니",
-    "docs": "기술 문서 & CO/CQ",
+    "docs": "기술 문서 & 인증 서류",
     "contact": "문의하기",
     "search_placeholder": "모델명, 부품 번호 검색: Hakko 936, Hios CL-4000, SP-982, Zcut 9...",
     "murr_portal": "독일 Murrplastik 공식 포털",
@@ -23,7 +23,7 @@
     "toolbox_dresspack_desc": "ABB, Fanuc 6축 로봇 시뮬레이션 및 케이블 충진율 계산",
     "toolbox_bom_title": "BOM 빠른 견적 계산기",
     "toolbox_bom_desc": "엑셀 SKU 대량 붙여넣기 및 즉시 B2B 견적서 생성",
-    "toolbox_cad_title": "CAD STEP 3D도면 및 CO/CQ 조회",
+    "toolbox_cad_title": "CAD STEP 3D도면 및 인증서 조회",
     "toolbox_cad_desc": "PDF 기술 사양서 및 UL94 난연 인증서 다운로드"
   },
   "hero": {
@@ -65,8 +65,8 @@
     "view_category": "카테고리 보기"
   },
   "b2b_benefits": {
-    "co_cq_title": "100% 정품 보장 (CO/CQ 인증서 완비)",
-    "co_cq_desc": "독일, 일본, 한국 공식 제조업체에서 발행한 원산지 증명서(CO) 및 품질 검사서(CQ) 완비.",
+    "co_cq_title": "100% 정품 보장 (공식 증빙 서류 완비)",
+    "co_cq_desc": "독일, 일본, 한국 제조사 공식 출하 검사 및 품질 입증 서류 구비.",
     "quote_speed": "15~30분 내 신속 견적 회신",
     "quote_speed_desc": "전문 기술 영업 엔지니어 팀이 기술 사양 상담 및 경쟁력 있는 대량 구매 단가를 신속히 제공합니다.",
     "stock_title": "하노이 & 흥옌 즉시 출고 물류 거점",
@@ -192,8 +192,8 @@
     "delivery_title": "배송 및 창고 보유 약속:",
     "delivery_desc_1": "하노이 & 흥옌 창고 즉시 출고 가능 (리엔하타이 공단 인근).",
     "delivery_desc_2": "오늘 15:00 이전 주문 시 — 베트남 북부 주요 공단 당일 특송.",
-    "co_cq_title": "CO / CQ",
-    "co_cq_sub": "공식 인증서 완비",
+    "co_cq_title": "서류 완비",
+    "co_cq_sub": "정식 인증 증빙",
     "warranty_title": "12개월 보증",
     "warranty_sub": "공식 제조사 정품",
     "nationwide_title": "전국 신속 배송",
@@ -223,8 +223,8 @@
     "accessories_heading": "공장 출하 기본 포함 표준 액세서리",
     "docs_heading": "제품 적합성 증빙 서류 및 공장 기술 지원",
     "docs_sub": "주문과 함께 제공되는 공식 인증 및 서류:",
-    "doc_1": "제조사 정식 원산지 증명서 (CO) 완비.",
-    "doc_2": "출하 품질 검사 성적서 (CQ) 및 출고증.",
+    "doc_1": "공식 유통망을 통한 적법한 원산지 증빙 및 수입 관련 서류.",
+    "doc_2": "제조사 품질 검사 성적서, 출하 전표 및 기술 적합 증명서.",
     "doc_3": "T&T Vina Industrial Co., Ltd. 정식 VAT 세금계산서 발행.",
     "doc_4": "공장 샘플 테스트 성적서 (Trial Test) 및 기술 인계서.",
     "tech_support_hotline": "기술 상담 핫라인",
@@ -260,7 +260,7 @@
   "faq": {
     "badge": "기술 및 구매 상담 FAQ",
     "title": "자주 묻는 질문 (FAQ)",
-    "subtitle": "공식 CO/CQ 인증, 12개월 품질 보증, 현장 샘플 테스트 지원 및 견적 회신 시간 안내.",
+    "subtitle": "공식 인증 규격 증빙, 12개월 품질 보증, 현장 샘플 테스트 지원 및 견적 회신 시간 안내.",
     "cta_question": "공장 제조 라인에 특화된 기술 문의가 있으십니까?",
     "cta_btn": "상담 핫라인: "
   },

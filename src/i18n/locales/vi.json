@@ -3,7 +3,7 @@
     "home": "Trang Chủ",
     "categories": "Danh Mục Thiết Bị",
     "cart": "Giỏ Báo Giá",
-    "docs": "Tài Liệu & CO/CQ",
+    "docs": "Tài Liệu & Chứng Từ",
     "contact": "Liên Hệ",
     "search_placeholder": "Tìm mã SKU, tên máy: Hakko 936, CL-4000, MP-1081...",
     "murr_portal": "Chuyên Trang Murrplastik Đức",
@@ -23,7 +23,7 @@
     "toolbox_dresspack_desc": "Mô phỏng cánh tay robot & tính fill factor bó cáp",
     "toolbox_bom_title": "Báo Giá Nhanh Theo Danh Sách BOM",
     "toolbox_bom_desc": "Dán mã SKU hàng loạt từ Excel & xuất báo giá B2B tức thì",
-    "toolbox_cad_title": "Tra Cứu Bản Vẽ CAD STEP & CO/CQ",
+    "toolbox_cad_title": "Tra Cứu Bản Vẽ CAD STEP & Chứng Từ",
     "toolbox_cad_desc": "Tải tài liệu kỹ thuật PDF, chứng chỉ chống cháy UL94 chính hãng"
   },
   "hero": {
@@ -65,8 +65,8 @@
     "view_category": "Xem danh mục"
   },
   "b2b_benefits": {
-    "co_cq_title": "100% Chính Hãng (Đầy Đủ CO/CQ)",
-    "co_cq_desc": "Chứng từ chứng nhận xuất xứ & chất lượng nhà sản xuất Đức, Nhật Bản, Hàn Quốc.",
+    "co_cq_title": "100% Chính Hãng (Đầy Đủ Giấy Tờ)",
+    "co_cq_desc": "Chứng từ xuất xứ & kiểm định chất lượng chính hãng từ nhà sản xuất.",
     "quote_speed": "Báo Giá Hỏa Tốc 15–30 Phút",
     "quote_speed_desc": "Đội ngũ kỹ sư bán hàng hỗ trợ tư vấn thông số kỹ thuật và phản hồi báo giá cạnh tranh tức thì.",
     "stock_title": "Tổng Kho Sẵn Hàng Hà Nội & Hưng Yên",
@@ -192,7 +192,7 @@
     "delivery_title": "Cam Kết Giao Hàng & Kho Hàng:",
     "delivery_desc_1": "Sẵn hàng tại Kho Hà Nội & Kho Hưng Yên (Cạnh KCN Liên Hà Thái).",
     "delivery_desc_2": "Đặt trước 15:00 hôm nay — Giao hỏa tốc trong ngày tại các KCN miền Bắc.",
-    "co_cq_title": "CO / CQ",
+    "co_cq_title": "Giấy Tờ Hợp Lệ",
     "co_cq_sub": "Đầy đủ chứng từ",
     "warranty_title": "Bảo Hành 12T",
     "warranty_sub": "Chính hãng nhà máy",
@@ -223,8 +223,8 @@
     "accessories_heading": "Phụ Kiện Tiêu Chuẩn Đi Kèm",
     "docs_heading": "Hồ Sơ Chứng Từ Hàng Hóa & Dịch Vụ Kỹ Thuật Nhà Máy",
     "docs_sub": "Chứng Nhận Hàng Hóa & Chứng Từ Cung Cấp Kèm Đơn Hàng:",
-    "doc_1": "Có đầy đủ chứng từ xuất xứ và nguồn gốc hàng hóa hợp pháp (CO).",
-    "doc_2": "Chứng từ kiểm định chất lượng xuất xưởng (CQ) và phiếu xuất kho.",
+    "doc_1": "Có đầy đủ giấy tờ, chứng từ xuất xứ và nguồn gốc hàng hóa hợp pháp.",
+    "doc_2": "Đầy đủ chứng từ kiểm tra chất lượng xuất xưởng và phiếu xuất kho.",
     "doc_3": "Hóa đơn Giá trị gia tăng (VAT) hợp pháp của T&T Vina Industrial Co., Ltd.",
     "doc_4": "Biên bản thử nghiệm mẫu tại nhà máy (Trial Test) & bàn giao kỹ thuật.",
     "tech_support_hotline": "Hotline Tư Vấn Kỹ Thuật",
@@ -260,7 +260,7 @@
   "faq": {
     "badge": "Hỏi Đáp Kỹ Thuật & Mua Hàng",
     "title": "Câu Hỏi Thường Gặp (FAQ)",
-    "subtitle": "Giải đáp chi tiết về tiêu chuẩn CO/CQ, chính sách bảo hành, hỗ trợ chạy thử mẫu tại nhà máy và thời gian báo giá.",
+    "subtitle": "Giải đáp chi tiết về hồ sơ giấy tờ hàng hóa, chính sách bảo hành, hỗ trợ chạy thử mẫu tại nhà máy và thời gian báo giá.",
     "cta_question": "Bạn có câu hỏi kỹ thuật đặc thù cho dây chuyền sản xuất của nhà máy?",
     "cta_btn": "Hotline Tư Vấn: "
   },

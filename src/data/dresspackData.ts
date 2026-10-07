@@ -2742,7 +2742,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Universal Mid-Size Workhorse',
     payloadKg: 16,
     reachM: 1.61,
-    imageUrl: '/images/dresspack/kuka/KR16.webp',
+    imageUrl: '/images/dresspack/kuka/kr16.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2753,7 +2753,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Cybertech High Accuracy',
     payloadKg: 20,
     reachM: 1.81,
-    imageUrl: '/images/dresspack/kuka/KR20.webp',
+    imageUrl: '/images/dresspack/kuka/kr20.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2797,7 +2797,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Iontec All-Rounder',
     payloadKg: 70,
     reachM: 2.1,
-    imageUrl: '/images/dresspack/kuka/KR70.webp',
+    imageUrl: '/images/dresspack/kuka/kr70.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2808,7 +2808,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Quantec High Performance',
     payloadKg: 120,
     reachM: 2.5,
-    imageUrl: '/images/dresspack/kuka/KR120.webp',
+    imageUrl: '/images/dresspack/kuka/kr120.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2819,7 +2819,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Quantec Automotive Standard',
     payloadKg: 150,
     reachM: 2.7,
-    imageUrl: '/images/dresspack/kuka/KR150.webp',
+    imageUrl: '/images/dresspack/kuka/kr150.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2830,7 +2830,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Quantec Heavy Duty',
     payloadKg: 180,
     reachM: 2.9,
-    imageUrl: '/images/dresspack/kuka/KR180.webp',
+    imageUrl: '/images/dresspack/kuka/kr180.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2852,7 +2852,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Quantec Ultra Payload',
     payloadKg: 240,
     reachM: 2.9,
-    imageUrl: '/images/dresspack/kuka/KR240.webp',
+    imageUrl: '/images/dresspack/kuka/kr240.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2863,7 +2863,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Fortec Extreme Payload',
     payloadKg: 300,
     reachM: 2.5,
-    imageUrl: '/images/dresspack/kuka/KR300.webp',
+    imageUrl: '/images/dresspack/kuka/kr300.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -2907,7 +2907,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'High Speed Small Assembly',
     payloadKg: 7,
     reachM: 0.92,
-    imageUrl: '/images/dresspack/yaskawa/GP7.webp',
+    imageUrl: '/images/dresspack/yaskawa/gp7.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP50_PACKAGE]
   },
@@ -2918,7 +2918,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Fast Pick & Place',
     payloadKg: 8,
     reachM: 0.72,
-    imageUrl: '/images/dresspack/yaskawa/GP8.webp',
+    imageUrl: '/images/dresspack/yaskawa/gp8.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP50_PACKAGE]
   },
@@ -2929,7 +2929,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Long Reach Machine Tending',
     payloadKg: 35,
     reachM: 2.53,
-    imageUrl: '/images/dresspack/yaskawa/GP35L.webp',
+    imageUrl: '/images/dresspack/yaskawa/gp35l.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP50_PACKAGE]
   },
@@ -2940,7 +2940,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'General Purpose Handling',
     payloadKg: 50,
     reachM: 2.06,
-    imageUrl: '/images/dresspack/yaskawa/GP50.webp',
+    imageUrl: '/images/dresspack/yaskawa/gp50.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP50_PACKAGE, YASKAWA_GP50_A3_A6_M50_PACKAGE, YASKAWA_GP50_FULL_M50_PACKAGE, YASKAWA_GP50_FULL_JUMBO_PACKAGE]
   },
@@ -2973,7 +2973,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Heavy Duty 6-Axis Handling',
     payloadKg: 180,
     reachM: 2.7,
-    imageUrl: '/images/dresspack/yaskawa/GP180.webp',
+    imageUrl: '/images/dresspack/yaskawa/gp180.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP180_PACKAGE, YASKAWA_GP180_M40_PACKAGE, YASKAWA_GP180_FULL_PACKAGE, YASKAWA_GP180_JUMBO_PACKAGE]
   },
@@ -2984,7 +2984,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'High Inertia Spot Welding',
     payloadKg: 225,
     reachM: 2.7,
-    imageUrl: '/images/dresspack/yaskawa/GP225.webp',
+    imageUrl: '/images/dresspack/yaskawa/gp225.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP50_PACKAGE]
   },
@@ -2995,7 +2995,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Human-Collaborative Cobot DTP',
     payloadKg: 10,
     reachM: 1.2,
-    imageUrl: '/images/dresspack/yaskawa/HC10.webp',
+    imageUrl: '/images/dresspack/yaskawa/hc10.webp',
     hasActiveConfig: true,
     packages: [YASKAWA_GP50_PACKAGE]
   },
@@ -3017,7 +3017,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Universal Workhorse Cobot',
     payloadKg: 5,
     reachM: 0.85,
-    imageUrl: '/images/dresspack/universal-robots/UR5e.webp',
+    imageUrl: '/images/dresspack/universal-robots/ur5e.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3028,7 +3028,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Classic Cobot Series',
     payloadKg: 10,
     reachM: 1.3,
-    imageUrl: '/images/dresspack/universal-robots/UR10.webp',
+    imageUrl: '/images/dresspack/universal-robots/ur10.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3039,7 +3039,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Medium Reach Precision Cobot',
     payloadKg: 12.5,
     reachM: 1.3,
-    imageUrl: '/images/dresspack/universal-robots/UR10e.webp',
+    imageUrl: '/images/dresspack/universal-robots/ur10e.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3050,7 +3050,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Heavy Duty Tooling Cobot',
     payloadKg: 16,
     reachM: 0.9,
-    imageUrl: '/images/dresspack/universal-robots/UR16e.webp',
+    imageUrl: '/images/dresspack/universal-robots/ur16e.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3061,7 +3061,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Next-Gen Long Reach Cobot',
     payloadKg: 20,
     reachM: 1.75,
-    imageUrl: '/images/dresspack/universal-robots/UR20.webp',
+    imageUrl: '/images/dresspack/universal-robots/ur20.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3072,7 +3072,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'High Payload Palletizing Cobot',
     payloadKg: 30,
     reachM: 1.3,
-    imageUrl: '/images/dresspack/universal-robots/UR30.webp',
+    imageUrl: '/images/dresspack/universal-robots/ur30.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3083,7 +3083,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'M-Series Ultra Heavy Duty (MX500N)',
     payloadKg: 500,
     reachM: 2.54,
-    imageUrl: '/images/dresspack/kawasaki/MX500N.webp',
+    imageUrl: '/images/dresspack/kawasaki/mx500n.webp',
     hasActiveConfig: true,
     packages: [KAWASAKI_RS_PACKAGE]
   },
@@ -3094,7 +3094,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'R-Series General Purpose Handling',
     payloadKg: 100,
     reachM: 2.2,
-    imageUrl: '/images/dresspack/kawasaki/RS080N.webp',
+    imageUrl: '/images/dresspack/kawasaki/rs080n.webp',
     hasActiveConfig: true,
     packages: [KAWASAKI_RS_PACKAGE]
   },
@@ -3105,7 +3105,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'RS-Series High Speed (RS007L / RS080N)',
     payloadKg: 80,
     reachM: 2.1,
-    imageUrl: '/images/dresspack/kawasaki/RS007L.webp',
+    imageUrl: '/images/dresspack/kawasaki/rs007l.webp',
     hasActiveConfig: true,
     packages: [KAWASAKI_RS_PACKAGE]
   },
@@ -3149,7 +3149,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'NJ 370 Body Shop Automotive',
     payloadKg: 370,
     reachM: 3.0,
-    imageUrl: '/images/dresspack/comau/NJ370.webp',
+    imageUrl: '/images/dresspack/comau/nj370.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -3160,7 +3160,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'NJ 650 Heavy Duty Foundry',
     payloadKg: 650,
     reachM: 2.7,
-    imageUrl: '/images/dresspack/comau/NJ650.webp',
+    imageUrl: '/images/dresspack/comau/nj650.webp',
     hasActiveConfig: true,
     packages: [KUKA_KR210_PACKAGE]
   },
@@ -3171,7 +3171,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'AI Vision Smart Cobot',
     payloadKg: 5,
     reachM: 0.9,
-    imageUrl: '/images/dresspack/techman-robot/TM5.webp',
+    imageUrl: '/images/dresspack/techman-robot/tm5.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3182,7 +3182,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'Smart Heavy Payload Cobot',
     payloadKg: 12,
     reachM: 1.3,
-    imageUrl: '/images/dresspack/techman-robot/TM12.webp',
+    imageUrl: '/images/dresspack/techman-robot/tm12.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },
@@ -3215,7 +3215,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     series: 'AI Vision Heavy Cobot',
     payloadKg: 20,
     reachM: 1.3,
-    imageUrl: '/images/dresspack/techman-robot/TM20.webp',
+    imageUrl: '/images/dresspack/techman-robot/tm20.webp',
     hasActiveConfig: true,
     packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
   },

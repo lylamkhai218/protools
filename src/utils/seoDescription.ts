@@ -22,7 +22,7 @@ export function generateProductSEODescription(product: Product): SEODescriptionO
   const warehouse = product.stockLocation || 'Kho Hà Nội & Hưng Yên';
 
   // 1. Meta Description (Tối ưu 150 - 160 ký tự cho Google Snippet)
-  const metaDescription = `${name} (SKU: ${sku}) chính hãng ${brand}. ${category} chuẩn công nghiệp, chứng nhận CO/CQ, độ bền cao. Sẵn hàng tại ${warehouse}, giao hỏa tốc 24h.`;
+  const metaDescription = `${name} (SKU: ${sku}) chính hãng ${brand}. ${category} chuẩn công nghiệp, đầy đủ giấy tờ chứng nhận, độ bền cao. Sẵn hàng tại ${warehouse}, giao hỏa tốc 24h.`;
 
   // 2. Rich B2B Technical Description (150 - 250 từ chuẩn ngữ nghĩa kỹ thuật)
   let specificIntro = '';
@@ -90,7 +90,7 @@ export function generateProductSEODescription(product: Product): SEODescriptionO
       '100% Sản xuất tại CHLB Đức theo chuẩn chất lượng Châu Âu',
       'Vật liệu nhựa kỹ thuật polyamide biến tính đặc biệt, chịu uốn gập hàng triệu chu kỳ',
       'Đạt chuẩn chống cháy UL94 V0, kháng dầu mỡ, hóa chất công nghiệp và tia UV',
-      'T&T Vina Industrial là đại diện phân phối chính thức kèm CO/CQ bản gốc'
+      'T&T Vina Industrial là đại diện phân phối chính thức kèm hồ sơ chứng từ bản gốc'
     ];
   } else {
     specificIntro = `Thiết bị ${name} (Mã định danh: ${sku}) do T&T Vina Industrial cung ứng là giải pháp tin cậy cho các nhà máy, xưởng cơ khí chế tạo và dây chuyền tự động hóa. Sản phẩm đáp ứng đầy đủ các tiêu chuẩn kỹ thuật khắt khe về độ chính xác và tuổi thọ vận hành.`;

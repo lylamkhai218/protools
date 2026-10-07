@@ -3,7 +3,7 @@
     "home": "ホーム",
     "categories": "製品カタログ",
     "cart": "お見積りカゴ",
-    "docs": "技術資料・CO/CQ",
+    "docs": "技術資料・認証書類",
     "contact": "お問い合わせ",
     "search_placeholder": "型番・部品を検索: 白光 Hakko 936, HIOS CL-4000, SP-982, Zcut 9...",
     "murr_portal": "ドイツ Murrplastik 専用ポータル",
@@ -23,7 +23,7 @@
     "toolbox_dresspack_desc": "ABB、Fanuc 6軸ロボットシミュレーション＆ケーブル占有率計算",
     "toolbox_bom_title": "BOM一括見積り計算ツール",
     "toolbox_bom_desc": "Excelから型番を一括ペーストして即時B2B見積書を作成",
-    "toolbox_cad_title": "CAD STEP 3D図面＆CO/CQ検索",
+    "toolbox_cad_title": "CAD STEP 3D図面＆認証書類検索",
     "toolbox_cad_desc": "PDF技術仕様書およびUL94難燃性認証書のダウンロード"
   },
   "hero": {
@@ -65,8 +65,8 @@
     "view_category": "カテゴリーを見る"
   },
   "b2b_benefits": {
-    "co_cq_title": "100% 正規品保証（CO/CQ完備）",
-    "co_cq_desc": "ドイツ・日本・韓国メーカー発行の公式原産地証明書(CO)および品質検査証明書(CQ)を完備。",
+    "co_cq_title": "100% 正規品保証（各種証明書類完備）",
+    "co_cq_desc": "ドイツ・日本・韓国メーカーの正規品質検査および原産地証明書を完備。",
     "quote_speed": "15〜30分以内の迅速見積回答",
     "quote_speed_desc": "専任のセールスエンジニアが仕様選定と競争力のある大口卸価格を即座にご案内します。",
     "stock_title": "ハノイ・フンイエン即納在庫拠点",
@@ -192,8 +192,8 @@
     "delivery_title": "納期・現地在庫の確約:",
     "delivery_desc_1": "ハノイおよびフンイエン倉庫に常時在庫（リエンハタイ工業団地隣接）。",
     "delivery_desc_2": "本日15:00までのご注文で — ベトナム北部工業団地へ即日特急配送。",
-    "co_cq_title": "CO / CQ",
-    "co_cq_sub": "正規証明書類完備",
+    "co_cq_title": "書類完備",
+    "co_cq_sub": "全書類正規保証",
     "warranty_title": "12ヶ月保証",
     "warranty_sub": "メーカー純正保証",
     "nationwide_title": "全国迅速配送",
@@ -223,8 +223,8 @@
     "accessories_heading": "工場標準付属アクセサリ・構成品",
     "docs_heading": "製品適合証明書類＆工場技術サポート",
     "docs_sub": "納品時に付属する適合証明書類一覧:",
-    "doc_1": "正規メーカー発行の原産地証明書 (CO) 完備。",
-    "doc_2": "出荷品質検査成績書 (CQ) および納品伝票。",
+    "doc_1": "正規ルートを通じた適法な原産地証明および輸入申告関連書類。",
+    "doc_2": "工場出荷時検査合格証、出荷伝票および仕様適合書。",
     "doc_3": "T&T Vina Industrial Co., Ltd. 発行の正規VAT付加価値税インボイス。",
     "doc_4": "工場サンプル試作テスト報告書 (Trial Test) および技術引渡書。",
     "tech_support_hotline": "技術相談ホットライン",
@@ -260,7 +260,7 @@
   "faq": {
     "badge": "技術＆調達 FAQ",
     "title": "よくあるご質問 (FAQ)",
-    "subtitle": "CO/CQ規格適合証明、12ヶ月保証、工場現場での試運転サポート、見積納期について詳しく解説。",
+    "subtitle": "各種適合証明書、12ヶ月保証、工場現場での試運転サポート、見積納期について詳しく解説。",
     "cta_question": "工場製造ラインに固有の技術課題がございますか？",
     "cta_btn": "技術相談ホットライン: "
   },
