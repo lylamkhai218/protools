@@ -150,15 +150,17 @@ export default function RobotConfigurator({
       // Hero 3D model render image: always prefer selectedModel.imageUrl so Comau shows Comau, Techman shows Techman, etc.
       const resolvedHeroImg = isExactModel ? pkg.main3dImage : (selectedModel.imageUrl || pkg.main3dImage);
 
-      // Perspective images: if adapted, show the model's actual 3D render
+      // Perspective images: for exact model use its perspectives; for adapted models keep the 4 distinct perspectives but show the selected model's hero render in Overview
       const resolvedPerspectives = isExactModel 
         ? pkg.perspectiveImages 
-        : [
-            { id: `${pkg.id}-ang-1`, label: 'Tổng quan hệ thống (Overview)', angle: 'Isometric View', url: resolvedHeroImg },
-            { id: `${pkg.id}-ang-2`, label: 'Góc nhìn nghiêng (Angle View)', angle: 'Perspective View', url: resolvedHeroImg },
-            { id: `${pkg.id}-ang-3`, label: 'Mặt bên cánh tay (Side View)', angle: 'Lateral View', url: resolvedHeroImg },
-            { id: `${pkg.id}-ang-4`, label: 'Cận cảnh cổ tay (Wrist Detail)', angle: 'Axis 6 Flange', url: resolvedHeroImg }
-          ];
+        : (pkg.perspectiveImages && pkg.perspectiveImages.length >= 4)
+          ? [
+              { ...pkg.perspectiveImages[0], url: resolvedHeroImg },
+              pkg.perspectiveImages[1],
+              pkg.perspectiveImages[2],
+              pkg.perspectiveImages[3]
+            ]
+          : pkg.perspectiveImages;
 
       // Parts adaptation: ensure brand name on custom mounts matches selectedBrand
       const cleanedParts = (pkg.parts || []).map(part => {

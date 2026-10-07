@@ -1601,19 +1601,19 @@ export const YASKAWA_GP180_PACKAGE: DresspackPackage = {
       id: 'gp180-227-ang-2',
       label: 'Góc nhìn trên xuống (Top View)',
       angle: 'Top Plan View',
-      url: '/images/dresspack/yaskawa/gp180_pkg_227_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'gp180-227-ang-3',
       label: 'Góc nhìn ngang thân (Side View)',
-      angle: 'Lateral View',
-      url: '/images/dresspack/yaskawa/gp180_pkg_227_overview.png'
+      angle: 'Lateral View & R-Tec Box',
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'gp180-227-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/yaskawa/gp180_pkg_227_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_4_Wrist.png'
     }
   ],
   parts: [
@@ -1754,19 +1754,19 @@ export const YASKAWA_GP180_M40_PACKAGE: DresspackPackage = {
       id: 'gp180-729-ang-2',
       label: 'Góc nhìn trên xuống (Top View)',
       angle: 'Top Plan View',
-      url: '/images/dresspack/yaskawa/gp180_pkg_729_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'gp180-729-ang-3',
       label: 'Góc nhìn ngang thân (Side View)',
-      angle: 'Lateral View',
-      url: '/images/dresspack/yaskawa/gp180_pkg_729_overview.png'
+      angle: 'Lateral View & R-Tec Box',
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'gp180-729-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/yaskawa/gp180_pkg_729_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_4_Wrist.png'
     }
   ],
   parts: [
@@ -1907,19 +1907,19 @@ export const YASKAWA_GP180_FULL_PACKAGE: DresspackPackage = {
       id: 'gp180-584-ang-2',
       label: 'Góc nhìn trên xuống (Top View)',
       angle: 'Top Plan View',
-      url: '/images/dresspack/yaskawa/gp180_pkg_584_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'gp180-584-ang-3',
       label: 'Góc nhìn ngang thân (Side View)',
       angle: 'Lateral View Axis 1-6',
-      url: '/images/dresspack/yaskawa/gp180_pkg_584_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'gp180-584-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Flange',
-      url: '/images/dresspack/yaskawa/gp180_pkg_584_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_4_Wrist.png'
     }
   ],
   parts: [
@@ -2072,19 +2072,19 @@ export const YASKAWA_GP180_JUMBO_PACKAGE: DresspackPackage = {
       id: 'gp180-789-ang-2',
       label: 'Góc nhìn trên xuống (Top View)',
       angle: 'Top Plan View',
-      url: '/images/dresspack/yaskawa/gp180_pkg_789_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'gp180-789-ang-3',
       label: 'Góc nhìn ngang thân (Side View)',
       angle: 'Lateral View & Alu Bar',
-      url: '/images/dresspack/yaskawa/gp180_pkg_789_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'gp180-789-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Flange Tool',
-      url: '/images/dresspack/yaskawa/gp180_pkg_789_overview.png'
+      url: '/images/dresspack/yaskawa/00_Robot_Angle_4_Wrist.png'
     }
   ],
   parts: [
@@ -2451,31 +2451,31 @@ export const COMAU_NJ370_PACKAGE: DresspackPackage = {
   outerDiameterMm: 50.0,
   description: 'Hệ thống xích dẫn cáp cao cấp R-Tec Box 100N chuyên dụng cho robot tải nặng Comau NJ370-3.0, tối ưu hóa cho xưởng hàn thân xe (Body Shop) và dây chuyền lắp ráp ô tô tự động.',
   recommendedFor: 'Hàn bấm (Spot Welding), dập tấm kim loại, dây chuyền thân vỏ ô tô Comau.',
-  main3dImage: '/images/dresspack/comau/nj370.webp',
+  main3dImage: '/images/dresspack/comau/00_Robot_Angle_1_Overview.png',
   perspectiveImages: [
     {
       id: 'comau-ang-1',
       label: 'Tổng quan hệ thống (Overview)',
       angle: 'Isometric View',
-      url: '/images/dresspack/comau/nj370.webp'
+      url: '/images/dresspack/comau/00_Robot_Angle_1_Overview.png'
     },
     {
       id: 'comau-ang-2',
-      label: 'Góc nhìn trên xuống (Top View)',
+      label: 'Góc nhìn từ trên xuống (Top View)',
       angle: 'Plan View Axis 3-6',
-      url: '/images/dresspack/comau/nj370.webp'
+      url: '/images/dresspack/comau/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'comau-ang-3',
       label: 'Góc nhìn ngang cánh tay (Side View)',
       angle: 'Lateral View & Spring Return',
-      url: '/images/dresspack/comau/nj370.webp'
+      url: '/images/dresspack/comau/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'comau-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/comau/nj370.webp'
+      url: '/images/dresspack/comau/00_Robot_Angle_4_Wrist.png'
     }
   ],
   cadPdfUrl: '/documents/cad/abb_irb6700_cad.pdf',
@@ -2490,7 +2490,7 @@ export const COMAU_NJ370_PACKAGE: DresspackPackage = {
       spec: 'Hợp kim nhôm Anodize gia cường, định vị chuẩn bu lông trục 3 Comau NJ',
       defaultQty: 1,
       unit: 'Bộ',
-      imageUrl: '/images/dresspack/fanuc/83692622_Base_Plate_M710_20-45.png'
+      imageUrl: '/images/dresspack/abb/83692622_Base_Plate_ABB_6700.png'
     },
     {
       id: 'comau-part-2',
@@ -2601,31 +2601,31 @@ export const COMAU_NJ650_PACKAGE: DresspackPackage = {
   robotModelId: 'comau-nj650-2-7',
   robotModelName: 'Comau NJ650-2.7 Heavy Foundry',
   description: 'Hệ thống xích dẫn cáp cao cấp R-Tec Box 100N chuyên dụng cho robot siêu tải trọng Comau NJ650-2.7 trong môi trường đúc nóng, dập gắp nặng và hàn thân xe.',
-  main3dImage: '/images/dresspack/comau/nj650.webp',
+  main3dImage: '/images/dresspack/comau/nj650_00_Robot_Angle_1_Overview.png',
   perspectiveImages: [
     {
       id: 'comau-nj650-ang-1',
       label: 'Tổng quan hệ thống (Overview)',
       angle: 'Isometric View',
-      url: '/images/dresspack/comau/nj650.webp'
+      url: '/images/dresspack/comau/nj650_00_Robot_Angle_1_Overview.png'
     },
     {
       id: 'comau-nj650-ang-2',
-      label: 'Góc nhìn trên xuống (Top View)',
+      label: 'Góc nhìn từ trên xuống (Top View)',
       angle: 'Plan View Axis 3-6',
-      url: '/images/dresspack/comau/nj650.webp'
+      url: '/images/dresspack/comau/nj650_00_Robot_Angle_2_Top.png'
     },
     {
       id: 'comau-nj650-ang-3',
       label: 'Góc nhìn ngang cánh tay (Side View)',
       angle: 'Lateral View & Spring Return',
-      url: '/images/dresspack/comau/nj650.webp'
+      url: '/images/dresspack/comau/nj650_00_Robot_Angle_3_Side.png'
     },
     {
       id: 'comau-nj650-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/comau/nj650.webp'
+      url: '/images/dresspack/comau/nj650_00_Robot_Angle_4_Wrist.png'
     }
   ]
 };
@@ -2644,31 +2644,31 @@ export const TECHMAN_TM_PACKAGE: DresspackPackage = {
   outerDiameterMm: 36.0,
   description: 'Hệ thống dẫn cáp Velcro đai dán chuyên dụng FHS cho robot cộng tác Techman Robot AI Vision, lắp đặt nhanh không cần bắt ốc khoan lỗ, bảo vệ cáp camera AI và cáp tín hiệu.',
   recommendedFor: 'Pick & Place thị giác máy AI, kiểm tra ngoại quan linh kiện SMT, bắt vít tự động.',
-  main3dImage: '/images/dresspack/techman-robot/tm5.webp',
+  main3dImage: '/images/dresspack/techman-robot/00_Robot_Angle_1_Overview.png',
   perspectiveImages: [
     {
       id: 'tm-ang-1',
       label: 'Tổng quan hệ thống (Overview)',
       angle: 'Isometric View',
-      url: '/images/dresspack/techman-robot/tm5.webp'
+      url: '/images/dresspack/techman-robot/00_Robot_Angle_1_Overview.png'
     },
     {
       id: 'tm-ang-2',
-      label: 'Góc nhìn ngang cánh tay (Side View)',
-      angle: 'Lateral View & FHS Straps',
-      url: '/images/dresspack/techman-robot/tm5.webp'
+      label: 'Góc nhìn từ trên xuống (Top View)',
+      angle: 'Plan View Axis 1-6',
+      url: '/images/dresspack/techman-robot/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'tm-ang-3',
-      label: 'Góc nhìn trên xuống (Top View)',
-      angle: 'Plan View Axis 1-6',
-      url: '/images/dresspack/techman-robot/tm5.webp'
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View & FHS Straps',
+      url: '/images/dresspack/techman-robot/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'tm-ang-4',
       label: 'Cận cảnh cổ tay camera AI (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/techman-robot/tm5.webp'
+      url: '/images/dresspack/techman-robot/00_Robot_Angle_4_Wrist.png'
     }
   ],
   cadPdfUrl: '/documents/cad/ur_ur20_cad.pdf',
@@ -2707,7 +2707,7 @@ export const TECHMAN_TM_PACKAGE: DresspackPackage = {
       spec: 'Polyamide 6 chịu nhiệt, cơ cấu kẹp bấm mở nhanh',
       defaultQty: 3,
       unit: 'Cái',
-      imageUrl: '/images/dresspack/universal-robots/83691460_SH-P.png'
+      imageUrl: '/images/dresspack/universal-robots/83691460_SH-P_M40_M50.png'
     },
     {
       id: 'tm-part-4',
@@ -2734,31 +2734,31 @@ export const DOOSAN_PACKAGE: DresspackPackage = {
   robotModelId: 'doosan-a-series',
   robotModelName: 'Doosan Robotics Collaborative Series',
   description: 'Hệ thống dẫn cáp Velcro đai dán chuyên dụng FHS cho robot cộng tác Doosan Robotics (A-Series, H-Series, M-Series), vận hành an toàn cho các tác vụ làm việc cạnh con người.',
-  main3dImage: '/images/dresspack/doosan/A-Series.webp',
+  main3dImage: '/images/dresspack/doosan/00_Robot_Angle_1_Overview.png',
   perspectiveImages: [
     {
       id: 'ds-ang-1',
       label: 'Tổng quan hệ thống (Overview)',
       angle: 'Isometric View',
-      url: '/images/dresspack/doosan/A-Series.webp'
+      url: '/images/dresspack/doosan/00_Robot_Angle_1_Overview.png'
     },
     {
       id: 'ds-ang-2',
-      label: 'Góc nhìn ngang cánh tay (Side View)',
-      angle: 'Lateral View & FHS Straps',
-      url: '/images/dresspack/doosan/A-Series.webp'
+      label: 'Góc nhìn từ trên xuống (Top View)',
+      angle: 'Plan View Axis 1-6',
+      url: '/images/dresspack/doosan/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'ds-ang-3',
-      label: 'Góc nhìn trên xuống (Top View)',
-      angle: 'Plan View Axis 1-6',
-      url: '/images/dresspack/doosan/A-Series.webp'
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View & FHS Straps',
+      url: '/images/dresspack/doosan/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'ds-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/doosan/A-Series.webp'
+      url: '/images/dresspack/doosan/00_Robot_Angle_4_Wrist.png'
     }
   ]
 };
@@ -2773,31 +2773,31 @@ export const DELTA_PACKAGE: DresspackPackage = {
   robotModelId: 'delta-delta-dc06',
   robotModelName: 'Delta Electronics Articulated Robot',
   description: 'Hệ thống dẫn hướng và bảo vệ cáp chuyên dụng cho dòng robot đa khớp Delta Electronics (DC-Series), tối ưu hóa cho dây chuyền sản xuất điện tử SMT và đóng gói linh kiện.',
-  main3dImage: '/images/dresspack/delta/Delta-DC06.webp',
+  main3dImage: '/images/dresspack/delta/00_Robot_Angle_1_Overview.png',
   perspectiveImages: [
     {
       id: 'delta-ang-1',
       label: 'Tổng quan hệ thống (Overview)',
       angle: 'Isometric View',
-      url: '/images/dresspack/delta/Delta-DC06.webp'
+      url: '/images/dresspack/delta/00_Robot_Angle_1_Overview.png'
     },
     {
       id: 'delta-ang-2',
-      label: 'Góc nhìn ngang cánh tay (Side View)',
-      angle: 'Lateral View',
-      url: '/images/dresspack/delta/Delta-DC06.webp'
+      label: 'Góc nhìn từ trên xuống (Top View)',
+      angle: 'Plan View Axis 1-6',
+      url: '/images/dresspack/delta/00_Robot_Angle_2_Top.png'
     },
     {
       id: 'delta-ang-3',
-      label: 'Góc nhìn trên xuống (Top View)',
-      angle: 'Plan View Axis 1-6',
-      url: '/images/dresspack/delta/Delta-DC06.webp'
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View',
+      url: '/images/dresspack/delta/00_Robot_Angle_3_Side.png'
     },
     {
       id: 'delta-ang-4',
       label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
       angle: 'Axis 6 Tool Flange',
-      url: '/images/dresspack/delta/Delta-DC06.webp'
+      url: '/images/dresspack/delta/00_Robot_Angle_4_Wrist.png'
     }
   ]
 };
