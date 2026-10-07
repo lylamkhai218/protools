@@ -82,7 +82,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'fanuc',
     name: 'FANUC Corporation',
     country: 'Nhật Bản',
-    representativeRobotImg: '/images/dresspack/fanuc/CategoryFanuc.webp',
+    representativeRobotImg: '/images/dresspack/fanuc/00_Robot_Angle_1_Overview.png',
     modelsCount: 9,
     hasActiveConfig: true,
     description: 'Nhà sản xuất robot công nghiệp màu vàng số 1 thế giới'
@@ -91,7 +91,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'abb',
     name: 'ABB Robotics',
     country: 'Thụy Sĩ / Thụy Điển',
-    representativeRobotImg: '/images/dresspack/abb/ABB-Brand.webp',
+    representativeRobotImg: '/images/dresspack/abb/abb_irb6700_overview.png',
     modelsCount: 14,
     hasActiveConfig: true,
     description: 'Tập đoàn dẫn đầu giải pháp tự động hóa nặng & ô tô toàn cầu'
@@ -100,7 +100,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'kuka',
     name: 'KUKA Robotics',
     country: 'CHLB Đức',
-    representativeRobotImg: '/images/dresspack/kuka/KR210-R2700-Prime.webp',
+    representativeRobotImg: '/images/dresspack/kuka/kuka_brand_kr210.webp',
     modelsCount: 18,
     hasActiveConfig: true,
     description: 'Chuyên gia robot hàn thân xe & lắp ráp hạng nặng tiêu chuẩn Đức'
@@ -109,7 +109,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'yaskawa',
     name: 'Yaskawa Motoman',
     country: 'Nhật Bản',
-    representativeRobotImg: '/images/dresspack/yaskawa/Yaskawa-brand.webp',
+    representativeRobotImg: '/images/dresspack/yaskawa/yaskawa_brand.webp',
     modelsCount: 11,
     hasActiveConfig: true,
     description: 'Đỉnh cao robot điều khiển chuyển động, hàn hồ quang & gắp thả'
@@ -118,7 +118,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'universal-robots',
     name: 'Universal Robots (UR)',
     country: 'Đan Mạch',
-    representativeRobotImg: '/images/dresspack/universal-robots/Universial-Robotics.webp',
+    representativeRobotImg: '/images/dresspack/universal-robots/ur_brand.webp',
     modelsCount: 6,
     hasActiveConfig: true,
     description: 'Thương hiệu Cobot (Robot cộng tác) tiên phong & phổ biến nhất'
@@ -127,7 +127,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'kawasaki',
     name: 'Kawasaki Robotics',
     country: 'Nhật Bản',
-    representativeRobotImg: '/images/dresspack/kawasaki/kawasaki-ir.webp',
+    representativeRobotImg: '/images/dresspack/kawasaki/kawasaki_brand.webp',
     modelsCount: 3,
     hasActiveConfig: true,
     description: 'Robot công nghiệp chính xác cao cho ngành bán dẫn & cơ khí'
@@ -136,7 +136,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'doosan',
     name: 'Doosan Robotics',
     country: 'Hàn Quốc',
-    representativeRobotImg: '/images/dresspack/doosan/Doosan-ir.webp',
+    representativeRobotImg: '/images/dresspack/doosan/doosan_brand.webp',
     modelsCount: 3,
     hasActiveConfig: true,
     description: 'Cobot cảm biến mô-men xoắn cao cấp từ tập đoàn công nghiệp Doosan'
@@ -145,7 +145,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'comau',
     name: 'Comau Robotics',
     country: 'Ý',
-    representativeRobotImg: '/images/dresspack/comau/Comau.webp',
+    representativeRobotImg: '/images/dresspack/comau/comau_brand.webp',
     modelsCount: 2,
     hasActiveConfig: true,
     description: 'Giải pháp robot linh hoạt chuyên biệt cho dây chuyền sản xuất xe hơi'
@@ -154,7 +154,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'techman-robot',
     name: 'Techman Robot (TM)',
     country: 'Đài Loan',
-    representativeRobotImg: '/images/dresspack/techman-robot/TM20.webp',
+    representativeRobotImg: '/images/dresspack/techman-robot/tm_brand.webp',
     modelsCount: 7,
     hasActiveConfig: true,
     description: 'Cobot tích hợp sẵn hệ thống camera thị giác máy tính thông minh'
@@ -163,7 +163,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'delta',
     name: 'Delta Electronics',
     country: 'Đài Loan',
-    representativeRobotImg: '/images/dresspack/delta/Delta-DC06.webp',
+    representativeRobotImg: '/images/dresspack/delta/delta_brand.webp',
     modelsCount: 6,
     hasActiveConfig: true,
     description: 'Robot SCARA & Articulated phục vụ lắp ráp điện tử tốc độ cao'
@@ -172,7 +172,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'kassow-robots',
     name: 'Kassow Robots',
     country: 'Đan Mạch',
-    representativeRobotImg: '/images/dresspack/kassow/Kassow.webp',
+    representativeRobotImg: '/images/dresspack/kassow/kassow_brand.webp',
     modelsCount: 1,
     hasActiveConfig: true,
     description: 'Cobot 7 bậc tự do (7-axis) linh hoạt tối đa cho không gian hẹp'
@@ -181,7 +181,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'neura',
     name: 'NEURA Robotics',
     country: 'CHLB Đức',
-    representativeRobotImg: '/images/dresspack/neura/NEURABrandpicture.webp',
+    representativeRobotImg: '/images/dresspack/neura/neura_brand.webp',
     modelsCount: 2,
     hasActiveConfig: true,
     description: 'Robot nhận thức AI Cognitive Robots thế hệ mới'
@@ -190,7 +190,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'autonox',
     name: 'Autonox Robotics',
     country: 'CHLB Đức',
-    representativeRobotImg: '/images/dresspack/autonox/Frontpage_Autonox_Robotics.webp',
+    representativeRobotImg: '/images/dresspack/autonox/CategoryAutonox_Robotics.webp',
     modelsCount: 1,
     hasActiveConfig: true,
     description: 'Cơ cấu robot cơ khí Delta & Articulated độc lập hệ điều khiển'
