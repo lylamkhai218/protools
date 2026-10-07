@@ -2436,6 +2436,373 @@ export const KAWASAKI_RS_PACKAGE: DresspackPackage = {
 };
 
 
+
+// 6C. GÓI COMAU ROBOTICS NJ370-3.0 - MS83701000000370
+export const COMAU_NJ370_PACKAGE: DresspackPackage = {
+  id: 'pkg-comau-nj370-m50',
+  packageCode: 'MS83701000000370',
+  configId: '1035980',
+  name: 'Gói Dresspack Comau NJ370-3.0 - A3 sang A6 (Chuẩn M50/P48)',
+  robotModelId: 'comau-nj370-3-0',
+  robotModelName: 'Comau NJ370-3.0 Body Shop',
+  travelRange: 'Trục 3 ra Trục 6 (A3 - A6)',
+  conduitType: 'EWX-PAE-M50/P48 Black',
+  innerDiameterMm: 38.6,
+  outerDiameterMm: 50.0,
+  description: 'Hệ thống xích dẫn cáp cao cấp R-Tec Box 100N chuyên dụng cho robot tải nặng Comau NJ370-3.0, tối ưu hóa cho xưởng hàn thân xe (Body Shop) và dây chuyền lắp ráp ô tô tự động.',
+  recommendedFor: 'Hàn bấm (Spot Welding), dập tấm kim loại, dây chuyền thân vỏ ô tô Comau.',
+  main3dImage: '/images/dresspack/comau/nj370.webp',
+  perspectiveImages: [
+    {
+      id: 'comau-ang-1',
+      label: 'Tổng quan hệ thống (Overview)',
+      angle: 'Isometric View',
+      url: '/images/dresspack/comau/nj370.webp'
+    },
+    {
+      id: 'comau-ang-2',
+      label: 'Góc nhìn trên xuống (Top View)',
+      angle: 'Plan View Axis 3-6',
+      url: '/images/dresspack/comau/nj370.webp'
+    },
+    {
+      id: 'comau-ang-3',
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View & Spring Return',
+      url: '/images/dresspack/comau/nj370.webp'
+    },
+    {
+      id: 'comau-ang-4',
+      label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
+      angle: 'Axis 6 Tool Flange',
+      url: '/images/dresspack/comau/nj370.webp'
+    }
+  ],
+  cadPdfUrl: '/documents/cad/abb_irb6700_cad.pdf',
+  parts: [
+    {
+      id: 'comau-part-1',
+      mpn: '83692622',
+      name: 'Base Plate Comau NJ Series',
+      vnName: 'Đế gá lắp hộp R-Tec Box trên thân robot Comau',
+      position: 'Trục 3 (Axis 3 Upper Arm)',
+      role: 'Đế gá chịu lực cố định hộp lò xo thu hồi R-Tec Box vào bắp tay robot Comau',
+      spec: 'Hợp kim nhôm Anodize gia cường, định vị chuẩn bu lông trục 3 Comau NJ',
+      defaultQty: 1,
+      unit: 'Bộ',
+      imageUrl: '/images/dresspack/fanuc/83692622_Base_Plate_M710_20-45.png'
+    },
+    {
+      id: 'comau-part-2',
+      mpn: '83692656',
+      name: 'R-Tec Box EWX 48 MP 100N',
+      vnName: 'Hộp thu hồi xích dẫn cáp tự động R-Tec Box 100N',
+      position: 'Trục 3 (Axis 3 Body)',
+      role: 'Hộp thu hồi lò xo tự động thu trả xích bảo vệ cáp khi cánh tay vươn dài',
+      spec: 'Lực kéo lò xo 100N, hành trình 400mm, độ bền trên 10 triệu chu kỳ',
+      defaultQty: 1,
+      unit: 'Bộ',
+      imageUrl: '/images/dresspack/fanuc/83692656_R-Tec_Box_EWX_48_MP_100N.png'
+    },
+    {
+      id: 'comau-part-3',
+      mpn: '82390067',
+      name: 'R-SSR 140-2 Pipe Clamp',
+      vnName: 'Cùm kẹp ôm cổ tay robot Comau A6 - Ø140mm',
+      position: 'Trục 6 (Axis 6 Wrist)',
+      role: 'Cùm kẹp ôm cổ tay trục 6 dẫn hướng ống luồn vào bàn kẹp hàn',
+      spec: 'Đường kính kẹp Ø140mm, hợp kim nhôm đúc chịu tải uốn mỏi cao',
+      defaultQty: 1,
+      unit: 'Bộ',
+      imageUrl: '/images/dresspack/kuka/82390067_R-SSR_140-2.png'
+    },
+    {
+      id: 'comau-part-4',
+      mpn: '83952614',
+      name: 'R-FKE 32 Flange Clamp',
+      vnName: 'Cùm bích liên kết cổ tay trục 6',
+      position: 'Trục 6 (Axis 6 Flange Tool)',
+      role: 'Đế bích khóa chắc chắn ống luồn tại đầu cơ cấu chấp hành',
+      spec: 'Khớp bích tiêu chuẩn ISO 9409-1-A, nhôm Anodize chống tĩnh điện',
+      defaultQty: 1,
+      unit: 'Bộ',
+      imageUrl: '/images/dresspack/fanuc/83952614_R-FKE_32_Flange_Clamp.png'
+    },
+    {
+      id: 'comau-part-5',
+      mpn: '83692464',
+      name: 'KEG/K-M50 Ball Joint',
+      vnName: 'Khớp cầu bi xoay 360° bảo vệ dây M50',
+      position: 'Đầu ra hộp R-Tec Box & Khớp bích trục 6',
+      role: 'Cho phép ống xoay tự do 360 độ và lắc góc ±30 độ, triệt tiêu xoắn cáp',
+      spec: 'Polyamide 6 biến tính đàn hồi, kích cỡ ren M50/P48',
+      defaultQty: 1,
+      unit: 'Cái',
+      imageUrl: '/images/dresspack/fanuc/83692464_KEG_K-M50_Ball_Joint.png'
+    },
+    {
+      id: 'comau-part-6',
+      mpn: '83691501',
+      name: 'SH M40/M50-M Holder',
+      vnName: 'Cùm kẹp giữ chính hệ thống M50',
+      position: 'Thân cánh tay trên',
+      role: 'Giữ cùm liên kết chắc chắn với kết cấu robot Comau',
+      spec: 'Chất liệu PA6 biến tính gia cường, ngàm kẹp cơ động',
+      defaultQty: 1,
+      unit: 'Cái',
+      imageUrl: '/images/dresspack/fanuc/83691501_SH_M40_M50-M_Holder.png'
+    },
+    {
+      id: 'comau-part-7',
+      mpn: '83691264',
+      name: 'PR/SV-EWX 48 Protector',
+      vnName: 'Vòng đệm bảo vệ chống mòn ống M50',
+      position: 'Thân ống luồn EWX',
+      role: 'Chống mài mòn va chạm khi ống tiếp xúc thân robot ở các góc uốn gấp',
+      spec: 'Polyamide 6 chịu va đập cơ học cao',
+      defaultQty: 3,
+      unit: 'Cái',
+      imageUrl: '/images/dresspack/fanuc/83691264_PR_SV-EWX_48_Protector.png'
+    },
+    {
+      id: 'comau-part-8',
+      mpn: '83951610',
+      name: 'R-ZL/N1 36/48 Strain Relief',
+      vnName: 'Tấm kẹp chặn lực căng cáp Star Grommet',
+      position: 'Hai đầu cố định cáp',
+      role: 'Kẹp cố định các bó dây cáp điện và ống khí, ngăn tuột giắc cắm',
+      spec: 'Gờ kẹp răng cưa dạng sao, không làm dập vỏ bọc cáp',
+      defaultQty: 2,
+      unit: 'Cái',
+      imageUrl: '/images/dresspack/fanuc/83951610_R-ZL_N1_36_48_Strain_Relief.png'
+    },
+    {
+      id: 'comau-part-9',
+      mpn: '83182064',
+      name: 'EWX-PAE-M50/P48 Black',
+      vnName: 'Ống luồn Murrflex PA12 chuyên dụng Robot M50',
+      position: 'Dọc toàn bộ hành trình A3 đến A6',
+      role: 'Đường ống chịu uốn chính, bảo vệ toàn diện cáp điện và ống khí nén',
+      spec: 'Polyamide 12 cao cấp, ID: 38.6mm, OD: 50.0mm, độ bền uốn mỏi vượt trội',
+      defaultQty: 4,
+      unit: 'Mét',
+      imageUrl: '/images/dresspack/fanuc/83182064_EWX-PAE-M50_P48_Black.png'
+    }
+  ]
+};
+
+// 6D. GÓI COMAU ROBOTICS NJ650-2.7 - MS83701000000650
+export const COMAU_NJ650_PACKAGE: DresspackPackage = {
+  ...COMAU_NJ370_PACKAGE,
+  id: 'pkg-comau-nj650-m50',
+  packageCode: 'MS83701000000650',
+  configId: '1035982',
+  name: 'Gói Dresspack Comau NJ650-2.7 Heavy Foundry - A3 sang A6 (Chuẩn M50/P48)',
+  robotModelId: 'comau-nj650-2-7',
+  robotModelName: 'Comau NJ650-2.7 Heavy Foundry',
+  description: 'Hệ thống xích dẫn cáp cao cấp R-Tec Box 100N chuyên dụng cho robot siêu tải trọng Comau NJ650-2.7 trong môi trường đúc nóng, dập gắp nặng và hàn thân xe.',
+  main3dImage: '/images/dresspack/comau/nj650.webp',
+  perspectiveImages: [
+    {
+      id: 'comau-nj650-ang-1',
+      label: 'Tổng quan hệ thống (Overview)',
+      angle: 'Isometric View',
+      url: '/images/dresspack/comau/nj650.webp'
+    },
+    {
+      id: 'comau-nj650-ang-2',
+      label: 'Góc nhìn trên xuống (Top View)',
+      angle: 'Plan View Axis 3-6',
+      url: '/images/dresspack/comau/nj650.webp'
+    },
+    {
+      id: 'comau-nj650-ang-3',
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View & Spring Return',
+      url: '/images/dresspack/comau/nj650.webp'
+    },
+    {
+      id: 'comau-nj650-ang-4',
+      label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
+      angle: 'Axis 6 Tool Flange',
+      url: '/images/dresspack/comau/nj650.webp'
+    }
+  ]
+};
+
+// 6E. GÓI TECHMAN ROBOT (TM) COBOT - MS83601000000012
+export const TECHMAN_TM_PACKAGE: DresspackPackage = {
+  id: 'pkg-techman-tm-m36',
+  packageCode: 'MS83601000000012',
+  configId: '1035985',
+  name: 'Gói Dresspack Techman Robot (TM) Cobot - Dẫn Cáp Toàn Cánh Tay (Chuẩn M36/P29)',
+  robotModelId: 'techman-robot-tm5',
+  robotModelName: 'Techman TM AI Vision Cobot',
+  travelRange: 'Toàn cánh tay Trục 1 - Trục 6 (A1 - A6)',
+  conduitType: 'EWX-PAE-LS M36/P29 Black',
+  innerDiameterMm: 28.5,
+  outerDiameterMm: 36.0,
+  description: 'Hệ thống dẫn cáp Velcro đai dán chuyên dụng FHS cho robot cộng tác Techman Robot AI Vision, lắp đặt nhanh không cần bắt ốc khoan lỗ, bảo vệ cáp camera AI và cáp tín hiệu.',
+  recommendedFor: 'Pick & Place thị giác máy AI, kiểm tra ngoại quan linh kiện SMT, bắt vít tự động.',
+  main3dImage: '/images/dresspack/techman-robot/tm5.webp',
+  perspectiveImages: [
+    {
+      id: 'tm-ang-1',
+      label: 'Tổng quan hệ thống (Overview)',
+      angle: 'Isometric View',
+      url: '/images/dresspack/techman-robot/tm5.webp'
+    },
+    {
+      id: 'tm-ang-2',
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View & FHS Straps',
+      url: '/images/dresspack/techman-robot/tm5.webp'
+    },
+    {
+      id: 'tm-ang-3',
+      label: 'Góc nhìn trên xuống (Top View)',
+      angle: 'Plan View Axis 1-6',
+      url: '/images/dresspack/techman-robot/tm5.webp'
+    },
+    {
+      id: 'tm-ang-4',
+      label: 'Cận cảnh cổ tay camera AI (Wrist Detail)',
+      angle: 'Axis 6 Tool Flange',
+      url: '/images/dresspack/techman-robot/tm5.webp'
+    }
+  ],
+  cadPdfUrl: '/documents/cad/ur_ur20_cad.pdf',
+  parts: [
+    {
+      id: 'tm-part-1',
+      mpn: '83182264',
+      name: 'EWX-PAE-LS M36/P29 Black',
+      vnName: 'Ống luồn Murrflex PA12 mỏng nhẹ cho Cobot Techman',
+      position: 'Dọc toàn bộ cánh tay robot TM',
+      role: 'Bảo vệ cáp truyền dữ liệu camera và cáp nguồn công cụ',
+      spec: 'Polyamide 12 chịu uốn cao, nhẹ, không gây cản trở cảm biến lực',
+      defaultQty: 2.5,
+      unit: 'Mét',
+      imageUrl: '/images/dresspack/universal-robots/83182264_EWX-PAE-LS_M50_P48.png'
+    },
+    {
+      id: 'tm-part-2',
+      mpn: '83693584',
+      name: 'SHS 88 FHS Velcro Clamp',
+      vnName: 'Bộ đai dán kỹ thuật Velcro FHS SHS 88mm',
+      position: 'Khớp bắp tay robot Techman',
+      role: 'Đai dán cố định cùm kẹp ống lên thân robot tròn không trầy sơn',
+      spec: 'Đai dệt kỹ thuật bề rộng lớn kèm đệm cao su silicon chống trượt',
+      defaultQty: 3,
+      unit: 'Bộ',
+      imageUrl: '/images/dresspack/universal-robots/83693584_SHS_88.png'
+    },
+    {
+      id: 'tm-part-3',
+      mpn: '83691460',
+      name: 'SH-P M32/M36 Holder',
+      vnName: 'Cùm kẹp ôm ống luồn gắn trên đai FHS',
+      position: 'Gá trên các đai SHS',
+      role: 'Giữ ống luồn cáp trượt êm ái theo chuyển động các trục robot',
+      spec: 'Polyamide 6 chịu nhiệt, cơ cấu kẹp bấm mở nhanh',
+      defaultQty: 3,
+      unit: 'Cái',
+      imageUrl: '/images/dresspack/universal-robots/83691460_SH-P.png'
+    },
+    {
+      id: 'tm-part-4',
+      mpn: '83692264',
+      name: 'KEG/ZL-M36 Ball Joint',
+      vnName: 'Khớp cầu xoay 360° kèm chặn cáp tích hợp',
+      position: 'Đầu cổ tay trục 6',
+      role: 'Triệt tiêu lực xoắn vặn ruột gà tại khớp xoay vô tận của trục 6',
+      spec: 'Polyamide 6, góc lắc tự do ±30°, tích hợp lược giữ cáp',
+      defaultQty: 1,
+      unit: 'Cái',
+      imageUrl: '/images/dresspack/universal-robots/83692264_KEG_ZL-M50.png'
+    }
+  ]
+};
+
+// 6F. GÓI DOOSAN ROBOTICS COBOT - MS83501000000008
+export const DOOSAN_PACKAGE: DresspackPackage = {
+  ...TECHMAN_TM_PACKAGE,
+  id: 'pkg-doosan-cobot-m36',
+  packageCode: 'MS83501000000008',
+  configId: '1035988',
+  name: 'Gói Dresspack Doosan Robotics Cobot - Dẫn Cáp Toàn Cánh Tay (Chuẩn M36/P29)',
+  robotModelId: 'doosan-a-series',
+  robotModelName: 'Doosan Robotics Collaborative Series',
+  description: 'Hệ thống dẫn cáp Velcro đai dán chuyên dụng FHS cho robot cộng tác Doosan Robotics (A-Series, H-Series, M-Series), vận hành an toàn cho các tác vụ làm việc cạnh con người.',
+  main3dImage: '/images/dresspack/doosan/A-Series.webp',
+  perspectiveImages: [
+    {
+      id: 'ds-ang-1',
+      label: 'Tổng quan hệ thống (Overview)',
+      angle: 'Isometric View',
+      url: '/images/dresspack/doosan/A-Series.webp'
+    },
+    {
+      id: 'ds-ang-2',
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View & FHS Straps',
+      url: '/images/dresspack/doosan/A-Series.webp'
+    },
+    {
+      id: 'ds-ang-3',
+      label: 'Góc nhìn trên xuống (Top View)',
+      angle: 'Plan View Axis 1-6',
+      url: '/images/dresspack/doosan/A-Series.webp'
+    },
+    {
+      id: 'ds-ang-4',
+      label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
+      angle: 'Axis 6 Tool Flange',
+      url: '/images/dresspack/doosan/A-Series.webp'
+    }
+  ]
+};
+
+// 6G. GÓI DELTA ELECTRONICS ROBOTICS - MS83401000000006
+export const DELTA_PACKAGE: DresspackPackage = {
+  ...TECHMAN_TM_PACKAGE,
+  id: 'pkg-delta-robot-m36',
+  packageCode: 'MS83401000000006',
+  configId: '1035990',
+  name: 'Gói Dresspack Delta Electronics Robot - Dẫn Cáp Toàn Cánh Tay (Chuẩn M36/P29)',
+  robotModelId: 'delta-delta-dc06',
+  robotModelName: 'Delta Electronics Articulated Robot',
+  description: 'Hệ thống dẫn hướng và bảo vệ cáp chuyên dụng cho dòng robot đa khớp Delta Electronics (DC-Series), tối ưu hóa cho dây chuyền sản xuất điện tử SMT và đóng gói linh kiện.',
+  main3dImage: '/images/dresspack/delta/Delta-DC06.webp',
+  perspectiveImages: [
+    {
+      id: 'delta-ang-1',
+      label: 'Tổng quan hệ thống (Overview)',
+      angle: 'Isometric View',
+      url: '/images/dresspack/delta/Delta-DC06.webp'
+    },
+    {
+      id: 'delta-ang-2',
+      label: 'Góc nhìn ngang cánh tay (Side View)',
+      angle: 'Lateral View',
+      url: '/images/dresspack/delta/Delta-DC06.webp'
+    },
+    {
+      id: 'delta-ang-3',
+      label: 'Góc nhìn trên xuống (Top View)',
+      angle: 'Plan View Axis 1-6',
+      url: '/images/dresspack/delta/Delta-DC06.webp'
+    },
+    {
+      id: 'delta-ang-4',
+      label: 'Cận cảnh cổ tay trục 6 (Wrist Detail)',
+      angle: 'Axis 6 Tool Flange',
+      url: '/images/dresspack/delta/Delta-DC06.webp'
+    }
+  ]
+};
+
+
 // 7. DANH MỤC ROBOT MODELS (STEP 2 - 83 MÔ HÌNH CHÍNH HÃNG MURRPLASTIK)
 export const ROBOT_MODELS: RobotModel[] = [
   {
@@ -3118,7 +3485,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 0.9,
     imageUrl: '/images/dresspack/doosan/A-Series.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DOOSAN_PACKAGE]
   },
   {
     id: 'doosan-h-series',
@@ -3129,7 +3496,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.7,
     imageUrl: '/images/dresspack/doosan/H-Series.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DOOSAN_PACKAGE]
   },
   {
     id: 'doosan-m-series',
@@ -3140,7 +3507,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.3,
     imageUrl: '/images/dresspack/doosan/M-Series.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DOOSAN_PACKAGE]
   },
   {
     id: 'comau-nj370-3-0',
@@ -3151,7 +3518,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 3.0,
     imageUrl: '/images/dresspack/comau/nj370.webp',
     hasActiveConfig: true,
-    packages: [KUKA_KR210_PACKAGE]
+    packages: [COMAU_NJ370_PACKAGE]
   },
   {
     id: 'comau-nj650-2-7',
@@ -3162,7 +3529,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 2.7,
     imageUrl: '/images/dresspack/comau/nj650.webp',
     hasActiveConfig: true,
-    packages: [KUKA_KR210_PACKAGE]
+    packages: [COMAU_NJ650_PACKAGE]
   },
   {
     id: 'techman-robot-tm5',
@@ -3173,7 +3540,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 0.9,
     imageUrl: '/images/dresspack/techman-robot/tm5.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'techman-robot-tm12',
@@ -3184,7 +3551,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.3,
     imageUrl: '/images/dresspack/techman-robot/tm12.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'techman-robot-tm14',
@@ -3195,7 +3562,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.1,
     imageUrl: '/images/dresspack/techman-robot/TM14.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'techman-robot-tm16x',
@@ -3206,7 +3573,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 0.9,
     imageUrl: '/images/dresspack/techman-robot/TM16X.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'techman-robot-tm20',
@@ -3217,7 +3584,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.3,
     imageUrl: '/images/dresspack/techman-robot/tm20.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'techman-robot-tm25s',
@@ -3228,7 +3595,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.9,
     imageUrl: '/images/dresspack/techman-robot/TM25S.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'techman-robot-tm30s',
@@ -3239,7 +3606,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.7,
     imageUrl: '/images/dresspack/techman-robot/TM30S.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [TECHMAN_TM_PACKAGE]
   },
   {
     id: 'delta-delta-dc06',
@@ -3250,7 +3617,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 0.9,
     imageUrl: '/images/dresspack/delta/Delta-DC06.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DELTA_PACKAGE]
   },
   {
     id: 'delta-delta-dc08',
@@ -3261,7 +3628,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.1,
     imageUrl: '/images/dresspack/delta/Delta-DC08.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DELTA_PACKAGE]
   },
   {
     id: 'delta-delta-dc10',
@@ -3272,7 +3639,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.3,
     imageUrl: '/images/dresspack/delta/Delta-DC10.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DELTA_PACKAGE]
   },
   {
     id: 'delta-delta-dc16',
@@ -3283,7 +3650,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.5,
     imageUrl: '/images/dresspack/delta/Delta-DC16.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DELTA_PACKAGE]
   },
   {
     id: 'delta-delta-dc20',
@@ -3294,7 +3661,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.7,
     imageUrl: '/images/dresspack/delta/Delta-DC20.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DELTA_PACKAGE]
   },
   {
     id: 'delta-delta-dc30',
@@ -3305,7 +3672,7 @@ export const ROBOT_MODELS: RobotModel[] = [
     reachM: 1.9,
     imageUrl: '/images/dresspack/delta/Delta-DC30.webp',
     hasActiveConfig: true,
-    packages: [UNIVERSAL_ROBOTS_UR_PACKAGE]
+    packages: [DELTA_PACKAGE]
   },
   {
     id: 'kassow-robots-kr-series',
