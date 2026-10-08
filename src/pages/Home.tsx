@@ -19,6 +19,7 @@ import { SOLUTIONS, PRODUCTS, COMPANY_INFO } from '../data';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { AnimatedCounter } from '../components/AnimatedCounter';
 import { VirtualCatalogGrid } from '../components/VirtualCatalogGrid';
+import { CatalogMaintenanceBlock } from '../components/CatalogMaintenanceBlock';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedProduct } from '../i18n/productTranslations';
 import { getLocalizedSolution } from '../i18n/solutionsTranslations';
@@ -30,9 +31,17 @@ interface HomeProps {
   onAddToCart: (product: Product) => void;
   initialFilter?: string;
   initialSearch?: string;
+  isCatalogMaintenance?: boolean;
 }
 
-export default function Home({ onNavigate, onSelectProduct, onAddToCart, initialFilter, initialSearch }: HomeProps) {
+export default function Home({ 
+  onNavigate, 
+  onSelectProduct, 
+  onAddToCart, 
+  initialFilter, 
+  initialSearch,
+  isCatalogMaintenance = false 
+}: HomeProps) {
   const { t, locale } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<string>(initialFilter || 'all');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -465,16 +474,20 @@ export default function Home({ onNavigate, onSelectProduct, onAddToCart, initial
         </div>
       </section>
 
-      {/* 4. REAL PRODUCTS SPEC-SHEET GRID & 7,479 SAPO ITEMS */}
-      <VirtualCatalogGrid
-        onSelectProduct={(p) => {
-          onSelectProduct(p);
-          onNavigate('product-detail');
-        }}
-        onAddToCart={onAddToCart}
-        initialCategory={activeCategory}
-        initialSearch={initialSearch}
-      />
+      {/* 4. REAL PRODUCTS SPEC-SHEET GRID OR CATALOG MAINTENANCE BLOCK */}
+      {isCatalogMaintenance ? (
+        <CatalogMaintenanceBlock onOpenCart={() => onNavigate('cart')} />
+      ) : (
+        <VirtualCatalogGrid
+          onSelectProduct={(p) => {
+            onSelectProduct(p);
+            onNavigate('product-detail');
+          }}
+          onAddToCart={onAddToCart}
+          initialCategory={activeCategory}
+          initialSearch={initialSearch}
+        />
+      )}
 
       {/* Murrplastik Full Catalog & CAD Call-to-Action */}
       {activeCategory === 'murrplastik' && (

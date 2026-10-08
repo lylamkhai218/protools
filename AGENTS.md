@@ -2289,5 +2289,139 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Đưa `Tên sản phẩm` và `Ngành hàng` lên trước `Thương hiệu` giúp nhân sự kho đối chiếu trực quan tên hàng và nhóm hàng nhanh hơn.
 
 
+### Rule 9.128: Gỡ Bỏ Đợt 3 Toàn Bộ 4.322 Sản Phẩm Nhóm Linh Kiện Cơ Khí & Phụ Trợ (07/10/2026)
+* **Bối cảnh & Chỉ đạo Ban Giám Đốc**:
+  1. Chỉ đạo gỡ tức thì 8 mã SKU nhạy cảm phát sinh: `PVN10460`, `PVN10449`, `PVN10447`, `PVN10446`, `PVN10445`, `PVN10444`, `PVN10438`, `PVN10436`.
+  2. Chỉ đạo gỡ triệt để toàn bộ **4.322 sản phẩm** thuộc ngành hàng **"Linh kiện cơ khí & phụ trợ"** (danh mục gốc: `Linh kiện & Thiết bị công nghiệp`, slug: `linh-kien-thiet-bi`).
+* **Kết quả xử lý & Kiểm chứng thực tế**:
+  1. **Khớp mã & Tự động hóa ([`scripts/purge_batch3_linh_kien.py`](file:///d:/T&TVina/protools/scripts/purge_batch3_linh_kien.py))**:
+     - Toàn bộ 8 mã SKU chỉ định đều nằm trong nhóm 4.322 sản phẩm này.
+     - Dữ liệu blacklist tích lũy: Đợt 1 (59 SKU) + Đợt 2 (116 SKU) + Đợt 3 (4.322 SKU) = **4.497 sản phẩm đã gỡ bỏ**.
+     - Danh mục hiển thị công khai còn lại: **3.003 sản phẩm** đạt chuẩn chất lượng B2B công nghiệp.
+     - Bảo toàn 100% các dòng thiết bị chiến lược chủ lực (21 sản phẩm Murrplastik Đức, Robot tự động, Hakko, Quick, HIOS, v.v. tại [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts)).
+  2. **Đồng bộ đa tầng (Multi-tier Sync)**:
+     - [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json): Lưu trữ hồ sơ 4.497 sản phẩm kèm ngày gỡ và lý do chỉ đạo.
+     - [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts): Cập nhật `EXCLUDED_NORM_SKUS` chứa 4.497 mã chuẩn hóa, hàm `isExcludedSku()` ngăn chặn truy vấn ở tầng frontend.
+     - [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json): Đồng bộ danh mục 3.003 sản phẩm sạch.
+     - [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json): Danh sách 4.497 SKU bị vô hiệu hóa.
+     - [`public/data/catalog_index_full.json`](file:///d:/T&TVina/protools/public/data/catalog_index_full.json): Giữ trọn vẹn 7.500 sản phẩm gốc cho Cổng kiểm duyệt nội bộ (`isExcluded: true` = 4.497, `isExcluded: false` = 3.003).
+  3. **Cập nhật SEO & Snapshot Pre-rendering**:
+     - Sitemaps ([`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml)): Cập nhật chính xác 3.021 URLs (3.003 sản phẩm + 18 trang trụ cột).
+     - Bổ sung `Disallow: /*mode=internal` vào [`public/robots.txt`](file:///d:/T&TVina/protools/public/robots.txt).
+
+### Rule 9.129: Gỡ Bỏ Đợt 4 Toàn Bộ 366 Mã SKU Chỉ Định Theo Yêu Cầu Rà Soát (07/10/2026)
+* **Bối cảnh & Chỉ đạo Ban Giám Đốc**:
+  1. Chỉ đạo gỡ tiếp danh sách 630 mục SKU phát sinh (bắt đầu từ `TTPC-0470`, `PVN10052` đến `PVN9349`).
+  2. Phân tích đối soát dữ liệu thực tế: Trong 630 mục yêu cầu, có 264 SKU đã được gỡ từ các đợt trước (Đợt 1, 2 và 3), và **366 SKU mới** thuộc danh mục cần loại bỏ tiếp.
+* **Kết quả xử lý & Kiểm chứng thực tế**:
+  1. **Khớp mã & Tự động hóa ([`scripts/purge_batch4_skus.py`](file:///d:/T&TVina/protools/scripts/purge_batch4_skus.py))**:
+     - 100% (366/366) SKU mới được nhận diện chính xác và tìm thấy trong cơ sở dữ liệu `catalog_index_full.json`.
+     - Bảo toàn tuyệt đối 100% các dòng thiết bị chiến lược chủ lực (21 sản phẩm Murrplastik Đức, Robot hàn, Hakko, Quick, HIOS, v.v. tại [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) - Zero overlap).
+     - Tổng số sản phẩm đã gỡ (Blacklist): **4.863 sản phẩm** (Đợt 1: 59, Đợt 2: 116, Đợt 3: 4.322, Đợt 4: 366).
+     - Tổng số sản phẩm công khai còn lại trên web: **2.637 sản phẩm**.
+  2. **Đồng bộ đa tầng (Multi-tier Sync)**:
+     - [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json): Đã lưu hồ sơ toàn bộ 4.863 bản ghi phân loại theo batch và lý do kiểm duyệt.
+     - [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts): Cập nhật `EXCLUDED_NORM_SKUS` chứa 4.863 mã chuẩn hóa, hàm `isExcludedSku()` ngăn chặn tìm kiếm ở tầng frontend.
+     - [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json): Đồng bộ danh mục 2.637 sản phẩm sạch.
+     - [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json): Danh sách 4.863 SKU bị vô hiệu hóa.
+     - [`public/data/catalog_index_full.json`](file:///d:/T&TVina/protools/public/data/catalog_index_full.json): Cung cấp cho cổng nội bộ với 7.500 SKU (`isExcluded: true` = 4.863, `isExcluded: false` = 2.637).
+  3. **Cập nhật SEO & Sitemaps**:
+     - Sitemaps ([`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml)): Cập nhật chính xác 2.655 URLs (2.637 sản phẩm + 18 trang giải pháp).
+
+### Rule 9.130: Gỡ Bỏ Đợt 5 Toàn Bộ 216 Mã SKU Chỉ Định Tiếp Tục Rà Soát (08/10/2026)
+* **Bối cảnh & Chỉ đạo Ban Giám Đốc**:
+  1. Chỉ đạo gỡ tiếp 217 mã hàng phát sinh (bắt đầu từ `TTPC-0470`, `PVN10342` đến `PVN8882`).
+  2. Phân tích đối soát dữ liệu thực tế: Trong 217 mục yêu cầu, có 1 SKU (`TTPC-0470`) đã được gỡ từ Đợt 4, và **216 SKU mới** thuộc danh mục cần loại bỏ tiếp.
+* **Kết quả xử lý & Kiểm chứng thực tế**:
+  1. **Khớp mã & Tự động hóa ([`scripts/purge_batch5_skus.py`](file:///d:/T&TVina/protools/scripts/purge_batch5_skus.py))**:
+     - 100% (216/216) SKU mới được nhận diện chính xác và tìm thấy trong cơ sở dữ liệu `catalog_index_full.json`.
+     - Bảo toàn tuyệt đối 100% các dòng thiết bị chiến lược chủ lực (21 sản phẩm Murrplastik Đức, Robot hàn, Hakko, Quick, HIOS, v.v. tại [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) - Zero overlap).
+     - Tổng số sản phẩm đã gỡ (Blacklist): **5.079 sản phẩm** (Đợt 1: 59, Đợt 2: 116, Đợt 3: 4.322, Đợt 4: 366, Đợt 5: 216).
+     - Tổng số sản phẩm công khai còn lại trên web: **2.421 sản phẩm**.
+  2. **Đồng bộ đa tầng (Multi-tier Sync)**:
+     - [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json): Đã lưu hồ sơ toàn bộ 5.079 bản ghi phân loại theo batch và lý do kiểm duyệt.
+     - [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts): Cập nhật `EXCLUDED_NORM_SKUS` chứa 5.079 mã chuẩn hóa, hàm `isExcludedSku()` ngăn chặn tìm kiếm ở tầng frontend.
+     - [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json): Đồng bộ danh mục 2.421 sản phẩm sạch.
+     - [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json): Danh sách 5.079 SKU bị vô hiệu hóa.
+     - [`public/data/catalog_index_full.json`](file:///d:/T&TVina/protools/public/data/catalog_index_full.json): Cung cấp cho cổng nội bộ với 7.500 SKU (`isExcluded: true` = 5.079, `isExcluded: false` = 2.421).
+  3. **Cập nhật SEO & Sitemaps**:
+     - Sitemaps ([`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml)): Cập nhật chính xác 2.439 URLs (2.421 sản phẩm + 18 trang giải pháp).
+
+### Rule 9.131: Gỡ Bỏ Đợt 6 Toàn Bộ 673 Mã SKU Chỉ Định Tiếp Tục Rà Soát (08/10/2026)
+* **Bối cảnh & Chỉ đạo Ban Giám Đốc**:
+  1. Chỉ đạo gỡ tiếp 682 mã hàng phát sinh (bắt đầu từ `PVN8153`, `PVN8149` đến `PVN6333`).
+  2. Phân tích đối soát dữ liệu thực tế: Trong 682 mục yêu cầu, có 9 SKU đã được gỡ từ các đợt trước, và **673 SKU mới** thuộc danh mục cần loại bỏ tiếp.
+* **Kết quả xử lý & Kiểm chứng thực tế**:
+  1. **Khớp mã & Tự động hóa ([`scripts/purge_batch6_skus.py`](file:///d:/T&TVina/protools/scripts/purge_batch6_skus.py))**:
+     - 100% (673/673) SKU mới được nhận diện chính xác và tìm thấy trong cơ sở dữ liệu `catalog_index_full.json`.
+     - Bảo toàn tuyệt đối 100% các dòng thiết bị chiến lược chủ lực (21 sản phẩm Murrplastik Đức, Robot hàn, Hakko, Quick, HIOS, v.v. tại [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) - Zero overlap).
+     - Tổng số sản phẩm đã gỡ (Blacklist): **5.752 sản phẩm** (Đợt 1: 59, Đợt 2: 116, Đợt 3: 4.322, Đợt 4: 366, Đợt 5: 216, Đợt 6: 673).
+     - Tổng số sản phẩm công khai còn lại trên web: **1.748 sản phẩm**.
+  2. **Đồng bộ đa tầng (Multi-tier Sync)**:
+     - [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json): Đã lưu hồ sơ toàn bộ 5.752 bản ghi phân loại theo batch và lý do kiểm duyệt.
+     - [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts): Cập nhật `EXCLUDED_NORM_SKUS` chứa 5.752 mã chuẩn hóa, hàm `isExcludedSku()` ngăn chặn tìm kiếm ở tầng frontend.
+     - [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json): Đồng bộ danh mục 1.748 sản phẩm sạch.
+     - [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json): Danh sách 5.752 SKU bị vô hiệu hóa.
+     - [`public/data/catalog_index_full.json`](file:///d:/T&TVina/protools/public/data/catalog_index_full.json): Cung cấp cho cổng nội bộ với 7.500 SKU (`isExcluded: true` = 5.752, `isExcluded: false` = 1.748).
+  3. **Cập nhật SEO & Sitemaps**:
+     - Sitemaps ([`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml)): Cập nhật chính xác 1.766 URLs (1.748 sản phẩm + 18 trang giải pháp).
+
+### Rule 9.132: Gỡ Bỏ Đợt 7 Toàn Bộ 837 Sản Phẩm Theo Nhóm Từ Khóa Kỹ Thuật Chỉ Định (08/10/2026)
+* **Bối cảnh & Chỉ đạo Ban Giám Đốc**:
+  1. Chỉ đạo rà soát và gỡ bỏ toàn bộ sản phẩm chứa các từ khóa: *"xilanh, cảm biến, van tiết lưu, bulong, vít, mũi khoan, động cơ, hộp số, khớp nối, dây đai, xilanh khí nén"*.
+  2. Nguyên tắc an toàn kỹ thuật: Chắt lọc chính xác các linh kiện cơ khí rời rạc / phụ kiện tiêu hao (mũi vít, ốc vít, bulong, xilanh, cảm biến, động cơ, dây đai, khớp nối, van tiết lưu, hộp số), đồng thời **BẢO TOÀN TUYỆT ĐỐI** các thiết bị máy móc chủ lực của công ty (Robot bắt vít tự động `TTPC-07030`, `PVN6627`, Máy bắt vít HIOS `CL-4000`, `CL-3000`, Nguồn HIOS `CLT-50`, Máy đo lực siết `HP-50`, hệ sinh thái Murrplastik Đức, Robot hàn, trạm hàn Hakko/Quick, máy bơm keo SP-982, v.v.).
+* **Kết quả xử lý & Kiểm chứng thực tế**:
+  1. **Khớp mã & Tự động hóa ([`scripts/purge_batch7_keywords.py`](file:///d:/T&TVina/protools/scripts/purge_batch7_keywords.py))**:
+     - Tổng số sản phẩm khớp từ khóa và gỡ bỏ trong Đợt 7: **837 sản phẩm**.
+       * Vít / mũi vít / ốc vít: 249 sản phẩm
+       * Xilanh / xi lanh khí nén: 230 sản phẩm
+       * Bulong / đai ốc: 106 sản phẩm
+       * Cảm biến / sensor: 95 sản phẩm
+       * Dây đai: 58 sản phẩm
+       * Động cơ / motor / giảm tốc: 44 sản phẩm
+       * Mũi khoan: 33 sản phẩm
+       * Khớp nối: 11 sản phẩm
+       * Van tiết lưu: 9 sản phẩm
+       * Hộp số: 2 sản phẩm
+     - Bảo toàn tuyệt đối 100% các dòng thiết bị chiến lược chủ lực (Zero overlap).
+     - Tổng số sản phẩm đã gỡ (Blacklist): **6.589 sản phẩm** (Đợt 1: 59, Đợt 2: 116, Đợt 3: 4.322, Đợt 4: 366, Đợt 5: 216, Đợt 6: 673, Đợt 7: 837).
+     - Tổng số sản phẩm công khai còn lại trên web: **911 sản phẩm** tinh gọn, chuẩn B2B.
+  2. **Đồng bộ đa tầng (Multi-tier Sync)**:
+     - [`src/data/excluded_skus.json`](file:///d:/T&TVina/protools/src/data/excluded_skus.json): Đã lưu hồ sơ toàn bộ 6.589 bản ghi phân loại theo batch và lý do kiểm duyệt.
+     - [`src/utils/brandNormalizer.ts`](file:///d:/T&TVina/protools/src/utils/brandNormalizer.ts): Cập nhật `EXCLUDED_NORM_SKUS` chứa 6.589 mã chuẩn hóa, hàm `isExcludedSku()` ngăn chặn tìm kiếm ở tầng frontend.
+     - [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json): Đồng bộ danh mục 911 sản phẩm sạch.
+     - [`public/data/disabled_products.json`](file:///d:/T&TVina/protools/public/data/disabled_products.json): Danh sách 6.589 SKU bị vô hiệu hóa.
+     - [`public/data/catalog_index_full.json`](file:///d:/T&TVina/protools/public/data/catalog_index_full.json): Cung cấp cho cổng nội bộ với 7.500 SKU (`isExcluded: true` = 6.589, `isExcluded: false` = 911).
+  3. **Cập nhật SEO & Sitemaps**:
+     - Sitemaps ([`public/sitemap.xml`](file:///d:/T&TVina/protools/public/sitemap.xml)): Cập nhật chính xác 929 URLs (911 sản phẩm + 18 trang giải pháp).
 
 
+
+
+
+### Rule 9.133: Kiến Trúc Mở Lại Trang Chủ Protools, Bảo Trì Danh Mục Cục Bộ & Cảnh Báo Trình Duyệt In-App (08/10/2026)
+* **Bối cảnh & Chỉ đạo Ban Giám Đốc**:
+  1. Khôi phục lại hoạt động của Website Protools công khai cho khách hàng và đối tác truy cập, không để màn hình bảo trì toàn trang.
+  2. Riêng khu vực danh sách sản phẩm bên dưới được chuyển thành khối thông báo bảo trì định kỳ có hoạt ảnh vector chuyển động ("Hệ thống Danh mục Sản phẩm đang trong quá trình bảo trì..."), do nội bộ vẫn đang trong quá trình rà soát và kiểm duyệt dữ liệu sản phẩm cần gỡ.
+  3. Ô tìm kiếm sản phẩm trên Header (cả desktop và mobile) khi khách hàng nhấp vào sẽ hiển thị cửa sổ thông báo tính năng tìm kiếm đang tạm thời bảo trì nâng cấp dữ liệu kèm thông tin hotline tiếp nhận yêu cầu.
+  4. Giữ nguyên cổng nội bộ `https://protools.com.vn/?mode=internal` độc lập cho nhân sự công ty vào đối soát 7.500 mã SKU, không đặt bất kỳ liên kết nội bộ nào trên giao diện công khai.
+  5. Bổ sung cơ chế phát hiện và cảnh báo khi khách hàng truy cập website qua trình duyệt nội bộ của ứng dụng (Zalo, Facebook, Messenger, TikTok...) để hướng dẫn mở bằng trình duyệt ngoài (Chrome, Safari), tránh các lỗi không tải được tài nguyên của webview nhúng.
+  6. Bảo toàn nguyên vẹn 100% hoạt động của Chuyên trang Murrplastik (`https://protools.com.vn/murrplastik/`).
+
+* **Giải pháp Kỹ thuật & Hiện thực**:
+  1. **Tách Biệt Trạng Thái Khách Ngoài & Cổng Nội Bộ ([`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx))**:
+     - Khách ngoài (`!isInternalMode`): Nạp toàn bộ bố cục trang chủ chuẩn mực (`Header`, `Hero`, `Solution Pillars`, `Partner Marquee`, `Impact Counter`, `FAQ Accordion`, `Floating Widgets`, `Footer`), truyền cờ `isCatalogMaintenance = true`.
+     - Cổng nội bộ (`isInternalMode = true` khi truy cập `?mode=internal`): Nạp trực tiếp trạm kiểm soát [`src/components/InternalReviewHub.tsx`](file:///d:/T&TVina/protools/src/components/InternalReviewHub.tsx) với đầy đủ 7.500 SKU (6.589 SKU đã gỡ, 911 SKU đang mở).
+  2. **Khối Bảo Trì Danh Mục Tại Chỗ ([`src/components/CatalogMaintenanceBlock.tsx`](file:///d:/T&TVina/protools/src/components/CatalogMaintenanceBlock.tsx))**:
+     - Tích hợp tại vị trí `#product-catalog` trên [`src/pages/Home.tsx`](file:///d:/T&TVina/protools/src/pages/Home.tsx).
+     - Hoạt ảnh vector Lottie mượt mà từ file dữ liệu nội bộ `/data/maintenance.json`.
+     - Thông điệp kỹ thuật B2B chỉn chu, nêu rõ hệ thống đang rà soát & chuẩn hóa dữ liệu định kỳ.
+     - Tích hợp bảng kênh tiếp nhận báo giá BOM nhanh (Hotline Ms. Nhung `0915.168.824`, Email `info@t2tvina.com`, Mr. Thanh `0943.301.886`, Mr. Khải `0968.597.131`, nút mở Giỏ Báo Giá và nút chuyển sang Chuyên trang Murrplastik Đức).
+  3. **Cửa Sổ Báo Bảo Trì Tìm Kiếm ([`src/components/SearchMaintenanceModal.tsx`](file:///d:/T&TVina/protools/src/components/SearchMaintenanceModal.tsx))**:
+     - Bắt tương tác click / focus / gõ phím trên cả thanh tìm kiếm Desktop và thanh tìm kiếm trong Mobile Drawer tại [`src/components/Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx).
+     - Hiển thị modal thông báo rõ ràng, lịch sự kèm nút gọi Hotline và nút chép số điện thoại / email nhanh.
+  4. **Cơ Chế Cảnh Báo Trình Duyệt In-App ([`src/components/InAppBrowserNotice.tsx`](file:///d:/T&TVina/protools/src/components/InAppBrowserNotice.tsx))**:
+     - Hàm kiểm tra User-Agent: Nhận diện chính xác `Zalo`, `FBAN|FBAV` (Facebook App), `Messenger`, `Instagram`, `TikTok`, `WeChat`, `Line`.
+     - Phân định hệ điều hành: Hướng dẫn người dùng iOS bấm ba chấm / biểu tượng chia sẻ chọn "Mở trong Safari"; hướng dẫn người dùng Android bấm ba chấm (⋮) chọn "Mở bằng trình duyệt".
+     - Nút "Sao chép link" để dán vào trình duyệt và nút "Đã hiểu" ghi nhận vào `sessionStorage` để không làm phiền người dùng trong phiên duyệt web.
+     - Tuân thủ nghiêm ngặt Quy tắc không dùng Icon/Emoji Windows, sử dụng 100% SVG Vector (Lucide React).

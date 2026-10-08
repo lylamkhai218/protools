@@ -17,6 +17,7 @@ Disallow: /backups/
 Disallow: /noi-bo/
 Disallow: /internal/
 Disallow: /kiem-duyet/
+Disallow: /*mode=internal
 Disallow: /*?*filter=
 
 # Google Search Engine & AI Overviews
