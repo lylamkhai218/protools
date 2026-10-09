@@ -20,7 +20,13 @@ export async function loadCatalogIndex(): Promise<Product[]> {
 
   catalogPromise = (async () => {
     try {
-      const isInternal = typeof window !== 'undefined' && localStorage.getItem('protools_internal_mode') === 'true';
+      const isInternal = typeof window !== 'undefined' && (
+        new URLSearchParams(window.location.search).get('mode') === 'internal' ||
+        new URLSearchParams(window.location.search).get('access') === 'noi-bo' ||
+        window.location.pathname.toLowerCase().startsWith('/noi-bo') ||
+        window.location.pathname.toLowerCase().startsWith('/internal') ||
+        window.location.pathname.toLowerCase().startsWith('/kiem-duyet')
+      );
       const endpoint = isInternal ? '/data/catalog_index_full.json' : '/data/catalog_index.json';
       const res = await fetch(endpoint);
       if (!res.ok) {
