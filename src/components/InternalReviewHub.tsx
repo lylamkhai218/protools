@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Product } from '../types';
-import { Search, Copy, Check, CheckSquare, Square, Package, X, ZoomIn } from 'lucide-react';
+import { Search, Copy, Check, CheckSquare, Square, Package, X, ZoomIn, ExternalLink } from 'lucide-react';
 
 interface InternalProduct extends Product {
   isExcluded?: boolean;
@@ -146,6 +146,17 @@ export const InternalReviewHub: React.FC<InternalReviewHubProps> = () => {
                 Tổng: <strong className="text-white">{products.length.toLocaleString('vi-VN')}</strong> SKU · Đang còn trên web: <strong className="text-emerald-400">{totalActiveCount.toLocaleString('vi-VN')}</strong> · Đã gỡ: <strong className="text-rose-400">{totalExcludedCount.toLocaleString('vi-VN')}</strong>
               </div>
             </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="/"
+              className="px-3 py-1.5 rounded-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-semibold border border-slate-700 flex items-center gap-1.5 transition-colors cursor-pointer"
+              title="Quay lại Trang Chủ Công Khai của khách hàng"
+            >
+              <span>Về Trang Chủ Công Khai</span>
+              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+            </a>
           </div>
         </div>
       </header>

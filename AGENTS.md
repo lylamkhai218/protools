@@ -2425,3 +2425,18 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
      - Phân định hệ điều hành: Hướng dẫn người dùng iOS bấm ba chấm / biểu tượng chia sẻ chọn "Mở trong Safari"; hướng dẫn người dùng Android bấm ba chấm (⋮) chọn "Mở bằng trình duyệt".
      - Nút "Sao chép link" để dán vào trình duyệt và nút "Đã hiểu" ghi nhận vào `sessionStorage` để không làm phiền người dùng trong phiên duyệt web.
      - Tuân thủ nghiêm ngặt Quy tắc không dùng Icon/Emoji Windows, sử dụng 100% SVG Vector (Lucide React).
+
+### Rule 9.134: Triệt Tiêu Tuyệt Đối Tình Trạng Kẹt Cổng Nội Bộ Do Sticky localStorage (09/10/2026)
+* **Hiện tượng & Nguyên nhân gốc rễ**:
+  1. Người dùng khi mở lại `https://protools.com.vn/` bị tự động chuyển hướng (fork) vào màn hình `CỔNG NỘI BỘ KIỂM DUYỆT 7.500 SKU` dù URL không có tham số `?mode=internal`.
+  2. Nguyên nhân kỹ thuật: Trước đây hệ thống lưu cờ `localStorage.setItem('protools_internal_mode', 'true')` để ghi nhớ phiên làm việc. Do `localStorage` lưu trữ vĩnh viễn qua nhiều ngày/phiên, khi nhân sự mở lại trang chủ, hàm khởi tạo đọc giá trị `true` và kích hoạt chế độ nội bộ. Người dùng phải xóa cookies/storage thủ công mới quay lại được trang chủ.
+* **Giải pháp khắc phục triệt để (Zero Sticky Storage)**:
+  1. **Kích hoạt thuần túy theo tham số URL (Strict URL Parameter Only)**:
+     - Chỉ kích hoạt `isInternalMode = true` khi và chỉ khi URL hiện tại chứa rõ ràng: `params.get('mode') === 'internal'`, `params.get('access') === 'noi-bo'`, hoặc đường dẫn bắt đầu bằng `/noi-bo`, `/internal`, `/kiem-duyet`.
+  2. **Cơ chế tự động dọn dẹp cờ cũ (Self-Healing Auto-Purge)**:
+     - Khi người dùng truy cập `https://protools.com.vn/` (không có tham số nội bộ), hàm khởi tạo và hook `popstate` tự động chạy lệnh `localStorage.removeItem('protools_internal_mode')`.
+     - Bất kỳ trình duyệt nào còn lưu cờ cũ từ các ngày trước sẽ được tự động xóa sạch ngay lập tức khi tải trang, người dùng không cần phải xóa cookies hay lịch sử web.
+  3. **Đồng bộ cơ chế nạp danh mục ([`src/utils/catalogLoader.ts`](file:///d:/T&TVina/protools/src/utils/catalogLoader.ts))**:
+     - Phân định nạp `catalog_index_full.json` (7.500 SKU) hay `catalog_index.json` (911 SKU) trực tiếp dựa trên tham số URL hiện tại, không phụ thuộc vào `localStorage`.
+  4. **Nút thoát 1 chạm tại Header Cổng Nội Bộ ([`src/components/InternalReviewHub.tsx`](file:///d:/T&TVina/protools/src/components/InternalReviewHub.tsx))**:
+     - Bổ sung nút liên kết `"Về Trang Chủ Công Khai"` ở góc trên bên phải header cổng nội bộ để nhân sự dễ dàng quay trở lại trang chủ bất cứ lúc nào.

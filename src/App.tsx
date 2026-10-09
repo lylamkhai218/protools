@@ -84,22 +84,24 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[0]);
   const [dresspackKey, setDresspackKey] = useState<number>(0);
 
-  // Maintenance & Internal Mode state
+  // Maintenance & Internal Mode state: STRICT URL PARAM ONLY (No sticky localStorage)
   const [isInternalMode, setIsInternalMode] = useState<boolean>(() => {
     try {
       const path = window.location.pathname.toLowerCase();
       const params = new URLSearchParams(window.location.search);
-      if (
+      const isInternalUrl = (
         path.startsWith('/noi-bo') ||
         path.startsWith('/internal') ||
         path.startsWith('/kiem-duyet') ||
         params.get('mode') === 'internal' ||
         params.get('access') === 'noi-bo'
-      ) {
-        localStorage.setItem('protools_internal_mode', 'true');
+      );
+      if (isInternalUrl) {
         return true;
       }
-      return localStorage.getItem('protools_internal_mode') === 'true';
+      // Always remove any stale localStorage flag so visiting https://protools.com.vn/ never forks into internal mode
+      localStorage.removeItem('protools_internal_mode');
+      return false;
     } catch {
       return false;
     }
@@ -231,18 +233,26 @@ export default function App() {
       const categoryParam = params.get('category');
       const tabParam = params.get('tab');
 
-      // 0. Internal Review Portal Route: /noi-bo, /internal, /kiem-duyet
-      if (
+      // 0. Internal Review Portal Route: /noi-bo, /internal, /kiem-duyet, ?mode=internal
+      const isInternalUrl = (
         pathname.startsWith('/noi-bo') ||
         pathname.startsWith('/internal') ||
         pathname.startsWith('/kiem-duyet') ||
         params.get('mode') === 'internal' ||
         params.get('access') === 'noi-bo'
-      ) {
-        localStorage.setItem('protools_internal_mode', 'true');
+      );
+
+      if (isInternalUrl) {
         setIsInternalMode(true);
         setInternalViewMode('hub');
         return;
+      } else {
+        setIsInternalMode(false);
+        try {
+          localStorage.removeItem('protools_internal_mode');
+        } catch {
+          // Ignore
+        }
       }
 
       // 1. Semantic Clean URL: /san-pham/:slug
