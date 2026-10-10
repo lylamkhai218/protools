@@ -1,0 +1,21 @@
+{
+  "auditDate": "2026-10-10",
+  "generatedAt": "2026-10-10T16:00:06.555939",
+  "domain": "Robot Dresspack Configurator System",
+  "status": "HEALTHY",
+  "metrics": {
+    "totalBrandsCount": 13,
+    "totalModelsCount": 83,
+    "totalStandardPackagesCount": 20,
+    "totalReferencedImages": 233,
+    "presentImagesOnDisk": 233,
+    "missingImagesCount": 0
+  },
+  "fourPerspectiveStandards": {
+    "Overview": "Isometric Full Body View",
+    "TopView": "Plan View Upper Arm A3-A6",
+    "SideView": "Lateral View & R-Tec Box Spring Mount",
+    "WristDetail": "Axis 6 Tool Flange & Tension Clamp"
+  },
+  "missingImages": []
+}
