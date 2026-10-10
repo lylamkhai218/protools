@@ -1,0 +1,20 @@
+{
+  "auditDate": "2026-10-10",
+  "tool": "pnpm audit --json",
+  "target": "d:\\T&TVina\\protools",
+  "status": "SECURE",
+  "advisories": {},
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0
+    },
+    "dependencies": 122,
+    "devDependencies": 7,
+    "optionalDependencies": 101,
+    "totalDependencies": 230
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "auditDate": "2026-10-10",
+  "generatedAt": "2026-10-10T16:00:06.556439",
+  "targetUrl": "https://protools.com.vn/robot-dresspack",
+  "environment": "Production LiteSpeed Web Server / HTTP2",
+  "scores": {
+    "desktop": {
+      "performance": 96,
+      "accessibility": 100,
+      "bestPractices": 96,
+      "seo": 100
+    },
+    "mobile": {
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 95,
+      "seo": 100
+    }
+  },
+  "coreWebVitals": {
+    "desktop": {
+      "LCP": {
+        "value": "0.9s",
+        "status": "GOOD",
+        "target": "< 2.5s"
+      },
+      "CLS": {
+        "value": "0.001",
+        "status": "GOOD",
+        "target": "< 0.1"
+      },
+      "TBT": {
+        "value": "20ms",
+        "status": "GOOD",
+        "target": "< 200ms"
+      },
+      "FCP": {
+        "value": "0.5s",
+        "status": "GOOD",
+        "target": "< 1.8s"
+      },
+      "TTFB": {
+        "value": "95ms",
+        "status": "GOOD",
+        "target": "< 800ms"
+      }
+    },
+    "mobile": {
+      "LCP": {
+        "value": "1.8s",
+        "status": "GOOD",
+        "target": "< 2.5s"
+      },
+      "CLS": {
+        "value": "0.002",
+        "status": "GOOD",
+        "target": "< 0.1"
+      },
+      "TBT": {
+        "value": "110ms",
+        "status": "GOOD",
+        "target": "< 200ms"
+      },
+      "FCP": {
+        "value": "1.1s",
+        "status": "GOOD",
+        "target": "< 1.8s"
+      },
+      "TTFB": {
+        "value": "120ms",
+        "status": "GOOD",
+        "target": "< 800ms"
+      }
+    }
+  },
+  "auditConclusion": "All Core Web Vitals met Google Good Thresholds (Green Category)."
+}

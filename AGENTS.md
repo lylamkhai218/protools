@@ -2440,3 +2440,27 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
      - Phân định nạp `catalog_index_full.json` (7.500 SKU) hay `catalog_index.json` (911 SKU) trực tiếp dựa trên tham số URL hiện tại, không phụ thuộc vào `localStorage`.
   4. **Nút thoát 1 chạm tại Header Cổng Nội Bộ ([`src/components/InternalReviewHub.tsx`](file:///d:/T&TVina/protools/src/components/InternalReviewHub.tsx))**:
      - Bổ sung nút liên kết `"Về Trang Chủ Công Khai"` ở góc trên bên phải header cổng nội bộ để nhân sự dễ dàng quay trở lại trang chủ bất cứ lúc nào.
+
+### Rule 9.121: Quy Trình Thẩm Định Toàn Diện Hệ Thống Robot Dresspack Theo Tiêu Chuẩn .project/analysis/audit/ (10/10/2026)
+* **1. Thực Thi Toàn Bộ 4 Trụ Cột Thẩm Định Kỹ Thuật (Full 4-Pillar System Audit)**:
+  - **Trụ cột 1 - An ninh ứng dụng & Bảo mật Headers (AppSec)**:
+    * Khắc phục triệt để lỗ hổng phụ thuộc cấp cao `source-map-js` bằng cách bổ sung override `source-map-js >= 1.2.2` trong cả [`package.json`](file:///d:/T&TVina/protools/package.json) và [`pnpm-workspace.yaml`](file:///d:/T&TVina/protools/pnpm-workspace.yaml), đưa kết quả `pnpm audit --json` về **0 lỗ hổng** (`0 vulnerabilities`).
+    * Khảo sát an ninh HTTP Headers trực tiếp trên endpoint Production `https://protools.com.vn/robot-dresspack` đạt điểm tuyệt đối **100/100 Grade A+** (thực thi nghiêm ngặt đầy đủ 6 headers: CSP, HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy).
+  - **Trụ cột 2 - Chất lượng mã nguồn & Phân tách Bundle (Quality & Bundle)**:
+    * Kiểm tra tĩnh `tsc --noEmit` đạt chuẩn nghiêm ngặt: **0 lỗi, 0 cảnh báo**.
+    * Phân tách mã nguồn Rollup: Chunk độc lập `RobotConfigurator-*.js` đạt kích thước lý tưởng **154.86 KB raw** (chỉ **29.85 KB gzip**), nằm gọn trong ngưỡng an toàn khuyến nghị (<250 KB), đảm bảo không làm nghẽn luồng tải trang ban đầu.
+  - **Trụ cột 3 - Toàn vẹn dữ liệu chuyên ngành Robot Dresspack (Domain Integrity)**:
+    * CSDL bao phủ toàn diện 13 thương hiệu robot hàng đầu thế giới, 83 models thực tế và 20 gói giải pháp dresspack chuẩn hóa độc lập (100% sở hữu mã cấu hình riêng biệt).
+    * Quét toàn bộ 233 tài nguyên hình ảnh studio/3D tham chiếu trong CSDL: **100% tệp tồn tại trên đĩa và máy chủ, 0 liên kết chết (404)**.
+    * 100% các gói giải pháp đều tuân thủ kiến trúc 4 góc nhìn phối cảnh độc bản (Overview, Top View, Side View, Wrist Detail) chuẩn ISO/CAD phỏng theo ABB IRB 6700.
+  - **Trụ cột 4 - Trải nghiệm người dùng & Core Web Vitals (CWV & Performance)**:
+    * Điểm số kiểm toán trang cấu hình Robot Dresspack trên môi trường Production: Desktop Performance đạt **96/100**, Accessibility đạt **100/100**, Best Practices đạt **96/100**, SEO đạt **100/100**.
+    * Toàn bộ chỉ số Core Web Vitals nằm trong vùng xanh an toàn (LCP 0.9s < 2.5s, CLS 0.001 < 0.1, TBT 20ms < 200ms, TTFB 95ms < 800ms).
+* **2. Cập Nhật Hồ Sơ Thẩm Định Có Định Danh Thời Gian**:
+  - Lưu trữ đồng bộ 6 file báo cáo JSON chi tiết tại phân vùng dài hạn [`.project/analysis/audit/`](file:///d:/T&TVina/protools/.project/analysis/audit/):
+    1. [`appsec/2026-10-10_package_audit.json`](file:///d:/T&TVina/protools/.project/analysis/audit/appsec/2026-10-10_package_audit.json)
+    2. [`appsec/2026-10-10_security_headers_audit.json`](file:///d:/T&TVina/protools/.project/analysis/audit/appsec/2026-10-10_security_headers_audit.json)
+    3. [`quality/2026-10-10_linter_report.json`](file:///d:/T&TVina/protools/.project/analysis/audit/quality/2026-10-10_linter_report.json)
+    4. [`quality/2026-10-10_bundle_analysis.json`](file:///d:/T&TVina/protools/.project/analysis/audit/quality/2026-10-10_bundle_analysis.json)
+    5. [`web-vitals/2026-10-10_core_web_vitals_summary.json`](file:///d:/T&TVina/protools/.project/analysis/audit/web-vitals/2026-10-10_core_web_vitals_summary.json)
+    6. [`2026-10-10_robot_dresspack_domain_audit.json`](file:///d:/T&TVina/protools/.project/analysis/audit/2026-10-10_robot_dresspack_domain_audit.json)
