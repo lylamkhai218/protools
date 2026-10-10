@@ -17,6 +17,7 @@ interface FooterProps {
 export default function Footer({ onNavigate }: FooterProps) {
   const { t } = useTranslation();
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
 
   const handleCopy = (text: string, key: string, e?: React.MouseEvent) => {
     if (e) {
@@ -74,25 +75,44 @@ export default function Footer({ onNavigate }: FooterProps) {
                     href={COMPANY_INFO.mapUrlLinhNam} 
                     target="_blank" 
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-[11px] text-amber-300 hover:text-amber-200 hover:underline font-semibold mt-1"
+                    className="inline-flex items-center gap-1 text-xs text-amber-300 hover:text-amber-200 hover:underline font-semibold mt-1"
                   >
                     <span>{t('footer.directions_maps')}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
 
-                  {/* Embedded Google Map Iframe Directly Below Linh Nam */}
+                  {/* Embedded Google Map Facade / Lazy Iframe Directly Below Linh Nam */}
                   <div className="mt-2.5 rounded-xs overflow-hidden border border-slate-700/80 shadow-md">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.13591034401!2d105.88146848700326!3d20.982886742453424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135af26d2bb1e0f%3A0x65f178554a3bb4aa!2zQ8O0bmcgdHkgVE5ISCBDw7RuZyBuZ2hp4buHcCBUJlQgVmluYQ!5e0!3m2!1svi!2s!4v1788060518008!5m2!1svi!2s"
-                      width="100%"
-                      height="200"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      title={t('footer.map_iframe_title')}
-                      className="w-full block"
-                    />
+                    {isMapLoaded ? (
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.13591034401!2d105.88146848700326!3d20.982886742453424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135af26d2bb1e0f%3A0x65f178554a3bb4aa!2zQ8O0bmcgdHkgVE5ISCBDw7RuZyBuZ2hp4buHcCBUJlQgVmluYQ!5e0!3m2!1svi!2s!4v1788060518008!5m2!1svi!2s"
+                        width="100%"
+                        height="200"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        title={t('footer.map_iframe_title')}
+                        className="w-full block"
+                      />
+                    ) : (
+                      <div className="bg-slate-800/90 h-[200px] flex flex-col items-center justify-center p-4 text-center">
+                        <MapPin className="w-6 h-6 text-[#D97706] mb-2 animate-bounce" />
+                        <span className="text-xs font-semibold text-slate-200 block mb-1">
+                          Bản Đồ Chỉ Đường Trực Tiếp (Lĩnh Nam, Hà Nội)
+                        </span>
+                        <span className="text-xs text-slate-400 block mb-3">
+                          Bấm nút bên dưới để mở bản đồ tương tác
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setIsMapLoaded(true)}
+                          className="px-3 py-1.5 bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer shadow-xs"
+                        >
+                          Tải Bản Đồ Tương Tác
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -310,7 +330,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <h4 className="font-display font-bold text-sm tracking-wider text-white uppercase">
                   {t('footer.featured_title')}
                 </h4>
-                <span className="text-[11px] text-slate-400 hidden sm:inline">{t('footer.featured_origin')}</span>
+                <span className="text-xs text-slate-400 hidden sm:inline">{t('footer.featured_origin')}</span>
               </div>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -321,9 +341,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
                     <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_murr_title')}</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">{t('footer.feat_murr_country')}</span>
+                    <span className="text-xs text-slate-400 font-mono shrink-0 ml-1">{t('footer.feat_murr_country')}</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
+                  <div className="text-xs text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
                     {t('footer.feat_murr_sub')}
                   </div>
                 </button>
@@ -335,9 +355,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
                     <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_glue_title')}</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">0.01ml</span>
+                    <span className="text-xs text-slate-400 font-mono shrink-0 ml-1">0.01ml</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
+                  <div className="text-xs text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
                     {t('footer.feat_glue_sub')}
                   </div>
                 </button>
@@ -349,9 +369,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
                     <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_hios_title')}</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">SMT</span>
+                    <span className="text-xs text-slate-400 font-mono shrink-0 ml-1">SMT</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
+                  <div className="text-xs text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
                     {t('footer.feat_hios_sub')}
                   </div>
                 </button>
@@ -363,9 +383,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
                     <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_solder_title')}</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">ESD</span>
+                    <span className="text-xs text-slate-400 font-mono shrink-0 ml-1">ESD</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
+                  <div className="text-xs text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
                     {t('footer.feat_solder_sub')}
                   </div>
                 </button>
@@ -377,9 +397,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
                     <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_tape_title')}</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">Auto</span>
+                    <span className="text-xs text-slate-400 font-mono shrink-0 ml-1">Auto</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
+                  <div className="text-xs text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
                     {t('footer.feat_tape_sub')}
                   </div>
                 </button>
@@ -391,9 +411,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 >
                   <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
                     <span className="truncate group-hover:text-[#00478D]">{t('footer.feat_micro_title')}</span>
-                    <span className="text-[9px] text-slate-400 font-mono shrink-0 ml-1">7X-45X</span>
+                    <span className="text-xs text-slate-400 font-mono shrink-0 ml-1">7X-45X</span>
                   </div>
-                  <div className="text-[10px] text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
+                  <div className="text-xs text-slate-400 mt-1 line-clamp-1 group-hover:text-slate-300">
                     {t('footer.feat_micro_sub')}
                   </div>
                 </button>
@@ -421,20 +441,20 @@ export default function Footer({ onNavigate }: FooterProps) {
               <div>
                 © 2026 <strong>{COMPANY_INFO.name}</strong> ({COMPANY_INFO.fullNameEn}). {t('footer.all_rights_reserved', 'Bảo lưu mọi quyền.')}
               </div>
-              <p className="text-[11px] text-slate-500 max-w-2xl leading-relaxed">
+              <p className="text-xs text-slate-400 max-w-2xl leading-relaxed">
                 {t('footer.copyright_disclaimer')}
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center md:items-end gap-3 shrink-0">
-              <div className="flex items-center gap-4 text-[11px] text-slate-400">
+              <div className="flex items-center gap-4 text-xs text-slate-400">
                 <span>{t('footer.badge_b2b')}</span>
                 <span>•</span>
                 <span>{t('footer.badge_genuine')}</span>
                 <span>•</span>
                 <span>{t('footer.badge_support')}</span>
               </div>
-              <div className="text-[11px] text-slate-500/70 hover:text-slate-400 transition-colors font-mono tracking-tight">
+              <div className="text-xs text-slate-400 hover:text-white transition-colors font-mono tracking-tight">
                 {t('footer.credit', 'Thiết kế & phát triển bởi KhaiLL')}
               </div>
             </div>

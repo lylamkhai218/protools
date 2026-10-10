@@ -185,7 +185,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_4px_25px_-5px_rgba(0,31,63,0.05)] transition-all">
       {/* 1. TOP UTILITY BAR WITH 100% REAL COMPANY DATA (STRICT ALL-VISIBLE SINGLE LINE) */}
-      <div className="bg-slate-50 border-b border-slate-200/60 text-[11px] text-slate-600 hidden lg:block">
+      <div className="bg-slate-50 border-b border-slate-200/60 text-xs text-slate-600 hidden lg:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between gap-4 whitespace-nowrap">
           
           {/* Left: Headquarters Location & VPGD */}
@@ -217,7 +217,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           </div>
 
           {/* Right: Direct Contacts Fully Visible With Quick Copy */}
-          <div className="flex items-center gap-3 shrink-0 font-medium text-[11px]">
+          <div className="flex items-center gap-3 shrink-0 font-medium text-xs">
             {/* Hotline */}
             <div className="flex items-center gap-1 text-slate-700">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block mr-0.5"></span>
@@ -287,6 +287,8 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               <img 
                 src={`${import.meta.env.BASE_URL}logos/TTV_LOGO_Color_Master.svg`} 
                 alt="T&T VINA" 
+                width="168"
+                height="44"
                 className="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" 
               />
             </button>
@@ -312,10 +314,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   <div className="absolute -top-3 inset-x-0 h-3" />
                   <div className="bg-white rounded-sm shadow-2xl border border-slate-200 py-3 animate-in fade-in slide-in-from-top-1 duration-150">
                     <div className="px-4 py-1.5 border-b border-slate-100 mb-2 flex items-center justify-between">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                         {t('nav.dropdown_title')}
                       </span>
-                      <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
+                      <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
                         {t('nav.genuine_badge')}
                       </span>
                     </div>
@@ -361,16 +363,16 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                                 </div>
 
                                 {/* Dòng mô tả / nhãn bên dưới */}
-                                <div className="text-[11px] text-slate-500 truncate flex items-center gap-1.5 mt-0.5">
+                                <div className="text-xs text-slate-500 truncate flex items-center gap-1.5 mt-0.5">
                                   {isMurr ? (
-                                    <span className="font-mono font-bold text-[10px] text-slate-500 uppercase tracking-wider">
+                                    <span className="font-mono font-bold text-xs text-slate-500 uppercase tracking-wider">
                                       MADE IN GERMANY
                                     </span>
                                   ) : (
                                     <>
                                       <span>{lSol.tag || sol.tag}</span>
                                       {lSol.badge && (
-                                        <span className="text-[9px] font-bold px-1 rounded-xs uppercase tracking-tight bg-slate-200/70 text-slate-700">
+                                        <span className="text-xs font-bold px-1 rounded-xs uppercase tracking-tight bg-slate-200/70 text-slate-700">
                                           {lSol.badge}
                                         </span>
                                       )}
@@ -425,9 +427,9 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   {/* Invisible hover bridge to eliminate gap */}
                   <div className="absolute -top-3 inset-x-0 h-3" />
                   <div className="bg-white rounded-sm shadow-2xl border border-slate-200 p-2.5 animate-in fade-in slide-in-from-top-1 duration-150">
-                    <div className="px-2.5 py-1 border-b border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500 mb-1.5">
+                    <div className="px-2.5 py-1 border-b border-slate-100 flex items-center justify-between text-xs font-mono text-slate-500 mb-1.5">
                       <span className="font-bold uppercase tracking-wider text-slate-700">{t('nav.digital_toolbox', 'DIGITAL TOOLBOX')}</span>
-                      <span className="text-[10px] text-red-600 font-semibold bg-red-50 px-1.5 py-0.2 rounded-xs">Murrplastik</span>
+                      <span className="text-xs text-red-600 font-semibold bg-red-50 px-1.5 py-0.2 rounded-xs">Murrplastik</span>
                     </div>
 
                     <div className="space-y-1">
@@ -445,7 +447,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           </span>
                           <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-0.5 transition-all" />
                         </div>
-                        <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                        <p className="text-xs text-slate-500 mt-1 line-clamp-2">
                           {t('nav.toolbox_dresspack_desc', 'Mô phỏng cánh tay robot & tính fill factor bó cáp')}
                         </p>
                       </button>
@@ -513,12 +515,12 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
                     Gợi Ý Tìm Kiếm & Thiết Bị Tiêu Biểu
                   </span>
-                  <span className="text-[10px] text-slate-400 font-medium">Bấm để lọc tức thì • Esc để đóng</span>
+                  <span className="text-xs text-slate-400 font-medium">Bấm để lọc tức thì • Esc để đóng</span>
                 </div>
 
                 {/* Khối 1: Từ khóa tìm kiếm phổ biến */}
                 <div className="px-4 sm:px-5 py-3 border-b border-slate-100/80 bg-slate-50/50">
-                  <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                  <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
                     Từ Khóa Tra Cứu Phổ Biến
                   </div>
                   <div className="flex flex-wrap gap-1.5">
@@ -546,10 +548,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 {/* Khối 2: Hàng tiêu biểu sẵn kho */}
                 <div className="px-4 sm:px-5 py-3 border-b border-slate-100/80">
                   <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                       Thiết Bị Tiêu Biểu Sẵn Kho
                     </span>
-                    <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
+                    <span className="text-xs text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded-xs border border-emerald-200">
                       Sẵn Kho • Giao 24h
                     </span>
                   </div>
@@ -572,7 +574,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           <div className="text-xs font-bold text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 leading-snug min-h-[2rem]">
                             {item.product.name}
                           </div>
-                          <div className="flex items-center gap-1.5 text-[10px] mt-1">
+                          <div className="flex items-center gap-1.5 text-xs mt-1">
                             <span className="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.2 rounded-xs font-semibold">
                               {item.product.sku}
                             </span>
@@ -581,7 +583,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                               {item.product.brand}
                             </span>
                           </div>
-                          <div className="text-[10px] text-slate-500 truncate mt-0.5">
+                          <div className="text-xs text-slate-500 truncate mt-0.5">
                             {item.highlight}
                           </div>
                         </div>
@@ -593,10 +595,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 {/* Khối 3: Ngành hàng tra cứu nhanh (3 cột rộng rãi, layout ngang, icon chuẩn xác 100%) */}
                 <div className="px-4 sm:px-5 py-3 bg-slate-50/30">
                   <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                       Ngành Hàng Tra Cứu Nhanh
                     </span>
-                    <span className="text-[10px] font-mono text-slate-400">9 Nhóm Ngành B2B</span>
+                    <span className="text-xs font-mono text-slate-400">9 Nhóm Ngành B2B</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
@@ -628,7 +630,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                             <div className="text-xs font-bold text-slate-800 group-hover:text-[#00478D] transition-colors truncate">
                               {cat.name}
                             </div>
-                            <div className="text-[10px] text-slate-400 truncate mt-0.5 font-mono">
+                            <div className="text-xs text-slate-400 truncate mt-0.5 font-mono">
                               {cat.tag}
                             </div>
                           </div>
@@ -639,7 +641,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 </div>
 
                 {/* Footer Bar */}
-                <div className="px-4 sm:px-5 pt-2.5 pb-1 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 bg-slate-50/80">
+                <div className="px-4 sm:px-5 pt-2.5 pb-1 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 bg-slate-50/80">
                   <span>
                     Hotline: <a href={`tel:${COMPANY_INFO.hotlineRaw}`} className="font-bold text-[#00478D] font-mono hover:underline">{COMPANY_INFO.hotline}</a>
                   </span>
@@ -658,7 +660,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                         }
                       }, 60);
                     }}
-                    className="text-[11px] font-bold text-[#00478D] hover:underline cursor-pointer flex items-center gap-1"
+                    className="text-xs font-bold text-[#00478D] hover:underline cursor-pointer flex items-center gap-1"
                   >
                     <span>Xem toàn kho 7.500 SKU</span>
                     <ArrowRight className="w-3 h-3" />
@@ -671,9 +673,9 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
             {/* 2. Live Autocomplete Results Dropdown (Swiss Precision Card Layout) */}
             {isSearchFocused && searchQuery.trim() !== '' && searchResults.length > 0 && (
               <div className="absolute top-full right-0 sm:left-0 sm:right-auto mt-2 w-[calc(100vw-32px)] sm:w-[520px] md:w-[580px] lg:w-[640px] max-w-[92vw] bg-white rounded-sm shadow-2xl border border-slate-200 py-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150 max-h-[80vh] overflow-y-auto">
-                <div className="px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
+                <div className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
                   <span>Kết quả ({searchResults.length} / {totalMatches} SKU)</span>
-                  <span className="text-[10px] text-[#00478D] font-semibold">Bấm để xem thông số chi tiết</span>
+                  <span className="text-xs text-[#00478D] font-semibold">Bấm để xem thông số chi tiết</span>
                 </div>
 
                 <div className="divide-y divide-slate-100/80">
@@ -697,7 +699,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           </div>
                           
                           {/* Structured Pill Badges (Never wrap brokenly) */}
-                          <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
+                          <div className="flex flex-wrap items-center gap-1.5 text-xs">
                             <span className="font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded-xs font-semibold whitespace-nowrap">
                               Mã: {item.sku}
                             </span>
@@ -743,7 +745,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 <p className="text-xs text-slate-600 font-medium">
                   Không tìm thấy thiết bị nào khớp với từ khóa &ldquo;<strong className="text-slate-900">{searchQuery}</strong>&rdquo;.
                 </p>
-                <p className="text-[11px] text-slate-400 mt-1">
+                <p className="text-xs text-slate-400 mt-1">
                   Vui lòng thử tìm theo mã SKU, tên hãng (Murrplastik, Hakko, HIOS...) hoặc liên hệ Hotline: <strong className="text-[#00478D]">{COMPANY_INFO.hotline}</strong>
                 </p>
               </div>
@@ -766,7 +768,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               <div className="relative flex items-center justify-center">
                 <ShoppingCart className="w-4 h-4 text-slate-700 group-hover:text-[#00478D]" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2.5 min-w-4.5 h-4.5 px-1 rounded-full bg-[#D97706] text-white text-[10px] font-bold flex items-center justify-center shadow-xs">
+                  <span className="absolute -top-2 -right-2.5 min-w-4.5 h-4.5 px-1 rounded-full bg-[#D97706] text-white text-xs font-bold flex items-center justify-center shadow-xs">
                     {cartCount}
                   </span>
                 )}
@@ -842,7 +844,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           {/* Quick suggestions when search is empty in mobile menu */}
           {!searchQuery && (
             <div className="space-y-2 pt-1 pb-1">
-              <div className="text-[11px] font-bold uppercase text-slate-500">
+              <div className="text-xs font-bold uppercase text-slate-500">
                 <span>Từ Khóa Gợi Ý Nhanh</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -868,7 +870,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
           {/* Live Mobile Search Results */}
           {searchQuery && searchResults.length > 0 && (
             <div className="bg-slate-50 rounded-sm border border-slate-200 divide-y divide-slate-200/70 max-h-64 overflow-y-auto">
-              <div className="px-3 py-1.5 text-[10px] font-bold uppercase text-slate-500 bg-slate-100">
+              <div className="px-3 py-1.5 text-xs font-bold uppercase text-slate-500 bg-slate-100">
                 {t('catalog.found')} {searchResults.length} {t('catalog.matching_items')}
               </div>
               {searchResults.map((item) => (
@@ -880,7 +882,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   <img src={item.image} alt={item.name} className="w-10 h-10 object-contain bg-white rounded-xs border border-slate-200 p-0.5 shrink-0" />
                   <div className="min-w-0 flex-1">
                     <div className="text-xs font-bold text-slate-900 truncate">{item.name}</div>
-                    <div className="flex items-center gap-1.5 text-[10px] mt-0.5">
+                    <div className="flex items-center gap-1.5 text-xs mt-0.5">
                       <span className="font-mono text-slate-500">Mã: {item.sku}</span>
                       <span className="text-slate-300">•</span>
                       <span className="text-[#00478D] font-semibold">{item.brand}</span>
@@ -921,11 +923,11 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                     {t('nav.murr_portal')}
                   </span>
                 </div>
-                <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-xs bg-red-100 text-[#E30613]">
+                <span className="text-xs font-extrabold uppercase px-1.5 py-0.5 rounded-xs bg-red-100 text-[#E30613]">
                   {t('nav.authorized')}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug">
+              <p className="text-xs text-slate-600 leading-snug">
                 {t('nav.murr_mobile_desc')}
               </p>
               <a
@@ -938,7 +940,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               </a>
             </div>
 
-            <div className="px-3 pt-2 pb-1 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+            <div className="px-3 pt-2 pb-1 text-xs font-bold text-slate-400 uppercase tracking-widest">
               {t('nav.categories')}
             </div>
             {SOLUTIONS.map((sol) => {
@@ -972,7 +974,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                     )}
                     <span className="truncate">{lSol.title}</span>
                   </div>
-                  <span className="text-[10px] text-slate-400 shrink-0 ml-1.5">{lSol.tag || sol.tag}</span>
+                  <span className="text-xs text-slate-400 shrink-0 ml-1.5">{lSol.tag || sol.tag}</span>
                 </button>
               );
             })}

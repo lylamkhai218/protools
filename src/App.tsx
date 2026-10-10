@@ -3,10 +3,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { FloatingWidgets } from './components/FloatingWidgets';
 import Home from './pages/Home';
+import RobotConfigurator from './pages/RobotConfigurator';
 const ProductDetail = React.lazy(() => import('./pages/ProductDetail'));
 const DocumentCenter = React.lazy(() => import('./pages/DocumentCenter'));
 const CartQuote = React.lazy(() => import('./pages/CartQuote'));
-const RobotConfigurator = React.lazy(() => import('./pages/RobotConfigurator'));
 import { PRODUCTS } from './data';
 import { Product, CartItem } from './types';
 import { CheckCircle2, X, AlertTriangle, RefreshCw } from 'lucide-react';
@@ -78,7 +78,18 @@ class ErrorBoundary extends Component<Props, State> {
 }
 
 export default function App() {
-  const [currentTab, setCurrentTab] = useState<string>('home');
+  const [currentTab, setCurrentTab] = useState<string>(() => {
+    try {
+      const pathname = window.location.pathname;
+      if (pathname === '/robot-dresspack' || pathname === '/cau-hinh-dresspack') return 'robot-dresspack';
+      if (pathname === '/gio-bao-gia' || pathname === '/cart') return 'cart';
+      if (pathname === '/tai-lieu') return 'document-center';
+      if (pathname.startsWith('/san-pham/')) return 'product-detail';
+      return 'home';
+    } catch {
+      return 'home';
+    }
+  });
   const [activeCategoryFilter, setActiveCategoryFilter] = useState<string>('all');
   const [activeSearchQuery, setActiveSearchQuery] = useState<string>('');
   const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[0]);
@@ -509,6 +520,9 @@ export default function App() {
         <SEOHead 
           product={currentTab === 'product-detail' ? selectedProduct : null}
           categorySlug={currentTab === 'home' ? activeCategoryFilter : undefined}
+          title={currentTab === 'robot-dresspack' ? 'Cấu Hình Robot Dresspack & Bó Cáp 3D CAD Murrplastik | T&T VINA Industrial' : undefined}
+          description={currentTab === 'robot-dresspack' ? 'Công cụ cấu hình robot dresspack 3D CAD chính hãng Murrplastik Đức cho 13 thương hiệu robot công nghiệp toàn cầu (ABB, Fanuc, KUKA, Yaskawa, UR...). Tải bản vẽ 2D/3D STEP, tính toán tiết diện bó cáp chuẩn DIN EN 60204-1.' : undefined}
+          canonicalUrl={currentTab === 'robot-dresspack' ? 'https://protools.com.vn/robot-dresspack' : undefined}
         />
 
         {/* 1. GLOBAL HEADER */}

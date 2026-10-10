@@ -82,7 +82,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'fanuc',
     name: 'FANUC Corporation',
     country: 'Nhật Bản',
-    representativeRobotImg: '/images/dresspack/fanuc/00_Robot_Angle_1_Overview.png',
+    representativeRobotImg: '/images/dresspack/fanuc/fanuc_brand.webp',
     modelsCount: 9,
     hasActiveConfig: true,
     description: 'Nhà sản xuất robot công nghiệp màu vàng số 1 thế giới'
@@ -91,7 +91,7 @@ export const ROBOT_BRANDS: RobotBrand[] = [
     id: 'abb',
     name: 'ABB Robotics',
     country: 'Thụy Sĩ / Thụy Điển',
-    representativeRobotImg: '/images/dresspack/abb/abb_irb6700_overview.png',
+    representativeRobotImg: '/images/dresspack/abb/abb_brand.webp',
     modelsCount: 14,
     hasActiveConfig: true,
     description: 'Tập đoàn dẫn đầu giải pháp tự động hóa nặng & ô tô toàn cầu'
