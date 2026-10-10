@@ -419,7 +419,7 @@ export default function RobotConfigurator({
 
             {/* Step Navigation Tabs & Quick Action */}
             <div className="flex items-center gap-2">
-              <div className="flex items-center bg-slate-800/80 p-0.5 rounded-xs border border-slate-700/80 text-[11px] font-mono">
+              <div className="flex items-center bg-slate-800/80 p-0.5 rounded-xs border border-slate-700/80 text-xs font-mono">
                 {[
                   { n: 1, label: '1. Brand' },
                   { n: 2, label: '2. Model' },
@@ -442,7 +442,7 @@ export default function RobotConfigurator({
 
               <button
                 onClick={() => onNavigate('cart')}
-                className="px-3 py-1 rounded-xs bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-xs"
+                className="px-3 py-1 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-xs"
               >
                 <ShoppingCart className="w-3.5 h-3.5" />
                 <span>Giỏ RFQ</span>
@@ -508,7 +508,7 @@ export default function RobotConfigurator({
                     >
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <span className={`text-[9px] font-mono transition-colors ${isHovered ? 'text-[#00478D] font-bold' : 'text-slate-400'}`}>
+                          <span className={`text-xs font-mono transition-colors ${isHovered ? 'text-[#00478D] font-bold' : 'text-slate-600'}`}>
                             {brand.country}
                           </span>
                           {brand.hasActiveConfig && (
@@ -522,6 +522,10 @@ export default function RobotConfigurator({
                           <img 
                             src={brand.representativeRobotImg} 
                             alt={brand.name} 
+                            width="160"
+                            height="96"
+                            loading="lazy"
+                            decoding="async"
                             className={`max-h-full max-w-full object-contain transition-transform duration-300 ${isHovered ? 'scale-110' : 'group-hover:scale-105'}`} 
                           />
                         </div>
@@ -529,7 +533,7 @@ export default function RobotConfigurator({
                           {brand.name}
                         </h3>
                       </div>
-                      <div className="text-[10px] text-slate-400 mt-2 pt-1 border-t border-slate-100 flex items-center justify-between">
+                      <div className="text-xs text-slate-600 mt-2 pt-1 border-t border-slate-100 flex items-center justify-between">
                         <span className={isHovered ? 'text-slate-700 font-semibold' : ''}>{brand.modelsCount} models</span>
                         <ChevronRight className={`w-3 h-3 transition-all ${isHovered ? 'text-[#00478D] translate-x-1' : 'text-slate-300 group-hover:text-[#00478D]'}`} />
                       </div>
@@ -591,12 +595,12 @@ export default function RobotConfigurator({
                       }`}
                     >
                       <div>
-                        <div className="flex items-center justify-between text-[10px] text-slate-400 font-mono mb-2">
+                        <div className="flex items-center justify-between text-xs text-slate-600 font-mono mb-2">
                           <span className={isHovered ? 'text-[#00478D] font-bold' : ''}>{model.series}</span>
                           <span className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.2 rounded-xs">3D READY</span>
                         </div>
                         <div className={`h-36 flex items-center justify-center p-2 rounded-xs mb-3 transition-colors ${isHovered ? 'bg-blue-50/60' : 'bg-slate-50'}`}>
-                          <img src={model.imageUrl} alt={model.name} className={`max-h-full max-w-full object-contain transition-transform duration-300 ${isHovered ? 'scale-110' : 'group-hover:scale-105'}`} />
+                          <img src={model.imageUrl} alt={model.name} width="240" height="144" loading="lazy" decoding="async" className={`max-h-full max-w-full object-contain transition-transform duration-300 ${isHovered ? 'scale-110' : 'group-hover:scale-105'}`} />
                         </div>
                         <h3 className={`font-bold text-sm transition-colors ${isHovered ? 'text-[#00478D]' : 'text-slate-900 group-hover:text-[#00478D]'}`}>
                           {model.name}
@@ -668,7 +672,7 @@ export default function RobotConfigurator({
                       <span className="text-slate-400">Config ID: {pkg.configId}</span>
                     </div>
                     <div className="h-44 bg-slate-50 rounded-xs flex items-center justify-center p-2">
-                      <img src={pkg.main3dImage} alt={pkg.name} className="max-h-full max-w-full object-contain" />
+                      <img src={pkg.main3dImage} alt={pkg.name} width="320" height="176" loading="lazy" decoding="async" className="max-h-full max-w-full object-contain" />
                     </div>
                     <h3 className="font-bold text-sm text-slate-900 group-hover:text-[#00478D]">{pkg.name}</h3>
                     <p className="text-xs text-slate-600 line-clamp-2">{pkg.description}</p>
@@ -716,7 +720,7 @@ export default function RobotConfigurator({
                     <span>{t('configurator.change_pkg', 'Đổi Gói')}</span>
                   </button>
                 </div>
-                <div className="font-mono text-xs text-slate-400 flex items-center gap-2.5">
+                <div className="font-mono text-xs text-slate-600 flex items-center gap-2.5">
                   <span className="font-semibold text-slate-600">{currentPackage.packageCode}</span>
                   <span>{currentPackage.configId}</span>
                   <span className="text-slate-300">•</span>
@@ -737,7 +741,7 @@ export default function RobotConfigurator({
                 </div>
 
                 {/* Header 3 cột: Image | Part | Qty */}
-                <div className="grid grid-cols-12 gap-3 px-4 py-2 bg-slate-50/80 border-b border-slate-200 text-slate-400 text-[11px] font-semibold">
+                <div className="grid grid-cols-12 gap-3 px-4 py-2 bg-slate-50/80 border-b border-slate-200 text-slate-600 text-xs font-semibold">
                   <div className="col-span-3 sm:col-span-2 text-center">{t('configurator.col_image', 'Hình ảnh')}</div>
                   <div className="col-span-6 sm:col-span-7">{t('configurator.col_part', 'Linh kiện')}</div>
                   <div className="col-span-3 text-center">{t('configurator.col_qty', 'Số lượng')}</div>
@@ -761,6 +765,10 @@ export default function RobotConfigurator({
                             <img 
                               src={part.imageUrl} 
                               alt={part.name} 
+                              width="56"
+                              height="56"
+                              loading="lazy"
+                              decoding="async"
                               className="max-h-full max-w-full object-contain" 
                             />
                           </div>
@@ -768,14 +776,14 @@ export default function RobotConfigurator({
 
                         {/* Cột 2: Part - Mã MPN màu xám nhỏ ở trên, Tên hàng in đậm ở dưới, thêm tiếng Việt phụ đề */}
                         <div className="col-span-6 sm:col-span-7 pr-2">
-                          <span className="text-[11px] font-mono text-slate-400 block leading-tight">
+                          <span className="text-xs font-mono text-slate-600 block leading-tight">
                             {part.mpn}
                           </span>
                           <span className="text-xs sm:text-sm font-bold text-slate-900 block leading-snug mt-0.5">
                             {part.name}
                           </span>
                           {part.vnName && (
-                            <span className="text-[11px] text-slate-500 block leading-tight mt-0.5">
+                            <span className="text-xs text-slate-500 block leading-tight mt-0.5">
                               {part.vnName}
                             </span>
                           )}
@@ -840,13 +848,13 @@ export default function RobotConfigurator({
                 {/* Thông báo xác nhận khi đồng bộ giỏ báo giá */}
                 {isAddedToCart && (
                   <div className="p-2.5 rounded-xs bg-emerald-50 border border-emerald-300 text-xs text-emerald-800 flex items-center justify-between font-mono animate-in fade-in">
-                    <span className="flex items-center gap-1.5 font-bold text-[11px]">
+                    <span className="flex items-center gap-1.5 font-bold text-xs">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       {t('configurator.synced_rfq', `Đã đồng bộ ${currentPackage.parts.length} mã linh kiện vào Giỏ Báo Giá!`).replace('{count}', String(currentPackage.parts.length))}
                     </span>
                     <button
                       onClick={() => onNavigate('cart')}
-                      className="text-[11px] font-bold text-[#00478D] underline cursor-pointer"
+                      className="text-xs font-bold text-[#00478D] underline cursor-pointer"
                     >
                       {t('configurator.open_cart', 'Mở Giỏ Hàng')} &rarr;
                     </button>
@@ -868,11 +876,15 @@ export default function RobotConfigurator({
                   <img 
                     src={currentPackage.perspectiveImages[activeAngleIndex]?.url || currentPackage.main3dImage}
                     alt="Góc chụp robot"
+                    width="480"
+                    height="256"
+                    loading="eager"
+                    decoding="async"
                     className="max-h-full max-w-full object-contain cursor-zoom-in group-hover:scale-102 transition-transform duration-300"
                     onClick={() => setLightboxImage(currentPackage.perspectiveImages[activeAngleIndex]?.url || currentPackage.main3dImage)}
                   />
                   {/* Badge góc nhìn tinh tế, không có tiêu đề dài thừa thãi */}
-                  <span className="absolute top-2 right-2 text-[10px] font-mono bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded-xs border border-slate-200 text-slate-600 shadow-2xs">
+                  <span className="absolute top-2 right-2 text-xs font-mono bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded-xs border border-slate-200 text-slate-600 shadow-2xs">
                     {currentPackage.perspectiveImages[activeAngleIndex]?.angle || 'Isometric'}
                   </span>
                   <button
@@ -895,9 +907,9 @@ export default function RobotConfigurator({
                       }`}
                     >
                       <div className="h-11 flex items-center justify-center">
-                        <img src={view.url} alt={view.label} className="max-h-full max-w-full object-contain" />
+                        <img src={view.url} alt={view.label} width="64" height="44" loading="lazy" decoding="async" className="max-h-full max-w-full object-contain" />
                       </div>
-                      <span className="text-[9px] font-mono text-slate-600 block truncate mt-0.5">
+                      <span className="text-xs font-mono text-slate-600 block truncate mt-0.5">
                         {view.angle}
                       </span>
                     </button>
@@ -914,7 +926,7 @@ export default function RobotConfigurator({
 
                 {/* THANH ĐO TIẾN TRÌNH FILL FACTOR (SLIM GAUGE) */}
                 <div className="bg-white p-3 rounded-xs border border-slate-200 text-xs space-y-2">
-                  <div className="flex items-center justify-between text-[11px] font-mono">
+                  <div className="flex items-center justify-between text-xs font-mono">
                     <span className="text-slate-500">Tiết diện chiếm dụng (Max 60% DIN EN 60204-1):</span>
                     <strong className={isOverload ? 'text-red-600' : 'text-emerald-700'}>
                       {fillFactorPercent}% / 60% Max
@@ -930,7 +942,7 @@ export default function RobotConfigurator({
                     />
                   </div>
                   {isOverload && (
-                    <div className="text-[11px] text-red-600 flex items-center gap-1 font-semibold">
+                    <div className="text-xs text-red-600 flex items-center gap-1 font-semibold">
                       <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
                       <span>Cảnh báo: Bó cáp quá chặt gây mỏi xoắn ruột gà. Khuyến nghị nâng size ống M50!</span>
                     </div>
@@ -951,7 +963,7 @@ export default function RobotConfigurator({
                         <button
                           key={p.id}
                           onClick={() => handleApplyPreset(p.id)}
-                          className="px-2 py-0.5 rounded-xs border border-slate-200 bg-slate-50 hover:bg-blue-50 text-[10px] font-mono text-slate-700 hover:text-[#00478D] transition-colors cursor-pointer"
+                          className="px-2 py-0.5 rounded-xs border border-slate-200 bg-slate-50 hover:bg-blue-50 text-xs font-mono text-slate-700 hover:text-[#00478D] transition-colors cursor-pointer"
                         >
                           {p.name}
                         </button>
@@ -971,8 +983,8 @@ export default function RobotConfigurator({
                           }`}
                         >
                           <div className="min-w-0 pr-1">
-                            <div className="font-bold text-slate-800 text-[11px] truncate">{cable.name}</div>
-                            <div className="text-[9px] font-mono text-slate-400 truncate">{cable.standard}</div>
+                            <div className="font-bold text-slate-800 text-xs truncate">{cable.name}</div>
+                            <div className="text-xs font-mono text-slate-600 truncate">{cable.standard}</div>
                           </div>
 
                           <div className="flex items-center gap-1 font-mono text-xs shrink-0">
@@ -983,7 +995,7 @@ export default function RobotConfigurator({
                             >
                               <Minus className="w-2.5 h-2.5" />
                             </button>
-                            <span className="w-4 text-center font-bold text-slate-900 text-[11px]">{count}</span>
+                            <span className="w-4 text-center font-bold text-slate-900 text-xs">{count}</span>
                             <button
                               onClick={() => handleUpdateCableCount(cable.id, 1)}
                               className="w-5 h-5 rounded-xs border border-slate-300 bg-white hover:bg-slate-100 flex items-center justify-center font-bold cursor-pointer"
@@ -999,7 +1011,7 @@ export default function RobotConfigurator({
                   {/* Custom Cable Diameter Quick Input */}
                   <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <div className="flex items-center gap-1.5">
-                      <span className="text-[11px] font-mono text-slate-600">Thêm đường kính tự do:</span>
+                      <span className="text-xs font-mono text-slate-600">Thêm đường kính tự do:</span>
                       <div className="flex items-center gap-1">
                         <span className="font-mono text-slate-400">Ø</span>
                         <input
@@ -1015,7 +1027,7 @@ export default function RobotConfigurator({
                       </div>
                       <button
                         onClick={handleAddCustomCable}
-                        className="h-6 px-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-[10px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                        className="h-6 px-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider cursor-pointer transition-colors"
                       >
                         + Thêm Dây
                       </button>
@@ -1023,7 +1035,7 @@ export default function RobotConfigurator({
 
                     <button
                       onClick={() => setCableCounts({})}
-                      className="text-[10px] text-slate-500 hover:text-red-600 font-mono flex items-center gap-1 cursor-pointer"
+                      className="text-xs text-slate-500 hover:text-red-600 font-mono flex items-center gap-1 cursor-pointer"
                     >
                       <RotateCcw className="w-2.5 h-2.5" />
                       <span>Xóa hết</span>
@@ -1055,7 +1067,7 @@ export default function RobotConfigurator({
                   <h3 className="font-bold text-sm tracking-tight">
                     Hồ Sơ Kỹ Thuật CAD 2D/3D & Spec-Sheet
                   </h3>
-                  <div className="text-[11px] text-slate-400 font-mono flex items-center gap-2 mt-0.5">
+                  <div className="text-xs text-slate-600 font-mono flex items-center gap-2 mt-0.5">
                     <span className="text-amber-400 font-bold">{currentPackage.packageCode}</span>
                     <span>•</span>
                     <span>{selectedModel.name}</span>
@@ -1083,16 +1095,16 @@ export default function RobotConfigurator({
                       <FileText className="w-4 h-4 text-[#00478D]" />
                       <h4 className="font-bold text-slate-900 text-sm">Bản Vẽ Kỹ Thuật 2D (Vector PDF)</h4>
                       {currentPackage.cadPdfUrl ? (
-                        <span className="px-2 py-0.5 text-[10px] font-bold font-mono bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-xs">
+                        <span className="px-2 py-0.5 text-xs font-bold font-mono bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-xs">
                           XÁC THỰC CHÍNH HÃNG
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 text-[10px] font-bold font-mono bg-amber-50 text-amber-700 border border-amber-200 rounded-xs">
+                        <span className="px-2 py-0.5 text-xs font-bold font-mono bg-amber-50 text-amber-700 border border-amber-200 rounded-xs">
                           THEO YÊU CẦU DỰ ÁN
                         </span>
                       )}
                     </div>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
+                    <p className="text-slate-600 text-xs leading-relaxed">
                       {currentPackage.cadPdfUrl 
                         ? 'Bản vẽ kích thước hình học 2D Murrplastik chính thức: tọa độ tâm trục, bán kính uốn tối thiểu R, hành trình hồi vị của hộp R-Tec Box.'
                         : 'Bản vẽ 2D được cấp theo yêu cầu cấu hình dự án của khách hàng. Bộ phận kỹ thuật T&T Vina sẽ gửi bản vẽ trong 15-30 phút.'}
@@ -1125,7 +1137,7 @@ export default function RobotConfigurator({
                     ) : (
                       <a
                         href="tel:0983794782"
-                        className="px-3.5 py-2 rounded-xs bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs"
+                        className="px-3.5 py-2 rounded-xs bg-amber-700 hover:bg-amber-800 text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs"
                       >
                         <PhoneCall className="w-3.5 h-3.5" />
                         <span>Yêu Cầu Kỹ Thuật</span>
@@ -1143,16 +1155,16 @@ export default function RobotConfigurator({
                       <Box className="w-4 h-4 text-[#00478D]" />
                       <h4 className="font-bold text-slate-900 text-sm">Mô Hình Cơ Khí 3D STEP (.STP)</h4>
                       {currentPackage.cadStepUrl ? (
-                        <span className="px-2 py-0.5 text-[10px] font-bold font-mono bg-blue-50 text-[#00478D] border border-blue-200 rounded-xs">
+                        <span className="px-2 py-0.5 text-xs font-bold font-mono bg-blue-50 text-[#00478D] border border-blue-200 rounded-xs">
                           SOLIDWORKS / INVENTOR READY
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 text-[10px] font-bold font-mono bg-slate-100 text-slate-600 rounded-xs">
+                        <span className="px-2 py-0.5 text-xs font-bold font-mono bg-slate-100 text-slate-600 rounded-xs">
                           ON-DEMAND CAD
                         </span>
                       )}
                     </div>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
+                    <p className="text-slate-600 text-xs leading-relaxed">
                       File 3D STEP tiêu chuẩn công nghiệp (ISO 10303), sẵn sàng nạp trực tiếp vào phần mềm mô phỏng cánh tay robot (RobotStudio, RoboDK, SolidWorks, CATIA).
                     </p>
                   </div>
@@ -1191,7 +1203,7 @@ export default function RobotConfigurator({
                   </div>
                   <div className="font-mono text-xs">
                     Tỷ lệ điền đầy: <strong className={fillFactorPercent > 60 ? 'text-red-600' : 'text-emerald-700'}>{fillFactorPercent.toFixed(1)}%</strong>
-                    <span className="text-slate-400 text-[10px] ml-1">(Chuẩn Murr: &le;60%)</span>
+                    <span className="text-slate-400 text-xs ml-1">(Chuẩn Murr: &le;60%)</span>
                   </div>
                 </div>
 
@@ -1204,7 +1216,7 @@ export default function RobotConfigurator({
                       />
                     </div>
                   </div>
-                  <div className="md:col-span-2 space-y-1.5 font-mono text-[11px] justify-center flex flex-col">
+                  <div className="md:col-span-2 space-y-1.5 font-mono text-xs justify-center flex flex-col">
                     <div className="flex justify-between border-b border-slate-200 pb-1">
                       <span className="text-slate-500">Quy cách ống luồn:</span>
                       <span className="font-bold text-slate-900">{currentPackage.conduitType}</span>
@@ -1241,7 +1253,7 @@ export default function RobotConfigurator({
               <div className="p-3.5 rounded-xs bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="space-y-0.5 text-center sm:text-left">
                   <div className="font-bold text-xs text-amber-400">Hỗ trợ kỹ thuật & Kiểm tra bản vẽ trực tiếp</div>
-                  <div className="text-[11px] text-slate-300 font-mono">
+                  <div className="text-xs text-slate-300 font-mono">
                     Mr. Phong: 0983.794.782 • Mr. Hai: 0981.919.590 • Email: t2t.vina@gmail.com
                   </div>
                 </div>
@@ -1282,7 +1294,7 @@ export default function RobotConfigurator({
             >
               <X className="w-4 h-4" />
             </button>
-            <img src={lightboxImage} alt="Zoom" className="max-h-[82vh] max-w-full object-contain mx-auto" />
+            <img src={lightboxImage} alt="Zoom" width="800" height="600" loading="eager" decoding="async" className="max-h-[82vh] max-w-full object-contain mx-auto" />
           </div>
         </div>
       )}
