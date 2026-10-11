@@ -1538,6 +1538,8 @@ function applyTranslations() {
   if (flagEl) flagEl.innerHTML = cfg.flag;
   const labelEl = document.getElementById('currentLangLabel');
   if (labelEl) labelEl.textContent = cfg.name;
+  const btnEl = document.getElementById('langDropdownBtn');
+  if (btnEl) btnEl.setAttribute('aria-label', cfg.name + ' - Chọn Ngôn Ngữ');
 
   // Update active state in desktop dropdown
   document.querySelectorAll('.lang-dropdown-item').forEach(item => {

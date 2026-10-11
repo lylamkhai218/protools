@@ -3,8 +3,7 @@
    Domain: murrplastikvn.com | T&T Vina Industrial Co.,Ltd
    ============================================================ */
 
-/* === FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap');
+/* === FONTS (Loaded via HTML link preload for performance) === */
 
 /* === CSS VARIABLES === */
 :root {
@@ -171,11 +170,11 @@ ul{list-style:none}
 /* Logo */
 .nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none !important;user-select:none}
 .nav-logo-main{font-family:var(--font-heading);font-size:22px;font-weight:800;color:#ffffff;letter-spacing:1px;line-height:1;white-space:nowrap}
-.nav-logo-main span{color:var(--red)}
+.nav-logo-main span{color:#FF3B53}
 .nav-logo-sep{width:1px;height:24px;background:rgba(255,255,255,0.25);margin:0 2px}
 .nav-logo-sub{display:flex;flex-direction:column;line-height:1.15;text-align:left}
 .nav-logo-sub b{font-family:var(--font-heading);font-size:12px;font-weight:800;color:#ffffff;letter-spacing:0.8px}
-.nav-logo-sub small{font-size:8px;font-weight:700;color:var(--red);letter-spacing:0.8px;text-transform:uppercase;white-space:nowrap}
+.nav-logo-sub small{font-size:8px;font-weight:700;color:#CBD5E1;letter-spacing:0.8px;text-transform:uppercase;white-space:nowrap}
 
 /* Nav links */
 .nav-links{display:flex;align-items:center;gap:2rem}
@@ -183,57 +182,6 @@ ul{list-style:none}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--red);transition:width var(--t)}
 .nav-links a:hover, .nav-links a.active{color:#fff}
 .nav-links a:hover::after, .nav-links a.active::after{width:100%}
-
-/* === PRELOADER === */
-#preloader {
-  position: fixed;
-  inset: 0;
-  background: var(--dark);
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.6s ease, visibility 0.6s;
-}
-#preloader.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
-.loader-content {
-  text-align: center;
-}
-.loader-logo {
-  font-family: var(--font-heading);
-  font-size: 32px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-}
-.loader-logo span { color: var(--red); }
-.loader-bar {
-  width: 140px;
-  height: 2px;
-  background: rgba(255,255,255,0.1);
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-.loader-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: var(--red);
-  animation: loading 1.5s infinite;
-}
-@keyframes loading {
-  0% { left: -100%; }
-  50% { left: 0; }
-  100% { left: 100%; }
-}
 
 /* === SUCCESS POPUP === */
 .popup-overlay {
@@ -463,10 +411,10 @@ ul{list-style:none}
 .hero-left{padding:5rem 3rem 5rem 4rem}
 .hero-tag-row{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
 .hero-tag-chip{background:var(--red);color:#fff;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px}
-.hero-tag-text{color:rgba(255,255,255,0.38);font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+.hero-tag-text{color:rgba(255,255,255,0.75);font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
 .hero-h1{font-family:var(--font-heading);font-size:68px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-2px;margin-bottom:1.5rem}
-.hero-h1 em{color:var(--red);font-style:normal}
-.hero-desc{color:rgba(255,255,255,0.55);font-size:15px;line-height:1.75;max-width:400px;margin-bottom:2rem}
+.hero-h1 em{color:#FF3B53;font-style:normal}
+.hero-desc{color:rgba(255,255,255,0.78);font-size:15px;line-height:1.75;max-width:400px;margin-bottom:2rem}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn-primary{background:var(--red);color:#fff;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:background var(--t)}
 .btn-primary:hover{background:var(--red-dark)}
@@ -482,7 +430,7 @@ ul{list-style:none}
 .hcard::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red)}
 .hcard-code{font-size:9px;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
 .hcard-name{color:rgba(255,255,255,0.88);font-size:13px;font-weight:600;letter-spacing:0.5px;margin-bottom:4px}
-.hcard-desc{color:rgba(255,255,255,0.38);font-size:11px;line-height:1.5}
+.hcard-desc{color:rgba(255,255,255,0.68);font-size:11px;line-height:1.5}
 
 /* === STATS BAR === */
 #stats{background:#111;border-top:1px solid rgba(255,255,255,0.06)}
@@ -491,7 +439,7 @@ ul{list-style:none}
 .stat-item:last-child{border-right:none}
 .stat-num{font-family:var(--font-heading);font-size:42px;font-weight:800;color:#fff;line-height:1.2}
 .stat-num em{color:var(--red);font-style:normal}
-.stat-label{color:rgba(255,255,255,0.38);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.stat-label{color:rgba(255,255,255,0.72);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 
 /* === PRODUCTS === */
 #products{background:var(--light);padding:5rem 3rem}
@@ -510,9 +458,9 @@ ul{list-style:none}
 .prod-arrow{position:absolute;bottom:1.5rem;right:1.5rem;font-size:20px;color:var(--border);transition:color var(--t)}
 .prod-all{background:var(--red)!important;cursor:pointer}
 .prod-all-inner{height:100%;display:flex;flex-direction:column;justify-content:center}
-.prod-all-label{color:rgba(255,255,255,0.55);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.prod-all-label{color:#ffffff;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
 .prod-all-title{color:#fff;font-family:var(--font-heading);font-size:26px;font-weight:700;line-height:1.2;margin-bottom:12px}
-.prod-all-sub{color:rgba(255,255,255,0.55);font-size:13px}
+.prod-all-sub{color:rgba(255,255,255,0.92);font-size:13px}
 
 /* === WHY SECTION (ISO & COMMITMENTS SPLIT SHOWCASE) === */
 #why{background:var(--dark);padding:5rem 3rem;position:relative;overflow:hidden}
@@ -756,19 +704,19 @@ footer{background:var(--dark-2);border-top:1px solid rgba(255,255,255,0.06);widt
 .footer-top{padding:3rem;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem}
 .footer-brand{font-family:var(--font-heading);font-size:20px;font-weight:800;color:#fff;letter-spacing:1px;margin-bottom:6px}
 .footer-brand span{color:var(--red)}
-.footer-tagline{color:rgba(255,255,255,0.35);font-size:12px;letter-spacing:1px;margin-bottom:1.2rem}
-.footer-contact-line{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:6px}
+.footer-tagline{color:rgba(255,255,255,0.72);font-size:12px;letter-spacing:1px;margin-bottom:1.2rem}
+.footer-contact-line{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.78);font-size:13px;margin-bottom:6px}
 .footer-contact-line svg{width:14px;height:14px;color:var(--red);flex-shrink:0}
 .footer-col-title{color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
 .footer-links{display:flex;flex-direction:column;gap:8px}
-.footer-links a{color:rgba(255,255,255,0.45);font-size:13px;transition:color var(--t)}
-.footer-links a:hover{color:rgba(255,255,255,0.85)}
+.footer-links a{color:rgba(255,255,255,0.72);font-size:13px;transition:color var(--t)}
+.footer-links a:hover{color:#ffffff}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:1.2rem 3rem 1rem}
 .footer-bottom-row{display:flex;align-items:center;justify-content:space-between}
-.footer-bottom-left{color:rgba(255,255,255,0.35);font-size:12px}
-.footer-bottom-center{color:rgba(255,255,255,0.45);font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:-0.2px;text-align:center}
-.footer-bottom-right{color:rgba(255,255,255,0.25);font-size:12px}
-.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.3);text-align:center;padding:10px 2% 0;line-height:1.6;margin-top:10px}
+.footer-bottom-left{color:rgba(255,255,255,0.72);font-size:12px}
+.footer-bottom-center{color:rgba(255,255,255,0.72);font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:-0.2px;text-align:center}
+.footer-bottom-right{color:rgba(255,255,255,0.7);font-size:12px}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.65);text-align:center;padding:10px 2% 0;line-height:1.6;margin-top:10px}
 /* High-contrast fallback styles for footer elements */
 .footer-col{display:flex;flex-direction:column}
 .footer-logo{margin-bottom:12px}
