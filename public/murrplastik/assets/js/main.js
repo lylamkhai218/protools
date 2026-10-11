@@ -151,17 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(el => cObs.observe(el));
   }
 
-  /* ── Hide Preloader ── */
-  const preloader = document.getElementById('preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-        setTimeout(() => preloader.remove(), 600);
-      }, 500);
-    });
-  }
-
   /* ── Promo Banner Popup Logic ── */
   const promoPopup = document.getElementById('promoPopup');
   const promoClose = document.getElementById('promoPopupClose');
@@ -199,6 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       popupTriggered = true;
       
+      // Lazy load the popup image on first show
+      const popupImg = promoPopup.querySelector('.promo-popup-img');
+      if (popupImg && popupImg.dataset.src) {
+        popupImg.src = popupImg.dataset.src;
+      }
+
       // Clean up triggers immediately to prevent multiple activations
       window.removeEventListener('scroll', handleScrollTrigger);
       document.removeEventListener('mouseleave', handleExitIntent);

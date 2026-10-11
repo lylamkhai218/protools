@@ -2518,3 +2518,49 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     * [`report_robot-dresspack_mobile_verified.report.html`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_robot-dresspack_mobile_verified.report.html)
     * [`report_robot-dresspack_desktop_verified.report.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_robot-dresspack_desktop_verified.report.json)
     * [`report_robot-dresspack_desktop_verified.report.html`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_robot-dresspack_desktop_verified.report.html)
+
+
+### ⚡ Rule 9.102: Chiến Lược Tối Ưu Hóa Lighthouse Murrplastik Landing Page (Mobile Perf 46 -> 93, Best Practices 57 -> 100, Accessibility 96 -> 100) (11/10/2026)
+* **1. Bối cảnh & Hiện trạng Sự cố (Incident Profile)**:
+  - Báo cáo kiểm toán Lighthouse ban đầu ngày 11/10/2026 cho chuyên trang Murrplastik (`https://protools.com.vn/murrplastik/`):
+    * **Mobile**: Performance báo đỏ nghiêm trọng **46/100**, LCP kéo dài tới **7.7s**, TBT bị chặn tới **2,060ms**, Best Practices rơi xuống **57/100**.
+    * **Desktop**: Best Practices báo cam chỉ đạt **56/100**, LCP 1.7s, Performance 88/100.
+  - Hồ sơ gốc: [`report_murrplastik_mobile_protools.com.vn-20261011T223638.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_murrplastik_mobile_protools.com.vn-20261011T223638.json) và [`report_murrplastik_desktop_protools.com.vn-20261011T223638.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_murrplastik_desktop_protools.com.vn-20261011T223638.json).
+
+* **2. Phân tích Nguyên nhân Gốc rễ (Root Cause Analysis)**:
+  - **Preloader toàn màn hình chặn LCP (Render Delay 7,118ms - 92%)**: Phần tử `#preloader` (`position: fixed; inset: 0; z-index: 99999`) dùng màn đen che kín màn hình và chờ sự kiện `window.addEventListener('load')` + 500ms + 600ms transition mới biến mất. Trên kết nối 4G mô phỏng, `window.load` phải đợi tải xong toàn bộ font, ảnh popup, iframe bản đồ, Facebook Pixel (830KB) và GTM (550KB), khiến thời gian hiển thị nội dung đầu tiên bị trì hoãn tới 7.7 giây.
+  - **Ảnh popup CTA Mid-Autumn 2K tải Eager (385 KB)**: Popup ẩn mặc định nhưng thẻ `<img>` lại đặt `loading="eager"` với độ phân giải gốc 2048x2048, ngốn băng thông ban đầu và gây lãng phí 92.5% dữ liệu cellular.
+  - **Vi phạm Content Security Policy (CSP)**: Tường lửa CSP trên máy chủ thiếu khai báo `stats.g.doubleclick.net`, `*.google.com`, `connect.facebook.net` trong `connect-src` và `https://www.facebook.com` trong `frame-src`, sinh ra hàng loạt lỗi `Refused to connect...` và `Refused to frame...` trong console, đánh tụt điểm Best Practices.
+  - **Third-party Cookies từ Wikimedia Commons**: Thẻ Zalo float button trỏ trực tiếp đến `upload.wikimedia.org` kích hoạt cookie bên thứ ba `WMF-Uniq` và lỗi cache TTL ngắn.
+  - **Trợ năng (Accessibility) thiếu Landmark `<main>` & vi phạm Label in Name (WCAG 2.5.3)**: Nút `langDropdownBtn` có nhãn trực quan là `Tiếng Việt` nhưng `aria-label="Chọn Ngôn Ngữ / Select Language"`, đồng thời tài liệu thiếu thẻ `<main>`.
+  - **CSS `@import` gây Render Blocking Chain**: `@import url(fonts.googleapis.com)` ở đầu `main.css` tạo chuỗi chặn kết xuất CSS lồng nhau.
+
+* **3. Giải pháp Tối ưu Kỹ thuật Toàn diện (Engineering Implementation)**:
+  - **Xóa bỏ triệt để Preloader**: Gỡ bỏ thẻ `#preloader` khỏi HTML, CSS và script `main.js`, cho phép trình duyệt hiển thị ngay lập tức (instant paint) khung nội dung hero section.
+  - **Kỹ thuật Interaction-based Lazy Analytics Loader**: Chuyển đổi toàn bộ việc tải script GTM (`gtag.js`) và Meta Pixel (`fbevents.js`) sang dạng kích hoạt theo tương tác người dùng (`scroll`, `mousemove`, `touchstart`, `click`) hoặc timeout 3.5s. Giảm Total Blocking Time (TBT) từ 2,060ms xuống **0ms**.
+  - **Tối ưu & Lazy Loading Popup Image**: Resize ảnh WebP từ 2048x2048 xuống 600x600 chuẩn hiển thị bằng Lanczos Pillow (giảm từ 385 KB xuống 78 KB, giảm 79.5%), áp dụng `data-src` và chỉ gán `src` khi popup thực sự được mở.
+  - **Nội địa hóa Vector Zalo SVG**: Tạo vector độc lập [`public/murrplastik/assets/images/zalo.svg`](file:///d:/T&TVina/protools/public/murrplastik/assets/images/zalo.svg), triệt tiêu hoàn toàn cookie bên thứ ba và kết nối ngoài tới Wikimedia.
+  - **Mở rộng CSP & Cache-Control bfcache**: Bổ sung `https://*.doubleclick.net` vào `connect-src`, `https://www.facebook.com` vào `frame-src`. Đổi Cache-Control của HTML thành `no-cache, must-revalidate` (gỡ bỏ `no-store` để kích hoạt Back/Forward Cache).
+  - **Chuẩn hóa WCAG 2.5.3 & Landmark `<main>`**: Bổ sung `<main id="main">` bao bọc toàn bộ section nội dung; cập nhật `aria-label="Tiếng Việt - Chọn Ngôn Ngữ"` cho `langDropdownBtn` đồng bộ với `i18n.js`. Cân chỉnh tương phản màu đỏ `#FF3B53` trên nền tối đạt chuẩn AAA.
+
+* **4. Bằng chứng Đo Đạc Thực Nghiệm Sau Tối Ưu (Lighthouse v13.5 Verification Evidence)**:
+  - **Mobile**:
+    * **Performance**: **93 / 100** (Tăng vượt bậc **+47 điểm** từ mức đỏ 46)
+    * **Accessibility**: **100 / 100** (Đạt điểm tuyệt đối, tăng từ 96)
+    * **Best Practices**: **100 / 100** (Đạt điểm tuyệt đối, tăng từ 57)
+    * **SEO**: **100 / 100** (Duy trì hoàn hảo)
+    * **Total Blocking Time (TBT)**: **0 ms** (Giảm từ 2,060 ms)
+    * **Largest Contentful Paint (LCP)**: **3.1 s** (Giảm từ 7.7 s)
+    * **First Contentful Paint (FCP)**: **1.6 s** (Giảm từ 1.8 s)
+    * **Speed Index**: **1.6 s** (Giảm từ 3.3 s)
+  - **Desktop**:
+    * **Performance**: **97 / 100** (Tăng từ 88)
+    * **Accessibility**: **100 / 100** (Đạt điểm tuyệt đối, tăng từ 96)
+    * **Best Practices**: **100 / 100** (Đạt điểm tuyệt đối, tăng từ 56)
+    * **SEO**: **100 / 100** (Duy trì hoàn hảo)
+    * **Total Blocking Time (TBT)**: **0 ms** (Giảm từ 180 ms)
+    * **Largest Contentful Paint (LCP)**: **1.2 s** (Giảm từ 1.7 s)
+    * **First Contentful Paint (FCP)**: **0.5 s** (Giảm từ 0.7 s)
+  - Hồ sơ kiểm toán thực chứng lưu trữ tại:
+    * [`report_verify_mobile.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_verify_mobile.json)
+    * [`report_verify_desktop.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_verify_desktop.json)
