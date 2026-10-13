@@ -81,6 +81,21 @@
   ],
   "featured_solutions": [
     {
+      "name": "Murrplastik Robot Dresspack Interactive Configurator",
+      "url": "https://protools.com.vn/robot-dresspack",
+      "description": "Interactive configuration engine for ABB, KUKA, Fanuc, Yaskawa, Universal Robots dresspack retraction systems"
+    },
+    {
+      "name": "Automotive Robotics Dresspack Engineering (VinFast Case Study)",
+      "url": "https://protools.com.vn/murrplastik/industries/san-xuat-o-to/",
+      "case_study": "ABB IRB 7600/6700 in Automotive Body Shop Cat Hai - Hai Phong"
+    },
+    {
+      "name": "Hygienic Food & Beverage Cable Protection (FDA/EHEDG)",
+      "url": "https://protools.com.vn/murrplastik/industries/thuc-pham-va-do-uong/",
+      "description": "Stainless steel V4A KDL/D-R hygienic cable entry systems"
+    },
+    {
       "name": "Murrplastik 3D Robotics Cable Retraction (R-Tec Liner)",
       "url": "https://protools.com.vn/san-pham/bo-chong-xoan-cap-robot-r-tec-liner-mp-1081/",
       "case_study": "High-Tech Automotive Body Shop ABB Welding Robots"
