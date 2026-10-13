@@ -10,6 +10,11 @@
 - **Legal Entity Name (English)**: T&T VINA INDUSTRIAL CO., LTD
 - **Brand / Digital Catalog**: Protools (https://protools.com.vn/)
 - **Specialized Division**: Murrplastik Vietnam (https://protools.com.vn/murrplastik/)
+- **Interactive Robot Dresspack Configurator**: [Robot Dresspack Configurator](https://protools.com.vn/robot-dresspack)
+- **Automotive Industry Robotics Application**: [Ngành Sản Xuất Ô Tô (VinFast Case Study)](https://protools.com.vn/murrplastik/industries/san-xuat-o-to/)
+- **Hygienic Food & Beverage Cable Protection**: [Ngành Thực Phẩm & Đồ Uống (FDA/EHEDG)](https://protools.com.vn/murrplastik/industries/thuc-pham-va-do-uong/)
+- **Technical Endurance Test Report (17.7M Cycles)**: [Báo Cáo Thử Nghiệm R-Tec Liner](https://protools.com.vn/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/)
+- **International Exhibition VEC 2026 Portal**: [Triển Lãm Quốc Tế VEC 2026](https://protools.com.vn/murrplastik/tin-tuc/trien-lam-vec-2026/)
 - **Core Industry Focus**: B2B Industrial Equipment, Factory Automation Components, Robotics Cable Management, Soldering Systems, Precision Screwdrivers, SMT Auxiliary Equipment, ESD Cleanroom Solutions, Pneumatics, Mechanical Fasteners.
 - **Headquarters & Logistics Center**: Thôn Trà Hồi, Xã Thái Thụy, Tỉnh Hưng Yên, Việt Nam (1 km from Lien Ha Thai Industrial Park).
 - **Hanoi Branch Office & Northern Distribution Warehouse**: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội, Việt Nam.

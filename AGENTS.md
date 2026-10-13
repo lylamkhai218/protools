@@ -2564,3 +2564,24 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Hồ sơ kiểm toán thực chứng lưu trữ tại:
     * [`report_verify_mobile.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_verify_mobile.json)
     * [`report_verify_desktop.json`](file:///d:/T&TVina/protools/.project/analysis/audit/lighthouse/report_verify_desktop.json)
+
+
+### 🌐 Rule 9.103: Tiêu Chuẩn Tối Ưu Hóa GEO & Local Geotargeting Toàn Diện Toàn Bộ Website & Trang Con (13/10/2026)
+* **1. Định nghĩa & Phạm vi tiếp cận GEO kép (Dual-GEO Scope)**:
+  - **Generative Engine Optimization (GEO cho AI Search)**: Tối ưu hóa để các mô hình ngôn ngữ lớn và công cụ tìm kiếm hội thoại (Perplexity, Google AI Overviews, SearchGPT, Gemini, Microsoft Copilot) trích xuất dữ liệu, định danh thực thể và trích dẫn trực tiếp nguồn Protools T&T Vina.
+  - **Geographic & Local Industrial SEO (Định vị địa lý KCN)**: Gắn thẻ tọa độ địa lý, định danh 2 cơ sở (Kho Hà Nội: Hoàng Mai, Lĩnh Nam & Trụ sở Hưng Yên: KCN Liên Hà Thái), phục vụ 10 tỉnh KCN trọng điểm miền Bắc (Hà Nội, Hưng Yên, Bắc Ninh, Bắc Giang, Hải Phòng, Vĩnh Phúc, Hải Dương, Hà Nam, Thái Nguyên, Quảng Ninh).
+* **2. Đồng bộ hóa Trang đích Murrplastik & Toàn bộ Trang Con**:
+  - Triệt tiêu 100% việc rò rỉ tên miền cũ `murrplastikvn.com` trong canonical, OpenGraph, hreflang, và Schema JSON-LD.
+  - Bổ sung bộ 4 thẻ Geolocation chuẩn (`geo.region`, `geo.placename`, `geo.position`, `ICBM`) trên tất cả các trang con (`san-xuat-o-to`, `thuc-pham-va-do-uong`, `tin-tuc`, `trien-lam-vec-2026`, `thu-nghiem-do-ben-...`).
+  - Tích hợp liên kết phát hiện tri thức AI (`llms.txt`, `llms-full.txt`, `ai-manifest.json`) vào `<head>` của toàn bộ trang HTML tĩnh.
+* **3. Nâng cấp Knowledge Graph & Schema JSON-LD Phức Hợp**:
+  - `san-xuat-o-to`: Tích hợp Schema `TechArticle`, liên kết `publisher` với `@id: https://protools.com.vn/#organization` và gán nhãn `contentLocation` tại Xưởng Body Shop Tổ hợp Ô tô Cát Hải (Hải Phòng).
+  - `thuc-pham-va-do-uong`: Nâng cấp từ BreadcrumbList đơn thuần lên Schema Graph gồm `BreadcrumbList` + `TechArticle` chuẩn vi sinh FDA/EHEDG.
+  - `tin-tuc`: Chuẩn hóa Schema `CollectionPage`, `Event` (Triển lãm VEC 2026 tại Đông Anh, Hà Nội), và báo cáo thử nghiệm độ bền `TechArticle`.
+* **4. Pre-rendering Semantic Snapshot Cho Công Cụ Cấu Hình Robot Dresspack**:
+  - Bổ sung `/robot-dresspack` vào [`generate_static_snapshots.py`](file:///d:/T&TVina/protools/generate_static_snapshots.py) với Schema `WebApplication` + `Offer` + `LocalBusiness`.
+  - Tiêm khối semantic HTML ẩn (`#pre-rendered-seo-content`) giúp bot crawler của AI và Googlebot đọc được toàn bộ danh sách dòng robot hỗ trợ (ABB, Fanuc, KUKA, Yaskawa, UR) mà không cần render Javascript client-side.
+* **5. Cập nhật Sitemap & Manifest AI**:
+  - Cập nhật [`generate_sitemaps.py`](file:///d:/T&TVina/protools/generate_sitemaps.py) sinh đủ 936 URLs bao gồm trang `/robot-dresspack` và 6 trang con Murrplastik chuyên ngành.
+  - Khai báo đầy đủ các trang con kỹ thuật trong [`public/llms.txt`](file:///d:/T&TVina/protools/public/llms.txt), [`public/llms-full.txt`](file:///d:/T&TVina/protools/public/llms-full.txt), và [`public/ai-manifest.json`](file:///d:/T&TVina/protools/public/ai-manifest.json).
+

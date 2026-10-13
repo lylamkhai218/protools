@@ -40,6 +40,13 @@
 - [Thiết Bị Đóng Gói & Dán Thùng Tự Động](https://protools.com.vn/danh-muc/thiet-bi-dong-goi-tu-dong): Carton sealers, strapping machines, stretch wrappers.
 - [Linh Kiện & Thiết Bị Tự Động Hóa](https://protools.com.vn/danh-muc/thiet-bi-tu-dong-hoa): Stepper motors, linear guides, sensors, photoelectric switches.
 
+## Specialized Technical Portals & Field Applications
+- [Công Cụ Cấu Hình Robot Dresspack Murrplastik (R-Tec Liner)](https://protools.com.vn/robot-dresspack): Trực tiếp cấu hình dresspack cho robot ABB, KUKA, Fanuc, Yaskawa, Universal Robots.
+- [Giải Pháp Quản Lý Cáp Robot Ngành Ô Tô (Body Shop Case Study)](https://protools.com.vn/murrplastik/industries/san-xuat-o-to/): Ứng dụng thực tế trên robot hàn ABB IRB 7600 tại Hải Phòng.
+- [Hệ Thống Dẫn Cáp Hợp Vệ Sinh Ngành Thực Phẩm & Đồ Uống (FDA/EHEDG)](https://protools.com.vn/murrplastik/industries/thuc-pham-va-do-uong/): Tấm dẫn cáp inox V4A KDL/D-R chuẩn vi sinh.
+- [Báo Cáo Kiểm Định Độ Bền R-Tec Liner 17.7 Triệu Chu Kỳ](https://protools.com.vn/murrplastik/tin-tuc/thu-nghiem-do-ben-r-tec-liner-17-trieu-chu-ky/): Dữ liệu thử mỏi 219 ngày liên tục từ Murrplastik Đức.
+- [Triển Lãm Quốc Tế VEC 2026 Đông Anh - Hà Nội](https://protools.com.vn/murrplastik/tin-tuc/trien-lam-vec-2026/): Gian hàng H2-15a Sảnh 2 trưng bày giải pháp Murrplastik Đức.
+
 ## B2B Procurement & Quoting Capabilities
 - **Quotation Response Time**: 15 to 30 minutes for standard inquiries.
 - **Inventory & Dispatch**: Same-day dispatch for stock items ordered before 15:00 from Hanoi and Hung Yen distribution centers.
