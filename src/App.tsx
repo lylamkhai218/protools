@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { FloatingWidgets } from './components/FloatingWidgets';
 import Home from './pages/Home';
-import RobotConfigurator from './pages/RobotConfigurator';
+const RobotConfigurator = React.lazy(() => import('./pages/RobotConfigurator'));
 const ProductDetail = React.lazy(() => import('./pages/ProductDetail'));
 const DocumentCenter = React.lazy(() => import('./pages/DocumentCenter'));
 const CartQuote = React.lazy(() => import('./pages/CartQuote'));

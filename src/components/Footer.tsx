@@ -61,6 +61,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <div>
                   <span className="font-semibold text-slate-200">{t('footer.hq_label')}</span>
                   <span className="text-slate-400 block mt-0.5">{COMPANY_INFO.headquarters}</span>
+                  <span className="text-slate-400 block mt-0.5 font-mono text-[11px]">Mã số thuế: <strong className="text-slate-200">{COMPANY_INFO.taxId}</strong></span>
                 </div>
               </div>
 
@@ -232,32 +233,46 @@ export default function Footer({ onNavigate }: FooterProps) {
                     </button>
                   </div>
 
-                  {/* Kinh Doanh General */}
+                  {/* Kinh Doanh & Bán Hàng */}
                   <div className="flex flex-wrap items-center gap-1.5">
                     <span className="font-semibold text-slate-200">{t('footer.sales_label')}</span>
-                    <a href={COMPANY_INFO.salesTeam[0].zaloUrl} target="_blank" rel="noreferrer" className="text-sky-300 hover:underline">
-                      {COMPANY_INFO.salesTeam[0].name} ({COMPANY_INFO.salesTeam[0].phone})
-                    </a>
-                    <button
-                      type="button"
-                      onClick={(e) => handleCopy(COMPANY_INFO.salesTeam[0].rawPhone, 'foot_hien', e)}
-                      title="Sao chép số Ms. Hiền"
-                      className="p-1 rounded-xs hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                    >
-                      {copiedKey === 'foot_hien' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                    </button>
-                    <span className="text-slate-500">•</span>
-                    <a href={COMPANY_INFO.salesTeam[1].zaloUrl} target="_blank" rel="noreferrer" className="text-sky-300 hover:underline">
-                      {COMPANY_INFO.salesTeam[1].name} ({COMPANY_INFO.salesTeam[1].phone})
-                    </a>
-                    <button
-                      type="button"
-                      onClick={(e) => handleCopy(COMPANY_INFO.salesTeam[1].rawPhone, 'foot_phuong', e)}
-                      title="Sao chép số Ms. Phương"
-                      className="p-1 rounded-xs hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                    >
-                      {copiedKey === 'foot_phuong' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                    </button>
+                    {COMPANY_INFO.salesTeam.map((rep, idx) => (
+                      <React.Fragment key={rep.rawPhone}>
+                        {idx > 0 && <span className="text-slate-500">•</span>}
+                        <a href={rep.zaloUrl} target="_blank" rel="noreferrer" className="text-sky-300 hover:underline">
+                          {rep.name} ({rep.phone})
+                        </a>
+                        <button
+                          type="button"
+                          onClick={(e) => handleCopy(rep.rawPhone, `foot_${rep.rawPhone}`, e)}
+                          title={`Sao chép số ${rep.name}`}
+                          className="p-1 rounded-xs hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                        >
+                          {copiedKey === `foot_${rep.rawPhone}` ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                        </button>
+                      </React.Fragment>
+                    ))}
+                  </div>
+
+                  {/* Hỗ Trợ Kỹ Thuật (Mr. Phong, Mr. Hai) */}
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="font-semibold text-slate-200">Kỹ Thuật:</span>
+                    {COMPANY_INFO.techTeam.map((tech, idx) => (
+                      <React.Fragment key={tech.rawPhone}>
+                        {idx > 0 && <span className="text-slate-500">•</span>}
+                        <a href={`tel:${tech.rawPhone}`} className="text-sky-300 hover:underline">
+                          {tech.name} ({tech.phone})
+                        </a>
+                        <button
+                          type="button"
+                          onClick={(e) => handleCopy(tech.rawPhone, `foot_${tech.rawPhone}`, e)}
+                          title={`Sao chép số ${tech.name}`}
+                          className="p-1 rounded-xs hover:bg-slate-800 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                        >
+                          {copiedKey === `foot_${tech.rawPhone}` ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                        </button>
+                      </React.Fragment>
+                    ))}
                   </div>
 
                   {/* Kinh Doanh Murrplastik */}

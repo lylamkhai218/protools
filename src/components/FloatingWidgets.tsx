@@ -111,7 +111,7 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart: _o
       {/* 2. MENU LIÊN HỆ ĐA PHƯƠNG THỨC (POPUP MODAL WITH SMOOTH SPRING ANIMATION) */}
       <div className="relative flex flex-col items-end pointer-events-auto">
         {isContactOpen && (
-          <div className="bg-white/98 backdrop-blur-xl rounded-sm shadow-[0_20px_50px_rgba(0,31,63,0.15)] border border-slate-200 p-4 w-80 sm:w-92 space-y-3 origin-bottom-right transition-all duration-200 ease-out animate-in fade-in zoom-in-95 slide-in-from-bottom-2">
+          <div className="bg-white/98 backdrop-blur-xl rounded-sm shadow-[0_20px_50px_rgba(0,31,63,0.15)] border border-slate-200 p-3 sm:p-4 w-[calc(100vw-2.5rem)] max-w-xs sm:w-92 sm:max-w-none max-h-[85vh] overflow-y-auto space-y-3 origin-bottom-right transition-all duration-200 ease-out animate-in fade-in zoom-in-95 slide-in-from-bottom-2">
             
             {/* Header popup */}
             <div className="flex items-center justify-between pb-2.5 border-b border-slate-100">
@@ -174,99 +174,54 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart: _o
                 </button>
               </div>
 
-              {/* 2. Zalo Kinh Doanh 1 (Ms. Hiền - Màu Xanh Nước Biển) */}
-              <div className="flex items-center gap-1.5 p-1 rounded-xs bg-blue-50/80 hover:bg-blue-100/90 border border-blue-200/90 transition-all group">
-                <a
-                  href={COMPANY_INFO.salesTeam[0].zaloUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 flex items-center justify-between p-1.5 min-w-0"
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-7 h-7 rounded-full bg-[#0068FF] text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs shrink-0">
-                      Zalo
-                    </div>
-                    <div className="min-w-0">
-                      <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
-                        {t('contact_widget.sales')}: {COMPANY_INFO.salesTeam[0].name}
+              {/* 2. Zalo Kinh Doanh & Bán Hàng (Ms. Nhinh, Ms. Hiền, Ms. Phương) */}
+              {COMPANY_INFO.salesTeam.map((rep) => (
+                <div key={rep.rawPhone} className="flex items-center gap-1.5 p-1 rounded-xs bg-blue-50/80 hover:bg-blue-100/90 border border-blue-200/90 transition-all group">
+                  <a
+                    href={rep.zaloUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 flex items-center justify-between p-1.5 min-w-0"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-7 h-7 rounded-full bg-[#0068FF] text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs shrink-0">
+                        Zalo
                       </div>
-                      <div className="text-xs font-mono text-[#0068FF] font-semibold truncate">
-                        {COMPANY_INFO.salesTeam[0].intlPhone}
-                      </div>
-                    </div>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0068FF] shrink-0 ml-1" />
-                </a>
-                <button
-                  type="button"
-                  onClick={(e) => handleCopy(COMPANY_INFO.salesTeam[0].rawPhone, 'zalo_hien', e)}
-                  title="Sao chép số Zalo Ms. Hiền"
-                  className={`px-2 py-1.5 rounded-xs transition-all flex items-center gap-1 shrink-0 cursor-pointer text-xs font-semibold border ${
-                    copiedKey === 'zalo_hien'
-                      ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
-                      : 'bg-white hover:bg-blue-50 text-blue-900 border-blue-200 shadow-2xs'
-                  }`}
-                >
-                  {copiedKey === 'zalo_hien' ? (
-                    <>
-                      <Check className="w-3.5 h-3.5" />
-                      <span>{t('contact_widget.copied')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3 text-blue-500" />
-                      <span>{t('contact_widget.copy')}</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              {/* 3. Zalo Kinh Doanh 2 (Ms. Phương - Màu Xanh Nước Biển) */}
-              <div className="flex items-center gap-1.5 p-1 rounded-xs bg-blue-50/80 hover:bg-blue-100/90 border border-blue-200/90 transition-all group">
-                <a
-                  href={COMPANY_INFO.salesTeam[1].zaloUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex-1 flex items-center justify-between p-1.5 min-w-0"
-                >
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <div className="w-7 h-7 rounded-full bg-[#0068FF] text-white flex items-center justify-center font-bold text-xs font-mono shadow-xs shrink-0">
-                      Zalo
-                    </div>
-                    <div className="min-w-0">
-                      <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
-                        {t('contact_widget.sales')}: {COMPANY_INFO.salesTeam[1].name}
-                      </div>
-                      <div className="text-xs font-mono text-[#0068FF] font-semibold truncate">
-                        {COMPANY_INFO.salesTeam[1].intlPhone}
+                      <div className="min-w-0">
+                        <div className="font-bold text-slate-900 group-hover:text-[#00478D] truncate">
+                          {t('contact_widget.sales')}: {rep.name}
+                        </div>
+                        <div className="text-xs font-mono text-[#0068FF] font-semibold truncate">
+                          {rep.intlPhone || rep.phone}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0068FF] shrink-0 ml-1" />
-                </a>
-                <button
-                  type="button"
-                  onClick={(e) => handleCopy(COMPANY_INFO.salesTeam[1].rawPhone, 'zalo_phuong', e)}
-                  title="Sao chép số Zalo Ms. Phương"
-                  className={`px-2 py-1.5 rounded-xs transition-all flex items-center gap-1 shrink-0 cursor-pointer text-xs font-semibold border ${
-                    copiedKey === 'zalo_phuong'
-                      ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
-                      : 'bg-white hover:bg-blue-50 text-blue-900 border-blue-200 shadow-2xs'
-                  }`}
-                >
-                  {copiedKey === 'zalo_phuong' ? (
-                    <>
-                      <Check className="w-3.5 h-3.5" />
-                      <span>{t('contact_widget.copied')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3 h-3 text-blue-500" />
-                      <span>{t('contact_widget.copy')}</span>
-                    </>
-                  )}
-                </button>
-              </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0068FF] shrink-0 ml-1" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={(e) => handleCopy(rep.rawPhone, `zalo_${rep.rawPhone}`, e)}
+                    title={`Sao chép số Zalo ${rep.name}`}
+                    className={`px-2 py-1.5 rounded-xs transition-all flex items-center gap-1 shrink-0 cursor-pointer text-xs font-semibold border ${
+                      copiedKey === `zalo_${rep.rawPhone}`
+                        ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                        : 'bg-white hover:bg-blue-50 text-blue-900 border-blue-200 shadow-2xs'
+                    }`}
+                  >
+                    {copiedKey === `zalo_${rep.rawPhone}` ? (
+                      <>
+                        <Check className="w-3.5 h-3.5" />
+                        <span>{t('contact_widget.copied')}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3 text-blue-500" />
+                        <span>{t('contact_widget.copy')}</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              ))}
 
               {/* 4. Zalo KD Murrplastik 1 (Mr. Bình) */}
               <div className="flex items-center gap-1.5 p-1 rounded-xs bg-blue-50/80 hover:bg-blue-100/90 border border-blue-200/90 transition-all group">
@@ -406,6 +361,53 @@ export const FloatingWidgets: React.FC<FloatingWidgetsProps> = ({ onOpenCart: _o
                   )}
                 </button>
               </div>
+
+              {/* 7. Hỗ Trợ Kỹ Thuật & Dự Án (Mr. Phong, Mr. Hai) */}
+              {COMPANY_INFO.techTeam.map((tech) => (
+                <div key={tech.rawPhone} className="flex items-center gap-1.5 p-1 rounded-xs bg-emerald-50/80 hover:bg-emerald-100/90 border border-emerald-200/90 transition-all group">
+                  <a
+                    href={`tel:${tech.rawPhone}`}
+                    className="flex-1 flex items-center justify-between p-1.5 min-w-0"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-xs shrink-0">
+                        <PhoneCall className="w-3.5 h-3.5 text-white" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-bold text-slate-900 group-hover:text-emerald-700 truncate">
+                          Kỹ Thuật: {tech.name}
+                        </div>
+                        <div className="text-xs font-mono text-emerald-700 font-bold truncate">
+                          {tech.phone}
+                        </div>
+                      </div>
+                    </div>
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-700 shrink-0 ml-1" />
+                  </a>
+                  <button
+                    type="button"
+                    onClick={(e) => handleCopy(tech.rawPhone, `tech_${tech.rawPhone}`, e)}
+                    title={`Sao chép số ${tech.name}`}
+                    className={`px-2 py-1.5 rounded-xs transition-all flex items-center gap-1 shrink-0 cursor-pointer text-xs font-semibold border ${
+                      copiedKey === `tech_${tech.rawPhone}`
+                        ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs'
+                        : 'bg-white hover:bg-emerald-50 text-emerald-900 border-emerald-200 shadow-2xs'
+                    }`}
+                  >
+                    {copiedKey === `tech_${tech.rawPhone}` ? (
+                      <>
+                        <Check className="w-3.5 h-3.5" />
+                        <span>{t('contact_widget.copied')}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3 text-emerald-600" />
+                        <span>{t('contact_widget.copy')}</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              ))}
 
               {/* 7. Email Nhận Báo Giá */}
               <div className="flex items-center gap-1.5 p-1 rounded-xs bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 transition-all group">

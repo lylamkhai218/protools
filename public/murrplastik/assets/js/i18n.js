@@ -513,8 +513,8 @@ const TRANSLATIONS = {
     'form.message.ph': 'Mô tả nhu cầu cụ thể, số lượng, hoặc ghi chú thêm...',
     'form.submit': 'Gửi yêu cầu báo giá →',
     'form.sending': 'Đang gửi dữ liệu...',
-    'form.success': '✅ Đã gửi thành công! Kỹ thuật viên sẽ liên hệ lại ngay.',
-    'form.error': '❌ Lỗi gửi form. Vui lòng gọi Hotline: 0973.363.824',
+    'form.success': 'Đã gửi thành công! Kỹ thuật viên sẽ liên hệ lại ngay.',
+    'form.error': 'Lỗi gửi form. Vui lòng gọi Hotline: 0915.168.824',
     /* Footer */
     'footer.tagline': 'Đại lý ủy quyền phân phối sản phẩm · Murrplastik Systemtechnik GmbH (Đức)',
     'footer.col1': 'Sản phẩm',
@@ -538,7 +538,7 @@ const TRANSLATIONS = {
     'faq.q4': 'T&T Vina có hỗ trợ tư vấn kỹ thuật và thiết kế giải pháp không?',
     'faq.a4': 'Có. Đội ngũ kỹ thuật của T&T Vina có kinh nghiệm triển khai tại nhiều nhà máy và khu công nghiệp trên toàn quốc. Chúng tôi hỗ trợ tư vấn từ khâu lựa chọn sản phẩm, thiết kế hệ thống quản lý cáp cho đến hướng dẫn lắp đặt và after-sale support hoàn toàn miễn phí.',
     'faq.q5': 'Làm thế nào để nhận báo giá sản phẩm Murrplastik?',
-    'faq.a5': 'Quý khách có thể gửi yêu cầu báo giá trực tiếp qua form trên website, gọi Hotline 0973.363.824, email info@t2tvina.com hoặc nhắn tin qua Zalo/Facebook. Đội ngũ T&T Vina cam kết phản hồi báo giá trong vòng 24 giờ làm việc.',
+    'faq.a5': 'Quý khách có thể gửi yêu cầu báo giá trực tiếp qua form trên website, gọi Hotline 0915.168.824, email t2t.vina@gmail.com hoặc nhắn tin qua Zalo/Facebook. Đội ngũ T&T Vina cam kết phản hồi báo giá trong vòng 24 giờ làm việc.',
     /* Popup */
     'popup.title': 'Gửi thành công!',
     'popup.text': 'Cảm ơn bạn đã tin tưởng. Đội ngũ T&T Vina sẽ liên hệ với bạn trong giây lát.',
@@ -1230,8 +1230,8 @@ const TRANSLATIONS = {
     'form.message.ph': 'Describe specific needs, quantities, or notes...',
     'form.submit': 'Send Quote Request →',
     'form.sending': 'Sending data...',
-    'form.success': '✅ Sent successfully! We will contact you shortly.',
-    'form.error': '❌ Submission failed. Please call: 0973.363.824',
+    'form.success': 'Sent successfully! We will contact you shortly.',
+    'form.error': 'Submission failed. Please call: 0915.168.824',
     /* Footer */
     'footer.tagline': 'Authorized Distributor · Murrplastik Systemtechnik GmbH (Germany)',
     'footer.col1': 'Products',
@@ -1255,7 +1255,7 @@ const TRANSLATIONS = {
     'faq.q4': 'Does T&T Vina provide technical consulting and solution design?',
     'faq.a4': 'Yes. Our engineering team has extensive experience deploying solutions at factories and industrial zones nationwide. We provide free support from product selection and cable management system design to installation guidance and after-sale support.',
     'faq.q5': 'How can I get a quote for Murrplastik products?',
-    'faq.a5': 'You can submit a quote request via our website form, call Hotline 0973.363.824, email info@t2tvina.com or message us on Zalo/Facebook. T&T Vina commits to responding within 24 business hours.',
+    'faq.a5': 'You can submit a quote request via our website form, call Hotline 0915.168.824, email t2t.vina@gmail.com or message us on Zalo/Facebook. T&T Vina commits to responding within 24 business hours.',
     /* Popup */
     'popup.title': 'Sent Successfully!',
     'popup.text': 'Thank you for your trust. T&T Vina team will contact you shortly.',
