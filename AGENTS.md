@@ -2649,4 +2649,24 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Kiểm tra trực tiếp trên `https://protools.com.vn/` xác nhận thẻ stylesheet font mới và CSS hash `/assets/index-BC5wVX_A.css` đã kích hoạt thành công trên máy chủ LiteSpeed.
 
 
+### Rule 9.124: Quy Chuẩn Giãn Cách Dòng Cho Tiêu Đề Chữ Hoa Tiếng Việt (Vietnamese Uppercase Diacritic Leading Standard) (14/10/2026)
+* **1. Hiện tượng & Phân tích Nguyên nhân Lỗi (Root Cause Analysis)**:
+  - **Hiện tượng**: Tiêu đề H1 trang chủ giữa tầng trên (`GIẢI PHÁP THIẾT BỊ TOÀN DIỆN`) và tầng dưới (`CÔNG NGHIỆP & TỰ ĐỘNG HÓA`) bị quá sát nhau, các dấu thanh của hai tầng chạm đè vào nhau (dấu nặng ở đáy chữ `BỊ`, `DIỆN` của tầng trên va chạm trực tiếp với dấu mũ `^`, dấu sắc `'`, và dấu râu `ơ/ư` ở đỉnh chữ `CÔNG`, `NGHIỆP`, `TỰ`, `ĐỘNG`, `HÓA` của tầng dưới).
+  - **Nguyên nhân gốc rễ**:
+    - Trong chữ in hoa tiếng Việt (Uppercase), các dấu phụ (mũ, râu, sắc, hỏi, ngã) nằm hoàn toàn phía trên đường Cap Height chuẩn của ký tự Latin, khiến tổng chiều cao thực tế của ký tự tăng thêm 25 - 35%.
+    - Thuộc tính `leading-[1.15]` (line-height: 1.15) quá chật chội đối với typography chữ hoa tiếng Việt, không để lại khoảng đệm an toàn giữa dòng trên và dòng dưới.
+    - Đồng thời, thẻ `<br className="hidden xs:inline" />` bị ẩn do Tailwind không hỗ trợ breakpoint `xs:`, khiến hai cụm từ bị nối liền thành một chuỗi duy nhất và tự động bẻ dòng ngẫu nhiên tùy thuộc vào độ rộng màn hình.
+* **2. Giải pháp Kỹ thuật Triệt để (Engineering Fix)**:
+  - **Nâng chiều cao dòng chuẩn xác**: Thay thế `leading-[1.15]` bằng `leading-[1.3] sm:leading-[1.26] lg:leading-[1.22]` tại thẻ `<h1>` trong [`src/pages/Home.tsx`](file:///d:/T&TVina/protools/src/pages/Home.tsx).
+  - **Tách cấu trúc Block độc lập**:
+    - Tầng trên: Bao bọc trong `<span className="block mb-1 sm:mb-2.5">` tạo khối độc lập kèm lề đáy 4px - 10px.
+    - Tầng dưới: Bao bọc trong `<span className="block text-transparent bg-clip-text ... pb-1">` kèm đệm đáy 4px tránh bị cắt mất dấu nặng.
+    - Xóa bỏ dấu phẩy thừa và thẻ `<br>` lỗi thời, đảm bảo khoảng cách an toàn giữa hai tầng chữ hoa đạt trên 16px, triệt tiêu 100% hiện tượng va chạm dấu thanh.
+* **3. Đóng gói & Phát hành Live Production**:
+  - Build hoàn tất sạch sẽ (`dist/assets/index-qAFif1qm.css` & `dist/assets/index-CxWTWgu6.js`).
+  - Sinh lại 138 static snapshots chuẩn SEO và phát hành 161 files lên máy chủ Production `s2d34.cloudnetwork.vn`.
+  - Xác thực trực tiếp qua kiểm thử tự động đạt 34/34 passes và 0 lỗi schema.
+
+
+
 

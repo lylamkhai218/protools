@@ -153,9 +153,11 @@ export default function Home({
                 <span className="truncate">{t('hero.badge')}</span>
               </div>
 
-              <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight uppercase leading-[1.15] break-words">
-                {t('hero.title_p1')}, <br className="hidden xs:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00478D] via-[#005EB8] to-[#003366]">
+              <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight uppercase leading-[1.3] sm:leading-[1.26] lg:leading-[1.22] break-words">
+                <span className="block mb-1 sm:mb-2.5">
+                  {t('hero.title_p1')}
+                </span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#00478D] via-[#005EB8] to-[#003366] pb-1">
                   {t('hero.title_highlight')}
                 </span>
               </h1>
