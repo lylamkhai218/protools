@@ -30,4 +30,4 @@ Mốc đồng bộ: 17:15 ngày 07/09/2026
   `D:\T&TVina\VEC_2026_2\mockup/` (Đã đồng bộ lược bỏ khối TV stand theo Rule 9.29).
 - **Quy chuẩn thông tin liên hệ chuẩn hóa:**  
   - Email chính thức: `info@t2tvina.com` (Tuyệt đối không dùng `sales@t2tvina.com`).
-  - Hotline tiếp đón VIP & Kỹ thuật: `0915.168.824` (Ms. Nhung) / `0973.363.824`.
+  - Hotline tiếp đón VIP & Kỹ thuật: `0915.168.824` (Ms. Nhung) / `0868.822.409` (Mr. Bình).

@@ -25,7 +25,7 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
     },
     {
       q: 'Địa chỉ văn phòng trụ sở và kho hàng chính thức của T&T VINA ở đâu?',
-      a: 'Trụ sở chính đặt tại: Thôn Nhạo Sơn - Xã Thụy Anh - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km). VPGD & Kho hàng Hà Nội: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội (Số 11 ngách 68 ngõ 467 Lĩnh Nam — có sẵn định vị chỉ đường trên Google Maps).'
+      a: 'Trụ sở chính đặt tại: Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km). VPGD & Kho hàng Hà Nội: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội (Số 11 ngách 68 ngõ 467 Lĩnh Nam — có sẵn định vị chỉ đường trên Google Maps).'
     }
   ],
   en: [
@@ -47,7 +47,7 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
     },
     {
       q: 'Where are T&T VINA headquarters and warehouse hubs located?',
-      a: 'Headquarters: Nhao Son, Thuy Anh, Hung Yen Province (1km from Lien Ha Thai Industrial Park). Hanoi Office & Warehouse: No. 11, Alley 68/467 Linh Nam Street, Hoang Mai District, Hanoi (GPS navigation available on Google Maps).'
+      a: 'Headquarters: Tra Hoi, Thai Thuy, Hung Yen Province (1km from Lien Ha Thai Industrial Park). Hanoi Office & Warehouse: No. 11, Alley 68/467 Linh Nam Street, Hoang Mai District, Hanoi (GPS navigation available on Google Maps).'
     }
   ],
   'zh-CN': [

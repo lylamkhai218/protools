@@ -319,6 +319,7 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                 <option value="Hai">Mr. Hai - KT (0981.919.590)</option>
                 <option value="Thanh">Mr. Thanh - DA (0943.301.886)</option>
                 <option value="Murrplastik">Mr. Bình - Murr (0868.822.409)</option>
+                <option value="Khải">Mr. Khải - Murr (0968.597.131)</option>
                 <option value="Nhung">Mrs. Nhung - Hotline (0915.168.824)</option>
               </select>
             </div>

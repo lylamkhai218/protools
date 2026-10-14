@@ -10,9 +10,12 @@ import {
   Building2, 
   PhoneCall, 
   Mail, 
-  User
+  User,
+  ListPlus,
+  Sparkles
 } from 'lucide-react';
 import { CartItem, Product } from '../types';
+import { PRODUCTS } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getSafeBrand, cleanProductName } from '../utils/brandNormalizer';
 
@@ -31,7 +34,7 @@ export default function CartQuote({
   onRemoveItem,
   onClearCart,
   onNavigate,
-  onAddToCart: _onAddToCart
+  onAddToCart
 }: CartQuoteProps) {
   const { t } = useTranslation();
   const [companyName, setCompanyName] = useState('');
@@ -45,7 +48,73 @@ export default function CartQuote({
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  // BOM Quick Order State
+  const [showBomDrawer, setShowBomDrawer] = useState(false);
+  const [bomInput, setBomInput] = useState('');
+  const [bomStatusMessage, setBomStatusMessage] = useState<string | null>(null);
+
   const totalItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const handleProcessBOM = (customText?: string) => {
+    const rawText = customText !== undefined ? customText : bomInput;
+    if (!rawText.trim()) {
+      setBomStatusMessage('Vui lòng nhập ít nhất một mã SKU hoặc Part Number!');
+      return;
+    }
+
+    const lines = rawText.split('\n');
+    let addedCount = 0;
+    const notFoundList: string[] = [];
+
+    lines.forEach(line => {
+      const trimmed = line.trim();
+      if (!trimmed) return;
+
+      // Format can be: "SKU, quantity" or "SKU \t quantity" or "SKU quantity" or just "SKU"
+      let skuPart = trimmed;
+      let qtyPart = 1;
+
+      if (trimmed.includes(',')) {
+        const parts = trimmed.split(',');
+        skuPart = parts[0].trim();
+        qtyPart = parseInt(parts[1]?.trim(), 10) || 1;
+      } else if (trimmed.includes('\t')) {
+        const parts = trimmed.split('\t');
+        skuPart = parts[0].trim();
+        qtyPart = parseInt(parts[1]?.trim(), 10) || 1;
+      } else if (trimmed.includes(' ')) {
+        const parts = trimmed.split(' ');
+        const lastPart = parts[parts.length - 1];
+        if (!isNaN(parseInt(lastPart, 10)) && parts.length > 1) {
+          qtyPart = parseInt(lastPart, 10);
+          skuPart = parts.slice(0, parts.length - 1).join(' ').trim();
+        }
+      }
+
+      // Find matching product by SKU, ID or Name in PRODUCTS
+      const matched = PRODUCTS.find(p => 
+        p.sku.toLowerCase() === skuPart.toLowerCase() ||
+        p.id.toLowerCase() === skuPart.toLowerCase() ||
+        p.name.toLowerCase().includes(skuPart.toLowerCase()) ||
+        (p.specs && Object.values(p.specs).some(val => val.toLowerCase().includes(skuPart.toLowerCase())))
+      );
+
+      if (matched && onAddToCart) {
+        onAddToCart(matched, qtyPart);
+        addedCount += 1;
+      } else {
+        notFoundList.push(skuPart);
+      }
+    });
+
+    if (addedCount > 0) {
+      const notFoundMsg = notFoundList.length > 0 ? ` (Không tìm thấy: ${notFoundList.join(', ')})` : '';
+      setBomStatusMessage(`Thành công: Đã tự động thêm ${addedCount} thiết bị vào danh sách báo giá!${notFoundMsg}`);
+      setBomInput('');
+    } else {
+      setBomStatusMessage(`Không tìm thấy mã phù hợp trong cơ sở dữ liệu (${notFoundList.join(', ')}). Vui lòng kiểm tra lại mã SKU.`);
+    }
+  };
 
   const handleSubmitQuote = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -158,19 +227,20 @@ export default function CartQuote({
 
   const handleExportCSV = () => {
     if (cartItems.length === 0) return;
-    let csvContent = "data:text/csv;charset=utf-8,\uFEFF";
-    csvContent += "STT,Mã SKU,Tên Thiết Bị,Hãng,Số Lượng,Đơn Giá Tham Khảo\n";
+    let csvContent = "\uFEFFSTT,Mã SKU,Tên Thiết Bị,Hãng,Số Lượng,Đơn Giá Tham Khảo\n";
     cartItems.forEach((item, idx) => {
       const safeB = getSafeBrand(item.product.brand, item.product.name);
       csvContent += `${idx + 1},"${item.product.sku}","${cleanProductName(item.product.name)}","${safeB}",${item.quantity},"${item.product.price || 'Báo giá dự án'}"\n`;
     });
-    const encodedUri = encodeURI(csvContent);
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
+    link.setAttribute("href", url);
     link.setAttribute("download", `Protools_RFQ_Estimate_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   if (isSubmitted) {
@@ -234,6 +304,15 @@ export default function CartQuote({
 
             <div className="flex flex-wrap items-center gap-3">
               <button
+                type="button"
+                onClick={() => setShowBomDrawer(!showBomDrawer)}
+                className="px-4 py-2 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              >
+                <ListPlus className="w-3.5 h-3.5 text-amber-300" />
+                <span>{showBomDrawer ? 'Đóng Công Cụ BOM' : 'Nhập Nhanh Mã BOM (Excel)'}</span>
+              </button>
+
+              <button
                 onClick={() => onNavigate('home')}
                 className="px-4 py-2 rounded-xs bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold uppercase tracking-wider border border-slate-300 transition-colors flex items-center gap-1.5 cursor-pointer"
               >
@@ -257,6 +336,87 @@ export default function CartQuote({
 
       {/* 2. MAIN CONTENT GRID */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        
+        {/* BOM Quick Order Section (MISUMI Style) */}
+        {showBomDrawer && (
+          <div className="mb-8 p-6 rounded-sm bg-white border-2 border-[#00478D] shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+              <div className="flex items-center gap-2">
+                <ListPlus className="w-5 h-5 text-[#00478D]" />
+                <h3 className="font-display font-bold text-sm uppercase text-slate-900">
+                  Công Cụ Nhập Nhanh Mã Linh Kiện Hàng Loạt (BOM Quick Quote)
+                </h3>
+              </div>
+              <span className="text-[11px] font-mono text-slate-500">Chuẩn mua hàng nhà máy B2B</span>
+            </div>
+
+            <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+              Dán trực tiếp danh sách mã SKU / Part Number từ Excel hoặc bảng kê vật tư vào ô bên dưới. Định dạng hỗ trợ: <code className="bg-slate-100 px-1.5 py-0.5 rounded-xs font-mono text-slate-800">[Mã SKU], [Số lượng]</code> hoặc mỗi dòng một mã.
+            </p>
+
+            {/* Pre-filled BOM Sample Presets */}
+            <div className="flex flex-wrap items-center gap-2 pt-3">
+              <span className="text-[10px] uppercase font-bold text-slate-400">Nạp mẫu nhanh:</span>
+              <button
+                type="button"
+                onClick={() => handleProcessBOM("HK-936, 5\nHIOS-1002, 3\nCM-1003, 1")}
+                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
+              >
+                + Dây Chuyền Hàn &amp; Bắt Vít
+              </button>
+              <button
+                type="button"
+                onClick={() => handleProcessBOM("MP-1076, 10\nMP-1074, 5\nMP-1078, 2")}
+                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
+              >
+                + Xích Dẫn Cáp Robot Murrplastik
+              </button>
+              <button
+                type="button"
+                onClick={() => handleProcessBOM("ESD-1065, 4\nHP-1037, 2\nMIC-1045, 2")}
+                className="px-2.5 py-1 rounded-xs bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-medium border border-slate-200 transition-colors cursor-pointer"
+              >
+                + Phòng Sạch &amp; Đo Lường ESD
+              </button>
+            </div>
+
+            <div className="pt-3 space-y-3">
+              <textarea
+                rows={4}
+                value={bomInput}
+                onChange={(e) => setBomInput(e.target.value)}
+                placeholder={"Ví dụ:\nHK-936, 5\nHIOS-1002, 3\nMP-1076, 10\nZCUT-1033, 1"}
+                className="w-full p-3 rounded-xs border border-slate-300 font-mono text-xs text-slate-900 focus:outline-none focus:border-[#00478D] bg-slate-50/50"
+              />
+
+              {bomStatusMessage && (
+                <div className="p-3 rounded-xs bg-blue-50 border border-blue-200 text-xs font-semibold text-[#00478D] flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#D97706] shrink-0" />
+                  <span>{bomStatusMessage}</span>
+                </div>
+              )}
+
+              <div className="flex items-center justify-between pt-1">
+                <button
+                  type="button"
+                  onClick={() => handleProcessBOM()}
+                  className="px-6 py-2.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold uppercase tracking-wider font-display transition-all flex items-center gap-2 cursor-pointer shadow-md"
+                >
+                  <ListPlus className="w-4 h-4 text-amber-300" />
+                  <span>Phân Tích &amp; Thêm Vào Báo Giá</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setShowBomDrawer(false)}
+                  className="text-xs text-slate-500 hover:underline font-medium cursor-pointer"
+                >
+                  Đóng lại
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         {cartItems.length === 0 ? (
           <div className="bg-white rounded-sm border border-slate-200 p-16 text-center space-y-4 max-w-lg mx-auto shadow-2xs">
             <div className="w-16 h-16 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">

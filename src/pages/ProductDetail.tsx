@@ -458,12 +458,18 @@ export default function ProductDetail({
                     <Tag className="w-3.5 h-3.5 text-[#00478D]" />
                     <span>{t('product_detail.tier_table_title')}</span>
                   </span>
-                  <span className="text-[10px] text-slate-500 font-medium">{t('product_detail.tier_click_hint')}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded-xs bg-[#00478D]/10 text-[#00478D] font-mono font-bold text-[10px] border border-[#00478D]/20">
+                      MOQ: 1 cái/hộp
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-medium hidden sm:inline">{t('product_detail.tier_click_hint')}</span>
+                  </div>
                 </div>
                 
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="bg-slate-50/80 border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[320px] text-left text-xs border-collapse">
+                    <thead>
+                      <tr className="bg-slate-50/80 border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500">
                       <th className="p-2.5 pl-3">{t('product_detail.tier_col_qty')}</th>
                       <th className="p-2.5">{t('product_detail.tier_col_policy')}</th>
                       <th className="p-2.5 pr-3 text-right">{t('product_detail.tier_col_leadtime')}</th>
@@ -497,6 +503,7 @@ export default function ProductDetail({
                   </tbody>
                 </table>
               </div>
+            </div>
 
               {/* Core Highlights */}
               <div className="space-y-2 bg-slate-50 p-3.5 rounded-xs border border-slate-200/80">
@@ -713,8 +720,8 @@ export default function ProductDetail({
                   <span className="text-xs text-slate-400 font-mono">{t('product_detail.unit_standard')}</span>
                 </div>
 
-                <div className="border border-slate-200 rounded-xs overflow-hidden">
-                  <table className="w-full text-left border-collapse text-xs">
+                <div className="border border-slate-200 rounded-xs overflow-x-auto">
+                  <table className="w-full min-w-[340px] text-left border-collapse text-xs">
                     <tbody className="divide-y divide-slate-200">
                       {Object.entries((effectiveSpecs && Object.keys(effectiveSpecs).length > 0) ? effectiveSpecs : {
                         'Hãng sản xuất': effectiveBrand,

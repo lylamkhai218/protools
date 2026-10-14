@@ -8,18 +8,27 @@ export const COMPANY_INFO = {
   brand: 'T&T VINA',
   websiteName: 'Protools.com.vn',
   slogan: 'Chuyên cung cấp các thiết bị công nghiệp, thiết bị phụ trợ cho các nhà máy lắp ráp & sản xuất linh kiện điện tử',
-  headquarters: 'Thôn Nhạo Sơn - Xã Thụy Anh - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
-  headquartersFull: 'Thôn Nhạo Sơn - Xã Thụy Anh - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
+  taxId: '0108392186',
+  headquarters: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
+  headquartersFull: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
   vpgdAndWarehouse: 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội',
   branchHanoi: 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội',
   mapUrlLinhNam: 'https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7',
   mapEmbedLinhNam: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.13591034401!2d105.88146848700326!3d20.982886742453424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135af26d2bb1e0f%3A0x65f178554a3bb4aa!2zQ8O0bmcgdHkgVE5ISCBDw7RuZyBuZ2hp4buHcCBUJlQgVmluYQ!5e0!3m2!1svi!2s!4v1788060518008!5m2!1svi!2s',
-  officeHungYen: 'Thôn Nhạo Sơn - Xã Thụy Anh - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
-  branch2: 'Thôn Nhạo Sơn - Xã Thụy Anh - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
+  officeHungYen: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
+  branch2: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
   hotline: '0915.168.824',
   hotlineRaw: '0915168824',
   hotlines: ['0915.168.824', '0929.938.368', '0365.366.455'],
   salesTeam: [
+    { 
+      name: 'Ms. Nhinh', 
+      phone: '0964.920.025', 
+      rawPhone: '0964920025', 
+      intlPhone: '+84 964920025', 
+      role: 'Bán Hàng / Sales Specialist',
+      zaloUrl: 'https://zalo.me/0964920025' 
+    },
     { 
       name: 'Ms. Hiền', 
       phone: '0929.938.368', 
@@ -62,8 +71,25 @@ export const COMPANY_INFO = {
     role: 'Phòng Dự Án',
     zaloUrl: 'https://zalo.me/0943301886'
   },
-  techTeam: [],
-  email: 'info@t2tvina.com',
+  techTeam: [
+    {
+      name: 'Mr. Phong',
+      phone: '0983.794.782',
+      rawPhone: '0983794782',
+      intlPhone: '+84 983794782',
+      role: 'Kỹ Thuật / Technical Support',
+      zaloUrl: 'https://zalo.me/0983794782'
+    },
+    {
+      name: 'Mr. Hai',
+      phone: '0981.919.590',
+      rawPhone: '0981919590',
+      intlPhone: '+84 981919590',
+      role: 'Kỹ Thuật / Technical Support',
+      zaloUrl: 'https://zalo.me/0981919590'
+    }
+  ],
+  email: 't2t.vina@gmail.com',
   website: 'https://protools.com.vn'
 };
 
@@ -153,6 +179,15 @@ export function getSalesRepForProduct(product?: Partial<Product> | null): SalesR
       rawPhone: '0981919590',
       role: 'Hỗ trợ Kỹ thuật & Dự án',
       zaloUrl: 'https://zalo.me/0981919590'
+    };
+  }
+  if (tags.includes('khải') || tags.includes('khai')) {
+    return {
+      name: 'Mr. Khải',
+      phone: COMPANY_INFO.murrSalesTeam[1].phone,
+      rawPhone: COMPANY_INFO.murrSalesTeam[1].rawPhone,
+      role: 'NVKD Murrplastik',
+      zaloUrl: COMPANY_INFO.murrSalesTeam[1].zaloUrl
     };
   }
   if (tags.includes('thanh')) {

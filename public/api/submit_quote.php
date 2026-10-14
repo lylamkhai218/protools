@@ -238,13 +238,6 @@ try {
         PDO::ATTR_EMULATE_PREPARES => false
     ));
 
-    // Nâng cấp cột content lên MEDIUMTEXT nếu cần
-    try {
-        $pdo->exec("ALTER TABLE contact_list MODIFY COLUMN content MEDIUMTEXT");
-    } catch (Exception $ex_alter) {
-        // Bỏ qua nếu đã là MEDIUMTEXT hoặc tài khoản không có quyền ALTER
-    }
-
     $stmt = $pdo->prepare("
         INSERT INTO contact_list (
             fullname,

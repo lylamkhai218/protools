@@ -12,7 +12,11 @@ import {
   Layers,
   Settings2,
   HelpCircle, 
-  ChevronDown
+  ChevronDown,
+  Truck,
+  MapPin,
+  Clock,
+  ShieldCheck
 } from 'lucide-react';
 import { Product } from '../types';
 import { SOLUTIONS, PRODUCTS, COMPANY_INFO } from '../data';
@@ -471,6 +475,85 @@ export default function Home({
             })}
           </div>
 
+        </div>
+      </section>
+
+      {/* 3. NORTHERN INDUSTRIAL ZONE LOGISTICS SLA GUARANTEE (MKT-4) */}
+      <section className="py-8 sm:py-10 bg-white border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-6 sm:p-8 rounded-sm bg-gradient-to-br from-slate-50 via-white to-blue-50/40 border border-slate-200/90 shadow-xs">
+            
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200/70">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-[#00478D] uppercase tracking-wider">
+                  <Truck className="w-4 h-4 text-[#00478D]" />
+                  <span>{t('logistics.kcn_badge', 'Hạ Tầng Kho Vận & Cam Kết Giao Hàng KCN')}</span>
+                </div>
+                <h3 className="font-display text-lg sm:text-2xl font-extrabold text-slate-900 uppercase tracking-tight">
+                  {t('logistics.kcn_title', 'Cam Kết Giao Hàng Hỏa Tốc Trong Ngày Đến Các KCN Miền Bắc')}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+                  {t('logistics.kcn_sub', 'Kho trung tâm Hà Nội (Lĩnh Nam) và Kho Hưng Yên (cách KCN Liên Hà Thái 1km) luôn sẵn sàng thiết bị, linh kiện thay thế. Cam kết giao hàng hỏa tốc trong ngày đối với đơn hàng xác nhận trước 15:00.')}
+                </p>
+              </div>
+
+              {/* SLA Metrics Pill */}
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 shrink-0">
+                <div className="p-3 rounded-xs bg-white border border-slate-200 shadow-2xs flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xs bg-amber-50 text-[#D97706] flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">SLA Đơn Hàng</span>
+                    <span className="text-xs font-bold text-slate-900 font-display">Giao trong ngày &lt; 15:00</span>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xs bg-white border border-slate-200 shadow-2xs flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xs bg-blue-50 text-[#00478D] flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Chứng Từ B2B</span>
+                    <span className="text-xs font-bold text-slate-900 font-display">100% Đầy đủ CO/CQ &amp; VAT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Industrial Zones Badges Grid */}
+            <div className="pt-6">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3">
+                Khu vực &amp; Khu Công Nghiệp Trọng Điểm Được Phục Vụ Hỏa Tốc:
+              </span>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+                {[
+                  { name: 'KCN Liên Hà Thái', province: 'Thái Bình / Hưng Yên', sla: 'Giao hỏa tốc 30p' },
+                  { name: 'KCN Thăng Long I & II', province: 'Hà Nội / Hưng Yên', sla: 'Giao hỏa tốc 2-4h' },
+                  { name: 'KCN Quang Châu & Vân Trung', province: 'Bắc Giang', sla: 'Giao trong ngày' },
+                  { name: 'KCN Deep C & Đình Vũ', province: 'Hải Phòng', sla: 'Giao trong ngày' },
+                  { name: 'KCN VSIP Bắc Ninh & Hải Phòng', province: 'Bắc Ninh / Hải Phòng', sla: 'Giao trong ngày' },
+                  { name: 'KCN Yên Phong & Quế Võ', province: 'Bắc Ninh', sla: 'Giao trong ngày' },
+                ].map((kcn, idx) => (
+                  <div 
+                    key={idx} 
+                    className="p-2.5 rounded-xs bg-white border border-slate-200 hover:border-[#00478D] transition-colors shadow-2xs space-y-1"
+                  >
+                    <div className="flex items-center gap-1.5 text-slate-800">
+                      <MapPin className="w-3.5 h-3.5 text-[#00478D] shrink-0" />
+                      <span className="font-bold text-xs truncate font-display">{kcn.name}</span>
+                    </div>
+                    <div className="text-[11px] text-slate-500 truncate">{kcn.province}</div>
+                    <div className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-xs inline-block">
+                      {kcn.sla}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 

@@ -137,7 +137,7 @@
 - **Tư cách pháp lý đối tác:** Đại diện ủy quyền & Đối tác kỹ thuật chính thức của Murrplastik Systemtechnik GmbH tại Việt Nam.
 - **Quy tắc Co-Branding:** Luôn viết song hành `T&T VINA × MURRPLASTIK`. Tuyệt đối không tự xưng các danh xưng pháp lý độc quyền toàn cầu chưa ký kết.
 - **Email liên hệ DUY NHẤT:** `info@t2tvina.com` (Đã khai trừ hoàn toàn `sales@t2tvina.com` trên toàn bộ 3 dự án).
-- **Hotline tiếp đón VIP & Kỹ thuật:** `0915.168.824` (Ms. Nhung) / `0973.363.824`.
+- **Hotline tiếp đón VIP & Kỹ thuật:** `0915.168.824` (Ms. Nhung) / `0868.822.409` (Mr. Bình).
 - **Hạ tầng kho vận:**
   * Trụ sở chính: Thôn Nhạo Sơn, Xã Thụy Anh, Tỉnh Hưng Yên (cách KCN Liên Hà Thái 1km).
   * VPGD & Kho trung tâm: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội (giao hỏa tốc 24h).

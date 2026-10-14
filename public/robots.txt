@@ -11,6 +11,7 @@ Allow: /data/catalog_index.json
 Allow: /sitemap.xml
 Disallow: /admincp/
 Disallow: /api/
+Disallow: /kho/
 Disallow: /old/
 Disallow: /preview/
 Disallow: /backups/

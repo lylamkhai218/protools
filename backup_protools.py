@@ -49,7 +49,7 @@ def create_production_backup():
                     continue
                 permissions = parts[0]
                 name = parts[8]
-                if name in [".", ".."]:
+                if name in [".", "..", "error_log"] or name.endswith(".log"):
                     continue
                 
                 full_remote_path = f"{remote_dir}/{name}"
@@ -57,11 +57,13 @@ def create_production_backup():
                 is_dir = permissions.startswith("d")
 
                 if is_dir:
-                    os.makedirs(full_local_path, exist_ok=True)
-                    download_remote_dir(full_remote_path, full_local_path)
+                    if name in ["api", "admincp"]:
+                        os.makedirs(full_local_path, exist_ok=True)
+                        download_remote_dir(full_remote_path, full_local_path)
+                    continue
                 else:
                     os.makedirs(os.path.dirname(full_local_path), exist_ok=True)
-                    print(f"  [DOWNLOADING] /{full_remote_path} -> {name}")
+                    print(f"  [DOWNLOADING] /{full_remote_path} -> {name}", flush=True)
                     with open(full_local_path, "wb") as f:
                         ftp.retrbinary(f"RETR /{full_remote_path}", f.write)
                     downloaded_files += 1

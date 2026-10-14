@@ -148,82 +148,87 @@ export default function SEOHead({
       const sku = product.sku || product.id || 'N/A';
       const productSchema = {
         '@context': 'https://schema.org/',
-        '@type': 'Product',
-        'name': product.name,
-        'image': [pageImage],
-        'description': pageDesc,
-        'sku': sku,
-        'mpn': sku,
-        'brand': {
-          '@type': 'Brand',
-          'name': product.brand || 'T&T VINA Industrial'
-        },
-        'category': product.category || 'Thiết bị công nghiệp',
-        'offers': {
-          '@type': 'Offer',
-          'url': pageCanonical,
-          'priceCurrency': 'VND',
-          'price': '0', // B2B Request For Quote
-          'priceValidUntil': '2027-12-31',
-          'itemCondition': 'https://schema.org/NewCondition',
-          'availability': (product.stock ?? 1) > 0 
-            ? 'https://schema.org/InStock' 
-            : 'https://schema.org/PreOrder',
-          'seller': {
-            '@type': ['WholesaleStore', 'LocalBusiness', 'Organization'],
-            'name': COMPANY_NAME,
-            'url': BASE_URL,
-            'telephone': '+84-915-168-824',
-            'email': 't2t.vina@gmail.com',
-            'priceRange': '$$',
-            'address': {
-              '@type': 'PostalAddress',
-              'streetAddress': 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam',
-              'addressLocality': 'Quận Hoàng Mai',
-              'addressRegion': 'Hà Nội',
-              'postalCode': '100000',
-              'addressCountry': 'VN'
-            },
-            'geo': {
-              '@type': 'GeoCoordinates',
-              'latitude': 20.982887,
-              'longitude': 105.881468
-            },
-            'hasMap': 'https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7',
-            'areaServed': [
-              'VN', 'Hà Nội', 'Hưng Yên', 'Bắc Ninh', 'Bắc Giang', 'Hải Phòng', 'Vĩnh Phúc', 'Hải Dương', 'Hà Nam', 'Thái Nguyên'
+        '@graph': [
+          {
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Trang Chủ',
+                'item': BASE_URL
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': product.category || 'Danh Mục',
+                'item': `${BASE_URL}${getCategoryPath(product.categorySlug || 'all')}`
+              },
+              {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': product.name,
+                'item': pageCanonical
+              }
             ]
           },
-          'hasMerchantReturnPolicy': {
-            '@type': 'MerchantReturnPolicy',
-            'applicableCountry': 'VN',
-            'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
-            'merchantReturnDays': 30
-          }
-        },
-        'breadcrumb': {
-          '@type': 'BreadcrumbList',
-          'itemListElement': [
-            {
-              '@type': 'ListItem',
-              'position': 1,
-              'name': 'Trang Chủ',
-              'item': BASE_URL
+          {
+            '@type': 'Product',
+            'name': product.name,
+            'image': [pageImage],
+            'description': pageDesc,
+            'sku': sku,
+            'mpn': sku,
+            'brand': {
+              '@type': 'Brand',
+              'name': product.brand || 'T&T VINA Industrial'
             },
-            {
-              '@type': 'ListItem',
-              'position': 2,
-              'name': product.category || 'Danh Mục',
-              'item': `${BASE_URL}${getCategoryPath(product.categorySlug || 'all')}`
-            },
-            {
-              '@type': 'ListItem',
-              'position': 3,
-              'name': product.name,
-              'item': pageCanonical
+            'category': product.category || 'Thiết bị công nghiệp',
+            'offers': {
+              '@type': 'Offer',
+              'url': pageCanonical,
+              'priceCurrency': 'VND',
+              'price': '0', // B2B Request For Quote
+              'priceValidUntil': '2027-12-31',
+              'itemCondition': 'https://schema.org/NewCondition',
+              'availability': (product.stock ?? 1) > 0 
+                ? 'https://schema.org/InStock' 
+                : 'https://schema.org/PreOrder',
+              'seller': {
+                '@type': ['WholesaleStore', 'LocalBusiness', 'Organization'],
+                'name': COMPANY_NAME,
+                'url': BASE_URL,
+                'taxID': '0108392186',
+                'telephone': '+84-915-168-824',
+                'email': 't2t.vina@gmail.com',
+                'priceRange': '$$',
+                'address': {
+                  '@type': 'PostalAddress',
+                  'streetAddress': 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam',
+                  'addressLocality': 'Quận Hoàng Mai',
+                  'addressRegion': 'Hà Nội',
+                  'postalCode': '100000',
+                  'addressCountry': 'VN'
+                },
+                'geo': {
+                  '@type': 'GeoCoordinates',
+                  'latitude': 20.982887,
+                  'longitude': 105.881468
+                },
+                'hasMap': 'https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7',
+                'areaServed': [
+                  'VN', 'Hà Nội', 'Hưng Yên', 'Bắc Ninh', 'Bắc Giang', 'Hải Phòng', 'Vĩnh Phúc', 'Hải Dương', 'Hà Nam', 'Thái Nguyên'
+                ]
+              },
+              'hasMerchantReturnPolicy': {
+                '@type': 'MerchantReturnPolicy',
+                'applicableCountry': 'VN',
+                'returnPolicyCategory': 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                'merchantReturnDays': 30
+              }
             }
-          ]
-        }
+          }
+        ]
       };
       scriptTag.textContent = JSON.stringify(productSchema);
     } else {
@@ -241,6 +246,7 @@ export default function SEOHead({
             'image': `${BASE_URL}/logos/TTV_LOGO_Color_Master.png`,
             'telephone': '+84-915-168-824',
             'email': 't2t.vina@gmail.com',
+            'taxID': '0108392186',
             'priceRange': '$$',
             'address': {
               '@type': 'PostalAddress',
@@ -273,7 +279,7 @@ export default function SEOHead({
                 'name': 'T&T Vina Industrial - Trụ Sở & Kho Hưng Yên',
                 'address': {
                   '@type': 'PostalAddress',
-                  'streetAddress': 'Thôn Trà Hồi, Xã Thái Thụy',
+                  'streetAddress': 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
                   'addressLocality': 'Huyện Thái Thụy',
                   'addressRegion': 'Hưng Yên',
                   'addressCountry': 'VN'

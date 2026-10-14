@@ -2585,3 +2585,49 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
   - Cập nhật [`generate_sitemaps.py`](file:///d:/T&TVina/protools/generate_sitemaps.py) sinh đủ 936 URLs bao gồm trang `/robot-dresspack` và 6 trang con Murrplastik chuyên ngành.
   - Khai báo đầy đủ các trang con kỹ thuật trong [`public/llms.txt`](file:///d:/T&TVina/protools/public/llms.txt), [`public/llms-full.txt`](file:///d:/T&TVina/protools/public/llms-full.txt), và [`public/ai-manifest.json`](file:///d:/T&TVina/protools/public/ai-manifest.json).
 
+
+### Rule 9.104: Đại Phẫu Toàn Diện Đa Phòng Ban (Cross-Functional Audit Squad) & Phát Hành Toàn Diện Production Release (14/10/2026)
+* **1. Bối cảnh & Cơ chế Phối hợp Đa Phòng Ban**:
+  - Triển khai đội ngũ chuyên trách đa vai trò (Senior Tech & Security, Senior QA Tester, Business Analyst & Critical Thinking, B2B Sales Specialist, Marketing & GEO Strategist) rà soát và khắc phục toàn diện 28 điểm lỗi trên toàn bộ hệ thống Protools và chuyên trang Murrplastik.
+* **2. Khắc Phục Hạ Tầng & An Toàn Máy Chủ (Senior Tech & Security)**:
+  - **Tối ưu Bundle Code-Splitting Three.js**: Chuyển đổi import tĩnh `RobotConfigurator` sang `React.lazy()` trong [`src/App.tsx`](file:///d:/T&TVina/protools/src/App.tsx), tách biệt engine Three.js thành chunk độc lập `RobotConfigurator-*.js` (155 kB). Bundle chính của SPA giảm từ 877 kB xuống **719 kB** (thỏa mãn ngân sách khắt khe <800 kB).
+  - **Cấu hình Vite & Clean Output**: Khai báo `emptyOutDir: true` và tinh chỉnh `manualChunks` trong [`vite.config.ts`](file:///d:/T&TVina/protools/vite.config.ts) gom nhóm hợp lý `lucide-react` và `framer-motion`.
+  - **Giới hạn Scope TypeScript**: Bổ sung `"include": ["src"]` trong [`tsconfig.json`](file:///d:/T&TVina/protools/tsconfig.json) ngăn ngừa hiện tượng cạn kiệt bộ nhớ RAM khi chạy lint hoặc typecheck.
+  - **Triệt tiêu Nguy cơ Khóa WAF IM360 tại Backend**: Loại bỏ hoàn toàn câu lệnh DDL `ALTER TABLE` trong runtime request của [`public/api/submit_quote.php`](file:///d:/T&TVina/protools/public/api/submit_quote.php), ngăn chặn WAF Imunify360 nhận diện nhầm hành vi cấu trúc cơ sở dữ liệu và kích hoạt Rule chặn IP tự động.
+  - **Bộ Nhớ Đệm Bất Biến Cho Tệp 3D (.stl)**: Bổ sung định dạng `.stl` vào cấu hình `.htaccess` với chỉ thị `Cache-Control: max-age=31536000, immutable`, tăng tốc độ tải mô hình xích dẫn hướng 3D cho các lần truy cập tiếp theo.
+  - **Sự cố Treo FTP Do File error_log 208 MB**:
+    - *Hiện tượng*: Quá trình sao lưu máy chủ trước deploy bị treo hơn 10 phút tại bước tải thư mục từ xa.
+    - *Nguyên nhân*: File `public_html/error_log` trên máy chủ LiteSpeed phình to tới 208 MB (208,271,920 bytes), làm nghẽn hoàn toàn đường truyền FTP nhị phân.
+    - *Giải pháp*: Cập nhật [`backup_protools.py`](file:///d:/T&TVina/protools/backup_protools.py) tự động bỏ qua `error_log` và các file `*.log`, đồng thời giới hạn đệ quy chỉ tải các thư mục mã nguồn động (`api`, `admincp`). Thời gian sao lưu tự động giảm xuống chỉ còn **9 giây**.
+* **3. Kiểm Thử & Chuẩn Hóa Dữ Liệu Cấu Trúc (Senior QA Tester)**:
+  - **Tách Rời Đồ Thị Schema (@graph Architecture)**: Tách độc lập `BreadcrumbList` khỏi thực thể `Product` trong [`src/components/SEOHead.tsx`](file:///d:/T&TVina/protools/src/components/SEOHead.tsx), khai báo qua cấu trúc chuẩn `@graph` giúp Google Rich Results và Schema Validators nhận diện thực thể mạch lạc không gây xung đột.
+  - **Vá Lỗi Liên Kết & Bố Cục Mobile**:
+    - Sửa toàn bộ liên kết nội bộ bị lỗi trong `public/murrplastik/index.html` và trang công nghiệp ô tô.
+    - Bổ sung `overflow-x-auto` cho bảng thông số kỹ thuật trên [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx) giúp hiển thị trơn tru trên mọi màn hình di động.
+  - **Cổng Kiểm Duyệt Tự Động (Automated Quality Gates)**: Chạy thành công 100% với 0 lỗi cú pháp qua [`scripts/validate_schemas.py`](file:///d:/T&TVina/protools/scripts/validate_schemas.py) và vượt qua 34 kịch bản kiểm thử độc lập trong [`scripts/test_challenger_m1.js`](file:///d:/T&TVina/protools/scripts/test_challenger_m1.js).
+* **4. Trải Nghiệm Mua Sắm B2B & Quản Trị BOM (BA & Critical Thinking)**:
+  - **Phục Hồi Công Cụ BOM Quick Quote**: Tái tích hợp drawer báo giá BOM nhanh, bộ phân tích dán dữ liệu Excel và các gói cấu hình mẫu tại [`src/pages/CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx).
+  - **Sửa Lỗi Xuất File CSV**: Áp dụng tiền tố UTF-8 BOM (`\uFEFF` / `0xEF, 0xBB, 0xBF`) và đối tượng `Blob` khi xuất file báo giá tại [`src/pages/CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx), khắc phục triệt để lỗi vỡ font tiếng Việt có dấu khi mở bằng Microsoft Excel.
+  - **Minh Bạch Số Lượng Đặt Hàng Tối Thiểu (MOQ)**: Bổ sung huy hiệu công nghiệp `MOQ: 1 cái/hộp` tại trang chi tiết sản phẩm [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx).
+* **5. Đồng Bộ Thông Tin Đội Ngũ & Định Vị GEO Công Nghiệp (Sales & Marketing)**:
+  - **Chuẩn Hóa Danh Bạ Nhân Sự Đầy Đủ**: Cập nhật danh sách phụ trách kinh doanh và kỹ thuật tại [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts), [`src/components/Footer.tsx`](file:///d:/T&TVina/protools/src/components/Footer.tsx), [`src/components/FloatingWidgets.tsx`](file:///d:/T&TVina/protools/src/components/FloatingWidgets.tsx) và bộ lọc catalog [`src/components/VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx) bao gồm:
+    - *Bán hàng & Báo giá nhanh*: Ms. Nhinh (`0964.920.025`), Ms. Hiền (`0929.938.368`), Ms. Phương (`0365.366.455`).
+    - *Kinh doanh Chuyên trách Murrplastik*: Mr. Bình (`0868.822.409`), Mr. Khải (`0968.597.131`).
+    - *Phòng Dự Án*: Mr. Thanh (`0943.301.886`).
+    - *Phòng Kỹ Thuật (Hỗ trợ 24/7)*: Mr. Phong (`0983.794.782`), Mr. Hai (`0981.919.590`).
+  - **Đồng Bộ NAP & Mã Số Thuế Doanh Nghiệp**:
+    - Trụ sở chính: `Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)`.
+    - Văn phòng & Trung tâm phân phối: `Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội`.
+    - Mã số thuế: `0108392186` (đã gắn vào Footer và Schema Organization).
+    - Email giao dịch chính thức: `t2t.vina@gmail.com`.
+  - **Cam Kết Giao Hàng Hỏa Tốc Các KCN Miền Bắc**: Tích hợp banner cam kết giao hàng trong ngày tới 10 tỉnh KCN trọng điểm miền Bắc trên [`src/pages/Home.tsx`](file:///d:/T&TVina/protools/src/pages/Home.tsx).
+  - **Triệt Tiêu Hoàn Toàn Emoji**: Loại bỏ ký tự emoji hệ điều hành trong các file script đa ngôn ngữ theo đúng Quy tắc chuẩn số 1.
+* **6. Đóng Gói, Triển Khai Máy Chủ Production & Kiểm Chứng Thực Tế**:
+  - **Đóng Gói Tĩnh**: Chạy `generate_static_snapshots.py` sinh 138 snapshots tĩnh cho các danh mục và sản phẩm chính; `generate_sitemaps.py` sinh đủ 936 URLs.
+  - **Triển Khai Máy Chủ**: Thực thi kịch bản [`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py), đồng bộ an toàn 191 tệp tin lên máy chủ `s2d34.cloudnetwork.vn` tại `/public_html`, cập nhật quyền `644` cho `.htaccess`.
+  - **Kiểm Chứng Thực Địa HTTP 200 Live Production**:
+    - `https://protools.com.vn/`: Trả về `HTTP 200 OK` (kích thước 8,923 B).
+    - `https://protools.com.vn/murrplastik/`: Trả về `HTTP 200 OK` (kích thước 70,957 B).
+    - `https://protools.com.vn/robot-dresspack/`: Trả về `HTTP 200 OK` (kích thước 11,794 B) với đầy đủ nội dung semantic snapshot pre-rendering.
+
+
