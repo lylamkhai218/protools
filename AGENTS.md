@@ -2631,3 +2631,22 @@ Hệ thống được trang bị 4 Subagent chuyên biệt được điều ph�
     - `https://protools.com.vn/robot-dresspack/`: Trả về `HTTP 200 OK` (kích thước 11,794 B) với đầy đủ nội dung semantic snapshot pre-rendering.
 
 
+### Rule 9.123: Chuẩn Hóa Typography Tiếng Việt & Triệt Tiêu Lỗi Nhảy Font Diacritic Mismatched Glyphs (14/10/2026)
+* **1. Hiện tượng & Phân tích Nguyên nhân Lỗi (Root Cause Analysis)**:
+  - **Hiện tượng**: Trên các tiêu đề lớn của trang chủ (`GIẢI PHÁP THIẾT BỊ TOÀN DIỆN, CÔNG NGHIỆP & TỰ ĐỘNG HÓA`), nút CTA (`NHẬN BÁO GIÁ B2B`), và các thẻ card, các ký tự tiếng Việt có dấu (`Ả, Á, Ế, Ị, À, Ệ, Ô, Ự, Đ, Ộ, Ó`) bị lỗi nhảy font (mismatched font fallback): ký tự có dấu có nét thanh, mảnh, lệch chiều cao x-height và kiểu dáng hoàn toàn so với các chữ cái không dấu cùng từ.
+  - **Nguyên nhân gốc rễ**:
+    - Trong [`src/index.css`](file:///d:/T&TVina/protools/src/index.css), biến `--font-display` khai báo `"Plus Jakarta Sans", "Be Vietnam Pro", sans-serif;`.
+    - Phông chữ `Plus Jakarta Sans` trên Google Fonts **hoàn toàn KHÔNG hỗ trợ bộ ký tự tiếng Việt** (chỉ có subset Latin và Latin-ext).
+    - Khi trình duyệt kết xuất tiêu đề có `font-display`, các ký tự không dấu được vẽ bằng Plus Jakarta Sans, còn các ký tự có dấu buộc phải fallback sang font khác (hoặc Arial/Segoe UI của hệ điều hành), gây hiện tượng vỡ font lởm chởm trong cùng một cụm từ.
+    - Đồng thời, [`index.html`](file:///d:/T&TVina/protools/index.html) sử dụng `display=optional` khiến font có thể bị bỏ qua khi tải lần đầu trên mạng chậm, và thiếu weight 900 cho các số counter đậm.
+* **2. Giải pháp Kỹ thuật Triệt để (Engineering Fix)**:
+  - **Chuẩn hóa `--font-display` trong Tailwind CSS**: Chuyển `--font-display` sang thuần `"Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;` tại [`src/index.css`](file:///d:/T&TVina/protools/src/index.css).
+  - **Loại bỏ triệt để Plus Jakarta Sans**: Xóa hoàn toàn `Plus+Jakarta+Sans` khỏi thẻ `<link>` Google Fonts trong [`index.html`](file:///d:/T&TVina/protools/index.html) giúp tiết kiệm 60 KB băng thông tải mạng.
+  - **Tải đầy đủ dải trọng lượng Be Vietnam Pro**: Nạp đủ `wght@400;500;600;700;800;900` với chế độ `display=swap` đảm bảo mọi trọng lượng từ thường (400) đến ExtraBold (800) và Black (900) hiển thị đồng nhất 100% với các dấu thanh tiếng Việt được thiết kế chuẩn xác.
+* **3. Đóng gói & Phát hành Live Production**:
+  - Tái tạo toàn bộ 138 static snapshots với template mới qua `generate_static_snapshots.py`.
+  - Triển khai thành công 162 tệp tin lên máy chủ `s2d34.cloudnetwork.vn` bằng [`deploy_production_root.py`](file:///d:/T&TVina/protools/deploy_production_root.py).
+  - Kiểm tra trực tiếp trên `https://protools.com.vn/` xác nhận thẻ stylesheet font mới và CSS hash `/assets/index-BC5wVX_A.css` đã kích hoạt thành công trên máy chủ LiteSpeed.
+
+
+
