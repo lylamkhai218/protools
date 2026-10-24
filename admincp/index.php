@@ -9,6 +9,7 @@
     $base_folder = substr($_SERVER['SCRIPT_NAME'],0,strrpos($_SERVER['SCRIPT_NAME'], '/'));
     $base_folder = substr($base_folder,0,strrpos($base_folder, '/')) . '/';
     $path = $_SERVER['DOCUMENT_ROOT'];
+    include_once __DIR__ . '/legacy_mysql_shim.php';
     include($path . $base_folder . "function/mdl_function.php");
     include($path . $base_folder . "config/database.php");
     include($path . $base_folder . "modules/mdl_meta.php");

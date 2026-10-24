@@ -16,7 +16,12 @@ import {
   Plus,
   ArrowRight,
   ExternalLink,
-  Layers
+  Layers,
+  Maximize2,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw,
+  X
 } from 'lucide-react';
 import { Product, SalesRepInfo, ProductVariant } from '../types';
 import { PRODUCTS, COMPANY_INFO, getSalesRepForProduct } from '../data';
@@ -61,6 +66,20 @@ export default function ProductDetail({
   const [activeTab, setActiveTab] = useState<'specs' | 'features' | 'docs'>('specs');
 
   const [copiedZaloQuote, setCopiedZaloQuote] = useState<boolean>(false);
+  const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
+
+  // Close Lightbox on ESC key press
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen]);
 
   // Initialize and sync variant from URL query (?type= or ?variant=)
   useEffect(() => {
@@ -82,9 +101,10 @@ export default function ProductDetail({
 
   const handleSelectVariant = (variant: ProductVariant) => {
     setSelectedVariant(variant);
-    if (variant.image) {
-      setSelectedImage(variant.image);
-    }
+    const initialImg = (variant.images && variant.images.length > 0)
+      ? variant.images[0]
+      : (variant.image || product.image);
+    setSelectedImage(initialImg);
     try {
       const url = new URL(window.location.href);
       url.searchParams.set('type', variant.id);
@@ -178,9 +198,9 @@ export default function ProductDetail({
     );
   }
 
-  const allImages = p.images && p.images.length > 0 
-    ? p.images 
-    : [p.image];
+  const allImages = (selectedVariant?.images && selectedVariant.images.length > 0)
+    ? selectedVariant.images
+    : (p.images && p.images.length > 0 ? p.images : [selectedVariant?.image || p.image]);
 
   const handleCopySku = () => {
     if (effectiveSku) {
@@ -291,22 +311,44 @@ export default function ProductDetail({
                     <span>{p.stockLocation || t('catalog.in_stock')}</span>
                   </span>
                 </div>
+
+                {/* Lightbox Zoom Trigger */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setZoomLevel(1);
+                    setLightboxOpen(true);
+                  }}
+                  className="absolute bottom-3 right-3 z-10 px-2 py-1 rounded-xs bg-white/95 hover:bg-white text-slate-700 hover:text-[#00478D] text-[11px] font-bold border border-slate-200 shadow-xs flex items-center gap-1 cursor-pointer transition-colors"
+                  title="Phóng to xem chi tiết"
+                >
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  <span>Phóng to</span>
+                </button>
               </div>
 
-              {/* Thumbnails */}
+              {/* Technical Image Switcher (Clean Image-Only Thumbnails) */}
               {allImages.length > 1 && (
-                <div className="flex items-center gap-3 overflow-x-auto pb-2">
-                  {allImages.map((img, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setSelectedImage(img)}
-                      className={`w-16 h-16 rounded-xs border-2 p-1 bg-white overflow-hidden shrink-0 transition-all cursor-pointer ${
-                        selectedImage === img ? 'border-[#00478D] shadow-xs' : 'border-slate-200 hover:border-slate-400'
-                      }`}
-                    >
-                      <img src={img} alt={`View ${idx}`} className="w-full h-full object-contain" />
-                    </button>
-                  ))}
+                <div className="grid grid-cols-3 gap-2">
+                  {allImages.slice(0, 3).map((img, idx) => {
+                    const isSelected = selectedImage === img || (!selectedImage && idx === 0);
+
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setSelectedImage(img)}
+                        aria-label={`Hình ảnh ${idx + 1}`}
+                        className={`h-16 sm:h-20 rounded-xs border transition-all cursor-pointer flex items-center justify-center p-1.5 overflow-hidden ${
+                          isSelected 
+                            ? 'border-[#00478D] bg-blue-50/40 ring-2 ring-[#00478D] shadow-xs' 
+                            : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50 opacity-80 hover:opacity-100'
+                        }`}
+                      >
+                        <img src={img} alt="" className="w-full h-full object-contain" />
+                      </button>
+                    );
+                  })}
                 </div>
               )}
 
@@ -340,6 +382,71 @@ export default function ProductDetail({
                   <span className="text-slate-400 text-[10px]">{t('product_detail.nationwide_sub')}</span>
                 </div>
               </div>
+
+              {/* Core Highlights */}
+              <div className="space-y-2 bg-slate-50 p-3.5 rounded-xs border border-slate-200/80">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
+                  {t('product_detail.highlights_title')}
+                </span>
+                <ul className="space-y-1.5 text-xs text-slate-700">
+                  {(effectiveHighlights || [
+                    'Sản phẩm công nghiệp chính xác cao tiêu chuẩn nhà máy',
+                    'Có đầy đủ chứng từ hàng hóa và bảo hành chính hãng',
+                    'Hỗ trợ kỹ thuật lắp đặt & hướng dẫn vận hành'
+                  ])
+                  .filter((hl: string) => !hl.toLowerCase().includes('3 ảnh'))
+                  .map((hl, idx) => {
+                    let text = hl;
+                    if (/co[\/, ]*cq/i.test(text)) {
+                      text = text.replace(/đầy đủ co[\/, ]*cq[^\.,]*/gi, 'Đầy đủ giấy tờ chứng nhận');
+                    }
+                    return (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00478D] shrink-0 mt-0.5" />
+                        <span className="leading-snug">
+                          {text.includes(': ') ? (
+                            <>
+                              <strong className="font-semibold text-slate-900">{text.split(': ')[0]}:</strong>{' '}
+                              <span>{text.split(': ').slice(1).join(': ')}</span>
+                            </>
+                          ) : (
+                            text
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Automotive Body Shop Case Study & Link for R-Tec Liner / Murrplastik */}
+              {(product.id === '1081' || product.categorySlug === 'murrplastik' || product.brand === 'Murrplastik') && (
+                <div className="p-4 rounded-xs bg-gradient-to-r from-slate-900 via-slate-800 to-[#00478D] text-white space-y-2.5 shadow-sm border border-slate-700">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-amber-300 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                      <span>Ứng Dụng Ngành Sản Xuất Ô Tô (Automotive Body Shop)</span>
+                    </span>
+                    <span className="px-2 py-0.5 rounded-xs bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold border border-emerald-500/40">
+                      Verified Case Study
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-200 leading-relaxed">
+                    {t('product_detail.automotive_case_study')}
+                  </p>
+                  <div className="pt-1">
+                    <a
+                      href="https://protools.com.vn/murrplastik/industries/san-xuat-o-to/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xs bg-white text-[#00478D] hover:bg-amber-50 font-display font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs cursor-pointer"
+                    >
+                      <span>{t('product_detail.view_auto_solution')}</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-[#00478D]" />
+                    </a>
+                  </div>
+                </div>
+              )}
 
             </div>
 
@@ -387,66 +494,30 @@ export default function ProductDetail({
                           key={v.id}
                           type="button"
                           onClick={() => handleSelectVariant(v)}
-                          className={`p-2.5 rounded-xs border text-left transition-all cursor-pointer relative flex flex-col gap-1 ${
+                          className={`p-2.5 rounded-xs border text-left transition-all cursor-pointer relative flex items-center justify-between gap-2 ${
                             isSelected 
                               ? 'border-[#00478D] bg-white text-[#00478D] shadow-xs ring-1 ring-[#00478D]' 
                               : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700 hover:bg-slate-50'
                           }`}
                         >
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
-                                isSelected ? 'border-[#00478D] bg-[#00478D] text-white' : 'border-slate-300 bg-white'
-                              }`}>
-                                {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
-                              </span>
-                              <span className="text-xs font-bold font-display">
-                                {v.name}
-                              </span>
-                            </div>
-                            {v.sku && (
-                              <span className="text-[10px] font-mono text-slate-400">
-                                {v.sku}
-                              </span>
-                            )}
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
+                              isSelected ? 'border-[#00478D] bg-[#00478D] text-white' : 'border-slate-300 bg-white'
+                            }`}>
+                              {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                            </span>
+                            <span className="text-xs font-bold font-display truncate">
+                              {v.name}
+                            </span>
                           </div>
-                          {v.badge && (
-                            <span className={`text-[10px] pl-5.5 ${isSelected ? 'text-[#00478D] font-medium' : 'text-slate-500'}`}>
-                              • {v.badge}
+                          {v.sku && (
+                            <span className="text-[10px] font-mono text-slate-400 shrink-0">
+                              {v.sku}
                             </span>
                           )}
                         </button>
                       );
                     })}
-                  </div>
-                </div>
-              )}
-
-              {/* Automotive Body Shop Case Study & Link for R-Tec Liner / Murrplastik */}
-              {(product.id === '1081' || product.categorySlug === 'murrplastik' || product.brand === 'Murrplastik') && (
-                <div className="p-4 rounded-xs bg-gradient-to-r from-slate-900 via-slate-800 to-[#00478D] text-white space-y-2.5 shadow-sm border border-slate-700">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase font-bold tracking-wider text-amber-300 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                      <span>Ứng Dụng Ngành Sản Xuất Ô Tô (Automotive Body Shop)</span>
-                    </span>
-                    <span className="px-2 py-0.5 rounded-xs bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold border border-emerald-500/40">
-                      Verified Case Study
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-200 leading-relaxed">
-                    {t('product_detail.automotive_case_study')}
-                  </p>
-                  <div className="pt-1">
-                    <a
-                      href="https://protools.com.vn/murrplastik/industries/san-xuat-o-to/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xs bg-white text-[#00478D] hover:bg-amber-50 font-display font-bold text-xs uppercase tracking-wider transition-colors shadow-2xs cursor-pointer"
-                    >
-                      <span>{t('product_detail.view_auto_solution')}</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-[#00478D]" />
-                    </a>
                   </div>
                 </div>
               )}
@@ -504,34 +575,6 @@ export default function ProductDetail({
                 </table>
               </div>
             </div>
-
-              {/* Core Highlights */}
-              <div className="space-y-2 bg-slate-50 p-3.5 rounded-xs border border-slate-200/80">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                  {t('product_detail.highlights_title')}
-                </span>
-                <ul className="space-y-1.5 text-xs text-slate-700">
-                  {(effectiveHighlights || [
-                    'Sản phẩm công nghiệp chính xác cao tiêu chuẩn nhà máy',
-                    'Có đầy đủ chứng từ hàng hóa và bảo hành chính hãng',
-                    'Hỗ trợ kỹ thuật lắp đặt & hướng dẫn vận hành'
-                  ]).map((hl, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#00478D] shrink-0 mt-0.5" />
-                      <span className="leading-snug">
-                        {hl.includes(': ') ? (
-                          <>
-                            <strong className="font-semibold text-slate-900">{hl.split(': ')[0]}:</strong>{' '}
-                            <span>{hl.split(': ').slice(1).join(': ')}</span>
-                          </>
-                        ) : (
-                          hl
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
               {/* Quantity Selector & Action CTA */}
               <div className="space-y-3 pt-1">
@@ -727,10 +770,13 @@ export default function ProductDetail({
                         'Hãng sản xuất': effectiveBrand,
                         'Mã sản phẩm (SKU)': effectiveSku || p.id,
                         'Chuyên mục': p.category || 'Linh kiện & Thiết bị công nghiệp',
-                        'Kho hàng': p.stockLocation || 'Kho Hà Nội & Hưng Yên',
-                        'Tình trạng': (p.stock || 0) > 0 ? `Sẵn hàng (${p.stock})` : 'Liên hệ đặt hàng'
+                        'Kho hàng': p.stockLocation || 'VPGD & Kho Hà Nội',
+                        'Tình trạng': (p.stock || 0) > 0 ? 'Sẵn hàng' : 'Liên hệ đặt hàng'
                       }).map(([specKey, specVal], idx) => {
-                        const displayVal = specKey === 'Hãng sản xuất' ? getSafeBrand(String(specVal), effectiveName) : specVal;
+                        let displayVal = specKey === 'Hãng sản xuất' ? getSafeBrand(String(specVal), effectiveName) : specVal;
+                        if (typeof displayVal === 'string' && /co[\/, ]*cq/i.test(displayVal)) {
+                          displayVal = displayVal.replace(/đầy đủ co[\/, ]*cq[^\.,]*/gi, 'Đầy đủ giấy tờ, chứng từ');
+                        }
                         return (
                           <tr key={specKey} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70'}>
                             <td className="p-3.5 sm:p-4 font-bold text-slate-700 w-1/3 sm:w-1/4 border-r border-slate-200 bg-slate-50/50">
@@ -766,21 +812,29 @@ export default function ProductDetail({
                             'Dễ dàng tích hợp vào hệ thống dây chuyền tự động hóa',
                             'Sẵn sàng phụ tùng và linh kiện thay thế chính hãng'
                           ])
-                    ).map((feat, i) => (
-                      <div key={i} className="p-4 rounded-xs bg-slate-50 border border-slate-200 flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="text-xs text-slate-700 leading-relaxed">
-                          {feat.includes(': ') ? (
-                            <>
-                              <strong className="font-semibold text-slate-900 block mb-0.5">{feat.split(': ')[0]}</strong>
-                              <span>{feat.split(': ').slice(1).join(': ')}</span>
-                            </>
-                          ) : (
-                            feat
-                          )}
-                        </span>
-                      </div>
-                    ))}
+                    )
+                    .filter((feat: string) => !feat.toLowerCase().includes('3 ảnh'))
+                    .map((rawFeat, i) => {
+                      let feat = rawFeat;
+                      if (/co[\/, ]*cq/i.test(feat)) {
+                        feat = feat.replace(/đầy đủ co[\/, ]*cq[^\.,]*/gi, 'Đầy đủ giấy tờ chứng nhận');
+                      }
+                      return (
+                        <div key={i} className="p-4 rounded-xs bg-slate-50 border border-slate-200 flex items-start gap-3">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                          <span className="text-xs text-slate-700 leading-relaxed">
+                            {feat.includes(': ') ? (
+                              <>
+                                <strong className="font-semibold text-slate-900 block mb-0.5">{feat.split(': ')[0]}</strong>
+                                <span>{feat.split(': ').slice(1).join(': ')}</span>
+                              </>
+                            ) : (
+                              feat
+                            )}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -922,6 +976,101 @@ export default function ProductDetail({
               );
             })}
           </div>
+        </div>
+      )}
+
+      {/* LIGHTBOX MODAL FOR HD 2D DRAWING & WAREHOUSE PHOTO ZOOM */}
+      {lightboxOpen && (
+        <div 
+          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6"
+          onClick={() => setLightboxOpen(false)}
+        >
+          {/* Top Bar */}
+          <div className="flex items-center justify-between text-white max-w-7xl mx-auto w-full pb-3 border-b border-white/10" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center gap-2 truncate pr-4">
+              <span className="font-bold text-sm sm:text-base text-white truncate">{effectiveName}</span>
+              <span className="text-xs text-slate-400 font-mono shrink-0">({effectiveSku})</span>
+            </div>
+            
+            <div className="flex items-center gap-2 shrink-0">
+              {/* Zoom Controls */}
+              <button
+                type="button"
+                onClick={() => setZoomLevel(prev => Math.max(0.75, prev - 0.25))}
+                className="p-1.5 rounded-xs bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                title="Thu nhỏ"
+              >
+                <ZoomOut className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setZoomLevel(1)}
+                className="px-2 py-1 rounded-xs bg-white/10 hover:bg-white/20 text-white text-xs font-mono transition-colors cursor-pointer"
+                title="Đặt lại 100%"
+              >
+                {Math.round(zoomLevel * 100)}%
+              </button>
+              <button
+                type="button"
+                onClick={() => setZoomLevel(prev => Math.min(3, prev + 0.25))}
+                className="p-1.5 rounded-xs bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                title="Phóng to"
+              >
+                <ZoomIn className="w-4 h-4" />
+              </button>
+              
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(false)}
+                className="p-1.5 ml-2 rounded-xs bg-rose-500/80 hover:bg-rose-500 text-white transition-colors cursor-pointer"
+                title="Đóng"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Main Zoomable Viewport */}
+          <div 
+            className="flex-1 flex items-center justify-center overflow-auto p-4 my-2 cursor-pointer"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <img 
+              src={selectedImage || p.image} 
+              alt={effectiveName}
+              onClick={(e) => e.stopPropagation()}
+              style={{ transform: `scale(${zoomLevel})`, transition: 'transform 0.15s ease-out' }}
+              className="max-h-[75vh] max-w-[85vw] object-contain select-none shadow-2xl cursor-default"
+            />
+          </div>
+
+          {/* Bottom Switcher inside Modal (Clean Image Thumbnails) */}
+          {allImages.length > 1 && (
+            <div className="flex items-center justify-center gap-2 max-w-xl mx-auto w-full pt-2" onClick={(e) => e.stopPropagation()}>
+              {allImages.map((img, idx) => {
+                const isSelected = selectedImage === img || (!selectedImage && idx === 0);
+
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => {
+                      setSelectedImage(img);
+                      setZoomLevel(1);
+                    }}
+                    aria-label={`Ảnh ${idx + 1}`}
+                    className={`w-12 h-12 rounded-xs border p-1 transition-all cursor-pointer flex items-center justify-center overflow-hidden ${
+                      isSelected 
+                        ? 'bg-white/20 border-white ring-2 ring-white shadow-md' 
+                        : 'bg-white/5 hover:bg-white/10 border-white/20 opacity-70 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-contain" />
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       )}
 

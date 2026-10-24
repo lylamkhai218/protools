@@ -38,4 +38,5 @@ scratch/
 admincp_preview/
 *.sql
 public/kho/
+public/office/
 .agents/
