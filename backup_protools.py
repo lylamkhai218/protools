@@ -72,7 +72,10 @@ def create_production_backup():
 
     print("\n[2/3] Archiving all Production files & directories...")
     download_remote_dir(REMOTE_ROOT, local_backup_path)
-    ftp.quit()
+    try:
+        ftp.close()
+    except Exception:
+        pass
 
     print("\n[3/3] Compressing backup folder into ZIP archive...")
     zip_path = os.path.join(BACKUP_DIR, f"{backup_folder_name}.zip")
