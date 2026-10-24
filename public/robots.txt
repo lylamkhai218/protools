@@ -9,7 +9,10 @@ Allow: /llms-full.txt
 Allow: /ai-manifest.json
 Allow: /data/catalog_index.json
 Allow: /sitemap.xml
+Disallow: /admin
+Disallow: /admin/
 Disallow: /admincp/
+Disallow: /office/
 Disallow: /api/
 Disallow: /kho/
 Disallow: /old/
@@ -20,6 +23,11 @@ Disallow: /internal/
 Disallow: /kiem-duyet/
 Disallow: /*mode=internal
 Disallow: /*?*filter=
+Disallow: /*?*sort=
+Disallow: /*?*cat=
+Disallow: /*?*search=
+Disallow: /*?*q=
+Disallow: /*?*s=
 
 # Google Search Engine & AI Overviews
 User-agent: Googlebot
