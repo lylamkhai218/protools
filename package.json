@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
+    "build": "vite build && py generate_static_snapshots.py && py generate_sitemaps.py",
     "preview": "vite preview",
-    "clean": "rm -rf dist server.js",
+    "clean": "node -e \"['dist', 'server.js'].forEach(p => fs.rmSync(p, { recursive: true, force: true }))\"",
     "lint": "tsc --noEmit",
     "backup:protools": "python backup_protools.py",
     "deploy:protools": "python deploy_protools.py --confirm",
@@ -27,7 +27,7 @@
     "motion": "^12.23.24",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
-    "vite": "^6.2.3"
+    "vite": "^6.4.4"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

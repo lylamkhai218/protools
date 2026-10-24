@@ -12,6 +12,8 @@ export interface ProductVariant {
   sku?: string;
   badge?: string;
   image?: string;
+  images?: string[];
+  stock?: number;
   shortDesc?: string;
   specs?: Record<string, string>;
   highlights?: string[];

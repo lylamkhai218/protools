@@ -1,7 +1,17 @@
 DirectoryIndex index.php index.html
-<IfModule mod_rewrite.c>
-  RewriteEngine Off
-</IfModule>
+
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /admincp/
+
+  # Allow direct execution of user_login.php (AJAX / POST login handler)
+  RewriteRule ^modules/user_login\.php$ - [L]
+
+  # Block direct external access to internal modules if not requested from within AdminCP
+  RewriteCond %{HTTP_REFERER} !/admincp/ [NC]
+  RewriteRule ^modules/.*\.php(/.*)?$ - [F,L,NC]
 </IfModule>

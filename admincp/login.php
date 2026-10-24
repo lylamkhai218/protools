@@ -2,6 +2,7 @@
     $base_folder = substr($_SERVER['SCRIPT_NAME'],0,strrpos($_SERVER['SCRIPT_NAME'], '/'));
     $base_folder = substr($base_folder,0,strrpos($base_folder, '/')) . '/';
     $path = $_SERVER['DOCUMENT_ROOT'];
+    include_once __DIR__ . '/legacy_mysql_shim.php';
     include($path . $base_folder . "config/database.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

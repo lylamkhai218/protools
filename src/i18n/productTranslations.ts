@@ -10,6 +10,106 @@ export interface LocalizedProductText {
 }
 
 export const PRODUCT_NAME_TRANSLATIONS: Record<string, Partial<Record<SupportedLocale, string>>> = {
+  "MP-FAM-MSV": {
+    "vi": "Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)",
+    "en": "Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)"
+  },
+  "MP-FAM-KSV": {
+    "vi": "Đầu Nối Ống Luồn Cáp Chịu Lực KSV Tích Hợp Giảm Căng",
+    "en": "Đầu Nối Ống Luồn Cáp Chịu Lực KSV Tích Hợp Giảm Căng"
+  },
+  "MP-FAM-PVG": {
+    "vi": "Đầu Nối Cáp Chịu Lực Hạng Nặng P-VG & PR/SV Jumbo",
+    "en": "Đầu Nối Cáp Chịu Lực Hạng Nặng P-VG & PR/SV Jumbo"
+  },
+  "MP-FAM-KFW": {
+    "vi": "Khớp Nối Góc 90° & Khớp Xoay 360° KFW/D & SAT-GF",
+    "en": "Khớp Nối Góc 90° & Khớp Xoay 360° KFW/D & SAT-GF"
+  },
+  "MP-FAM-KDPZ": {
+    "vi": "Tấm Luồn Cáp Chữ Nhật KDP/Z (Chuẩn PA & Chuẩn FDA Thực Phẩm)",
+    "en": "Tấm Luồn Cáp Chữ Nhật KDP/Z (Chuẩn PA & Chuẩn FDA Thực Phẩm)"
+  },
+  "MP-FAM-KDPZR": {
+    "vi": "Tấm Luồn Cáp Tròn KDP/ZR & KDP/R Flex (Khoét Lỗ Tròn M50/M63)",
+    "en": "Tấm Luồn Cáp Tròn KDP/ZR & KDP/R Flex (Khoét Lỗ Tròn M50/M63)"
+  },
+  "MP-FAM-KDLE": {
+    "vi": "Khung Định Tuyến Luồn Cáp KDL/E & KDL/E+ (Cho Cáp Có Sẵn Jack)",
+    "en": "Khung Định Tuyến Luồn Cáp KDL/E & KDL/E+ (Cho Cáp Có Sẵn Jack)"
+  },
+  "MP-FAM-KDLD": {
+    "vi": "Khung Luồn Cáp Mật Độ Cao KDL/D & KDL/H Hạng Nặng",
+    "en": "Khung Luồn Cáp Mật Độ Cao KDL/D & KDL/H Hạng Nặng"
+  },
+  "MP-FAM-ZL": {
+    "vi": "Tấm Giảm Lực Căng Cáp ZL (Thanh Giữ Cố Định Cáp Tủ Điện)",
+    "en": "Tấm Giảm Lực Căng Cáp ZL (Thanh Giữ Cố Định Cáp Tủ Điện)"
+  },
+  "MP-FAM-KH": {
+    "vi": "Đế Giữ Cáp Bắt Vít KH & Chốt Hãm Cố Định Dây BFC",
+    "en": "Đế Giữ Cáp Bắt Vít KH & Chốt Hãm Cố Định Dây BFC"
+  },
+  "MP-FAM-BSP": {
+    "vi": "Nút Bịt Chống Nước & Bịt Lỗ Chờ BSP / BS-KDP-Z",
+    "en": "Nút Bịt Chống Nước & Bịt Lỗ Chờ BSP / BS-KDP-Z"
+  },
+  "MP-FAM-MSN": {
+    "vi": "Đế Gá Rãnh Nhôm Định Hình Montagesockel MS-N (Profile 6, 8, 10)",
+    "en": "Đế Gá Rãnh Nhôm Định Hình Montagesockel MS-N (Profile 6, 8, 10)"
+  },
+  "MP-FAM-UHE": {
+    "vi": "Kẹp Giữ Ống Luồn Cáp 1 Mảnh UHE (P09 Đến P48 / M12 Đến M50)",
+    "en": "Kẹp Giữ Ống Luồn Cáp 1 Mảnh UHE (P09 Đến P48 / M12 Đến M50)"
+  },
+  "MP-FAM-UHS": {
+    "vi": "Giá Đỡ Ống Luồn Cáp Hạng Nặng UH-S",
+    "en": "Giá Đỡ Ống Luồn Cáp Hạng Nặng UH-S"
+  },
+  "MP-FAM-BSH": {
+    "vi": "Bộ Kẹp Gá Thanh Nhôm BSH & Phụ Kiện Đầu Ống ET / SRF",
+    "en": "Bộ Kẹp Gá Thanh Nhôm BSH & Phụ Kiện Đầu Ống ET / SRF"
+  },
+  "MP-FAM-SG420": {
+    "vi": "Má Xích Dẫn Cáp EVOCHAIN SG 420 (Má Trong & Má Ngoài)",
+    "en": "Má Xích Dẫn Cáp EVOCHAIN SG 420 (Má Trong & Má Ngoài)"
+  },
+  "MP-FAM-SG560": {
+    "vi": "Má Xích Dẫn Cáp EVOCHAIN SG 560 (Má Trong & Má Ngoài)",
+    "en": "Má Xích Dẫn Cáp EVOCHAIN SG 560 (Má Trong & Má Ngoài)"
+  },
+  "MP-FAM-RS": {
+    "vi": "Thanh Giằng Ngang Xích Dẫn Cáp RS-40 & RS-50 (Crossbar Bridge)",
+    "en": "Thanh Giằng Ngang Xích Dẫn Cáp RS-40 & RS-50 (Crossbar Bridge)"
+  },
+  "MP-FAM-TR": {
+    "vi": "Vách Ngăn Chia Khoang Xích TR 420 / TR 560 & Giá Đỡ RTT",
+    "en": "Vách Ngăn Chia Khoang Xích TR 420 / TR 560 & Giá Đỡ RTT"
+  },
+  "MP-FAM-KA": {
+    "vi": "Đầu Nối Cố Định Xích KA 420 / KA 560 & Guốc Trượt GS",
+    "en": "Đầu Nối Cố Định Xích KA 420 / KA 560 & Guốc Trượt GS"
+  },
+  "MP-FAM-EWRPP": {
+    "vi": "Ống Luồn Bảo Vệ Cáp Tiêu Chuẩn EW-R-PP (Chống Hóa Chất & Va Đập)",
+    "en": "Ống Luồn Bảo Vệ Cáp Tiêu Chuẩn EW-R-PP (Chống Hóa Chất & Va Đập)"
+  },
+  "MP-FAM-EWLPAB": {
+    "vi": "Ống Luồn Cáp Dẻo Chống Cháy EWL-PAB (PA6 Tiêu Chuẩn V0)",
+    "en": "Ống Luồn Cáp Dẻo Chống Cháy EWL-PAB (PA6 Tiêu Chuẩn V0)"
+  },
+  "MP-FAM-EWXPAE": {
+    "vi": "Ống Luồn Cáp Động Lực Robot EWX-PAE (Uốn Mỏi Hàng Triệu Chu Kỳ)",
+    "en": "Ống Luồn Cáp Động Lực Robot EWX-PAE (Uốn Mỏi Hàng Triệu Chu Kỳ)"
+  },
+  "MP-FAM-GFP": {
+    "vi": "Ống Bện Bảo Vệ Bó Dây Đàn Hồi GF-P (Polyester Braided)",
+    "en": "Ống Bện Bảo Vệ Bó Dây Đàn Hồi GF-P (Polyester Braided)"
+  },
+  "MP-FAM-LPC": {
+    "vi": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate LPC & Đế Gá GP 3M",
+    "en": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate LPC & Đế Gá GP 3M"
+  },
   "1083": {
     en: "Ball joint KEG/ZL & Hose ring SRF/ZL",
     "zh-CN": "Murrplastik KEG/ZL 球头万向节与 SRF/ZL 软管保护环",

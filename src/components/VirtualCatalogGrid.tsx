@@ -146,11 +146,15 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
         const cleanQ = q.replace(/[-_.\s]/g, '');
         const cleanSku = (item.sku || '').toLowerCase().replace(/[-_.\s]/g, '');
         const matchSku = item.sku.toLowerCase().includes(q) || (cleanQ.length >= 2 && cleanSku.includes(cleanQ));
+        const matchVariantSku = item.variants?.some(v => 
+          (v.sku && (v.sku.toLowerCase().includes(q) || v.sku.toLowerCase().replace(/[-_.\s]/g, '').includes(cleanQ))) ||
+          (v.name && v.name.toLowerCase().includes(q))
+        );
         const matchName = item.name.toLowerCase().includes(q);
         const matchBrand = getSafeBrand(item.brand, item.name).toLowerCase().includes(q);
         const matchCategory = (item.category || '').toLowerCase().includes(q);
         const matchTags = (item.tags || '').toLowerCase().includes(q);
-        if (!matchSku && !matchName && !matchBrand && !matchCategory && !matchTags) {
+        if (!matchSku && !matchVariantSku && !matchName && !matchBrand && !matchCategory && !matchTags) {
           return false;
         }
       }
@@ -432,6 +436,17 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                             : t('catalog.project_order', 'Đặt dự án')}
                         </span>
                       </div>
+
+                      {/* Variant & 3-Image Badge */}
+                      {p.variants && p.variants.length > 0 && (
+                        <div className="absolute bottom-1.5 left-1.5 z-10 pointer-events-none">
+                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-xs bg-slate-900/85 text-white backdrop-blur-xs flex items-center gap-1 shadow-2xs border border-white/10">
+                            <span>{p.variants.length} quy cách</span>
+                            <span className="text-slate-400">•</span>
+                            <span className="text-amber-300 font-semibold">Đủ 3 ảnh</span>
+                          </span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Product Name & Category */}

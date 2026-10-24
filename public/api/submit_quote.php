@@ -46,6 +46,14 @@ if (!isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST')
     exit;
 }
 
+// 1.1 Enforce Content-Type: application/json for POST requests
+$content_type = isset($_SERVER['CONTENT_TYPE']) ? $_SERVER['CONTENT_TYPE'] : (isset($_SERVER['HTTP_CONTENT_TYPE']) ? $_SERVER['HTTP_CONTENT_TYPE'] : '');
+if (stripos($content_type, 'application/json') === false) {
+    http_response_code(400);
+    echo json_encode(array('success' => false, 'message' => 'Tiêu đề Content-Type phải là application/json.'));
+    exit;
+}
+
 // 2. Client IP Resolution & Strict Validation (Anti-Spoofing & Anti-XSS)
 $raw_ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
 if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -92,9 +100,25 @@ if (file_exists($rate_limit_file)) {
     @file_put_contents($rate_limit_file, json_encode(array($now)));
 }
 
-// 4. Parse JSON Input
+// 4. Parse JSON Input (Enforce size limit <= 128KB & decode depth 16)
 $raw_input = file_get_contents('php://input');
-$data = json_decode($raw_input, true);
+
+if ($raw_input === false || strlen($raw_input) === 0) {
+    http_response_code(400);
+    echo json_encode(array('success' => false, 'message' => 'Không tìm thấy dữ liệu yêu cầu.'));
+    exit;
+}
+
+if (strlen($raw_input) > 131072) {
+    http_response_code(400);
+    echo json_encode(array('success' => false, 'message' => 'Dung lượng payload vượt quá giới hạn cho phép (128 KB).'));
+    exit;
+}
+
+if (!defined('JSON_INVALID_UTF8_SUBSTITUTE')) {
+    define('JSON_INVALID_UTF8_SUBSTITUTE', 2097152);
+}
+$data = json_decode($raw_input, true, 16, JSON_INVALID_UTF8_SUBSTITUTE);
 
 if (!$data || !is_array($data)) {
     http_response_code(400);
@@ -110,13 +134,22 @@ if (!empty($data['hp_fax'])) {
 }
 
 // 6. Sanitize & Validate Form Data
-$company_name = htmlspecialchars(strip_tags(trim(get_field($data, 'companyName'))), ENT_QUOTES, 'UTF-8');
-$contact_name = htmlspecialchars(strip_tags(trim(get_field($data, 'contactName'))), ENT_QUOTES, 'UTF-8');
-$phone        = preg_replace('/[^0-9+]/', '', trim(get_field($data, 'phone')));
-$email        = filter_var(trim(get_field($data, 'email')), FILTER_SANITIZE_EMAIL);
-$factory_loc  = htmlspecialchars(strip_tags(trim(get_field($data, 'factoryLocation'))), ENT_QUOTES, 'UTF-8');
-$project_note = htmlspecialchars(strip_tags(trim(get_field($data, 'projectNote'))), ENT_QUOTES, 'UTF-8');
+$company_name = htmlspecialchars(strip_tags(trim((string)(get_field($data, 'companyName') ?: get_field($data, 'company_name')))), ENT_QUOTES, 'UTF-8');
+$contact_name = htmlspecialchars(strip_tags(trim((string)(get_field($data, 'contactName') ?: (get_field($data, 'contact_name') ?: (get_field($data, 'fullname') ?: get_field($data, 'company_name')))))), ENT_QUOTES, 'UTF-8');
+$phone        = preg_replace('/[^0-9+]/', '', trim((string)get_field($data, 'phone')));
+$raw_email    = trim((string)get_field($data, 'email'));
+// PHP 8.2+ clean regex and RFC validation email sanitization
+$clean_email  = preg_replace('/[^\w.@+-]/', '', $raw_email);
+$email        = filter_var($clean_email, FILTER_VALIDATE_EMAIL) ? $clean_email : '';
+$factory_loc  = htmlspecialchars(strip_tags(trim((string)get_field($data, 'factoryLocation'))), ENT_QUOTES, 'UTF-8');
+$project_note = htmlspecialchars(strip_tags(trim((string)(get_field($data, 'projectNote') ?: get_field($data, 'notes')))), ENT_QUOTES, 'UTF-8');
 $items        = (isset($data['items']) && is_array($data['items'])) ? $data['items'] : array();
+
+if (count($items) > 100) {
+    http_response_code(400);
+    echo json_encode(array('success' => false, 'message' => 'Số lượng thiết bị trong một báo giá không được vượt quá 100 mục.'));
+    exit;
+}
 
 if (empty($company_name) || empty($contact_name) || empty($phone)) {
     http_response_code(422);
@@ -235,7 +268,8 @@ try {
     $pdo = new PDO($dsn, $db_user, $db_pass, array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false
+        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::ATTR_TIMEOUT => 1
     ));
 
     $stmt = $pdo->prepare("
@@ -291,14 +325,17 @@ $email_headers = "From: noreply@protools.com.vn\r\n" .
 @mail($notify_email, $email_subject, $email_body, $email_headers);
 
 // 10. Return Response to Client
+$rfq_id = 'RFQ-' . date('Ymd') . '-' . strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 6));
 if ($db_saved) {
     echo json_encode(array(
         'success' => true,
+        'rfq_id'  => $rfq_id,
         'message' => 'Yêu cầu báo giá của quý công ty đã được chuyển thành công đến phòng kinh doanh T&T Vina. Kỹ sư phụ trách sẽ liên hệ phản hồi trong 15-30 phút.'
     ));
 } else {
     echo json_encode(array(
         'success' => true,
+        'rfq_id'  => $rfq_id,
         'message' => 'Yêu cầu báo giá đã được tiếp nhận. Đội ngũ T&T Vina sẽ liên hệ ngay theo số điện thoại ' . $phone . '.'
     ));
 }
