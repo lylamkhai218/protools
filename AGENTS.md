@@ -588,3 +588,13 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
   - **Sự cố 3 - Chặn và xóa triệt để `?mode=internal`**:
     - *Khắc phục*: Bổ sung quy tắc chuyển hướng vĩnh viễn trong root `.htaccess`: `RewriteCond %{QUERY_STRING} (?:^|&)mode=internal(?:&|$) [NC]` -> `RewriteRule ^(.*)$ /$1? [R=301,L]`. Mọi yêu cầu chứa `mode=internal` được chuyển hướng HTTP 301 tức thì về URL sạch, đồng thời client React `App.tsx` tự động loại bỏ tham số qua `replaceState`.
   - *Kiểm chứng thực tế (CDP Automated Inspection)*: Headless Chrome kết nối qua CDP trên Production `https://protools.com.vn/` ghi nhận `TOTAL LIVE CONSOLE ERRORS: 0`.
+
+- **Sự cố & Tối ưu 27/10/2026 (Phiên 2): Triệt Tiêu Nháy Hard-Refresh, Khắc Phục Ảnh Murrplastik & Dọn Ô Quy Cách:**
+  - **1. Triệt tiêu hoàn toàn nháy màn hình (`Ctrl + Shift + R`)**:
+    - *Nguyên nhân*: Các template snapshot tĩnh trước đó chèn trực tiếp các header màu tối (`bg-slate-900`) hoặc banner gradient xanh giả lập vào bên trong `<div id="root">`. Khi làm mới cứng, trình duyệt hiển thị khối HTML này trong ~0,2 giây trước khi React SPA hydrate và đè lên giao diện sáng thật, gây cảm giác nháy giật mắt.
+    - *Giải pháp*: Giữ nguyên `<div id="root"></div>` hoàn toàn rỗng trên toàn bộ các tệp HTML snapshot tĩnh (Trang chủ, `/san-pham`, 15 chuyên mục, 104 sản phẩm, trang tài liệu/báo giá). Toàn bộ nội dung văn bản SEO, bảng thông số kỹ thuật và thẻ liên kết phục vụ Bot tìm kiếm được chuyển gọn vào `<noscript>...</noscript>`. Trình duyệt có bật JavaScript sẽ không còn hiển thị bất kỳ khối tạm nào, triệt tiêu 100% nháy hình.
+  - **2. Sửa lỗi ảnh Murrplastik không tải được (`ERR_NAME_NOT_RESOLVED`)**:
+    - *Nguyên nhân*: Trong `src/data.ts` và `public/data/catalog_index.json`, các đường dẫn ảnh sản phẩm Murrplastik bị tiền tố 2 dấu gạch chéo `//images/products/murr/...`. Trong chuẩn web W3C, chuỗi `//images/...` được trình duyệt hiểu là URL tương đối theo giao thức (Protocol-relative URL) trỏ tới tên miền có tên là `images`. Trình duyệt gửi truy vấn DNS tìm domain `images` và báo lỗi không phân giải được tên miền.
+    - *Giải pháp*: Chuẩn hóa toàn bộ tiền tố thành `/images/products/murr/...` (URL đường dẫn tuyệt đối từ root domain). Xác thực trực tiếp trên live: HTTP 200 OK, mime-type `image/webp`, tải mượt mà.
+  - **3. Bỏ ô nhãn quy cách trên thẻ card sản phẩm**:
+    - *Xử lý*: Đã xóa bỏ hoàn toàn khối div badge `absolute bottom-1.5 left-1.5 z-10 pointer-events-none` khỏi component [`VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx). Thẻ ảnh sản phẩm hiển thị thoáng, tinh giản và đồng nhất theo chuẩn Taste-Skill v2.
