@@ -204,6 +204,13 @@ export default function App() {
     const handleUrlChange = () => {
       const pathname = window.location.pathname;
       const params = new URLSearchParams(window.location.search);
+      // Auto-purge legacy internal review parameter
+      if (params.has('mode')) {
+        params.delete('mode');
+        const cleanQuery = params.toString() ? `?${params.toString()}` : '';
+        window.history.replaceState(null, '', pathname + cleanQuery);
+      }
+
       const productParam = params.get('product');
       const categoryParam = params.get('category');
       const tabParam = params.get('tab');
