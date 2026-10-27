@@ -1,0 +1,106 @@
+DirectoryIndex index.html index.php
+
+# ====================================================================
+# LITESPEED LSPHP 8.2 HANDLER (CVE-2026-109618 & CVE-2026-109619 CUTOVER)
+# Staged Production Cutover: Maps .php files to LSPHP 8.2 external application.
+# Sub-Second Rollback: Comment out or remove the AddHandler directive to revert to PHP 5.6.40.
+# ====================================================================
+<IfModule mod_rewrite.c>
+  # LiteSpeed PHP 8.2 Handler
+  AddHandler application/x-httpd-php82 .php
+</IfModule>
+
+# ====================================================================
+# 0. LITESPEED / LSPHP RUNTIME CONTAINMENT (CVE-2026-109618 & CVE-2026-109619)
+# ====================================================================
+<IfModule lsapi_module>
+  php_flag session.upload_progress.enabled Off
+  php_flag fatal_error_backtraces Off
+  php_value post_max_size 16M
+  php_value upload_max_filesize 10M
+  php_value max_input_nesting_level 64
+  php_value max_input_vars 1000
+</IfModule>
+
+# Restrict body size for public API quote submissions (128 KB max)
+<Files "submit_quote.php">
+  LimitRequestBody 131072
+</Files>
+
+# ====================================================================
+# 1. SECURITY & CACHE-CONTROL HEADERS (LITESPEED / MOD_HEADERS)
+# ====================================================================
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://cdn.jsdelivr.net https://code.jquery.com https://cdnjs.cloudflare.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: https: blob: https://www.google-analytics.com https://www.google.com https://www.facebook.com; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://analytics.google.com https://www.google.com https://*.googletagmanager.com https://*.doubleclick.net https://www.facebook.com https://*.facebook.com https://connect.facebook.net; frame-src 'self' https://www.google.com https://maps.google.com https://www.youtube.com https://www.youtube-nocookie.com https://www.facebook.com; object-src 'none'; base-uri 'self';"
+
+  # Static Assets (Vite hashed bundles, images, fonts, 3D STL models) - 1 Year Immutable Cache
+  <FilesMatch "\.(js|css|webp|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|stl)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  # Catalog Data Index & Documents - 2 Hours Cache with Must-Revalidate
+  <FilesMatch "\.(json|xml|txt|pdf)$">
+    Header set Cache-Control "max-age=7200, public, must-revalidate"
+  </FilesMatch>
+
+  # HTML Files - Revalidate with server (enables bfcache by omitting no-store)
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ====================================================================
+# 2. SPA ROUTING & ADMIN / SUBPAGES / IMAGES BYPASS
+# ====================================================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # --------------------------------------------------------------------
+  # GLOBAL EXPLOIT PAYLOAD & STREAM WRAPPER INTERCEPTION
+  # Intercept PHP2Shell & RCE signatures before LSPHP processing
+  # --------------------------------------------------------------------
+  RewriteCond %{QUERY_STRING} (?:PHP_SESSION_UPLOAD_PROGRESS|session\.upload_progress) [NC,OR]
+  RewriteCond %{QUERY_STRING} (?:php:\/\/|phar:\/\/|data:\/\/|expect:\/\/) [NC,OR]
+  RewriteCond %{QUERY_STRING} (?:php|phar|data|expect)(?::|%3a)(?:\/|%2f){2} [NC,OR]
+  RewriteCond %{QUERY_STRING} (?:eval\(|base64_decode|system\(|passthru\(|shell_exec\() [NC,OR]
+  RewriteCond %{THE_REQUEST} (?:%00|\x00) [NC,OR]
+  RewriteCond %{REQUEST_URI} (?:php:\/\/|phar:\/\/|data:\/\/|expect:\/\/) [NC]
+  RewriteRule ^ - [F,L]
+
+  # Enforce Content-Type application/json for POST to /api/submit_quote.php
+  RewriteCond %{REQUEST_URI} ^/api/submit_quote\.php$ [NC]
+  RewriteCond %{REQUEST_METHOD} POST
+  RewriteCond %{HTTP:Content-Type} !^application/json [NC]
+  RewriteRule ^ - [F,L]
+
+  # Marketing Shortlinks (VEC 2026 Exhibition)
+  RewriteRule ^vec26/?$ /murrplastik/tin-tuc/trien-lam-vec-2026/ [R=301,L]
+  RewriteRule ^vec2026/?$ /murrplastik/tin-tuc/trien-lam-vec-2026/ [R=301,L]
+
+  # Explicit AdminCP & Login mapping
+  RewriteRule ^admincp_preview/?(.*)$ /admincp/$1 [R=301,L]
+  RewriteRule ^admincp/?$ /admincp/index.php [L]
+  RewriteRule ^dang-nhap/?$ /admincp/login.php [L]
+  RewriteRule ^office/?$ /office/index.php [L]
+
+  # Bypass SPA rewrite for AdminCP, API, Old Archive, Subpages, Warehouse WMS (/kho), Internal ERP (/office), and Media Folders
+  RewriteRule ^(admincp|admin|administrator|api|old|murrplastik|preview|images|uploads|kho|office|bomvietnam\.com|js|ckeditor)(/.*)?$ - [L]
+
+  # Standard SPA HTML5 PushState Fallback
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
