@@ -25,7 +25,7 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
     },
     {
       q: 'Địa chỉ văn phòng trụ sở và kho hàng chính thức của T&T VINA ở đâu?',
-      a: 'Trụ sở chính đặt tại: Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km). VPGD & Kho hàng Hà Nội: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội (Số 11 ngách 68 ngõ 467 Lĩnh Nam — có sẵn định vị chỉ đường trên Google Maps).'
+      a: 'Trụ sở chính đặt tại: Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km). VPGD & Kho hàng Hà Nội: Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội (Số 11 ngách 68 ngõ 467 Lĩnh Nam — có sẵn định vị chỉ đường trên Google Maps).'
     }
   ],
   en: [
@@ -69,7 +69,7 @@ export const FAQ_TRANSLATIONS: Record<SupportedLocale, FaqItem[]> = {
     },
     {
       q: 'T&T VINA 官方总部与总仓设在何处？',
-      a: '公司总部：越南兴安省太瑞县太瑞社茶回村（距连河泰工业园区 1 公里）。河内代表处与总仓：河内市黄梅郡岭南坊岭南467弄68巷11号（可在 Google Maps 搜索导航定位）。'
+      a: '公司总部：越南兴安省太瑞县太瑞社茶回村（距连河泰工业园区 1 公里）。河内代表处与总仓：河内市黄梅郡永兴坊岭南467弄68巷11号（可在 Google Maps 搜索导航定位）。'
     }
   ],
   de: [

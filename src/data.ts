@@ -11,8 +11,8 @@ export const COMPANY_INFO = {
   taxId: '0108392186',
   headquarters: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
   headquartersFull: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
-  vpgdAndWarehouse: 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội',
-  branchHanoi: 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội',
+  vpgdAndWarehouse: 'Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội',
+  branchHanoi: 'Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội',
   mapUrlLinhNam: 'https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7',
   mapEmbedLinhNam: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.13591034401!2d105.88146848700326!3d20.982886742453424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135af26d2bb1e0f%3A0x65f178554a3bb4aa!2zQ8O0bmcgdHkgVE5ISCBDw7RuZyBuZ2hp4buHcCBUJlQgVmluYQ!5e0!3m2!1svi!2s!4v1788060518008!5m2!1svi!2s',
   officeHungYen: 'Thôn Trà Hồi - Xã Thái Thụy - Tỉnh Hưng Yên (cách khu công nghiệp Liên Hà Thái 1km)',
@@ -457,7 +457,7 @@ export const INDUSTRIES: IndustryApplication[] = [
 ];
 
 export const PRODUCTS: Product[] = [
-  // --- 500KG MURRPLASTIK FAMILIES START ---
+  // --- MURRPLASTIK FAMILIES START ---
   {
       "id": "MP-FAM-MSV",
       "name": "Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)",
@@ -466,11 +466,11 @@ export const PRODUCTS: Product[] = [
       "category": "Đầu nối / Khớp nối luồn cáp",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83602464_studio.webp",
+      "image": "//images/products/murr/studio/murr_83602464_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83602464_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83602464_real.webp"
+          "//images/products/murr/studio/murr_83602464_studio.webp",
+          "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+          "//images/products/murr/warehouse/murr_83602464_real.webp"
       ],
       "stock": 277,
       "stockStatus": "In Stock",
@@ -499,11 +499,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83602464",
               "name": "MSV M32x1,5/29 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83602464_studio.webp",
+              "image": "//images/products/murr/studio/murr_83602464_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83602464_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602464_real.webp"
+                  "//images/products/murr/studio/murr_83602464_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602464_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -521,11 +521,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83602466",
               "name": "MSV M40X1,5/36 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83602466_studio.webp",
+              "image": "//images/products/murr/studio/murr_83602466_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83602466_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602466_real.webp"
+                  "//images/products/murr/studio/murr_83602466_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602466_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -543,11 +543,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83602462",
               "name": "MSV M25X1,5/21 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83602462_studio.webp",
+              "image": "//images/products/murr/studio/murr_83602462_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83602462_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602462_real.webp"
+                  "//images/products/murr/studio/murr_83602462_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602462_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -565,11 +565,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692802",
               "name": "V-ZLT-70",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692802_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692802_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692802_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602464_real.webp"
+                  "//images/products/murr/studio/murr_83692802_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602464_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -587,11 +587,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83602460",
               "name": "MSV M20X1,5/16 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83602460_studio.webp",
+              "image": "//images/products/murr/studio/murr_83602460_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83602460_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602460_real.webp"
+                  "//images/products/murr/studio/murr_83602460_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602460_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -609,11 +609,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83602458",
               "name": "MSV M16X1,5/11 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83602458_studio.webp",
+              "image": "//images/products/murr/studio/murr_83602458_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83602458_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602458_real.webp"
+                  "//images/products/murr/studio/murr_83602458_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602458_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -631,11 +631,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83602452",
               "name": "MSV M12X1,5/09 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83602452_studio.webp",
+              "image": "//images/products/murr/studio/murr_83602452_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83602452_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83602452_real.webp"
+                  "//images/products/murr/studio/murr_83602452_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83602452_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -653,11 +653,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83691660",
               "name": "KMG/F-M32 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83691660_studio.webp",
+              "image": "//images/products/murr/studio/murr_83691660_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83691660_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83691660_real.webp"
+                  "//images/products/murr/studio/murr_83691660_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83691660_real.webp"
               ],
               "stock": 6,
               "unit": "Cái",
@@ -675,11 +675,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692468",
               "name": "KEG/K-70 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692468_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692468_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692468_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692468_real.webp"
+                  "//images/products/murr/studio/murr_83692468_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692468_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -697,11 +697,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83691658",
               "name": "KMG/F-M25 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83691658_studio.webp",
+              "image": "//images/products/murr/studio/murr_83691658_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83691658_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83691658_real.webp"
+                  "//images/products/murr/studio/murr_83691658_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83691658_real.webp"
               ],
               "stock": 6,
               "unit": "Cái",
@@ -719,11 +719,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692258",
               "name": "KEG/ZL-M25 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692258_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692258_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692258_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692258_real.webp"
+                  "//images/products/murr/studio/murr_83692258_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692258_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -741,11 +741,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692260",
               "name": "KEG/ZL-M32 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692260_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692260_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692260_studio.webp",
-                  "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692260_real.webp"
+                  "//images/products/murr/studio/murr_83692260_studio.webp",
+                  "//images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692260_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -759,7 +759,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KSV",
@@ -769,11 +769,11 @@ export const PRODUCTS: Product[] = [
       "category": "Đầu nối / Khớp nối luồn cáp",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83611456_studio.webp",
+      "image": "//images/products/murr/studio/murr_83611456_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83611456_studio.webp",
-          "/images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
-          "/images/products/murr/warehouse/murr_83611456_real.webp"
+          "//images/products/murr/studio/murr_83611456_studio.webp",
+          "//images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
+          "//images/products/murr/warehouse/murr_83611456_real.webp"
       ],
       "stock": 175,
       "stockStatus": "In Stock",
@@ -802,11 +802,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83611456",
               "name": "KSV M20X1,5/16 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83611456_studio.webp",
+              "image": "//images/products/murr/studio/murr_83611456_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83611456_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611456_real.webp"
+                  "//images/products/murr/studio/murr_83611456_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611456_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -824,11 +824,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83611452",
               "name": "KSV M16X1,5/11 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83611452_studio.webp",
+              "image": "//images/products/murr/studio/murr_83611452_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83611452_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611452_real.webp"
+                  "//images/products/murr/studio/murr_83611452_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611452_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -846,11 +846,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83611460",
               "name": "KSV M32X1,5/29 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83611460_studio.webp",
+              "image": "//images/products/murr/studio/murr_83611460_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83611460_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611460_real.webp"
+                  "//images/products/murr/studio/murr_83611460_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611460_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -868,11 +868,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83611458",
               "name": "KSV M25X1,5/21 m-fix, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83611458_studio.webp",
+              "image": "//images/products/murr/studio/murr_83611458_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83611458_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83611458_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ksv-conduit-and-cable-fitting-183967_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -886,7 +886,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-PVG",
@@ -896,11 +896,11 @@ export const PRODUCTS: Product[] = [
       "category": "Đầu nối / Khớp nối luồn cáp",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83401082_studio.webp",
+      "image": "//images/products/murr/studio/murr_83401082_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83401082_studio.webp",
-          "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-          "/images/products/murr/warehouse/murr_83401082_real.webp"
+          "//images/products/murr/studio/murr_83401082_studio.webp",
+          "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+          "//images/products/murr/warehouse/murr_83401082_real.webp"
       ],
       "stock": 78,
       "stockStatus": "In Stock",
@@ -929,11 +929,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83401082",
               "name": "P-VG/L M40/36-K M-PRO, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83401082_studio.webp",
+              "image": "//images/products/murr/studio/murr_83401082_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83401082_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83401082_real.webp"
+                  "//images/products/murr/studio/murr_83401082_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83401082_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -951,11 +951,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83401068",
               "name": "P-VG/L M20/16-K M-PRO, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83401068_studio.webp",
+              "image": "//images/products/murr/studio/murr_83401068_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83401068_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83401068_real.webp"
+                  "//images/products/murr/studio/murr_83401068_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83401068_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -973,11 +973,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83401078",
               "name": "P-VG/L M32/29-K M-PRO, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83401078_studio.webp",
+              "image": "//images/products/murr/studio/murr_83401078_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83401078_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83401078_real.webp"
+                  "//images/products/murr/studio/murr_83401078_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83401078_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -995,11 +995,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83401056",
               "name": "P-VG/L M12/09-K M-PRO, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83401056_studio.webp",
+              "image": "//images/products/murr/studio/murr_83401056_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83401056_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83401056_real.webp"
+                  "//images/products/murr/studio/murr_83401056_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83401056_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -1017,11 +1017,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83401074",
               "name": "P-VG/L M25/21-K M-PRO, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83401074_studio.webp",
+              "image": "//images/products/murr/studio/murr_83401074_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83401074_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83401074_real.webp"
+                  "//images/products/murr/studio/murr_83401074_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83401074_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -1039,11 +1039,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83401062",
               "name": "P-VG/L M16/11-K M-PRO, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83401062_studio.webp",
+              "image": "//images/products/murr/studio/murr_83401062_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83401062_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83401062_real.webp"
+                  "//images/products/murr/studio/murr_83401062_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83401062_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -1061,11 +1061,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83691267",
               "name": "PR/SV-UNI P70 Jumbo Protektor, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83691267_studio.webp",
+              "image": "//images/products/murr/studio/murr_83691267_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83691267_studio.webp",
-                  "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-                  "/images/products/murr/warehouse/murr_83691267_real.webp"
+                  "//images/products/murr/studio/murr_83691267_studio.webp",
+                  "//images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
+                  "//images/products/murr/warehouse/murr_83691267_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -1079,7 +1079,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KFW",
@@ -1089,11 +1089,11 @@ export const PRODUCTS: Product[] = [
       "category": "Đầu nối / Khớp nối luồn cáp",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83561856_studio.webp",
+      "image": "//images/products/murr/studio/murr_83561856_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83561856_studio.webp",
-          "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-          "/images/products/murr/warehouse/murr_83561856_real.webp"
+          "//images/products/murr/studio/murr_83561856_studio.webp",
+          "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+          "//images/products/murr/warehouse/murr_83561856_real.webp"
       ],
       "stock": 300,
       "stockStatus": "In Stock",
@@ -1122,11 +1122,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83561856",
               "name": "KFW/D 29, rotating, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83561856_studio.webp",
+              "image": "//images/products/murr/studio/murr_83561856_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83561856_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83561856_real.webp"
+                  "//images/products/murr/studio/murr_83561856_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83561856_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -1144,11 +1144,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83651606",
               "name": "SAT-GF M16/P11, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83651606_studio.webp",
+              "image": "//images/products/murr/studio/murr_83651606_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83651606_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83651606_real.webp"
+                  "//images/products/murr/studio/murr_83651606_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83651606_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -1166,11 +1166,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83651612",
               "name": "SAT-GF M32/P29, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83651612_studio.webp",
+              "image": "//images/products/murr/studio/murr_83651612_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83651612_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83651612_real.webp"
+                  "//images/products/murr/studio/murr_83651612_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83651612_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -1188,11 +1188,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83651608",
               "name": "SAT-GF M20/P16, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83651608_studio.webp",
+              "image": "//images/products/murr/studio/murr_83651608_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83651608_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83651608_real.webp"
+                  "//images/products/murr/studio/murr_83651608_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83651608_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -1210,11 +1210,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83561852",
               "name": "KFW/D 16, rotating, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83561852_studio.webp",
+              "image": "//images/products/murr/studio/murr_83561852_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83561852_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83561852_real.webp"
+                  "//images/products/murr/studio/murr_83561852_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83561852_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -1232,11 +1232,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83561854",
               "name": "KFW/D 21, rotating, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83561854_studio.webp",
+              "image": "//images/products/murr/studio/murr_83561854_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83561854_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83561854_real.webp"
+                  "//images/products/murr/studio/murr_83561854_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83561854_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -1254,11 +1254,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83561850",
               "name": "KFW/D 11, rotating, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83561850_studio.webp",
+              "image": "//images/products/murr/studio/murr_83561850_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83561850_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83561850_real.webp"
+                  "//images/products/murr/studio/murr_83561850_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83561850_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -1276,11 +1276,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83561858",
               "name": "KFW/D 36, rotating, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83561858_studio.webp",
+              "image": "//images/products/murr/studio/murr_83561858_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83561858_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83561858_real.webp"
+                  "//images/products/murr/studio/murr_83561858_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83561858_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -1298,11 +1298,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83651614",
               "name": "SAT-GF M40/P36, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83651614_studio.webp",
+              "image": "//images/products/murr/studio/murr_83651614_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83651614_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83651614_real.webp"
+                  "//images/products/murr/studio/murr_83651614_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83651614_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -1320,11 +1320,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83651610",
               "name": "SAT-GF M25/P21, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83651610_studio.webp",
+              "image": "//images/products/murr/studio/murr_83651610_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83651610_studio.webp",
-                  "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-                  "/images/products/murr/warehouse/murr_83651610_real.webp"
+                  "//images/products/murr/studio/murr_83651610_studio.webp",
+                  "//images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
+                  "//images/products/murr/warehouse/murr_83651610_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -1338,7 +1338,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KDPZ",
@@ -1348,11 +1348,11 @@ export const PRODUCTS: Product[] = [
       "category": "Tấm / Khung & Đệm luồn cáp (KDP/KDL)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87303084_studio.webp",
+      "image": "//images/products/murr/studio/murr_87303084_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87303084_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-          "/images/products/murr/warehouse/murr_87303084_real.webp"
+          "//images/products/murr/studio/murr_87303084_studio.webp",
+          "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+          "//images/products/murr/warehouse/murr_87303084_real.webp"
       ],
       "stock": 170,
       "stockStatus": "In Stock",
@@ -1381,11 +1381,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303084",
               "name": "KDP/Z 10/15, sw, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303084_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303084_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303084_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303084_real.webp"
+                  "//images/products/murr/studio/murr_87303084_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303084_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1403,11 +1403,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303056",
               "name": "KDP/Z 16/12, sw, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303056_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303056_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303056_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303056_real.webp"
+                  "//images/products/murr/studio/murr_87303056_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303056_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1425,11 +1425,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303062",
               "name": "KDP/Z 16/40, sw, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303062_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303062_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303062_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303062_real.webp"
+                  "//images/products/murr/studio/murr_87303062_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303062_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1447,11 +1447,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303010",
               "name": "KDP/Z 24/14, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303010_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303010_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303010_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303010_real.webp"
+                  "//images/products/murr/studio/murr_87303010_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303010_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1469,11 +1469,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303050",
               "name": "KDP/Z 24/48, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303050_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303050_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303050_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303050_real.webp"
+                  "//images/products/murr/studio/murr_87303050_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303050_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1491,11 +1491,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303054",
               "name": "KDP/Z 16/10, sw, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303054_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303054_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303054_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303054_real.webp"
+                  "//images/products/murr/studio/murr_87303054_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303054_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1513,11 +1513,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303058",
               "name": "KDP/Z 16/17, sw, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303058_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303058_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303058_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303058_real.webp"
+                  "//images/products/murr/studio/murr_87303058_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303058_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1535,11 +1535,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303060",
               "name": "KDP/Z 16/24, sw, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303060_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303060_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303060_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303060_real.webp"
+                  "//images/products/murr/studio/murr_87303060_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303060_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1557,11 +1557,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303030",
               "name": "KDP/Z 24/23, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303030_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303030_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303030_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303030_real.webp"
+                  "//images/products/murr/studio/murr_87303030_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303030_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1579,11 +1579,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303020",
               "name": "KDP/Z 24/14-1, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303020_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303020_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303020_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303020_real.webp"
+                  "//images/products/murr/studio/murr_87303020_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303020_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1601,11 +1601,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303040",
               "name": "KDP/Z 24/30, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303040_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303040_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303040_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303040_real.webp"
+                  "//images/products/murr/studio/murr_87303040_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303040_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1623,11 +1623,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303258",
               "name": "KDP/Z 16/17-FDA, WS/BL, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303258_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303258_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303258_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303258_real.webp"
+                  "//images/products/murr/studio/murr_87303258_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303258_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1645,11 +1645,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303230",
               "name": "KDP/Z 24/23-FDA, WS/BL, VE 5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303230_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303230_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303230_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303230_real.webp"
+                  "//images/products/murr/studio/murr_87303230_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303230_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1667,11 +1667,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303074",
               "name": "BS-KDP-Z 5-9mm, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303074_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303074_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303074_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303074_real.webp"
+                  "//images/products/murr/studio/murr_87303074_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303074_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -1689,11 +1689,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303076",
               "name": "BS-KDP-Z 7,5-12mm, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303076_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303076_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303076_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303076_real.webp"
+                  "//images/products/murr/studio/murr_87303076_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303076_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -1711,11 +1711,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303095",
               "name": "KDP/Z 72/Ri2, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303095_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303095_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303095_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303095_real.webp"
+                  "//images/products/murr/studio/murr_87303095_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-plastic-type-kdpz-208290_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303095_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1729,7 +1729,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KDPZR",
@@ -1739,11 +1739,11 @@ export const PRODUCTS: Product[] = [
       "category": "Tấm / Khung & Đệm luồn cáp (KDP/KDL)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87303132_studio.webp",
+      "image": "//images/products/murr/studio/murr_87303132_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87303132_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-          "/images/products/murr/warehouse/murr_87303132_real.webp"
+          "//images/products/murr/studio/murr_87303132_studio.webp",
+          "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+          "//images/products/murr/warehouse/murr_87303132_real.webp"
       ],
       "stock": 50,
       "stockStatus": "In Stock",
@@ -1772,11 +1772,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303132",
               "name": "KDP/ZR 40/7, round, KG, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303132_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303132_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303132_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303132_real.webp"
+                  "//images/products/murr/studio/murr_87303132_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303132_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1794,11 +1794,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303150",
               "name": "KDP/ZR 50/10, round, KG, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303150_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303150_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303150_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303150_real.webp"
+                  "//images/products/murr/studio/murr_87303150_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303150_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1816,11 +1816,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303152",
               "name": "KDP/ZR 50/10-1, round, KG, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303152_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303152_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303152_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303152_real.webp"
+                  "//images/products/murr/studio/murr_87303152_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303152_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1838,11 +1838,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87301911",
               "name": "KDP/R flex M25, SW",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87301911_studio.webp",
+              "image": "//images/products/murr/studio/murr_87301911_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87301911_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87301911_real.webp"
+                  "//images/products/murr/studio/murr_87301911_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87301911_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -1860,11 +1860,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87301912",
               "name": "KDP/R flex M32, SW",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87301912_studio.webp",
+              "image": "//images/products/murr/studio/murr_87301912_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87301912_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87301912_real.webp"
+                  "//images/products/murr/studio/murr_87301912_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87301912_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -1882,11 +1882,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87301913",
               "name": "KDP/R flex M40, SW",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87301913_studio.webp",
+              "image": "//images/products/murr/studio/murr_87301913_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87301913_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87301913_real.webp"
+                  "//images/products/murr/studio/murr_87301913_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87301913_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1904,11 +1904,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87301914",
               "name": "KDP/R flex M50, SW",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87301914_studio.webp",
+              "image": "//images/products/murr/studio/murr_87301914_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87301914_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87301914_real.webp"
+                  "//images/products/murr/studio/murr_87301914_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87301914_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1926,11 +1926,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87303130",
               "name": "KDP/ZR 40/6, round, KG, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87303130_studio.webp",
+              "image": "//images/products/murr/studio/murr_87303130_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87303130_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
-                  "/images/products/murr/warehouse/murr_87303130_real.webp"
+                  "//images/products/murr/studio/murr_87303130_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-plate-round-type-kdpzr-181064_2d.webp",
+                  "//images/products/murr/warehouse/murr_87303130_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -1944,7 +1944,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KDLE",
@@ -1954,11 +1954,11 @@ export const PRODUCTS: Product[] = [
       "category": "Tấm / Khung & Đệm luồn cáp (KDP/KDL)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87121110_studio.webp",
+      "image": "//images/products/murr/studio/murr_87121110_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87121110_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-          "/images/products/murr/warehouse/murr_87121110_real.webp"
+          "//images/products/murr/studio/murr_87121110_studio.webp",
+          "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+          "//images/products/murr/warehouse/murr_87121110_real.webp"
       ],
       "stock": 133,
       "stockStatus": "In Stock",
@@ -1987,11 +1987,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121110",
               "name": "KDL/E+ 24/4, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121110_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121110_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121110_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121110_real.webp"
+                  "//images/products/murr/studio/murr_87121110_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121110_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -2009,11 +2009,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121098",
               "name": "KDL/E+ 1/2, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121098_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121098_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121098_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121098_real.webp"
+                  "//images/products/murr/studio/murr_87121098_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121098_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2031,11 +2031,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121100",
               "name": "KDL/E+ 1/3, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121100_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121100_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121100_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121100_real.webp"
+                  "//images/products/murr/studio/murr_87121100_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121100_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2053,11 +2053,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121102",
               "name": "KDL/E+ 1/4, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121102_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121102_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121102_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121102_real.webp"
+                  "//images/products/murr/studio/murr_87121102_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121102_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2075,11 +2075,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121120",
               "name": "KDL/E+ 24/7, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121120_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121120_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121120_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121120_real.webp"
+                  "//images/products/murr/studio/murr_87121120_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121120_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -2097,11 +2097,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121130",
               "name": "KDL/E+ 24/10, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121130_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121130_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121130_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121130_real.webp"
+                  "//images/products/murr/studio/murr_87121130_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121130_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -2119,11 +2119,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121150",
               "name": "KDL/E+ 10/6, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121150_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121150_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121150_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121150_real.webp"
+                  "//images/products/murr/studio/murr_87121150_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121150_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2141,11 +2141,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121152",
               "name": "KDL/E+ 10/3, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121152_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121152_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121152_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121152_real.webp"
+                  "//images/products/murr/studio/murr_87121152_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121152_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2163,11 +2163,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121154",
               "name": "KDL/E+ 6/4, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121154_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121154_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121154_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121154_real.webp"
+                  "//images/products/murr/studio/murr_87121154_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121154_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2185,11 +2185,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121156",
               "name": "KDL/E+ 6/1, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121156_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121156_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121156_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121156_real.webp"
+                  "//images/products/murr/studio/murr_87121156_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121156_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2207,11 +2207,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121160",
               "name": "KDL/E+ 16/8, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121160_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121160_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121160_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121160_real.webp"
+                  "//images/products/murr/studio/murr_87121160_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121160_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -2229,11 +2229,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121162",
               "name": "KDL/E+ 16/5, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121162_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121162_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121162_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121162_real.webp"
+                  "//images/products/murr/studio/murr_87121162_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121162_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2251,11 +2251,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121180",
               "name": "KDL/ER+ 25/1, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121180_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121180_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121180_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121180_real.webp"
+                  "//images/products/murr/studio/murr_87121180_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121180_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -2273,11 +2273,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121184",
               "name": "KDL/ER+ 50/2, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121184_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121184_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121184_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121184_real.webp"
+                  "//images/products/murr/studio/murr_87121184_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121184_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2295,11 +2295,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121186",
               "name": "KDL/ER+ 50/4, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121186_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121186_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121186_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121186_real.webp"
+                  "//images/products/murr/studio/murr_87121186_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121186_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -2317,11 +2317,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121020",
               "name": "KDL/E 24/10, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121020_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121020_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121020_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121020_real.webp"
+                  "//images/products/murr/studio/murr_87121020_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdle-210857_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121020_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -2335,7 +2335,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KDLD",
@@ -2345,11 +2345,11 @@ export const PRODUCTS: Product[] = [
       "category": "Tấm / Khung & Đệm luồn cáp (KDP/KDL)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87121310_studio.webp",
+      "image": "//images/products/murr/studio/murr_87121310_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87121310_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121310_real.webp"
+          "//images/products/murr/studio/murr_87121310_studio.webp",
+          "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "//images/products/murr/warehouse/murr_87121310_real.webp"
       ],
       "stock": 1074,
       "stockStatus": "In Stock",
@@ -2378,11 +2378,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121310",
               "name": "KDT/ZE+ 03",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121310_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121310_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121310_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121310_real.webp"
+                  "//images/products/murr/studio/murr_87121310_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121310_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2400,11 +2400,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121312",
               "name": "KDT/ZE+ 04",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121312_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121312_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121312_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121312_real.webp"
+                  "//images/products/murr/studio/murr_87121312_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121312_real.webp"
               ],
               "stock": 30,
               "unit": "Cái",
@@ -2422,11 +2422,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121316",
               "name": "KDT/ZE+ 06",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121316_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121316_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121316_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121316_real.webp"
+                  "//images/products/murr/studio/murr_87121316_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121316_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2444,11 +2444,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121318",
               "name": "KDT/ZE+ 07",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121318_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121318_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121318_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121318_real.webp"
+                  "//images/products/murr/studio/murr_87121318_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121318_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2466,11 +2466,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121320",
               "name": "KDT/ZE+ 08",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121320_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121320_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121320_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121320_real.webp"
+                  "//images/products/murr/studio/murr_87121320_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121320_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2488,11 +2488,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121322",
               "name": "KDT/ZE+ 09",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121322_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121322_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121322_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121322_real.webp"
+                  "//images/products/murr/studio/murr_87121322_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121322_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2510,11 +2510,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121324",
               "name": "KDT/ZE+ 10",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121324_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121324_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121324_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121324_real.webp"
+                  "//images/products/murr/studio/murr_87121324_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121324_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2532,11 +2532,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121326",
               "name": "KDT/ZE+ 11",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121326_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121326_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121326_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121326_real.webp"
+                  "//images/products/murr/studio/murr_87121326_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121326_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2554,11 +2554,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121328",
               "name": "KDT/ZE+ 12",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121328_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121328_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121328_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121328_real.webp"
+                  "//images/products/murr/studio/murr_87121328_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121328_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -2576,11 +2576,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121330",
               "name": "KDT/ZE+ 13",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121330_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121330_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121330_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121330_real.webp"
+                  "//images/products/murr/studio/murr_87121330_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121330_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2598,11 +2598,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121332",
               "name": "KDT/ZE+ 14",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121332_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121332_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121332_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121332_real.webp"
+                  "//images/products/murr/studio/murr_87121332_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121332_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2620,11 +2620,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121334",
               "name": "KDT/ZE+ 15",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121334_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121334_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121334_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121334_real.webp"
+                  "//images/products/murr/studio/murr_87121334_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121334_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2642,11 +2642,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121336",
               "name": "KDT/ZE+ 16",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121336_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121336_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121336_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121336_real.webp"
+                  "//images/products/murr/studio/murr_87121336_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121336_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2664,11 +2664,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121338",
               "name": "KDT/ZE+ 17",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121338_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121338_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121338_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121338_real.webp"
+                  "//images/products/murr/studio/murr_87121338_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121338_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2686,11 +2686,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121340",
               "name": "KDT/ZE+ 18",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121340_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121340_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121340_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121340_real.webp"
+                  "//images/products/murr/studio/murr_87121340_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121340_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2708,11 +2708,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121342",
               "name": "KDT/ZE+ 19",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121342_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121342_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121342_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121342_real.webp"
+                  "//images/products/murr/studio/murr_87121342_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121342_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2730,11 +2730,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121344",
               "name": "KDT/ZE+ 20",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121344_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121344_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121344_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121344_real.webp"
+                  "//images/products/murr/studio/murr_87121344_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121344_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2752,11 +2752,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121346",
               "name": "KDT/ZE+ 21",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121346_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121346_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121346_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121346_real.webp"
+                  "//images/products/murr/studio/murr_87121346_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121346_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2774,11 +2774,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121348",
               "name": "KDT/ZE+ 22",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121348_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121348_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121348_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121348_real.webp"
+                  "//images/products/murr/studio/murr_87121348_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121348_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2796,11 +2796,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121350",
               "name": "KDT/ZE+ 23",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121350_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121350_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121350_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121350_real.webp"
+                  "//images/products/murr/studio/murr_87121350_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121350_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2818,11 +2818,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121352",
               "name": "KDT/ZE+ 24",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121352_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121352_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121352_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121352_real.webp"
+                  "//images/products/murr/studio/murr_87121352_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121352_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2840,11 +2840,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121354",
               "name": "KDT/ZE+ 25",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121354_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121354_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121354_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121354_real.webp"
+                  "//images/products/murr/studio/murr_87121354_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121354_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2862,11 +2862,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121356",
               "name": "KDT/ZE+ 26",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121356_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121356_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121356_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121356_real.webp"
+                  "//images/products/murr/studio/murr_87121356_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121356_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2884,11 +2884,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121358",
               "name": "KDT/ZE+ 27",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121358_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121358_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121358_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121358_real.webp"
+                  "//images/products/murr/studio/murr_87121358_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121358_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2906,11 +2906,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121360",
               "name": "KDT/ZE+ 28",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121360_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121360_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121360_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121360_real.webp"
+                  "//images/products/murr/studio/murr_87121360_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121360_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2928,11 +2928,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121362",
               "name": "KDT/ZE+ 29",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121362_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121362_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121362_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121362_real.webp"
+                  "//images/products/murr/studio/murr_87121362_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121362_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2950,11 +2950,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121364",
               "name": "KDT/ZE+ 30",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121364_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121364_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121364_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121364_real.webp"
+                  "//images/products/murr/studio/murr_87121364_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121364_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2972,11 +2972,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121366",
               "name": "KDT/ZE+ 31",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121366_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121366_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121366_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121366_real.webp"
+                  "//images/products/murr/studio/murr_87121366_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121366_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -2994,11 +2994,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121370",
               "name": "BTG/E+ blanket grommet big",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121370_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121370_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121370_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121370_real.webp"
+                  "//images/products/murr/studio/murr_87121370_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121370_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -3016,11 +3016,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121372",
               "name": "KDT/ZE+ flex 03-13",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121372_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121372_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121372_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121372_real.webp"
+                  "//images/products/murr/studio/murr_87121372_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121372_real.webp"
               ],
               "stock": 16,
               "unit": "Cái",
@@ -3038,11 +3038,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121374",
               "name": "KDT/ZE+ flex 13-30",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121374_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121374_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121374_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121374_real.webp"
+                  "//images/products/murr/studio/murr_87121374_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121374_real.webp"
               ],
               "stock": 16,
               "unit": "Cái",
@@ -3060,11 +3060,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121380",
               "name": "BTK/E+ blanket grommet small",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121380_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121380_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121380_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121380_real.webp"
+                  "//images/products/murr/studio/murr_87121380_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121380_real.webp"
               ],
               "stock": 100,
               "unit": "Cái",
@@ -3082,11 +3082,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121382",
               "name": "KDT/ZE+ M12",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121382_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121382_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121382_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121382_real.webp"
+                  "//images/products/murr/studio/murr_87121382_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121382_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -3104,11 +3104,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121384",
               "name": "KDT/ZE+ M8",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121384_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121384_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121384_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121384_real.webp"
+                  "//images/products/murr/studio/murr_87121384_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121384_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -3126,11 +3126,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87171624",
               "name": "BP/N 24",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87171624_studio.webp",
+              "image": "//images/products/murr/studio/murr_87171624_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87171624_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87171624_real.webp"
+                  "//images/products/murr/studio/murr_87171624_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87171624_real.webp"
               ],
               "stock": 2,
               "unit": "Cái",
@@ -3148,11 +3148,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87141214",
               "name": "KDT/X 04, 04-05",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87141214_studio.webp",
+              "image": "//images/products/murr/studio/murr_87141214_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87141214_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87141214_real.webp"
+                  "//images/products/murr/studio/murr_87141214_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87141214_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -3170,11 +3170,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87141218",
               "name": "KDT/X 06, 06-07",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87141218_studio.webp",
+              "image": "//images/products/murr/studio/murr_87141218_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87141218_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87141218_real.webp"
+                  "//images/products/murr/studio/murr_87141218_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87141218_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -3192,11 +3192,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87141220",
               "name": "KDT/X 07, 07-08",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87141220_studio.webp",
+              "image": "//images/products/murr/studio/murr_87141220_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87141220_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87141220_real.webp"
+                  "//images/products/murr/studio/murr_87141220_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87141220_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -3214,11 +3214,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87141270",
               "name": "BTK/X Vario grommet",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87141270_studio.webp",
+              "image": "//images/products/murr/studio/murr_87141270_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87141270_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87141270_real.webp"
+                  "//images/products/murr/studio/murr_87141270_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87141270_real.webp"
               ],
               "stock": 12,
               "unit": "Cái",
@@ -3236,11 +3236,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87141044",
               "name": "KDL/D 6/4, sw, Set",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87141044_studio.webp",
+              "image": "//images/products/murr/studio/murr_87141044_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87141044_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87141044_real.webp"
+                  "//images/products/murr/studio/murr_87141044_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87141044_real.webp"
               ],
               "stock": 2,
               "unit": "Cái",
@@ -3258,11 +3258,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121314",
               "name": "KDT/ZE+ 05",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121314_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121314_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121314_studio.webp",
-                  "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-                  "/images/products/murr/warehouse/murr_87121314_real.webp"
+                  "//images/products/murr/studio/murr_87121314_studio.webp",
+                  "//images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+                  "//images/products/murr/warehouse/murr_87121314_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3276,7 +3276,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-ZL",
@@ -3286,11 +3286,11 @@ export const PRODUCTS: Product[] = [
       "category": "Tấm giảm lực kéo & Giữ cáp (ZL/KH)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87621440_studio.webp",
+      "image": "//images/products/murr/studio/murr_87621440_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87621440_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-          "/images/products/murr/warehouse/murr_87621440_real.webp"
+          "//images/products/murr/studio/murr_87621440_studio.webp",
+          "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+          "//images/products/murr/warehouse/murr_87621440_real.webp"
       ],
       "stock": 300,
       "stockStatus": "In Stock",
@@ -3319,11 +3319,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87621440",
               "name": "BFC 5.5, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87621440_studio.webp",
+              "image": "//images/products/murr/studio/murr_87621440_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87621440_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87621440_real.webp"
+                  "//images/products/murr/studio/murr_87621440_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87621440_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -3341,11 +3341,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87701022",
               "name": "ZL 121, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87701022_studio.webp",
+              "image": "//images/products/murr/studio/murr_87701022_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87701022_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87701022_real.webp"
+                  "//images/products/murr/studio/murr_87701022_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87701022_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3363,11 +3363,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87701024",
               "name": "ZL 140, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87701024_studio.webp",
+              "image": "//images/products/murr/studio/murr_87701024_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87701024_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87701024_real.webp"
+                  "//images/products/murr/studio/murr_87701024_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87701024_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3385,11 +3385,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87701014",
               "name": "ZL 39, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87701014_studio.webp",
+              "image": "//images/products/murr/studio/murr_87701014_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87701014_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87701014_real.webp"
+                  "//images/products/murr/studio/murr_87701014_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87701014_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3407,11 +3407,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87701017",
               "name": "ZL 70, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87701017_studio.webp",
+              "image": "//images/products/murr/studio/murr_87701017_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87701017_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87701017_real.webp"
+                  "//images/products/murr/studio/murr_87701017_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87701017_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3429,11 +3429,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87705404",
               "name": "KH 25-170 M5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87705404_studio.webp",
+              "image": "//images/products/murr/studio/murr_87705404_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87705404_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87705404_real.webp"
+                  "//images/products/murr/studio/murr_87705404_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87705404_real.webp"
               ],
               "stock": 30,
               "unit": "Cái",
@@ -3451,11 +3451,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87705406",
               "name": "KH 25-400 M5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87705406_studio.webp",
+              "image": "//images/products/murr/studio/murr_87705406_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87705406_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-                  "/images/products/murr/warehouse/murr_87705406_real.webp"
+                  "//images/products/murr/studio/murr_87705406_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
+                  "//images/products/murr/warehouse/murr_87705406_real.webp"
               ],
               "stock": 30,
               "unit": "Cái",
@@ -3469,7 +3469,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KH",
@@ -3479,11 +3479,11 @@ export const PRODUCTS: Product[] = [
       "category": "Tấm giảm lực kéo & Giữ cáp (ZL/KH)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87601045_studio.webp",
+      "image": "//images/products/murr/studio/murr_87601045_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87601045_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-          "/images/products/murr/warehouse/murr_87681222_real.webp"
+          "//images/products/murr/studio/murr_87601045_studio.webp",
+          "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+          "//images/products/murr/warehouse/murr_87681222_real.webp"
       ],
       "stock": 145,
       "stockStatus": "In Stock",
@@ -3512,11 +3512,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87601045",
               "name": "MCSZ-EMV 3 - 12",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87601045_studio.webp",
+              "image": "//images/products/murr/studio/murr_87601045_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87601045_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-                  "/images/products/murr/warehouse/murr_87681222_real.webp"
+                  "//images/products/murr/studio/murr_87601045_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+                  "//images/products/murr/warehouse/murr_87681222_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3534,11 +3534,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87601046",
               "name": "MCS-EMV 7 - 18",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87601046_studio.webp",
+              "image": "//images/products/murr/studio/murr_87601046_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87601046_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-                  "/images/products/murr/warehouse/murr_87681222_real.webp"
+                  "//images/products/murr/studio/murr_87601046_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+                  "//images/products/murr/warehouse/murr_87681222_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3556,11 +3556,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87681222",
               "name": "KH 2 adhesive holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87681222_studio.webp",
+              "image": "//images/products/murr/studio/murr_87681222_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87681222_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-                  "/images/products/murr/warehouse/murr_87681222_real.webp"
+                  "//images/products/murr/studio/murr_87681222_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+                  "//images/products/murr/warehouse/murr_87681222_real.webp"
               ],
               "stock": 100,
               "unit": "Cái",
@@ -3578,11 +3578,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87601070",
               "name": "MSCF-EMV 3 - 12",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87601070_studio.webp",
+              "image": "//images/products/murr/studio/murr_87601070_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87601070_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-                  "/images/products/murr/warehouse/murr_87681222_real.webp"
+                  "//images/products/murr/studio/murr_87601070_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+                  "//images/products/murr/warehouse/murr_87681222_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3600,11 +3600,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87601072",
               "name": "MSCF-EMV 7 - 18",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87601072_studio.webp",
+              "image": "//images/products/murr/studio/murr_87601072_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87601072_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-                  "/images/products/murr/warehouse/murr_87681222_real.webp"
+                  "//images/products/murr/studio/murr_87601072_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+                  "//images/products/murr/warehouse/murr_87681222_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -3622,11 +3622,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87601067",
               "name": "SCFJ-EMV 16 - 35",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87601067_studio.webp",
+              "image": "//images/products/murr/studio/murr_87601067_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87601067_studio.webp",
-                  "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-                  "/images/products/murr/warehouse/murr_87681222_real.webp"
+                  "//images/products/murr/studio/murr_87601067_studio.webp",
+                  "//images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
+                  "//images/products/murr/warehouse/murr_87681222_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -3640,7 +3640,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-BSP",
@@ -3650,11 +3650,11 @@ export const PRODUCTS: Product[] = [
       "category": "Nút bịt chống nước / lỗ chờ (BSP)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_87822027_studio.webp",
+      "image": "//images/products/murr/studio/murr_87822027_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_87822027_studio.webp",
-          "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-          "/images/products/murr/warehouse/murr_87822027_real.webp"
+          "//images/products/murr/studio/murr_87822027_studio.webp",
+          "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+          "//images/products/murr/warehouse/murr_87822027_real.webp"
       ],
       "stock": 370,
       "stockStatus": "In Stock",
@@ -3683,11 +3683,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822027",
               "name": "BSP 5, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822027_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822027_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822027_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822027_real.webp"
+                  "//images/products/murr/studio/murr_87822027_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822027_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3705,11 +3705,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822028",
               "name": "BSP 6, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822028_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822028_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822028_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822028_real.webp"
+                  "//images/products/murr/studio/murr_87822028_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822028_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3727,11 +3727,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822029",
               "name": "BSP 7, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822029_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822029_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822029_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822029_real.webp"
+                  "//images/products/murr/studio/murr_87822029_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822029_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3749,11 +3749,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822030",
               "name": "BSP 8, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822030_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822030_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822030_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822030_real.webp"
+                  "//images/products/murr/studio/murr_87822030_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822030_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3771,11 +3771,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822031",
               "name": "BSP 9, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822031_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822031_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822031_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822031_real.webp"
+                  "//images/products/murr/studio/murr_87822031_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822031_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3793,11 +3793,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822032",
               "name": "BSP 10, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822032_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822032_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822032_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822032_real.webp"
+                  "//images/products/murr/studio/murr_87822032_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822032_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3815,11 +3815,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822033",
               "name": "BSP 11, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822033_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822033_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822033_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822033_real.webp"
+                  "//images/products/murr/studio/murr_87822033_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822033_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -3837,11 +3837,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87822034",
               "name": "BSP 12, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87822034_studio.webp",
+              "image": "//images/products/murr/studio/murr_87822034_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87822034_studio.webp",
-                  "/images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
-                  "/images/products/murr/warehouse/murr_87822034_real.webp"
+                  "//images/products/murr/studio/murr_87822034_studio.webp",
+                  "//images/products/murr/drawings/murr_dummy-plug-type-bsp-253841_2d.webp",
+                  "//images/products/murr/warehouse/murr_87822034_real.webp"
               ],
               "stock": 20,
               "unit": "Cái",
@@ -3855,7 +3855,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-MSN",
@@ -3865,11 +3865,11 @@ export const PRODUCTS: Product[] = [
       "category": "Kẹp gá / Đế giữ ống",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83728515_studio.webp",
+      "image": "//images/products/murr/studio/murr_83728515_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83728515_studio.webp",
-          "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-          "/images/products/murr/warehouse/murr_83728515_real.webp"
+          "//images/products/murr/studio/murr_83728515_studio.webp",
+          "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+          "//images/products/murr/warehouse/murr_83728515_real.webp"
       ],
       "stock": 150,
       "stockStatus": "In Stock",
@@ -3898,11 +3898,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83728515",
               "name": "MS-N6/M5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83728515_studio.webp",
+              "image": "//images/products/murr/studio/murr_83728515_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83728515_studio.webp",
-                  "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-                  "/images/products/murr/warehouse/murr_83728515_real.webp"
+                  "//images/products/murr/studio/murr_83728515_studio.webp",
+                  "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+                  "//images/products/murr/warehouse/murr_83728515_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -3920,11 +3920,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83728529",
               "name": "MS-N10/M6",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83728529_studio.webp",
+              "image": "//images/products/murr/studio/murr_83728529_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83728529_studio.webp",
-                  "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-                  "/images/products/murr/warehouse/murr_83728529_real.webp"
+                  "//images/products/murr/studio/murr_83728529_studio.webp",
+                  "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+                  "//images/products/murr/warehouse/murr_83728529_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -3942,11 +3942,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83728521",
               "name": "MS-N8/M5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83728521_studio.webp",
+              "image": "//images/products/murr/studio/murr_83728521_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83728521_studio.webp",
-                  "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-                  "/images/products/murr/warehouse/murr_83728521_real.webp"
+                  "//images/products/murr/studio/murr_83728521_studio.webp",
+                  "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+                  "//images/products/murr/warehouse/murr_83728521_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -3964,11 +3964,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83728519",
               "name": "MS-N8/M4",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83728519_studio.webp",
+              "image": "//images/products/murr/studio/murr_83728519_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83728519_studio.webp",
-                  "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-                  "/images/products/murr/warehouse/murr_83728519_real.webp"
+                  "//images/products/murr/studio/murr_83728519_studio.webp",
+                  "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+                  "//images/products/murr/warehouse/murr_83728519_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -3986,11 +3986,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83728523",
               "name": "MS-N8/M6",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83728523_studio.webp",
+              "image": "//images/products/murr/studio/murr_83728523_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83728523_studio.webp",
-                  "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-                  "/images/products/murr/warehouse/murr_83728523_real.webp"
+                  "//images/products/murr/studio/murr_83728523_studio.webp",
+                  "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+                  "//images/products/murr/warehouse/murr_83728523_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -4008,11 +4008,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83728527",
               "name": "MS-N10/M5",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83728527_studio.webp",
+              "image": "//images/products/murr/studio/murr_83728527_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83728527_studio.webp",
-                  "/images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
-                  "/images/products/murr/warehouse/murr_83728527_real.webp"
+                  "//images/products/murr/studio/murr_83728527_studio.webp",
+                  "//images/products/murr/drawings/murr_mounting-socket-265148_2d.webp",
+                  "//images/products/murr/warehouse/murr_83728527_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -4026,7 +4026,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-UHE",
@@ -4036,11 +4036,11 @@ export const PRODUCTS: Product[] = [
       "category": "Kẹp gá / Đế giữ ống",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83621858_studio.webp",
+      "image": "//images/products/murr/studio/murr_83621858_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83621858_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83621858_real.webp"
+          "//images/products/murr/studio/murr_83621858_studio.webp",
+          "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+          "//images/products/murr/warehouse/murr_83621858_real.webp"
       ],
       "stock": 699,
       "stockStatus": "In Stock",
@@ -4069,11 +4069,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83621858",
               "name": "UHE P21 universal holder, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83621858_studio.webp",
+              "image": "//images/products/murr/studio/murr_83621858_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83621858_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_83621858_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 100,
               "unit": "Cái",
@@ -4091,11 +4091,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83621860",
               "name": "UHE P29 universal holder, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83621860_studio.webp",
+              "image": "//images/products/murr/studio/murr_83621860_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83621860_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621860_real.webp"
+                  "//images/products/murr/studio/murr_83621860_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621860_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -4113,11 +4113,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83621852",
               "name": "UHE P09 universal holder, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83621852_studio.webp",
+              "image": "//images/products/murr/studio/murr_83621852_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83621852_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621852_real.webp"
+                  "//images/products/murr/studio/murr_83621852_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621852_real.webp"
               ],
               "stock": 100,
               "unit": "Cái",
@@ -4135,11 +4135,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83621854",
               "name": "UHE P11 universal holder, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83621854_studio.webp",
+              "image": "//images/products/murr/studio/murr_83621854_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83621854_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621854_real.webp"
+                  "//images/products/murr/studio/murr_83621854_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621854_real.webp"
               ],
               "stock": 100,
               "unit": "Cái",
@@ -4157,11 +4157,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83621862",
               "name": "UHE P36 universal holder, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83621862_studio.webp",
+              "image": "//images/products/murr/studio/murr_83621862_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83621862_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_83621862_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -4179,11 +4179,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83621856",
               "name": "UHE P16 universal holder, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83621856_studio.webp",
+              "image": "//images/products/murr/studio/murr_83621856_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83621856_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_83621856_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 100,
               "unit": "Cái",
@@ -4201,11 +4201,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121170",
               "name": "AR 24, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121170_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121170_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121170_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_87121170_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4223,11 +4223,11 @@ export const PRODUCTS: Product[] = [
               "sku": "87121172",
               "name": "AR 16, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_87121172_studio.webp",
+              "image": "//images/products/murr/studio/murr_87121172_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_87121172_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_87121172_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4245,11 +4245,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83691502",
               "name": "SH 56/70-M system holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83691502_studio.webp",
+              "image": "//images/products/murr/studio/murr_83691502_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83691502_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83691502_real.webp"
+                  "//images/products/murr/studio/murr_83691502_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83691502_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4267,11 +4267,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83691490",
               "name": "SH 56/70 Systemholder biack",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83691490_studio.webp",
+              "image": "//images/products/murr/studio/murr_83691490_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83691490_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83691490_real.webp"
+                  "//images/products/murr/studio/murr_83691490_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83691490_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4289,11 +4289,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83693425",
               "name": "FHS-SH 450",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83693425_studio.webp",
+              "image": "//images/products/murr/studio/murr_83693425_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83693425_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693425_real.webp"
+                  "//images/products/murr/studio/murr_83693425_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693425_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4311,11 +4311,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83694081",
               "name": "R-Tec Liner 2.0 MS 100mm",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83694081_studio.webp",
+              "image": "//images/products/murr/studio/murr_83694081_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83694081_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83694081_real.webp"
+                  "//images/products/murr/studio/murr_83694081_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83694081_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4333,11 +4333,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83694064",
               "name": "R-Tec Liner 2.0 AS NW70",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83694064_studio.webp",
+              "image": "//images/products/murr/studio/murr_83694064_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83694064_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83694064_real.webp"
+                  "//images/products/murr/studio/murr_83694064_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83694064_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4355,11 +4355,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83693423",
               "name": "FHS-SH 350",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83693423_studio.webp",
+              "image": "//images/products/murr/studio/murr_83693423_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83693423_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693423_real.webp"
+                  "//images/products/murr/studio/murr_83693423_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693423_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -4377,11 +4377,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83694002",
               "name": "R-Tec Liner 2.0 400mm -200N",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83694002_studio.webp",
+              "image": "//images/products/murr/studio/murr_83694002_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83694002_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_83694002_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4399,11 +4399,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83694100",
               "name": "R-Tec Liner 2.0 SF NW70",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83694100_studio.webp",
+              "image": "//images/products/murr/studio/murr_83694100_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83694100_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83694100_real.webp"
+                  "//images/products/murr/studio/murr_83694100_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83694100_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4421,11 +4421,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83694080",
               "name": "R-Tec Liner 2.0 MS 40mm",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83694080_studio.webp",
+              "image": "//images/products/murr/studio/murr_83694080_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83694080_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83694080_real.webp"
+                  "//images/products/murr/studio/murr_83694080_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83694080_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4443,11 +4443,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042010002000",
               "name": "-420100 cover, inside",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042010002000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042010002000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042010002000_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042010002000_real.webp"
+                  "//images/products/murr/studio/murr_C042010002000_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042010002000_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -4465,11 +4465,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042010001000",
               "name": "A-420100 cover. outside",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042010001000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042010001000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042010001000_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042010001000_real.webp"
+                  "//images/products/murr/studio/murr_C042010001000_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042010001000_real.webp"
               ],
               "stock": 50,
               "unit": "Cái",
@@ -4487,11 +4487,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042012512500",
               "name": "SR 420 inner plate with radius R0125/R12",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042012512500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042012512500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042012512500_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_83621858_real.webp"
+                  "//images/products/murr/studio/murr_C042012512500_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_83621858_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -4509,11 +4509,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056020020000",
               "name": "SR 560 inner plate with radius R0200/R20",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056020020000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056020020000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056020020000_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056020020000_real.webp"
+                  "//images/products/murr/studio/murr_C056020020000_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056020020000_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -4531,11 +4531,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056020001000",
               "name": "A-560200 cover, outside",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056020001000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056020001000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056020001000_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056020001000_real.webp"
+                  "//images/products/murr/studio/murr_C056020001000_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056020001000_real.webp"
               ],
               "stock": 30,
               "unit": "Cái",
@@ -4553,11 +4553,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056020002000",
               "name": "I-560200 cover, inside",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056020002000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056020002000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056020002000_studio.webp",
-                  "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056020002000_real.webp"
+                  "//images/products/murr/studio/murr_C056020002000_studio.webp",
+                  "//images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056020002000_real.webp"
               ],
               "stock": 30,
               "unit": "Cái",
@@ -4571,7 +4571,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-UHS",
@@ -4581,11 +4581,11 @@ export const PRODUCTS: Product[] = [
       "category": "Kẹp gá / Đế giữ ống",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83641452_studio.webp",
+      "image": "//images/products/murr/studio/murr_83641452_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83641452_studio.webp",
-          "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-          "/images/products/murr/warehouse/murr_83641452_real.webp"
+          "//images/products/murr/studio/murr_83641452_studio.webp",
+          "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+          "//images/products/murr/warehouse/murr_83641452_real.webp"
       ],
       "stock": 80,
       "stockStatus": "In Stock",
@@ -4614,11 +4614,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83641452",
               "name": "UH-S M25/P21, stable holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83641452_studio.webp",
+              "image": "//images/products/murr/studio/murr_83641452_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83641452_studio.webp",
-                  "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-                  "/images/products/murr/warehouse/murr_83641452_real.webp"
+                  "//images/products/murr/studio/murr_83641452_studio.webp",
+                  "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+                  "//images/products/murr/warehouse/murr_83641452_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -4636,11 +4636,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83641450",
               "name": "UH-S M20/P16, stable holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83641450_studio.webp",
+              "image": "//images/products/murr/studio/murr_83641450_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83641450_studio.webp",
-                  "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-                  "/images/products/murr/warehouse/murr_83641450_real.webp"
+                  "//images/products/murr/studio/murr_83641450_studio.webp",
+                  "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+                  "//images/products/murr/warehouse/murr_83641450_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -4658,11 +4658,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83641454",
               "name": "UH-S M32/P29, stable holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83641454_studio.webp",
+              "image": "//images/products/murr/studio/murr_83641454_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83641454_studio.webp",
-                  "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-                  "/images/products/murr/warehouse/murr_83641454_real.webp"
+                  "//images/products/murr/studio/murr_83641454_studio.webp",
+                  "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+                  "//images/products/murr/warehouse/murr_83641454_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -4680,11 +4680,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83641456",
               "name": "UH-S M40/P36, stable holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83641456_studio.webp",
+              "image": "//images/products/murr/studio/murr_83641456_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83641456_studio.webp",
-                  "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-                  "/images/products/murr/warehouse/murr_83641456_real.webp"
+                  "//images/products/murr/studio/murr_83641456_studio.webp",
+                  "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+                  "//images/products/murr/warehouse/murr_83641456_real.webp"
               ],
               "stock": 10,
               "unit": "Cái",
@@ -4702,11 +4702,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83641448",
               "name": "UH-S M16/P11, stable holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83641448_studio.webp",
+              "image": "//images/products/murr/studio/murr_83641448_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83641448_studio.webp",
-                  "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-                  "/images/products/murr/warehouse/murr_83641452_real.webp"
+                  "//images/products/murr/studio/murr_83641448_studio.webp",
+                  "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+                  "//images/products/murr/warehouse/murr_83641452_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -4724,11 +4724,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83641446",
               "name": "UH-S M12/P09, stable holder",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83641446_studio.webp",
+              "image": "//images/products/murr/studio/murr_83641446_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83641446_studio.webp",
-                  "/images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
-                  "/images/products/murr/warehouse/murr_83641446_real.webp"
+                  "//images/products/murr/studio/murr_83641446_studio.webp",
+                  "//images/products/murr/drawings/murr_type-uh-s-183218_2d.webp",
+                  "//images/products/murr/warehouse/murr_83641446_real.webp"
               ],
               "stock": 15,
               "unit": "Cái",
@@ -4742,7 +4742,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-BSH",
@@ -4752,11 +4752,11 @@ export const PRODUCTS: Product[] = [
       "category": "Kẹp gá / Đế giữ ống",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_C0560000050_studio.webp",
+      "image": "//images/products/murr/studio/murr_C0560000050_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_C0560000050_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
+          "//images/products/murr/studio/murr_C0560000050_studio.webp",
+          "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+          "//images/products/murr/warehouse/murr_83693526_real.webp"
       ],
       "stock": 106,
       "stockStatus": "In Stock",
@@ -4785,11 +4785,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560000050",
               "name": "KA 560-FB chain bracket female, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560000050_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560000050_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560000050_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0560000050_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4807,11 +4807,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83693526",
               "name": "FHS-C-SET UNI-LS",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83693526_studio.webp",
+              "image": "//images/products/murr/studio/murr_83693526_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83693526_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_83693526_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 4,
               "unit": "Cái",
@@ -4829,11 +4829,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83723460",
               "name": "ET P29 end sleeve, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83723460_studio.webp",
+              "image": "//images/products/murr/studio/murr_83723460_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83723460_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83723460_real.webp"
+                  "//images/products/murr/studio/murr_83723460_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83723460_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -4851,11 +4851,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692292",
               "name": "SRF-70 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692292_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692292_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692292_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692292_real.webp"
+                  "//images/products/murr/studio/murr_83692292_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692292_real.webp"
               ],
               "stock": 2,
               "unit": "Cái",
@@ -4873,11 +4873,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83693442",
               "name": "FHS-C Set (4x KKR-Fix)",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83693442_studio.webp",
+              "image": "//images/products/murr/studio/murr_83693442_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83693442_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693442_real.webp"
+                  "//images/products/murr/studio/murr_83693442_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693442_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4895,11 +4895,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83723458",
               "name": "ET P21 end sleeve, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83723458_studio.webp",
+              "image": "//images/products/murr/studio/murr_83723458_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83723458_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83723458_real.webp"
+                  "//images/products/murr/studio/murr_83723458_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83723458_real.webp"
               ],
               "stock": 25,
               "unit": "Cái",
@@ -4917,11 +4917,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83693525",
               "name": "FHS-C-SET UNI",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83693525_studio.webp",
+              "image": "//images/products/murr/studio/murr_83693525_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83693525_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693525_real.webp"
+                  "//images/products/murr/studio/murr_83693525_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693525_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -4939,11 +4939,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0420000051",
               "name": "KA 420-FB chain bracket male, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0420000051_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0420000051_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0420000051_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0420000051_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4961,11 +4961,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0420000056",
               "name": "KA 420-FB chain bracket female, swinged,",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0420000056_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0420000056_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0420000056_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0420000056_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -4983,11 +4983,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0420000050",
               "name": "KA 420-FB chain bracket female, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0420000050_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0420000050_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0420000050_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0420000050_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -5005,11 +5005,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0420000054",
               "name": "KA 420-FG chain bracket maleo, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0420000054_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0420000054_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0420000054_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0420000054_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -5027,11 +5027,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0420000053",
               "name": "KA 420-FG chain bracket female, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0420000053_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0420000053_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0420000053_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0420000053_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -5049,11 +5049,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0420000055",
               "name": "KA 420-FG chain bracket female, swinged,",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0420000055_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0420000055_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0420000055_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0420000055_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -5071,11 +5071,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560000055",
               "name": "KA 560-FG chain bracket female, swinged,",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560000055_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560000055_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560000055_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_C0560000055_real.webp"
+                  "//images/products/murr/studio/murr_C0560000055_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_C0560000055_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -5093,11 +5093,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560000054",
               "name": "KA 560-FG chain bracket male, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560000054_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560000054_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560000054_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_C0560000054_real.webp"
+                  "//images/products/murr/studio/murr_C0560000054_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_C0560000054_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -5115,11 +5115,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560000056",
               "name": "KA 560-FB chain bracket female, swinged,",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560000056_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560000056_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560000056_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0560000056_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -5137,11 +5137,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560000051",
               "name": "KA 560-FB chain bracket male, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560000051_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560000051_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560000051_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_83693526_real.webp"
+                  "//images/products/murr/studio/murr_C0560000051_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_83693526_real.webp"
               ],
               "stock": 5,
               "unit": "Cái",
@@ -5159,11 +5159,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560000053",
               "name": "KA 560-FG chain bracket female, complete",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560000053_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560000053_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560000053_studio.webp",
-                  "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-                  "/images/products/murr/warehouse/murr_C0560000053_real.webp"
+                  "//images/products/murr/studio/murr_C0560000053_studio.webp",
+                  "//images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+                  "//images/products/murr/warehouse/murr_C0560000053_real.webp"
               ],
               "stock": 3,
               "unit": "Cái",
@@ -5177,7 +5177,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-SG420",
@@ -5187,11 +5187,11 @@ export const PRODUCTS: Product[] = [
       "category": "Xích dẫn cáp & Phụ kiện xích",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_C042000012500_studio.webp",
+      "image": "//images/products/murr/studio/murr_C042000012500_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_C042000012500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000012500_real.webp"
+          "//images/products/murr/studio/murr_C042000012500_studio.webp",
+          "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+          "//images/products/murr/warehouse/murr_C042000012500_real.webp"
       ],
       "stock": 1000,
       "stockStatus": "In Stock",
@@ -5220,11 +5220,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000012500",
               "name": "SG 420 inner plate R125",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000012500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000012500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000012500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000012500_real.webp"
+                  "//images/products/murr/studio/murr_C042000012500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000012500_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5242,11 +5242,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000017500",
               "name": "SG 420 inner plate R175",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000017500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000017500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000017500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000017500_real.webp"
+                  "//images/products/murr/studio/murr_C042000017500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000017500_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5264,11 +5264,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000000000",
               "name": "SG 420 outer plate RV",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000000000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000000000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000000000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000000000_real.webp"
+                  "//images/products/murr/studio/murr_C042000000000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000000000_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5286,11 +5286,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000010000",
               "name": "SG 420 inner plate R100",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000010000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000010000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000010000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000010000_real.webp"
+                  "//images/products/murr/studio/murr_C042000010000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000010000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5308,11 +5308,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000000010",
               "name": "SG 420 outer plate RK",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000000010_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000000010_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000000010_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000000010_real.webp"
+                  "//images/products/murr/studio/murr_C042000000010_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000000010_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5330,11 +5330,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000015000",
               "name": "SG 420 inner plate R150",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000015000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000015000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000015000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000015000_real.webp"
+                  "//images/products/murr/studio/murr_C042000015000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000015000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5348,7 +5348,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-SG560",
@@ -5358,11 +5358,11 @@ export const PRODUCTS: Product[] = [
       "category": "Xích dẫn cáp & Phụ kiện xích",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_C056000000010_studio.webp",
+      "image": "//images/products/murr/studio/murr_C056000000010_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_C056000000010_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000000010_real.webp"
+          "//images/products/murr/studio/murr_C056000000010_studio.webp",
+          "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+          "//images/products/murr/warehouse/murr_C056000000010_real.webp"
       ],
       "stock": 850,
       "stockStatus": "In Stock",
@@ -5391,11 +5391,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000000010",
               "name": "SG 560 outer plate RK",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000000010_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000000010_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000000010_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000000010_real.webp"
+                  "//images/products/murr/studio/murr_C056000000010_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000000010_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5413,11 +5413,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000000000",
               "name": "SG 560 outer plate RV",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000000000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000000000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000000000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000000000_real.webp"
+                  "//images/products/murr/studio/murr_C056000000000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000000000_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5435,11 +5435,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000025000",
               "name": "SG 560 inner plate R250",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000025000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000025000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000025000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000025000_real.webp"
+                  "//images/products/murr/studio/murr_C056000025000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000025000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5457,11 +5457,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000015000",
               "name": "SG 560 inner plate R150",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000015000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000015000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000015000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000015000_real.webp"
+                  "//images/products/murr/studio/murr_C056000015000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000015000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5479,11 +5479,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000020000",
               "name": "SG 560 inner plate R200",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000020000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000020000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000020000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000020000_real.webp"
+                  "//images/products/murr/studio/murr_C056000020000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000020000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5497,7 +5497,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-RS",
@@ -5507,11 +5507,11 @@ export const PRODUCTS: Product[] = [
       "category": "Xích dẫn cáp & Phụ kiện xích",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_C040000017500_studio.webp",
+      "image": "//images/products/murr/studio/murr_C040000017500_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_C040000017500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "//images/products/murr/studio/murr_C040000017500_studio.webp",
+          "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+          "//images/products/murr/warehouse/murr_C040000017500_real.webp"
       ],
       "stock": 5564,
       "stockStatus": "In Stock",
@@ -5540,11 +5540,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000017500",
               "name": "RS 175-40 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000017500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000017500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000017500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C040000017500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5562,11 +5562,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000020000",
               "name": "RS 200-40 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000020000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000020000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000020000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000020000_real.webp"
+                  "//images/products/murr/studio/murr_C040000020000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000020000_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5584,11 +5584,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000015000",
               "name": "RS 150-40 bridge plece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000015000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000015000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000015000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000015000_real.webp"
+                  "//images/products/murr/studio/murr_C040000015000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000015000_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5606,11 +5606,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000007500",
               "name": "RS 075-40 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000007500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000007500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000007500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000007500_real.webp"
+                  "//images/products/murr/studio/murr_C040000007500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000007500_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5628,11 +5628,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000004871",
               "name": "RS-420 S bolt smart, blue, RAL 5015",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000004871_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000004871_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000004871_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000004871_real.webp"
+                  "//images/products/murr/studio/murr_C042000004871_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000004871_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5650,11 +5650,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000004872",
               "name": "RS-420 S bolt smart, black, RAL 9005",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000004872_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000004872_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000004872_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000004872_real.webp"
+                  "//images/products/murr/studio/murr_C042000004872_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000004872_real.webp"
               ],
               "stock": 300,
               "unit": "Cái",
@@ -5672,11 +5672,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000008700",
               "name": "RS 087-40 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000008700_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000008700_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000008700_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C040000008700_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5694,11 +5694,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000004870",
               "name": "RS-420 S bolt smar, red,RAL3020",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000004870_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000004870_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000004870_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C042000004870_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 1000,
               "unit": "Cái",
@@ -5716,11 +5716,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000005000",
               "name": "RS 050-40 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000005000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000005000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000005000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C040000005000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5738,11 +5738,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000010000",
               "name": "RS 100-40 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000010000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000010000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000010000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C040000010000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5760,11 +5760,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C040000012500",
               "name": "RS 125-40 brikdge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C040000012500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C040000012500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C040000012500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C040000012500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 200,
               "unit": "Cái",
@@ -5782,11 +5782,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000004870",
               "name": "RS-560 S bolt smart, red, RAL 3020",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000004870_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000004870_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000004870_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C056000004870_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 1000,
               "unit": "Cái",
@@ -5804,11 +5804,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000004872",
               "name": "RS-560 S bolt smart, black, RAL 9005",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000004872_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000004872_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000004872_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C056000004872_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 300,
               "unit": "Cái",
@@ -5826,11 +5826,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000004871",
               "name": "RS-560 S bolt smart, blue, RAL 5015",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000004871_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000004871_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000004871_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+                  "//images/products/murr/studio/murr_C056000004871_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000017500_real.webp"
               ],
               "stock": 300,
               "unit": "Cái",
@@ -5848,11 +5848,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C050000015000",
               "name": "RS 150-50 bridge plece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C050000015000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C050000015000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C050000015000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C050000015000_real.webp"
+                  "//images/products/murr/studio/murr_C050000015000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C050000015000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5870,11 +5870,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C050000016900",
               "name": "RS 169-50 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C050000016900_studio.webp",
+              "image": "//images/products/murr/studio/murr_C050000016900_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C050000016900_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C050000016900_real.webp"
+                  "//images/products/murr/studio/murr_C050000016900_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C050000016900_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5892,11 +5892,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C050000007500",
               "name": "RS 075-50 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C050000007500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C050000007500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C050000007500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C050000007500_real.webp"
+                  "//images/products/murr/studio/murr_C050000007500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C050000007500_real.webp"
               ],
               "stock": 132,
               "unit": "Cái",
@@ -5914,11 +5914,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C050000013700",
               "name": "RS 137-50 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C050000013700_studio.webp",
+              "image": "//images/products/murr/studio/murr_C050000013700_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C050000013700_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C050000013700_real.webp"
+                  "//images/products/murr/studio/murr_C050000013700_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C050000013700_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5936,11 +5936,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C050000017500",
               "name": "RS 175-50 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C050000017500_studio.webp",
+              "image": "//images/products/murr/studio/murr_C050000017500_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C050000017500_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C050000017500_real.webp"
+                  "//images/products/murr/studio/murr_C050000017500_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C050000017500_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -5958,11 +5958,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C050000020000",
               "name": "RS 200-50 bridge piece",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C050000020000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C050000020000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C050000020000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C050000020000_real.webp"
+                  "//images/products/murr/studio/murr_C050000020000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C050000020000_real.webp"
               ],
               "stock": 132,
               "unit": "Cái",
@@ -5976,7 +5976,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-TR",
@@ -5986,11 +5986,11 @@ export const PRODUCTS: Product[] = [
       "category": "Xích dẫn cáp & Phụ kiện xích",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_C042000004300_studio.webp",
+      "image": "//images/products/murr/studio/murr_C042000004300_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_C042000004300_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+          "//images/products/murr/studio/murr_C042000004300_studio.webp",
+          "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+          "//images/products/murr/warehouse/murr_C042000004300_real.webp"
       ],
       "stock": 900,
       "stockStatus": "In Stock",
@@ -6019,11 +6019,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000004300",
               "name": "TR 420.3 separator,fixed",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000004300_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000004300_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000004300_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+                  "//images/products/murr/studio/murr_C042000004300_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000004300_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -6041,11 +6041,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000004100",
               "name": "TR 420.1 separator,open fixed",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000004100_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000004100_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000004100_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+                  "//images/products/murr/studio/murr_C042000004100_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000004300_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -6063,11 +6063,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C042000004000",
               "name": "RTT 420 shelf support, divisible, with",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C042000004000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C042000004000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C042000004000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+                  "//images/products/murr/studio/murr_C042000004000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000004300_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -6085,11 +6085,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000004300",
               "name": "TR 560.3 separator.fxed",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000004300_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000004300_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000004300_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000004300_real.webp"
+                  "//images/products/murr/studio/murr_C056000004300_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000004300_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -6107,11 +6107,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000004000",
               "name": "RTT 560 sheffsupport, divisible, with1",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000004000_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000004000_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000004000_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C056000004000_real.webp"
+                  "//images/products/murr/studio/murr_C056000004000_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C056000004000_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -6129,11 +6129,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C056000004100",
               "name": "TR 560.1 separator,open,fixed",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C056000004100_studio.webp",
+              "image": "//images/products/murr/studio/murr_C056000004100_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C056000004100_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+                  "//images/products/murr/studio/murr_C056000004100_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C042000004300_real.webp"
               ],
               "stock": 150,
               "unit": "Cái",
@@ -6147,7 +6147,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-KA",
@@ -6157,11 +6157,11 @@ export const PRODUCTS: Product[] = [
       "category": "Xích dẫn cáp & Phụ kiện xích",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_C0560400350_studio.webp",
+      "image": "//images/products/murr/studio/murr_C0560400350_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_C0560400350_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000007500_real.webp"
+          "//images/products/murr/studio/murr_C0560400350_studio.webp",
+          "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+          "//images/products/murr/warehouse/murr_C040000007500_real.webp"
       ],
       "stock": 39,
       "stockStatus": "In Stock",
@@ -6190,11 +6190,11 @@ export const PRODUCTS: Product[] = [
               "sku": "C0560400350",
               "name": "GS 560 glide shoe EVOCONTROL",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_C0560400350_studio.webp",
+              "image": "//images/products/murr/studio/murr_C0560400350_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_C0560400350_studio.webp",
-                  "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-                  "/images/products/murr/warehouse/murr_C040000007500_real.webp"
+                  "//images/products/murr/studio/murr_C0560400350_studio.webp",
+                  "//images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
+                  "//images/products/murr/warehouse/murr_C040000007500_real.webp"
               ],
               "stock": 39,
               "unit": "Cái",
@@ -6208,7 +6208,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-EWRPP",
@@ -6218,11 +6218,11 @@ export const PRODUCTS: Product[] = [
       "category": "Ống luồn bảo vệ cáp (Conduit)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83201208_studio.webp",
+      "image": "//images/products/murr/studio/murr_83201208_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83201208_studio.webp",
-          "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-          "/images/products/murr/warehouse/murr_83611458_real.webp"
+          "//images/products/murr/studio/murr_83201208_studio.webp",
+          "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+          "//images/products/murr/warehouse/murr_83611458_real.webp"
       ],
       "stock": 475,
       "stockStatus": "In Stock",
@@ -6251,11 +6251,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83201208",
               "name": "EW-R-PP M12/P09 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83201208_studio.webp",
+              "image": "//images/products/murr/studio/murr_83201208_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83201208_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83201208_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6273,11 +6273,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83201216",
               "name": "EW-R-PP M20/P16 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83201216_studio.webp",
+              "image": "//images/products/murr/studio/murr_83201216_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83201216_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83201216_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6295,11 +6295,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83201220",
               "name": "EW-R-PP M25/P21 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83201220_studio.webp",
+              "image": "//images/products/murr/studio/murr_83201220_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83201220_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83201220_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6317,11 +6317,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83201230",
               "name": "EW-R-PP M40/P36 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83201230_studio.webp",
+              "image": "//images/products/murr/studio/murr_83201230_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83201230_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83201230_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 25,
               "unit": "Mét",
@@ -6339,11 +6339,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83201226",
               "name": "EW-R-PP M32/P29 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83201226_studio.webp",
+              "image": "//images/products/murr/studio/murr_83201226_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83201226_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83201226_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 50,
               "unit": "Mét",
@@ -6361,11 +6361,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83201210",
               "name": "EW-R-PP M16/P11 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83201210_studio.webp",
+              "image": "//images/products/murr/studio/murr_83201210_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83201210_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83201210_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ew-r-pp-241568_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6379,7 +6379,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-EWLPAB",
@@ -6389,11 +6389,11 @@ export const PRODUCTS: Product[] = [
       "category": "Ống luồn bảo vệ cáp (Conduit)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83164162_studio.webp",
+      "image": "//images/products/murr/studio/murr_83164162_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83164162_studio.webp",
-          "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-          "/images/products/murr/warehouse/murr_83611458_real.webp"
+          "//images/products/murr/studio/murr_83164162_studio.webp",
+          "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+          "//images/products/murr/warehouse/murr_83611458_real.webp"
       ],
       "stock": 475,
       "stockStatus": "In Stock",
@@ -6422,11 +6422,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83164162",
               "name": "EWL-PAB M20/P16 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83164162_studio.webp",
+              "image": "//images/products/murr/studio/murr_83164162_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83164162_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83164162_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6444,11 +6444,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83164170",
               "name": "EWL-PAB M40/P36 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83164170_studio.webp",
+              "image": "//images/products/murr/studio/murr_83164170_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83164170_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83164170_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 25,
               "unit": "Mét",
@@ -6466,11 +6466,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83164168",
               "name": "EWL-PAB M32/P29 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83164168_studio.webp",
+              "image": "//images/products/murr/studio/murr_83164168_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83164168_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83164168_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 50,
               "unit": "Mét",
@@ -6488,11 +6488,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83164158",
               "name": "EWL-PAB M16/P11 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83164158_studio.webp",
+              "image": "//images/products/murr/studio/murr_83164158_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83164158_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83164158_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6510,11 +6510,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83164156",
               "name": "EWL-PAB M12/P09 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83164156_studio.webp",
+              "image": "//images/products/murr/studio/murr_83164156_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83164156_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83164156_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6532,11 +6532,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83164166",
               "name": "EWL-PAB M25/P21 Murrflex, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83164166_studio.webp",
+              "image": "//images/products/murr/studio/murr_83164166_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83164166_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83164166_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewl-pab-182127_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6550,7 +6550,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-EWXPAE",
@@ -6560,11 +6560,11 @@ export const PRODUCTS: Product[] = [
       "category": "Ống luồn bảo vệ cáp (Conduit)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83692722_studio.webp",
+      "image": "//images/products/murr/studio/murr_83692722_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83692722_studio.webp",
-          "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-          "/images/products/murr/warehouse/murr_83692722_real.webp"
+          "//images/products/murr/studio/murr_83692722_studio.webp",
+          "//images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
+          "//images/products/murr/warehouse/murr_83692722_real.webp"
       ],
       "stock": 29,
       "stockStatus": "In Stock",
@@ -6593,11 +6593,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692722",
               "name": "feedback system EWX 21 - 20N",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692722_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692722_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692722_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692722_real.webp"
+                  "//images/products/murr/studio/murr_83692722_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692722_real.webp"
               ],
               "stock": 2,
               "unit": "Cái",
@@ -6615,11 +6615,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83692724",
               "name": "feedback system EWX 29 - 20N",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83692724_studio.webp",
+              "image": "//images/products/murr/studio/murr_83692724_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83692724_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692724_real.webp"
+                  "//images/products/murr/studio/murr_83692724_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692724_real.webp"
               ],
               "stock": 2,
               "unit": "Cái",
@@ -6637,11 +6637,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83182080",
               "name": "EWX-PAE 70 Murrflex Jumbo, sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83182080_studio.webp",
+              "image": "//images/products/murr/studio/murr_83182080_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83182080_studio.webp",
-                  "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-                  "/images/products/murr/warehouse/murr_83692722_real.webp"
+                  "//images/products/murr/studio/murr_83182080_studio.webp",
+                  "//images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
+                  "//images/products/murr/warehouse/murr_83692722_real.webp"
               ],
               "stock": 25,
               "unit": "Mét",
@@ -6655,7 +6655,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-GFP",
@@ -6665,11 +6665,11 @@ export const PRODUCTS: Product[] = [
       "category": "Ống luồn bảo vệ cáp (Conduit)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_83342026_studio.webp",
+      "image": "//images/products/murr/studio/murr_83342026_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_83342026_studio.webp",
-          "/images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
-          "/images/products/murr/warehouse/murr_83611458_real.webp"
+          "//images/products/murr/studio/murr_83342026_studio.webp",
+          "//images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
+          "//images/products/murr/warehouse/murr_83611458_real.webp"
       ],
       "stock": 550,
       "stockStatus": "In Stock",
@@ -6698,11 +6698,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83342026",
               "name": "GF-P-30 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83342026_studio.webp",
+              "image": "//images/products/murr/studio/murr_83342026_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83342026_studio.webp",
-                  "/images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83342026_studio.webp",
+                  "//images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6720,11 +6720,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83342024",
               "name": "GF-P-22 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83342024_studio.webp",
+              "image": "//images/products/murr/studio/murr_83342024_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83342024_studio.webp",
-                  "/images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83342024_studio.webp",
+                  "//images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6742,11 +6742,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83342020",
               "name": "GF-P-16 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83342020_studio.webp",
+              "image": "//images/products/murr/studio/murr_83342020_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83342020_studio.webp",
-                  "/images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83342020_studio.webp",
+                  "//images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 100,
               "unit": "Mét",
@@ -6764,11 +6764,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83342028",
               "name": "GF-P-40 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83342028_studio.webp",
+              "image": "//images/products/murr/studio/murr_83342028_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83342028_studio.webp",
-                  "/images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83342028_studio.webp",
+                  "//images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 50,
               "unit": "Mét",
@@ -6786,11 +6786,11 @@ export const PRODUCTS: Product[] = [
               "sku": "83342016",
               "name": "GF-P-10 sw",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_83342016_studio.webp",
+              "image": "//images/products/murr/studio/murr_83342016_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_83342016_studio.webp",
-                  "/images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
-                  "/images/products/murr/warehouse/murr_83611458_real.webp"
+                  "//images/products/murr/studio/murr_83342016_studio.webp",
+                  "//images/products/murr/drawings/murr_type-gf-p-braided-conduit-182402_2d.webp",
+                  "//images/products/murr/warehouse/murr_83611458_real.webp"
               ],
               "stock": 200,
               "unit": "Mét",
@@ -6804,7 +6804,7 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
       "id": "MP-FAM-LPC",
@@ -6814,11 +6814,11 @@ export const PRODUCTS: Product[] = [
       "category": "Nhãn thẻ đánh dấu cáp (Labelling)",
       "categorySlug": "murrplastik",
       "origin": "CHLB Đức (Made in Germany)",
-      "image": "/images/products/murr/studio/murr_8610280030_studio.webp",
+      "image": "//images/products/murr/studio/murr_8610280030_studio.webp",
       "images": [
-          "/images/products/murr/studio/murr_8610280030_studio.webp",
-          "/images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
-          "/images/products/murr/warehouse/murr_8610280030_real.webp"
+          "//images/products/murr/studio/murr_8610280030_studio.webp",
+          "//images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
+          "//images/products/murr/warehouse/murr_8610280030_real.webp"
       ],
       "stock": 77,
       "stockStatus": "In Stock",
@@ -6847,11 +6847,11 @@ export const PRODUCTS: Product[] = [
               "sku": "8610280030",
               "name": "LPC laserpolycarbonate 84x54mm white R3",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_8610280030_studio.webp",
+              "image": "//images/products/murr/studio/murr_8610280030_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_8610280030_studio.webp",
-                  "/images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
-                  "/images/products/murr/warehouse/murr_8610280030_real.webp"
+                  "//images/products/murr/studio/murr_8610280030_studio.webp",
+                  "//images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
+                  "//images/products/murr/warehouse/murr_8610280030_real.webp"
               ],
               "stock": 16,
               "unit": "Cái",
@@ -6869,11 +6869,11 @@ export const PRODUCTS: Product[] = [
               "sku": "8610280015",
               "name": "LPC laser polycarbonate 60x15mm yellow R",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_8610280015_studio.webp",
+              "image": "//images/products/murr/studio/murr_8610280015_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_8610280015_studio.webp",
-                  "/images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
-                  "/images/products/murr/warehouse/murr_8610280015_real.webp"
+                  "//images/products/murr/studio/murr_8610280015_studio.webp",
+                  "//images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
+                  "//images/products/murr/warehouse/murr_8610280015_real.webp"
               ],
               "stock": 28,
               "unit": "Cái",
@@ -6891,11 +6891,11 @@ export const PRODUCTS: Product[] = [
               "sku": "8610280003",
               "name": "LPC Laserpolycarbonat 45x25mm white R2 c",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_8610280003_studio.webp",
+              "image": "//images/products/murr/studio/murr_8610280003_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_8610280003_studio.webp",
-                  "/images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
-                  "/images/products/murr/warehouse/murr_8610280003_real.webp"
+                  "//images/products/murr/studio/murr_8610280003_studio.webp",
+                  "//images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
+                  "//images/products/murr/warehouse/murr_8610280003_real.webp"
               ],
               "stock": 32,
               "unit": "Cái",
@@ -6913,11 +6913,11 @@ export const PRODUCTS: Product[] = [
               "sku": "86661031",
               "name": "GP 3M base plate, KSM",
               "badge": "",
-              "image": "/images/products/murr/studio/murr_86661031_studio.webp",
+              "image": "//images/products/murr/studio/murr_86661031_studio.webp",
               "images": [
-                  "/images/products/murr/studio/murr_86661031_studio.webp",
-                  "/images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
-                  "/images/products/murr/warehouse/murr_86661031_real.webp"
+                  "//images/products/murr/studio/murr_86661031_studio.webp",
+                  "//images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
+                  "//images/products/murr/warehouse/murr_86661031_real.webp"
               ],
               "stock": 1,
               "unit": "Cái",
@@ -6931,9 +6931,9 @@ export const PRODUCTS: Product[] = [
               }
           }
       ],
-      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, lô 500kg, bản vẽ 2d, ảnh kho thực tế"
+      "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
-  // --- 500KG MURRPLASTIK FAMILIES END ---
+  // --- MURRPLASTIK FAMILIES END ---
   {
     "id": "1083",
     "name": "Ball joint KEG/ZL - Hose ring SRF/ZL ( Khớp bi KEG/ZL -...",
@@ -6942,7 +6942,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/15/image%20(29).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/15/image%20(29).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -6969,7 +6969,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/15/image%20(23).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/15/image%20(23).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -6996,7 +6996,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/15/0-image%20(19).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/15/0-image%20(19).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7026,7 +7026,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/15/image%20(16).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/15/image%20(16).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7053,7 +7053,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS fasteners (Chốt FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/0-image%20(12).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/0-image%20(12).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7080,7 +7080,7 @@ export const PRODUCTS: Product[] = [
     "category": "Robot bơm keo tự động",
     "categorySlug": "dung-cu-bom-keo",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/bơm keo 2.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/bơm keo 2.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7107,7 +7107,7 @@ export const PRODUCTS: Product[] = [
     "category": "Robot bơm keo tự động",
     "categorySlug": "dung-cu-bom-keo",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/Robot bơm keo tự động.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/Robot bơm keo tự động.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7134,10 +7134,10 @@ export const PRODUCTS: Product[] = [
     "category": "Máy bơm keo",
     "categorySlug": "dung-cu-bom-keo",
     "origin": "Chính Hãng",
-    "image": `${import.meta.env.BASE_URL}images/products/sp-982-main.png`,
+    "image": "/images/products/sp-982-main.png",
     "images": [
-      `${import.meta.env.BASE_URL}images/products/sp-982-main.png`,
-      `${import.meta.env.BASE_URL}images/products/sp-982-sub.png`
+      "/images/products/sp-982-main.png",
+      "/images/products/sp-982-sub.png"
     ],
     "stock": 50,
     "stockStatus": "In Stock",
@@ -7165,11 +7165,11 @@ export const PRODUCTS: Product[] = [
     "category": "Máy bơm keo",
     "categorySlug": "dung-cu-bom-keo",
     "origin": "Chính Hãng",
-    "image": `${import.meta.env.BASE_URL}images/products/983a-main.png`,
+    "image": "/images/products/983a-main.png",
     "images": [
-      `${import.meta.env.BASE_URL}images/products/983a-main.png`,
-      `${import.meta.env.BASE_URL}images/products/983a-accessories.png`,
-      `${import.meta.env.BASE_URL}images/products/983a-panel.png`
+      "/images/products/983a-main.png",
+      "/images/products/983a-accessories.png",
+      "/images/products/983a-panel.png"
     ],
     "stock": 50,
     "stockStatus": "In Stock",
@@ -7206,7 +7206,7 @@ export const PRODUCTS: Product[] = [
     "category": "Kim bơm keo",
     "categorySlug": "dung-cu-bom-keo",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/08/04/z717937115673_69b530314931c59f1030aefdb79cac6e.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/08/04/z717937115673_69b530314931c59f1030aefdb79cac6e.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7233,7 +7233,7 @@ export const PRODUCTS: Product[] = [
     "category": "Kim bơm keo",
     "categorySlug": "dung-cu-bom-keo",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/kim chóp nhựa.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/kim chóp nhựa.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7260,7 +7260,7 @@ export const PRODUCTS: Product[] = [
     "category": "Robot hàn tự động",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/0-robot hàn tự động.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/0-robot hàn tự động.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7287,7 +7287,7 @@ export const PRODUCTS: Product[] = [
     "category": "Robot hàn tự động",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/z2652052227434_692f44e1de5fa2f52208fd9483984690.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/z2652052227434_692f44e1de5fa2f52208fd9483984690.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7314,7 +7314,7 @@ export const PRODUCTS: Product[] = [
     "category": "Bể hàn thiếc",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/CM-808.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/CM-808.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7341,7 +7341,7 @@ export const PRODUCTS: Product[] = [
     "category": "Bể hàn thiếc",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/CM508.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/CM508.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7368,10 +7368,10 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": `${import.meta.env.BASE_URL}images/products/quick-205.png`,
+    "image": "/images/products/quick-205.png",
     "images": [
-      `${import.meta.env.BASE_URL}images/products/quick-205.png`,
-      `${import.meta.env.BASE_URL}images/products/quick-205.webp`
+      "/images/products/quick-205.png",
+      "/images/products/quick-205.webp"
     ],
     "stock": 50,
     "stockStatus": "In Stock",
@@ -7425,7 +7425,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy hàn Hakko",
     "categorySlug": "thiet-bi-han",
     "origin": "Nhật Bản (Japan)",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/0-hakko 936.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/0-hakko 936.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7452,7 +7452,7 @@ export const PRODUCTS: Product[] = [
     "category": "Kính lúp",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/08/04/z722302975774_e086e5e1885861ad3b9b846928c749e9.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/08/04/z722302975774_e086e5e1885861ad3b9b846928c749e9.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7479,7 +7479,7 @@ export const PRODUCTS: Product[] = [
     "category": "Camera",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/11/25/Electron-Th-K-nh-Zoom-Video-Microscope-Magnifier-FKE-208A-CCD-h-th-ng-camera-v.jpg_640x640.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/11/25/Electron-Th-K-nh-Zoom-Video-Microscope-Magnifier-FKE-208A-CCD-h-th-ng-camera-v.jpg_640x640.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7506,7 +7506,7 @@ export const PRODUCTS: Product[] = [
     "category": "Kính hiển vi",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/14/0-stereo-microscope-sm-3t-144-hd2 (1).jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/14/0-stereo-microscope-sm-3t-144-hd2 (1).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7533,7 +7533,7 @@ export const PRODUCTS: Product[] = [
     "category": "Kính hiển vi",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/14/0-zoom-stereo-microscope-boom-sm-3tb-144.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/14/0-zoom-stereo-microscope-boom-sm-3tb-144.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7560,7 +7560,7 @@ export const PRODUCTS: Product[] = [
     "category": "Kính hiển vi",
     "categorySlug": "camera-kinh-soi-cong-nghiep",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/14/microscope-sm-1ts-6w-m-6_4_2_1_2.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/14/microscope-sm-1ts-6w-m-6_4_2_1_2.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7587,7 +7587,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/z2791846877797_6ca4bf6f39de57ff850c17f613e17669.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/z2791846877797_6ca4bf6f39de57ff850c17f613e17669.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7614,7 +7614,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/0-máy đóng thùng 4 cạnh.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/0-máy đóng thùng 4 cạnh.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7641,7 +7641,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/0-z2791733746366_54ed3ee9a9c3209eda6abd42966d4499.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/0-z2791733746366_54ed3ee9a9c3209eda6abd42966d4499.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7668,7 +7668,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/2-Máy đóng thùng tự động.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/2-Máy đóng thùng tự động.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7695,7 +7695,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị đóng gói tự động",
     "categorySlug": "thiet-bi-dong-goi-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/2-Dây truyền đóng gói khép kín.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/2-Dây truyền đóng gói khép kín.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7722,7 +7722,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy kiểm tra chống tĩnh điện",
     "categorySlug": "thiet-bi-han",
     "origin": "Nhật Bản (Japan)",
-    "image": "https://protools.com.vn/images/stores/2017/09/22/hakko-498.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/09/22/hakko-498.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7749,7 +7749,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy kiểm tra nhiệt độ hàn",
     "categorySlug": "thiet-bi-han",
     "origin": "Nhật Bản (Japan)",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/Hakko FG101.png",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/Hakko FG101.png",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7776,7 +7776,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy đo lực",
     "categorySlug": "thiet-bi-kiem-tra",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/HP-10.png",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/HP-10.png",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7803,7 +7803,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy kiểm tra nhiệt độ hàn",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/27/Quick191ad-Large.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/27/Quick191ad-Large.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7830,7 +7830,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy kiểm tra nhiệt độ hàn",
     "categorySlug": "thiet-bi-han",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/27/HTB1wMR0KXXXXXXoXpXXq6xXFXXXA.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/27/HTB1wMR0KXXXXXXoXpXXq6xXFXXXA.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7857,7 +7857,7 @@ export const PRODUCTS: Product[] = [
     "category": "Energy chains",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/13/1-image%20(3).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/13/1-image%20(3).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7884,7 +7884,7 @@ export const PRODUCTS: Product[] = [
     "category": "Energy chains",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/image%20(2)%20(1).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/image%20(2)%20(1).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7911,7 +7911,7 @@ export const PRODUCTS: Product[] = [
     "category": "Energy chains",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/image%20(1)%20(2).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/image%20(1)%20(2).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7938,7 +7938,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/RT3700.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/RT3700.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7965,7 +7965,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/Zcut 9.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/Zcut 9.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -7992,7 +7992,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/Zcut 2.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/Zcut 2.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8019,7 +8019,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/M1000S.png",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/M1000S.png",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8046,7 +8046,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy cắt băng dính tự động",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/05/M1000.png",
+    "image": "https://protools.com.vn//images/stores/2019/10/05/M1000.png",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8073,7 +8073,7 @@ export const PRODUCTS: Product[] = [
     "category": "Robot bắt vít tự động",
     "categorySlug": "may-bat-vit-nha-vit",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/z2652052179913_debbf040c69e55470229265dade811da.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/z2652052179913_debbf040c69e55470229265dade811da.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8100,7 +8100,7 @@ export const PRODUCTS: Product[] = [
     "category": "Robot bắt vít tự động",
     "categorySlug": "may-bat-vit-nha-vit",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2021/09/25/robot bắt vít.jpg",
+    "image": "https://protools.com.vn//images/stores/2021/09/25/robot bắt vít.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8127,7 +8127,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy bắt vít",
     "categorySlug": "may-bat-vit-nha-vit",
     "origin": "Nhật Bản (Japan)",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/CLT-50.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/CLT-50.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8154,7 +8154,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy bắt vít",
     "categorySlug": "may-bat-vit-nha-vit",
     "origin": "Nhật Bản (Japan)",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/0-CL-4000.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/0-CL-4000.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8181,7 +8181,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy bắt vít",
     "categorySlug": "may-bat-vit-nha-vit",
     "origin": "Nhật Bản (Japan)",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/0-CL-3000.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/0-CL-3000.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8208,7 +8208,7 @@ export const PRODUCTS: Product[] = [
     "category": "Nhíp SA Series",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/nhíp.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/nhíp.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8235,7 +8235,7 @@ export const PRODUCTS: Product[] = [
     "category": "Nhíp gắp sản phẩm",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/08/18/TB29TGIXA7myKJjSZFgXXcT9XXa_!!2864331523.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/08/18/TB29TGIXA7myKJjSZFgXXcT9XXa_!!2864331523.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8262,7 +8262,7 @@ export const PRODUCTS: Product[] = [
     "category": "Nhíp ST Series",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/nhíp ST.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/nhíp ST.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8289,7 +8289,7 @@ export const PRODUCTS: Product[] = [
     "category": "Nhíp ESD",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/nhip ESD.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/nhip ESD.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8316,7 +8316,7 @@ export const PRODUCTS: Product[] = [
     "category": "Nhíp nhựa",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/0-nhíp nhựa.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/0-nhíp nhựa.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8343,7 +8343,7 @@ export const PRODUCTS: Product[] = [
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/SL-001.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/SL-001.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8370,7 +8370,7 @@ export const PRODUCTS: Product[] = [
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/SL-002.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/SL-002.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8397,7 +8397,7 @@ export const PRODUCTS: Product[] = [
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2016/12/07/SBL_30w_(1).jpg",
+    "image": "https://protools.com.vn//images/stores/2016/12/07/SBL_30w_(1).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8424,7 +8424,7 @@ export const PRODUCTS: Product[] = [
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/08/17/1595565004_28393935.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/08/17/1595565004_28393935.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8451,7 +8451,7 @@ export const PRODUCTS: Product[] = [
     "category": "Quạt thổi ion",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/SP-600.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/SP-600.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8478,7 +8478,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy tách tem nhãn",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/AL-505LR.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/AL-505LR.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8505,7 +8505,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy tách tem nhãn",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/FTR-118C.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/FTR-118C.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8532,7 +8532,7 @@ export const PRODUCTS: Product[] = [
     "category": "Máy tách tem nhãn",
     "categorySlug": "may-cat-bang-dinh-tu-dong",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/07/1150D.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/07/1150D.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8559,7 +8559,7 @@ export const PRODUCTS: Product[] = [
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/12/dây tiếp đất.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/12/dây tiếp đất.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8586,7 +8586,7 @@ export const PRODUCTS: Product[] = [
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2016/11/05/Day tiep dat.jpg",
+    "image": "https://protools.com.vn//images/stores/2016/11/05/Day tiep dat.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8613,7 +8613,7 @@ export const PRODUCTS: Product[] = [
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2019/10/12/vòng đeo chân.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/12/vòng đeo chân.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8640,7 +8640,7 @@ export const PRODUCTS: Product[] = [
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2016/12/07/dây tiếp đất ổ cắm.jpg",
+    "image": "https://protools.com.vn//images/stores/2016/12/07/dây tiếp đất ổ cắm.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8667,7 +8667,7 @@ export const PRODUCTS: Product[] = [
     "category": "Dung cụ chống tĩnh điện",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/08/04/z722310551625_45d31378a84e02d4ccebea998ad6a5f1.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/08/04/z722310551625_45d31378a84e02d4ccebea998ad6a5f1.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8694,7 +8694,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Hàn Quốc (Korea)",
-    "image": "https://protools.com.vn/images/stores/2019/10/12/0-R4T-16P-S.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/12/0-R4T-16P-S.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8721,7 +8721,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Hàn Quốc (Korea)",
-    "image": "https://protools.com.vn/images/stores/2019/10/12/0-XTB-20H.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/12/0-XTB-20H.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8748,7 +8748,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Hàn Quốc (Korea)",
-    "image": "https://protools.com.vn/images/stores/2019/10/12/0-C20HH-10SL-2.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/12/0-C20HH-10SL-2.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8775,7 +8775,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị tự động hóa",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Hàn Quốc (Korea)",
-    "image": "https://protools.com.vn/images/stores/2019/10/09/XTB.jpg",
+    "image": "https://protools.com.vn//images/stores/2019/10/09/XTB.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8802,7 +8802,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2023/11/16/Dây chun.jpg",
+    "image": "https://protools.com.vn//images/stores/2023/11/16/Dây chun.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8829,7 +8829,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/25/TB136oyKVXXXXaJXXXXXXXXXXXX_!!0-item_pic.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/25/TB136oyKVXXXXaJXXXXXXXXXXXX_!!0-item_pic.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -8856,9 +8856,9 @@ export const PRODUCTS: Product[] = [
     "category": "Vật tư Chống Tĩnh Điện & Phòng Sạch (ESD)",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng",
-    "image": `${import.meta.env.BASE_URL}images/products/sapo/PVN8044.webp`,
+    "image": "/images/products/sapo/PVN8044.webp",
     "images": [
-      `${import.meta.env.BASE_URL}images/products/sapo/PVN8044.webp`
+      "/images/products/sapo/PVN8044.webp"
     ],
     "stock": 500,
     "stockStatus": "In Stock",
@@ -8951,10 +8951,10 @@ export const PRODUCTS: Product[] = [
     "category": "Vật tư Chống Tĩnh Điện & Phòng Sạch (ESD)",
     "categorySlug": "dung-cu-chong-tinh-dien",
     "origin": "Chính Hãng Ansell (Thái Lan / Malaysia)",
-    "image": `${import.meta.env.BASE_URL}images/products/touchntuff-92-600.webp`,
+    "image": "/images/products/touchntuff-92-600.webp",
     "images": [
-      `${import.meta.env.BASE_URL}images/products/touchntuff-92-600.webp`,
-      `${import.meta.env.BASE_URL}images/products/touchntuff-92-600.png`
+      "/images/products/touchntuff-92-600.webp",
+      "/images/products/touchntuff-92-600.png"
     ],
     "stock": 1000,
     "stockStatus": "In Stock",
@@ -9051,7 +9051,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/20/2016053152371661.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/20/2016053152371661.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9078,7 +9078,7 @@ export const PRODUCTS: Product[] = [
     "category": "Thiết bị phụ trợ khác",
     "categorySlug": "thiet-bi-tu-dong-hoa",
     "origin": "Chính Hãng",
-    "image": "https://protools.com.vn/images/stores/2017/12/14/2115_b____m__y_khoan_m__i_kh___c___a_n__ng_100_m__n_tpc_8258_4_.jpg",
+    "image": "https://protools.com.vn//images/stores/2017/12/14/2115_b____m__y_khoan_m__i_kh___c___a_n__ng_100_m__n_tpc_8258_4_.jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9105,7 +9105,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/1-image%20(7).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/1-image%20(7).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9132,7 +9132,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS Robotics Kits (Bộ dụng cụ robot FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/1-image%20(4).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/1-image%20(4).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9159,7 +9159,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/0-image%20(8).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/0-image%20(8).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9186,7 +9186,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/0-image%20(6).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/0-image%20(6).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9213,7 +9213,7 @@ export const PRODUCTS: Product[] = [
     "category": "FHS components (Các thành phần FHS)",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/image%20(3).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/14/image%20(3).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
@@ -9240,7 +9240,7 @@ export const PRODUCTS: Product[] = [
     "category": "Labeling",
     "categorySlug": "murrplastik",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/11/0-image%20(1).jpg",
+    "image": "https://protools.com.vn//images/stores/2025/10/11/0-image%20(1).jpg",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",

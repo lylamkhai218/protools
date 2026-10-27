@@ -140,7 +140,7 @@
 - **Hotline tiếp đón VIP & Kỹ thuật:** `0915.168.824` (Ms. Nhung) / `0868.822.409` (Mr. Bình).
 - **Hạ tầng kho vận:**
   * Trụ sở chính: Thôn Nhạo Sơn, Xã Thụy Anh, Tỉnh Hưng Yên (cách KCN Liên Hà Thái 1km).
-  * VPGD & Kho trung tâm: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội (giao hỏa tốc 24h).
+  * VPGD & Kho trung tâm: Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội (giao hỏa tốc 24h).
 - **Hệ thống website:**
   * Thiết bị thương mại & e-Catalog: `protools.com.vn`
   * Chuyên trang giải pháp Murrplastik: `murrplastikvn.com`

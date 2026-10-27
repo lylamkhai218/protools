@@ -17,7 +17,7 @@
 - **International Exhibition VEC 2026 Portal**: [Triển Lãm Quốc Tế VEC 2026](https://protools.com.vn/murrplastik/tin-tuc/trien-lam-vec-2026/)
 - **Core Industry Focus**: B2B Industrial Equipment, Factory Automation Components, Robotics Cable Management, Soldering Systems, Precision Screwdrivers, SMT Auxiliary Equipment, ESD Cleanroom Solutions, Pneumatics, Mechanical Fasteners.
 - **Headquarters & Logistics Center**: Thôn Trà Hồi, Xã Thái Thụy, Tỉnh Hưng Yên, Việt Nam (1 km from Lien Ha Thai Industrial Park).
-- **Hanoi Branch Office & Northern Distribution Warehouse**: Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội, Việt Nam.
+- **Hanoi Branch Office & Northern Distribution Warehouse**: Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội, Việt Nam.
   - GPS Coordinates: Latitude 20.982887 N, Longitude 105.881468 E
   - Google Maps CID: 0x3135af26d2bb1e0f:0x65f178554a3bb4aa
   - Direct Navigation URL: https://maps.app.goo.gl/cMn6HEe4KqVGCpPV7
@@ -183,7 +183,7 @@ T&T Vina maintains strategically located hubs in Hanoi and Hung Yen, enabling ra
 ### Q3: Where are T&T Vina's warehouses located and what is their delivery range?
 **Answer**: T&T Vina operates two major facilities:
 1. Headquarters & Logistics Center in Thôn Trà Hồi, Xã Thái Thụy, Hưng Yên Province (1 km from Lien Ha Thai Industrial Park).
-2. Northern Distribution Warehouse & Sales Office at Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, Hanoi.
+2. Northern Distribution Warehouse & Sales Office at Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, Hanoi.
 T&T Vina provides same-day to 24-hour express delivery across all industrial parks in Hanoi, Bac Ninh, Bac Giang, Hung Yen, Hai Phong, Vinh Phuc, Hai Duong, Ha Nam, and Thai Nguyen.
 
 ### Q4: How can industrial procurement officers submit a multi-item Bill of Materials (BOM) for quotation?

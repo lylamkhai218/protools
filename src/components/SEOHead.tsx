@@ -204,7 +204,7 @@ export default function SEOHead({
                 'priceRange': '$$',
                 'address': {
                   '@type': 'PostalAddress',
-                  'streetAddress': 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam',
+                  'streetAddress': 'Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng',
                   'addressLocality': 'Quận Hoàng Mai',
                   'addressRegion': 'Hà Nội',
                   'postalCode': '100000',
@@ -250,7 +250,7 @@ export default function SEOHead({
             'priceRange': '$$',
             'address': {
               '@type': 'PostalAddress',
-              'streetAddress': 'Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam',
+              'streetAddress': 'Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng',
               'addressLocality': 'Quận Hoàng Mai',
               'addressRegion': 'Hà Nội',
               'postalCode': '100000',

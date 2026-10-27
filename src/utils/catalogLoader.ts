@@ -1,13 +1,12 @@
 import { Product } from '../types';
 import { PRODUCTS } from '../data';
-import { isExcludedSku } from './brandNormalizer';
 
 let cachedCatalog: Product[] | null = null;
 let catalogPromise: Promise<Product[]> | null = null;
 
 /**
- * Asynchronously loads the 7,500+ SKU catalog index from /data/catalog_index.json.
- * Deduplicates and caches the merged array in memory for instant reuse across components.
+ * Loads the curated 104 product catalog.
+ * Synchronizes with disabled_products.json from AdminCP if any product is unpublished.
  */
 export async function loadCatalogIndex(): Promise<Product[]> {
   if (cachedCatalog) {
@@ -20,58 +19,31 @@ export async function loadCatalogIndex(): Promise<Product[]> {
 
   catalogPromise = (async () => {
     try {
-      const isInternal = typeof window !== 'undefined' && (
-        new URLSearchParams(window.location.search).get('mode') === 'internal' ||
-        new URLSearchParams(window.location.search).get('access') === 'noi-bo' ||
-        window.location.pathname.toLowerCase().startsWith('/noi-bo') ||
-        window.location.pathname.toLowerCase().startsWith('/internal') ||
-        window.location.pathname.toLowerCase().startsWith('/kiem-duyet')
-      );
-      const endpoint = isInternal ? '/data/catalog_index_full.json' : '/data/catalog_index.json';
-      const res = await fetch(endpoint);
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}: Failed to load ${endpoint}`);
-      }
-      const data: Product[] = await res.json();
-      if (Array.isArray(data) && data.length > 0) {
-        const flagshipSkus = new Set(PRODUCTS.map(p => p.sku.toLowerCase()));
-        
-        if (isInternal) {
-          // In internal staff mode: preserve all 7500 items for review
-          const extraProducts = data.filter(p => !flagshipSkus.has(p.sku.toLowerCase()));
-          cachedCatalog = [...PRODUCTS, ...extraProducts];
-          return cachedCatalog;
-        }
+      const fullCatalog = [...PRODUCTS];
 
-        const extraProducts = data
-          .filter(p => !flagshipSkus.has(p.sku.toLowerCase()))
-          .filter(p => !isExcludedSku(p.sku));
-        const fullCatalog = [...PRODUCTS.filter(p => !isExcludedSku(p.sku)), ...extraProducts];
-
-        // Real-time sync: Check if any products have been disabled (status=0) via AdminCP
-        try {
-          const disabledRes = await fetch('/data/disabled_products.json?v=' + Date.now(), { cache: 'no-cache' });
-          if (disabledRes.ok) {
-            const disabledList = await disabledRes.json();
-            if (Array.isArray(disabledList) && disabledList.length > 0) {
-              const disabledSet = new Set(disabledList.map(s => String(s).toLowerCase().trim()));
-              cachedCatalog = fullCatalog.filter(p => {
-                const sku = String(p.sku || '').toLowerCase().trim();
-                const id = String(p.id || '').toLowerCase().trim();
-                return !disabledSet.has(sku) && !disabledSet.has(id);
-              });
-              return cachedCatalog;
-            }
+      // Real-time sync: Check if any products have been disabled (status=0) via AdminCP
+      try {
+        const disabledRes = await fetch('/data/disabled_products.json?v=' + Date.now(), { cache: 'no-cache' });
+        if (disabledRes.ok) {
+          const disabledList = await disabledRes.json();
+          if (Array.isArray(disabledList) && disabledList.length > 0) {
+            const disabledSet = new Set(disabledList.map(s => String(s).toLowerCase().trim()));
+            cachedCatalog = fullCatalog.filter(p => {
+              const sku = String(p.sku || '').toLowerCase().trim();
+              const id = String(p.id || '').toLowerCase().trim();
+              return !disabledSet.has(sku) && !disabledSet.has(id);
+            });
+            return cachedCatalog;
           }
-        } catch {
-          // Graceful fallback: ignore if disabled_products.json does not exist
         }
-
-        cachedCatalog = fullCatalog;
-        return cachedCatalog;
+      } catch {
+        // Graceful fallback: ignore if disabled_products.json does not exist
       }
+
+      cachedCatalog = fullCatalog;
+      return cachedCatalog;
     } catch (err) {
-      console.warn('Could not load /data/catalog_index.json, falling back to flagship catalog:', err);
+      console.warn('Could not load catalog, falling back to PRODUCTS:', err);
     }
     cachedCatalog = PRODUCTS;
     return cachedCatalog;
@@ -88,10 +60,10 @@ export function getCachedCatalog(): Product[] {
 }
 
 /**
- * Returns true if the full 7,500+ SKU index is already cached in memory.
+ * Returns true if the curated catalog is cached in memory.
  */
 export function isCatalogLoaded(): boolean {
-  return cachedCatalog !== null && cachedCatalog.length > PRODUCTS.length;
+  return cachedCatalog !== null;
 }
 
 export interface SearchResultItem {
