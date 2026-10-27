@@ -577,3 +577,14 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - API danh mục: `https://protools.com.vn/data/catalog_index.json` nạp đúng 104 SKU sản phẩm phê duyệt.
     - Trang sản phẩm mới: `https://protools.com.vn/san-pham/gang-tay-nitrile-xanh-ansell-touchntuff-92-600` trả về HTTP 200 OK.
     - Cổng nội bộ: `https://protools.com.vn/?mode=internal` không còn chế độ duyệt ẩn, chuyển tiếp mượt mà về trang chủ.
+
+- **Sự cố 27/10/2026: Lỗi ErrorBoundary "Cập Nhật Dữ Liệu Hệ Thống" & 403 Trang Quản Trị AdminCP:**
+  - **Sự cố 1 - ErrorBoundary pop-up trên mọi trang**:
+    - *Nguyên nhân*: Trong `src/components/Header.tsx` còn sót lại tham chiếu JSX `<SearchMaintenanceModal ... />` và `isCatalogMaintenance` sau khi đã xóa file component, dẫn đến `ReferenceError: SearchMaintenanceModal is not defined` trong vòng lặp render của React. ErrorBoundary đã bắt lỗi và hiển thị modal "CẬP NHẬT DỮ LIỆU HỆ THỐNG".
+    - *Khắc phục*: Dọn sạch triệt để toàn bộ biến và JSX liên quan đến `SearchMaintenanceModal` trong `Header.tsx`. Chạy kiểm thử kiểm tra kiểu tĩnh `pnpm lint` (`tsc --noEmit`) đạt mã thoát 0.
+  - **Sự cố 2 - Trang AdminCP trả về 403 Forbidden**:
+    - *Nguyên nhân*: Khai báo `AddHandler application/x-httpd-php82 .php` trong `.htaccess` gốc bị LiteSpeed từ chối thực thi do máy chủ Mắt Bão chưa cấu hình handler 8.2 cho tài khoản, làm toàn bộ script PHP tại `/admincp/` bị chặn với HTTP 403.
+    - *Khắc phục*: Chạy `py deploy_production_root.py --rollback`, comment out directive `AddHandler` để đưa môi trường về PHP 5.6.40 mặc định; cấu hình `/admincp/.htaccess` giữ `RewriteEngine Off`. Kiểm tra live: `https://protools.com.vn/admincp/` trả về HTTP 200 OK.
+  - **Sự cố 3 - Chặn và xóa triệt để `?mode=internal`**:
+    - *Khắc phục*: Bổ sung quy tắc chuyển hướng vĩnh viễn trong root `.htaccess`: `RewriteCond %{QUERY_STRING} (?:^|&)mode=internal(?:&|$) [NC]` -> `RewriteRule ^(.*)$ /$1? [R=301,L]`. Mọi yêu cầu chứa `mode=internal` được chuyển hướng HTTP 301 tức thì về URL sạch, đồng thời client React `App.tsx` tự động loại bỏ tham số qua `replaceState`.
+  - *Kiểm chứng thực tế (CDP Automated Inspection)*: Headless Chrome kết nối qua CDP trên Production `https://protools.com.vn/` ghi nhận `TOTAL LIVE CONSOLE ERRORS: 0`.
