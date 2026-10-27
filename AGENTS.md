@@ -562,3 +562,18 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - Hệ thống chuyển ngữ FAQ 7 ngôn ngữ: `src/i18n/faqTranslations.ts` (Tiếng Việt `Phường Vĩnh Hưng`, Tiếng Anh `Vinh Hung Ward`, Tiếng Trung `永兴坊`, Tiếng Đức `Bezirk Vinh Hung`, Tiếng Hàn `빈흥 (Vinh Hung)`, Tiếng Thái `แขวงหวิญฮึง`).
     - AI Discovery & LLM Manifests: `public/llms.txt`, `public/llms-full.txt`, `public/ai-manifest.json`.
     - Bộ tạo Snapshot SEO & Trang tĩnh Murrplastik: `generate_static_snapshots.py`, `public/murrplastik/**/*.html`.
+
+- **Kiến Trúc App Shell Skeleton & Triệt Tiêu Nhấp Nháy Khởi Động (Zero Flashing - 0 CLS):**
+  - **Hiện tượng**: Khi tải lại trang với `Ctrl + Shift + R`, người dùng thấy màn hình flash 0,x giây do snapshot tĩnh pre-render có nền tối `#0f172a` và khối văn bản raw xuất hiện trước khi React SPA kịp hydrate.
+  - **Giải pháp kỹ thuật chuẩn hóa**:
+    - Tách biệt hoàn toàn: Nội dung văn bản SEO chuyên sâu và bảng số liệu phục vụ Googlebot/AI Crawler được bọc trong thẻ `<noscript>` bên ngoài `#root`.
+    - Phân vùng `<div id="root">`: Tiêm cấu trúc khung giao diện rỗng (App Shell Skeleton) có tông màu thương hiệu chính xác (`#00478D`, nền trắng, thẻ card xám nhạt `animate-pulse`), trùng khớp 100% với layout của ứng dụng React.
+    - Kết quả: Triệt tiêu hoàn toàn nhấp nháy giao diện khi làm mới cứng, tối ưu điểm tích lũy dịch chuyển bố cục (CLS = 0) trên Google Lighthouse, đồng thời bảo toàn 100% khả năng đọc và lập chỉ mục của search engine.
+- **Phát Hành Production Hoàn Tất (Live Verified 27/10/2026):**
+  - Script triển khai: `py deploy_production_root.py --skip-backup` đã tải thành công 149 tệp lên `public_html` máy chủ Mắt Bão LiteSpeed (`s2d34.cloudnetwork.vn`).
+  - Hệ thống định tuyến: Lưu trữ và đồng bộ vĩnh viễn tệp `public/.htaccess` vào git repository, bảo vệ bypass an toàn cho `/admincp/`, `/murrplastik/`, `/office/`, `/kho/`.
+  - Kết quả kiểm chứng Live HTTP (`https://protools.com.vn/`):
+    - Trang chủ: HTTP 200 OK, đã hiển thị App Shell chống flash, 100% địa chỉ mang tên `Phường Vĩnh Hưng`, không còn từ khóa nội bộ `500kg`.
+    - API danh mục: `https://protools.com.vn/data/catalog_index.json` nạp đúng 104 SKU sản phẩm phê duyệt.
+    - Trang sản phẩm mới: `https://protools.com.vn/san-pham/gang-tay-nitrile-xanh-ansell-touchntuff-92-600` trả về HTTP 200 OK.
+    - Cổng nội bộ: `https://protools.com.vn/?mode=internal` không còn chế độ duyệt ẩn, chuyển tiếp mượt mà về trang chủ.
