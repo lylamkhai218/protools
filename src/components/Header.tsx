@@ -29,14 +29,12 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedSolution } from '../i18n/solutionsTranslations';
 import { loadCatalogIndex, searchCatalog } from '../utils/catalogLoader';
-import { SearchMaintenanceModal } from './SearchMaintenanceModal';
 
 interface HeaderProps {
   currentTab: string;
   cartCount: number;
   onNavigate: (tab: string, filter?: string, search?: string) => void;
   onSelectProduct: (product: Product) => void;
-  isCatalogMaintenance?: boolean;
 }
 
 // 1. Phím tắt từ khóa tìm kiếm nhanh phổ biến
@@ -80,7 +78,7 @@ const CATEGORY_IMAGE_MAP: Record<string, string> = {
   'thiet-bi-tu-dong-hoa': 'https://protools.com.vn/images/stores/2019/10/12/0-R4T-16P-S.jpg' // Relay Samwon R4T-16P-S
 };
 
-export default function Header({ currentTab, cartCount, onNavigate, onSelectProduct, isCatalogMaintenance = false }: HeaderProps) {
+export default function Header({ currentTab, cartCount, onNavigate, onSelectProduct }: HeaderProps) {
   const { t, locale } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -472,18 +470,12 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 type="text"
                 value={searchQuery}
                 onChange={(e) => {
-                  if (isCatalogMaintenance) {
-                    setIsSearchMaintenanceOpen(true);
-                    return;
-                  }
+
                   setSearchQuery(e.target.value);
                 }}
                 onKeyDown={handleSearchKeyDown}
                 onFocus={() => {
-                  if (isCatalogMaintenance) {
-                    setIsSearchMaintenanceOpen(true);
-                    return;
-                  }
+
                   setIsSearchFocused(true);
                   loadCatalogIndex().catch(() => {});
                 }}
@@ -492,7 +484,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                     setIsSearchMaintenanceOpen(true);
                   }
                 }}
-                placeholder={isCatalogMaintenance ? "Tìm thiết bị, SKU... (Đang bảo trì)" : (isSearchFocused ? t('nav.search_placeholder') : "Tìm thiết bị, SKU...")}
+                placeholder={isSearchFocused ? t('nav.search_placeholder') : "Tìm thiết bị, SKU..."}
                 className="w-full h-10 pl-9 pr-9 rounded-sm bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#00478D] transition-all"
               />
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -810,10 +802,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               type="text"
               value={searchQuery}
               onChange={(e) => {
-                if (isCatalogMaintenance) {
-                  setIsSearchMaintenanceOpen(true);
-                  return;
-                }
+
                 setSearchQuery(e.target.value);
               }}
               onKeyDown={handleSearchKeyDown}
@@ -827,7 +816,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   setIsSearchMaintenanceOpen(true);
                 }
               }}
-              placeholder={isCatalogMaintenance ? "Tìm thiết bị, SKU... (Đang bảo trì)" : t('nav.search_placeholder_mobile')}
+              placeholder={t('nav.search_placeholder_mobile')}
               className="w-full h-12 pl-10 pr-10 rounded-sm bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#00478D] font-medium"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />

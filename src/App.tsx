@@ -14,8 +14,6 @@ import SEOHead from './components/SEOHead';
 import { extractSkuFromSlug, getProductPath, getCategoryPath } from './utils/slugify';
 import { loadCatalogIndex } from './utils/catalogLoader';
 import { isExcludedSku } from './utils/brandNormalizer';
-import MaintenanceScreen from './components/MaintenanceScreen';
-import InternalReviewHub from './components/InternalReviewHub';
 import { InAppBrowserNotice } from './components/InAppBrowserNotice';
 
 interface Props {
@@ -95,41 +93,7 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product>(PRODUCTS[0]);
   const [dresspackKey, setDresspackKey] = useState<number>(0);
 
-  // Maintenance & Internal Mode state: STRICT URL PARAM ONLY (No sticky localStorage)
-  const [isInternalMode, setIsInternalMode] = useState<boolean>(() => {
-    try {
-      const path = window.location.pathname.toLowerCase();
-      const params = new URLSearchParams(window.location.search);
-      const isInternalUrl = (
-        path.startsWith('/noi-bo') ||
-        path.startsWith('/internal') ||
-        path.startsWith('/kiem-duyet') ||
-        params.get('mode') === 'internal' ||
-        params.get('access') === 'noi-bo'
-      );
-      if (isInternalUrl) {
-        return true;
-      }
-      // Always remove any stale localStorage flag so visiting https://protools.com.vn/ never forks into internal mode
-      localStorage.removeItem('protools_internal_mode');
-      return false;
-    } catch {
-      return false;
-    }
-  });
 
-  const [internalViewMode, setInternalViewMode] = useState<'hub' | 'home' | 'maintenance_preview'>('hub');
-
-  const handleExitInternal = () => {
-    try {
-      localStorage.removeItem('protools_internal_mode');
-    } catch {
-      // Ignore
-    }
-    setIsInternalMode(false);
-    setInternalViewMode('hub');
-    window.history.pushState({}, '', '/');
-  };
   
   // Toast notification state
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -243,28 +207,6 @@ export default function App() {
       const productParam = params.get('product');
       const categoryParam = params.get('category');
       const tabParam = params.get('tab');
-
-      // 0. Internal Review Portal Route: /noi-bo, /internal, /kiem-duyet, ?mode=internal
-      const isInternalUrl = (
-        pathname.startsWith('/noi-bo') ||
-        pathname.startsWith('/internal') ||
-        pathname.startsWith('/kiem-duyet') ||
-        params.get('mode') === 'internal' ||
-        params.get('access') === 'noi-bo'
-      );
-
-      if (isInternalUrl) {
-        setIsInternalMode(true);
-        setInternalViewMode('hub');
-        return;
-      } else {
-        setIsInternalMode(false);
-        try {
-          localStorage.removeItem('protools_internal_mode');
-        } catch {
-          // Ignore
-        }
-      }
 
       // 1. Semantic Clean URL: /san-pham/:slug
       if (pathname.startsWith('/san-pham/')) {
@@ -436,44 +378,7 @@ export default function App() {
 
   const totalCartCount = cartItems.reduce((sum, item) => sum + (item.quantity || 0), 0);
 
-  // 1. INTERNAL STAFF MODE:
-  // 1.1 Previewing Maintenance Mode (Full-page preview)
-  if (isInternalMode && internalViewMode === 'maintenance_preview') {
-    return (
-      <div className="flex flex-col min-h-screen">
-        <div className="bg-amber-500 text-slate-900 px-4 py-2.5 text-xs font-bold flex flex-wrap justify-between items-center z-50 sticky top-0 shadow-md">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-900 animate-pulse" />
-            <span>[CHẾ ĐỘ XEM THỬ: MÀN HÌNH BẢO TRÌ TOÀN TRANG]</span>
-          </div>
-          <button
-            type="button"
-            onClick={() => setInternalViewMode('hub')}
-            className="px-3 py-1 bg-slate-900 hover:bg-slate-800 text-white rounded-xs text-xs font-bold cursor-pointer transition-colors"
-          >
-            Quay Lại Cổng Soát Mã SKU
-          </button>
-        </div>
-        <MaintenanceScreen
-          onEnterInternal={() => setInternalViewMode('hub')}
-        />
-      </div>
-    );
-  }
 
-  // 1.2 Internal SKU Review Hub (Table view with 7500 SKUs and batch copy)
-  if (isInternalMode && internalViewMode === 'hub') {
-    return (
-      <InternalReviewHub
-        onBackToHome={() => setInternalViewMode('home')}
-        onPreviewMaintenance={() => setInternalViewMode('maintenance_preview')}
-        onExitInternal={handleExitInternal}
-      />
-    );
-  }
-
-  // 2. STANDARD / FULL WEBSITE VIEW (Public visitors or Staff browsing Home)
-  const isCatalogMaintenance = !isInternalMode;
 
   return (
     <ErrorBoundary>
@@ -481,40 +386,6 @@ export default function App() {
         
         {/* IN-APP BROWSER NOTICE (Zalo, Facebook, Messenger, TikTok) */}
         <InAppBrowserNotice />
-
-        {/* INTERNAL CONTROL BAR (Active ONLY when internal staff browses website) */}
-        {isInternalMode && (
-          <div className="bg-slate-900 text-white text-xs px-4 py-2.5 flex flex-wrap items-center justify-between z-50 border-b border-amber-500 sticky top-0 shadow-md">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-bold text-amber-300">[CHẾ ĐỘ NỘI BỘ]</span>
-              <span className="text-slate-300 hidden sm:inline">Đang xem toàn bộ 7.500 sản phẩm gốc (Khách ngoài đang thấy bảo trì danh mục)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setInternalViewMode('hub')}
-                className="px-2.5 py-1 rounded-xs bg-[#00478D] hover:bg-blue-600 text-white font-bold cursor-pointer transition-colors shadow-xs"
-              >
-                Mở Trạm Soát Mã SKU (Sao chép mã)
-              </button>
-              <button
-                type="button"
-                onClick={() => setInternalViewMode('maintenance_preview')}
-                className="px-2.5 py-1 rounded-xs bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
-              >
-                Xem Thử Trang Bảo Trì
-              </button>
-              <button
-                type="button"
-                onClick={handleExitInternal}
-                className="px-2 py-1 rounded-xs bg-rose-950 hover:bg-rose-900 text-rose-300 border border-rose-800 cursor-pointer"
-              >
-                Thoát Nội Bộ
-              </button>
-            </div>
-          </div>
-        )}
 
         {/* DYNAMIC SEO HEAD CONTROLLER */}
         <SEOHead 
@@ -531,7 +402,6 @@ export default function App() {
           cartCount={totalCartCount}
           onNavigate={handleNavigate}
           onSelectProduct={handleSelectProduct}
-          isCatalogMaintenance={isCatalogMaintenance}
         />
 
         {/* 2. TOAST NOTIFICATION POPUP */}
@@ -562,8 +432,7 @@ export default function App() {
                 onAddToCart={handleAddToCart}
                 initialFilter={activeCategoryFilter}
                 initialSearch={activeSearchQuery}
-                isCatalogMaintenance={isCatalogMaintenance}
-              />
+                    />
             )}
 
             {currentTab === 'product-detail' && selectedProduct && (

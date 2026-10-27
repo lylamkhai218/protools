@@ -541,3 +541,24 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - `https://cokhipro.com.vn/cong-cu/bang-tra-mui-khoan-va-taro`: Direct Answer Block và bảng tra ren ISO 68-1.
     - Chuyển hướng 301: `https://cokhipro.com.vn/bang-tra-mui-khoan-va-taro.html` -> HTTP 301 chuyển sang `/cong-cu/bang-tra-mui-khoan-va-taro`.
 
+
+---
+
+## 34. QUY CHUẨN MỞ LẠI GIAN HÀNG, KHÓA DANH MỤC 104 SẢN PHẨM & ĐỒNG BỘ ĐỊA CHỈ HÀNH CHÍNH MỚI (27/10/2026)
+- **Mở lại Gian Hàng & Khóa Danh Mục Chuẩn Hóa (104 SKU Phê Duyệt):**
+  - Chấm dứt chế độ bảo trì danh mục (`isCatalogMaintenance = false`), kích hoạt lại hệ thống tìm kiếm đa chiều trực tiếp trên toàn site.
+  - Xóa bỏ triệt để cổng rà soát nội bộ `?mode=internal` (`/noi-bo`, `/internal`, `/kiem-duyet`) và dọn sạch các component bảo trì tạm thời (`InternalReviewHub.tsx`, `MaintenanceScreen.tsx`, `CatalogMaintenanceBlock.tsx`, `SearchMaintenanceModal.tsx`).
+  - Danh mục công khai được khóa cố định chính xác **104 sản phẩm chất lượng cao**:
+    1. **77 sản phẩm thiết bị phụ trợ & tự động hóa truyền thống**: Lấy từ UI gốc `https://protools.com.vn/index.php` và MariaDB qua `admincp` (Robot bơm keo AB 1065, SP-982, Bể hàn CM-808, Máy cắt băng dính M1000/Zcut, Robot bắt vít, Quạt thổi ion Dr. Schneider...).
+    2. **2 sản phẩm vật tư phòng sạch**: Găng tay nitrile xanh Ansell TouchNTuff 92-600 (`92-600`) và khăn lau phòng sạch (`1024`).
+    3. **25 dòng sản phẩm cha Murrplastik**: Đại diện cho 250 mã biến thể có đủ bộ 3 ảnh kỹ thuật (Ảnh Hãng + Bản vẽ 2D + Ảnh Kho thật) từ phiên làm việc *Lập Kế Hoạch Lấy Ảnh Sản Phẩm*.
+  - Lọc sạch 100% các từ khóa nhạy cảm nội bộ ("lô 500kg", "500kg", "lô hàng") ra khỏi hệ thống thẻ tags và mô tả sản phẩm.
+- **Quy Chuẩn Cập Nhật Địa Chỉ Hành Chính Sau Sáp Nhập (Phường Vĩnh Hưng):**
+  - Giữ nguyên số nhà, ngách, ngõ và trục đường chính: `Số 11/68/467 Lĩnh Nam`.
+  - Cập nhật địa danh hành chính phường: Đổi `Phường Lĩnh Nam` thành `Phường Vĩnh Hưng`.
+  - Chuỗi địa chỉ chuẩn hóa: `Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội`.
+  - Đã rà soát và cập nhật đồng bộ xuyên suốt 100% các tệp dữ liệu cốt lõi:
+    - Codebase React & Dữ liệu công ty: `src/data.ts` (`COMPANY_INFO.vpgdAndWarehouse`, `COMPANY_INFO.branchHanoi`), `src/components/SEOHead.tsx`, `index.html`.
+    - Hệ thống chuyển ngữ FAQ 7 ngôn ngữ: `src/i18n/faqTranslations.ts` (Tiếng Việt `Phường Vĩnh Hưng`, Tiếng Anh `Vinh Hung Ward`, Tiếng Trung `永兴坊`, Tiếng Đức `Bezirk Vinh Hung`, Tiếng Hàn `빈흥 (Vinh Hung)`, Tiếng Thái `แขวงหวิญฮึง`).
+    - AI Discovery & LLM Manifests: `public/llms.txt`, `public/llms-full.txt`, `public/ai-manifest.json`.
+    - Bộ tạo Snapshot SEO & Trang tĩnh Murrplastik: `generate_static_snapshots.py`, `public/murrplastik/**/*.html`.

@@ -200,7 +200,7 @@ python deploy_production_root.py
 * **Đơn vị chủ quản:** CÔNG TY TNHH CÔNG NGHIỆP T&T VINA (*T&T VINA INDUSTRIAL CO., LTD*)
 * **Cổng thông tin:** [Protools.com.vn](https://protools.com.vn/)
 * **Trụ sở chính:** Thôn Trà Hồi, Xã Thái Thụy, Tỉnh Hưng Yên *(cách KCN Liên Hà Thái 1km)*
-* **Văn phòng giao dịch & Tổng kho Hà Nội:** Số 11/68/467 Lĩnh Nam, Phường Lĩnh Nam, Quận Hoàng Mai, TP. Hà Nội
+* **Văn phòng giao dịch & Tổng kho Hà Nội:** Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội
 * **Hotline hỗ trợ 24/7:** `0915.168.824`
 * **Email chính thức:** `info@t2tvina.com` • `t2t.vina@gmail.com`
 * **Bản quyền:** © 2026 T&T VINA INDUSTRIAL CO., LTD. Mọi quyền được bảo lưu.
