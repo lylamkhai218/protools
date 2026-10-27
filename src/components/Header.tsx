@@ -82,7 +82,6 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
   const { t, locale } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [isSearchMaintenanceOpen, setIsSearchMaintenanceOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isToolboxOpen, setIsToolboxOpen] = useState(false);
@@ -479,11 +478,6 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   setIsSearchFocused(true);
                   loadCatalogIndex().catch(() => {});
                 }}
-                onClick={() => {
-                  if (isCatalogMaintenance) {
-                    setIsSearchMaintenanceOpen(true);
-                  }
-                }}
                 placeholder={isSearchFocused ? t('nav.search_placeholder') : "Tìm thiết bị, SKU..."}
                 className="w-full h-10 pl-9 pr-9 rounded-sm bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-[#00478D] transition-all"
               />
@@ -806,16 +800,6 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 setSearchQuery(e.target.value);
               }}
               onKeyDown={handleSearchKeyDown}
-              onFocus={() => {
-                if (isCatalogMaintenance) {
-                  setIsSearchMaintenanceOpen(true);
-                }
-              }}
-              onClick={() => {
-                if (isCatalogMaintenance) {
-                  setIsSearchMaintenanceOpen(true);
-                }
-              }}
               placeholder={t('nav.search_placeholder_mobile')}
               className="w-full h-12 pl-10 pr-10 rounded-sm bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#00478D] font-medium"
             />
@@ -993,11 +977,6 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
         </div>
       )}
 
-      {/* Search Maintenance Notice Modal */}
-      <SearchMaintenanceModal 
-        isOpen={isSearchMaintenanceOpen} 
-        onClose={() => setIsSearchMaintenanceOpen(false)} 
-      />
     </header>
   );
 }
