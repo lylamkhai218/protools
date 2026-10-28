@@ -198,9 +198,19 @@ export default function ProductDetail({
     );
   }
 
-  const allImages = (selectedVariant?.images && selectedVariant.images.length > 0)
+  const rawImages = (selectedVariant?.images && selectedVariant.images.length > 0)
     ? selectedVariant.images
     : (p.images && p.images.length > 0 ? p.images : [selectedVariant?.image || p.image]);
+
+  // Robustly filter out known dummy/empty studio files
+  const allImages = rawImages.filter(img => {
+    if (!img) return false;
+    // Exclude EVOCHAIN dummy studio images that are 1KB blanks
+    if (img.includes('_studio.webp') && (img.includes('murr_C0') || img.includes('murr_C04') || img.includes('murr_C05'))) {
+      return false;
+    }
+    return true;
+  });
 
   const handleCopySku = () => {
     if (effectiveSku) {
@@ -285,7 +295,12 @@ export default function ProductDetail({
                     alt={effectiveName}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => {
-                      (e.target as HTMLElement).style.display = 'none';
+                      const fallback = allImages.find(im => im && im !== (selectedImage || p.image));
+                      if (fallback) {
+                        setSelectedImage(fallback);
+                      } else {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }
                     }}
                   />
                 ) : (
@@ -345,7 +360,14 @@ export default function ProductDetail({
                             : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50 opacity-80 hover:opacity-100'
                         }`}
                       >
-                        <img src={img} alt="" className="w-full h-full object-contain" />
+                        <img 
+                          src={img} 
+                          alt="" 
+                          className="w-full h-full object-contain" 
+                          onError={(e) => {
+                            (e.target as HTMLElement).closest('button')?.remove();
+                          }}
+                        />
                       </button>
                     );
                   })}

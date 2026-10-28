@@ -3597,7 +3597,7 @@
     "specs": {
       "Hãng sản xuất": "Murrplastik (CHLB Đức)",
       "Dòng sản phẩm": "Kẹp Giữ Ống Luồn Cáp 1 Mảnh UHE (P09 Đến P48 / M12 Đến M50)",
-      "Số lượng quy cách": "23 mã kích thước sẵn kho",
+      "Số lượng quy cách": "6 mã kích thước sẵn kho",
       "Xuất xứ": "CHLB Đức (Made in Germany)",
       "Chứng chỉ chất lượng": "Đầy đủ giấy tờ, chứng từ xuất xứ & chất lượng nhập khẩu chính ngạch",
       "Tình trạng giao hàng": "Giao ngay trong 24h trên toàn quốc",
@@ -3732,380 +3732,6 @@
         "specs": {
           "Mã sản phẩm": "83621856",
           "Quy cách kỹ thuật": "UHE P16 universal holder, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121170",
-        "sku": "87121170",
-        "name": "AR 24, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121170_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121170_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83621858_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "204.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121170",
-          "Quy cách kỹ thuật": "AR 24, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121172",
-        "sku": "87121172",
-        "name": "AR 16, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121172_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121172_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83621858_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "191.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121172",
-          "Quy cách kỹ thuật": "AR 16, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83691502",
-        "sku": "83691502",
-        "name": "SH 56/70-M system holder",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83691502_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83691502_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83691502_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "1.073.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83691502",
-          "Quy cách kỹ thuật": "SH 56/70-M system holder",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83691490",
-        "sku": "83691490",
-        "name": "SH 56/70 Systemholder biack",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83691490_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83691490_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83691490_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "402.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83691490",
-          "Quy cách kỹ thuật": "SH 56/70 Systemholder biack",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83693425",
-        "sku": "83693425",
-        "name": "FHS-SH 450",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83693425_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83693425_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83693425_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "920.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83693425",
-          "Quy cách kỹ thuật": "FHS-SH 450",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83694081",
-        "sku": "83694081",
-        "name": "R-Tec Liner 2.0 MS 100mm",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83694081_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83694081_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83694081_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "1.650.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83694081",
-          "Quy cách kỹ thuật": "R-Tec Liner 2.0 MS 100mm",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83694064",
-        "sku": "83694064",
-        "name": "R-Tec Liner 2.0 AS NW70",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83694064_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83694064_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83694064_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "2.018.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83694064",
-          "Quy cách kỹ thuật": "R-Tec Liner 2.0 AS NW70",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83693423",
-        "sku": "83693423",
-        "name": "FHS-SH 350",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83693423_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83693423_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83693423_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "902.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83693423",
-          "Quy cách kỹ thuật": "FHS-SH 350",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83694002",
-        "sku": "83694002",
-        "name": "R-Tec Liner 2.0 400mm -200N",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83694002_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83694002_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83621858_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "9.765.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83694002",
-          "Quy cách kỹ thuật": "R-Tec Liner 2.0 400mm -200N",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83694100",
-        "sku": "83694100",
-        "name": "R-Tec Liner 2.0 SF NW70",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83694100_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83694100_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83694100_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "1.893.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83694100",
-          "Quy cách kỹ thuật": "R-Tec Liner 2.0 SF NW70",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83694080",
-        "sku": "83694080",
-        "name": "R-Tec Liner 2.0 MS 40mm",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83694080_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83694080_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83694080_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "797.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83694080",
-          "Quy cách kỹ thuật": "R-Tec Liner 2.0 MS 40mm",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C042010002000",
-        "sku": "C042010002000",
-        "name": "-420100 cover, inside",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C042010002000_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C042010002000_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_C042010002000_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "40.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C042010002000",
-          "Quy cách kỹ thuật": "-420100 cover, inside",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C042010001000",
-        "sku": "C042010001000",
-        "name": "A-420100 cover. outside",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C042010001000_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C042010001000_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_C042010001000_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "41.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C042010001000",
-          "Quy cách kỹ thuật": "A-420100 cover. outside",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C042012512500",
-        "sku": "C042012512500",
-        "name": "SR 420 inner plate with radius R0125/R12",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C042012512500_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C042012512500_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_83621858_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "746.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C042012512500",
-          "Quy cách kỹ thuật": "SR 420 inner plate with radius R0125/R12",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C056020020000",
-        "sku": "C056020020000",
-        "name": "SR 560 inner plate with radius R0200/R20",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C056020020000_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C056020020000_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_C056020020000_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "590.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C056020020000",
-          "Quy cách kỹ thuật": "SR 560 inner plate with radius R0200/R20",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C056020001000",
-        "sku": "C056020001000",
-        "name": "A-560200 cover, outside",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C056020001000_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C056020001000_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_C056020001000_real.webp"
-        ],
-        "stock": 30,
-        "unit": "Cái",
-        "price": "107.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C056020001000",
-          "Quy cách kỹ thuật": "A-560200 cover, outside",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C056020002000",
-        "sku": "C056020002000",
-        "name": "I-560200 cover, inside",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C056020002000_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C056020002000_studio.webp",
-          "/images/products/murr/drawings/murr_typ-uhe-183229_2d.webp",
-          "/images/products/murr/warehouse/murr_C056020002000_real.webp"
-        ],
-        "stock": 30,
-        "unit": "Cái",
-        "price": "105.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C056020002000",
-          "Quy cách kỹ thuật": "I-560200 cover, inside",
           "Xuất xứ": "CHLB Đức (Made in Germany)",
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
@@ -4286,63 +3912,39 @@
     "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
-    "id": "MP-FAM-BSH",
-    "name": "Bộ Kẹp Gá Thanh Nhôm BSH & Phụ Kiện Đầu Ống ET / SRF",
-    "sku": "MP-BSH-SERIES",
+    "id": "MP-FAM-FHS",
+    "name": "Bộ Đai Kẹp Giữ Cáp Co Giãn Robot Murrplastik FHS-C",
+    "sku": "MP-FHS-SERIES",
     "brand": "Murrplastik",
     "category": "Kẹp gá / Đế giữ ống",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_C0560000050_studio.webp",
+    "image": "/images/products/murr/studio/murr_83693526_studio.webp",
     "images": [
-      "/images/products/murr/studio/murr_C0560000050_studio.webp",
-      "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+      "/images/products/murr/studio/murr_83693526_studio.webp",
+      "/images/products/murr/drawings/murr_fhs-c-support-bracket-185970_2d.webp",
       "/images/products/murr/warehouse/murr_83693526_real.webp"
     ],
-    "stock": 106,
+    "stock": 25,
     "stockStatus": "In Stock",
     "stockLocation": "VPGD & Kho Hà Nội",
-    "price": "Từ 77.000 đ",
-    "unit": "cái",
-    "shortDesc": "Bộ kẹp gá thanh trượt BSH cùng vòng chụp đầu ống ET giúp bịt cạnh sắc ống dẫn và gá cố định chắc chắn đường dây cáp tín hiệu trên cánh tay chuyển động.",
+    "price": "Từ 4.850.000 đ",
+    "unit": "bộ",
+    "shortDesc": "Bộ đai kẹp giữ cáp co giãn lò xo FHS-C Murrplastik Đức chuyên dụng cố định ống dẫn cáp tín hiệu trên cánh tay robot công nghiệp, triệt tiêu xoắn vặn và mài mòn ống khi robot xoay chuyển.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
-      "Sẵn hàng tại VPGD & Kho Hà Nội với 18 quy cách kích thước khác nhau",
-      "Tiêu chuẩn công nghiệp độ bền cao, chống chịu mài mòn, hóa chất và dầu mỡ"
+      "Bộ đai kẹp đàn hồi chịu tải cao, tích hợp ngàm kẹp giữ ống chuyên dụng cho cánh tay robot",
+      "Sẵn hàng tại VPGD & Kho Hà Nội, giao hỏa tốc 24h"
     ],
     "specs": {
       "Hãng sản xuất": "Murrplastik (CHLB Đức)",
-      "Dòng sản phẩm": "Bộ Kẹp Gá Thanh Nhôm BSH & Phụ Kiện Đầu Ống ET / SRF",
-      "Số lượng quy cách": "18 mã kích thước sẵn kho",
+      "Dòng sản phẩm": "FHS-C-SET Robot Universal Cable Clamp",
+      "Ứng dụng": "Kẹp giữ ống luồn cáp cho cánh tay robot công nghiệp",
       "Xuất xứ": "CHLB Đức (Made in Germany)",
-      "Chứng chỉ chất lượng": "Đầy đủ giấy tờ, chứng từ xuất xứ & chất lượng nhập khẩu chính ngạch",
-      "Tình trạng giao hàng": "Giao ngay trong 24h trên toàn quốc",
       "Kho hàng sẵn có": "VPGD & Kho Hà Nội"
     },
     "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
     "variants": [
-      {
-        "id": "C0560000050",
-        "sku": "C0560000050",
-        "name": "KA 560-FB chain bracket female, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560000050_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0560000050_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "365.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0560000050",
-          "Quy cách kỹ thuật": "KA 560-FB chain bracket female, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
       {
         "id": "83693526",
         "sku": "83693526",
@@ -4351,7 +3953,7 @@
         "image": "/images/products/murr/studio/murr_83693526_studio.webp",
         "images": [
           "/images/products/murr/studio/murr_83693526_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+          "/images/products/murr/drawings/murr_fhs-c-support-bracket-185970_2d.webp",
           "/images/products/murr/warehouse/murr_83693526_real.webp"
         ],
         "stock": 4,
@@ -4365,6 +3967,87 @@
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
         }
       },
+      {
+        "id": "83693442",
+        "sku": "83693442",
+        "name": "FHS-C Set (4x KKR-Fix)",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_83693442_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83693442_studio.webp",
+          "/images/products/murr/drawings/murr_fhs-c-support-bracket-185970_2d.webp",
+          "/images/products/murr/warehouse/murr_83693442_real.webp"
+        ],
+        "stock": 1,
+        "unit": "Cái",
+        "price": "1.039.000 đ",
+        "specs": {
+          "Mã sản phẩm": "83693442",
+          "Quy cách kỹ thuật": "FHS-C Set (4x KKR-Fix)",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "83693525",
+        "sku": "83693525",
+        "name": "FHS-C-SET UNI",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_83693525_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83693525_studio.webp",
+          "/images/products/murr/drawings/murr_fhs-c-support-bracket-185970_2d.webp",
+          "/images/products/murr/warehouse/murr_83693525_real.webp"
+        ],
+        "stock": 1,
+        "unit": "Cái",
+        "price": "5.657.000 đ",
+        "specs": {
+          "Mã sản phẩm": "83693525",
+          "Quy cách kỹ thuật": "FHS-C-SET UNI",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      }
+    ],
+    "tags": "murrplastik, fhs-c, kẹp giữ ống robot, chính hãng đức, hàng sẵn kho"
+  },
+  {
+    "id": "MP-FAM-ET",
+    "name": "Vòng Chụp & Khớp Giảm Chấn Đầu Ống Luồn Cáp ET / SRF",
+    "sku": "MP-ET-SERIES",
+    "brand": "Murrplastik",
+    "category": "Phụ kiện ống luồn cáp",
+    "categorySlug": "murrplastik",
+    "origin": "CHLB Đức (Made in Germany)",
+    "image": "/images/products/murr/studio/murr_83723460_studio.webp",
+    "images": [
+      "/images/products/murr/studio/murr_83723460_studio.webp",
+      "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
+      "/images/products/murr/warehouse/murr_83723460_real.webp"
+    ],
+    "stock": 85,
+    "stockStatus": "In Stock",
+    "stockLocation": "VPGD & Kho Hà Nội",
+    "price": "Từ 68.000 đ",
+    "unit": "cái",
+    "shortDesc": "Vòng chụp bảo vệ đầu ống ET và khớp giảm chấn SRF Murrplastik Đức giúp bịt cạnh sắc ống dẫn luồn cáp, bảo vệ vỏ cáp tín hiệu không bị cứa rách trong quá trình uốn mỏi liên tục.",
+    "highlights": [
+      "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
+      "Vật liệu Polyamide PA biến tính chống ma sát và tia lửa điện",
+      "Sẵn hàng tại VPGD & Kho Hà Nội, giao ngay trong 24h"
+    ],
+    "specs": {
+      "Hãng sản xuất": "Murrplastik (CHLB Đức)",
+      "Dòng sản phẩm": "Vòng chụp đầu ống ET / Giảm chấn SRF",
+      "Vật liệu": "Polyamide PA chống cháy UL 94: V2",
+      "Xuất xứ": "CHLB Đức (Made in Germany)",
+      "Kho hàng sẵn có": "VPGD & Kho Hà Nội"
+    },
+    "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
+    "variants": [
       {
         "id": "83723460",
         "sku": "83723460",
@@ -4410,28 +4093,6 @@
         }
       },
       {
-        "id": "83693442",
-        "sku": "83693442",
-        "name": "FHS-C Set (4x KKR-Fix)",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83693442_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83693442_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693442_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "1.039.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83693442",
-          "Quy cách kỹ thuật": "FHS-C Set (4x KKR-Fix)",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
         "id": "83723458",
         "sku": "83723458",
         "name": "ET P21 end sleeve, sw",
@@ -4452,273 +4113,9 @@
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
         }
-      },
-      {
-        "id": "83693525",
-        "sku": "83693525",
-        "name": "FHS-C-SET UNI",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83693525_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83693525_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693525_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "5.657.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83693525",
-          "Quy cách kỹ thuật": "FHS-C-SET UNI",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0420000051",
-        "sku": "C0420000051",
-        "name": "KA 420-FB chain bracket male, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0420000051_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0420000051_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "313.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0420000051",
-          "Quy cách kỹ thuật": "KA 420-FB chain bracket male, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0420000056",
-        "sku": "C0420000056",
-        "name": "KA 420-FB chain bracket female, swinged,",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0420000056_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0420000056_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "313.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0420000056",
-          "Quy cách kỹ thuật": "KA 420-FB chain bracket female, swinged,",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0420000050",
-        "sku": "C0420000050",
-        "name": "KA 420-FB chain bracket female, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0420000050_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0420000050_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "313.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0420000050",
-          "Quy cách kỹ thuật": "KA 420-FB chain bracket female, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0420000054",
-        "sku": "C0420000054",
-        "name": "KA 420-FG chain bracket maleo, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0420000054_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0420000054_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "485.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0420000054",
-          "Quy cách kỹ thuật": "KA 420-FG chain bracket maleo, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0420000053",
-        "sku": "C0420000053",
-        "name": "KA 420-FG chain bracket female, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0420000053_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0420000053_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "485.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0420000053",
-          "Quy cách kỹ thuật": "KA 420-FG chain bracket female, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0420000055",
-        "sku": "C0420000055",
-        "name": "KA 420-FG chain bracket female, swinged,",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0420000055_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0420000055_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "485.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0420000055",
-          "Quy cách kỹ thuật": "KA 420-FG chain bracket female, swinged,",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0560000055",
-        "sku": "C0560000055",
-        "name": "KA 560-FG chain bracket female, swinged,",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560000055_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0560000055_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_C0560000055_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "655.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0560000055",
-          "Quy cách kỹ thuật": "KA 560-FG chain bracket female, swinged,",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0560000054",
-        "sku": "C0560000054",
-        "name": "KA 560-FG chain bracket male, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560000054_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0560000054_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_C0560000054_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "655.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0560000054",
-          "Quy cách kỹ thuật": "KA 560-FG chain bracket male, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0560000056",
-        "sku": "C0560000056",
-        "name": "KA 560-FB chain bracket female, swinged,",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560000056_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0560000056_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "365.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0560000056",
-          "Quy cách kỹ thuật": "KA 560-FB chain bracket female, swinged,",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0560000051",
-        "sku": "C0560000051",
-        "name": "KA 560-FB chain bracket male, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560000051_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0560000051_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_83693526_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "365.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0560000051",
-          "Quy cách kỹ thuật": "KA 560-FB chain bracket male, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "C0560000053",
-        "sku": "C0560000053",
-        "name": "KA 560-FG chain bracket female, complete",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560000053_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_C0560000053_studio.webp",
-          "/images/products/murr/drawings/murr_type-et-end-grommet-185560_2d.webp",
-          "/images/products/murr/warehouse/murr_C0560000053_real.webp"
-        ],
-        "stock": 3,
-        "unit": "Cái",
-        "price": "655.000 đ",
-        "specs": {
-          "Mã sản phẩm": "C0560000053",
-          "Quy cách kỹ thuật": "KA 560-FG chain bracket female, complete",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
       }
     ],
-    "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
+    "tags": "murrplastik, đầu bịt et, srf, phụ kiện ống luồn cáp, chính hãng đức, hàng sẵn kho"
   },
   {
     "id": "MP-FAM-SG420",
@@ -4728,11 +4125,10 @@
     "category": "Xích dẫn cáp & Phụ kiện xích",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_C042000012500_studio.webp",
+    "image": "/images/products/murr/warehouse/murr_C042000012500_real.webp",
     "images": [
-      "/images/products/murr/studio/murr_C042000012500_studio.webp",
-      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-      "/images/products/murr/warehouse/murr_C042000012500_real.webp"
+      "/images/products/murr/warehouse/murr_C042000012500_real.webp",
+      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
     ],
     "stock": 1000,
     "stockStatus": "In Stock",
@@ -4761,11 +4157,10 @@
         "sku": "C042000012500",
         "name": "SG 420 inner plate R125",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000012500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000012500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000012500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000012500_real.webp"
+          "/images/products/murr/warehouse/murr_C042000012500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -4783,11 +4178,10 @@
         "sku": "C042000017500",
         "name": "SG 420 inner plate R175",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000017500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000017500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C042000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -4805,11 +4199,10 @@
         "sku": "C042000000000",
         "name": "SG 420 outer plate RV",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000000000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000000000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000000000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000000000_real.webp"
+          "/images/products/murr/warehouse/murr_C042000000000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -4827,11 +4220,10 @@
         "sku": "C042000010000",
         "name": "SG 420 inner plate R100",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000010000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000010000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000010000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000010000_real.webp"
+          "/images/products/murr/warehouse/murr_C042000010000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -4849,11 +4241,10 @@
         "sku": "C042000000010",
         "name": "SG 420 outer plate RK",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000000010_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000000010_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000000010_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000000010_real.webp"
+          "/images/products/murr/warehouse/murr_C042000000010_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -4871,11 +4262,10 @@
         "sku": "C042000015000",
         "name": "SG 420 inner plate R150",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000015000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000015000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000015000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000015000_real.webp"
+          "/images/products/murr/warehouse/murr_C042000015000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -4899,11 +4289,10 @@
     "category": "Xích dẫn cáp & Phụ kiện xích",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_C056000000010_studio.webp",
+    "image": "/images/products/murr/warehouse/murr_C056000000010_real.webp",
     "images": [
-      "/images/products/murr/studio/murr_C056000000010_studio.webp",
-      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-      "/images/products/murr/warehouse/murr_C056000000010_real.webp"
+      "/images/products/murr/warehouse/murr_C056000000010_real.webp",
+      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
     ],
     "stock": 850,
     "stockStatus": "In Stock",
@@ -4932,11 +4321,10 @@
         "sku": "C056000000010",
         "name": "SG 560 outer plate RK",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000000010_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000000010_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000000010_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000000010_real.webp"
+          "/images/products/murr/warehouse/murr_C056000000010_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -4954,11 +4342,10 @@
         "sku": "C056000000000",
         "name": "SG 560 outer plate RV",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000000000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000000000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000000000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000000000_real.webp"
+          "/images/products/murr/warehouse/murr_C056000000000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -4976,11 +4363,10 @@
         "sku": "C056000025000",
         "name": "SG 560 inner plate R250",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000025000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000025000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000025000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000025000_real.webp"
+          "/images/products/murr/warehouse/murr_C056000025000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -4998,11 +4384,10 @@
         "sku": "C056000015000",
         "name": "SG 560 inner plate R150",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000015000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000015000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000015000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000015000_real.webp"
+          "/images/products/murr/warehouse/murr_C056000015000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5020,11 +4405,10 @@
         "sku": "C056000020000",
         "name": "SG 560 inner plate R200",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000020000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000020000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000020000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000020000_real.webp"
+          "/images/products/murr/warehouse/murr_C056000020000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5048,11 +4432,10 @@
     "category": "Xích dẫn cáp & Phụ kiện xích",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_C040000017500_studio.webp",
+    "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
     "images": [
-      "/images/products/murr/studio/murr_C040000017500_studio.webp",
-      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-      "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+      "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
     ],
     "stock": 5564,
     "stockStatus": "In Stock",
@@ -5081,11 +4464,10 @@
         "sku": "C040000017500",
         "name": "RS 175-40 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000017500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000017500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5103,11 +4485,10 @@
         "sku": "C040000020000",
         "name": "RS 200-40 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000020000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000020000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000020000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000020000_real.webp"
+          "/images/products/murr/warehouse/murr_C040000020000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5125,11 +4506,10 @@
         "sku": "C040000015000",
         "name": "RS 150-40 bridge plece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000015000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000015000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000015000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000015000_real.webp"
+          "/images/products/murr/warehouse/murr_C040000015000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5147,11 +4527,10 @@
         "sku": "C040000007500",
         "name": "RS 075-40 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000007500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000007500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000007500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000007500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000007500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5169,11 +4548,10 @@
         "sku": "C042000004871",
         "name": "RS-420 S bolt smart, blue, RAL 5015",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000004871_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000004871_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000004871_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004871_real.webp"
+          "/images/products/murr/warehouse/murr_C042000004871_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5191,11 +4569,10 @@
         "sku": "C042000004872",
         "name": "RS-420 S bolt smart, black, RAL 9005",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000004872_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000004872_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000004872_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004872_real.webp"
+          "/images/products/murr/warehouse/murr_C042000004872_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 300,
         "unit": "Cái",
@@ -5213,11 +4590,10 @@
         "sku": "C040000008700",
         "name": "RS 087-40 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000008700_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000008700_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5235,11 +4611,10 @@
         "sku": "C042000004870",
         "name": "RS-420 S bolt smar, red,RAL3020",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000004870_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000004870_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 1000,
         "unit": "Cái",
@@ -5257,11 +4632,10 @@
         "sku": "C040000005000",
         "name": "RS 050-40 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000005000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000005000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5279,11 +4653,10 @@
         "sku": "C040000010000",
         "name": "RS 100-40 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000010000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000010000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5301,11 +4674,10 @@
         "sku": "C040000012500",
         "name": "RS 125-40 brikdge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C040000012500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C040000012500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 200,
         "unit": "Cái",
@@ -5323,11 +4695,10 @@
         "sku": "C056000004870",
         "name": "RS-560 S bolt smart, red, RAL 3020",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000004870_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000004870_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 1000,
         "unit": "Cái",
@@ -5345,11 +4716,10 @@
         "sku": "C056000004872",
         "name": "RS-560 S bolt smart, black, RAL 9005",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000004872_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000004872_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 300,
         "unit": "Cái",
@@ -5367,11 +4737,10 @@
         "sku": "C056000004871",
         "name": "RS-560 S bolt smart, blue, RAL 5015",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000004871_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C040000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000004871_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C040000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 300,
         "unit": "Cái",
@@ -5389,11 +4758,10 @@
         "sku": "C050000015000",
         "name": "RS 150-50 bridge plece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C050000015000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C050000015000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C050000015000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C050000015000_real.webp"
+          "/images/products/murr/warehouse/murr_C050000015000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5411,11 +4779,10 @@
         "sku": "C050000016900",
         "name": "RS 169-50 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C050000016900_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C050000016900_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C050000016900_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C050000016900_real.webp"
+          "/images/products/murr/warehouse/murr_C050000016900_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5433,11 +4800,10 @@
         "sku": "C050000007500",
         "name": "RS 075-50 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C050000007500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C050000007500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C050000007500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C050000007500_real.webp"
+          "/images/products/murr/warehouse/murr_C050000007500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 132,
         "unit": "Cái",
@@ -5455,11 +4821,10 @@
         "sku": "C050000013700",
         "name": "RS 137-50 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C050000013700_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C050000013700_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C050000013700_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C050000013700_real.webp"
+          "/images/products/murr/warehouse/murr_C050000013700_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5477,11 +4842,10 @@
         "sku": "C050000017500",
         "name": "RS 175-50 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C050000017500_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C050000017500_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C050000017500_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C050000017500_real.webp"
+          "/images/products/murr/warehouse/murr_C050000017500_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5499,11 +4863,10 @@
         "sku": "C050000020000",
         "name": "RS 200-50 bridge piece",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C050000020000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C050000020000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C050000020000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C050000020000_real.webp"
+          "/images/products/murr/warehouse/murr_C050000020000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 132,
         "unit": "Cái",
@@ -5527,11 +4890,10 @@
     "category": "Xích dẫn cáp & Phụ kiện xích",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_C042000004300_studio.webp",
+    "image": "/images/products/murr/warehouse/murr_C042000004300_real.webp",
     "images": [
-      "/images/products/murr/studio/murr_C042000004300_studio.webp",
-      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-      "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+      "/images/products/murr/warehouse/murr_C042000004300_real.webp",
+      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
     ],
     "stock": 900,
     "stockStatus": "In Stock",
@@ -5560,11 +4922,10 @@
         "sku": "C042000004300",
         "name": "TR 420.3 separator,fixed",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000004300_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000004300_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000004300_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+          "/images/products/murr/warehouse/murr_C042000004300_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5582,11 +4943,10 @@
         "sku": "C042000004100",
         "name": "TR 420.1 separator,open fixed",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000004100_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000004300_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000004100_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+          "/images/products/murr/warehouse/murr_C042000004300_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5604,11 +4964,10 @@
         "sku": "C042000004000",
         "name": "RTT 420 shelf support, divisible, with",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C042000004000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000004300_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C042000004000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+          "/images/products/murr/warehouse/murr_C042000004300_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5626,11 +4985,10 @@
         "sku": "C056000004300",
         "name": "TR 560.3 separator.fxed",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000004300_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000004300_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000004300_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000004300_real.webp"
+          "/images/products/murr/warehouse/murr_C056000004300_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5648,11 +5006,10 @@
         "sku": "C056000004000",
         "name": "RTT 560 sheffsupport, divisible, with1",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000004000_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C056000004000_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000004000_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C056000004000_real.webp"
+          "/images/products/murr/warehouse/murr_C056000004000_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5670,11 +5027,10 @@
         "sku": "C056000004100",
         "name": "TR 560.1 separator,open,fixed",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C056000004100_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C042000004300_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C056000004100_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C042000004300_real.webp"
+          "/images/products/murr/warehouse/murr_C042000004300_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 150,
         "unit": "Cái",
@@ -5698,11 +5054,10 @@
     "category": "Xích dẫn cáp & Phụ kiện xích",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_C0560400350_studio.webp",
+    "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
     "images": [
-      "/images/products/murr/studio/murr_C0560400350_studio.webp",
-      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-      "/images/products/murr/warehouse/murr_C040000007500_real.webp"
+      "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+      "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
     ],
     "stock": 39,
     "stockStatus": "In Stock",
@@ -5718,7 +5073,7 @@
     "specs": {
       "Hãng sản xuất": "Murrplastik (CHLB Đức)",
       "Dòng sản phẩm": "Đầu Nối Cố Định Xích KA 420 / KA 560 & Guốc Trượt GS",
-      "Số lượng quy cách": "1 mã kích thước sẵn kho",
+      "Số lượng quy cách": "13 mã kích thước sẵn kho",
       "Xuất xứ": "CHLB Đức (Made in Germany)",
       "Chứng chỉ chất lượng": "Đầy đủ giấy tờ, chứng từ xuất xứ & chất lượng nhập khẩu chính ngạch",
       "Tình trạng giao hàng": "Giao ngay trong 24h trên toàn quốc",
@@ -5727,15 +5082,266 @@
     "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
     "variants": [
       {
+        "id": "C0560000050",
+        "sku": "C0560000050",
+        "name": "KA 560-FB chain bracket female, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 5,
+        "unit": "Cái",
+        "price": "365.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0560000050",
+          "Quy cách kỹ thuật": "KA 560-FB chain bracket female, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0420000051",
+        "sku": "C0420000051",
+        "name": "KA 420-FB chain bracket male, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 5,
+        "unit": "Cái",
+        "price": "313.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0420000051",
+          "Quy cách kỹ thuật": "KA 420-FB chain bracket male, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0420000056",
+        "sku": "C0420000056",
+        "name": "KA 420-FB chain bracket female, swinged,",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 5,
+        "unit": "Cái",
+        "price": "313.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0420000056",
+          "Quy cách kỹ thuật": "KA 420-FB chain bracket female, swinged,",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0420000050",
+        "sku": "C0420000050",
+        "name": "KA 420-FB chain bracket female, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 5,
+        "unit": "Cái",
+        "price": "313.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0420000050",
+          "Quy cách kỹ thuật": "KA 420-FB chain bracket female, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0420000054",
+        "sku": "C0420000054",
+        "name": "KA 420-FG chain bracket maleo, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 3,
+        "unit": "Cái",
+        "price": "485.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0420000054",
+          "Quy cách kỹ thuật": "KA 420-FG chain bracket maleo, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0420000053",
+        "sku": "C0420000053",
+        "name": "KA 420-FG chain bracket female, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 3,
+        "unit": "Cái",
+        "price": "485.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0420000053",
+          "Quy cách kỹ thuật": "KA 420-FG chain bracket female, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0420000055",
+        "sku": "C0420000055",
+        "name": "KA 420-FG chain bracket female, swinged,",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 3,
+        "unit": "Cái",
+        "price": "485.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0420000055",
+          "Quy cách kỹ thuật": "KA 420-FG chain bracket female, swinged,",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0560000055",
+        "sku": "C0560000055",
+        "name": "KA 560-FG chain bracket female, swinged,",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000055_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000055_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 3,
+        "unit": "Cái",
+        "price": "655.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0560000055",
+          "Quy cách kỹ thuật": "KA 560-FG chain bracket female, swinged,",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0560000054",
+        "sku": "C0560000054",
+        "name": "KA 560-FG chain bracket male, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 3,
+        "unit": "Cái",
+        "price": "655.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0560000054",
+          "Quy cách kỹ thuật": "KA 560-FG chain bracket male, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0560000056",
+        "sku": "C0560000056",
+        "name": "KA 560-FB chain bracket female, swinged,",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 5,
+        "unit": "Cái",
+        "price": "365.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0560000056",
+          "Quy cách kỹ thuật": "KA 560-FB chain bracket female, swinged,",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0560000051",
+        "sku": "C0560000051",
+        "name": "KA 560-FB chain bracket male, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 5,
+        "unit": "Cái",
+        "price": "365.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0560000051",
+          "Quy cách kỹ thuật": "KA 560-FB chain bracket male, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "C0560000053",
+        "sku": "C0560000053",
+        "name": "KA 560-FG chain bracket female, complete",
+        "badge": "",
+        "image": "/images/products/murr/warehouse/murr_C0560000053_real.webp",
+        "images": [
+          "/images/products/murr/warehouse/murr_C0560000053_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
+        ],
+        "stock": 3,
+        "unit": "Cái",
+        "price": "655.000 đ",
+        "specs": {
+          "Mã sản phẩm": "C0560000053",
+          "Quy cách kỹ thuật": "KA 560-FG chain bracket female, complete",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
         "id": "C0560400350",
         "sku": "C0560400350",
         "name": "GS 560 glide shoe EVOCONTROL",
         "badge": "",
-        "image": "/images/products/murr/studio/murr_C0560400350_studio.webp",
+        "image": "/images/products/murr/warehouse/murr_C0560000054_real.webp",
         "images": [
-          "/images/products/murr/studio/murr_C0560400350_studio.webp",
-          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp",
-          "/images/products/murr/warehouse/murr_C040000007500_real.webp"
+          "/images/products/murr/warehouse/murr_C0560000054_real.webp",
+          "/images/products/murr/drawings/murr_sh-system-holder-186030_2d.webp"
         ],
         "stock": 39,
         "unit": "Cái",

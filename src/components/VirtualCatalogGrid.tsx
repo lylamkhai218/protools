@@ -411,7 +411,13 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                             width="160"
                             height="144"
                             onError={(e) => {
-                              (e.target as HTMLElement).style.display = 'none';
+                              const target = e.target as HTMLImageElement;
+                              const fallback = p.images?.find(im => im && !target.src.includes(im));
+                              if (fallback) {
+                                target.src = fallback;
+                              } else {
+                                target.style.display = 'none';
+                              }
                             }}
                             className="max-h-full max-w-full object-contain filter drop-shadow-2xs group-hover:scale-105 transition-transform duration-300 relative z-1"
                           />
