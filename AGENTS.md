@@ -598,3 +598,26 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - *Giải pháp*: Chuẩn hóa toàn bộ tiền tố thành `/images/products/murr/...` (URL đường dẫn tuyệt đối từ root domain). Xác thực trực tiếp trên live: HTTP 200 OK, mime-type `image/webp`, tải mượt mà.
   - **3. Bỏ ô nhãn quy cách trên thẻ card sản phẩm**:
     - *Xử lý*: Đã xóa bỏ hoàn toàn khối div badge `absolute bottom-1.5 left-1.5 z-10 pointer-events-none` khỏi component [`VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx). Thẻ ảnh sản phẩm hiển thị thoáng, tinh giản và đồng nhất theo chuẩn Taste-Skill v2.
+
+- **Tối ưu & Tách Cụm Biến Thể Murrplastik & Sửa Lỗi Ảnh Thumbnail EVOCHAIN (28/10/2026):**
+  - **1. Phân rã cụm biến thể hỗn tạp `MP-FAM-BSH` thành các họ sản phẩm chuyên biệt**:
+    - *Nguyên nhân*: Trước đây 18 mã sản phẩm thuộc 4 phân khúc kỹ thuật hoàn toàn khác nhau bị gom chung vào 1 thẻ `MP-FAM-BSH` (Bộ Kẹp Gá BSH & Phụ Kiện ET/SRF): xích dẫn hướng `KA 420/560`, đai kẹp co giãn robot `FHS-C`, nắp chụp/khớp giảm chấn `ET/SRF`.
+    - *Giải pháp*:
+      - Tạo họ mới `MP-FAM-FHS`: "Bộ Đai Kẹp Giữ Cáp Co Giãn Robot Murrplastik FHS-C" (SKU `MP-FHS-SERIES`) chứa đúng 3 biến thể đai kẹp robot chuyên dụng (`83693526`, `83693525`, `83693442`), đầy đủ bộ 3 ảnh kỹ thuật (ảnh chụp hãng thật 18.9 KB, bản vẽ 2D, ảnh kho thật).
+      - Tạo họ mới `MP-FAM-ET`: "Vòng Chụp & Khớp Giảm Chấn Đầu Ống Luồn Cáp ET / SRF" (SKU `MP-ET-SERIES`) chứa đúng 3 biến thể phụ kiện đầu ống (`83723460`, `83723458`, `83692292`), đầy đủ bộ 3 ảnh kỹ thuật (ảnh chụp hãng thật 23.1 KB, bản vẽ 2D, ảnh kho thật).
+      - Chuyển toàn bộ 12 mã bát gá đầu nối xích `KA 420` và `KA 560` về đúng họ xích `MP-FAM-KA` ("Đầu Nối Cố Định Xích KA 420 / KA 560 & Guốc Trượt GS"), nâng tổng số biến thể phụ kiện xích lên 13 mã chuẩn xác.
+      - Tinh lọc `MP-FAM-UHE` chỉ giữ lại đúng 6 mã kích cỡ đế gá thông dụng (P09, P11, P16, P21, P29, P36).
+      - Xóa bỏ triệt để mã họ hỗn tạp `MP-FAM-BSH`.
+  - **2. Khắc phục triệt để lỗi thiếu ảnh Thumbnail trang chủ & ảnh đại diện EVOCHAIN**:
+    - *Nguyên nhân*: 54 file WebP giả lập (dung lượng 1.306 bytes, pixel rỗng `murr_C..._studio.webp`) vô tình được gán làm ảnh đại diện chính (`image` và `images[0]`) cho các dòng xích `MP-FAM-SG420`, `MP-FAM-SG560`, `MP-FAM-RS`, `MP-FAM-TR`, `MP-FAM-KA`, khiến thẻ sản phẩm ngoài trang chủ và ảnh slot 1 trang chi tiết bị lỗi hiển thị.
+    - *Giải pháp*:
+      - Ánh xạ trực tiếp ảnh đại diện chính (`image` và `images[0]`) sang ảnh chụp thực tế tại kho hàng có độ phân giải cao (`murr_C..._real.webp`, dung lượng 112 KB - 120 KB).
+      - Loại bỏ 100% các tham chiếu file rỗng 1.306 bytes khỏi mảng gallery ảnh chi tiết.
+      - Tăng cường cơ chế phục hồi tại frontend:
+        - `src/pages/ProductDetail.tsx`: Tự động lọc bỏ các file ảnh rỗng 1.306 bytes; tích hợp `onError` tự động chuyển sang ảnh tiếp theo nếu ảnh chính hoặc ảnh thumbnail gặp sự cố.
+        - `src/components/VirtualCatalogGrid.tsx`: Bổ sung `onError` tự động tải ảnh dự phòng `p.images[1]` nếu ảnh chính gặp sự cố mạng.
+  - **3. Đồng bộ Dữ liệu, Build & Triển khai Production**:
+    - Danh mục chuẩn hóa đạt **105 sản phẩm chất lượng cao** đồng bộ 100% trên `src/data.ts`, `public/data/catalog_index.json` và `public/data/catalog_index_full.json`.
+    - Engine Vite build & pre-render tĩnh thành công 105 snapshot sản phẩm và sitemap 132 URL.
+    - Phát hành lên máy chủ Mắt Bão LiteSpeed (`s2d34.cloudnetwork.vn`) qua script FTP `deploy_production_root.py --skip-backup`.
+    - Kiểm chứng tự động qua CDP Headless Chrome trên Live Production: 0 lỗi console, 0 lỗi request mạng, toàn bộ ảnh Murrplastik và EVOCHAIN hiển thị sắc nét.
