@@ -1183,7 +1183,7 @@ export default function RobotConfigurator({
                       </a>
                     ) : (
                       <a
-                        href={`mailto:t2t.vina@gmail.com?subject=${encodeURIComponent(`[CAD STEP Request] Xin file 3D cho ${currentPackage.packageCode} - ${selectedModel.name}`)}&body=${encodeURIComponent(`Kính gửi Bộ phận Kỹ thuật T&T Vina,\n\nTôi cần tải file mô hình 3D STEP cho gói Dresspack sau:\n- Mã gói: ${currentPackage.packageCode}\n- Model Robot: ${selectedModel.name}\n- Ống luồn: ${currentPackage.conduitType}\n\nVui lòng hỗ trợ gửi file giúp tôi.\nXin cảm ơn!`)}`}
+                        href={`mailto:info@t2tvina.com?subject=${encodeURIComponent(`[CAD STEP Request] Xin file 3D cho ${currentPackage.packageCode} - ${selectedModel.name}`)}&body=${encodeURIComponent(`Kính gửi Bộ phận Kỹ thuật T&T Vina,\n\nTôi cần tải file mô hình 3D STEP cho gói Dresspack sau:\n- Mã gói: ${currentPackage.packageCode}\n- Model Robot: ${selectedModel.name}\n- Ống luồn: ${currentPackage.conduitType}\n\nVui lòng hỗ trợ gửi file giúp tôi.\nXin cảm ơn!`)}`}
                         className="px-3.5 py-2 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-xs"
                       >
                         <Mail className="w-3.5 h-3.5" />
@@ -1254,7 +1254,7 @@ export default function RobotConfigurator({
                 <div className="space-y-0.5 text-center sm:text-left">
                   <div className="font-bold text-xs text-amber-400">Hỗ trợ kỹ thuật & Kiểm tra bản vẽ trực tiếp</div>
                   <div className="text-xs text-slate-300 font-mono">
-                    Mr. Phong: 0983.794.782 • Mr. Hai: 0981.919.590 • Email: t2t.vina@gmail.com
+                    Mr. Phong: 0983.794.782 • Mr. Hai: 0981.919.590 • Email: info@t2tvina.com
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -1266,7 +1266,7 @@ export default function RobotConfigurator({
                     <span>0983.794.782</span>
                   </a>
                   <a
-                    href={`mailto:t2t.vina@gmail.com?subject=${encodeURIComponent(`[Yêu Cầu CAD] Mã gói ${currentPackage.packageCode} - ${selectedModel.name}`)}`}
+                    href={`mailto:info@t2tvina.com?subject=${encodeURIComponent(`[Yêu Cầu CAD] Mã gói ${currentPackage.packageCode} - ${selectedModel.name}`)}`}
                     className="px-3 py-1.5 rounded-xs bg-[#00478D] hover:bg-[#003B75] text-white font-bold text-xs inline-flex items-center gap-1.5 transition-colors"
                   >
                     <Mail className="w-3 h-3" />

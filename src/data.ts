@@ -89,7 +89,7 @@ export const COMPANY_INFO = {
       zaloUrl: 'https://zalo.me/0981919590'
     }
   ],
-  email: 't2t.vina@gmail.com',
+  email: 'info@t2tvina.com',
   website: 'https://protools.com.vn'
 };
 
