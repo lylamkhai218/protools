@@ -621,3 +621,25 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - Engine Vite build & pre-render tĩnh thành công 105 snapshot sản phẩm và sitemap 132 URL.
     - Phát hành lên máy chủ Mắt Bão LiteSpeed (`s2d34.cloudnetwork.vn`) qua script FTP `deploy_production_root.py --skip-backup`.
     - Kiểm chứng tự động qua CDP Headless Chrome trên Live Production: 0 lỗi console, 0 lỗi request mạng, toàn bộ ảnh Murrplastik và EVOCHAIN hiển thị sắc nét.
+
+- **Chuẩn Hóa Phân Rã Toàn Diện Danh Mục & Bóc Tách Độc Lập Biến Thể Murrplastik (28/10/2026):**
+  - **1. Sự cố ghép sai biến thể trên `MP-FAM-MSV` và các dòng sản phẩm liên quan**:
+    - *Hiện tượng*: Khi truy cập URL `https://protools.com.vn/san-pham/dau-noi-ong-luon-cap-thang-msv-ren-he-met-pg-mp-msv-series/?type=83602462`, bộ chọn biến thể xuất hiện cả miệng loa `V-ZLT-70`, bạc đạn xoay robot `KMG/F` và khớp bi `KEG/ZL` vốn không cùng chủng loại kỹ thuật với đầu nối thẳng MSV m-fix.
+    - *Nguyên nhân cốt lõi*: Trong đợt gom cụm tự động 250 SKU Murrplastik trước đây, thuật toán gom cụm thô đã nhồi nhét nhiều phân khúc sản phẩm cơ khí khác nhau vào cùng một mã cha `MP-FAM-...`.
+  - **2. Quy trình bóc tách và tái cấu trúc danh mục chuẩn kỹ thuật công nghiệp**:
+    - **Họ MSV thẳng (`MP-FAM-MSV`)**: Tinh lọc giữ đúng 6 mã đầu nối thẳng ren hệ mét m-fix (`83602452`, `83602458`, `83602460`, `83602462`, `83602464`, `83602466`). Toàn bộ hình ảnh studio, bản vẽ 2D và ảnh chụp kho thật đồng bộ 100%.
+    - **Nâng cấp Sản phẩm 1082 (`KMG/F`)**: Chuyển các mã bạc đạn xoay robot `83691658` (M25) và `83691660` (M32) về đúng sản phẩm *Khớp Cầu Bạc Đạn Robot Murrplastik KMG/F & Vòng Giữ Ống SRF*, bổ sung bản vẽ kỹ thuật 2D `murr_kmgf-ball-bearing-srf-hose-ring-186104_2d.webp`.
+    - **Nâng cấp Sản phẩm 1083 (`KEG/ZL` & `V-ZLT`)**: Chuyển các mã khớp bi chống gập `83692258`, `83692260`, `83692468` và miệng loa thoát cáp `83692802` về đúng sản phẩm *Khớp Cầu Chống Gập Cáp KEG/ZL & Đầu Nối Thoát Cáp KEG/K / V-ZLT Robot Murrplastik*, bổ sung bản vẽ kỹ thuật 2D `murr_ball-joint-kegzl-hose-ring-srfzl-186097_2d.webp`.
+    - **Bóc tách Hệ thống thu hồi (`1078`) & Ống EWX (`MP-FAM-EWXPAE`)**:
+      - Chuyển 2 mã lò xo căng tự động `83692722` (EWX 21) và `83692724` (EWX 29) về đúng sản phẩm *Hệ Thống Thu Hồi Lực Kéo Ống Luồn Cáp Robot Murrplastik FHS / EWX Feedback System (20N)* (ID `1078`), bổ sung bản vẽ 2D `murr_retraction-system-set-185901_2d.webp`.
+      - `MP-FAM-EWXPAE` khóa cố định đúng 1 quy cách ống ruột gà chịu uốn robot `EWX-PAE 70 Murrflex Jumbo, sw` (`83182080`), trỏ đúng ảnh đại diện ống nhựa thay vì ảnh bộ lò xo kéo.
+    - **Tách Vòng bảo vệ PR/SV (`MP-FAM-PRSV`) khỏi Đầu nối PVG (`MP-FAM-PVG`)**: Tạo họ riêng `MP-FAM-PRSV` cho vòng chống mài mòn ống Jumbo 70 trên robot (`83691267`), giữ `MP-FAM-PVG` thuần túy 6 mã đầu nối ren hệ mét P-VG.
+    - **Tách Đầu nối SAT-GF (`MP-FAM-SATGF`) khỏi Khớp góc KFW/D (`MP-FAM-KFW`)**: Tạo họ riêng `MP-FAM-SATGF` cho 5 mã đầu chụp ống bện đàn hồi GF-P (M16 - M40), giữ `MP-FAM-KFW` thuần túy 5 mã khớp góc quay 90 độ KFW/D.
+    - **Tách Kẹp tiếp địa chống nhiễu EMV (`MP-FAM-EMV`) & Tấm giảm căng ZL (`MP-FAM-ZL`)**: Tạo họ riêng `MP-FAM-EMV` cho 5 mã kẹp xả nhiễu điện từ EMC (`MCS-EMV`, `MSCF-EMV`, `SCFJ-EMV`); giữ `MP-FAM-ZL` thuần túy 4 kích cỡ thanh lược giảm căng ZL; đưa đế dán và băng gai nhám Velcro về `MP-FAM-KH`.
+    - **Tách Gioăng đệm luồn cáp KDT (`MP-FAM-KDT`) khỏi Khung KDL/D (`MP-FAM-KDLD`)**: Đưa 39 mã gioăng cao su tách đôi (`KDT/ZE+ 03` đến `31`, `BTG/E+`, `BTK/E+`) thành họ độc lập chuyên biệt; giữ `MP-FAM-KDLD` thuần túy cho bộ khung nhôm/nhựa và tấm bịt che.
+    - **Tinh lọc Thẻ nhãn LPC (`MP-FAM-LPC`)**: Loại bỏ phụ kiện gá máy laser `86661031`, giữ thuần túy 3 kích cỡ thẻ nhựa khắc laser Polycarbonate.
+  - **3. Quy chuẩn Dữ liệu & Triển khai Hệ thống**:
+    - Toàn bộ 109 sản phẩm đạt chuẩn nghiêm ngặt kiểu tĩnh TypeScript (`pnpm lint` thoát mã 0).
+    - Bộ snapshot tĩnh pre-render tạo thành công 109 trang sản phẩm và 136 URLs trong sitemap XML.
+    - Kiểm thử tự động bằng CDP Headless Chrome trên môi trường thật: 0 lỗi console, 0 lỗi request mạng, triệt tiêu 100% tình trạng lẫn lộn biến thể khác dòng.
+    - Phát hành đồng bộ 161 tệp lên máy chủ Production Mắt Bão LiteSpeed (`s2d34.cloudnetwork.vn`) và xác thực live thành công.
