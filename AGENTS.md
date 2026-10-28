@@ -643,3 +643,15 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - Bộ snapshot tĩnh pre-render tạo thành công 109 trang sản phẩm và 136 URLs trong sitemap XML.
     - Kiểm thử tự động bằng CDP Headless Chrome trên môi trường thật: 0 lỗi console, 0 lỗi request mạng, triệt tiêu 100% tình trạng lẫn lộn biến thể khác dòng.
     - Phát hành đồng bộ 161 tệp lên máy chủ Production Mắt Bão LiteSpeed (`s2d34.cloudnetwork.vn`) và xác thực live thành công.
+
+- **Quy Chuẩn Đồng Bộ Email Doanh Nghiệp Chính Thức (28/10/2026):**
+  - **Sự cố xuất hiện email Gmail**: Trước đây một subagent trong phiên teamwork đã nhầm lẫn và đồng bộ chuỗi `t2t.vina@gmail.com` vào `COMPANY_INFO` và các thẻ Schema/SEO.
+  - **Khắc phục triệt để**:
+    - Chuẩn hóa 100% email doanh nghiệp chính thức của T&T Vina là **`info@t2tvina.com`**.
+    - Rà soát và cập nhật đồng bộ xuyên suốt toàn bộ codebase:
+      - `src/data.ts`: `COMPANY_INFO.email = 'info@t2tvina.com'`.
+      - Thẻ Schema JSON-LD & SEO: `index.html`, `src/components/SEOHead.tsx`.
+      - Trang cấu hình Robot Dresspack: `src/pages/RobotConfigurator.tsx` (các nút mailto và thông tin hỗ trợ kỹ thuật).
+      - AI & LLM Discovery Manifests: `public/llms.txt`, `public/llms-full.txt`, `public/ai-manifest.json`.
+      - Hệ thống trang tĩnh và đa ngôn ngữ Murrplastik: `generate_static_snapshots.py`, `public/murrplastik/index.html`, `public/murrplastik/assets/js/i18n.js`, `public/murrplastik/tin-tuc/index.html`, `public/murrplastik/tin-tuc/trien-lam-vec-2026/index.html`.
+    - Đã xác thực thực tế trên Production (`https://protools.com.vn/`): 100% các trang trả về email đúng `info@t2tvina.com`, sạch hoàn toàn `t2t.vina@gmail.com`.
