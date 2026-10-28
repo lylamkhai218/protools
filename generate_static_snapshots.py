@@ -141,7 +141,7 @@ def generate_snapshots():
           <h3 style="font-size: 16px; font-weight: bold; color: #0f172a;">Thông Tin Liên Hệ &amp; Hệ Thống Kho Hàng T&amp;T VINA</h3>
           <p style="font-size: 14px; color: #475569;"><strong>Kho Hà Nội:</strong> Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, Hà Nội (Tọa độ GPS: 20.982887, 105.881468).</p>
           <p style="font-size: 14px; color: #475569;"><strong>Trụ sở &amp; Kho Logistics Hưng Yên:</strong> Thôn Trà Hồi, Xã Thái Thụy, Tỉnh Hưng Yên (cách KCN Liên Hà Thái 1km).</p>
-          <p style="font-size: 14px; color: #475569;"><strong>Hotline kỹ thuật &amp; Báo giá:</strong> 0915.168.824 | <strong>Email:</strong> t2t.vina@gmail.com</p>
+          <p style="font-size: 14px; color: #475569;"><strong>Hotline kỹ thuật &amp; Báo giá:</strong> 0915.168.824 | <strong>Email:</strong> info@t2tvina.com</p>
         </section>
       </div>
     </noscript>
@@ -298,7 +298,7 @@ def generate_snapshots():
                     "name": COMPANY_NAME,
                     "url": BASE_URL,
                     "telephone": "+84-915-168-824",
-                    "email": "t2t.vina@gmail.com"
+                    "email": "info@t2tvina.com"
                 }
             }
         }
@@ -446,7 +446,7 @@ def generate_snapshots():
             "content": """
             <!-- DIRECT ANSWER BLOCK (40-60 WORDS FOR AI CITATION) -->
             <div class="direct-answer-block bg-emerald-950/80 border-l-4 border-emerald-500 p-4 my-4 rounded-r text-emerald-100 text-sm leading-relaxed shadow-sm">
-              <p>Phòng dự án T&T Vina tiếp nhận yêu cầu kỹ thuật và báo giá vật tư qua hotline 0915.168.824 và email t2t.vina@gmail.com. Quý khách hàng có thể liên hệ trực tiếp tại kho Hà Nội (467 Lĩnh Nam, Hoàng Mai) hoặc kho Hưng Yên (KCN Liên Hà Thái) để nhận mẫu thử nghiệm trực tiếp trên dây chuyền sản xuất.</p>
+              <p>Phòng dự án T&T Vina tiếp nhận yêu cầu kỹ thuật và báo giá vật tư qua hotline 0915.168.824 và email info@t2tvina.com. Quý khách hàng có thể liên hệ trực tiếp tại kho Hà Nội (467 Lĩnh Nam, Hoàng Mai) hoặc kho Hưng Yên (KCN Liên Hà Thái) để nhận mẫu thử nghiệm trực tiếp trên dây chuyền sản xuất.</p>
             </div>
 
             <div class="p-6 bg-slate-50 border rounded space-y-2 text-sm">
@@ -454,7 +454,7 @@ def generate_snapshots():
               <p><strong>Mã số thuế:</strong> 0108392186 (Cấp năm 2018 bởi Sở KH&ĐT TP. Hà Nội)</p>
               <p><strong>Kho Hà Nội:</strong> Số 11/68/467 Lĩnh Nam, Phường Vĩnh Hưng, Quận Hoàng Mai, TP. Hà Nội (Tọa độ GPS: 20.982887, 105.881468).</p>
               <p><strong>Trụ sở & Kho Logistics Hưng Yên:</strong> Thôn Trà Hồi, Xã Thái Thụy, Tỉnh Hưng Yên (cách KCN Liên Hà Thái 1km).</p>
-              <p><strong>Hotline tư vấn kỹ thuật & Đặt hàng:</strong> 0915.168.824 - 0983.794.782 | <strong>Email:</strong> t2t.vina@gmail.com</p>
+              <p><strong>Hotline tư vấn kỹ thuật & Đặt hàng:</strong> 0915.168.824 - 0983.794.782 | <strong>Email:</strong> info@t2tvina.com</p>
               <p><strong>Website:</strong> https://protools.com.vn | <strong>Cổng Murrplastik:</strong> https://protools.com.vn/murrplastik/</p>
             </div>
             """

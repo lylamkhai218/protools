@@ -200,7 +200,7 @@ export default function SEOHead({
                 'url': BASE_URL,
                 'taxID': '0108392186',
                 'telephone': '+84-915-168-824',
-                'email': 't2t.vina@gmail.com',
+                'email': 'info@t2tvina.com',
                 'priceRange': '$$',
                 'address': {
                   '@type': 'PostalAddress',
@@ -245,7 +245,7 @@ export default function SEOHead({
             'logo': `${BASE_URL}/logos/TTV_LOGO_Color_Master.png`,
             'image': `${BASE_URL}/logos/TTV_LOGO_Color_Master.png`,
             'telephone': '+84-915-168-824',
-            'email': 't2t.vina@gmail.com',
+            'email': 'info@t2tvina.com',
             'taxID': '0108392186',
             'priceRange': '$$',
             'address': {
