@@ -476,7 +476,7 @@ export const PRODUCTS: Product[] = [
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 27.000 đ",
     "unit": "cái",
-    "shortDesc": "Đầu nối nhanh thẳng dòng MSV từ Murrplastik Đức dùng cho ống luồn cáp Murrflex. Vật liệu Polyamide 6 biến tính chống va đập, cấp bảo vệ IP54/IP65, tháo lắp không cần dụng cụ.",
+    "shortDesc": "Đầu nối ống luồn dây cáp dạng thẳng Murrplastik MSV m-fix, làm từ Polyamide 6 biến tính chống cháy, ren kim loại bền bỉ, tiêu chuẩn bảo vệ IP65/IP68 cho tủ điện và máy móc tự động hóa.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 12 quy cách kích thước khác nhau",
@@ -491,7 +491,7 @@ export const PRODUCTS: Product[] = [
       "Tình trạng giao hàng": "Giao ngay trong 24h trên toàn quốc",
       "Kho hàng sẵn có": "VPGD & Kho Hà Nội"
     },
-    "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
+    "variantLabel": "Kích cỡ ren / Đầu ống",
     "variants": [
       {
         "id": "83602464",
@@ -560,28 +560,6 @@ export const PRODUCTS: Product[] = [
         }
       },
       {
-        "id": "83692802",
-        "sku": "83692802",
-        "name": "V-ZLT-70",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83692802_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83692802_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83602464_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "362.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83692802",
-          "Quy cách kỹ thuật": "V-ZLT-70",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
         "id": "83602460",
         "sku": "83602460",
         "name": "MSV M20X1,5/16 m-fix, sw",
@@ -642,116 +620,6 @@ export const PRODUCTS: Product[] = [
         "specs": {
           "Mã sản phẩm": "83602452",
           "Quy cách kỹ thuật": "MSV M12X1,5/09 m-fix, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83691660",
-        "sku": "83691660",
-        "name": "KMG/F-M32 sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83691660_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83691660_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83691660_real.webp"
-        ],
-        "stock": 6,
-        "unit": "Cái",
-        "price": "135.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83691660",
-          "Quy cách kỹ thuật": "KMG/F-M32 sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83692468",
-        "sku": "83692468",
-        "name": "KEG/K-70 sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83692468_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83692468_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83692468_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "320.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83692468",
-          "Quy cách kỹ thuật": "KEG/K-70 sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83691658",
-        "sku": "83691658",
-        "name": "KMG/F-M25 sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83691658_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83691658_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83691658_real.webp"
-        ],
-        "stock": 6,
-        "unit": "Cái",
-        "price": "142.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83691658",
-          "Quy cách kỹ thuật": "KMG/F-M25 sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83692258",
-        "sku": "83692258",
-        "name": "KEG/ZL-M25 sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83692258_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83692258_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83692258_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "238.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83692258",
-          "Quy cách kỹ thuật": "KEG/ZL-M25 sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83692260",
-        "sku": "83692260",
-        "name": "KEG/ZL-M32 sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83692260_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83692260_studio.webp",
-          "/images/products/murr/drawings/murr_type-msv-plug-in-fitting-183898_2d.webp",
-          "/images/products/murr/warehouse/murr_83692260_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "232.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83692260",
-          "Quy cách kỹ thuật": "KEG/ZL-M32 sw",
           "Xuất xứ": "CHLB Đức (Made in Germany)",
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
@@ -889,7 +757,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "MP-FAM-PVG",
-    "name": "Đầu Nối Cáp Chịu Lực Hạng Nặng P-VG & PR/SV Jumbo",
+    "name": "Đầu Nối Cáp Chịu Lực Hạng Nặng Murrplastik P-VG (M-PRO IP68)",
     "sku": "MP-PVG-SERIES",
     "brand": "Murrplastik",
     "category": "Đầu nối / Khớp nối luồn cáp",
@@ -906,7 +774,7 @@ export const PRODUCTS: Product[] = [
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 50.000 đ",
     "unit": "cái",
-    "shortDesc": "Đầu nối ống cỡ lớn dòng P-VG-K và PR/SV Jumbo chịu lực uốn kéo khắc nghiệt trong môi trường công nghiệp nặng, cảng biển và chế tạo máy tự động.",
+    "shortDesc": "Đầu nối ống luồn dây cáp hạng nặng Murrplastik P-VG M-PRO ren hệ mét, tích hợp khóa kẹp chịu giật cáp cấp độ cao, chuẩn bảo vệ IP68 chống bụi nước ngập hoàn toàn.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 7 quy cách kích thước khác nhau",
@@ -1054,35 +922,13 @@ export const PRODUCTS: Product[] = [
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
         }
-      },
-      {
-        "id": "83691267",
-        "sku": "83691267",
-        "name": "PR/SV-UNI P70 Jumbo Protektor, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83691267_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83691267_studio.webp",
-          "/images/products/murr/drawings/murr_p-vg-k-184500_2d.webp",
-          "/images/products/murr/warehouse/murr_83691267_real.webp"
-        ],
-        "stock": 10,
-        "unit": "Cái",
-        "price": "353.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83691267",
-          "Quy cách kỹ thuật": "PR/SV-UNI P70 Jumbo Protektor, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
       }
     ],
     "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
     "id": "MP-FAM-KFW",
-    "name": "Khớp Nối Góc 90° & Khớp Xoay 360° KFW/D & SAT-GF",
+    "name": "Khớp Nối Góc 90° & Khớp Xoay 360° Luồn Cáp Murrplastik KFW/D",
     "sku": "MP-KFW-SERIES",
     "brand": "Murrplastik",
     "category": "Đầu nối / Khớp nối luồn cáp",
@@ -1099,7 +945,7 @@ export const PRODUCTS: Product[] = [
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 59.000 đ",
     "unit": "cái",
-    "shortDesc": "Khớp nối ống vuông góc 90° và khớp xoay tròn 360° tự do KFW/D giúp triệt tiêu hoàn toàn lực xoắn uốn mỏi dây cáp trên các cánh tay chuyển động linh hoạt.",
+    "shortDesc": "Khớp nối góc 90 độ có khả năng tự do xoay 360 độ Murrplastik KFW/D, chuyên dụng gắn thành vách tủ điện và thân máy, cho phép ống dây uốn góc 90 độ mà không bị gập gãy.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 10 quy cách kích thước khác nhau",
@@ -1133,72 +979,6 @@ export const PRODUCTS: Product[] = [
         "specs": {
           "Mã sản phẩm": "83561856",
           "Quy cách kỹ thuật": "KFW/D 29, rotating, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83651606",
-        "sku": "83651606",
-        "name": "SAT-GF M16/P11, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83651606_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83651606_studio.webp",
-          "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-          "/images/products/murr/warehouse/murr_83651606_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "59.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83651606",
-          "Quy cách kỹ thuật": "SAT-GF M16/P11, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83651612",
-        "sku": "83651612",
-        "name": "SAT-GF M32/P29, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83651612_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83651612_studio.webp",
-          "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-          "/images/products/murr/warehouse/murr_83651612_real.webp"
-        ],
-        "stock": 25,
-        "unit": "Cái",
-        "price": "82.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83651612",
-          "Quy cách kỹ thuật": "SAT-GF M32/P29, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83651608",
-        "sku": "83651608",
-        "name": "SAT-GF M20/P16, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83651608_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83651608_studio.webp",
-          "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-          "/images/products/murr/warehouse/murr_83651608_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "64.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83651608",
-          "Quy cách kỹ thuật": "SAT-GF M20/P16, sw",
           "Xuất xứ": "CHLB Đức (Made in Germany)",
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
@@ -1287,50 +1067,6 @@ export const PRODUCTS: Product[] = [
         "specs": {
           "Mã sản phẩm": "83561858",
           "Quy cách kỹ thuật": "KFW/D 36, rotating, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83651614",
-        "sku": "83651614",
-        "name": "SAT-GF M40/P36, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83651614_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83651614_studio.webp",
-          "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-          "/images/products/murr/warehouse/murr_83651614_real.webp"
-        ],
-        "stock": 25,
-        "unit": "Cái",
-        "price": "94.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83651614",
-          "Quy cách kỹ thuật": "SAT-GF M40/P36, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83651610",
-        "sku": "83651610",
-        "name": "SAT-GF M25/P21, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83651610_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83651610_studio.webp",
-          "/images/products/murr/drawings/murr_type-kfwd-184075_2d.webp",
-          "/images/products/murr/warehouse/murr_83651610_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "70.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83651610",
-          "Quy cách kỹ thuật": "SAT-GF M25/P21, sw",
           "Xuất xứ": "CHLB Đức (Made in Germany)",
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
@@ -2338,24 +2074,24 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "MP-FAM-KDLD",
-    "name": "Khung Luồn Cáp Mật Độ Cao KDL/D & KDL/H Hạng Nặng",
+    "name": "Khung Luồn Cáp Có Sẵn Đầu Nối Mật Độ Cao Murrplastik KDL/D & KDL/H (IP65)",
     "sku": "MP-KDLD-SERIES",
     "brand": "Murrplastik",
     "category": "Tấm / Khung & Đệm luồn cáp (KDP/KDL)",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_87121310_studio.webp",
+    "image": "/images/products/murr/studio/murr_87141044_studio.webp",
     "images": [
-      "/images/products/murr/studio/murr_87121310_studio.webp",
+      "/images/products/murr/studio/murr_87141044_studio.webp",
       "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-      "/images/products/murr/warehouse/murr_87121310_real.webp"
+      "/images/products/murr/warehouse/murr_87141044_real.webp"
     ],
     "stock": 1074,
     "stockStatus": "In Stock",
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 25.000 đ",
     "unit": "cái",
-    "shortDesc": "Khung luồn cáp chịu lực dòng KDL/D và KDL/H thiết kế thanh giằng kim loại gia cường chịu rung động sốc cao, chuyên dùng cho tàu điện, xưởng dập và robotic.",
+    "shortDesc": "Hệ thống khung luồn cáp chia đôi KDL/D và tấm che KDL/H Murrplastik cho cáp đã đúc sẵn đầu jack kết nối. Cho phép luồn và cố định hàng chục sợi cáp mà không cần cắt jack nối, đạt cấp bảo vệ IP65.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 41 quy cách kích thước khác nhau",
@@ -2372,754 +2108,6 @@ export const PRODUCTS: Product[] = [
     },
     "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
     "variants": [
-      {
-        "id": "87121310",
-        "sku": "87121310",
-        "name": "KDT/ZE+ 03",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121310_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121310_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121310_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121310",
-          "Quy cách kỹ thuật": "KDT/ZE+ 03",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121312",
-        "sku": "87121312",
-        "name": "KDT/ZE+ 04",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121312_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121312_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121312_real.webp"
-        ],
-        "stock": 30,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121312",
-          "Quy cách kỹ thuật": "KDT/ZE+ 04",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121316",
-        "sku": "87121316",
-        "name": "KDT/ZE+ 06",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121316_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121316_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121316_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121316",
-          "Quy cách kỹ thuật": "KDT/ZE+ 06",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121318",
-        "sku": "87121318",
-        "name": "KDT/ZE+ 07",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121318_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121318_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121318_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121318",
-          "Quy cách kỹ thuật": "KDT/ZE+ 07",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121320",
-        "sku": "87121320",
-        "name": "KDT/ZE+ 08",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121320_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121320_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121320_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121320",
-          "Quy cách kỹ thuật": "KDT/ZE+ 08",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121322",
-        "sku": "87121322",
-        "name": "KDT/ZE+ 09",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121322_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121322_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121322_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121322",
-          "Quy cách kỹ thuật": "KDT/ZE+ 09",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121324",
-        "sku": "87121324",
-        "name": "KDT/ZE+ 10",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121324_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121324_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121324_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121324",
-          "Quy cách kỹ thuật": "KDT/ZE+ 10",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121326",
-        "sku": "87121326",
-        "name": "KDT/ZE+ 11",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121326_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121326_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121326_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121326",
-          "Quy cách kỹ thuật": "KDT/ZE+ 11",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121328",
-        "sku": "87121328",
-        "name": "KDT/ZE+ 12",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121328_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121328_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121328_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121328",
-          "Quy cách kỹ thuật": "KDT/ZE+ 12",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121330",
-        "sku": "87121330",
-        "name": "KDT/ZE+ 13",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121330_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121330_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121330_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121330",
-          "Quy cách kỹ thuật": "KDT/ZE+ 13",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121332",
-        "sku": "87121332",
-        "name": "KDT/ZE+ 14",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121332_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121332_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121332_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121332",
-          "Quy cách kỹ thuật": "KDT/ZE+ 14",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121334",
-        "sku": "87121334",
-        "name": "KDT/ZE+ 15",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121334_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121334_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121334_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121334",
-          "Quy cách kỹ thuật": "KDT/ZE+ 15",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121336",
-        "sku": "87121336",
-        "name": "KDT/ZE+ 16",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121336_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121336_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121336_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121336",
-          "Quy cách kỹ thuật": "KDT/ZE+ 16",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121338",
-        "sku": "87121338",
-        "name": "KDT/ZE+ 17",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121338_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121338_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121338_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121338",
-          "Quy cách kỹ thuật": "KDT/ZE+ 17",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121340",
-        "sku": "87121340",
-        "name": "KDT/ZE+ 18",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121340_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121340_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121340_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121340",
-          "Quy cách kỹ thuật": "KDT/ZE+ 18",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121342",
-        "sku": "87121342",
-        "name": "KDT/ZE+ 19",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121342_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121342_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121342_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121342",
-          "Quy cách kỹ thuật": "KDT/ZE+ 19",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121344",
-        "sku": "87121344",
-        "name": "KDT/ZE+ 20",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121344_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121344_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121344_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121344",
-          "Quy cách kỹ thuật": "KDT/ZE+ 20",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121346",
-        "sku": "87121346",
-        "name": "KDT/ZE+ 21",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121346_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121346_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121346_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121346",
-          "Quy cách kỹ thuật": "KDT/ZE+ 21",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121348",
-        "sku": "87121348",
-        "name": "KDT/ZE+ 22",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121348_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121348_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121348_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121348",
-          "Quy cách kỹ thuật": "KDT/ZE+ 22",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121350",
-        "sku": "87121350",
-        "name": "KDT/ZE+ 23",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121350_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121350_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121350_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121350",
-          "Quy cách kỹ thuật": "KDT/ZE+ 23",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121352",
-        "sku": "87121352",
-        "name": "KDT/ZE+ 24",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121352_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121352_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121352_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121352",
-          "Quy cách kỹ thuật": "KDT/ZE+ 24",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121354",
-        "sku": "87121354",
-        "name": "KDT/ZE+ 25",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121354_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121354_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121354_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121354",
-          "Quy cách kỹ thuật": "KDT/ZE+ 25",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121356",
-        "sku": "87121356",
-        "name": "KDT/ZE+ 26",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121356_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121356_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121356_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121356",
-          "Quy cách kỹ thuật": "KDT/ZE+ 26",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121358",
-        "sku": "87121358",
-        "name": "KDT/ZE+ 27",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121358_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121358_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121358_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121358",
-          "Quy cách kỹ thuật": "KDT/ZE+ 27",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121360",
-        "sku": "87121360",
-        "name": "KDT/ZE+ 28",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121360_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121360_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121360_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121360",
-          "Quy cách kỹ thuật": "KDT/ZE+ 28",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121362",
-        "sku": "87121362",
-        "name": "KDT/ZE+ 29",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121362_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121362_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121362_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121362",
-          "Quy cách kỹ thuật": "KDT/ZE+ 29",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121364",
-        "sku": "87121364",
-        "name": "KDT/ZE+ 30",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121364_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121364_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121364_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121364",
-          "Quy cách kỹ thuật": "KDT/ZE+ 30",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121366",
-        "sku": "87121366",
-        "name": "KDT/ZE+ 31",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121366_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121366_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121366_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "36.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121366",
-          "Quy cách kỹ thuật": "KDT/ZE+ 31",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121370",
-        "sku": "87121370",
-        "name": "BTG/E+ blanket grommet big",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121370_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121370_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121370_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "37.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121370",
-          "Quy cách kỹ thuật": "BTG/E+ blanket grommet big",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121372",
-        "sku": "87121372",
-        "name": "KDT/ZE+ flex 03-13",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121372_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121372_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121372_real.webp"
-        ],
-        "stock": 16,
-        "unit": "Cái",
-        "price": "109.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121372",
-          "Quy cách kỹ thuật": "KDT/ZE+ flex 03-13",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121374",
-        "sku": "87121374",
-        "name": "KDT/ZE+ flex 13-30",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121374_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121374_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121374_real.webp"
-        ],
-        "stock": 16,
-        "unit": "Cái",
-        "price": "134.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121374",
-          "Quy cách kỹ thuật": "KDT/ZE+ flex 13-30",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121380",
-        "sku": "87121380",
-        "name": "BTK/E+ blanket grommet small",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121380_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121380_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121380_real.webp"
-        ],
-        "stock": 100,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121380",
-          "Quy cách kỹ thuật": "BTK/E+ blanket grommet small",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121382",
-        "sku": "87121382",
-        "name": "KDT/ZE+ M12",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121382_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121382_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121382_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "46.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121382",
-          "Quy cách kỹ thuật": "KDT/ZE+ M12",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121384",
-        "sku": "87121384",
-        "name": "KDT/ZE+ M8",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121384_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121384_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121384_real.webp"
-        ],
-        "stock": 20,
-        "unit": "Cái",
-        "price": "46.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121384",
-          "Quy cách kỹ thuật": "KDT/ZE+ M8",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
       {
         "id": "87171624",
         "sku": "87171624",
@@ -3143,94 +2131,6 @@ export const PRODUCTS: Product[] = [
         }
       },
       {
-        "id": "87141214",
-        "sku": "87141214",
-        "name": "KDT/X 04, 04-05",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87141214_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87141214_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87141214_real.webp"
-        ],
-        "stock": 12,
-        "unit": "Cái",
-        "price": "29.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87141214",
-          "Quy cách kỹ thuật": "KDT/X 04, 04-05",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87141218",
-        "sku": "87141218",
-        "name": "KDT/X 06, 06-07",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87141218_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87141218_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87141218_real.webp"
-        ],
-        "stock": 12,
-        "unit": "Cái",
-        "price": "29.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87141218",
-          "Quy cách kỹ thuật": "KDT/X 06, 06-07",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87141220",
-        "sku": "87141220",
-        "name": "KDT/X 07, 07-08",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87141220_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87141220_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87141220_real.webp"
-        ],
-        "stock": 12,
-        "unit": "Cái",
-        "price": "29.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87141220",
-          "Quy cách kỹ thuật": "KDT/X 07, 07-08",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87141270",
-        "sku": "87141270",
-        "name": "BTK/X Vario grommet",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87141270_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87141270_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87141270_real.webp"
-        ],
-        "stock": 12,
-        "unit": "Cái",
-        "price": "25.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87141270",
-          "Quy cách kỹ thuật": "BTK/X Vario grommet",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
         "id": "87141044",
         "sku": "87141044",
         "name": "KDL/D 6/4, sw, Set",
@@ -3247,28 +2147,6 @@ export const PRODUCTS: Product[] = [
         "specs": {
           "Mã sản phẩm": "87141044",
           "Quy cách kỹ thuật": "KDL/D 6/4, sw, Set",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87121314",
-        "sku": "87121314",
-        "name": "KDT/ZE+ 05",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87121314_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87121314_studio.webp",
-          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
-          "/images/products/murr/warehouse/murr_87121314_real.webp"
-        ],
-        "stock": 50,
-        "unit": "Cái",
-        "price": "27.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87121314",
-          "Quy cách kỹ thuật": "KDT/ZE+ 05",
           "Xuất xứ": "CHLB Đức (Made in Germany)",
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
@@ -3296,7 +2174,7 @@ export const PRODUCTS: Product[] = [
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 4.000 đ",
     "unit": "cái",
-    "shortDesc": "Tấm giảm lực kéo ZL bằng Polyamide gắn trên thanh ray nhôm hoặc tủ điện, dùng dây rút siết chặt giữ cố định từng bó cáp tránh đứt gãy điểm đấu nối.",
+    "shortDesc": "Thanh gá lược giảm lực căng cáp Murrplastik ZL, thiết kế răng cưa tối ưu cho dây thít định vị nhiều bó cáp tín hiệu song song trong tủ điện công nghiệp.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 7 quy cách kích thước khác nhau",
@@ -3313,28 +2191,6 @@ export const PRODUCTS: Product[] = [
     },
     "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
     "variants": [
-      {
-        "id": "87621440",
-        "sku": "87621440",
-        "name": "BFC 5.5, sw",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87621440_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87621440_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-          "/images/products/murr/warehouse/murr_87621440_real.webp"
-        ],
-        "stock": 200,
-        "unit": "Cái",
-        "price": "4.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87621440",
-          "Quy cách kỹ thuật": "BFC 5.5, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
       {
         "id": "87701022",
         "sku": "87701022",
@@ -3422,65 +2278,23 @@ export const PRODUCTS: Product[] = [
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
         }
-      },
-      {
-        "id": "87705404",
-        "sku": "87705404",
-        "name": "KH 25-170 M5",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87705404_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87705404_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-          "/images/products/murr/warehouse/murr_87705404_real.webp"
-        ],
-        "stock": 30,
-        "unit": "Cái",
-        "price": "76.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87705404",
-          "Quy cách kỹ thuật": "KH 25-170 M5",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87705406",
-        "sku": "87705406",
-        "name": "KH 25-400 M5",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87705406_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87705406_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-zl-181367_2d.webp",
-          "/images/products/murr/warehouse/murr_87705406_real.webp"
-        ],
-        "stock": 30,
-        "unit": "Cái",
-        "price": "142.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87705406",
-          "Quy cách kỹ thuật": "KH 25-400 M5",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
       }
     ],
     "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
     "id": "MP-FAM-KH",
-    "name": "Đế Giữ Cáp Bắt Vít KH & Chốt Hãm Cố Định Dây BFC",
+    "name": "Đế Giữ Cáp Dán Keo & Băng Dính Gai Khóa Nhám Velcro Murrplastik KH",
     "sku": "MP-KH-SERIES",
     "brand": "Murrplastik",
     "category": "Tấm giảm lực kéo & Giữ cáp (ZL/KH)",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_87601045_studio.webp",
+    "image": "/images/products/murr/studio/murr_87681222_studio.webp",
     "images": [
-      "/images/products/murr/studio/murr_87601045_studio.webp",
+      "/images/products/murr/studio/murr_87681222_studio.webp",
+      "/images/products/murr/studio/murr_87705404_studio.webp",
+      "/images/products/murr/drawings/murr_screwed-and-adhesive-holders-type-kh-181635_2d.webp",
       "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
       "/images/products/murr/warehouse/murr_87681222_real.webp"
     ],
@@ -3489,7 +2303,7 @@ export const PRODUCTS: Product[] = [
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 16.000 đ",
     "unit": "cái",
-    "shortDesc": "Đế giữ cáp bắt vít & dán keo KH cùng chốt khóa kẹp nhanh BFC hỗ trợ phân bố đường dây tín hiệu gọn gàng, cách ly rung lắc trong thùng máy công nghiệp.",
+    "shortDesc": "Đế dán và thanh giữ cáp bằng khóa nhám Velcro Murrplastik KH, cho phép gom và giữ cố định các bó cáp nhạy cảm mà không làm bẹp vỏ bọc, tháo lắp tái sử dụng linh hoạt.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 6 quy cách kích thước khác nhau",
@@ -3507,136 +2321,67 @@ export const PRODUCTS: Product[] = [
     "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
     "variants": [
       {
-        "id": "87601045",
-        "sku": "87601045",
-        "name": "MCSZ-EMV 3 - 12",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87601045_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87601045_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-          "/images/products/murr/warehouse/murr_87681222_real.webp"
-        ],
-        "stock": 10,
-        "unit": "Cái",
-        "price": "131.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87601045",
-          "Quy cách kỹ thuật": "MCSZ-EMV 3 - 12",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "87601046",
-        "sku": "87601046",
-        "name": "MCS-EMV 7 - 18",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87601046_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87601046_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-          "/images/products/murr/warehouse/murr_87681222_real.webp"
-        ],
-        "stock": 10,
-        "unit": "Cái",
-        "price": "132.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87601046",
-          "Quy cách kỹ thuật": "MCS-EMV 7 - 18",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
         "id": "87681222",
-        "sku": "87681222",
         "name": "KH 2 adhesive holder",
-        "badge": "",
+        "sku": "87681222",
+        "price": "1.487.000 đ",
+        "specs": {
+          "Kiểu lắp": "Dán keo mặt lưng / Bắt vít",
+          "Vật liệu": "Nhựa kỹ thuật"
+        },
         "image": "/images/products/murr/studio/murr_87681222_studio.webp",
         "images": [
           "/images/products/murr/studio/murr_87681222_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
           "/images/products/murr/warehouse/murr_87681222_real.webp"
-        ],
-        "stock": 100,
-        "unit": "Cái",
-        "price": "16.000 đ",
-        "specs": {
-          "Mã sản phẩm": "87681222",
-          "Quy cách kỹ thuật": "KH 2 adhesive holder",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
+        ]
       },
       {
-        "id": "87601070",
-        "sku": "87601070",
-        "name": "MSCF-EMV 3 - 12",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87601070_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87601070_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-          "/images/products/murr/warehouse/murr_87681222_real.webp"
-        ],
-        "stock": 10,
-        "unit": "Cái",
-        "price": "127.000 đ",
+        "id": "87705404",
+        "name": "KH 25-170 M5",
+        "sku": "87705404",
+        "price": "6.945.000 đ",
         "specs": {
-          "Mã sản phẩm": "87601070",
-          "Quy cách kỹ thuật": "MSCF-EMV 3 - 12",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
+          "Chiều dài băng dán": "170mm",
+          "Ren bắt vít": "M5",
+          "Kiểu": "Băng gai Velcro"
+        },
+        "image": "/images/products/murr/studio/murr_87705404_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87705404_studio.webp",
+          "/images/products/murr/warehouse/murr_87705404_real.webp"
+        ]
       },
       {
-        "id": "87601072",
-        "sku": "87601072",
-        "name": "MSCF-EMV 7 - 18",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87601072_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87601072_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-          "/images/products/murr/warehouse/murr_87681222_real.webp"
-        ],
-        "stock": 10,
-        "unit": "Cái",
-        "price": "147.000 đ",
+        "id": "87705406",
+        "name": "KH 25-400 M5",
+        "sku": "87705406",
+        "price": "12.948.000 đ",
         "specs": {
-          "Mã sản phẩm": "87601072",
-          "Quy cách kỹ thuật": "MSCF-EMV 7 - 18",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
+          "Chiều dài băng dán": "400mm",
+          "Ren bắt vít": "M5",
+          "Kiểu": "Băng gai Velcro"
+        },
+        "image": "/images/products/murr/studio/murr_87705406_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87705406_studio.webp",
+          "/images/products/murr/warehouse/murr_87705406_real.webp"
+        ]
       },
       {
-        "id": "87601067",
-        "sku": "87601067",
-        "name": "SCFJ-EMV 16 - 35",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_87601067_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_87601067_studio.webp",
-          "/images/products/murr/drawings/murr_strain-relief-type-kh-269486_2d.webp",
-          "/images/products/murr/warehouse/murr_87681222_real.webp"
-        ],
-        "stock": 5,
-        "unit": "Cái",
-        "price": "387.000 đ",
+        "id": "87621440",
+        "name": "BFC 5.5, sw",
+        "sku": "87621440",
+        "price": "344.000 đ",
         "specs": {
-          "Mã sản phẩm": "87601067",
-          "Quy cách kỹ thuật": "SCFJ-EMV 16 - 35",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
+          "Quy cách": "5.5mm",
+          "Kiểu": "Chốt kẹp hãm gá thành tủ",
+          "Màu sắc": "Đen (sw)"
+        },
+        "image": "/images/products/murr/studio/murr_87621440_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87621440_studio.webp",
+          "/images/products/murr/warehouse/murr_87621440_real.webp"
+        ]
       }
     ],
     "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
@@ -6159,17 +4904,16 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "MP-FAM-EWXPAE",
-    "name": "Ống Luồn Cáp Động Lực Robot EWX-PAE (Uốn Mỏi Hàng Triệu Chu Kỳ)",
+    "name": "Ống Luồn Cáp Chịu Lực Uốn Cong Cao Robot Murrplastik EWX-PAE Jumbo 70",
     "sku": "MP-EWXPAE-SERIES",
     "brand": "Murrplastik",
     "category": "Ống luồn bảo vệ cáp (Conduit)",
     "categorySlug": "murrplastik",
     "origin": "CHLB Đức (Made in Germany)",
-    "image": "/images/products/murr/studio/murr_83692722_studio.webp",
+    "image": "/images/products/murr/studio/murr_83182080_studio.webp",
     "images": [
-      "/images/products/murr/studio/murr_83692722_studio.webp",
-      "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-      "/images/products/murr/warehouse/murr_83692722_real.webp"
+      "/images/products/murr/studio/murr_83182080_studio.webp",
+      "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp"
     ],
     "stock": 29,
     "stockStatus": "In Stock",
@@ -6194,70 +4938,19 @@ export const PRODUCTS: Product[] = [
     "variantLabel": "Quy Cách / Kích Thước (Mã SKU)",
     "variants": [
       {
-        "id": "83692722",
-        "sku": "83692722",
-        "name": "feedback system EWX 21 - 20N",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83692722_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83692722_studio.webp",
-          "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-          "/images/products/murr/warehouse/murr_83692722_real.webp"
-        ],
-        "stock": 2,
-        "unit": "Cái",
-        "price": "4.603.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83692722",
-          "Quy cách kỹ thuật": "feedback system EWX 21 - 20N",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
-        "id": "83692724",
-        "sku": "83692724",
-        "name": "feedback system EWX 29 - 20N",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_83692724_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_83692724_studio.webp",
-          "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-          "/images/products/murr/warehouse/murr_83692724_real.webp"
-        ],
-        "stock": 2,
-        "unit": "Cái",
-        "price": "5.236.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83692724",
-          "Quy cách kỹ thuật": "feedback system EWX 29 - 20N",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
-      },
-      {
         "id": "83182080",
-        "sku": "83182080",
         "name": "EWX-PAE 70 Murrflex Jumbo, sw",
-        "badge": "",
+        "sku": "83182080",
+        "price": "89.239.000 đ",
+        "specs": {
+          "Đường kính danh nghĩa": "70mm Jumbo",
+          "Vật liệu": "Polyamide 12 cao cấp",
+          "Đặc tính": "Uốn mỏi động học hàng triệu chu kỳ"
+        },
         "image": "/images/products/murr/studio/murr_83182080_studio.webp",
         "images": [
-          "/images/products/murr/studio/murr_83182080_studio.webp",
-          "/images/products/murr/drawings/murr_type-ewx-pae-high-corrugation-182066_2d.webp",
-          "/images/products/murr/warehouse/murr_83692722_real.webp"
-        ],
-        "stock": 25,
-        "unit": "Mét",
-        "price": "980.000 đ",
-        "specs": {
-          "Mã sản phẩm": "83182080",
-          "Quy cách kỹ thuật": "EWX-PAE 70 Murrflex Jumbo, sw",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
+          "/images/products/murr/studio/murr_83182080_studio.webp"
+        ]
       }
     ],
     "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
@@ -6413,7 +5106,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "MP-FAM-LPC",
-    "name": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate LPC & Đế Gá GP 3M",
+    "name": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate Murrplastik LPC",
     "sku": "MP-LPC-SERIES",
     "brand": "Murrplastik",
     "category": "Nhãn thẻ đánh dấu cáp (Labelling)",
@@ -6430,7 +5123,7 @@ export const PRODUCTS: Product[] = [
     "stockLocation": "VPGD & Kho Hà Nội",
     "price": "Từ 33.000 đ",
     "unit": "cái",
-    "shortDesc": "Thẻ nhãn nhựa Polycarbonate LPC siêu bền dùng cho máy in Laser mp-LM 1, chữ in sắc nét không phai mờ cùng đế dán keo 3M chuyên dụng cho đánh dấu thiết bị.",
+    "shortDesc": "Thẻ nhãn đánh dấu thiết bị và tủ điện Polycarbonate khắc laser Murrplastik LPC, chịu nhiệt độ cao và kháng hóa chất, chữ in sắc nét không phai mờ trong môi trường công nghiệp khắc nghiệt.",
     "highlights": [
       "100% Chính hãng Murrplastik (CHLB Đức) - Đầy đủ giấy tờ chứng nhận xuất xứ & chất lượng",
       "Sẵn hàng tại VPGD & Kho Hà Nội với 4 quy cách kích thước khác nhau",
@@ -6512,46 +5205,24 @@ export const PRODUCTS: Product[] = [
           "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
           "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
         }
-      },
-      {
-        "id": "86661031",
-        "sku": "86661031",
-        "name": "GP 3M base plate, KSM",
-        "badge": "",
-        "image": "/images/products/murr/studio/murr_86661031_studio.webp",
-        "images": [
-          "/images/products/murr/studio/murr_86661031_studio.webp",
-          "/images/products/murr/drawings/murr_lpc-rectangular-with-radius-1x-hole-268869_2d.webp",
-          "/images/products/murr/warehouse/murr_86661031_real.webp"
-        ],
-        "stock": 1,
-        "unit": "Cái",
-        "price": "1.820.000 đ",
-        "specs": {
-          "Mã sản phẩm": "86661031",
-          "Quy cách kỹ thuật": "GP 3M base plate, KSM",
-          "Xuất xứ": "CHLB Đức (Made in Germany)",
-          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
-          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
-        }
       }
     ],
     "tags": "murrplastik, chính hãng đức, hàng sẵn kho, bản vẽ 2d, ảnh kho thực tế"
   },
   {
     "id": "1083",
-    "name": "Ball joint KEG/ZL - Hose ring SRF/ZL ( Khớp bi KEG/ZL -...",
+    "name": "Khớp Cầu Chống Gập Cáp KEG/ZL & Đầu Nối Thoát Cáp KEG/K / V-ZLT Robot Murrplastik",
     "sku": "MP-1083",
     "brand": "Murrplastik",
-    "category": "FHS components (Các thành phần FHS)",
-    "categorySlug": "murrplastik",
+    "category": "Đầu nối / Khớp nối luồn cáp",
+    "categorySlug": "dau-noi-ong-luon-cap",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/15/image%20(29).jpg",
+    "image": "/images/products/murr/studio/murr_83692258_studio.webp",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
     "price": "Liên hệ Báo giá",
-    "shortDesc": "Ball joint KEG/ZL - Hose ring SRF/ZL ( Khớp bi KEG/ZL -... chính hãng phân phối bởi T&T Vina Industrial Co., Ltd, đáp ứng tiêu chuẩn nhà máy lắp ráp & SMT.",
+    "shortDesc": "Khớp nối bi cầu chống gập KEG/ZL tích hợp giảm căng cáp ZL và đầu nối thoát cáp KEG/K, V-ZLT cho robot. Bảo vệ tuyệt đối cáp tín hiệu và dây hàn khi uốn gập với góc linh hoạt.",
     "highlights": [
       "100% Chính hãng, có đầy đủ chứng từ hàng hóa",
       "Độ bền cao, hoạt động ổn định trong dây chuyền sản xuất công nghiệp 24/7",
@@ -6563,22 +5234,95 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "images": [
+      "/images/products/murr/studio/murr_83692258_studio.webp",
+      "/images/products/murr/drawings/murr_ball-joint-kegzl-hose-ring-srfzl-186097_2d.webp",
+      "/images/products/murr/drawings/murr_kegk-ball-bearing-186059_2d.webp",
+      "/images/products/murr/warehouse/murr_83692258_real.webp"
+    ],
+    "variants": [
+      {
+        "id": "83692258",
+        "name": "KEG/ZL-M25 sw",
+        "sku": "83692258",
+        "price": "21.677.000 đ",
+        "specs": {
+          "Quy cách": "M25",
+          "Tính năng": "Tích hợp giảm căng ZL",
+          "Màu sắc": "Đen (sw)"
+        },
+        "image": "/images/products/murr/studio/murr_83692258_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83692258_studio.webp",
+          "/images/products/murr/warehouse/murr_83692258_real.webp"
+        ]
+      },
+      {
+        "id": "83692260",
+        "name": "KEG/ZL-M32 sw",
+        "sku": "83692260",
+        "price": "21.093.000 đ",
+        "specs": {
+          "Quy cách": "M32",
+          "Tính năng": "Tích hợp giảm căng ZL",
+          "Màu sắc": "Đen (sw)"
+        },
+        "image": "/images/products/murr/studio/murr_83692260_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83692260_studio.webp",
+          "/images/products/murr/warehouse/murr_83692260_real.webp"
+        ]
+      },
+      {
+        "id": "83692468",
+        "name": "KEG/K-70 sw",
+        "sku": "83692468",
+        "price": "29.152.000 đ",
+        "specs": {
+          "Quy cách": "Phi 70 Jumbo",
+          "Loại": "Khớp cầu KEG/K",
+          "Màu sắc": "Đen (sw)"
+        },
+        "image": "/images/products/murr/studio/murr_83692468_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83692468_studio.webp",
+          "/images/products/murr/warehouse/murr_83692468_real.webp"
+        ]
+      },
+      {
+        "id": "83692802",
+        "name": "V-ZLT-70",
+        "sku": "83692802",
+        "price": "330.000 đ",
+        "specs": {
+          "Quy cách": "Phi 70 Jumbo",
+          "Loại": "Khớp chia miệng loa V-ZLT",
+          "Màu sắc": "Đen (sw)"
+        },
+        "image": "/images/products/murr/studio/murr_83692802_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83692802_studio.webp"
+        ]
+      }
+    ],
+    "variantLabel": "Mã Biến Thể / Kích Cỡ",
+    "tags": ""
   },
   {
     "id": "1082",
-    "name": "KMG/F ball bearing - SRF hose ring (Vòng bi KMG/F - Vòng...",
+    "name": "Khớp Cầu Bạc Đạn Robot Murrplastik KMG/F & Vòng Giữ Ống SRF",
     "sku": "MP-1082",
     "brand": "Murrplastik",
-    "category": "FHS components (Các thành phần FHS)",
-    "categorySlug": "murrplastik",
+    "category": "Đầu nối / Khớp nối luồn cáp",
+    "categorySlug": "dau-noi-ong-luon-cap",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/15/image%20(23).jpg",
+    "image": "/images/products/murr/studio/murr_83691658_studio.webp",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
     "price": "Liên hệ Báo giá",
-    "shortDesc": "KMG/F ball bearing - SRF hose ring (Vòng bi KMG/F - Vòng... chính hãng phân phối bởi T&T Vina Industrial Co., Ltd, đáp ứng tiêu chuẩn nhà máy lắp ráp & SMT.",
+    "shortDesc": "Khớp cầu bạc đạn KMG/F và vòng giữ ống SRF chuyên dụng cho robot công nghiệp và thiết bị gắp chuyển động đa trục. Giúp ống luồn cáp tự do xoay chuyển hướng, triệt tiêu xoắn gập cáp trên các cổ tay robot.",
     "highlights": [
       "100% Chính hãng, có đầy đủ chứng từ hàng hóa",
       "Độ bền cao, hoạt động ổn định trong dây chuyền sản xuất công nghiệp 24/7",
@@ -6590,7 +5334,48 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "images": [
+      "/images/products/murr/studio/murr_83691658_studio.webp",
+      "/images/products/murr/drawings/murr_kmgf-ball-bearing-srf-hose-ring-186104_2d.webp",
+      "/images/products/murr/warehouse/murr_83691658_real.webp"
+    ],
+    "variants": [
+      {
+        "id": "83691658",
+        "name": "KMG/F-M25 sw",
+        "sku": "83691658",
+        "price": "12.894.000 đ",
+        "specs": {
+          "Quy cách": "M25",
+          "Màu sắc": "Đen (sw)",
+          "Dòng": "KMG/F"
+        },
+        "image": "/images/products/murr/studio/murr_83691658_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83691658_studio.webp",
+          "/images/products/murr/warehouse/murr_83691658_real.webp"
+        ]
+      },
+      {
+        "id": "83691660",
+        "name": "KMG/F-M32 sw",
+        "sku": "83691660",
+        "price": "12.303.000 đ",
+        "specs": {
+          "Quy cách": "M32",
+          "Màu sắc": "Đen (sw)",
+          "Dòng": "KMG/F"
+        },
+        "image": "/images/products/murr/studio/murr_83691660_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83691660_studio.webp",
+          "/images/products/murr/warehouse/murr_83691660_real.webp"
+        ]
+      }
+    ],
+    "variantLabel": "Kích cỡ / Quy cách",
+    "tags": ""
   },
   {
     "id": "1081",
@@ -6620,7 +5405,8 @@ export const PRODUCTS: Product[] = [
       "Độ bền uốn": "Hàng triệu chu kỳ chuyển động liên tục 24/7",
       "Xuất xứ": "CHLB Đức (Made in Germany)",
       "Tình trạng": "Sẵn hàng tại kho Hà Nội & Hưng Yên"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1080",
@@ -6647,7 +5433,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1079",
@@ -6674,7 +5461,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS fasteners (Chốt FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1065",
@@ -6701,7 +5489,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Robot bơm keo tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1055",
@@ -6728,7 +5517,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Robot bơm keo tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1032",
@@ -6759,7 +5549,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy bơm keo",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "983A",
@@ -6800,7 +5591,8 @@ export const PRODUCTS: Product[] = [
       "Hãng sản xuất": "T&T Vina Industrial",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho Hà Nội & Hưng Yên"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "736",
@@ -6827,7 +5619,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Kim bơm keo",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "735",
@@ -6854,7 +5647,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Kim bơm keo",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1064",
@@ -6881,7 +5675,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Robot hàn tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1063",
@@ -6908,7 +5703,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Robot hàn tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1044",
@@ -6935,7 +5731,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Bể hàn thiếc",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1043",
@@ -6962,7 +5759,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Bể hàn thiếc",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "QUICK-205",
@@ -7019,7 +5817,8 @@ export const PRODUCTS: Product[] = [
       "Tiêu chuẩn chống tĩnh điện": "ESD Safe (Bảo vệ an toàn linh kiện nhạy cảm)",
       "Xuất xứ": "Chính hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1039",
@@ -7046,7 +5845,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy hàn Hakko",
       "Xuất xứ": "Nhật Bản (Japan)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "811",
@@ -7073,7 +5873,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Kính lúp",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "947",
@@ -7100,7 +5901,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Camera",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "999",
@@ -7127,7 +5929,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Kính hiển vi",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "998",
@@ -7154,7 +5957,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Kính hiển vi",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "997",
@@ -7181,7 +5985,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Kính hiển vi",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1067",
@@ -7208,7 +6013,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị đóng gói tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1062",
@@ -7235,7 +6041,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị đóng gói tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1061",
@@ -7262,7 +6069,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị đóng gói tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1060",
@@ -7289,7 +6097,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị đóng gói tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1059",
@@ -7316,7 +6125,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị đóng gói tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "801",
@@ -7343,7 +6153,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy kiểm tra chống tĩnh điện",
       "Xuất xứ": "Nhật Bản (Japan)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "804",
@@ -7370,7 +6181,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy kiểm tra nhiệt độ hàn",
       "Xuất xứ": "Nhật Bản (Japan)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "996",
@@ -7397,7 +6209,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy đo lực",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1031",
@@ -7424,7 +6237,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy kiểm tra nhiệt độ hàn",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1030",
@@ -7451,7 +6265,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy kiểm tra nhiệt độ hàn",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1073",
@@ -7478,7 +6293,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Energy chains",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1072",
@@ -7505,7 +6321,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Energy chains",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1071",
@@ -7532,7 +6349,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Energy chains",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1037",
@@ -7559,7 +6377,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy cắt băng dính tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1036",
@@ -7586,7 +6405,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy cắt băng dính tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1035",
@@ -7613,7 +6433,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy cắt băng dính tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1034",
@@ -7640,7 +6461,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy cắt băng dính tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1033",
@@ -7667,7 +6489,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy cắt băng dính tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1066",
@@ -7694,7 +6517,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Robot bắt vít tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1053",
@@ -7721,7 +6545,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Robot bắt vít tự động",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1042",
@@ -7748,7 +6573,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy bắt vít",
       "Xuất xứ": "Nhật Bản (Japan)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1041",
@@ -7775,7 +6601,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy bắt vít",
       "Xuất xứ": "Nhật Bản (Japan)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1040",
@@ -7802,7 +6629,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy bắt vít",
       "Xuất xứ": "Nhật Bản (Japan)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "974",
@@ -7829,7 +6657,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Nhíp SA Series",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "973",
@@ -7856,7 +6685,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Nhíp gắp sản phẩm",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "928",
@@ -7883,7 +6713,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Nhíp ST Series",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "927",
@@ -7910,7 +6741,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Nhíp ESD",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "926",
@@ -7937,7 +6769,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Nhíp nhựa",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1048",
@@ -7964,7 +6797,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Quạt thổi ion",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "938",
@@ -7991,7 +6825,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Quạt thổi ion",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "936",
@@ -8018,7 +6853,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Quạt thổi ion",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "935",
@@ -8045,7 +6881,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Quạt thổi ion",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "934",
@@ -8072,7 +6909,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Quạt thổi ion",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1047",
@@ -8099,7 +6937,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy tách tem nhãn",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1046",
@@ -8126,7 +6965,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy tách tem nhãn",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1045",
@@ -8153,7 +6993,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Máy tách tem nhãn",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1023",
@@ -8180,7 +7021,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Dung cụ chống tĩnh điện",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "943",
@@ -8207,7 +7049,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Dung cụ chống tĩnh điện",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "897",
@@ -8234,7 +7077,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Dung cụ chống tĩnh điện",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "942",
@@ -8261,7 +7105,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Dung cụ chống tĩnh điện",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "895",
@@ -8288,7 +7133,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Dung cụ chống tĩnh điện",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1052",
@@ -8315,7 +7161,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị tự động hóa",
       "Xuất xứ": "Hàn Quốc (Korea)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1051",
@@ -8342,7 +7189,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị tự động hóa",
       "Xuất xứ": "Hàn Quốc (Korea)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1050",
@@ -8369,7 +7217,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị tự động hóa",
       "Xuất xứ": "Hàn Quốc (Korea)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1049",
@@ -8396,7 +7245,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị tự động hóa",
       "Xuất xứ": "Hàn Quốc (Korea)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1068",
@@ -8423,7 +7273,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị phụ trợ khác",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1027",
@@ -8450,7 +7301,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị phụ trợ khác",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1024",
@@ -8504,7 +7356,8 @@ export const PRODUCTS: Product[] = [
           "Hấp thụ dầu mỡ và dung môi IPA cực nhanh, gom giữ hạt bụi vi mô vào khe sợi",
           "Viền hàn siêu âm 4 cạnh ngăn chặn tuyệt đối tình trạng rơi rụng xơ sợi",
           "Phù hợp cho phòng sạch Class 10 - Class 1000 nhà máy SMT và sản xuất màn hình điện tử"
-        ]
+        ],
+        "price": "Liên hệ"
       },
       {
         "id": "polyester",
@@ -8533,7 +7386,8 @@ export const PRODUCTS: Product[] = [
           "Cắt nhiệt Laser phong kín 4 viền giúp mép khăn không bị tưa khi lau chùi",
           "Kháng dung môi công nghiệp và hóa chất tẩy rửa bản mạch chuyên dụng",
           "Lựa chọn kinh tế tối ưu cho dây chuyền SMT, gạt thiếc hàn và vệ sinh thiết bị phòng sạch"
-        ]
+        ],
+        "price": "Liên hệ"
       }
     ],
     "specs": {
@@ -8545,7 +7399,8 @@ export const PRODUCTS: Product[] = [
       "Kỹ thuật xử lý viền": "Cắt viền Laser nhiệt & Cắt siêu âm (Ultrasonic seal)",
       "Đóng gói": "Túi hút chân không 2 lớp (100 - 150 tờ/túi)",
       "Tình trạng kho": "Sẵn hàng tại Kho Hà Nội & Hưng Yên"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "92-600",
@@ -8579,25 +7434,29 @@ export const PRODUCTS: Product[] = [
         "id": "size-s",
         "name": "Size S (6.5 – 7.0)",
         "sku": "92-600-S",
-        "badge": "Chiều dài 240mm - Dày 0.12mm"
+        "badge": "Chiều dài 240mm - Dày 0.12mm",
+        "price": "Liên hệ"
       },
       {
         "id": "size-m",
         "name": "Size M (7.5 – 8.0)",
         "sku": "92-600-M",
-        "badge": "Kích cỡ thông dụng nhất"
+        "badge": "Kích cỡ thông dụng nhất",
+        "price": "Liên hệ"
       },
       {
         "id": "size-l",
         "name": "Size L (8.5 – 9.0)",
         "sku": "92-600-L",
-        "badge": "Chiều dài 240mm - Dày 0.12mm"
+        "badge": "Chiều dài 240mm - Dày 0.12mm",
+        "price": "Liên hệ"
       },
       {
         "id": "size-xl",
         "name": "Size XL (9.5 – 10.0)",
         "sku": "92-600-XL",
-        "badge": "Chiều dài 240mm - Dày 0.12mm"
+        "badge": "Chiều dài 240mm - Dày 0.12mm",
+        "price": "Liên hệ"
       }
     ],
     "specs": {
@@ -8645,7 +7504,8 @@ export const PRODUCTS: Product[] = [
         "name": "Bảo dưỡng Cơ khí & Ô tô",
         "desc": "Lắp ráp động cơ, lau chùi chi tiết máy dính dầu nhờn và chất tẩy rửa cơ khí."
       }
-    ]
+    ],
+    "tags": ""
   },
   {
     "id": "1016",
@@ -8672,7 +7532,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị phụ trợ khác",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1000",
@@ -8699,22 +7560,23 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Thiết bị phụ trợ khác",
       "Xuất xứ": "Chính Hãng",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1078",
-    "name": "Hệ thống thu hồi FHS 21/29",
+    "name": "Hệ Thống Thu Hồi Lực Kéo Ống Luồn Cáp Robot Murrplastik FHS / EWX Feedback System (20N)",
     "sku": "MP-1078",
     "brand": "Murrplastik",
-    "category": "FHS components (Các thành phần FHS)",
-    "categorySlug": "murrplastik",
+    "category": "Phụ kiện & Hệ thống giá đỡ FHS",
+    "categorySlug": "phu-kien-fhs",
     "origin": "Đức (Germany)",
-    "image": "https://protools.com.vn/images/stores/2025/10/14/1-image%20(7).jpg",
+    "image": "/images/products/murr/studio/murr_83692722_studio.webp",
     "stock": 50,
     "stockStatus": "In Stock",
     "stockLocation": "Kho Hà Nội & Hưng Yên",
     "price": "Liên hệ Báo giá",
-    "shortDesc": "Hệ thống thu hồi FHS 21/29 chính hãng phân phối bởi T&T Vina Industrial Co., Ltd, đáp ứng tiêu chuẩn nhà máy lắp ráp & SMT.",
+    "shortDesc": "Hệ thống hồi lưu lò xo kéo căng tự động cho ống luồn cáp robot Murrplastik EWX 21 / EWX 29 với lực kéo 20N. Giúp bù trừ độ võng của ống dẫn khi cánh tay robot vươn dài và tự động thu hồi khi co về.",
     "highlights": [
       "100% Chính hãng, có đầy đủ chứng từ hàng hóa",
       "Độ bền cao, hoạt động ổn định trong dây chuyền sản xuất công nghiệp 24/7",
@@ -8726,7 +7588,49 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "images": [
+      "/images/products/murr/studio/murr_83692722_studio.webp",
+      "/images/products/murr/drawings/murr_retraction-system-set-185901_2d.webp",
+      "/images/products/murr/warehouse/murr_83692722_real.webp",
+      "/images/products/murr/warehouse/murr_83692724_real.webp"
+    ],
+    "variants": [
+      {
+        "id": "83692722",
+        "name": "feedback system EWX 21 - 20N",
+        "sku": "83692722",
+        "price": "4.190.000 đ",
+        "specs": {
+          "Quy cách ống": "EWX 21",
+          "Lực kéo căng": "20N",
+          "Ứng dụng": "Robot cỡ nhỏ / Cobot"
+        },
+        "image": "/images/products/murr/studio/murr_83692722_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83692722_studio.webp",
+          "/images/products/murr/warehouse/murr_83692722_real.webp"
+        ]
+      },
+      {
+        "id": "83692724",
+        "name": "feedback system EWX 29 - 20N",
+        "sku": "83692724",
+        "price": "4.767.000 đ",
+        "specs": {
+          "Quy cách ống": "EWX 29",
+          "Lực kéo căng": "20N",
+          "Ứng dụng": "Robot công nghiệp"
+        },
+        "image": "/images/products/murr/studio/murr_83692724_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83692724_studio.webp",
+          "/images/products/murr/warehouse/murr_83692724_real.webp"
+        ]
+      }
+    ],
+    "variantLabel": "Kích cỡ ống / Lực kéo",
+    "tags": ""
   },
   {
     "id": "1077",
@@ -8753,7 +7657,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS Robotics Kits (Bộ dụng cụ robot FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1076",
@@ -8780,7 +7685,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1075",
@@ -8807,7 +7713,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1074",
@@ -8834,7 +7741,8 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "FHS components (Các thành phần FHS)",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
   },
   {
     "id": "1069",
@@ -8861,7 +7769,1170 @@ export const PRODUCTS: Product[] = [
       "Chuyên mục": "Labeling",
       "Xuất xứ": "Đức (Germany)",
       "Tình trạng": "Sẵn hàng tại kho"
-    }
+    },
+    "tags": ""
+  },
+  {
+    "id": "MP-FAM-PRSV",
+    "name": "Vòng Đệm Bảo Vệ Chống Mài Mòn Ống Robot Murrplastik PR/SV Jumbo (P70)",
+    "sku": "MP-PRSV-SERIES",
+    "brand": "Murrplastik",
+    "category": "Ống luồn bảo vệ cáp (Conduit)",
+    "categorySlug": "ong-luon-bao-ve-cap",
+    "origin": "Đức (Germany)",
+    "image": "/images/products/murr/studio/murr_83691267_studio.webp",
+    "images": [
+      "/images/products/murr/studio/murr_83691267_studio.webp",
+      "/images/products/murr/drawings/murr_type-prsv-182965_2d.webp",
+      "/images/products/murr/warehouse/murr_83691267_real.webp"
+    ],
+    "stock": 100,
+    "stockStatus": "In Stock",
+    "stockLocation": "Kho Hà Nội (Vĩnh Hưng)",
+    "price": "32.172.000 đ",
+    "unit": "Cái",
+    "shortDesc": "Vòng bảo vệ chống ma sát PR/SV Murrplastik dạng nửa gá kẹp cho ống luồn cáp cỡ lớn Jumbo 70. Giúp bảo vệ bề mặt ống không bị mài mòn thủng khi cọ xát với thân robot hoặc mặt sàn bê tông.",
+    "highlights": [
+      "Bảo vệ chống mài mòn ống Jumbo 70",
+      "Vật liệu Polyamide 6 biến tính chống va đập",
+      "Lắp đặt bổ sung nhanh chóng mà không cần tháo dây"
+    ],
+    "specs": {
+      "Quy cách tương thích": "Ống Jumbo Murrflex P70 / M70",
+      "Vật liệu": "Polyamide 6 biến tính (PA 6)",
+      "Nhiệt độ làm việc": "-40°C đến +110°C",
+      "Màu sắc": "Đen (sw)"
+    },
+    "variantLabel": "Quy cách",
+    "variants": [
+      {
+        "id": "83691267",
+        "name": "PR/SV-UNI P70 Jumbo Protektor, sw",
+        "sku": "83691267",
+        "price": "32.172.000 đ",
+        "specs": {
+          "Đường kính": "P70 Jumbo",
+          "Màu sắc": "Đen (sw)"
+        },
+        "image": "/images/products/murr/studio/murr_83691267_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83691267_studio.webp",
+          "/images/products/murr/warehouse/murr_83691267_real.webp"
+        ]
+      }
+    ],
+    "tags": "Murrplastik, PR/SV, Protektor, Jumbo 70, Bảo vệ mài mòn"
+  },
+  {
+    "id": "MP-FAM-SATGF",
+    "name": "Đầu Nối & Khớp Giữ Ống Bện Đàn Hồi Murrplastik SAT-GF (Ren Hệ Mét M16 - M40)",
+    "sku": "MP-SATGF-SERIES",
+    "brand": "Murrplastik",
+    "category": "Đầu nối / Khớp nối luồn cáp",
+    "categorySlug": "dau-noi-ong-luon-cap",
+    "origin": "Đức (Germany)",
+    "image": "/images/products/murr/studio/murr_83651606_studio.webp",
+    "images": [
+      "/images/products/murr/studio/murr_83651606_studio.webp",
+      "/images/products/murr/drawings/murr_type-sat-gf-233598_2d.webp",
+      "/images/products/murr/warehouse/murr_83651606_real.webp"
+    ],
+    "stock": 100,
+    "stockStatus": "In Stock",
+    "stockLocation": "Kho Hà Nội (Vĩnh Hưng)",
+    "price": "5.389.000 đ",
+    "unit": "Cái",
+    "shortDesc": "Đầu nối chuyên dụng SAT-GF dùng làm đầu khóa cố định cho ống bện đàn hồi GF-P. Gồm thân ngoài và ống bọc ren hệ mét, giữ chắc ống bện không bị tưa mép và kẹp chặt vào thành tủ điện.",
+    "highlights": [
+      "Khóa chắc chắn ống bện GF-P không tưa mép",
+      "Ren hệ mét M16 đến M40 kèm tán khóa",
+      "Vật liệu Polyamide chống cháy chuẩn V0"
+    ],
+    "specs": {
+      "Quy cách ren": "M16x1.5 đến M40x1.5",
+      "Tương thích ống bện": "GF-P-10 đến GF-P-30",
+      "Vật liệu": "Polyamide biến tính",
+      "Màu sắc": "Đen (sw)"
+    },
+    "variantLabel": "Kích cỡ ren hệ mét",
+    "variants": [
+      {
+        "id": "83651606",
+        "name": "SAT-GF M16/P11, sw",
+        "sku": "83651606",
+        "price": "5.389.000 đ",
+        "specs": {
+          "Ren kết nối": "M16x1.5",
+          "Cỡ ống bện tương thích": "P11 / GF-P-10"
+        },
+        "image": "/images/products/murr/studio/murr_83651606_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83651606_studio.webp",
+          "/images/products/murr/warehouse/murr_83651606_real.webp"
+        ]
+      },
+      {
+        "id": "83651608",
+        "name": "SAT-GF M20/P16, sw",
+        "sku": "83651608",
+        "price": "5.824.000 đ",
+        "specs": {
+          "Ren kết nối": "M20x1.5",
+          "Cỡ ống bện tương thích": "P16 / GF-P-16"
+        },
+        "image": "/images/products/murr/studio/murr_83651608_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83651608_studio.webp",
+          "/images/products/murr/warehouse/murr_83651608_real.webp"
+        ]
+      },
+      {
+        "id": "83651610",
+        "name": "SAT-GF M25/P21, sw",
+        "sku": "83651610",
+        "price": "6.415.000 đ",
+        "specs": {
+          "Ren kết nối": "M25x1.5",
+          "Cỡ ống bện tương thích": "P21 / GF-P-22"
+        },
+        "image": "/images/products/murr/studio/murr_83651610_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83651610_studio.webp",
+          "/images/products/murr/warehouse/murr_83651610_real.webp"
+        ]
+      },
+      {
+        "id": "83651612",
+        "name": "SAT-GF M32/P29, sw",
+        "sku": "83651612",
+        "price": "7.453.000 đ",
+        "specs": {
+          "Ren kết nối": "M32x1.5",
+          "Cỡ ống bện tương thích": "P29 / GF-P-30"
+        },
+        "image": "/images/products/murr/studio/murr_83651612_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83651612_studio.webp",
+          "/images/products/murr/warehouse/murr_83651612_real.webp"
+        ]
+      },
+      {
+        "id": "83651614",
+        "name": "SAT-GF M40/P36, sw",
+        "sku": "83651614",
+        "price": "8.543.000 đ",
+        "specs": {
+          "Ren kết nối": "M40x1.5",
+          "Cỡ ống bện tương thích": "P36 / GF-P-40"
+        },
+        "image": "/images/products/murr/studio/murr_83651614_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_83651614_studio.webp",
+          "/images/products/murr/warehouse/murr_83651614_real.webp"
+        ]
+      }
+    ],
+    "tags": "Murrplastik, SAT-GF, Ống bện, GF-P, Đầu nối"
+  },
+  {
+    "id": "MP-FAM-EMV",
+    "name": "Kẹp Tiếp Địa & Chống Nhiễu Điện Từ Tủ Điện Murrplastik EMV (MCS / MSCF / SCFJ)",
+    "sku": "MP-EMV-SERIES",
+    "brand": "Murrplastik",
+    "category": "Phụ kiện tủ điện & Giảm căng cáp",
+    "categorySlug": "phu-kien-tu-dien-giam-cang-cap",
+    "origin": "Đức (Germany)",
+    "image": "/images/products/murr/studio/murr_87601045_studio.webp",
+    "images": [
+      "/images/products/murr/studio/murr_87601045_studio.webp",
+      "/images/products/murr/studio/murr_87601070_studio.webp",
+      "/images/products/murr/studio/murr_87601067_studio.webp"
+    ],
+    "stock": 100,
+    "stockStatus": "In Stock",
+    "stockLocation": "Kho Hà Nội (Vĩnh Hưng)",
+    "price": "11.557.000 đ",
+    "unit": "Cái",
+    "shortDesc": "Kẹp tiếp địa chống nhiễu điện từ EMC/EMV Murrplastik dòng MCS, MSCF, SCFJ bắt thanh cái hoặc thanh ray C-rail. Đảm bảo bề mặt tiếp xúc 360 độ xả nhiễu cao tần cho cáp biến tần, servo và encoder.",
+    "highlights": [
+      "Tiếp địa 360 độ xả nhiễu điện từ tối ưu",
+      "Lắp đặt nhanh không cần hàn bấm cos tiếp địa",
+      "Lực kẹp đàn hồi không làm biến dạng ruột cáp"
+    ],
+    "specs": {
+      "Dải kẹp đường kính cáp": "3mm đến 35mm",
+      "Vật liệu": "Thép lò xo mạ kẽm chất lượng cao",
+      "Tiêu chuẩn": "Chống sét và triệt nhiễu EMC theo EN 50082-2"
+    },
+    "variantLabel": "Quy cách kẹp / Dải đường kính",
+    "variants": [
+      {
+        "id": "87601045",
+        "name": "MCSZ-EMV 3 - 12",
+        "sku": "87601045",
+        "price": "11.922.000 đ",
+        "specs": {
+          "Đường kính cáp": "3 - 12mm",
+          "Kiểu gá": "Thanh cái Busbar 10x3mm",
+          "Tích hợp": "Giảm căng cáp"
+        },
+        "image": "/images/products/murr/studio/murr_87601045_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87601045_studio.webp"
+        ]
+      },
+      {
+        "id": "87601046",
+        "name": "MCS-EMV 7 - 18",
+        "sku": "87601046",
+        "price": "12.060.000 đ",
+        "specs": {
+          "Đường kính cáp": "7 - 18mm",
+          "Kiểu gá": "Thanh cái Busbar 10x3mm"
+        },
+        "image": "/images/products/murr/studio/murr_87601046_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87601046_studio.webp"
+        ]
+      },
+      {
+        "id": "87601070",
+        "name": "MSCF-EMV 3 - 12",
+        "sku": "87601070",
+        "price": "11.557.000 đ",
+        "specs": {
+          "Đường kính cáp": "3 - 12mm",
+          "Kiểu gá": "Chân kẹp thanh ray C-rail"
+        },
+        "image": "/images/products/murr/studio/murr_87601070_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87601070_studio.webp"
+        ]
+      },
+      {
+        "id": "87601072",
+        "name": "MSCF-EMV 7 - 18",
+        "sku": "87601072",
+        "price": "13.427.000 đ",
+        "specs": {
+          "Đường kính cáp": "7 - 18mm",
+          "Kiểu gá": "Chân kẹp thanh ray C-rail"
+        },
+        "image": "/images/products/murr/studio/murr_87601072_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87601072_studio.webp"
+        ]
+      },
+      {
+        "id": "87601067",
+        "name": "SCFJ-EMV 16 - 35",
+        "sku": "87601067",
+        "price": "352.000 đ",
+        "specs": {
+          "Đường kính cáp": "16 - 35mm",
+          "Kiểu gá": "Chân kẹp thanh ray C-rail cỡ lớn"
+        },
+        "image": "/images/products/murr/studio/murr_87601067_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87601067_studio.webp"
+        ]
+      }
+    ],
+    "tags": "Murrplastik, EMV, EMC, Tiếp địa, Chống nhiễu, Tủ điện"
+  },
+  {
+    "id": "MP-FAM-KDT",
+    "name": "Gioăng Đệm Luồn Cáp Tách Đôi Murrplastik KDT/ZE+ & Gioăng Bịt BTG / BTK (Dùng Cho Khung KDL)",
+    "sku": "MP-KDT-SERIES",
+    "brand": "Murrplastik",
+    "category": "Tấm / Khung & Đệm luồn cáp (KDP/KDL)",
+    "categorySlug": "tam-khung-dem-luon-cap",
+    "origin": "Đức (Germany)",
+    "image": "/images/products/murr/studio/murr_87121310_studio.webp",
+    "images": [
+      "/images/products/murr/studio/murr_87121310_studio.webp",
+      "/images/products/murr/drawings/murr_cable-entry-grommet-type-kdtze-268740_2d.webp",
+      "/images/products/murr/warehouse/murr_87121310_real.webp"
+    ],
+    "stock": 500,
+    "stockStatus": "In Stock",
+    "stockLocation": "Kho Hà Nội (Vĩnh Hưng)",
+    "price": "2.448.000 đ",
+    "unit": "Cái",
+    "shortDesc": "Gioăng cao su luồn cáp tách đôi Murrplastik KDT/ZE+ và gioăng bịt kín BTK/BTG, sử dụng đồng bộ trong các hệ thống khung luồn cáp KDL/E, KDL/D, KDL/H. Dải đường kính kẹp từ 3mm đến 31mm, tích hợp giảm căng cáp.",
+    "highlights": [
+      "Thiết kế tách đôi luồn cáp đúc sẵn đầu jack dễ dàng",
+      "Đạt chuẩn làm kín nước và chống bụi IP65",
+      "Chống dầu mỡ và hóa chất công nghiệp theo tiêu chuẩn Đức"
+    ],
+    "specs": {
+      "Dải đường kính cáp kẹp": "3mm đến 31mm (size nhỏ & lớn)",
+      "Vật liệu": "TPE (Thermoplastic Elastomer) đàn hồi cao",
+      "Cấp chống cháy": "UL 94 V0",
+      "Khung tương thích": "KDL/E, KDL/E+, KDL/D, KDL/ER"
+    },
+    "variantLabel": "Quy cách đường kính cáp (mm)",
+    "variants": [
+      {
+        "id": "87121310",
+        "sku": "87121310",
+        "name": "KDT/ZE+ 03",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121310_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121310_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121310_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121310",
+          "Quy cách kỹ thuật": "KDT/ZE+ 03",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121312",
+        "sku": "87121312",
+        "name": "KDT/ZE+ 04",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121312_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121312_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121312_real.webp"
+        ],
+        "stock": 30,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121312",
+          "Quy cách kỹ thuật": "KDT/ZE+ 04",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121316",
+        "sku": "87121316",
+        "name": "KDT/ZE+ 06",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121316_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121316_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121316_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121316",
+          "Quy cách kỹ thuật": "KDT/ZE+ 06",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121318",
+        "sku": "87121318",
+        "name": "KDT/ZE+ 07",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121318_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121318_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121318_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121318",
+          "Quy cách kỹ thuật": "KDT/ZE+ 07",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121320",
+        "sku": "87121320",
+        "name": "KDT/ZE+ 08",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121320_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121320_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121320_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121320",
+          "Quy cách kỹ thuật": "KDT/ZE+ 08",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121322",
+        "sku": "87121322",
+        "name": "KDT/ZE+ 09",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121322_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121322_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121322_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121322",
+          "Quy cách kỹ thuật": "KDT/ZE+ 09",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121324",
+        "sku": "87121324",
+        "name": "KDT/ZE+ 10",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121324_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121324_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121324_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121324",
+          "Quy cách kỹ thuật": "KDT/ZE+ 10",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121326",
+        "sku": "87121326",
+        "name": "KDT/ZE+ 11",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121326_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121326_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121326_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121326",
+          "Quy cách kỹ thuật": "KDT/ZE+ 11",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121328",
+        "sku": "87121328",
+        "name": "KDT/ZE+ 12",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121328_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121328_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121328_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121328",
+          "Quy cách kỹ thuật": "KDT/ZE+ 12",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121330",
+        "sku": "87121330",
+        "name": "KDT/ZE+ 13",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121330_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121330_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121330_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121330",
+          "Quy cách kỹ thuật": "KDT/ZE+ 13",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121332",
+        "sku": "87121332",
+        "name": "KDT/ZE+ 14",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121332_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121332_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121332_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121332",
+          "Quy cách kỹ thuật": "KDT/ZE+ 14",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121334",
+        "sku": "87121334",
+        "name": "KDT/ZE+ 15",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121334_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121334_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121334_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121334",
+          "Quy cách kỹ thuật": "KDT/ZE+ 15",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121336",
+        "sku": "87121336",
+        "name": "KDT/ZE+ 16",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121336_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121336_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121336_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121336",
+          "Quy cách kỹ thuật": "KDT/ZE+ 16",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121338",
+        "sku": "87121338",
+        "name": "KDT/ZE+ 17",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121338_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121338_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121338_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121338",
+          "Quy cách kỹ thuật": "KDT/ZE+ 17",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121340",
+        "sku": "87121340",
+        "name": "KDT/ZE+ 18",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121340_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121340_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121340_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121340",
+          "Quy cách kỹ thuật": "KDT/ZE+ 18",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121342",
+        "sku": "87121342",
+        "name": "KDT/ZE+ 19",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121342_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121342_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121342_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121342",
+          "Quy cách kỹ thuật": "KDT/ZE+ 19",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121344",
+        "sku": "87121344",
+        "name": "KDT/ZE+ 20",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121344_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121344_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121344_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121344",
+          "Quy cách kỹ thuật": "KDT/ZE+ 20",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121346",
+        "sku": "87121346",
+        "name": "KDT/ZE+ 21",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121346_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121346_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121346_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121346",
+          "Quy cách kỹ thuật": "KDT/ZE+ 21",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121348",
+        "sku": "87121348",
+        "name": "KDT/ZE+ 22",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121348_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121348_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121348_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121348",
+          "Quy cách kỹ thuật": "KDT/ZE+ 22",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121350",
+        "sku": "87121350",
+        "name": "KDT/ZE+ 23",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121350_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121350_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121350_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121350",
+          "Quy cách kỹ thuật": "KDT/ZE+ 23",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121352",
+        "sku": "87121352",
+        "name": "KDT/ZE+ 24",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121352_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121352_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121352_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121352",
+          "Quy cách kỹ thuật": "KDT/ZE+ 24",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121354",
+        "sku": "87121354",
+        "name": "KDT/ZE+ 25",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121354_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121354_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121354_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121354",
+          "Quy cách kỹ thuật": "KDT/ZE+ 25",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121356",
+        "sku": "87121356",
+        "name": "KDT/ZE+ 26",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121356_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121356_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121356_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121356",
+          "Quy cách kỹ thuật": "KDT/ZE+ 26",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121358",
+        "sku": "87121358",
+        "name": "KDT/ZE+ 27",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121358_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121358_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121358_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121358",
+          "Quy cách kỹ thuật": "KDT/ZE+ 27",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121360",
+        "sku": "87121360",
+        "name": "KDT/ZE+ 28",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121360_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121360_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121360_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121360",
+          "Quy cách kỹ thuật": "KDT/ZE+ 28",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121362",
+        "sku": "87121362",
+        "name": "KDT/ZE+ 29",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121362_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121362_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121362_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121362",
+          "Quy cách kỹ thuật": "KDT/ZE+ 29",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121364",
+        "sku": "87121364",
+        "name": "KDT/ZE+ 30",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121364_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121364_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121364_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121364",
+          "Quy cách kỹ thuật": "KDT/ZE+ 30",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121366",
+        "sku": "87121366",
+        "name": "KDT/ZE+ 31",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121366_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121366_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121366_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "36.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121366",
+          "Quy cách kỹ thuật": "KDT/ZE+ 31",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121370",
+        "sku": "87121370",
+        "name": "BTG/E+ blanket grommet big",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121370_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121370_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121370_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "37.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121370",
+          "Quy cách kỹ thuật": "BTG/E+ blanket grommet big",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121372",
+        "sku": "87121372",
+        "name": "KDT/ZE+ flex 03-13",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121372_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121372_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121372_real.webp"
+        ],
+        "stock": 16,
+        "unit": "Cái",
+        "price": "109.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121372",
+          "Quy cách kỹ thuật": "KDT/ZE+ flex 03-13",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121374",
+        "sku": "87121374",
+        "name": "KDT/ZE+ flex 13-30",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121374_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121374_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121374_real.webp"
+        ],
+        "stock": 16,
+        "unit": "Cái",
+        "price": "134.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121374",
+          "Quy cách kỹ thuật": "KDT/ZE+ flex 13-30",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121380",
+        "sku": "87121380",
+        "name": "BTK/E+ blanket grommet small",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121380_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121380_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121380_real.webp"
+        ],
+        "stock": 100,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121380",
+          "Quy cách kỹ thuật": "BTK/E+ blanket grommet small",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121382",
+        "sku": "87121382",
+        "name": "KDT/ZE+ M12",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121382_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121382_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121382_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "46.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121382",
+          "Quy cách kỹ thuật": "KDT/ZE+ M12",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121384",
+        "sku": "87121384",
+        "name": "KDT/ZE+ M8",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121384_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121384_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121384_real.webp"
+        ],
+        "stock": 20,
+        "unit": "Cái",
+        "price": "46.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121384",
+          "Quy cách kỹ thuật": "KDT/ZE+ M8",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87141214",
+        "sku": "87141214",
+        "name": "KDT/X 04, 04-05",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87141214_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87141214_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87141214_real.webp"
+        ],
+        "stock": 12,
+        "unit": "Cái",
+        "price": "29.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87141214",
+          "Quy cách kỹ thuật": "KDT/X 04, 04-05",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87141218",
+        "sku": "87141218",
+        "name": "KDT/X 06, 06-07",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87141218_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87141218_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87141218_real.webp"
+        ],
+        "stock": 12,
+        "unit": "Cái",
+        "price": "29.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87141218",
+          "Quy cách kỹ thuật": "KDT/X 06, 06-07",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87141220",
+        "sku": "87141220",
+        "name": "KDT/X 07, 07-08",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87141220_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87141220_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87141220_real.webp"
+        ],
+        "stock": 12,
+        "unit": "Cái",
+        "price": "29.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87141220",
+          "Quy cách kỹ thuật": "KDT/X 07, 07-08",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87141270",
+        "sku": "87141270",
+        "name": "BTK/X Vario grommet",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87141270_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87141270_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87141270_real.webp"
+        ],
+        "stock": 12,
+        "unit": "Cái",
+        "price": "25.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87141270",
+          "Quy cách kỹ thuật": "BTK/X Vario grommet",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      },
+      {
+        "id": "87121314",
+        "sku": "87121314",
+        "name": "KDT/ZE+ 05",
+        "badge": "",
+        "image": "/images/products/murr/studio/murr_87121314_studio.webp",
+        "images": [
+          "/images/products/murr/studio/murr_87121314_studio.webp",
+          "/images/products/murr/drawings/murr_cable-entry-system-type-kdld-246447_2d.webp",
+          "/images/products/murr/warehouse/murr_87121314_real.webp"
+        ],
+        "stock": 50,
+        "unit": "Cái",
+        "price": "27.000 đ",
+        "specs": {
+          "Mã sản phẩm": "87121314",
+          "Quy cách kỹ thuật": "KDT/ZE+ 05",
+          "Xuất xứ": "CHLB Đức (Made in Germany)",
+          "Tiêu chuẩn": "100% Chính Hãng Murrplastik",
+          "Tình trạng kho": "Sẵn sàng cung cấp tại VPGD & Kho Hà Nội"
+        }
+      }
+    ],
+    "tags": "Murrplastik, KDT/ZE+, Grommet, Gioăng đệm, KDL, Luồn cáp"
   }
 ];
 
