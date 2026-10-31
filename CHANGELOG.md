@@ -4,6 +4,45 @@ Tài liệu ghi chú kỹ thuật và nhật ký cập nhật hệ thống phân
 
 ---
 
+## [2.4.0] - 2026-10-31
+
+**Dịch vụ / Môi trường**: Production (`s2d34.cloudnetwork.vn` - Mắt Bão LiteSpeed) & GitHub Remote  
+**Mục tiêu chính**: Ra mắt bộ công cụ Digital Toolbox mới - Cấu hình Khung Luồn Cáp Có Đầu Cắm KDL 2D CAD & Cấu hình Tấm Màng Luồn Cáp KDP On-Demand Murrplastik; Chuẩn hóa bản địa hóa 7 ngôn ngữ (vi, en, de, zh-CN, ja, ko, th) toàn hệ thống và tối ưu công thái học bản vẽ CAD.  
+**Người thực hiện**: KhaiLL & PROTOOLS-CORE-AGENT  
+**Trạng thái**: Đã nghiệm thu code, xác thực build 100% không lỗi và release Production.
+
+### 1. Bối cảnh & Vấn đề Cần Giải Quyết (Dev Notes)
+- Doanh nghiệp cần trang bị công cụ cấu hình trực quan 2D CAD cho 2 dòng sản phẩm luồn cáp công nghiệp chủ lực của Murrplastik:
+  - Khung luồn cáp chia đôi KDL (cho cáp đã đúc sẵn đầu cắm / đầu jack kết nối).
+  - Tấm màng luồn cáp KDP (cho cáp tiêu chuẩn không đầu cắm, mật độ dây cao).
+- Bản vẽ CAD ban đầu gặp hiện tượng lệch tâm (offset) trên khung vẽ, viền vòng tròn đường kính phi bị rung giật khi hover chuột, và cần tích hợp video hướng dẫn thực hành chính hãng.
+- Giao diện đa ngôn ngữ gặp hiện tượng rơi vào bẫy chuỗi fallback tĩnh (Static String Fallback Trap) ở một số khu vực trọng yếu (banner giao hàng KCN, thông tin địa chỉ công ty, dòng sản phẩm MSV và các bước wizard cấu hình).
+
+### 2. Các Hạng Mục Đã Hoàn Thành
+
+#### 2.1. Cấu Hình Khung Luồn Cáp KDL 2D CAD (`/kdl`)
+- Xây dựng component trực quan [`KdlConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/KdlConfigurator.tsx) với luồng 4 bước chuẩn công nghiệp:
+  1. Chọn Hệ Thống Khung & Quy Cách Lỗ Khoét (KDL/E, KDL/E+, KDL/C-D-H, KDL/D-mono với chuẩn khoét 16-pin / 24-pin Heavy Duty Connectors).
+  2. Khai Báo Danh Mục Cáp (nhập đường kính phi, số lượng, tự động ánh xạ đệm luồn KDT/ZE hoặc nút bít BTK).
+  3. Bản Vẽ 2D CAD Trực Quan Hóa Tức Thời (tính toán viewBox căn giữa chính xác, chia slot nhỏ/vừa/lớn, chống rung giật chuột bằng CSS pointer-events và hover debouncing).
+  4. Bảng Kê BOM & Đề Xuất Báo Giá (tính toán số lượng khung, đệm luồn, nút bít, xuất mã CAD và thêm vào giỏ hàng RFQ).
+- Nhúng video hướng dẫn thực hành cấu hình KDL từ Murrplastik (`https://youtu.be/uyH7Bd3pnx0`).
+
+#### 2.2. Cấu Hình Tấm Màng Luồn Cáp KDP On-Demand (`/kdp`)
+- Xây dựng component [`KdpConfigurator.tsx`](file:///d:/T&TVina/protools/src/pages/KdpConfigurator.tsx):
+  - Hỗ trợ các dòng tấm màng KDP/N, KDP/R, KDP/X, KDP on-demand nhôm / inox / nhựa PA.
+  - Tự động tính toán ma trận phân bổ lỗ khoét và mật độ điền đầy (Fill Density) theo tiêu chuẩn DIN EN 60204-1.
+  - Kiểm soát cấp bảo vệ IP65 / IP69K và tự động sinh bản vẽ kích thước lắp đặt.
+
+#### 2.3. Bản Địa Hóa Toàn Diện 7 Ngôn Ngữ (Global i18n Sync)
+- Đồng bộ từ điển cho cả 7 ngôn ngữ (`vi`, `en`, `de`, `zh-CN`, `ja`, `ko`, `th`):
+  - Khắc phục bẫy fallback tĩnh ở Banner SLA Logistics (`logistics.*`) trên Trang Chủ.
+  - Cập nhật bản dịch đầy đủ 7 ngôn ngữ cho 30 dòng sản phẩm Murrplastik trong [`productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts), bao gồm `MP-FAM-MSV`.
+  - Chuẩn hóa đa ngôn ngữ cho địa chỉ Trụ sở chính & Kho hàng Lĩnh Nam trên Header và Footer.
+  - Tích hợp `getLocalizedProduct()` vào bộ gợi ý tìm kiếm tức thời trên [`Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx) và màn hình giỏ hàng [`CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx).
+
+---
+
 ## [2.3.0] - 2026-10-24
 
 **Dịch vụ / Môi trường**: Production (`s2d34.cloudnetwork.vn` - Mắt Bão LiteSpeed) & GitHub Remote  

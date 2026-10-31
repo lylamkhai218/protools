@@ -17,6 +17,7 @@ import {
 import { CartItem, Product } from '../types';
 import { PRODUCTS } from '../data';
 import { useTranslation } from '../i18n/LanguageContext';
+import { getLocalizedProduct } from '../i18n/productTranslations';
 import { getSafeBrand, cleanProductName } from '../utils/brandNormalizer';
 
 interface CartQuoteProps {
@@ -36,7 +37,7 @@ export default function CartQuote({
   onNavigate,
   onAddToCart
 }: CartQuoteProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [companyName, setCompanyName] = useState('');
   const [contactName, setContactName] = useState('');
   const [phone, setPhone] = useState('');
@@ -229,8 +230,9 @@ export default function CartQuote({
     if (cartItems.length === 0) return;
     let csvContent = "\uFEFFSTT,Mã SKU,Tên Thiết Bị,Hãng,Số Lượng,Đơn Giá Tham Khảo\n";
     cartItems.forEach((item, idx) => {
-      const safeB = getSafeBrand(item.product.brand, item.product.name);
-      csvContent += `${idx + 1},"${item.product.sku}","${cleanProductName(item.product.name)}","${safeB}",${item.quantity},"${item.product.price || 'Báo giá dự án'}"\n`;
+      const locP = getLocalizedProduct(item.product, locale);
+      const safeB = getSafeBrand(item.product.brand, locP.name);
+      csvContent += `${idx + 1},"${item.product.sku}","${cleanProductName(locP.name)}","${safeB}",${item.quantity},"${item.product.price || 'Báo giá dự án'}"\n`;
     });
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
@@ -456,19 +458,21 @@ export default function CartQuote({
                 </div>
 
                 <div className="divide-y divide-slate-100">
-                  {cartItems.map((item) => (
+                  {cartItems.map((item) => {
+                    const locProd = getLocalizedProduct(item.product, locale);
+                    return (
                     <div key={item.product.id} className="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       
                       <div className="flex items-center gap-4">
                         <img 
                           src={item.product.image} 
-                          alt={item.product.name}
+                          alt={locProd.name}
                           className="w-16 h-16 object-cover rounded-xs border border-slate-200 bg-white shrink-0"
                         />
                         <div className="space-y-1">
                           <div className="flex items-center gap-2">
                             <span className="px-1.5 py-0.5 rounded-xs bg-[#00478D] text-white text-[9px] font-bold font-display uppercase">
-                              {getSafeBrand(item.product.brand, item.product.name)}
+                              {getSafeBrand(item.product.brand, locProd.name)}
                             </span>
                             <span className="text-[10px] font-mono text-slate-400">
                               SKU: {item.product.sku}
@@ -476,7 +480,7 @@ export default function CartQuote({
                           </div>
 
                           <h4 className="font-display text-sm font-bold text-slate-900 line-clamp-1">
-                            {cleanProductName(item.product.name)}
+                            {cleanProductName(locProd.name)}
                           </h4>
 
                           <div className="text-xs font-semibold text-[#00478D]">
@@ -515,7 +519,8 @@ export default function CartQuote({
                       </div>
 
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 

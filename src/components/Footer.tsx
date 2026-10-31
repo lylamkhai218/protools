@@ -60,7 +60,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <Building2 className="w-4 h-4 text-[#00478D] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold text-slate-200">{t('footer.hq_label')}</span>
-                  <span className="text-slate-400 block mt-0.5">{COMPANY_INFO.headquarters}</span>
+                  <span className="text-slate-400 block mt-0.5">{t('company.address_hq', COMPANY_INFO.headquarters)}</span>
                   <span className="text-slate-400 block mt-0.5 font-mono text-[11px]">Mã số thuế: <strong className="text-slate-200">{COMPANY_INFO.taxId}</strong></span>
                 </div>
               </div>
@@ -69,7 +69,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 <MapPin className="w-4 h-4 text-[#D97706] shrink-0 mt-0.5" />
                 <div className="flex-1">
                   <span className="font-semibold text-slate-200">{t('footer.wh_label')}</span>
-                  <span className="text-slate-400 block mt-0.5">{COMPANY_INFO.vpgdAndWarehouse}</span>
+                  <span className="text-slate-400 block mt-0.5">{t('company.address_wh', COMPANY_INFO.vpgdAndWarehouse)}</span>
                   
                   {/* Google Maps Actions */}
                   <a 
@@ -100,17 +100,17 @@ export default function Footer({ onNavigate }: FooterProps) {
                       <div className="bg-slate-800/90 h-[200px] flex flex-col items-center justify-center p-4 text-center">
                         <MapPin className="w-6 h-6 text-[#D97706] mb-2 animate-bounce" />
                         <span className="text-xs font-semibold text-slate-200 block mb-1">
-                          Bản Đồ Chỉ Đường Trực Tiếp (Lĩnh Nam, Hà Nội)
+                          {t('footer.map_linhnam_title')}
                         </span>
                         <span className="text-xs text-slate-400 block mb-3">
-                          Bấm nút bên dưới để mở bản đồ tương tác
+                          {t('footer.map_interactive_sub')}
                         </span>
                         <button
                           type="button"
                           onClick={() => setIsMapLoaded(true)}
                           className="px-3 py-1.5 bg-[#00478D] hover:bg-[#003B75] text-white text-xs font-bold rounded-xs transition-colors cursor-pointer shadow-xs"
                         >
-                          Tải Bản Đồ Tương Tác
+                          {t('footer.load_interactive_map')}
                         </button>
                       </div>
                     )}

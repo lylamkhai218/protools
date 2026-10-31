@@ -10,106 +10,280 @@ export interface LocalizedProductText {
 }
 
 export const PRODUCT_NAME_TRANSLATIONS: Record<string, Partial<Record<SupportedLocale, string>>> = {
+  "MP-FAM-KDT": {
+    "vi": "Gioăng Đệm Luồn Cáp Tách Đôi Murrplastik KDT/ZE+ & Gioăng Bịt BTG / BTK",
+    "en": "KDT/ZE+ Split Grommet Inserts & BTG / BTK Blind Plugs (For KDL Frames)",
+    "de": "KDT/ZE+ Teilbare Kabeltüllen & BTG / BTK Blindtüllen (Für KDL-Rahmen)",
+    "zh-CN": "KDT/ZE+ 分体式穿线胶塞与 BTG / BTK 密封堵头（适配 KDL 框架）",
+    "ja": "KDT/ZE+ 分割型ケーブルグロメット＆BTG/BTKブラインドプラグ（KDL用）",
+    "ko": "KDT/ZE+ 분할형 케이블 그로밋 & BTG / BTK 블라인드 플러그 (KDL 프레임용)",
+    "th": "ยางร้อยสายเคเบิลแบบผ่าซีก KDT/ZE+ & ปลั๊กอุด BTG / BTK (สำหรับเฟรม KDL)"
+},
+  "MP-FAM-EMV": {
+    "vi": "Kẹp Tiếp Địa & Chống Nhiễu Điện Từ Tủ Điện Murrplastik EMV (MCS / MSCF / SCFJ)",
+    "en": "EMV EMC Shield Grounding Clamps (MCS / MSCF / SCFJ)",
+    "de": "EMV EMV-Schirmklammern & Erdungsklemmen (MCS / MSCF / SCFJ)",
+    "zh-CN": "EMV 电磁兼容屏蔽接地夹与固定夹片 (MCS / MSCF / SCFJ)",
+    "ja": "EMV EMCシールド接地クランプ（MCS / MSCF / SCFJ）",
+    "ko": "EMV 전자파 차폐 접지 클램프 (MCS / MSCF / SCFJ)",
+    "th": "แคลมป์กราวด์ชิลด์ป้องกันคลื่นแม่เหล็กไฟฟ้า EMV (MCS / MSCF / SCFJ)"
+},
+  "MP-FAM-SATGF": {
+    "vi": "Đầu Nối & Khớp Giữ Ống Bện Đàn Hồi Murrplastik SAT-GF (Ren Hệ Mét M16 - M40)",
+    "en": "SAT-GF Braided Sleeve Fitting & Clamping Joint (Metric M16 - M40)",
+    "de": "SAT-GF Geflechtschlauch-Verschraubung (Metrisch M16 - M40)",
+    "zh-CN": "SAT-GF 编织网管端接固定接头（公制 M16 - M40 螺纹）",
+    "ja": "SAT-GF 編組スリーブコネクタ＆保持ジョイント（メートルM16〜M40）",
+    "ko": "SAT-GF 편조 슬리브 피팅 & 조인트 (미터 나사 M16~M40)",
+    "th": "ข้อต่อยึดปลอกสายถัก SAT-GF (เกลียวเมตริก M16 - M40)"
+},
+  "MP-FAM-PRSV": {
+    "vi": "Vòng Đệm Bảo Vệ Chống Mài Mòn Ống Robot Murrplastik PR/SV Jumbo (P70)",
+    "en": "PR/SV Jumbo P70 Robot Conduit Wear Protector Ring",
+    "de": "PR/SV Jumbo P70 Roboterschlauch-Abriebschutzring",
+    "zh-CN": "PR/SV Jumbo P70 机器人管路防磨保护环",
+    "ja": "PR/SV Jumbo P70 ロボットホース摩耗保護プロテクターリング",
+    "ko": "PR/SV Jumbo P70 로봇 전선관 내마모 보호 링",
+    "th": "แหวนครอบป้องกันการเสียดสีท่อร้อยสายหุ่นยนต์ PR/SV Jumbo (P70)"
+},
+  "MP-FAM-ET": {
+    "vi": "Vòng Chụp & Khớp Giảm Chấn Đầu Ống Luồn Cáp ET / SRF",
+    "en": "ET & SRF Conduit End Sleeve & Impact Damper",
+    "de": "ET & SRF Schlauchendtülle & Dämpfungsring",
+    "zh-CN": "ET / SRF 软管末端保护套与减震缓冲环",
+    "ja": "ET & SRF 保護管エンドスリーブ＆衝撃ダンパー",
+    "ko": "ET & SRF 전선관 엔드 슬리브 & 충격 완충 댐퍼",
+    "th": "ปลอกครอบปลายท่อและข้อต่อซับแรงกระแทก ET / SRF"
+},
+  "MP-FAM-FHS": {
+    "vi": "Bộ Đai Kẹp Giữ Cáp Co Giãn Robot Murrplastik FHS-C",
+    "en": "FHS-C Flexible Robot Dresspack Clamping System",
+    "de": "FHS-C Flexibles Roboter-Schlauchrückzugsystem",
+    "zh-CN": "FHS-C 工业机器人弹性软管固定束环系统",
+    "ja": "FHS-C ロボット用フレキシブルホースクランプシステム",
+    "ko": "FHS-C 로봇 드레스팩 탄성 클램핑 시스템",
+    "th": "ชุดแคลมป์ยึดท่ออ่อนแบบยืดหยุ่นสำหรับหุ่นยนต์ FHS-C"
+},
   "MP-FAM-MSV": {
     "vi": "Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)",
-    "en": "Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)"
-  },
+    "en": "MSV Straight Conduit Fitting (Metric & PG Threads)",
+    "de": "MSV Gerade Schlauchverschraubung (Metrisch & PG Gewinde)",
+    "zh-CN": "MSV 直通电缆保护软管接头（公制与 PG 螺纹）",
+    "ja": "MSV ストレート型電線保護管コネクタ（メートル＆PGネジ）",
+    "ko": "MSV 스트레이트 전선관 피팅 (미터 & PG 나사)",
+    "th": "ข้อต่อท่อร้อยสายเคเบิลแบบตรง MSV (เกลียวเมตริก & PG)"
+},
   "MP-FAM-KSV": {
     "vi": "Đầu Nối Ống Luồn Cáp Chịu Lực KSV Tích Hợp Giảm Căng",
-    "en": "Đầu Nối Ống Luồn Cáp Chịu Lực KSV Tích Hợp Giảm Căng"
-  },
+    "en": "KSV Heavy-Duty Conduit Fitting with Integrated Strain Relief",
+    "de": "KSV Hochleistungs-Schlauchverschraubung mit integrierter Zugentlastung",
+    "zh-CN": "KSV 耐重载电缆保护软管接头（集成抗拉应力消除）",
+    "ja": "KSV 耐高荷重電線保護管コネクタ（ストレインリリーフ一体型）",
+    "ko": "KSV 고하중 전선관 피팅 (인장 완화 일체형)",
+    "th": "ข้อต่อท่อร้อยสายเคเบิลทนแรงดึง KSV พร้อมตัวลดความเค้นในตัว"
+},
   "MP-FAM-PVG": {
-    "vi": "Đầu Nối Cáp Chịu Lực Hạng Nặng P-VG & PR/SV Jumbo",
-    "en": "Đầu Nối Cáp Chịu Lực Hạng Nặng P-VG & PR/SV Jumbo"
-  },
+    "vi": "Đầu Nối Cáp Chịu Lực Hạng Nặng Murrplastik P-VG (M-PRO IP68)",
+    "en": "P-VG Heavy-Duty Cable Fitting (M-PRO IP68 Waterproof)",
+    "de": "P-VG Schwerlast-Kabelverschraubung (M-PRO IP68 Wasserdicht)",
+    "zh-CN": "P-VG 重载电缆接头（M-PRO IP68 高防护）",
+    "ja": "P-VG 重荷重ケーブルコネクタ（M-PRO IP68高防塵防水）",
+    "ko": "P-VG 헤비듀티 케이블 피팅 (M-PRO IP68 방수방진)",
+    "th": "ข้อต่อเคเบิลสำหรับงานหนัก P-VG (มาตรฐานกันน้ำ M-PRO IP68)"
+},
   "MP-FAM-KFW": {
-    "vi": "Khớp Nối Góc 90° & Khớp Xoay 360° KFW/D & SAT-GF",
-    "en": "Khớp Nối Góc 90° & Khớp Xoay 360° KFW/D & SAT-GF"
-  },
+    "vi": "Khớp Nối Góc 90° & Khớp Xoay 360° Luồn Cáp Murrplastik KFW/D",
+    "en": "KFW/D 90° Elbow & 360° Swivel Conduit Joint",
+    "de": "KFW/D 90° Winkel- & 360° Dreh-Schlauchverschraubung",
+    "zh-CN": "KFW/D 90° 弯角与 360° 旋转软管接头",
+    "ja": "KFW/D 90°アングル＆360°スイベル回転コネクタ",
+    "ko": "KFW/D 90도 엘보 & 360도 회전 전선관 조인트",
+    "th": "ข้อต่อข้องอ 90 องศา & ข้อต่อหมุน 360 องศา KFW/D"
+},
   "MP-FAM-KDPZ": {
     "vi": "Tấm Luồn Cáp Chữ Nhật KDP/Z (Chuẩn PA & Chuẩn FDA Thực Phẩm)",
-    "en": "Tấm Luồn Cáp Chữ Nhật KDP/Z (Chuẩn PA & Chuẩn FDA Thực Phẩm)"
-  },
+    "en": "KDP/Z Rectangular Cable Entry Plate (PA & FDA Food Grade)",
+    "de": "KDP/Z Rechteckige Kabeleinführungsplatte (PA & FDA Lebensmittelqualität)",
+    "zh-CN": "KDP/Z 矩形穿线板（PA 工业级与 FDA 食品级）",
+    "ja": "KDP/Z 角型ケーブルエントリプレート（PA工業＆FDA食品規格）",
+    "ko": "KDP/Z 직사각형 케이블 엔트리 플레이트 (PA & FDA 식품등급)",
+    "th": "แผ่นร้อยสายสี่เหลี่ยมผืนผ้า KDP/Z (มาตรฐาน PA & FDA สำหรับอาหาร)"
+},
   "MP-FAM-KDPZR": {
     "vi": "Tấm Luồn Cáp Tròn KDP/ZR & KDP/R Flex (Khoét Lỗ Tròn M50/M63)",
-    "en": "Tấm Luồn Cáp Tròn KDP/ZR & KDP/R Flex (Khoét Lỗ Tròn M50/M63)"
-  },
+    "en": "KDP/ZR & KDP/R Flex Round Cable Entry Plate (M50/M63 Metric Cutout)",
+    "de": "KDP/ZR & KDP/R Flex Runde Kabeleinführungsplatte (M50/M63 Metrisch)",
+    "zh-CN": "KDP/ZR & KDP/R Flex 圆形穿线板（公制 M50/M63 圆孔）",
+    "ja": "KDP/ZR & KDP/R Flex 丸型ケーブルエントリプレート（M50/M63穴）",
+    "ko": "KDP/ZR & KDP/R Flex 원형 케이블 엔트리 플레이트 (M50/M63 타공)",
+    "th": "แผ่นร้อยสายทรงกลม KDP/ZR & KDP/R Flex (รูเจาะกลม M50/M63)"
+},
   "MP-FAM-KDLE": {
     "vi": "Khung Định Tuyến Luồn Cáp KDL/E & KDL/E+ (Cho Cáp Có Sẵn Jack)",
-    "en": "Khung Định Tuyến Luồn Cáp KDL/E & KDL/E+ (Cho Cáp Có Sẵn Jack)"
-  },
+    "en": "KDL/E & KDL/E+ Split Cable Entry Frame (For Pre-Assembled Cables)",
+    "de": "KDL/E & KDL/E+ Teilbarer Kabeleinführungsrahmen (Für konfektionierte Kabel)",
+    "zh-CN": "KDL/E & KDL/E+ 分体式穿线框架（预制插头电缆专用）",
+    "ja": "KDL/E & KDL/E+ 分割型ケーブルエントリフレーム（コネクタ付ケーブル用）",
+    "ko": "KDL/E & KDL/E+ 분할형 케이블 인입 프레임 (커넥터 완제품 케이블용)",
+    "th": "เฟรมร้อยสายแบบแยกส่วน KDL/E & KDL/E+ (สำหรับสายพร้อมหัวแจ็ค)"
+},
   "MP-FAM-KDLD": {
-    "vi": "Khung Luồn Cáp Mật Độ Cao KDL/D & KDL/H Hạng Nặng",
-    "en": "Khung Luồn Cáp Mật Độ Cao KDL/D & KDL/H Hạng Nặng"
-  },
+    "vi": "Khung Luồn Cáp Có Sẵn Đầu Nối Mật Độ Cao Murrplastik KDL/D & KDL/H (IP65)",
+    "en": "KDL/D & KDL/H High-Density Cable Entry Frame (IP65 Ingress Protection)",
+    "de": "KDL/D & KDL/H Hochdichter Kabeleinführungsrahmen (Schutzart IP65)",
+    "zh-CN": "KDL/D & KDL/H 高密度穿线框架（带插头电缆 IP65 防护）",
+    "ja": "KDL/D & KDL/H 高密度ケーブルエントリフレーム（IP65防塵防水）",
+    "ko": "KDL/D & KDL/H 고밀도 케이블 인입 프레임 (IP65 보호등급)",
+    "th": "เฟรมร้อยสายความหนาแน่นสูง KDL/D & KDL/H (มาตรฐานกันน้ำฝุ่น IP65)"
+},
   "MP-FAM-ZL": {
     "vi": "Tấm Giảm Lực Căng Cáp ZL (Thanh Giữ Cố Định Cáp Tủ Điện)",
-    "en": "Tấm Giảm Lực Căng Cáp ZL (Thanh Giữ Cố Định Cáp Tủ Điện)"
-  },
+    "en": "ZL Strain Relief Plate (Cabinet Cable Clamping Bar)",
+    "de": "ZL Zugentlastungsplatte (Schaltschrank-Kabelabfangschiene)",
+    "zh-CN": "ZL 电缆防拉去应力梳状板（电气控制柜固定压线排）",
+    "ja": "ZL ストレインリリーフプレート（制御盤ケーブル固定バー）",
+    "ko": "ZL 케이블 인장 완화 플레이트 (제어반 케이블 고정 바)",
+    "th": "แผ่นลดแรงดึงสายเคเบิล ZL (รางยึดสายเคเบิลตู้ควบคุมไฟฟ้า)"
+},
   "MP-FAM-KH": {
-    "vi": "Đế Giữ Cáp Bắt Vít KH & Chốt Hãm Cố Định Dây BFC",
-    "en": "Đế Giữ Cáp Bắt Vít KH & Chốt Hãm Cố Định Dây BFC"
-  },
+    "vi": "Đế Giữ Cáp Dán Keo & Băng Dính Gai Khóa Nhám Velcro Murrplastik KH",
+    "en": "KH Adhesive Cable Base & Velcro Hook-and-Loop Fastener",
+    "de": "KH Selbstklebender Sockel & Klettband-Kabelhalterung",
+    "zh-CN": "KH 粘胶型电缆固定座与魔术贴扎带绑扎系统",
+    "ja": "KH 粘着式ケーブルマウントベース＆面ファスナーベルクロ結束帯",
+    "ko": "KH 접착식 케이블 마운트 베이스 & 벨크로 타이 고정대",
+    "th": "ฐานยึดสายเคเบิลแบบแถบกาวและสายรัดตีนตุ๊กแกเวลโคร KH"
+},
   "MP-FAM-BSP": {
     "vi": "Nút Bịt Chống Nước & Bịt Lỗ Chờ BSP / BS-KDP-Z",
-    "en": "Nút Bịt Chống Nước & Bịt Lỗ Chờ BSP / BS-KDP-Z"
-  },
+    "en": "BSP & BS-KDP-Z Waterproof Sealing Plugs",
+    "de": "BSP & BS-KDP-Z Wasserdichte Dichtstopfen",
+    "zh-CN": "BSP & BS-KDP-Z 防水堵头与预留孔密封塞",
+    "ja": "BSP & BS-KDP-Z 防水シーリングプラグ＆予備穴プラグ",
+    "ko": "BSP & BS-KDP-Z 방수 실링 플러그 & 예비 홀 마개",
+    "th": "ปลั๊กอุดกันน้ำและอุดช่องว่าง BSP / BS-KDP-Z"
+},
   "MP-FAM-MSN": {
     "vi": "Đế Gá Rãnh Nhôm Định Hình Montagesockel MS-N (Profile 6, 8, 10)",
-    "en": "Đế Gá Rãnh Nhôm Định Hình Montagesockel MS-N (Profile 6, 8, 10)"
-  },
+    "en": "MS-N Mounting Base for Aluminum Extrusion Profiles (Slots 6, 8, 10)",
+    "de": "MS-N Montagesockel für Aluminiumprofile (Nut 6, 8, 10)",
+    "zh-CN": "MS-N 铝合金型材安装底座（适配 6、8、10mm 槽口）",
+    "ja": "MS-N アルミフレーム用マウントベース（6/8/10mm溝対応）",
+    "ko": "MS-N 알루미늄 프로파일 마운팅 베이스 (슬롯 6, 8, 10)",
+    "th": "ฐานยึดรางอลูมิเนียมโปรไฟล์ MS-N (ร่องสล็อต 6, 8, 10)"
+},
   "MP-FAM-UHE": {
     "vi": "Kẹp Giữ Ống Luồn Cáp 1 Mảnh UHE (P09 Đến P48 / M12 Đến M50)",
-    "en": "Kẹp Giữ Ống Luồn Cáp 1 Mảnh UHE (P09 Đến P48 / M12 Đến M50)"
-  },
+    "en": "UHE One-Piece Conduit Clamping Support (P09 to P48 / M12 to M50)",
+    "de": "UHE Einteiliger Schlauchhalter (P09 bis P48 / M12 bis M50)",
+    "zh-CN": "UHE 一体式电缆软管固定夹（P09 至 P48 / M12 至 M50）",
+    "ja": "UHE 一体型電線保護管保持クランプ（P09〜P48 / M12〜M50）",
+    "ko": "UHE 일체형 전선관 고정 클램프 (P09~P48 / M12~M50)",
+    "th": "แคลมป์ยึดท่อร้อยสายชิ้นเดียว UHE (ขนาด P09 ถึง P48 / M12 ถึง M50)"
+},
   "MP-FAM-UHS": {
     "vi": "Giá Đỡ Ống Luồn Cáp Hạng Nặng UH-S",
-    "en": "Giá Đỡ Ống Luồn Cáp Hạng Nặng UH-S"
-  },
+    "en": "UH-S Heavy-Duty Conduit Support Bracket",
+    "de": "UH-S Schwerlast-Schlauchhalter",
+    "zh-CN": "UH-S 重载电缆软管固定支架",
+    "ja": "UH-S 重荷重電線保護管ブラケット",
+    "ko": "UH-S 고하중 전선관 서포트 브래킷",
+    "th": "ขาแขวนรับท่อร้อยสายเคเบิลสำหรับงานหนัก UH-S"
+},
   "MP-FAM-BSH": {
     "vi": "Bộ Kẹp Gá Thanh Nhôm BSH & Phụ Kiện Đầu Ống ET / SRF",
     "en": "Bộ Kẹp Gá Thanh Nhôm BSH & Phụ Kiện Đầu Ống ET / SRF"
   },
   "MP-FAM-SG420": {
     "vi": "Má Xích Dẫn Cáp EVOCHAIN SG 420 (Má Trong & Má Ngoài)",
-    "en": "Má Xích Dẫn Cáp EVOCHAIN SG 420 (Má Trong & Má Ngoài)"
-  },
+    "en": "EVOCHAIN SG 420 Cable Drag Chain Side Links (Inner & Outer)",
+    "de": "EVOCHAIN SG 420 Energiekettenglieder (Innen- & Außenlaschen)",
+    "zh-CN": "EVOCHAIN SG 420 拖链侧链节（内链片与外链片）",
+    "ja": "EVOCHAIN SG 420 ケーブルベアサイドリンク（内側・外側）",
+    "ko": "EVOCHAIN SG 420 케이블 드래그 체인 사이드 링크 (내부/외부)",
+    "th": "ข้อต่อโซ่ร้อยสายเคเบิล EVOCHAIN SG 420 (ข้อต่อด้านใน & ด้านนอก)"
+},
   "MP-FAM-SG560": {
     "vi": "Má Xích Dẫn Cáp EVOCHAIN SG 560 (Má Trong & Má Ngoài)",
-    "en": "Má Xích Dẫn Cáp EVOCHAIN SG 560 (Má Trong & Má Ngoài)"
-  },
+    "en": "EVOCHAIN SG 560 Heavy Drag Chain Side Links (Inner & Outer)",
+    "de": "EVOCHAIN SG 560 Schwerlast-Energiekettenglieder",
+    "zh-CN": "EVOCHAIN SG 560 重载拖链侧链节（内链片与外链片）",
+    "ja": "EVOCHAIN SG 560 重荷重ケーブルベアサイドリンク",
+    "ko": "EVOCHAIN SG 560 중하중 케이블 체인 사이드 링크",
+    "th": "ข้อต่อโซ่ร้อยสายเคเบิล EVOCHAIN SG 560 (สำหรับงานหนัก)"
+},
   "MP-FAM-RS": {
     "vi": "Thanh Giằng Ngang Xích Dẫn Cáp RS-40 & RS-50 (Crossbar Bridge)",
-    "en": "Thanh Giằng Ngang Xích Dẫn Cáp RS-40 & RS-50 (Crossbar Bridge)"
-  },
+    "en": "RS-40 & RS-50 Drag Chain Crossbar Stay Bridges",
+    "de": "RS-40 & RS-50 Energieketten-Querstege",
+    "zh-CN": "RS-40 & RS-50 拖链横梁连接杆 (Crossbar Bridge)",
+    "ja": "RS-40 & RS-50 ケーブルベア用クロスバーブリッジ",
+    "ko": "RS-40 & RS-50 케이블 체인 크로스바 스테이",
+    "th": "คานขวางยึดโซ่ร้อยสายเคเบิล RS-40 & RS-50"
+},
   "MP-FAM-TR": {
     "vi": "Vách Ngăn Chia Khoang Xích TR 420 / TR 560 & Giá Đỡ RTT",
-    "en": "Vách Ngăn Chia Khoang Xích TR 420 / TR 560 & Giá Đỡ RTT"
-  },
+    "en": "TR 420 & TR 560 Chain Separators & RTT Shelves",
+    "de": "TR 420 & TR 560 Trennstege & RTT Einlegeböden",
+    "zh-CN": "TR 420 / TR 560 拖链内部隔片与分层隔板",
+    "ja": "TR 420 & TR 560 ケーブルベア内部セパレータ＆棚板",
+    "ko": "TR 420 & TR 560 체인 내부 분할 격벽 & 쉘프",
+    "th": "แผ่นกั้นแยกช่องภายในโซ่ TR 420 / TR 560 & ชั้นรอง RTT"
+},
   "MP-FAM-KA": {
     "vi": "Đầu Nối Cố Định Xích KA 420 / KA 560 & Guốc Trượt GS",
-    "en": "Đầu Nối Cố Định Xích KA 420 / KA 560 & Guốc Trượt GS"
-  },
+    "en": "KA 420 & KA 560 Chain Mounting End Brackets & GS Glide Shoes",
+    "de": "KA 420 & KA 560 Anschlussstücke & GS Gleitschuhe",
+    "zh-CN": "KA 420 / KA 560 拖链固定接头与 GS 耐磨滑块",
+    "ja": "KA 420 & KA 560 固定ブラケット＆GSスライドシュー",
+    "ko": "KA 420 & KA 560 체인 고정 브래킷 & GS 글라이드 슈",
+    "th": "ข้อต่อยึดหัวท้ายโซ่ KA 420 / KA 560 & แผ่นสไลด์กันสึก GS"
+},
   "MP-FAM-EWRPP": {
     "vi": "Ống Luồn Bảo Vệ Cáp Tiêu Chuẩn EW-R-PP (Chống Hóa Chất & Va Đập)",
-    "en": "Ống Luồn Bảo Vệ Cáp Tiêu Chuẩn EW-R-PP (Chống Hóa Chất & Va Đập)"
-  },
+    "en": "EW-R-PP Standard Protective Cable Conduit (Chemical & Impact Resistant)",
+    "de": "EW-R-PP Standard-Kabelschutzschlauch (Chemikalien- & schlagfest)",
+    "zh-CN": "EW-R-PP 标准电缆保护波纹管（耐化学腐蚀与抗冲击）",
+    "ja": "EW-R-PP 標準電線保護コルゲート管（耐薬品・耐衝撃）",
+    "ko": "EW-R-PP 표준 케이블 보호 주름관 (내화학성 & 내충격성)",
+    "th": "ท่อร้อยสายเคเบิลมาตรฐาน EW-R-PP (ทนสารเคมีและแรงกระแทก)"
+},
   "MP-FAM-EWLPAB": {
     "vi": "Ống Luồn Cáp Dẻo Chống Cháy EWL-PAB (PA6 Tiêu Chuẩn V0)",
-    "en": "Ống Luồn Cáp Dẻo Chống Cháy EWL-PAB (PA6 Tiêu Chuẩn V0)"
-  },
+    "en": "EWL-PAB Flame Retardant Flexible Conduit (PA6 UL 94 V-0)",
+    "de": "EWL-PAB Flammwidriger flexibler Schutzschlauch (PA6 UL 94 V-0)",
+    "zh-CN": "EWL-PAB 阻燃耐弯曲波纹管（PA6 UL 94 V-0 标准）",
+    "ja": "EWL-PAB 難燃性フレキシブル電線保護管（PA6 UL 94 V-0）",
+    "ko": "EWL-PAB 난연성 플렉시블 전선관 (PA6 UL 94 V-0)",
+    "th": "ท่อร้อยสายเคเบิลแบบยืดหยุ่นทนไฟ EWL-PAB (PA6 มาตรฐาน V-0)"
+},
   "MP-FAM-EWXPAE": {
-    "vi": "Ống Luồn Cáp Động Lực Robot EWX-PAE (Uốn Mỏi Hàng Triệu Chu Kỳ)",
-    "en": "Ống Luồn Cáp Động Lực Robot EWX-PAE (Uốn Mỏi Hàng Triệu Chu Kỳ)"
-  },
+    "vi": "Ống Luồn Cáp Chịu Lực Uốn Cong Cao Robot Murrplastik EWX-PAE Jumbo 70",
+    "en": "EWX-PAE Jumbo 70 High-Flex Robot Dresspack Conduit",
+    "de": "EWX-PAE Jumbo 70 Hochflexibler Roboterschutzschlauch",
+    "zh-CN": "EWX-PAE Jumbo 70 工业机器人高柔抗扭曲波纹管",
+    "ja": "EWX-PAE Jumbo 70 ロボット用超高屈曲電線保護ホース",
+    "ko": "EWX-PAE Jumbo 70 고유연성 로봇 드레스팩 주름관",
+    "th": "ท่อร้อยสายเคเบิลหุ่นยนต์ทนแรงดัดโค้งสูง EWX-PAE Jumbo 70"
+},
   "MP-FAM-GFP": {
     "vi": "Ống Bện Bảo Vệ Bó Dây Đàn Hồi GF-P (Polyester Braided)",
-    "en": "Ống Bện Bảo Vệ Bó Dây Đàn Hồi GF-P (Polyester Braided)"
-  },
+    "en": "GF-P Expandable Braided Cable Sleeving (Polyester)",
+    "de": "GF-P Dehnbarer Geflechtschlauch (Polyester)",
+    "zh-CN": "GF-P 弹性聚酯编织网管（防磨损线束套管）",
+    "ja": "GF-P 伸縮性ポリエステル編組スリーブ（耐摩耗）",
+    "ko": "GF-P 신축성 폴리에스터 편조 슬리브",
+    "th": "ปลอกสายถักตาข่ายโพลีเอสเตอร์แบบยืดหยุ่น GF-P"
+},
   "MP-FAM-LPC": {
-    "vi": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate LPC & Đế Gá GP 3M",
-    "en": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate LPC & Đế Gá GP 3M"
-  },
+    "vi": "Thẻ Nhãn Đánh Dấu In Laser Polycarbonate Murrplastik LPC",
+    "en": "LPC Polycarbonate Laser Printable Marker Tags",
+    "de": "LPC Polycarbonat Laserbeschriftbare Kennzeichnungsschilder",
+    "zh-CN": "LPC 聚碳酸酯激光打标标识标牌",
+    "ja": "LPC ポリカーボネート製レーザーマーキングラベル",
+    "ko": "LPC 폴리카보네이트 레이저 마킹 네임플레이트 태그",
+    "th": "ป้ายแท็กมาร์กเกอร์โพลีคาร์บอเนตสำหรับพิมพ์เลเซอร์ LPC"
+},
   "1083": {
     en: "Ball joint KEG/ZL & Hose ring SRF/ZL",
     "zh-CN": "Murrplastik KEG/ZL 球头万向节与 SRF/ZL 软管保护环",
