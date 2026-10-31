@@ -405,12 +405,10 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               onMouseLeave={() => setIsToolboxOpen(false)}
             >
               <button
-                onClick={() => {
-                  onNavigate('robot-dresspack');
-                  setIsToolboxOpen(false);
-                }}
+                type="button"
+                onClick={() => setIsToolboxOpen(prev => !prev)}
                 className={`flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-sm border transition-all cursor-pointer ${
-                  currentTab === 'robot-dresspack'
+                  currentTab === 'robot-dresspack' || currentTab === 'kdl-configurator' || currentTab === 'kdp-configurator'
                     ? 'bg-red-50 text-[#C8102E] border-red-200 font-bold'
                     : 'text-slate-700 hover:text-[#00478D] hover:bg-slate-50 border-slate-200/80 shadow-2xs'
                 }`}
@@ -421,7 +419,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
 
               {/* Digital Toolbox Dropdown */}
               {isToolboxOpen && (
-                <div className="absolute top-full left-0 pt-1.5 w-[320px] z-50">
+                <div className="absolute top-full left-0 pt-1.5 w-[360px] z-50">
                   {/* Invisible hover bridge to eliminate gap */}
                   <div className="absolute -top-3 inset-x-0 h-3" />
                   <div className="bg-white rounded-sm shadow-2xl border border-slate-200 p-2.5 animate-in fade-in slide-in-from-top-1 duration-150">
@@ -431,13 +429,18 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                     </div>
 
                     <div className="space-y-1">
-                      {/* Tool: Robot Dresspack */}
+                      {/* Tool 1: Robot Dresspack */}
                       <button
+                        type="button"
                         onClick={() => {
                           onNavigate('robot-dresspack');
                           setIsToolboxOpen(false);
                         }}
-                        className="w-full p-2.5 rounded-xs hover:bg-red-50 text-left transition-all group cursor-pointer border border-transparent hover:border-red-200"
+                        className={`w-full p-2.5 rounded-xs text-left transition-all group cursor-pointer border ${
+                          currentTab === 'robot-dresspack'
+                            ? 'bg-red-50/80 border-red-200'
+                            : 'hover:bg-red-50/50 border-transparent hover:border-red-200/70'
+                        }`}
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-bold text-slate-900 group-hover:text-[#C8102E]">
@@ -445,8 +448,56 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           </span>
                           <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-0.5 transition-all" />
                         </div>
-                        <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                        <p className="text-xs text-slate-500 mt-1 line-clamp-1">
                           {t('nav.toolbox_dresspack_desc', 'Mô phỏng cánh tay robot & tính fill factor bó cáp')}
+                        </p>
+                      </button>
+
+                      {/* Tool 2: KDL Configurator (Có Đầu Cắm) */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onNavigate('kdl-configurator');
+                          setIsToolboxOpen(false);
+                        }}
+                        className={`w-full p-2.5 rounded-xs text-left transition-all group cursor-pointer border ${
+                          currentTab === 'kdl-configurator'
+                            ? 'bg-red-50/80 border-red-200'
+                            : 'hover:bg-red-50/50 border-transparent hover:border-red-200/70'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-[#C8102E]">
+                            {t('nav.toolbox_kdl_title', 'Cấu hình Luồn Cáp Có Đầu Jack (KDL)')}
+                          </span>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-0.5 transition-all" />
+                        </div>
+                        <p className="text-xs text-slate-500 mt-1 line-clamp-1">
+                          {t('nav.toolbox_kdl_desc', 'Khung tháo rời KDL/E, KDL/D, đệm luồn KDT & trực quan hóa 2D CAD')}
+                        </p>
+                      </button>
+
+                      {/* Tool 3: KDP Configurator (Không Đầu Cắm) */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onNavigate('kdp-configurator');
+                          setIsToolboxOpen(false);
+                        }}
+                        className={`w-full p-2.5 rounded-xs text-left transition-all group cursor-pointer border ${
+                          currentTab === 'kdp-configurator'
+                            ? 'bg-red-50/80 border-red-200'
+                            : 'hover:bg-red-50/50 border-transparent hover:border-red-200/70'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-slate-900 group-hover:text-[#C8102E]">
+                            {t('nav.toolbox_kdp_title', 'Cấu hình Tấm Luồn Cáp Không Đầu Jack (KDP)')}
+                          </span>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#C8102E] group-hover:translate-x-0.5 transition-all" />
+                        </div>
+                        <p className="text-xs text-slate-500 mt-1 line-clamp-1">
+                          {t('nav.toolbox_kdp_desc', 'Tấm màng cao su KDP On-Demand, tính ma trận lỗ & bản vẽ cơ khí')}
                         </p>
                       </button>
                     </div>
@@ -886,16 +937,46 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               {t('nav.home')}
             </button>
 
-            {/* Robot Dresspack Configurator Link on Mobile */}
-            <button
-              onClick={() => { onNavigate('robot-dresspack'); setIsMobileMenuOpen(false); }}
-              className={`w-full text-left px-3 py-3 rounded-sm text-sm font-bold tracking-wide uppercase transition-colors flex items-center justify-between ${
-                currentTab === 'robot-dresspack' ? 'bg-red-50 text-[#C8102E]' : 'text-slate-800 hover:bg-slate-50'
-              }`}
-            >
-              <span>{t('nav.toolbox_dresspack_title', 'Cấu hình Robot dresspack & bó cáp')}</span>
-              <ArrowRight className="w-4 h-4 text-slate-400" />
-            </button>
+            {/* Digital Toolbox Configurator Links on Mobile */}
+            <div className="space-y-1">
+              <div className="px-3 pt-2 pb-1 text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center justify-between">
+                <span>{t('nav.digital_toolbox', 'Digital Toolbox')}</span>
+                <span className="text-2xs font-semibold text-red-600 bg-red-50 px-1.5 py-0.2 rounded-xs">Murrplastik</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => { onNavigate('robot-dresspack'); setIsMobileMenuOpen(false); }}
+                className={`w-full text-left px-3 py-2.5 rounded-sm text-xs font-bold tracking-wide uppercase transition-colors flex items-center justify-between ${
+                  currentTab === 'robot-dresspack' ? 'bg-red-50 text-[#C8102E]' : 'text-slate-800 hover:bg-slate-50'
+                }`}
+              >
+                <span>{t('nav.toolbox_dresspack_title', 'Cấu hình Robot dresspack & bó cáp')}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => { onNavigate('kdl-configurator'); setIsMobileMenuOpen(false); }}
+                className={`w-full text-left px-3 py-2.5 rounded-sm text-xs font-bold tracking-wide uppercase transition-colors flex items-center justify-between ${
+                  currentTab === 'kdl-configurator' ? 'bg-red-50 text-[#C8102E]' : 'text-slate-800 hover:bg-slate-50'
+                }`}
+              >
+                <span>{t('nav.toolbox_kdl_title', 'Cấu hình Luồn Cáp Có Đầu Jack (KDL)')}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => { onNavigate('kdp-configurator'); setIsMobileMenuOpen(false); }}
+                className={`w-full text-left px-3 py-2.5 rounded-sm text-xs font-bold tracking-wide uppercase transition-colors flex items-center justify-between ${
+                  currentTab === 'kdp-configurator' ? 'bg-red-50 text-[#C8102E]' : 'text-slate-800 hover:bg-slate-50'
+                }`}
+              >
+                <span>{t('nav.toolbox_kdp_title', 'Cấu hình Tấm Luồn Cáp Không Đầu Jack (KDP)')}</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+              </button>
+            </div>
 
             {/* Featured Murrplastik Subsite Card on Mobile */}
             <div className="p-3 rounded-sm bg-gradient-to-br from-red-50 via-white to-red-50/40 border border-red-200/90 shadow-2xs space-y-2 my-2">
