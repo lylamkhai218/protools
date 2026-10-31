@@ -28,6 +28,7 @@ import { PRODUCTS, SOLUTIONS, COMPANY_INFO } from '../data';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslation } from '../i18n/LanguageContext';
 import { getLocalizedSolution } from '../i18n/solutionsTranslations';
+import { getLocalizedProduct } from '../i18n/productTranslations';
 import { loadCatalogIndex, searchCatalog } from '../utils/catalogLoader';
 
 interface HeaderProps {
@@ -194,7 +195,7 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 href={COMPANY_INFO.mapUrlLinhNam} 
                 target="_blank" 
                 rel="noreferrer" 
-                title="Mở Google Maps chỉ đường đến VPGD & Kho Lĩnh Nam"
+                title={t('header.map_tooltip')}
                 className="hover:text-[#00478D] hover:underline inline-flex items-center gap-1"
               >
                 <span>{t('header.wh_label')}: <strong>{t('header.wh_val')}</strong></span>
@@ -543,7 +544,9 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {featuredSuggestions.map((item) => (
+                    {featuredSuggestions.map((item) => {
+                      const locProd = getLocalizedProduct(item.product, locale);
+                      return (
                       <button
                         key={item.product.id || item.product.sku}
                         type="button"
@@ -553,12 +556,12 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                       >
                         <img
                           src={item.product.image}
-                          alt={item.product.name}
+                          alt={locProd.name}
                           className="w-12 h-12 object-contain rounded-xs border border-slate-200 bg-white p-0.5 shrink-0 group-hover:scale-105 transition-transform"
                         />
                         <div className="min-w-0 flex-1">
                           <div className="text-xs font-bold text-slate-900 group-hover:text-[#00478D] transition-colors line-clamp-2 leading-snug min-h-[2rem]">
-                            {item.product.name}
+                            {locProd.name}
                           </div>
                           <div className="flex items-center gap-1.5 text-xs mt-1">
                             <span className="font-mono text-slate-700 bg-slate-100 px-1.5 py-0.2 rounded-xs font-semibold">
@@ -574,7 +577,8 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                           </div>
                         </div>
                       </button>
-                    ))}
+                    );
+                    })}
                   </div>
                 </div>
 
@@ -665,7 +669,9 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                 </div>
 
                 <div className="divide-y divide-slate-100/80">
-                  {searchResults.map((item) => (
+                  {searchResults.map((item) => {
+                    const locItem = getLocalizedProduct(item, locale);
+                    return (
                     <button
                       key={item.id || item.sku}
                       type="button"
@@ -676,12 +682,12 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                       <div className="flex items-center gap-3.5 min-w-0 flex-1">
                         <img 
                           src={item.image} 
-                          alt={item.name}
+                          alt={locItem.name}
                           className="w-13 h-13 object-contain rounded-xs border border-slate-200 bg-white shrink-0 p-1 group-hover:border-[#00478D]/40 transition-colors"
                         />
                         <div className="min-w-0 flex-1 space-y-1">
                           <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-[#00478D] transition-colors truncate">
-                            {item.name}
+                            {locItem.name}
                           </div>
                           
                           {/* Structured Pill Badges (Never wrap brokenly) */}
@@ -704,7 +710,8 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
 
                       <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-[#00478D] group-hover:translate-x-1 transition-all shrink-0 ml-2" />
                     </button>
-                  ))}
+                  );
+                  })}
                 </div>
 
                 {totalMatches > searchResults.length && (
@@ -846,15 +853,17 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
               <div className="px-3 py-1.5 text-xs font-bold uppercase text-slate-500 bg-slate-100">
                 {t('catalog.found')} {searchResults.length} {t('catalog.matching_items')}
               </div>
-              {searchResults.map((item) => (
+              {searchResults.map((item) => {
+                const locItem = getLocalizedProduct(item, locale);
+                return (
                 <button
                   key={item.id}
                   onClick={() => handleProductClick(item)}
                   className="w-full p-2.5 text-left hover:bg-white flex items-center gap-3 transition-colors"
                 >
-                  <img src={item.image} alt={item.name} className="w-10 h-10 object-contain bg-white rounded-xs border border-slate-200 p-0.5 shrink-0" />
+                  <img src={item.image} alt={locItem.name} className="w-10 h-10 object-contain bg-white rounded-xs border border-slate-200 p-0.5 shrink-0" />
                   <div className="min-w-0 flex-1">
-                    <div className="text-xs font-bold text-slate-900 truncate">{item.name}</div>
+                    <div className="text-xs font-bold text-slate-900 truncate">{locItem.name}</div>
                     <div className="flex items-center gap-1.5 text-xs mt-0.5">
                       <span className="font-mono text-slate-500">Mã: {item.sku}</span>
                       <span className="text-slate-300">•</span>
@@ -862,7 +871,8 @@ export default function Header({ currentTab, cartCount, onNavigate, onSelectProd
                     </div>
                   </div>
                 </button>
-              ))}
+              );
+              })}
             </div>
           )}
 

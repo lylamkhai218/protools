@@ -655,3 +655,149 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
       - AI & LLM Discovery Manifests: `public/llms.txt`, `public/llms-full.txt`, `public/ai-manifest.json`.
       - Hệ thống trang tĩnh và đa ngôn ngữ Murrplastik: `generate_static_snapshots.py`, `public/murrplastik/index.html`, `public/murrplastik/assets/js/i18n.js`, `public/murrplastik/tin-tuc/index.html`, `public/murrplastik/tin-tuc/trien-lam-vec-2026/index.html`.
     - Đã xác thực thực tế trên Production (`https://protools.com.vn/`): 100% các trang trả về email đúng `info@t2tvina.com`, sạch hoàn toàn `t2t.vina@gmail.com`.
+
+
+---
+
+## 27. QUY CHUẨN CẤU HÌNH HỆ THỐNG LUỒN CÁP CÔNG NGHIỆP KDL & KDP TRÊN DIGITAL TOOLBOX (MURRPLASTIK CABLE ENTRY SUITE)
+- **Bối cảnh & Nghiệp vụ B2B**:
+  - Hệ thống Digital Toolbox của Protools được mở rộng đồng bộ với cấu trúc công cụ chuẩn của Murrplastik HQ:
+    1. **Robot Dresspack Configurator**: Cấu hình giải pháp ống luồn và cùm kẹp cho cánh tay robot công nghiệp 6 trục.
+    2. **KDL Configurator (Cable Entry for Cables WITH Connectors)**: Nhái lại và nâng cấp tính năng của `https://shop.murrplastik.com/kdl`.
+    3. **KDP Configurator (Cable Entry for Cables WITHOUT Connectors)**: Nhái lại và nâng cấp tính năng của `https://shop.murrplastik.com/kdp`.
+- **Cơ sở dữ liệu trích xuất & mô hình hóa**:
+  - `src/data/kdlData.ts`:
+    - 4 dòng hệ thống khung: `dch` (KDL/C, KDL/D, KDL/H), `mono` (KDL/D-mono M25-M50), `e` (KDL/E), `e-plus` (KDL/E+, KDL/ER+).
+    - 91 model khung chuẩn kích thước 24-pole, 16-pole, 10-pole, 6-pole, 1-slot và Metric M25-M50.
+    - 166 mã đệm luồn KDT (đệm đơn KDT/ZE, KDT/X, đệm đôi 2x, đệm 4x, đệm bít kín Blind plug, đệm mạng LAN RJ45, USB, ASI bus).
+    - 50 bộ tọa độ (x, y) chính xác tuyệt đối phục vụ dựng bản vẽ vector 2D CAD trực quan.
+  - `src/data/kdpData.ts`:
+    - Dòng tấm tiêu chuẩn: KDP 24/29, KDP 24/17, KDP 24/11, KDP/X Inox 316L V4A (IP69K), KDP/Z 56 dây, KDP/R M50, KDP/R M63.
+    - Dòng tấm On-Demand: Tùy biến hình học chữ nhật, bo góc R, hình tròn; vật liệu Inox V4A, V2A, Nhôm AlMg3, Nhựa PA6.6, Nhựa FDA.
+    - Thuật toán `autoPlaceKdpMembranes()` tự động tính toán ma trận lỗ, khoảng cách an toàn (mép biên e >= 16mm, khe hở s >= 4mm) và đo lường mật độ điền đầy (Packing density).
+- **Trải nghiệm người dùng & Tích hợp ứng dụng**:
+  - Menu Digital Toolbox tại `src/components/Header.tsx`: Điều hướng phân nhánh rõ ràng trên cả Desktop dropdown và Mobile Drawer.
+  - Router SPA sạch tại `src/App.tsx`: Hỗ trợ đường dẫn chuẩn SEO `/kdl`, `/kdl-configurator`, `/kdp`, `/kdp-configurator`.
+  - Kết nối trực tiếp giỏ hàng B2B: Bấm "Thêm vào giỏ báo giá B2B" tự động đóng gói BOM linh kiện hoàn chỉnh kèm mã MPN Murrplastik.
+  - Hỗ trợ xuất in hồ sơ giải pháp A4 chuẩn kỹ thuật kèm thông tin liên hệ đại diện phân phối chính thức T&T Vina.
+
+---
+
+## 28. QUY CHUẨN THIẾT KẾ VECTOR 2D CAD & CĂN CHỈNH ĐỒNG TÂM TUYỆT ĐỐI KHUNG KDL (CONCENTRIC CAD CALIBRATION ENGINE)
+- **Sự cố lệch tâm bản vẽ CAD (Issue Audit 31/10/2026)**:
+  - Khi người dùng kiểm tra cấu hình khung luồn cáp KDL (`http://localhost:3000/kdl`), xuất hiện hiện tượng các vòng tròn slot đệm luồn (ví dụ layout `e-24-7` với đệm BTK lớn và các đệm nhỏ) bị đẩy lệch lên mép trên cùng của khung và lệch sang trái, để lại khoảng trống màu đen lớn ở phía dưới và bên phải.
+- **Nguyên nhân gốc rễ (Root Cause Analysis)**:
+  1. **Tọa độ đệm lớn/vừa (Big/Medium grommets)**: Các mã đệm cỡ lớn (KDT/G, BTG) và vừa (KDT/X) trong 25 layout ban đầu lưu tọa độ góc trên-trái ($y = 13-14$) thay vì tâm hình học của tầng khung. Điều này khiến đệm lớn bị kéo lên hàng trên cùng thay vì nằm ngay chính giữa 2 hàng đệm nhỏ (ví dụ `e-24-7` có $y=14$ thay vì trung điểm $y=27$).
+  2. **Khung SVG cố định (Hardcoded ViewBox)**: Thành phần SVG trước đó cố định `viewBox="0 0 240 100"` và khung khoét lỗ `width="208" height="72"`, áp dụng đồng loạt cho mọi loại khung từ cỡ 24, cỡ 6, khung tròn M25-M50 đến khung xếp tầng 30 dây (`e-plus-24-30` có chiều cao lên đến 255px).
+- **Giải pháp Kỹ thuật Đồng tâm Động (Dynamic Concentric Geometry)**:
+  1. **Hiệu chỉnh tọa độ chuẩn hóa (`src/data/kdlData.ts`)**: Cân chỉnh lại toàn bộ $y$ của 25 layout có đệm lớn và vừa về đúng trục đối xứng trung tâm của từng tầng:
+     - Dòng DCH (24, 16, 10): Tọa độ tâm đệm vừa/lớn được đặt tại $y = 35.0$.
+     - Dòng E (24, 16): Tọa độ tâm đệm lớn được đặt tại $y = 27.0$.
+     - Dòng E-Plus: Tầng 1 tại $y = 32.0$, Tầng 2 tại $y = 128-129.0$, Tầng 3 tại $y = 226.0$.
+  2. **Thuật toán Tự động Định vị Đồng tâm (`cadGeometry` trong `src/pages/KdlConfigurator.tsx`)**:
+     - Đo lường hộp bao cực biên của toàn bộ cụm đệm: $\min X, \max X, \min Y, \max Y$, tính trọng tâm $(\text{centerX}, \text{centerY})$.
+     - Tính kích thước khoét lỗ (Inner Cutout) đối xứng với biên an toàn ($P_X = 16\text{px}, P_Y = 14\text{px}$).
+     - Tính kích thước thân khung ngoài (Outer Frame Flange: $16\text{px}$) và căn lề khung nhìn (ViewBox Margin: $6\text{px}$).
+     - Áp dụng độ dời song song $(\Delta X, \Delta Y)$ để tâm của cụm đệm, tâm của lỗ khoét và tâm của khung ngoài trùng nhau tuyệt đối:
+       $$\Delta X = \frac{W_{\text{viewBox}}}{2} - \text{centerX}, \quad \Delta Y = \frac{H_{\text{viewBox}}}{2} - \text{centerY}$$
+     - Hỗ trợ phân nhánh tự động cho cả khung chữ nhật bo góc và khung tròn hệ mét M25, M32, M40, M50 (dùng thẻ `<circle>` đồng tâm).
+  3. **Kết quả**: Khoảng cách mép trên và mép dưới bằng nhau tuyệt đối ($14.0\text{px} = 14.0\text{px}$), mép trái và mép phải bằng nhau tuyệt đối ($16.0\text{px} = 16.0\text{px}$), các lỗ ốc vít định vị 4 góc chuẩn xác.
+
+---
+
+## 29. QUY CHUẨN XỬ LÝ TƯƠNG TÁC HOVER TRÊN BẢN VẼ VECTOR CAD SVG (SVG ZERO-JITTER INTERACTION RULE)
+- **Sự cố giật / rung viền slot khi rê chuột (Issue Audit 31/10/2026)**:
+  - Khi người dùng rê chuột đến mép ngoài của các vòng tròn đệm cáp phi màu xanh (Ø) trên bản vẽ 2D CAD, hình tròn bị giật / nhấp nháy liên hồi (oscillating jitter).
+- **Nguyên nhân kỹ thuật (Root Cause)**:
+  1. **Hiệu ứng `hover:scale-105` trong SVG**: Khác với HTML thông thường, thẻ `<g>` trong SVG khi bị áp dụng thuộc tính `scale()` qua CSS nếu không có `transform-box: fill-box; transform-origin: center` sẽ lấy gốc tọa độ $(0, 0)$ của toàn bộ `viewBox` làm tâm biến đổi. Do đó khi phóng to $1.05\times$, vị trí hình tròn bị **dời tịnh tiến (displacement) vài pixel sang phải và xuống dưới**, làm mép vòng tròn văng ra khỏi con trỏ chuột.
+  2. **Vòng lặp nhấp nháy vô tận (Oscillation Loop)**: Chuột chạm mép $\to$ kích hoạt `:hover` $\to$ vòng tròn giật nhảy sang vị trí mới $\to$ con trỏ lọt ra ngoài vùng hover $\to$ tắt `:hover` $\to$ vòng tròn bật giật về vị trí cũ $\to$ con trỏ lại chạm mép $\to$ lặp lại ở tần số 60-120fps.
+  3. **Xung đột vùng nhận lệnh (Hit Area Contention)**: Thẻ `<text>` bên trong nhận con trỏ chuột (pointer events) làm ngắt quãng sự kiện chuột của vòng tròn.
+- **Quy tắc giải pháp Zero-Jitter chuẩn CAD công nghiệp**:
+  1. **Tuyệt đối không dùng `scale()` trên đối tượng vector CAD**: Thay thế chuyển dịch hình học bằng hiệu ứng đổi màu stroke và độ sáng phẳng (`transition-colors duration-150 group-hover:stroke-cyan-300 group-hover:brightness-110`).
+  2. **Tạo vùng đệm cảm ứng vô hình (Expanded Hit Area Cushion)**: Bổ sung một thẻ `<circle cx={x} cy={y} r={radius + 3.5} fill="transparent" className="pointer-events-auto" />` nằm lót dưới cùng. Vùng này mở rộng ra ngoài mép đồ họa 3.5px, tạo vùng đệm an toàn tuyệt đối giúp con trỏ chuột không bao giờ bị rơi ra khỏi mục tiêu.
+  3. **Vô hiệu hóa sự kiện chuột trên text nội bộ**: Thêm `pointer-events-none` và `select-none` vào nhãn kích thước cáp (`Ø`) để chuột lướt mượt mà không bị ngắt quãng.
+
+---
+
+## 30. QUY CHUẨN ĐÁNH GIÁ CHẤT LƯỢNG TOÀN DIỆN (CTO MULTI-ROLE PRODUCTION AUDIT: LIGHTHOUSE 100, WCAG 2.1 AA & B2B DEFENSE)
+- **Hội đồng Phản biện Đa vai trò (CTO vs Senior FE vs Senior BA vs QA Tester)**:
+  - Tiến hành tổng rà soát toàn bộ mã nguồn cấu hình luồn cáp KDL/KDP theo 4 tiêu chí Lighthouse, chuẩn nghiệp vụ cơ khí Murrplastik và độ tin cậy vận hành thực tế.
+- **Các khiếm khuyết phát hiện & Biện pháp khắc phục tức thời**:
+  1. **Accessibility (WCAG 2.1 AA) - Nguy cơ rớt điểm a11y (< 70)**:
+     - *Phát hiện*: Toàn bộ các nút bấm tăng/giảm số lượng (+/-), xóa cáp, in ấn và chuyển bước trước đó thiếu `aria-label`; các slot CAD `<g>` trong SVG không có `role="button"` và `tabIndex={0}`, khiến người dùng phím hoặc trợ thính không thể tương tác.
+     - *Khắc phục*: Bổ sung 100% `aria-label`, `aria-current="step"`, `role="button"`, `tabIndex={0}` kèm bộ bắt phím `Enter`/`Space` trên mọi slot CAD; nâng độ tương phản màu chữ phụ lên chuẩn >= 4.5:1.
+  2. **Typography & Tabular Numbers (Rule 22 Standard)**:
+     - *Phát hiện*: Thiếu thuộc tính `tabular-nums` trên các cột bảng dữ liệu kỹ thuật, khiến số lượng, kích thước đường kính Ø và mã MPN bị thụt thò khi render.
+     - *Khắc phục*: Tích hợp `font-mono tabular-nums` trên 100% các ô số liệu tại Step 2 và Step 4 của cả KDL và KDP.
+  3. **B2B Business Logic & Phòng ngừa Lỗi Ngân sách (Senior BA Defense)**:
+     - *Phát hiện*: Thiếu cảnh báo khi tổng số sợi cáp khai báo vượt quá dung lượng vị trí của khung (Capacity Overflow); thiếu chú thích đơn vị đóng gói VPE Murrplastik (10 cái/hộp).
+     - *Khắc phục*: Bổ sung cảnh báo thời gian thực `isCapacityExceeded` (nổi banner vàng cảnh báo khi số cáp vượt quá số slot của khung); bổ sung ghi chú quy cách đóng gói VPE chuẩn Đức trên bảng kê BOM.
+  4. **Công thái học In ấn & Xuất Hồ Sơ Kỹ Thuật (`@media print`)**:
+     - *Phát hiện*: Khi nhấn in hồ sơ (`window.print()`), hệ thống in tràn cả thanh header điều hướng, nút chuyển công cụ và nút gọi điện hotline.
+     - *Khắc phục*: Thêm biểu mẫu in chuyên dụng (Print Cover Header) hiển thị logo T&T Vina, hotline, ngày xuất hồ sơ; đồng thời ẩn sạch 100% thanh điều hướng và nút bấm thao tác khi in hoặc lưu PDF (`print:hidden`).
+  5. **Tối ưu hóa Bố cục Di động (Mobile Breakpoint <= 768px)**:
+     - *Phát hiện*: Thanh Stepper Wizard 4 bước đặt cứng `grid-cols-4` làm vỡ chữ trên màn hình hẹp (< 390px).
+     - *Khắc phục*: Chuyển sang bố cục linh hoạt `grid grid-cols-2 sm:grid-cols-4` hiển thị gọn gàng, sắc nét trên mọi thiết bị di động.
+
+---
+
+## 31. QUY CHUẨN TÍCH HỢP VIDEO HƯỚNG DẪN CHÍNH THỨC MURRPLASTIK (VIDEO TUTORIAL MODAL ENGINE)
+- **Bối cảnh & Chuẩn thiết kế Murrplastik HQ**:
+  - Tại trang cấu hình KDL (`https://shop.murrplastik.com/kdl`), hãng bố trí thanh banner nổi màu xanh navy đậm với thông điệp: *"Videos are available for this configurator. [Watch Videos]"*.
+- **Triển khai kỹ thuật trên [KdlConfigurator.tsx](file:///d:/T&TVina/protools/src/pages/KdlConfigurator.tsx)**:
+  1. **Thanh Banner Hướng dẫn (Pixel-Perfect Banner)**:
+     - Đặt tại đầu vùng làm việc chính (`max-w-7xl`), màu nền `#0B2535`, viền `#16445E`.
+     - Icon YouTube chuẩn nhận diện (nền đỏ `#FF0000`, tam giác trắng `Play`).
+     - Nút "Watch Videos" màu trắng chữ đỏ `#C8102E` nổi bật.
+  2. **Trình phát Video Popup Chuẩn Công Thái Học (Modal Player)**:
+     - Video chính thức: ID `uyH7Bd3pnx0` (`https://youtu.be/uyH7Bd3pnx0`).
+     - Tích hợp qua tên miền bảo mật không cookie `https://www.youtube-nocookie.com/embed/uyH7Bd3pnx0?autoplay=1&rel=0`.
+     - Tỉ lệ khung hình chuẩn rạp 16:9 (`aspect-video`), tự động phát khi mở.
+     - Đóng nhanh bằng phím `Escape`, nhấp chuột ra ngoài vùng nền mờ (Backdrop click) hoặc nút đóng `X`.
+     - Đính kèm link mở tab mới trực tiếp trên YouTube kèm bản quyền Murrplastik Systemtechnik GmbH.
+
+---
+
+## 32. QUY CHUẨN ĐA NGÔN NGỮ (I18N) TOÀN DIỆN CHO DIGITAL TOOLBOX & BANNER VIDEO ĐƠN NGỮ ĐỘNG (I18N DYNAMIC SINGLE-LINE STANDARD)
+- **Chuẩn hóa Thông điệp Đơn ngữ Động (Single-Line, Single-Language Policy)**:
+  - *Vấn đề phát hiện*: Thanh banner video hướng dẫn hiển thị song ngữ cứng lặp lại (*Videos are available for this configurator. Video hướng dẫn thao tác...*) gây rối mắt và thừa thãi khi website đã tích hợp bộ chuyển đổi ngôn ngữ toàn cầu.
+  - *Giải pháp triệt để*: Loại bỏ hoàn toàn chuỗi song ngữ tĩnh; kích hoạt động từ khóa 	('kdl.video_banner') và 	('kdl.watch_video') để chỉ hiển thị đúng 1 dòng thông điệp duy nhất theo đúng ngôn ngữ mà người dùng đang chọn trên Header:
+    - i: *Video hướng dẫn thao tác cấu hình khung luồn cáp KDL* | [Xem Video]
+    - en: *Videos are available for this configurator.* | [Watch Videos]
+    - de: *Video-Anleitungen sind für diesen Konfigurator verfügbar.* | [Videos ansehen]
+    - zh-CN: *本配置器提供操作教学视频。* | [观看视频]
+    - ja: *このコンフィギュレータの操作動画をご覧いただけます。* | [動画を見る]
+    - ko: *이 컨피규레이터에 대한 동영상 가이드가 제공됩니다.* | [동영상 보기]
+    - 	h: *มีวิดีโอแนะนำการใช้งานสำหรับตัวกำหนดค่านี้* | [ดูวิดีโอ]
+- **Kiến trúc Bản địa hóa Toàn diện 7 Ngôn ngữ (Comprehensive 7-Locale Ingestion)**:
+  - Đồng bộ trọn bộ từ điển cho cả 2 bộ công cụ cấu hình:
+    1. **Khung luồn cáp KDL** ([src/pages/KdlConfigurator.tsx](file:///d:/T&TVina/protools/src/pages/KdlConfigurator.tsx)): 91+ khóa dịch phủ kín 4 bước wizard (bộ lọc hệ thống, bảng khai báo cáp, cảnh báo quá tải, bản vẽ 2D CAD live, bảng kê BOM giải pháp và video hướng dẫn).
+    2. **Tấm màng luồn cáp KDP** ([src/pages/KdpConfigurator.tsx](file:///d:/T&TVina/protools/src/pages/KdpConfigurator.tsx)): 79+ khóa dịch phủ kín 4 bước wizard (danh mục preset tiêu chuẩn, tùy biến kích thước tấm/vật liệu, khai báo cáp, tính toán ma trận màng 2D, hồ sơ kỹ thuật chuẩn ISO 9001).
+  - Tích hợp hàm trợ lực nội suy biến 	t(key, params) linh hoạt thay thế các biến động ({count}, {total}, {frame}, {remaining}, {name}) mà không phá vỡ cú pháp i18n React.
+  - Tuyệt đối bảo toàn chuẩn không icon emoji Windows, tuân thủ bảng số kỹ thuật 	abular-nums và vượt qua kiểm thử pnpm tsc --noEmit và pnpm build với 0 lỗi.
+
+- **Bản địa hóa sâu cho Danh mục Model & Thẻ Presets (Deep i18n Dynamic Injection)**:
+  - *Sự cố phát hiện*: Khi chuyển sang Tiếng Thái (	h) hoặc các ngôn ngữ khác, các thẻ hệ thống chính (KDL/E, KDL/E+, KDL/C-D-H, KDL/D-mono) vẫn còn sót văn bản tiếng Việt tĩnh (*Phổ biến nhất*, *Hiệu suất cao*, *Hệ thống khung luồn cáp chia đôi kinh tế...*).
+  - *Giải pháp triệt để*:
+    - Bổ sung động các khóa kdl.sys_{id}_badge và kdl.sys_{id}_desc vào toàn bộ 7 ngôn ngữ.
+    - Cập nhật [src/pages/KdlConfigurator.tsx](file:///d:/T&TVina/protools/src/pages/KdlConfigurator.tsx) kích hoạt 	('kdl.sys_' + sys.id + '_badge', sys.badge) và 	('kdl.sys_' + sys.id + '_desc', sys.description).
+    - Đồng bộ hóa các trường phụ tải: Tên cáp mẫu, đơn vị tính BOM (cái / pcs / ชิ้น), loại linh kiện (Frame / Blind plug / Grommet), gioăng đệm (EPDM / PU Foamed) và phương thức bắt gá trên [src/pages/KdpConfigurator.tsx](file:///d:/T&TVina/protools/src/pages/KdpConfigurator.tsx).
+
+
+---
+
+## 33. QUY CHUẨN ĐỒNG BỘ ĐA NGÔN NGỮ TOÀN DIỆN CHO BANNER LOGISTICS, SẢN PHẨM & GIỎ BÁO GIÁ (GLOBAL I18N SYNC & ZERO STATIC FALLBACK TRAP)
+- **Giải quyết triệt để bẫy Fallback chuỗi tĩnh (Static String Fallback Trap)**:
+  - Khi gọi `t('logistics.kcn_title', 'Cam Kết Giao Hàng Hỏa Tốc...')`, nếu khóa `logistics.kcn_title` không được định nghĩa trong file JSON ngôn ngữ đang kích hoạt (như `th.json`, `en.json`, `de.json`), hàm dịch sẽ tự động trả về giá trị fallback mặc định tiếng Việt, gây hiện tượng không đổi ngôn ngữ dù cờ đã chuyển.
+  - Khắc phục: Khai báo đầy đủ 100% các nhánh từ điển trong cả 7 file `src/i18n/locales/*.json` (`logistics`, `company`, `hero.case_study_title`, `footer.tax_code_label`, `header.map_tooltip`).
+- **Bản địa hóa 30 Dòng Sản Phẩm Murrplastik (`src/i18n/productTranslations.ts`)**:
+  - Dòng sản phẩm `MP-FAM-MSV` (*Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)*) và toàn bộ 29 dòng Murrplastik khác đã được trang bị bản dịch chính xác cho 7 ngôn ngữ:
+    - `vi`: *Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)*
+    - `en`: *MSV Straight Conduit Fitting (Metric & PG Threads)*
+    - `de`: *MSV Gerade Schlauchverschraubung (Metrisch & PG Gewinde)*
+    - `zh-CN`: *MSV 直通电缆保护软管接头（公制与 PG 螺纹）*
+    - `ja`: *MSV ストレート型電線保護管コネクタ（メートル＆PGネジ）*
+    - `ko`: *MSV 스트레이트 전선관 피팅 (미터 & PG 나사)*
+    - `th`: *ข้อต่อท่อร้อยสายเคเบิลแบบตรง MSV (เกลียวเมตริก & PG)*
+- **Bao phủ Toàn bộ Phễu Tìm kiếm & Giỏ Báo Giá (End-to-End Search & RFQ Cart Localization)**:
+  - Đồng bộ `getLocalizedProduct(item, locale)` vào cả thanh tìm kiếm gợi ý [`Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx) và bảng hiển thị/xuất file CSV [`CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx). Khách hàng quốc tế khi thao tác báo giá hoặc tải file `.csv` đều nhận được tên thiết bị và quy cách bản địa hóa chính xác 100%.

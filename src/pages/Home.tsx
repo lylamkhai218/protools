@@ -269,7 +269,7 @@ export default function Home({
                   <div className="p-2.5 rounded-xs bg-emerald-50/90 border border-emerald-200/90 text-xs text-slate-800 space-y-1">
                     <div className="flex items-center gap-1.5 font-bold text-emerald-800 text-xs uppercase">
                       <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>Case Study Robot Hàn Thân Xe Ô Tô:</span>
+                      <span>{t('hero.case_study_title')}</span>
                     </div>
                     <p className="text-xs text-slate-700 leading-snug">
                       {t('hero.trust_automotive')}
@@ -503,8 +503,8 @@ export default function Home({
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">SLA Đơn Hàng</span>
-                    <span className="text-xs font-bold text-slate-900 font-display">Giao trong ngày &lt; 15:00</span>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('logistics.sla_order_label')}</span>
+                    <span className="text-xs font-bold text-slate-900 font-display">{t('logistics.sla_order_val')}</span>
                   </div>
                 </div>
 
@@ -513,8 +513,8 @@ export default function Home({
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">Chứng Từ B2B</span>
-                    <span className="text-xs font-bold text-slate-900 font-display">100% Đầy đủ CO/CQ &amp; VAT</span>
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('logistics.b2b_docs_label')}</span>
+                    <span className="text-xs font-bold text-slate-900 font-display">{t('logistics.b2b_docs_val')}</span>
                   </div>
                 </div>
               </div>
@@ -523,17 +523,17 @@ export default function Home({
             {/* Industrial Zones Badges Grid */}
             <div className="pt-6">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-3">
-                Khu vực &amp; Khu Công Nghiệp Trọng Điểm Được Phục Vụ Hỏa Tốc:
+                {t('logistics.focus_zones_title')}
               </span>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
                 {[
-                  { name: 'KCN Liên Hà Thái', province: 'Thái Bình / Hưng Yên', sla: 'Giao hỏa tốc 30p' },
-                  { name: 'KCN Thăng Long I & II', province: 'Hà Nội / Hưng Yên', sla: 'Giao hỏa tốc 2-4h' },
-                  { name: 'KCN Quang Châu & Vân Trung', province: 'Bắc Giang', sla: 'Giao trong ngày' },
-                  { name: 'KCN Deep C & Đình Vũ', province: 'Hải Phòng', sla: 'Giao trong ngày' },
-                  { name: 'KCN VSIP Bắc Ninh & Hải Phòng', province: 'Bắc Ninh / Hải Phòng', sla: 'Giao trong ngày' },
-                  { name: 'KCN Yên Phong & Quế Võ', province: 'Bắc Ninh', sla: 'Giao trong ngày' },
+                  { name: 'KCN Liên Hà Thái', province: 'Thái Bình / Hưng Yên', sla: t('logistics.sla_30m') },
+                  { name: 'KCN Thăng Long I & II', province: 'Hà Nội / Hưng Yên', sla: t('logistics.sla_2_4h') },
+                  { name: 'KCN Quang Châu & Vân Trung', province: 'Bắc Giang', sla: t('logistics.sla_same_day') },
+                  { name: 'KCN Deep C & Đình Vũ', province: 'Hải Phòng', sla: t('logistics.sla_same_day') },
+                  { name: 'KCN VSIP Bắc Ninh & Hải Phòng', province: 'Bắc Ninh / Hải Phòng', sla: t('logistics.sla_same_day') },
+                  { name: 'KCN Yên Phong & Quế Võ', province: 'Bắc Ninh', sla: t('logistics.sla_same_day') },
                 ].map((kcn, idx) => (
                   <div 
                     key={idx} 
