@@ -801,3 +801,40 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
     - `th`: *ข้อต่อท่อร้อยสายเคเบิลแบบตรง MSV (เกลียวเมตริก & PG)*
 - **Bao phủ Toàn bộ Phễu Tìm kiếm & Giỏ Báo Giá (End-to-End Search & RFQ Cart Localization)**:
   - Đồng bộ `getLocalizedProduct(item, locale)` vào cả thanh tìm kiếm gợi ý [`Header.tsx`](file:///d:/T&TVina/protools/src/components/Header.tsx) và bảng hiển thị/xuất file CSV [`CartQuote.tsx`](file:///d:/T&TVina/protools/src/pages/CartQuote.tsx). Khách hàng quốc tế khi thao tác báo giá hoặc tải file `.csv` đều nhận được tên thiết bị và quy cách bản địa hóa chính xác 100%.
+
+
+---
+
+## 35. QUY CHUẨN TÍCH HỢP BỘ KỸ NĂNG SPEC KIT & GRAPHIFY + NẠP HÀNG LOẠT 13 DÒNG SẢN PHẨM B2B (04/11/2026)
+- **Tối ưu hóa Ngữ cảnh & Kiến trúc Agent bằng Graphify & Spec Kit (Global & Project Level)**:
+  - **Graphify (`v0.9.102`)**: Đã cài đặt toàn cục tại `C:\Users\OS\.gemini\config\skills\graphify` và nội bộ dự án tại `.agents/skills/graphify`, `.agents/rules/graphify.md`, `.agents/workflows/graphify.md`. Xây dựng đồ thị tri thức AST cục bộ (`graphify-out/graph.json` - 227 nodes, 557 edges, 9 communities) giúp truy vấn cấu trúc mã nguồn tức thì mà không cần đọc lặp lại các file dung lượng lớn, giảm 80% lượng token tiêu thụ.
+  - **GitHub Spec Kit (`specify-cli v1.3.1`)**: Đã tích hợp chuẩn Antigravity (`--integration agy`) cả ở cấp độ Global (`C:\Users\OS\.gemini\config\skills\speckit-*`) và Project (`.agents/skills/speckit-*`, `.specify/`), chuẩn hóa quy trình Spec-Driven Development (`constitution -> specify -> clarify -> plan -> tasks -> implement -> converge`).
+- **Tự động hóa Nạp 13 Dòng Sản phẩm Chủ lực & Tối ưu 43 Ảnh WebP (`scripts/ingest_batch_13_products.py`)**:
+  - Tự động loại bỏ các tệp ảnh gốc `(origin)` chưa đóng dấu watermark và dọn dẹp các tệp bị kéo thả nhầm thư mục.
+  - Chuyển đổi 43 hình ảnh sản phẩm sang định dạng `.webp` (Quality 85) trong `public/images/products/`.
+  - Đồng bộ 13 dòng sản phẩm mới (Mũi vít HHB Φ4mm Japan, Mũi hàn T12, Mũi hàn 500, Mũi hàn 900M-T, Xilanh Nhật 3-70cc, Xilanh Mỹ 3-70cc, Bộ Xilanh 100-300cc nắp Blue, Dây bơm keo 5-70cc, Pittong Mỹ 5-70cc, Pittong chóp nón Nhật 5-70cc, Kính lúp PEAK Lupe 10X/15X, Vòi trộn keo RM12-26, Kim sắt inox 8G-30G) vào `src/data.ts`, `src/i18n/productTranslations.ts` (7 ngôn ngữ), `public/data/catalog_index.json` (122 sản phẩm), Static SEO Snapshots và `public/sitemap.xml` (149 URLs).
+
+
+---
+
+## 36. QUY CHUẨN ĐỒNG BỘ PHÂN LOẠI NGÀNH HÀNG & ẨN HUY HIỆU TỒN KHO TRÊN PRODUCT CARD (04/11/2026)
+- **Chuẩn hóa Phân loại Ngành hàng B2B (Category Normalization & Grouping)**:
+  - Khắc phục triệt để tình trạng phân mảnh danh mục khi nạp sản phẩm mới:
+    - Kính lúp / Kính quang học QC (`TTV-PEAK-LUPE-10X-15X`) quy về chuẩn `camera-kinh-soi-cong-nghiep` (Tên hiển thị: *Kính Soi & Hiển Vi*).
+    - Mũi vít công nghiệp (`TTV-HHB-BITS-PHI4`) quy về chuẩn `may-bat-vit-nha-vit` (Tên hiển thị: *Bắt Vít - Nhả Vít*).
+    - Toàn bộ nhóm Xilanh 3-300cc, Pittong Mỹ/Nhật, Vòi trộn keo RM12-26 và Kim sắt tra keo inox 8G-30G quy về chuẩn `dung-cu-bom-keo` (Tên hiển thị: *Bơm Keo*).
+  - Tối ưu bộ lọc danh mục tại [`VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx): hàm `normalizeCategorySlug` tự động gom các alias (`kinh-lup`, `xilanh`, `pittong`, `mui-vit`, `bom-keo`), đồng thời mở rộng thanh chip danh mục cuộn ngang hiển thị đầy đủ toàn bộ ngành hàng (bỏ giới hạn `slice(0, 10)`).
+- **Quy tắc Ẩn Huy hiệu Tồn kho & Số lượng trên Thẻ Sản phẩm (Stock Badge Suppression Policy)**:
+  - Bổ sung trường `hideStockBadge?: boolean;` vào kiểu dữ liệu `Product` tại [`src/types.ts`](file:///d:/T&TVina/protools/src/types.ts).
+  - Đối với các sản phẩm báo giá dự án / phân phối kỹ thuật chuyên sâu (13 dòng sản phẩm mới), kích hoạt `hideStockBadge: true` trong [`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts) và [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json).
+  - Trên thẻ sản phẩm (`Product Card` dạng Grid) tại [`VirtualCatalogGrid.tsx`](file:///d:/T&TVina/protools/src/components/VirtualCatalogGrid.tsx): loại bỏ hoàn toàn khối huy hiệu "Sẵn hàng (số lượng)", giữ ảnh sản phẩm thoáng sạch, tinh tế và chuyên nghiệp. Ở chế độ xem bảng (Table View), cột Tình trạng hiển thị huy hiệu `Liên hệ` trung tính.
+
+
+---
+
+## 35. QUY CHUẨN CHUẨN HÓA XUẤT XỨ & LƯỢC BỎ BẢNG CHÍNH SÁCH BÁO GIÁ / LEAD TIME TRÊN TRANG CHI TIẾT SẢN PHẨM (04/11/2026)
+- **Chuẩn hóa thông tin xuất xứ nhóm 13 sản phẩm mới (`TTV-HHB-BITS-PHI4`, `TTV-PEAK-LUPE-10X-15X`, ...)**:
+  - Loại bỏ toàn bộ cụm từ `"Made in Japan"`, `"Nhật Bản (Made in Japan)"`, `"Japan Standard"`, `"nhập khẩu Nhật Bản"` trên tên sản phẩm, mô tả ngắn, điểm nổi bật (`highlights`), bảng thông số (`specs`) và bộ dịch 7 ngôn ngữ ([`src/data.ts`](file:///d:/T&TVina/protools/src/data.ts), [`src/i18n/productTranslations.ts`](file:///d:/T&TVina/protools/src/i18n/productTranslations.ts), [`public/data/catalog_index.json`](file:///d:/T&TVina/protools/public/data/catalog_index.json)).
+  - Chuyển trường `origin` và thông số `Xuất xứ` về giá trị chuẩn `"Chính Hãng"`.
+- **Lược bỏ bảng Khung Số Lượng & Chính Sách Báo Giá / Lead Time trên toàn bộ sản phẩm**:
+  - Gỡ bỏ hoàn toàn bảng `KHUNG SỐ LƯỢNG & CHÍNH SÁCH BÁO GIÁ (B2B TIERS)` (`TIER_PRICING` gồm cột Số lượng đặt, Chính sách báo giá, Thời gian giao Lead Time) trong [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx) để giao diện chi tiết sản phẩm tinh gọn, tránh hiển thị cứng thời gian giao hàng trên mọi mặt hàng.

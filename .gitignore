@@ -40,3 +40,6 @@ admincp_preview/
 public/kho/
 public/office/
 .agents/
+
+.specify/
+graphify-out/

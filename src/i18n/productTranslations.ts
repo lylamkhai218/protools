@@ -10,6 +10,123 @@ export interface LocalizedProductText {
 }
 
 export const PRODUCT_NAME_TRANSLATIONS: Record<string, Partial<Record<SupportedLocale, string>>> = {
+  "TTV-HHB-BITS-PHI4": {
+      "vi": "Mũi Vít Chuôi Tròn HHB Driver Bits Φ4mm (Tiêu Chuẩn RoHS)",
+      "en": "HHB Φ4mm Round Shank Industrial Driver Bits (RoHS Standard)",
+      "zh-CN": "HHB Φ4mm 圆柄工业电动起子批头 (RoHS标准)",
+      "ja": "HHB Φ4mm 丸軸工業用ドライバービット (RoHS対応)",
+      "ko": "HHB Φ4mm 원형 샹크 산업용 드라이버 비트 (RoHS 표준)",
+      "de": "HHB Φ4mm Rundschaft-Industrie-Schraubbits (RoHS-Standard)",
+      "th": "ดอกไขควงก้านกลม HHB Driver Bits Φ4mm (มาตรฐาน RoHS)"
+  },
+  "TTV-T12-TIPS-SERIES": {
+      "vi": "Mũi Hàn T12 Series Chuyên Nghiệp (Đủ Các Mã B, BC, C, D, K, J, I)",
+      "en": "T12 Series Professional Soldering Iron Tips (B, BC, C, D, K, J, I)",
+      "zh-CN": "T12 系列专业恒温电烙铁头（全型号 B, BC, C, D, K, J, I）",
+      "ja": "T12シリーズ プロ用こて先・ソルダリングチップ（全形状対応）",
+      "ko": "T12 시리즈 전문가용 인두팁 (전 모델 B, BC, C, D, K, J, I)",
+      "de": "T12-Serie Professionelle Lötspitzen (Typen B, BC, C, D, K, J, I)",
+      "th": "ปลายหัวแร้งบัดกรี T12 Series เกรดอุตสาหกรรม (ครบทุกรุ่น B, BC, C, D, K, J, I)"
+  },
+  "TTV-500-TIPS-SERIES": {
+      "vi": "Mũi Hàn Cao Tần 500 Series Chính Xác - Bền Bỉ (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "en": "500 Series High-Frequency Soldering Iron Tips (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "zh-CN": "500 系列高频大功率烙铁头 (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "ja": "500シリーズ 高周波はんだごて先 (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "ko": "500 시리즈 고주파 인두팁 (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "de": "500er-Serie Hochfrequenz-Lötspitzen (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "th": "ปลายหัวแร้งความถี่สูง 500 Series (500-2.4D, 500-K, 500-3.2D, 500-SK)"
+  },
+  "TTV-SYRINGE-JP-3-70CC": {
+      "vi": "Xilanh Bơm Keo Công Nghiệp 3cc – 70cc Theo Tiêu Chuẩn Nhật Bản",
+      "en": "Japanese Standard Industrial Dispensing Syringe Barrels (3cc – 70cc)",
+      "zh-CN": "日式标准工业点胶针筒 3cc – 70cc（高精度防爆针筒）",
+      "ja": "日本規格 工業用ディスペンスシリンジ 3cc〜70cc",
+      "ko": "일본 규격 산업용 디스펜서 실린지 배럴 (3cc – 70cc)",
+      "de": "Industrie-Dosierkartuschen nach japanischem Standard (3cc – 70cc)",
+      "th": "กระบอกไซริงค์หยอดกาวมาตรฐานญี่ปุ่น ขนาด 3cc – 70cc"
+  },
+  "TTV-SYRINGE-US-3-70CC": {
+      "vi": "Xilanh Bơm Keo Công Nghiệp 3cc – 70cc Theo Tiêu Chuẩn Mỹ (EFD Standard)",
+      "en": "US EFD Standard Industrial Dispensing Syringe Barrels (3cc – 70cc)",
+      "zh-CN": "美式 EFD 标准工业点胶针筒 3cc – 70cc",
+      "ja": "米国EFD規格 工業用ディスペンスシリンジ 3cc〜70cc",
+      "ko": "미국 EFD 규격 산업용 디스펜서 실린지 배럴 (3cc – 70cc)",
+      "de": "Industrie-Dosierkartuschen nach US-EFD-Standard (3cc – 70cc)",
+      "th": "กระบอกไซริงค์หยอดกาวมาตรฐานอเมริกา EFD ขนาด 3cc – 70cc"
+  },
+  "TTV-SYRINGE-BLUE-100-300CC": {
+      "vi": "Bộ Xilanh Bơm Keo Dung Tích Lớn 100cc – 200cc – 300cc (Kèm Bộ Nắp Blue & Dây Hơi)",
+      "en": "100cc – 200cc – 300cc Large Capacity Dispensing Syringe Set (With Blue Screw Cap & Hose)",
+      "zh-CN": "100cc – 200cc – 300cc 大容量点胶针筒套装（含蓝色螺纹转接盖与气管）",
+      "ja": "100cc〜300cc 大容量ディスペンスシリンジセット（ブルーキャップ＆エアチューブ付）",
+      "ko": "100cc – 200cc – 300cc 대용량 디스펜서 실린지 세트 (블루 캡 및 에어호스 포함)",
+      "de": "100cc – 300cc Großvolumen-Dosierkartuschen-Set (inkl. blauer Schraubkappe & Schlauch)",
+      "th": "ชุดกระบอกไซริงค์หยอดกาวขนาดใหญ่ 100cc – 200cc – 300cc (พร้อมฝาเกลียวสีน้ำเงินและสายลม)"
+  },
+  "TTV-DISP-ADAPTER-HOSE-5-70CC": {
+      "vi": "Dây Bơm Keo / Đầu Gá Xilanh Không Đầu Cắm (5cc – 70cc)",
+      "en": "Dispensing Syringe Adapter Hose Assembly Without Plug (5cc – 70cc)",
+      "zh-CN": "点胶针筒转接器连接气管组件 5cc – 70cc",
+      "ja": "ディスペンスシリンジアダプターホース（5cc〜70cc対応）",
+      "ko": "디스펜서 실린지 어댑터 에어호스 어셈블리 (5cc – 70cc)",
+      "de": "Dosierkartuschen-Adapterschlauch-Baugruppe (5cc – 70cc)",
+      "th": "สายลมอะแดปเตอร์ต่อกระบอกไซริงค์หยอดกาว ขนาด 5cc – 70cc"
+  },
+  "TTV-PISTON-US-5-70CC": {
+      "vi": "Pittong Dùng Cho Xilanh Bơm Keo Tiêu Chuẩn Mỹ (5cc – 70cc)",
+      "en": "Wiper Pistons for US Standard Dispensing Syringes (5cc – 70cc)",
+      "zh-CN": "美式点胶针筒专用活塞塞头 5cc – 70cc（双刮边防漏活塞）",
+      "ja": "米国規格ディスペンスシリンジ用プランジャー・ピストン（5cc〜70cc）",
+      "ko": "미국 규격 디스펜서 실린지용 와이퍼 피스톤 (5cc – 70cc)",
+      "de": "Abstreifkolben für Dosierkartuschen nach US-Standard (5cc – 70cc)",
+      "th": "ลูกสูบไซริงค์หยอดกาวมาตรฐานอเมริกา ขนาด 5cc – 70cc"
+  },
+  "TTV-PISTON-JP-5-70CC": {
+      "vi": "Pittong Chóp Nón Dùng Cho Xilanh Tiêu Chuẩn Nhật (5cc – 70cc)",
+      "en": "Conical Pistons for Japanese Standard Dispensing Syringes (5cc – 70cc)",
+      "zh-CN": "日式点胶针筒专用锥形活塞塞头 5cc – 70cc",
+      "ja": "日本規格ディスペンスシリンジ用テーパープランジャー（5cc〜70cc）",
+      "ko": "일본 규격 디스펜서 실린지용 원추형 피스톤 (5cc – 70cc)",
+      "de": "Konische Kolben für Dosierkartuschen nach japanischem Standard (5cc – 70cc)",
+      "th": "ลูกสูบหัวกรวยสำหรับกระบอกไซริงค์มาตรฐานญี่ปุ่น ขนาด 5cc – 70cc"
+  },
+  "TTV-PEAK-LUPE-10X-15X": {
+      "vi": "Kính Lúp Quang Học Cao Cấp PEAK Lupe (10X · 15X No.1982)",
+      "en": "PEAK Lupe Precision Optical Magnifier 10X · 15X No.1982",
+      "zh-CN": "PEAK Lupe 高精度光学放大镜目镜 (10X · 15X No.1982)",
+      "ja": "PEAK（ピーク）精密ルーペ 10X・15X No.1982",
+      "ko": "PEAK Lupe 정밀 광학 루페 확대경 (10X · 15X No.1982)",
+      "de": "PEAK Lupe Präzisions-Optiklupe 10X · 15X Nr.1982",
+      "th": "กล้องส่องขยายคุณภาพสูง PEAK Lupe 10X · 15X No.1982"
+  },
+  "TTV-MIXING-NOZZLE-RM12-26": {
+      "vi": "Vòi Trộn Keo Công Nghiệp RM12-26 (Ống Trộn Tĩnh Keo 2 Thành Phần AB)",
+      "en": "RM12-26 Industrial Static Mixing Nozzle for Two-Component AB Adhesives",
+      "zh-CN": "RM12-26 工业双组份 AB 胶静态混合管（26节螺旋混胶嘴）",
+      "ja": "RM12-26 2液混合スタティックミキサーノズル（26エレメント）",
+      "ko": "RM12-26 2액형 접착제용 산업용 스태틱 믹싱 노즐 (26단)",
+      "de": "RM12-26 Statikmischdüse für 2-Komponenten-Klebstoffe (26 Mischelemente)",
+      "th": "หลอดผสมกาว 2 ส่วนประกอบ RM12-26 (Static Mixing Nozzle 26 ชั้น)"
+  },
+  "TTV-STAINLESS-STEEL-NEEDLES-8G-30G": {
+      "vi": "Kim Sắt / Mũi Kim Tra Keo Toàn Thân Inox Chính Xác Công Nghiệp (8G – 30G)",
+      "en": "Precision All-Metal Stainless Steel Dispensing Needles (8G – 30G)",
+      "zh-CN": "全不锈钢精密金属点胶针头 8G – 30G（耐高压耐磨损工业针嘴）",
+      "ja": "工業用オールステンレス精密ディスペンスニードル（8G〜30G）",
+      "ko": "산업용 올메탈 스테인리스 정밀 디스펜서 니들 (8G – 30G)",
+      "de": "Präzisions-Ganzmetall-Dosiernadeln aus Edelstahl (8G – 30G)",
+      "th": "หัวเข็มหยอดกาวสแตนเลสทั้งตัวความแม่นยำสูง ขนาด 8G – 30G"
+  },
+  "TTV-900MT-TIPS-SERIES": {
+      "vi": "Mũi Hàn 900M-T Các Loại (900M-T-SB, I, B, K, SK, 2C, 3C, 4C, 1.2D, 2.4D, 3.2D)",
+      "en": "900M-T Series Soldering Iron Tips (900M-T-SB, I, B, K, SK, 2C, 3C, 4C, 2.4D)",
+      "zh-CN": "900M-T 系列无铅恒温烙铁头（900M-T-SB, I, B, K, SK, 2C, 3C, 2.4D）",
+      "ja": "900M-Tシリーズ はんだごて先（900M-T-SB, I, B, K, SK, 2C, 3C, 2.4D）",
+      "ko": "900M-T 시리즈 인두팁 모음 (900M-T-SB, I, B, K, SK, 2C, 3C, 2.4D)",
+      "de": "900M-T-Serie Lötspitzen-Sortiment (900M-T-SB, I, B, K, SK, 2C, 3C, 2.4D)",
+      "th": "ปลายหัวแร้งบัดกรี 900M-T Series รวมทุกรุ่น (SB, I, B, K, SK, 2C, 3C, 2.4D)"
+  },
   "MP-FAM-KDT": {
     "vi": "Gioăng Đệm Luồn Cáp Tách Đôi Murrplastik KDT/ZE+ & Gioăng Bịt BTG / BTK",
     "en": "KDT/ZE+ Split Grommet Inserts & BTG / BTK Blind Plugs (For KDL Frames)",
@@ -1911,12 +2028,12 @@ export const COMMON_VALUE_TRANSLATIONS: Record<string, Record<SupportedLocale, s
   },
   "Nhật Bản (Japan)": {
     vi: "Nhật Bản (Japan)",
-    en: "Japan (Made in Japan)",
-    "zh-CN": "日本原装 (Made in Japan)",
-    de: "Japan (Made in Japan)",
-    ko: "일본 정품 (Made in Japan)",
-    ja: "日本製 (Made in Japan)",
-    th: "ประเทศญี่ปุ่น (Made in Japan)",
+    en: "Japan",
+    "zh-CN": "日本原装",
+    de: "Japan",
+    ko: "일본 정품",
+    ja: "日本製",
+    th: "ประเทศญี่ปุ่น",
   },
   "QUICK (Phân phối chính hãng)": {
     vi: "QUICK (Phân phối chính hãng)",

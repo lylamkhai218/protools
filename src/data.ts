@@ -458,6 +458,1177 @@ export const INDUSTRIES: IndustryApplication[] = [
 
 export const PRODUCTS: Product[] = [
   {
+      "id": "TTV-HHB-BITS-PHI4",
+      "name": "Mũi Vít Chuôi Tròn HHB Driver Bits Φ4mm (Tiêu Chuẩn RoHS)",
+      "sku": "TTV-HHB-PHI4-SERIES",
+      "brand": "HHB",
+      "category": "Bắt Vít - Nhả Vít",
+      "categorySlug": "may-bat-vit-nha-vit",
+      "origin": "Chính Hãng",
+      "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt5.webp",
+      "images": [
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40x1-ph1.webp",
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi1.4x20x00-ph00.webp",
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2.0x20x0-ph0.webp",
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt5.webp",
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt6.webp",
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x80xphi1.7x30xt5.webp",
+          "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x80xphi1.7x30x00-ph00.webp"
+      ],
+      "stock": 500,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "túi (10 mũi)",
+      "shortDesc": "Dòng mũi vít công nghiệp chuôi tròn Φ4mm HHB Driver Bits tiêu chuẩn RoHS chuyên dụng cho tô vít điện tự động Kilews, Hios, Conos. Gia công từ thép hợp kim S2 tôi cứng HRC 58-62, độ đồng tâm tuyệt đối, từ tính mạnh, đầy đủ đầu Bake (PH00, PH0, PH1) và Sao Torx (T5, T6).",
+      "highlights": [
+          "100% Sản phẩm chính hãng HHB, đạt chuẩn RoHS Châu Âu",
+          "Thép hợp kim S2 tôi cứng nhiệt luyện (HRC 58-62), chống mòn và chống tòe đầu ốc",
+          "Thiết kế cổ hạ bậc thu nhỏ (Φ1.4mm - Φ2.0mm) luồn sâu vào các lỗ ốc hẹp trên bo mạch điện tử",
+          "Chuôi tròn tiêu chuẩn Φ4mm có 2 rãnh bi gài tương thích mọi dòng máy vặn vít điện tử SMT"
+      ],
+      "features": [
+          "Độ đồng tâm chuẩn xác cao: Loại bỏ hoàn toàn hiện tượng rung lắc đầu mũi khi quay ở tốc độ cao trên dây chuyền tự động.",
+          "Đa dạng quy cách đầu mũi: Bao gồm đầu 4 cạnh Bake (+ PH00, PH0, PH1) và đầu hoa thị 6 cánh Torx (T5, T6) với chiều dài 40mm và 80mm.",
+          "Từ tính bền bỉ: Nam châm hóa vĩnh cửu giúp hút giữ ốc vít M1.2 - M3 chắc chắn trong suốt thao tác lắp ráp."
+      ],
+      "specs": {
+          "Hãng sản xuất": "HHB",
+          "Mã sản phẩm (ID)": "TTV-HHB-PHI4-SERIES",
+          "Chuyên mục": "Mũi vít & Đầu bắt vít công nghiệp",
+          "Đường kính chuôi gá": "Chuôi tròn Φ4mm (Type C - 2 rãnh bi định vị)",
+          "Chiều dài tổng (L)": "40 mm / 80 mm",
+          "Đường kính cổ hạ bậc (d)": "Φ1.4 mm / Φ1.7 mm / Φ2.0 mm",
+          "Kiểu đầu bắt vít": "Bake (+ PH00, PH0, PH1) & Sao Torx (T5, T6)",
+          "Vật liệu chế tạo": "Thép hợp kim công cụ S2 cao cấp (HRC 58 - 62)",
+          "Tiêu chuẩn môi trường": "RoHS Compliant",
+          "Quy cách đóng gói": "10 mũi / túi vàng tiêu chuẩn",
+          "Xuất xứ": "Chính Hãng",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Quy cách mũi vít (Chuôi x Dài x Cổ x Đầu)",
+      "variants": [
+          {
+              "id": "HHB-4X40-2X20-T5",
+              "sku": "TTPC-2868",
+              "name": "Sao Torx T5 - Φ4x40xΦ2x20xT5",
+              "badge": "Bán chạy",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt5.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt5.webp"
+              ],
+              "stock": 120,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "TTPC-2868",
+                  "Kiểu đầu vít": "Hoa thị Torx T5",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "40 mm",
+                  "Cổ thu nhỏ": "Φ2.0 mm x dài 20 mm"
+              }
+          },
+          {
+              "id": "HHB-4X40-2X20-T6",
+              "sku": "TTPC-2037",
+              "name": "Sao Torx T6 - Φ4x40xΦ2x20xT6",
+              "badge": "Phổ thông",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt6.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2x20xt6.webp"
+              ],
+              "stock": 100,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "TTPC-2037",
+                  "Kiểu đầu vít": "Hoa thị Torx T6",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "40 mm",
+                  "Cổ thu nhỏ": "Φ2.0 mm x dài 20 mm"
+              }
+          },
+          {
+              "id": "HHB-4X80-1.7X30-T5",
+              "sku": "TTPC-0429",
+              "name": "Sao Torx T5 Dài - Φ4x80xΦ1.7x30xT5",
+              "badge": "Loại dài 80mm",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x80xphi1.7x30xt5.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x80xphi1.7x30xt5.webp"
+              ],
+              "stock": 80,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "TTPC-0429",
+                  "Kiểu đầu vít": "Hoa thị Torx T5",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "80 mm",
+                  "Cổ thu nhỏ": "Φ1.7 mm x dài 30 mm"
+              }
+          },
+          {
+              "id": "HHB-4X40-1.4X20-PH00",
+              "sku": "TTPC-0410",
+              "name": "Bake (+) PH00 - Φ4x40xΦ1.4x20x00",
+              "badge": "Cổ siêu nhỏ 1.4mm",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi1.4x20x00-ph00.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi1.4x20x00-ph00.webp"
+              ],
+              "stock": 90,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "TTPC-0410",
+                  "Kiểu đầu vít": "4 cạnh Bake (+) #00 (PH00)",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "40 mm",
+                  "Cổ thu nhỏ": "Φ1.4 mm x dài 20 mm"
+              }
+          },
+          {
+              "id": "HHB-4X40-2.0X20-PH0",
+              "sku": "PVN-1732",
+              "name": "Bake (+) PH0 - Φ4x40xΦ2.0x20x0",
+              "badge": "",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2.0x20x0-ph0.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40xphi2.0x20x0-ph0.webp"
+              ],
+              "stock": 80,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "PVN-1732",
+                  "Kiểu đầu vít": "4 cạnh Bake (+) #0 (PH0)",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "40 mm",
+                  "Cổ thu nhỏ": "Φ2.0 mm x dài 20 mm"
+              }
+          },
+          {
+              "id": "HHB-4X40-PH1",
+              "sku": "TTPC-0430",
+              "name": "Bake (+) PH1 - Φ4x40x1",
+              "badge": "Thân liền",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40x1-ph1.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x40x1-ph1.webp"
+              ],
+              "stock": 110,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "TTPC-0430",
+                  "Kiểu đầu vít": "4 cạnh Bake (+) #1 (PH1)",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "40 mm",
+                  "Cổ thu nhỏ": "Thân thẳng Φ4 mm"
+              }
+          },
+          {
+              "id": "HHB-4X80-1.7X30-PH00",
+              "sku": "PVN-8440",
+              "name": "Bake (+) PH00 Dài - Φ4x80xΦ1.7x30x00#",
+              "badge": "Loại dài 80mm",
+              "image": "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x80xphi1.7x30x00-ph00.webp",
+              "images": [
+                  "/images/products/mui-vit-driver-bits/hhb-driver-bits-phi4x80xphi1.7x30x00-ph00.webp"
+              ],
+              "stock": 60,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá",
+              "specs": {
+                  "Mã SKU": "PVN-8440",
+                  "Kiểu đầu vít": "4 cạnh Bake (+) #00 (PH00)",
+                  "Đường kính chuôi": "Φ4 mm",
+                  "Tổng chiều dài": "80 mm",
+                  "Cổ thu nhỏ": "Φ1.7 mm x dài 30 mm"
+              }
+          }
+      ]
+  },
+  {
+      "id": "TTV-T12-TIPS-SERIES",
+      "name": "Mũi Hàn T12 Series Chuyên Nghiệp (Đủ Các Mã B, BC, C, D, K, J, I)",
+      "sku": "TTV-T12-SERIES",
+      "brand": "T&T Vina Industrial",
+      "category": "Thiết Bị Hàn",
+      "categorySlug": "thiet-bi-han",
+      "origin": "Chính Hãng",
+      "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+      "images": [
+          "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp"
+      ],
+      "stock": 350,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Dòng mũi hàn nhiệt tích hợp T12 Series cao cấp dành cho các trạm hàn Hakko FX-951, FX-952 và trạm hàn T12 công nghiệp. Cấu trúc 3-trong-1 tích hợp lõi gia nhiệt, cảm biến nhiệt và đầu mũi hàn giúp gia nhiệt siêu tốc trong 5 giây, bù nhiệt tức thì.",
+      "highlights": [
+          "Công nghệ gia nhiệt tích hợp 3-trong-1: Lõi nhiệt + Sensor cảm biến + Đầu hàn đúc liền khối",
+          "Đầy đủ 18 kiểu đầu hàn chuẩn công nghiệp: B, B2, BC1, BC1.5, BC2, BC3, BL, C4, D12, D16, D24, K, KR, KU, J02, JL02, I, ILS",
+          "Mạ hợp kim sắt - niken - crom đa lớp chống ăn mòn thiếc không chì (Lead-free), tuổi thọ vượt trội",
+          "Tương thích hoàn hảo với trạm hàn Hakko FX-950, FX-951, FX-952, FM-202 và tay hàn FM-2027/2028"
+      ],
+      "features": [
+          "Truyền nhiệt xuất sắc (Excellent Heat Transfer): Giảm tối đa thất thoát nhiệt, hồi nhiệt cực nhanh khi hàn liên tục các mối hàn mass lớn.",
+          "Độ chính xác cao (High Precision): Đầu mũi định hình chuẩn xác phục vụ hàn SMD vi mạch, QFP, SOP và sửa chữa PCB mật độ cao."
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-T12-SERIES",
+          "Chuyên mục": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
+          "Các mã đầu mũi sẵn có": "T12-B, B2, BC1, BC1.5, BC2, BC3, BL, C4, D12, D16, D24, K, KR, KU, J02, JL02, I, ILS",
+          "Công suất định mức": "70W (24V DC)",
+          "Dải nhiệt độ làm việc": "200°C ~ 450°C",
+          "Thời gian lên nhiệt": "5 ~ 8 giây (từ 30°C lên 350°C)",
+          "Tương thích tay hàn": "FX-9501, FM-2027, FM-2028, T12 Handle",
+          "Tiêu chuẩn": "Lead-Free RoHS & ESD Safe",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Mã hình dạng đầu mũi hàn T12",
+      "variants": [
+          {
+              "id": "T12-B",
+              "sku": "TTV-T12-B",
+              "name": "T12-B (Đầu nhọn tiêu chuẩn)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 50,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "T12-BC2",
+              "sku": "TTV-T12-BC2",
+              "name": "T12-BC2 (Đầu vát xéo 45° 2mm)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 40,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "T12-C4",
+              "sku": "TTV-T12-C4",
+              "name": "T12-C4 (Đầu vát trụ 4mm)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 35,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "T12-D24",
+              "sku": "TTV-T12-D24",
+              "name": "T12-D24 (Đầu dẹt tua vít 2.4mm)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 45,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "T12-K",
+              "sku": "TTV-T12-K",
+              "name": "T12-K (Đầu dao hàn đa năng)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 60,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "T12-JL02",
+              "sku": "TTV-T12-JL02",
+              "name": "T12-JL02 (Đầu cong nhọn gạt chân IC)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 40,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "T12-I",
+              "sku": "TTV-T12-I",
+              "name": "T12-I (Đầu kim siêu nhọn vi mạch)",
+              "image": "/images/products/mui-han-t12/mui-han-t12-chuyen-nghiep.webp",
+              "stock": 50,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-500-TIPS-SERIES",
+      "name": "Mũi Hàn Cao Tần 500 Series Chính Xác - Bền Bỉ (500-2.4D, 500-K, 500-3.2D, 500-SK)",
+      "sku": "TTV-500-SERIES",
+      "brand": "Quick / T&T Vina",
+      "category": "Thiết Bị Hàn",
+      "categorySlug": "thiet-bi-han",
+      "origin": "Chính Hãng",
+      "image": "/images/products/mui-han-500/mui-han-500-chinh-xac-ben-bi.webp",
+      "images": [
+          "/images/products/mui-han-500/mui-han-500-chinh-xac-ben-bi.webp"
+      ],
+      "stock": 280,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Dòng mũi hàn cao tần công suất lớn 500 Series (500-2.4D, 500-K, 500-3.2D, 500-SK, 500-I, 500-B, 500-C) chuyên dụng cho trạm hàn cao tần Quick 205 (150W) và tay hàn 20H. Lõi đồng nguyên chất dẫn nhiệt cực nhanh, chịu nhiệt độ cao liên tục trong dây chuyền sản xuất 24/7.",
+      "highlights": [
+          "Gia công chuẩn kích thước cơ khí: Đường kính ngoài Φ6.0mm, lỗ cảm biến Φ2.2mm truyền nhiệt tức thì",
+          "Đa dạng kiểu dáng đầu hàn: 500-2.4D (vát nhỏ 2.4mm), 500-K (đầu dao 8.0mm), 500-3.2D (vát lớn 3.2mm), 500-SK (nhọn vát 5.0mm)",
+          "Lớp mạ hợp kim chống oxy hóa dày dặn, bám thiếc cực nhạy, không bị đen đầu mũi khi hàn không chì",
+          "Tương thích hoàn hảo với máy hàn cao tần Quick 205, Quick 373C và tay hàn công suất lớn"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-500-SERIES",
+          "Chuyên mục": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
+          "Các model tiêu biểu": "500-2.4D, 500-K, 500-3.2D, 500-SK, 500-B, 500-I, 500-3C, 500-4C",
+          "Đường kính thân ngoài": "Φ6.0 mm",
+          "Đường kính lỗ trong": "Φ2.2 mm",
+          "Chiều dài chuẩn": "Chuôi 18mm + Gờ định vị 5mm + Đầu mũi 17~18mm",
+          "Công nghệ tương thích": "Gia nhiệt dòng điện xoáy cao tần (High-Frequency Eddy Current)",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Mã đầu mũi hàn 500 Series",
+      "variants": [
+          {
+              "id": "500-2.4D",
+              "sku": "TTPC-2800",
+              "name": "500-2.4D (Đầu cắt vát nhỏ 2.4mm)",
+              "image": "/images/products/mui-han-500/mui-han-500-chinh-xac-ben-bi.webp",
+              "stock": 80,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "500-K",
+              "sku": "TTV-500-K",
+              "name": "500-K (Đầu dao hàn 8.0mm)",
+              "image": "/images/products/mui-han-500/mui-han-500-chinh-xac-ben-bi.webp",
+              "stock": 75,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "500-3.2D",
+              "sku": "TTV-500-3.2D",
+              "name": "500-3.2D (Đầu cắt vát lớn 3.2mm)",
+              "image": "/images/products/mui-han-500/mui-han-500-chinh-xac-ben-bi.webp",
+              "stock": 65,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "500-SK",
+              "sku": "TTV-500-SK",
+              "name": "500-SK (Đầu nhọn vát 5.0mm)",
+              "image": "/images/products/mui-han-500/mui-han-500-chinh-xac-ben-bi.webp",
+              "stock": 60,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-SYRINGE-JP-3-70CC",
+      "name": "Xilanh Bơm Keo Công Nghiệp 3cc – 70cc Theo Tiêu Chuẩn Nhật Bản",
+      "sku": "TTV-SYR-JP-3-70",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-01.webp",
+      "images": [
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-01.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-02.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-03.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-04.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-05.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-06.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-07.webp",
+          "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-08.webp"
+      ],
+      "stock": 1000,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Xilanh bơm keo công nghiệp dung tích từ 3cc đến 70cc thiết kế theo tiêu chuẩn Nhật Bản (Musashi / Iwashita compatible). Nhựa Polypropylene (PP) công nghiệp đúc nguyên khối không bọt khí, lòng ống siêu nhẵn giúp dòng chảy keo ổn định tuyệt đối và không đọng keo.",
+      "highlights": [
+          "Thiết kế kích thước và tai gá chuẩn Nhật Bản (tương thích hoàn hảo adapter và robot bơm keo Nhật)",
+          "Đầy đủ các dải dung tích: 3cc, 5cc, 10cc, 30cc, 50cc, 70cc đáp ứng mọi quy mô tra keo SMT/COB",
+          "Thành ống dày chịu áp suất khí nén cao, không biến dạng hay nứt vỡ khi bơm keo độ nhớt lớn",
+          "Đầu khóa ren Luer Lock chuẩn xác, kết nối kín khít với mọi loại kim sắt, kim nhựa và kim TTP"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-SYR-JP-3-70",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Tiêu chuẩn thiết kế": "Tiêu chuẩn Nhật Bản (Japanese Standard)",
+          "Dải dung tích": "3cc / 5cc / 10cc / 30cc / 50cc / 70cc",
+          "Vật liệu chế tạo": "Nhựa PP công nghiệp tinh khiết kháng hóa chất (Silicone-free)",
+          "Áp suất chịu đựng tối đa": "100 psi (6.9 bar)",
+          "Kiểu đầu gắn kim": "Ren xoắn Luer Lock tiêu chuẩn",
+          "Màu sắc": "Trong suốt tự nhiên (Natural Clear)",
+          "Tình trạng": "Sẵn hàng số lượng lớn"
+      },
+      "variantLabel": "Dung tích Xilanh chuẩn Nhật",
+      "variants": [
+          {
+              "id": "SYR-JP-3CC",
+              "sku": "TTV-SYR-JP-3CC",
+              "name": "Xilanh Nhật 3cc",
+              "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-01.webp",
+              "stock": 200,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-JP-5CC",
+              "sku": "TTV-SYR-JP-5CC",
+              "name": "Xilanh Nhật 5cc",
+              "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-02.webp",
+              "stock": 200,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-JP-10CC",
+              "sku": "TTV-SYR-JP-10CC",
+              "name": "Xilanh Nhật 10cc",
+              "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-03.webp",
+              "stock": 200,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-JP-30CC",
+              "sku": "TTV-SYR-JP-30CC",
+              "name": "Xilanh Nhật 30cc",
+              "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-04.webp",
+              "stock": 200,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-JP-50CC",
+              "sku": "TTV-SYR-JP-50CC",
+              "name": "Xilanh Nhật 50cc",
+              "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-05.webp",
+              "stock": 100,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-JP-70CC",
+              "sku": "TTV-SYR-JP-70CC",
+              "name": "Xilanh Nhật 70cc",
+              "image": "/images/products/xilanh-chuan-nhat-3-70cc/xilanh-nhat-3-70cc-06.webp",
+              "stock": 100,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-SYRINGE-US-3-70CC",
+      "name": "Xilanh Bơm Keo Công Nghiệp 3cc – 70cc Theo Tiêu Chuẩn Mỹ (EFD Standard)",
+      "sku": "TTV-SYR-US-3-70",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-01.webp",
+      "images": [
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-01.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-02.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-03.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-04.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-05.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-06.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-07.webp",
+          "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-08.webp"
+      ],
+      "stock": 1200,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Xilanh bơm keo công nghiệp dung tích 3cc – 70cc theo tiêu chuẩn Mỹ (Nordson EFD Standard). Độ đồng tâm lòng ống chuẩn xác, thành ống thẳng đều không độ côn giúp pittong di chuyển mượt mà, kiểm soát định lượng giọt keo vi lượng chuẩn xác.",
+      "highlights": [
+          "Chuẩn kích thước Nordson EFD (Mỹ) thông dụng nhất trong các nhà máy FDI điện tử, ô tô",
+          "Đầy đủ các cỡ: 3cc, 5cc, 10cc, 30cc, 50cc, 70cc dễ dàng lắp lẫn với đầu gá dây bơm keo Mỹ",
+          "Sản xuất từ nhựa PP y tế công nghiệp không chứa Silicone và Clorua, không gây nhiễm bẩn keo",
+          "Ren khóa Luer Lock chắc chắn, chống bung đầu kim khi bơm keo đặc ở áp suất cao"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-SYR-US-3-70",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Tiêu chuẩn thiết kế": "Tiêu chuẩn Mỹ (US / EFD Standard)",
+          "Dải dung tích": "3cc / 5cc / 10cc / 30cc / 50cc / 70cc",
+          "Vật liệu": "Polypropylene (PP) công nghiệp chịu áp lực cao",
+          "Màu sắc": "Trong suốt (Clear) / Hổ phách cản UV (Amber) / Đen",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Dung tích Xilanh chuẩn Mỹ",
+      "variants": [
+          {
+              "id": "SYR-US-3CC",
+              "sku": "TTV-SYR-US-3CC",
+              "name": "Xilanh Mỹ 3cc",
+              "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-01.webp",
+              "stock": 250,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-US-5CC",
+              "sku": "TTV-SYR-US-5CC",
+              "name": "Xilanh Mỹ 5cc",
+              "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-02.webp",
+              "stock": 250,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-US-10CC",
+              "sku": "TTV-SYR-US-10CC",
+              "name": "Xilanh Mỹ 10cc",
+              "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-03.webp",
+              "stock": 250,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-US-30CC",
+              "sku": "TTV-SYR-US-30CC",
+              "name": "Xilanh Mỹ 30cc",
+              "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-04.webp",
+              "stock": 250,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-US-50CC",
+              "sku": "TTV-SYR-US-50CC",
+              "name": "Xilanh Mỹ 50cc",
+              "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-05.webp",
+              "stock": 100,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-US-70CC",
+              "sku": "TTV-SYR-US-70CC",
+              "name": "Xilanh Mỹ 70cc",
+              "image": "/images/products/xilanh-chuan-my-3-70cc/xilanh-my-3-70cc-06.webp",
+              "stock": 100,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-SYRINGE-BLUE-100-300CC",
+      "name": "Bộ Xilanh Bơm Keo Dung Tích Lớn 100cc – 200cc – 300cc (Kèm Bộ Nắp Blue & Dây Hơi)",
+      "sku": "TTV-SYR-BLUE-100-300",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-01.webp",
+      "images": [
+          "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-01.webp",
+          "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-02.webp",
+          "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-03.webp",
+          "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-04.webp"
+      ],
+      "stock": 300,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "bộ",
+      "shortDesc": "Bộ xilanh bơm keo công nghiệp dung tích lớn 100cc, 200cc, 300cc trọn bộ bao gồm thân ống xilanh ren cổ lớn, pittong gạt keo khít, nắp vặn chịu áp màu xanh (Blue Cap) có gioăng O-ring làm kín và dây dẫn khí nén.",
+      "highlights": [
+          "Dung tích chứa lớn 100cc / 200cc / 300cc giảm số lần dừng máy thay keo trên dây chuyền tự động",
+          "Trọn bộ đồng bộ: Thân ống xilanh + Pittong trắng + Nắp vặn ren Blue chịu áp + Dây dẫn hơi",
+          "Cơ cấu nắp ren xoáy có vòng đệm cao su O-ring chống rò rỉ khí tuyệt đối ở áp suất cao",
+          "Nhựa HD-PE / PP dày dặn, tái sử dụng bền bỉ cho các ứng dụng đổ keo potting, tra mỡ bôi trơn, silicone"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-SYR-BLUE-100-300",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Dung tích tùy chọn": "100cc / 200cc / 300cc",
+          "Cấu hình bộ sản phẩm": "Ống xilanh + Pittong + Nắp vặn Blue Cap + Ống dẫn khí",
+          "Kiểu kết nối nắp": "Ren xoáy chịu áp lực kèm gioăng O-ring làm kín",
+          "Vật liệu ống": "Polypropylene (PP) công nghiệp thành dày",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Dung tích Bộ Xilanh Nắp Blue",
+      "variants": [
+          {
+              "id": "SYR-BLUE-100CC",
+              "sku": "TTV-SYR-BLUE-100",
+              "name": "Bộ Xilanh 100cc + Nắp Blue",
+              "image": "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-01.webp",
+              "stock": 100,
+              "unit": "Bộ",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-BLUE-200CC",
+              "sku": "TTV-SYR-BLUE-200",
+              "name": "Bộ Xilanh 200cc + Nắp Blue",
+              "image": "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-02.webp",
+              "stock": 100,
+              "unit": "Bộ",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-BLUE-300CC",
+              "sku": "TTV-SYR-BLUE-300",
+              "name": "Bộ Xilanh 300cc + Nắp Blue",
+              "image": "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-03.webp",
+              "stock": 100,
+              "unit": "Bộ",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SYR-BLUE-CAP-ONLY",
+              "sku": "TTV-SYR-BLUE-CAP",
+              "name": "Cụm Nắp Blue + Dây Hơi Rời",
+              "image": "/images/products/xilanh-100-300cc-nap-blue/xilanh-100-300cc-nap-blue-03.webp",
+              "stock": 150,
+              "unit": "Bộ",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-DISP-ADAPTER-HOSE-5-70CC",
+      "name": "Dây Bơm Keo / Đầu Gá Xilanh Không Đầu Cắm (5cc – 70cc)",
+      "sku": "TTV-ADAPTER-5-70",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-01.webp",
+      "images": [
+          "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-01.webp",
+          "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-02.webp",
+          "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-03.webp",
+          "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-04.webp",
+          "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-05.webp",
+          "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-06.webp"
+      ],
+      "stock": 500,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "sợi",
+      "shortDesc": "Dây dẫn khí bơm keo kèm đầu khóa gá xilanh (Syringe Adapter Assembly) cho các dòng xilanh từ 5cc đến 70cc (loại không đầu cắm hoặc kèm khớp nối nhanh kim loại). Gioăng cao su O-ring chịu áp cao, khóa ngàm xoay 90° thao tác tháo lắp nhanh chỉ trong 1 giây.",
+      "highlights": [
+          "Đầu gá khóa tai xoay chắc chắn, kèm vòng O-ring cao su NBR làm kín khí nén 100%",
+          "Đầy đủ kích cỡ cổ gá cho xilanh 5cc, 10cc, 30cc, 50cc, 70cc",
+          "Ống dẫn khí PU dẻo trong suốt chịu áp lực cao, chống gập gãy khi gắn trên cánh tay robot",
+          "Tương thích với mọi máy bơm keo bán tự động 982, 983A và robot bơm keo tự động 3 trục"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-ADAPTER-5-70",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Cỡ xilanh tương thích": "5cc / 10cc / 30cc / 50cc / 70cc",
+          "Kiểu đầu dây": "Không đầu cắm (ống hơi chờ) / Có cút nối nhanh",
+          "Chiều dài dây tiêu chuẩn": "1.0m / 1.5m",
+          "Gioăng làm kín": "O-ring cao su chịu dầu & hóa chất",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Kích cỡ Đầu Gá Xilanh",
+      "variants": [
+          {
+              "id": "ADP-5CC",
+              "sku": "TTV-ADP-5CC",
+              "name": "Dây bơm keo 5cc",
+              "image": "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-01.webp",
+              "stock": 150,
+              "unit": "Sợi",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "ADP-10CC",
+              "sku": "TTV-ADP-10CC",
+              "name": "Dây bơm keo 10cc",
+              "image": "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-02.webp",
+              "stock": 150,
+              "unit": "Sợi",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "ADP-30-50-70CC",
+              "sku": "TTV-ADP-30-70CC",
+              "name": "Dây bơm keo 30cc / 50cc / 70cc",
+              "image": "/images/products/day-bom-keo-khong-dau-cam-5-70cc/day-bom-keo-5-70cc-03.webp",
+              "stock": 200,
+              "unit": "Sợi",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-PISTON-US-5-70CC",
+      "name": "Pittong Dùng Cho Xilanh Bơm Keo Tiêu Chuẩn Mỹ (5cc – 70cc)",
+      "sku": "TTV-PISTON-US-5-70",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-01.webp",
+      "images": [
+          "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-01.webp",
+          "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-02.webp",
+          "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-03.webp"
+      ],
+      "stock": 2000,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Pittong gạt keo (Wiper Piston) chuyên dụng cho xilanh bơm keo tiêu chuẩn Mỹ từ 5cc đến 70cc. Thiết kế 2 vành môi gạt đàn hồi kép giúp vét sạch keo trên thành ống xilanh, ngăn khí nén lọt vào keo và loại bỏ hiện tượng nhỏ giọt.",
+      "highlights": [
+          "Thiết kế vành gạt kép (Double Wiper Lip) ôm khít lòng ống xilanh chuẩn Mỹ (EFD)",
+          "Vét sạch 99.9% lượng keo trong ống, tiết kiệm tối đa các loại keo công nghiệp đắt tiền",
+          "Phân phối áp lực khí nén đồng đều trên bề mặt keo, chống tạo lỗ rỗng khí (tunneling)",
+          "Chất liệu nhựa PE dẻo tự bôi trơn, kháng dung môi và hóa chất đóng rắn"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-PISTON-US-5-70",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Tiêu chuẩn tương thích": "Xilanh bơm keo tiêu chuẩn Mỹ (US EFD Standard)",
+          "Các kích cỡ": "5cc / 10cc / 30cc / 50cc / 70cc",
+          "Vật liệu": "Polyethylene (PE) đàn hồi kháng hóa chất",
+          "Màu sắc": "Trắng sữa (White)",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Kích cỡ Pittong Chuẩn Mỹ",
+      "variants": [
+          {
+              "id": "PISTON-US-5CC",
+              "sku": "TTV-PST-US-5CC",
+              "name": "Pittong Mỹ 5cc",
+              "image": "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-01.webp",
+              "stock": 500,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "PISTON-US-10CC",
+              "sku": "TTV-PST-US-10CC",
+              "name": "Pittong Mỹ 10cc",
+              "image": "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-02.webp",
+              "stock": 500,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "PISTON-US-30-70CC",
+              "sku": "TTV-PST-US-30-70CC",
+              "name": "Pittong Mỹ 30cc / 50cc / 70cc",
+              "image": "/images/products/pittong-xilanh-my-5-70cc/pittong-xilanh-my-5-70cc-03.webp",
+              "stock": 1000,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-PISTON-JP-5-70CC",
+      "name": "Pittong Chóp Nón Dùng Cho Xilanh Tiêu Chuẩn Nhật (5cc – 70cc)",
+      "sku": "TTV-PISTON-JP-5-70",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/pittong-xilanh-nhat-5-70cc/pittong-xilanh-nhat-5-70cc-01.webp",
+      "images": [
+          "/images/products/pittong-xilanh-nhat-5-70cc/pittong-xilanh-nhat-5-70cc-01.webp",
+          "/images/products/pittong-xilanh-nhat-5-70cc/pittong-xilanh-nhat-5-70cc-02.webp"
+      ],
+      "stock": 2000,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Pittong đầu chóp nón nhọn (Conical Wiper Piston) thiết kế chuẩn cho xilanh bơm keo Nhật Bản từ 5cc đến 70cc. Hình dáng chóp nón khớp hoàn hảo với vòm đáy xilanh Nhật giúp đẩy kiệt lượng keo cuối cùng và triệt tiêu túi bọt khí.",
+      "highlights": [
+          "Đầu chóp nón khớp khít với đáy vòm xilanh chuẩn Nhật, không để lại keo thừa ở cổ xilanh",
+          "Định hướng dòng chảy keo mượt mà vào tâm đầu kim, lý tưởng cho keo độ nhớt cao, kem hàn, epoxy",
+          "Vành gạt đàn hồi kép giữ áp suất ổn định, ngăn khí nén xuyên qua lớp keo",
+          "Đầy đủ các kích cỡ cho xilanh Nhật 5cc, 10cc, 30cc, 50cc, 70cc"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-PISTON-JP-5-70",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Tiêu chuẩn tương thích": "Xilanh bơm keo tiêu chuẩn Nhật Bản (Japanese Standard)",
+          "Kiểu dáng": "Đầu chóp nón nhọn (Conical Tip Piston)",
+          "Các kích cỡ": "5cc / 10cc / 30cc / 50cc / 70cc",
+          "Vật liệu": "Polyethylene (PE) tinh khiết",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Kích cỡ Pittong Chuẩn Nhật",
+      "variants": [
+          {
+              "id": "PISTON-JP-5CC",
+              "sku": "TTV-PST-JP-5CC",
+              "name": "Pittong Nhật 5cc (Chóp nón)",
+              "image": "/images/products/pittong-xilanh-nhat-5-70cc/pittong-xilanh-nhat-5-70cc-01.webp",
+              "stock": 500,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "PISTON-JP-10CC",
+              "sku": "TTV-PST-JP-10CC",
+              "name": "Pittong Nhật 10cc (Chóp nón)",
+              "image": "/images/products/pittong-xilanh-nhat-5-70cc/pittong-xilanh-nhat-5-70cc-02.webp",
+              "stock": 500,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "PISTON-JP-30-70CC",
+              "sku": "TTV-PST-JP-30-70CC",
+              "name": "Pittong Nhật 30cc / 50cc / 70cc (Chóp nón)",
+              "image": "/images/products/pittong-xilanh-nhat-5-70cc/pittong-xilanh-nhat-5-70cc-01.webp",
+              "stock": 1000,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-PEAK-LUPE-10X-15X",
+      "name": "Kính Lúp Quang Học Cao Cấp PEAK Lupe (10X · 15X No.1982)",
+      "sku": "TTV-PEAK-LUPE",
+      "brand": "PEAK",
+      "category": "Kính Soi & Hiển Vi",
+      "categorySlug": "camera-kinh-soi-cong-nghiep",
+      "origin": "Chính Hãng",
+      "image": "/images/products/kinh-lup-peak-lupe-10x-15x.webp",
+      "images": [
+          "/images/products/kinh-lup-peak-lupe-10x-15x.webp"
+      ],
+      "stock": 45,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Kính lúp kiểm tra quang học chuẩn KCS/QA/QC PEAK Lupe (10X và 15X - No.1982) chính hãng. Trang bị hệ thấu kính tiêu sắc Achromat khử quang sai cầu, hình ảnh sắc nét từ tâm ra sát viền, chân đế Acrylic trong suốt 360° thu sáng tự nhiên.",
+      "highlights": [
+          "Chính hãng PEAK - Tiêu chuẩn vàng cho phòng QA/QC kiểm tra ngoại quan vi mạch, khuôn mẫu",
+          "Thấu kính thủy tinh quang học đa lớp khử sắc sai, không gây mỏi mắt khi soi kiểm tra liên tục",
+          "Đế chụp Acrylic trong suốt gom ánh sáng từ mọi hướng giúp bề mặt vật mẫu luôn sáng rõ",
+          "Tùy chọn độ phóng đại 10X và 15X (Model No.1982 kèm thước đo vi lượng chính xác)"
+      ],
+      "specs": {
+          "Hãng sản xuất": "PEAK",
+          "Mã sản phẩm (ID)": "TTV-PEAK-LUPE",
+          "Chuyên mục": "Kính lúp & Thiết bị quang học QC",
+          "Độ phóng đại": "10X / 15X (No. 1982)",
+          "Hệ thống thấu kính": "Thấu kính quang học Achromatic (2 nhóm 3-4 thấu kính)",
+          "Trường nhìn (Field of View)": "Φ20 mm (15X) / Φ32 mm (10X)",
+          "Thiết kế chân đế": "Vòng chụp Acrylic trong suốt lấy sáng 360 độ",
+          "Ứng dụng": "Kiểm tra PCB, mối hàn SMT, bề mặt kim loại, bản in, dệt may",
+          "Xuất xứ": "Chính Hãng",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Độ phóng đại Kính lúp PEAK",
+      "variants": [
+          {
+              "id": "PEAK-LUPE-10X",
+              "sku": "TTPC-0241",
+              "name": "PEAK Lupe 10X (Tiêu chuẩn)",
+              "image": "/images/products/kinh-lup-peak-lupe-10x-15x.webp",
+              "stock": 25,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "PEAK-LUPE-15X",
+              "sku": "PEAK-1982-15X",
+              "name": "PEAK Lupe 15X (No.1982)",
+              "image": "/images/products/kinh-lup-peak-lupe-10x-15x.webp",
+              "stock": 20,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-MIXING-NOZZLE-RM12-26",
+      "name": "Vòi Trộn Keo Công Nghiệp RM12-26 (Ống Trộn Tĩnh Keo 2 Thành Phần AB)",
+      "sku": "TTV-RM12-26",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/voi-tron-keo-cong-nghiep-rm12-26.webp",
+      "images": [
+          "/images/products/voi-tron-keo-cong-nghiep-rm12-26.webp"
+      ],
+      "stock": 1500,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "cái",
+      "shortDesc": "Vòi trộn keo tĩnh 2 thành phần RM12-26 (Round Static Mixing Nozzle) với 26 tầng cánh xoắn đảo chiều bên trong. Tự động hòa trộn đồng nhất 100% hai thành phần keo AB (Epoxy, PU, Silicone, Acrylic) ngay khi đi qua ống mà không cần cơ cấu khuấy điện.",
+      "highlights": [
+          "Cấu trúc 26 tầng cánh xoắn ốc chia cắt và đảo trộn keo tới hơn 67 triệu lần phân tách",
+          "Đầu chuông tròn lắp nhanh, chịu áp suất lớn cho súng bắn keo 2 thành phần và máy trộn keo tự động",
+          "Vỏ ống PP trong suốt dễ dàng quan sát độ đồng nhất của keo trong suốt quá trình bơm",
+          "Đầu vòi bậc thang cho phép cắt mở rộng đường kính dòng chảy tùy theo yêu cầu thực tế"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-RM12-26",
+          "Chuyên mục": "Thiết bị & Vật tư bơm keo công nghiệp",
+          "Model": "RM12-26 (Round Mixer)",
+          "Số tầng cánh trộn (Elements)": "26 tầng xoắn đảo chiều (Màu đỏ)",
+          "Đường kính trong (ID)": "12 mm",
+          "Đường kính ngoài (OD)": "16 mm",
+          "Tỷ lệ trộn tương thích": "1:1 / 2:1 / 4:1 / 10:1",
+          "Ứng dụng": "Lắp ráp ô tô (Automotive), điện tử, kết cấu công nghiệp, xây dựng",
+          "Tình trạng": "Sẵn hàng số lượng lớn"
+      }
+  },
+  {
+      "id": "TTV-STAINLESS-STEEL-NEEDLES-8G-30G",
+      "name": "Kim Sắt / Mũi Kim Tra Keo Toàn Thân Inox Chính Xác Công Nghiệp (8G – 30G)",
+      "sku": "TTV-NEEDLE-SS-SERIES",
+      "brand": "T&T Vina Industrial",
+      "category": "Bơm Keo",
+      "categorySlug": "dung-cu-bom-keo",
+      "origin": "Chính Hãng",
+      "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+      "images": [
+          "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp"
+      ],
+      "stock": 3000,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "hộp (12 cái)",
+      "shortDesc": "Kim sắt tra keo công nghiệp độ chính xác cao (All-Metal Dispensing Needles) dải kích cỡ đầy đủ từ 8G đến 30G. Ống kim bằng thép không gỉ SUS 304 đánh bóng gương lòng trong, chuôi lục giác đồng thau mạ niken chịu áp suất cao, tái sử dụng bền bỉ.",
+      "highlights": [
+          "Toàn thân kim loại nguyên khối chống gãy gập, chịu áp lực nén và nhiệt độ cao vượt trội so với kim nhựa",
+          "Đầu mũi kim cắt phẳng vuông góc 90° và mài nhẵn bavia cho giọt keo ngắt dứt khoát, dòng chảy ổn định",
+          "Đầy đủ các cỡ Gauge từ 8G đến 30G khắc số rõ nét trên chuôi lục giác dễ dàng quản lý trên chuyền",
+          "Ren khóa Luer Lock chuẩn xác, lắp vừa mọi loại xilanh bơm keo Mỹ, Nhật và van bơm keo tự động"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial",
+          "Mã sản phẩm (ID)": "TTV-NEEDLE-SS-SERIES",
+          "Chuyên mục": "Kim bơm keo công nghiệp",
+          "Dải kích cỡ (Gauge)": "8G, 10G, 11G, 12G, 13G, 14G, 15G, 16G, 17G, 18G, 19G, 20G, 21G, 22G, 23G, 25G, 27G, 30G",
+          "Chiều dài mũi kim": "13 mm (1/2 inch) / 25 mm (1 inch)",
+          "Vật liệu ống kim": "Thép không gỉ SUS 304 (Stainless Steel)",
+          "Vật liệu chuôi": "Đồng thau mạ Niken sáng bóng (Khắc chìm cỡ G)",
+          "Quy cách đóng gói": "12 chiếc / vỉ hộp nhựa bảo vệ",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Kích cỡ Kim Sắt (Gauge)",
+      "variants": [
+          {
+              "id": "SS-NEEDLE-10G",
+              "sku": "TTPC-6321",
+              "name": "Kim sắt 10G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 200,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-15G",
+              "sku": "TTPC-0216",
+              "name": "Kim sắt 15G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 300,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-18G",
+              "sku": "TTPC-0218",
+              "name": "Kim sắt 18G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 400,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-19G",
+              "sku": "TTPC-0219",
+              "name": "Kim sắt 19G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 300,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-22G",
+              "sku": "TTV-SS-22G",
+              "name": "Kim sắt 22G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 400,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-25G",
+              "sku": "TTV-SS-25G",
+              "name": "Kim sắt 25G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 300,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-27G",
+              "sku": "TTPC-0227",
+              "name": "Kim sắt 27G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 300,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "SS-NEEDLE-30G",
+              "sku": "TTPC-0230",
+              "name": "Kim sắt 30G - 13mm",
+              "image": "/images/products/kim-sat-chinh-xac-ben-bi-cong-nghiep.webp",
+              "stock": 200,
+              "unit": "Chiếc",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
+      "id": "TTV-900MT-TIPS-SERIES",
+      "name": "Mũi Hàn 900M-T Các Loại (900M-T-SB, I, B, K, SK, 2C, 3C, 4C, 1.2D, 2.4D, 3.2D)",
+      "sku": "TTV-900MT-SERIES",
+      "brand": "Hakko / Quick Compatible",
+      "category": "Thiết Bị Hàn",
+      "categorySlug": "thiet-bi-han",
+      "origin": "Chính Hãng",
+      "image": "/images/products/mui-han-900mt-cac-loai.webp",
+      "images": [
+          "/images/products/mui-han-900mt-cac-loai.webp",
+          "/images/products/sapo/TTPC-0362.webp",
+          "/images/products/sapo/TTPC-0361.webp",
+          "/images/products/sapo/TTPC-0357.webp",
+          "/images/products/sapo/TTPC-0352.webp"
+      ],
+      "stock": 800,
+      "stockStatus": "In Stock",
+      "hideStockBadge": true,
+      "stockLocation": "VPGD & Kho Hà Nội",
+      "price": "Liên hệ Báo giá",
+      "unit": "túi (10 cái)",
+      "shortDesc": "Dòng mũi hàn 900M-T các loại (900M-T-SB, 900M-T-I, B, K, SK, 1C, 2C, 3C, 4C, 0.8D, 1.2D, 2.4D, 3.2D) chuyên dụng cho trạm hàn Hakko 936, 937, Quick 936A, tay hàn 907. Lõi đồng đỏ truyền nhiệt nhanh, lớp mạ hợp kim bền bỉ không chì.",
+      "highlights": [
+          "Đầy đủ mọi biên dạng đầu mũi: Nhọn (I, B, SB), Dao (K, SK), Vát xéo (1C, 2C, 3C, 4C), Dẹt (0.8D, 1.2D, 2.4D, 3.2D)",
+          "Lõi đồng nguyên chất độ tinh khiết cao mạ Fe-Ni-Cr chống ăn mòn thiếc hàn không chì (Lead-Free)",
+          "Lắp vừa khít với tất cả các dòng tay hàn 907, trạm hàn 936, 937, 939 thông dụng nhất nhà máy",
+          "Đóng gói túi 10 mũi tiêu chuẩn, sẵn kho số lượng lớn phục vụ cung ứng vật tư tiêu hao nhà máy"
+      ],
+      "specs": {
+          "Hãng sản xuất": "T&T Vina Industrial (Hakko / Quick Standard)",
+          "Mã sản phẩm (ID)": "TTV-900MT-SERIES",
+          "Chuyên mục": "Thiết bị hàn công nghiệp / Trạm hàn ESD",
+          "Các mã sẵn kho": "900M-T-SB, I, B, K, SK, 1C, 2C, 3C, 4C, 0.8D, 1.2D, 1.6D, 2.4D, 3.2D",
+          "Đường kính ngoài (OD)": "Φ6.5 mm",
+          "Đường kính lỗ trong (ID)": "Φ4.0 mm",
+          "Tương thích trạm hàn": "Hakko 936 / 937 / 907, Quick 936A / 903A",
+          "Quy cách đóng gói": "10 chiếc / túi",
+          "Tình trạng": "Sẵn hàng tại kho"
+      },
+      "variantLabel": "Mã đầu mũi hàn 900M-T",
+      "variants": [
+          {
+              "id": "900M-T-SB",
+              "sku": "TTV-900MT-SB",
+              "name": "900M-T-SB (Đầu nhọn trung R0.2mm)",
+              "image": "/images/products/mui-han-900mt-cac-loai.webp",
+              "stock": 150,
+              "unit": "Túi 10c",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "900M-T-I",
+              "sku": "TTPC-0352",
+              "name": "900M-T-I (Đầu kim siêu nhọn)",
+              "image": "/images/products/sapo/TTPC-0352.webp",
+              "stock": 150,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "900M-T-B",
+              "sku": "PVN-4605",
+              "name": "900M-T-B (Đầu nhọn tiêu chuẩn)",
+              "image": "/images/products/mui-han-900mt-cac-loai.webp",
+              "stock": 150,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "900M-T-K",
+              "sku": "PVN-9564",
+              "name": "900M-T-K (Đầu dao hàn)",
+              "image": "/images/products/mui-han-900mt-cac-loai.webp",
+              "stock": 150,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "900M-T-3C",
+              "sku": "TTPC-0362",
+              "name": "900M-T-3C (Đầu vát 3mm)",
+              "image": "/images/products/sapo/TTPC-0362.webp",
+              "stock": 100,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          },
+          {
+              "id": "900M-T-2.4D",
+              "sku": "TTPC-0357",
+              "name": "900M-T-2.4D (Đầu dẹt 2.4mm)",
+              "image": "/images/products/sapo/TTPC-0357.webp",
+              "stock": 100,
+              "unit": "Cái",
+              "price": "Liên hệ Báo giá"
+          }
+      ]
+  },
+  {
     "id": "MP-FAM-MSV",
     "name": "Đầu Nối Ống Luồn Cáp Thẳng MSV (Ren Hệ Mét & PG)",
     "sku": "MP-MSV-SERIES",
