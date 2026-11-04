@@ -50,13 +50,6 @@ export default function ProductDetail({
   const p = product ? getLocalizedProduct(product, locale) : product;
   const seoData = p ? generateProductSEODescription(p) : null;
 
-  const TIER_PRICING = [
-    { qtyLabel: '1 – 5', minQty: 1, policy: t('product_detail.tier_p1'), leadTime: t('product_detail.lead_24h'), highlight: false },
-    { qtyLabel: '6 – 20', minQty: 6, policy: t('product_detail.tier_p2'), leadTime: t('product_detail.lead_24h'), highlight: true },
-    { qtyLabel: '21 – 50', minQty: 21, policy: t('product_detail.tier_p3'), leadTime: t('product_detail.lead_1_2d'), highlight: false },
-    { qtyLabel: '> 50', minQty: 50, policy: t('product_detail.tier_p4'), leadTime: t('product_detail.lead_schedule'), highlight: false },
-  ];
-
   const defaultImage = product?.image || (PRODUCTS[0]?.image || '');
   const [selectedImage, setSelectedImage] = useState<string>(defaultImage);
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(null);
@@ -543,60 +536,6 @@ export default function ProductDetail({
                   </div>
                 </div>
               )}
-
-              {/* B2B VOLUME TIER PRICING TABLE (CHUẨN MISUMI) */}
-              <div className="rounded-xs border border-slate-200 overflow-hidden bg-white">
-                <div className="p-2.5 bg-slate-100 border-b border-slate-200 flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-                    <Tag className="w-3.5 h-3.5 text-[#00478D]" />
-                    <span>{t('product_detail.tier_table_title')}</span>
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded-xs bg-[#00478D]/10 text-[#00478D] font-mono font-bold text-[10px] border border-[#00478D]/20">
-                      MOQ: 1 cái/hộp
-                    </span>
-                    <span className="text-[10px] text-slate-500 font-medium hidden sm:inline">{t('product_detail.tier_click_hint')}</span>
-                  </div>
-                </div>
-                
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[320px] text-left text-xs border-collapse">
-                    <thead>
-                      <tr className="bg-slate-50/80 border-b border-slate-200 text-[10px] uppercase font-bold text-slate-500">
-                      <th className="p-2.5 pl-3">{t('product_detail.tier_col_qty')}</th>
-                      <th className="p-2.5">{t('product_detail.tier_col_policy')}</th>
-                      <th className="p-2.5 pr-3 text-right">{t('product_detail.tier_col_leadtime')}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 text-xs">
-                    {TIER_PRICING.map((tier, idx) => (
-                      <tr 
-                        key={idx}
-                        onClick={() => setQuantity(tier.minQty)}
-                        className={`cursor-pointer transition-colors ${
-                          quantity >= tier.minQty && (idx === TIER_PRICING.length - 1 || quantity < TIER_PRICING[idx + 1].minQty)
-                            ? 'bg-blue-50/80 font-bold text-[#00478D]'
-                            : 'hover:bg-slate-50 text-slate-700'
-                        }`}
-                      >
-                        <td className="p-2.5 pl-3 flex items-center gap-2">
-                          <span className={`w-2 h-2 rounded-full ${quantity >= tier.minQty && (idx === TIER_PRICING.length - 1 || quantity < TIER_PRICING[idx + 1].minQty) ? 'bg-[#00478D]' : 'bg-slate-300'}`}></span>
-                          <span>{tier.qtyLabel}</span>
-                        </td>
-                        <td className="p-2.5">
-                          <span className={tier.highlight ? 'text-[#00478D] font-bold' : ''}>
-                            {tier.policy}
-                          </span>
-                        </td>
-                        <td className="p-2.5 pr-3 text-right text-[11px] text-slate-500">
-                          {tier.leadTime}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
 
               {/* Quantity Selector & Action CTA */}
               <div className="space-y-3 pt-1">

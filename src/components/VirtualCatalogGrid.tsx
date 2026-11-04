@@ -32,7 +32,7 @@ interface VirtualCatalogGridProps {
 const normalizeCategorySlug = (slug: string): string => {
   if (!slug || slug === 'all') return 'all';
   const s = slug.toLowerCase();
-  if (s === 'camera-kinh-soi' || s.includes('camera') || s.includes('kinh-soi') || s.includes('kinh-hien-vi')) {
+  if (s === 'camera-kinh-soi' || s.includes('camera') || s.includes('kinh-soi') || s.includes('kinh-hien-vi') || s.includes('kinh-lup')) {
     return 'camera-kinh-soi-cong-nghiep';
   }
   if (s === 'esd-phong-sach' || s === 'esd' || s.includes('chong-tinh-dien')) {
@@ -40,6 +40,15 @@ const normalizeCategorySlug = (slug: string): string => {
   }
   if (s === 'may-cat-bang-dinh-tem-nhan' || s.includes('cat-bang-dinh')) {
     return 'may-cat-bang-dinh-tu-dong';
+  }
+  if (s.includes('bom-keo') || s.includes('xilanh') || s.includes('pittong')) {
+    return 'dung-cu-bom-keo';
+  }
+  if (s.includes('bat-vit') || s.includes('mui-vit')) {
+    return 'may-bat-vit-nha-vit';
+  }
+  if (s.includes('han') || s.includes('tram-han') || s.includes('mui-han')) {
+    return 'thiet-bi-han';
   }
   return slug;
 };
@@ -111,15 +120,15 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
   const categoriesList = useMemo(() => {
     const catMap: Record<string, { name: string; count: number; slug: string }> = {};
     for (const item of catalogItems) {
-      const slug = item.categorySlug || 'linh-kien-thiet-bi';
-      const name = item.category || 'Linh kiện & Thiết bị';
+      const slug = normalizeCategorySlug(item.categorySlug || 'linh-kien-thiet-bi');
+      const name = (CATEGORY_TRANSLATIONS[slug]?.[locale]) || item.category || 'Linh kiện & Thiết bị';
       if (!catMap[slug]) {
         catMap[slug] = { name, count: 0, slug };
       }
       catMap[slug].count++;
     }
     return Object.values(catMap).sort((a, b) => b.count - a.count);
-  }, [catalogItems]);
+  }, [catalogItems, locale]);
 
   // Compute Brands with Count (strictly sanitizes and protects internal procurement vendors)
   const brandsList = useMemo(() => {
@@ -341,7 +350,7 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
             >
               {t('catalog.tab_all', 'Tất cả')} ({catalogItems.length.toLocaleString(numLocale)})
             </button>
-            {categoriesList.slice(0, 10).map(cat => {
+            {categoriesList.map(cat => {
               const tabName = (cat.slug && CATEGORY_TRANSLATIONS[cat.slug]?.[locale]) || cat.name;
               return (
                 <button
@@ -431,17 +440,19 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                         </div>
                       )}
                       {/* Badge z-index fixed with z-10 and pointer-events-none so image never covers it */}
-                      <div className="absolute top-1.5 right-1.5 z-10 pointer-events-none">
-                        <span className={`text-xs font-bold px-1.5 py-0.5 rounded-xs shadow-2xs ${
-                          inStock 
-                            ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' 
-                            : 'bg-slate-100 text-slate-500 border border-slate-200'
-                        }`}>
-                          {inStock 
-                            ? `${t('catalog.in_stock_badge', 'Sẵn hàng')} (${p.stock})` 
-                            : t('catalog.project_order', 'Đặt dự án')}
-                        </span>
-                      </div>
+                      {!p.hideStockBadge && (
+                        <div className="absolute top-1.5 right-1.5 z-10 pointer-events-none">
+                          <span className={`text-xs font-bold px-1.5 py-0.5 rounded-xs shadow-2xs ${
+                            inStock
+                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                              : 'bg-slate-100 text-slate-500 border border-slate-200'
+                          }`}>
+                            {inStock
+                              ? `${t('catalog.in_stock_badge', 'Sẵn hàng')} (${p.stock})`
+                              : t('catalog.project_order', 'Đặt dự án')}
+                          </span>
+                        </div>
+                      )}
 
 
                     </div>
@@ -549,13 +560,19 @@ export const VirtualCatalogGrid: React.FC<VirtualCatalogGridProps> = ({
                       </td>
                       <td className="p-3 text-slate-600 truncate max-w-[180px]">{catName}</td>
                       <td className="p-3 text-center">
-                        <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-xs ${
-                          inStock ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-500'
-                        }`}>
-                          {inStock 
-                            ? `${t('catalog.in_stock_badge', 'Sẵn')} (${p.stock})` 
-                            : t('catalog.project_order', 'Đặt hàng')}
-                        </span>
+                        {!p.hideStockBadge ? (
+                          <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-xs ${
+                            inStock ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-500'
+                          }`}>
+                            {inStock
+                              ? `${t('catalog.in_stock_badge', 'Sẵn')} (${p.stock})`
+                              : t('catalog.project_order', 'Đặt hàng')}
+                          </span>
+                        ) : (
+                          <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-xs bg-slate-100 text-slate-500">
+                            Liên hệ
+                          </span>
+                        )}
                       </td>
                       <td className="p-3">
                         <a 
