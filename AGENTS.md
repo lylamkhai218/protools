@@ -838,3 +838,13 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
   - Chuyển trường `origin` và thông số `Xuất xứ` về giá trị chuẩn `"Chính Hãng"`.
 - **Lược bỏ bảng Khung Số Lượng & Chính Sách Báo Giá / Lead Time trên toàn bộ sản phẩm**:
   - Gỡ bỏ hoàn toàn bảng `KHUNG SỐ LƯỢNG & CHÍNH SÁCH BÁO GIÁ (B2B TIERS)` (`TIER_PRICING` gồm cột Số lượng đặt, Chính sách báo giá, Thời gian giao Lead Time) trong [`src/pages/ProductDetail.tsx`](file:///d:/T&TVina/protools/src/pages/ProductDetail.tsx) để giao diện chi tiết sản phẩm tinh gọn, tránh hiển thị cứng thời gian giao hàng trên mọi mặt hàng.
+
+---
+
+## 37. BÀI HỌC TỪ RELEASE ROOT PRODUCTION VÀ BACKUP (04/11/2026)
+- **Python Launcher trên Windows**:
+  - Trong môi trường hiện tại, alias `py.exe` và `python.exe` tại `WindowsApps` không khởi chạy được. Python hoạt động nằm tại `C:\Users\OS\AppData\Local\Python\bin\python.exe`.
+  - Khi `pnpm run build` gọi `py`, dùng launcher Python hợp lệ hoặc shim tạm trong phiên chạy; không hardcode đường dẫn theo tài khoản cá nhân vào mã nguồn dự án.
+- **Phạm vi backup trước deploy Production**:
+  - Hàm `download_remote_dir()` trong `backup_protools.py` chỉ duyệt thêm hai thư mục con `api` và `admincp`; backup tự động ngày 04/11/2026 chứa 42 tệp, khoảng 823 KB.
+  - Backup này không bao gồm toàn bộ thư mục tài nguyên tĩnh dưới `public_html` như `assets`, ảnh sản phẩm và các thư mục con khác. Không xem riêng backup tự động này là bản rollback đầy đủ cho webroot; cần giữ bản backup đầy đủ đã xác minh và mở rộng phạm vi backup trước các lần phát hành sau.
