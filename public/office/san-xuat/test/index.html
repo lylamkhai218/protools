@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Thử quét tem hộp | TTVina Office</title>
+  <link rel="icon" type="image/svg+xml" href="/logos/TTV_LOGO_Color_Master.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/office/san-xuat/test/scan-test-20261105.css?v=10">
+  <script src="/office/san-xuat/test/vendor/ocr/tesseract.min.js" defer></script>
+  <script src="/office/san-xuat/test/scan-engine-20261105.js?v=9" defer></script>
+  <script src="/office/san-xuat/test/scan-test-20261105.js?v=10" defer></script>
+  <script src="/office/san-xuat/test/barcode-scan-v1.js?v=3" defer></script>
+  <script src="/office/san-xuat/test/photo-scan-v5.js?v=7" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/office/" aria-label="TTVina Office - trang chính">
+      <span class="brand-mark" aria-hidden="true">T</span>
+      <span><strong>TTVINA OFFICE</strong><small>Kho sản xuất</small></span>
+    </a>
+    <a class="back-link" href="/office/san-xuat/dao-cnc">Quay lại kho dao CNC</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-heading" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">KHU VỰC THỬ NGHIỆM</p>
+        <h1 id="page-title">Thử quét tem hộp dao</h1>
+        <p class="lede">Dùng camera điện thoại để thử đọc mã trên tem phẳng. Cần đối chiếu mã tem với mã khắc trên cán dao vì hộp có thể bị lẫn.</p>
+      </div>
+      <span class="test-badge">TEST · KHÔNG GHI KHO</span>
+    </section>
+
+    <section class="notice" aria-label="Thông tin về quyền riêng tư">
+      <span class="notice-mark" aria-hidden="true">i</span>
+      <p>Ảnh và kết quả OCR được xử lý ngay trên thiết bị. Trang này không gửi ảnh, không gọi API cấp phát và không thay đổi tồn kho.</p>
+    </section>
+
+    <section class="test-panel" aria-labelledby="scan-heading">
+      <div class="panel-heading">
+        <div>
+          <p class="step-label">KIỂM TRA CAMERA VÀ OCR</p>
+          <h2 id="scan-heading">Đối chiếu một mã cụ thể</h2>
+        </div>
+        <span id="secure-badge" class="state-badge state-pending">Đang kiểm tra thiết bị</span>
+      </div>
+
+      <button id="open-barcode" class="primary-button" type="button">Quét barcode hoặc QR</button>
+      <button id="choose-barcode" class="secondary-button" type="button">Chọn ảnh barcode</button>
+      <input id="barcode-photo" type="file" accept="image/*" hidden>
+      <p id="barcode-status" class="field-help" role="status" aria-live="polite">Quét barcode hoặc QR trên tem. Sau khi quét cần kiểm tra lại mã và cán dao.</p>
+      <label class="field-label" for="expected-code">Mã trên tem hộp (không bắt buộc, dùng cho thử OCR)</label>
+      <div class="code-entry">
+        <input id="expected-code" name="expected-code" type="text" maxlength="50" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="code-help" placeholder="Ví dụ: RSDN1203MO…">
+        <button id="take-photo" class="primary-button" type="button">Chụp ảnh tem để đọc</button>
+      </div>
+      <p id="code-help" class="field-help">Có thể bấm quét ngay để thử camera và xem chữ đọc được. Nhập mã nếu muốn kiểm tra khớp chính xác; giữ nguyên chữ, số 0 và dấu gạch như bản in.</p>
+      <input id="label-photo" type="file" accept="image/*" capture="environment" hidden>
+      <p class="field-help">Chụp ngang một tem, lấy nét rõ chữ và tránh lóa. Nếu đang mở từ Zalo hoặc ứng dụng khác, dùng chụp ảnh; quét trực tiếp nên mở bằng Safari.</p>
+      <button id="open-scanner" class="secondary-button" type="button">Quét trực tiếp (Safari)</button>
+      <div id="photo-result" class="ocr-output" hidden>
+        <strong id="photo-status" role="status" aria-live="polite"></strong>
+        <p>Vuốt từ góc trên trái đến góc dưới phải để khoanh sát dòng chữ trên tem. Có thể khoanh lại nếu chưa đúng.</p>
+        <canvas id="photo-crop" aria-label="Ảnh để khoanh vùng tem bằng ngón tay" style="display:block;width:100%;touch-action:none;border:1px solid #94a3b8"></canvas>
+        <button id="read-photo-region" class="primary-button" type="button" disabled>Đọc vùng tem đã khoanh</button>
+        <p>Hoặc chọn vùng bằng bàn phím:</p>
+        <label>Trái <input id="crop-x" type="range" min="0" max="95" value="10"></label>
+        <label>Trên <input id="crop-y" type="range" min="0" max="95" value="40"></label>
+        <label>Rộng <input id="crop-w" type="range" min="5" max="100" value="80"></label>
+        <label>Cao <input id="crop-h" type="range" min="2" max="100" value="20"></label>
+        <canvas id="photo-region-preview" aria-label="Vùng chữ sẽ đọc" style="display:block;max-width:100%;max-height:100px;margin-top:12px"></canvas>
+        <pre id="photo-text" role="status" aria-live="polite"></pre>
+      </div>
+
+      <div id="device-status" class="device-status" role="status" aria-live="polite">Đang kiểm tra khả năng mở camera…</div>
+
+      <section id="scan-confirm" class="scan-result" aria-labelledby="confirm-title" hidden>
+        <div>
+          <strong id="confirm-title">Đã đọc mã - anh kiểm tra lại</strong>
+          <p>So sánh với tem và mã trên cán dao. Có thể sửa chữ thừa hoặc ký tự bị đọc nhầm trước khi xác nhận.</p>
+          <label for="confirm-code">Mã cần xác nhận</label>
+          <input id="confirm-code" type="text" maxlength="300" autocomplete="off" autocapitalize="off" spellcheck="false" style="display:block;width:100%;margin:8px 0">
+          <button id="confirm-suggestion" class="secondary-button" type="button" hidden></button>
+          <p id="confirm-error" role="status" aria-live="polite"></p>
+          <div class="dialog-actions"><button id="scan-again" class="secondary-button" type="button">Chưa đúng - quét lại</button><button id="confirm-scan" class="primary-button" type="button">Đúng rồi - ghi nhận</button></div>
+        </div>
+      </section>
+
+      <div id="scan-result" class="scan-result" role="status" aria-live="polite" hidden>
+        <span id="result-icon" class="result-icon" aria-hidden="true"></span>
+        <div>
+          <strong id="result-title"></strong>
+          <code id="result-code"></code>
+          <p id="result-detail"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="instructions" aria-labelledby="instructions-heading">
+      <h2 id="instructions-heading">Cách thử trên điện thoại</h2>
+      <ol>
+        <li>Mở trang này bằng Safari qua đường dẫn HTTPS.</li>
+        <li>Chụp ảnh rõ tem, khoanh sát dòng chữ trên ảnh rồi bấm <strong>Đọc vùng tem đã khoanh</strong>.</li>
+        <li>Khi iPhone hỏi quyền camera, chọn <strong>Cho phép</strong>. Đưa một hộp vào khung, tránh lóa đèn và giữ yên.</li>
+      </ol>
+      <p id="permission-help" class="permission-help">Nếu đã từ chối camera, mở phần quyền của trang web trong Safari, bật Camera rồi tải lại trang.</p>
+    </section>
+
+    <footer class="page-footer">
+      <span>Phiên thử nghiệm · Không lưu lịch sử quét</span>
+      <a href="/office/san-xuat/dao-cnc">Kho sản xuất</a>
+    </footer>
+  </main>
+
+  <dialog id="scanner-dialog" class="scanner-dialog" aria-labelledby="scanner-title" aria-describedby="scanner-description">
+    <div class="dialog-heading">
+      <div><p class="step-label">ĐANG THỬ NGHIỆM</p><h2 id="scanner-title">Quét tem hộp</h2></div>
+      <button type="button" id="scan-close" class="close-button" aria-label="Đóng cửa sổ">Đóng</button>
+    </div>
+    <p id="scanner-description" class="dialog-description">Chỉ đưa một hộp vào khung. Đặt tem phẳng, đủ sáng và tránh bóng phản chiếu.</p>
+    <div class="camera-preview">
+      <video id="scan-video" autoplay muted playsinline webkit-playsinline aria-label="Hình ảnh camera trực tiếp"></video>
+      <div id="camera-waiting" class="camera-waiting"><span class="camera-pulse" aria-hidden="true"></span><strong>Đang chờ hình camera…</strong><small>Nếu màn hình vẫn đen, kiểm tra quyền Camera của Safari.</small></div>
+      <div class="scan-frame" aria-hidden="true"></div>
+    </div>
+    <label for="scan-frame-height">Độ cao khung chữ: <span id="scan-frame-value">18%</span></label>
+    <input id="scan-frame-height" type="range" min="10" max="45" value="18" style="width:100%" aria-label="Điều chỉnh độ cao khung quét chữ">
+    <p id="scan-status" class="scanner-status" role="status" aria-live="polite">Đang mở camera…</p>
+    <div id="ocr-output" class="ocr-output" aria-live="polite" hidden><strong>Chữ đọc được - anh kiểm tra lại trên tem:</strong><pre id="ocr-text"></pre></div>
+    <div class="dialog-actions">
+      <button type="button" id="scan-resume" class="secondary-button" hidden>Tiếp tục camera</button>
+      <button type="button" id="scan-use-current" class="primary-button" disabled>Dừng và kiểm tra mã</button>
+      <button type="button" id="scan-capture" class="secondary-button">Đọc lại tem</button>
+    </div>
+  </dialog>
+</body>
+</html>
