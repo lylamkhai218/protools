@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build && py generate_static_snapshots.py && py generate_sitemaps.py",
+    "build": "vite build && node scripts/run-python.mjs generate_static_snapshots.py && node scripts/run-python.mjs generate_sitemaps.py",
     "preview": "vite preview",
     "clean": "node -e \"['dist', 'server.js'].forEach(p => fs.rmSync(p, { recursive: true, force: true }))\"",
     "lint": "tsc --noEmit",

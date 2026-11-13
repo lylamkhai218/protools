@@ -1,12 +1,9 @@
 import os
 import sys
-import ftplib
 import zipfile
 from datetime import datetime
+from scripts.ftps_client import get_ftps_connection, FTP_HOST
 
-FTP_HOST = "s2d34.cloudnetwork.vn"
-FTP_USER = "deploy@protools.com.vn"
-FTP_PASS = "***REMOVED***"
 REMOTE_ROOT = "public_html"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,17 +19,15 @@ def create_production_backup():
     os.makedirs(local_backup_path, exist_ok=True)
     
     print("=" * 70)
-    print("🛡️  PROTOOLS AUTOMATED BACKUP ENGINE")
+    print("[BACKUP] PROTOOLS AUTOMATED BACKUP ENGINE")
     print(f"Timestamp: {timestamp}")
     print(f"Target Remote Path: /{REMOTE_ROOT}")
     print(f"Destination Local Path: {local_backup_path}")
     print("=" * 70)
 
-    print(f"\n[1/3] Connecting to FTP {FTP_HOST}...")
-    ftp = ftplib.FTP()
-    ftp.connect(FTP_HOST, 21, timeout=15)
-    ftp.login(FTP_USER, FTP_PASS)
-    print("FTP Connected successfully!")
+    print(f"\n[1/3] Connecting to FTPS (TLS PROT P) {FTP_HOST}...")
+    ftp = get_ftps_connection(timeout=30)
+    print("FTPS Connected successfully (Encrypted TLS PROT P)!")
 
     downloaded_files = 0
 
@@ -87,7 +82,7 @@ def create_production_backup():
                 zipf.write(file_path, arcname)
 
     print("\n" + "=" * 70)
-    print("✅ PROTOOLS BACKUP COMPLETED SUCCESSFULLY!")
+    print("[SUCCESS] PROTOOLS BACKUP COMPLETED SUCCESSFULLY!")
     print(f"Total Files Saved : {downloaded_files}")
     print(f"Local Backup Directory : {local_backup_path}")
     print(f"Rollback ZIP Archive  : {zip_path}")

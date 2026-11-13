@@ -43,3 +43,46 @@ public/office/
 
 .specify/
 graphify-out/
+
+# Reviewed Office source only. Private settings, seeds, documents and runtime assets stay excluded.
+!public/office/
+public/office/*
+!public/office/.htaccess
+!public/office/api.php
+!public/office/api_production.php
+!public/office/auth.php
+!public/office/config.php
+!public/office/index.php
+!public/office/san-xuat.php
+!public/office/production_*.php
+!public/office/production*.js
+!public/office/production.css
+!public/office/tool-scanner.js
+!scripts/refresh_production_graph.py
+!tests/production_http_test.py
+!scripts/audit_office_source.py
+!tests/production_race.py
+!tests/production_staff_test.py
+
+# Persist reviewed Spec Kit feature state and effective constitution.
+!.specify/
+.specify/*
+!.specify/feature.json
+!.specify/init-options.json
+!.specify/integration.json
+!.specify/memory/
+.specify/memory/*
+!.specify/memory/constitution.md
+
+# Keep the isolated camera test page source reviewable; OCR runtime binaries are generated and packaged separately.
+!public/office/san-xuat/
+!public/office/san-xuat/test/
+public/office/san-xuat/test/vendor/
+!public/office/san-xuat/test/.htaccess
+!public/office/san-xuat/test/index.html
+!public/office/san-xuat/test/scan-test-20261105.css
+!public/office/san-xuat/test/scan-test-20261105.js
+!public/office/san-xuat/test/scan-engine-20261105.js
+
+# Scratch/output artifacts from inspection scripts
+outputs/

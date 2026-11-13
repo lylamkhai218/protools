@@ -1,0 +1,63 @@
+# TTVINA OFFICE — ENTERPRISE CYBERSECURITY HARDENING
+# Apache / LiteSpeed Security Policy
+
+# 1. Disable Directory Browsing
+Options -Indexes
+
+# 2. Block Direct Access to Database Dumps, Scripts, Configs, Logs
+<FilesMatch "\.(sql|log|db|ini|env|bak|sh|py|md|json)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 3. Block Direct Access to Diagnostic, Seed, Migration & Deployment Scripts
+<FilesMatch "^(diag|seed_runner|migrate|deploy_office)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 4. Block Direct Access to storage/ Directory (Files Streamed via download.php)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^storage(/.*)?$ - [F,L]
+</IfModule>
+
+# 5. Global Security Response Headers
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# 6. Clean URLs Routing for Production & Tool Crib Module
+# Internal includes are not web entrypoints. PHP require() remains unaffected.
+<FilesMatch "^(config|api_production|production_http|production_service|production_schema|production_page)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+<IfModule mod_mime.c>
+    AddType application/wasm .wasm
+</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /office/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^san-xuat(?:/(.*))?$ san-xuat.php?route=$1 [QSA,L]
+</IfModule>

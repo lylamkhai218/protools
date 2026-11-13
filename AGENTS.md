@@ -848,3 +848,161 @@ enderRange): Tối đa 100 dòng đầu tiên và 35 cột (A đến AJ).
 - **Phạm vi backup trước deploy Production**:
   - Hàm `download_remote_dir()` trong `backup_protools.py` chỉ duyệt thêm hai thư mục con `api` và `admincp`; backup tự động ngày 04/11/2026 chứa 42 tệp, khoảng 823 KB.
   - Backup này không bao gồm toàn bộ thư mục tài nguyên tĩnh dưới `public_html` như `assets`, ảnh sản phẩm và các thư mục con khác. Không xem riêng backup tự động này là bản rollback đầy đủ cho webroot; cần giữ bản backup đầy đủ đã xác minh và mở rộng phạm vi backup trước các lần phát hành sau.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.
+
+Rules:
+- When graphify-out/graph.json exists, run `graphify query "<question>"` before your first grep, search or source-file read for a codebase question, and put this rule in every subagent prompt that explores code. Read raw files only for lines the graph or an earlier read already located. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- Dirty graphify-out/ files are expected after hooks or incremental updates; dirty graph files are not a reason to skip graphify. Only skip graphify if the task is about stale or incorrect graph output, or the user explicitly says not to use it.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- A committed graphify-out/graph.json is rewritten whole on every build, so a large diff to it in a pull request is expected. Do not flag it as churn or suggest skipping the graph rebuild or its hooks.
+
+## Production tool crib addendum - 2026-11-05
+
+- Active feature: specs/001-production-tool-crib. Read spec, plan, tasks and implementation-status before work; field/release tasks are not complete merely because local tests pass.
+- Additional genuine workshop employee accounts and box-label OCR are explicitly authorized by the approved plan. The same identity is on the box and shank. No ghost account seeds; original corporate accounts are preserved.
+- Graphify CLI 0.9.102 is installed; use scripts/refresh_production_graph.py with its tool interpreter to rebuild the sanitized allowlist, then query graph and verify source. Never index office.config.local.php, dumps, documents or raw warehouse photos.
+- Specify CLI 1.3.0 is installed. Preserve existing agy customizations and shared templates. Side-by-side metadata warnings with Codex remain documented; do not force upgrade/uninstall shared skills or claim official status is clean.
+- No watcher, Graphify lifecycle hook or commit hook is needed. No production deploy/migration has occurred for this feature. Production release remains gated by actual inventory, camera, night-shift, key-rotation and restore evidence.
+
+---
+
+## 38. BÀI HỌC KIỂM KÊ WMS KHO: XỬ LÝ ĐÓNG GÓI TÚI GỘP NHIỀU DÒNG PACKING LIST (11/11/2026)
+- **Hiện tượng**: SKU `87121110` (`KDL/E+ 24/4, sw`) trên Packing List chia thành 2 dòng: STT 107 (`qty_invoice = 1`) và STT 108 (`qty_invoice = 4`). Thực tế hãng đóng chung 1 túi 5 cái. Dữ liệu cũ trên hệ thống nhập nhầm STT 107 là 5 cái và STT 108 là 4 cái, dẫn đến tổng hiển thị vọt lên 9 cái (lệch so với Invoice 5 cái).
+- **Quy chuẩn điều chỉnh trên WMS (`public/kho/data/wms_500kg.json`)**:
+  1. **Bảo toàn số dòng danh mục**: Giữ nguyên cả 2 dòng STT 107 và STT 108 để đảm bảo `total_items` đạt chuẩn >= 261 dòng (vượt qua kiểm tra `health_check`).
+  2. **Chuẩn hóa số lượng thực tế**: Điều chỉnh STT 107 về `qty_actual = 1` và STT 108 về `qty_actual = 4`. Tổng số lượng thực tế đúng 5 cái, khớp 100% với Invoice.
+  3. **Minh bạch hóa ghi chú kiểm kê**: Đính kèm ghi chú rõ ràng vào cả 2 dòng: `"Thực tế kiểm kho có 1 túi 5 cái (Hãng đóng gộp STT 107 [1 cái] + STT 108 [4 cái]). Đã kiểm đủ theo Invoice."`.
+  4. **Đồng bộ hóa đa kênh**: Cập nhật đồng thời `wms_500kg.json`, `wms_500kg.backup.json`, bản build tĩnh `dist/kho/data/` và 2 file Excel xuất khẩu ([`Checklist_Kiem_Ke_4_Thung_Stock_500kg.xlsx`](file:///d:/T&TVina/protools/public/kho/data/Checklist_Kiem_Ke_4_Thung_Stock_500kg.xlsx), [`Ban_Giao_Kho_Sapo_Stock_500kg.xlsx`](file:///d:/T&TVina/protools/public/kho/data/Ban_Giao_Kho_Sapo_Stock_500kg.xlsx)) trên máy chủ FTP Production.
+
+
+---
+
+## 39. KIẾN TRÚC ĐA LÔ (MULTI-BATCH ONBOARDING), ĐỐI CHIẾU GIÁ VỐN KẾ TOÁN & BÀN GIAO SAPO TẠI `/kho/` (11/11/2026)
+- **Vòng đời 5 trạng thái và dấu vết chứng từ**:
+  - Mỗi lô hàng (`batches[]`) và dòng hàng (`items[]`) tuân thủ 5 bước: `DRAFT` -> `IN_INSPECTION` -> `PENDING_DISCREPANCY` -> `INSPECTED_VERIFIED` -> `HANDED_OVER_SAPO`.
+  - Lưu đầy đủ `batch_id`, `source_line_id`, `source_doc_ref` (`invoice_no`, `delivery_note_no`, `awb_no`, `customs_declaration`), `inspected_by`, `checked_at` và `revision_history`.
+  - Chặn tạo trùng `batch_id`, `invoice_no`, `source_line_id` và bảo vệ chống gửi lặp bằng `Idempotency-Key` (`HTTP 409 Conflict` khi cùng khóa nhưng khác payload).
+- **Xử lý đóng gói túi gộp nhiều dòng Packing List (`allocate_sku_group`)**:
+  - Tuyệt đối không tự đánh dấu "Đã kiểm đủ" chỉ dựa trên tổng Invoice.
+  - Hỗ trợ 4 kịch bản thực tế có xác nhận bắt buộc của thủ kho (`confirmed_by_warehouse = true`): `CONFIRM_MATCHED_SPLIT` (đủ tổng, tách theo dòng PL), `SHORTAGE_SPLIT` (thiếu hàng, phân bổ vào dòng cụ thể), `UNALLOCATED_SHORTAGE` (thiếu hàng nhưng chưa xác định dòng, giữ trạng thái `PENDING_DISCREPANCY`), và `OVERAGE_HOLD` (thừa hàng, treo đối chiếu).
+- **Tách biệt 3 tầng giá và chênh lệch làm tròn (`update_accounting_cost`)**:
+  - Tách riêng `estimated_cost_vnd` (nhãn `[ƯỚC TÍNH - CHƯA DÙNG NHẬP SAPO]`), `customs_taxable_unit_vnd`, và giá vốn kế toán đã duyệt (`accounting_allocated_total_vnd`, `accounting_unit_cost_exact`, `sapo_unit_cost_rounded`, `rounding_diff_vnd`).
+  - Chỉ các dòng có `cost_status = ACCOUNTING_CONFIRMED` và `qty_received_verified > 0` mới được xuất sang Mẫu 2 Đơn Nhập Hàng Sapo (`sapo_po_csv`).
+- **Tách biệt ranh giới `/kho/` - `/office/` - `Sapo` ([`ADR-20261111`](file:///d:/T&TVina/protools/.project/decisions/ADR-20261111-wms-office-sapo-separation.md))**:
+  - Không tự động tạo phiếu `POSTED` hoặc cộng thẳng `tt_stock_ledger` tại `/office/`.
+  - Sửa lỗi ghi đè `$wmsMap[$sku]` trong [`public/office/api.php`](file:///d:/T&TVina/protools/public/office/api.php) để cộng dồn chính xác `qty_actual`, `qty_received_verified` và `qty_delivered` theo từng `batch_id + id`.
+- **Kiểm thử cô lập (`?sandbox=1`)**:
+  - Toàn bộ kịch bản tạo lô, phân quyền RBAC 5 vai trò (`ADMIN`, `APPROVER`, `ACCOUNTANT`, `WAREHOUSE`, `PREPARER`), phân bổ túi gộp, duyệt giá vốn và khóa `PON`/`PCN` được kiểm thử tự động trên `wms_sandbox.json` qua [`tests/kho_batch_sapo_sandbox_test.py`](file:///d:/T&TVina/protools/tests/kho_batch_sapo_sandbox_test.py), bảo toàn 100% SHA-256 của file Production [`wms_500kg.json`](file:///d:/T&TVina/protools/public/kho/data/wms_500kg.json).
+
+
+---
+
+## 40. CHUẨN HÓA 2 TÀI KHOẢN VẬN HÀNH & CÔNG CỤ NHẬP LÔ MỚI LINH HOẠT KHÔNG PHỤ THUỘC ĐỊNH DẠNG FILE (11/11/2026)
+- **Hai tài khoản vận hành chính thức tại `/kho/`**:
+  1. **Anh Khải — Toàn Quyền (`ADMIN`, mã `admin` / `khai`)**: Toàn quyền khởi tạo lô hàng mới (`+ Thêm Lô Hàng Mới`), sửa trực tiếp bảng Preview, kiểm soát số lượng, xử lý chênh lệch và xem/duyệt thông tin giá.
+  2. **Chị Điệp — Thủ Kho (`WAREHOUSE`, mã `diep` / `warehouse`)**: Chuyên trách quét mã vạch, đếm số lượng thực tế, chụp ảnh kiện hàng, xác nhận phân bổ túi gộp / báo thiếu / báo thừa và định vị Hộp & Kệ (ẩn hoàn toàn các trường giá vốn kế toán nội bộ và chặn thao tác tạo lô mới).
+- **Đầu vào lô mới linh hoạt (Schema-Free Batch Onboarding)**:
+  - Do định dạng chứng từ đầu vào khi tạo lô mới chưa cố định, công cụ `+ Thêm Lô Hàng Mới` hỗ trợ song song:
+    1. **Cách 1 — Bảng Nhập Trực Tiếp Từng Dòng (`+ Thêm Dòng Mặt Hàng`)**: Nhập trực tiếp `Kiện`, `STT`, `SKU`, `Số lượng`, `Đơn vị`, `Net EUR (tùy chọn)`, `Tên kỹ thuật / Ghi chú`, `Dự án` ngay trên giao diện.
+    2. **Cách 2 — Dán Nhanh Linh Hoạt (`wms_parse_flexible_raw_text`)**: Tự động nhận diện cột khi dán 1 cột (`SKU`), 2 cột (`SKU | SL`), 3 cột (`SKU | SL | ĐVT` hoặc `STT | SKU | SL`), hoặc bảng nhiều cột có tiêu đề bất kỳ.
+    3. **Bảng Preview Cho Phép Sửa Trực Tiếp Từng Ô (`renderEditablePreviewTable`)**: Cho phép chỉnh sửa trực tiếp mọi trường của từng dòng và thêm/xóa dòng ngay trên bảng Preview trước khi bấm xác nhận khởi tạo lô.
+- **Lộ trình triển khai 2 giai đoạn**:
+  - **Giai đoạn 1**: Hoàn thiện và vận hành **Công cụ Nhập Lô Hàng Mới & Kiểm Kho Đa Lô** trên `/kho/` với 2 tài khoản (`Anh Khải` & `Chị Điệp`).
+  - **Giai đoạn 2**: Triển khai **Công cụ Chuẩn Bị & Đối Soát Bàn Giao Sapo** sau khi nghiệm thu Giai đoạn 1.
+
+
+---
+
+## 41. BẢO MẬT XÁC THỰC 2 LỚP TELEGRAM (2FA OTP) & KHÓA AN TOÀN THEO TIÊU CHUẨN SECURITY-AUDIT CHO CỔNG KHO `/kho/` (11/11/2026)
+- **Định danh 2 tài khoản chính thức (Loại bỏ hoàn toàn dropdown menu)**:
+  1. `khaill`: Anh Khải - Quản trị toàn quyền (`ADMIN`).
+  2. `diepdn`: Chị Điệp - Thủ kho (`WAREHOUSE`).
+- **Bảo vệ mật khẩu theo chuẩn OWASP / Security Audit (CWE-259 & CWE-208)**:
+  - Mật khẩu: `[REDACTED]` được mã hóa một chiều bằng Bcrypt (`password_hash()`), tuyệt đối không lưu hoặc so sánh chuỗi trần trong mã nguồn.
+  - Phòng chống tấn công phân tích thời gian (Timing Attack / CWE-208): Luôn chạy `password_verify()` với dummy hash ngay cả khi tài khoản không tồn tại; thông báo lỗi đồng nhất `"Tên đăng nhập hoặc mật khẩu không chính xác"`.
+  - Phòng thủ Brute-force (CWE-307): Giới hạn tối đa 5 lần thử sai trong 15 phút theo IP & username; tự động khóa tạm thời 15 phút (HTTP 429).
+  - Triệt tiêu lỗ hổng Cookie Bypass: Bỏ cơ chế cookie tĩnh `ttvina_wms_auth` có thể vượt qua đăng nhập; yêu cầu bắt buộc phiên làm việc hợp lệ qua Session đã xác thực 2FA.
+- **Quy trình Xác thực 2 lớp (2FA OTP Engine qua Telegram Bot)**:
+  - **Bước 1**: Nhập đúng tên đăng nhập (`khaill` hoặc `diepdn`) và mật khẩu nội bộ (`[REDACTED]`).
+  - **Bước 2**: Hệ thống sinh mã ngẫu nhiên 6 chữ số CSPRNG (`random_int(100000, 999999)`), hiệu lực 5 phút (300s), gửi tức thời về Telegram Bot (Token & Chat ID cấu hình qua biến môi trường server `[REDACTED]`).
+  - Giao diện chuyển mượt sang khung nhập OTP mono lớn, kèm bộ đếm ngược 5:00 và nút gửi lại có thời gian chờ 30 giây (anti-spam cooldown).
+  - Tái tạo phiên làm việc an toàn (`session_regenerate_id(true)`) chống Session Fixation (CWE-384) ngay sau khi xác nhận OTP thành công.
+
+
+---
+
+## 42. TỐI ƯU GIAO DIỆN ĐĂNG NHẬP, TRIỆT TIÊU RÒ RỈ THÔNG TIN DEVTOOLS (F12) & BẢO VỆ CHẶN 2FA BYPASS TỪ XA (SECURITY AUDIT) (11/11/2026)
+- **Chuẩn hóa Giao diện Đăng nhập**:
+  - Nhãn nút bấm: Chuyển hoàn toàn về nhãn tiêu chuẩn **`"Đăng nhập"`** (thay cho `"TIẾP TỤC & NHẬN MÃ OTP TELEGRAM"`). Trạng thái chờ xử lý: `"Đang đăng nhập..."`.
+  - Nút ẩn/hiện mật khẩu (Password Visibility Toggle): Tích hợp icon vector monochrome SVG con mắt mở/gạch chéo, thao tác chuyển đổi tức thời giữa `type="password"` và `type="text"`, tuân thủ tiêu chuẩn trợ thính WCAG 2.1 AA (`aria-label`).
+- **Triệt tiêu Rò rỉ Thông tin & Quy trình Đăng nhập trên DevTools (CWE-200 Information Exposure)**:
+  - Loại bỏ sạch 100% các đoạn ghi chú HTML trong template unauthenticated view (như `<!-- BƯỚC 1: ... -->`, `<!-- BƯỚC 2: ... -->`, `<!-- MÀN HÌNH KHÓA ... -->`).
+  - Không render trước form Bước 2 (`#formVerifyOtp`) trong DOM tĩnh ban đầu; chỉ khi tài khoản & mật khẩu hợp lệ trên server thì JavaScript mới nạp động giao diện OTP vào container.
+  - Trung tính hóa tiêu đề phụ thành `"Hệ thống quản lý kho vận & đối soát nội bộ T&T Vina."` (không nhắc đến tên bot Telegram `@ttvina_bot` hay cơ chế OTP trước khi xác thực).
+  - Không để lộ username trong placeholder (`"Tên đăng nhập..."`).
+- **Khóa Cứng Lỗ hổng 2FA Bypass Từ Xa (CWE-287 Remote Authentication Bypass)**:
+  - Loại bỏ hoàn toàn việc tin tưởng header HTTP `X-Test-Mode` từ client bên ngoài.
+  - Mã OTP cứu hộ kiểm thử (`999999`) **chỉ được phép kích hoạt khi đồng thời thỏa mãn 2 điều kiện**:
+    1. Yêu cầu đang nằm trong chế độ Sandbox (`wms_is_sandbox_request() === true`).
+    2. IP máy khách truy cập **bắt buộc là Localhost cục bộ (`127.0.0.1`, `::1` hoặc CLI)**.
+  - Mọi request gửi từ xa qua mạng Internet (Production / Remote IP) gửi mã `999999` đều bị LiteSpeed từ chối tuyệt đối (HTTP 401).
+
+
+---
+
+## 43. QUY CHUẨN BẢO MẬT HẠ TẦNG TRIỂN KHAI & SAO LƯU FTPS EXPLICIT (TLS PROT P STANDARD) (12/11/2026)
+- **Bối cảnh Kỹ thuật & Hạ tầng Máy chủ**:
+  - Máy chủ Hosting Mắt Bão (`s2d34.cloudnetwork.vn` - IP: `112.78.2.34`) quản trị qua DirectAdmin không mở cổng SSH (Port 22 đóng hoàn toàn / `TcpTestSucceeded = False`), do đó không thể sử dụng giao thức SFTP.
+  - Cổng 21 được cấu hình dịch vụ Pure-FTPd hỗ trợ đầy đủ FTPS Explicit (`AUTH TLS`).
+- **Quy chuẩn Bắt buộc cho Mọi Tác vụ Phát hành & Sao lưu**:
+  - **Cấm hoàn toàn việc dùng Plaintext FTP (`ftplib.FTP`)**: Tuyệt đối không gửi tài khoản và mã nguồn dưới dạng văn bản thuần qua mạng công cộng.
+  - **Bắt buộc dùng FTPS Explicit với `PROT P`**: Mọi kết nối chuyển file lên/về máy chủ phải khởi tạo bảo vệ kênh lệnh (TLS Command Channel) và kênh truyền dữ liệu bảo mật (Private Data Channel) thông qua lệnh `ftp.prot_p()`.
+  - **Tập trung hóa module FTPS**: Tất cả các script phát hành (`deploy_*.py`) và sao lưu (`backup_protools.py`) bắt buộc import và sử dụng bộ kết nối tập trung tại [`scripts/ftps_client.py`](file:///d:/T&TVina/protools/scripts/ftps_client.py) (`get_ftps_connection()`, `ensure_remote_dir()`, `safe_upload_file()`).
+  - **Quản lý biến môi trường an toàn**: Ưu tiên đọc cấu hình từ biến môi trường `FTP_HOST`, `FTP_USER`, `FTP_PASS`, `FTP_PORT`; fallback về cấu hình mặc định để đảm bảo tương thích ngược.
+- **Quy trình Kiểm chứng Tự động**:
+  - Bộ kiểm thử [`scripts/verify_ftps.py`](file:///d:/T&TVina/protools/scripts/verify_ftps.py) là bài kiểm tra tiêu chuẩn trước khi chấp thuận bất kỳ thay đổi nào liên quan đến hạ tầng deploy. Script tự động kiểm tra bắt tay TLS, xác thực `PROT P`, tải lên dữ liệu thử nghiệm, xác minh toàn vẹn mã băm MD5 và dọn sạch file tạm trên server.
+
+
+
+---
+
+## 44. ĐỒNG BỘ TYPOGRAPHY & FORM INPUT UI/UX THEO CHUẨN UI-UX-PRO-MAX (12/11/2026)
+- **Khắc phục lỗi Lệch Font Chữ & Kiểu dáng Giữa Ô Tên Đăng Nhập và Mật Khẩu (Typography Inconsistency Bug)**:
+  - **Hiện tượng**: Trường `usernameInput` dùng class `.input-lg` (font sans, 16px, viền xám, nền trắng) trong khi trường `passwordInput` kế thừa nhầm class di sản `.pin-input` (font mono/ATM keypad, 18px, weight 800, `letter-spacing: 3px`, nền xám `#f8fafc`, căn giữa). Khiến placeholder `"Nhập mật khẩu..."` bị giãn cách rộng và to bất thường so với `"Tên đăng nhập..."`.
+  - **Giải pháp chuẩn hóa theo `ui-ux-pro-max` (Enterprise SaaS Mobile Pattern)**:
+    1. **Nạp font chữ Google Fonts chính thức**: Tích hợp `Plus Jakarta Sans` (wght 400..800) làm kiểu chữ giao diện chính và `JetBrains Mono` cho các trường số liệu/mã OTP.
+    2. **Thống nhất Class `.login-input`**:
+       - Chiều cao chuẩn: `height: 48px;` (đạt chuẩn cảm ứng ngón tay WCAG 2.1 touch target >= 44px).
+       - Cỡ chữ & độ đậm: `font-size: 15px; font-weight: 500; font-family: 'Plus Jakarta Sans', sans-serif;`.
+       - Khoảng cách chữ & căn lề: `letter-spacing: normal; text-align: left;`.
+       - Placeholder: Màu `#94a3b8`, độ đậm 400, không giãn cách chữ, đồng nhất 100% trên cả 2 trường.
+       - Viền & Nền: Viền mỏng kỹ thuật `1.5px solid #cbd5e1`, nền trắng `#ffffff`, bo góc `8px`.
+       - Hiệu ứng Focus Ring: `border-color: #00478d; box-shadow: 0 0 0 3.5px rgba(0, 71, 141, 0.15);`.
+    3. **Tối ưu nút Hiện/Ẩn mật khẩu (`.login-toggle-btn`)**:
+       - Căn giữa tuyệt đối trong ô input (`right: 6px; top: 50%; transform: translateY(-50%)`).
+       - Kích thước vùng bấm `36x36px`, bo góc nhẹ, hiệu ứng hover nhẹ màu `#f1f5f9`.
+       - Ô mật khẩu có `padding-right: 44px` dự phòng, chống đè chữ lên icon.
+    4. **Đồng bộ cả 2 trạng thái**: Áp dụng class `.login-input` đồng bộ cho cả HTML khởi tạo và hàm JS `renderCredentialsForm()` khi người dùng quay lại từ bước 2.
+
+
+---
+
+## 45. TỐI ƯU CÔNG THÁI HỌC BƯỚC XÁC THỰC 2FA OTP & GIỚI HẠN HIỆU LỰC 3 PHÚT (12/11/2026)
+- **Chuẩn hóa Giao diện Bước 2 (2FA OTP Verification Modal)**:
+  - **Loại bỏ hiển thị tài khoản thừa**: Bỏ hoàn toàn dòng văn bản hiển thị lỗi chuỗi template literal `Tài khoản: ${uName} ...`. Thay bằng khung thông báo ngắn gọn, trang nhã kèm icon khóa SVG vector kỹ thuật.
+  - **Giới hạn thời gian hiệu lực mã OTP**:
+    - Rút ngắn từ 5 phút (300 giây) xuống **3 phút (180 giây)** cả trên Backend (`api.php` line 134, 265) và Frontend (`startOtpCountdown(180)`).
+    - Mẫu thông báo Telegram cập nhật tương ứng: `• Mã OTP (3 phút): <code>...</code>`.
+  - **Tái cấu trúc Phân cấp Hành động (Button & Recovery Action Hierarchy)**:
+    - Nút hành động chính (Primary CTA): Sử dụng nút xanh thương hiệu **"Xác thực & Vào hệ thống"** (`btn btn-primary`, `height: 46px; border-radius: 8px; font-weight: 700`).
+    - Khối khôi phục mã (Resend Recovery Block): Bỏ nút khối vuông to chiếm diện tích. Thay bằng câu gợi mở tự nhiên:
+      `Bạn chưa nhận được mã?` kèm liên kết inline `Gửi lại mã`.
+    - Trạng thái đếm ngược (Cooldown): Hiển thị `Gửi lại sau (30s)` màu xám nhạt (`#94a3b8`), tự động chuyển lại màu xanh thương hiệu có gạch chân khi hết thời gian chờ 30 giây.
+    - Lối thoát tài khoản: Nút liên kết tinh gọn `← Đăng nhập bằng tài khoản khác` ở dưới cùng.
