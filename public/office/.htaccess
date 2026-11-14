@@ -1,11 +1,11 @@
-# TTVINA OFFICE — ENTERPRISE CYBERSECURITY HARDENING
+# TTVINA OFFICE - ENTERPRISE CYBERSECURITY HARDENING
 # Apache / LiteSpeed Security Policy
 
 # 1. Disable Directory Browsing
 Options -Indexes
 
 # 2. Block Direct Access to Database Dumps, Scripts, Configs, Logs
-<FilesMatch "\.(sql|log|db|ini|env|bak|sh|py|md|json)$">
+<FilesMatch "(^error_log$|^architecture_map\.html$|\.local\.php$|\.(sql|log|db|sqlite|ini|env|bak|bak_.*|old|orig|swp|sh|py|md|json)$)">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -15,8 +15,8 @@ Options -Indexes
     </IfModule>
 </FilesMatch>
 
-# 3. Block Direct Access to Diagnostic, Seed, Migration & Deployment Scripts
-<FilesMatch "^(diag|seed_runner|migrate|deploy_office)\.php$">
+# 3. Block Direct Access to Internal PHP Modules, Diagnostic, Seed, Migration & Deployment Scripts
+<FilesMatch "^(config|auth|api_production|production_http|production_service|production_schema|production_page|diag|seed_runner|migrate|deploy_office)\.php$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -26,37 +26,30 @@ Options -Indexes
     </IfModule>
 </FilesMatch>
 
-# 4. Block Direct Access to storage/ Directory (Files Streamed via download.php)
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule ^storage(/.*)?$ - [F,L]
-</IfModule>
-
-# 5. Global Security Response Headers
+# 4. Global Security Response Headers
 <IfModule mod_headers.c>
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# 6. Clean URLs Routing for Production & Tool Crib Module
-# Internal includes are not web entrypoints. PHP require() remains unaffected.
-<FilesMatch "^(config|api_production|production_http|production_service|production_schema|production_page)\.php$">
-    <IfModule mod_authz_core.c>
-        Require all denied
-    </IfModule>
-    <IfModule !mod_authz_core.c>
-        Order allow,deny
-        Deny from all
-    </IfModule>
-</FilesMatch>
 <IfModule mod_mime.c>
     AddType application/wasm .wasm
 </IfModule>
+
+# 5. Storage / Secret Containment + Clean URLs Routing for Production & Tool Crib Module
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /office/
+
+    RewriteRule ^storage(/.*)?$ - [F,L,NC]
+    RewriteRule ^architecture_map\.html$ - [F,L,NC]
+    RewriteRule (^|/)error_log$ - [F,L,NC]
+    RewriteRule \.local\.php$ - [F,L,NC]
+    RewriteRule ^(config|auth|api_production|production_http|production_service|production_schema|production_page|diag|seed_runner|migrate|deploy_office)\.php$ - [F,L,NC]
+    RewriteRule \.(sql|log|db|sqlite|ini|env|bak|bak_.*|old|orig|swp|sh|py|md|json)$ - [F,L,NC]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^san-xuat(?:/(.*))?$ san-xuat.php?route=$1 [QSA,L]

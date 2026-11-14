@@ -86,3 +86,7 @@ public/office/san-xuat/test/vendor/
 
 # Scratch/output artifacts from inspection scripts
 outputs/
+
+# Google Search Console verification files
+/google*.html
+public/google*.html

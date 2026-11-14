@@ -1,4 +1,16 @@
 DirectoryIndex index.html index.php
+Options -Indexes
+
+# Block direct HTTP access to error logs, SQL dumps, backups, and internal scripts
+<FilesMatch "(^error_log$|\.(sql|log|db|sqlite|ini|env|bak|bak_.*|old|orig|swp|sh|py|md))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
 
 # ====================================================================
 # LITESPEED LSPHP 8.2 HANDLER (CVE-2026-109618 & CVE-2026-109619 CUTOVER)
@@ -66,6 +78,31 @@ DirectoryIndex index.html index.php
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # --------------------------------------------------------------------
+  # PERMANENT REMOVAL (410 GONE) FOR REMEDIATED PHISHING & OBSOLETE 2014 SCRIPTS
+  # Ensures Google Safe Browsing verifier receives HTTP 410 Gone instead of SPA 200 OK
+  # --------------------------------------------------------------------
+  RewriteRule ^(Assurance-Retraite|vb|zt|gt)(/.*)?$ - [G,L,NC]
+  RewriteRule ^([a-z]\d){5}/ - [G,L,NC]
+  RewriteRule ^ckeditor/skins/moono/cy(/.*)?$ - [G,L,NC]
+  RewriteRule ^(ajax|class)/index\.php$ - [G,L,NC]
+  RewriteRule ^xmlpc\.php$ - [G,L,NC]
+  RewriteRule ^(cart|index|list|lostpassword|lostpassword_success|print|reg|search|tag|view|test)\.php$ - [G,L,NC]
+  RewriteRule ^test\.(html|txt)$ - [G,L,NC]
+  RewriteRule ^(profile|nganluong|captcha|test)(/.*)?$ - [G,L,NC]
+  RewriteRule ^assets/cartQuotes(/.*)?$ - [G,L,NC]
+  RewriteRule ^assets/mailernda\.php$ - [G,L,NC]
+
+  # Block direct HTTP access to .htaccess, logs, configs, local secret configs, and backups/dumps even when missing (prevents SPA 200 fallback)
+  RewriteRule (^|/)\.htaccess$ - [F,L,NC]
+  RewriteRule (^|/)error_log$ - [F,L,NC]
+  RewriteRule ^config(/.*)?$ - [F,L,NC]
+  RewriteRule \.local\.php$ - [F,L,NC]
+  RewriteRule \.(sql|log|db|sqlite|ini|env|bak|bak_.*|old|orig|swp|sh|py|md)$ - [F,L,NC]
+
+  # Block direct execution of scripts in static and legacy asset/module directories
+  RewriteRule ^(ckeditor|class|images|uploads|gallery|assets|logos|data|documents|template|style|font|js|player|calendar|ajax|function|global|lib|modules|bomvietnam\.com|htmlstyle|old|preview|robot-dresspack|danh-muc|gio-bao-gia|lien-he|san-pham|tai-lieu)/.*\.(php|phtml|phar|php[0-9]|pht|cgi|pl|sh|py)$ - [F,L,NC]
 
   # --------------------------------------------------------------------
   # GLOBAL EXPLOIT PAYLOAD & STREAM WRAPPER INTERCEPTION

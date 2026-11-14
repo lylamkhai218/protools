@@ -124,9 +124,19 @@ if (!function_exists('__legacy_mysql_get_link')) {
 // 6. ext/mysql Polyfills
 if (!function_exists('mysql_connect')) {
     function mysql_connect($server = null, $username = null, $password = null, $new_link = false, $client_flags = 0) {
-        $host = $server ?: 'localhost';
-        $user = $username ?: 'prod2e4e_user';
-        $pass = $password ?: '***REMOVED***';
+        $cfg = null;
+        if (($server === null || $username === null || $password === null) && isset($_SERVER['DOCUMENT_ROOT'])) {
+            $cfgFile = rtrim((string)$_SERVER['DOCUMENT_ROOT'], '/\\') . '/api/db_config.local.php';
+            if (is_file($cfgFile)) {
+                $loaded = include $cfgFile;
+                if (is_array($loaded)) {
+                    $cfg = $loaded;
+                }
+            }
+        }
+        $host = $server ?: (is_array($cfg) && !empty($cfg['host']) ? $cfg['host'] : (getenv('PROTOOLS_DB_HOST') ?: 'localhost'));
+        $user = $username ?: (is_array($cfg) && !empty($cfg['user']) ? $cfg['user'] : (getenv('PROTOOLS_DB_USER') ?: ''));
+        $pass = $password ?: (is_array($cfg) && isset($cfg['pass']) ? $cfg['pass'] : (getenv('PROTOOLS_DB_PASS') !== false ? getenv('PROTOOLS_DB_PASS') : ''));
 
         // Method A: Native MySQLi (if available)
         if (function_exists('mysqli_connect')) {

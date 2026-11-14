@@ -18,3 +18,10 @@ Cho tác vụ tương lai: ưu tiên kênh FTPS có kiểm tra chứng chỉ, gi
 - Đã chuyển đổi đồng bộ toàn bộ các script phát hành và sao lưu trọng yếu: `backup_protools.py`, `deploy_protools.py`, `deploy_production_root.py`, `deploy_office.py`, `deploy_wms_kho.py`, `deploy_preview.py`, `deploy_kho_auth_hardening.py`, `deploy_production_tool_and_wip.py`, `scripts/check_prod_ftp.py`.
 - Thiết lập bộ kiểm thử tự động `scripts/verify_ftps.py` kiểm tra 5 bước (TLS handshake, PROT P, directory creation, safe upload, MD5 checksum integrity) với tỷ lệ đạt 100%.
 
+
+
+---
+
+### Cập nhật 13/11/2026: Xoay Vòng Mật Khẩu FTPS & Loại Bỏ Mật Khẩu Ghi Cứng (`.env.deploy`)
+- Đã xoay vòng mật khẩu tài khoản `deploy@protools.com.vn` trên портал Mắt Bão S2 sau sự cố xâm nhập FTP ngày 12-13/11/2026.
+- Đã loại bỏ hoàn toàn mật khẩu fallback ghi cứng trong `scripts/ftps_client.py`. Toàn bộ thông tin xác thực FTPS hiện được nạp tự động từ file `.env.deploy` (đã được bảo vệ bởi quy tắc `.env*` trong `.gitignore`).

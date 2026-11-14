@@ -54,15 +54,8 @@ if (stripos($content_type, 'application/json') === false) {
     exit;
 }
 
-// 2. Client IP Resolution & Strict Validation (Anti-Spoofing & Anti-XSS)
-$raw_ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
-if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip_list = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-    $candidate_ip = trim($ip_list[0]);
-    if (filter_var($candidate_ip, FILTER_VALIDATE_IP)) {
-        $raw_ip = $candidate_ip;
-    }
-}
+// 2. Client IP Resolution & Strict Validation (Anti-Spoofing - Do not trust spoofable X-Forwarded-For)
+$raw_ip = isset($_SERVER['REMOTE_ADDR']) ? trim($_SERVER['REMOTE_ADDR']) : '0.0.0.0';
 $client_ip = filter_var($raw_ip, FILTER_VALIDATE_IP) ? $raw_ip : '0.0.0.0';
 
 // 3. Rate Limiting (Max 5 submissions per 60s per IP)
@@ -255,15 +248,21 @@ foreach ($items as $idx => $it) {
 $email_body .= "Xem và xử lý tại AdminCP: https://protools.com.vn/admincp/#contact\n";
 
 // 8. Database Insert into `contact_list` (MariaDB `prod2e4e_db`)
-$db_host = 'localhost';
-$db_name = 'prod2e4e_db';
-$db_user = 'prod2e4e_user';
-$db_pass = '***REMOVED***';
+// Load credentials from untracked local config file or environment variables (no hardcoded Git secrets)
+$db_config_file = __DIR__ . '/db_config.local.php';
+$db_cfg = file_exists($db_config_file) ? include($db_config_file) : array();
+$db_host = is_array($db_cfg) && !empty($db_cfg['host']) ? $db_cfg['host'] : (getenv('PROTOOLS_DB_HOST') ? getenv('PROTOOLS_DB_HOST') : 'localhost');
+$db_name = is_array($db_cfg) && !empty($db_cfg['name']) ? $db_cfg['name'] : (getenv('PROTOOLS_DB_NAME') ? getenv('PROTOOLS_DB_NAME') : '');
+$db_user = is_array($db_cfg) && !empty($db_cfg['user']) ? $db_cfg['user'] : (getenv('PROTOOLS_DB_USER') ? getenv('PROTOOLS_DB_USER') : '');
+$db_pass = is_array($db_cfg) && isset($db_cfg['pass']) ? $db_cfg['pass'] : (getenv('PROTOOLS_DB_PASS') !== false ? getenv('PROTOOLS_DB_PASS') : '');
 
 $db_saved = false;
 $db_error = '';
 
 try {
+    if (empty($db_name) || empty($db_user)) {
+        throw new Exception('Database configuration unavailable.');
+    }
     $dsn = "mysql:host=" . $db_host . ";dbname=" . $db_name . ";charset=utf8mb4";
     $pdo = new PDO($dsn, $db_user, $db_pass, array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

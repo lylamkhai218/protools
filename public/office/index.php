@@ -11,6 +11,7 @@
  */
 
 require_once __DIR__ . '/config.php';
+header("X-Robots-Tag: noindex, nofollow, noarchive, nosnippet");
 
 $user = get_auth_user();
 if ($user && !empty($user['workshop_role'])) { header('Location: /office/san-xuat'); exit; }

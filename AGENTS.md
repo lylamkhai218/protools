@@ -1006,3 +1006,75 @@ Rules:
       `Bạn chưa nhận được mã?` kèm liên kết inline `Gửi lại mã`.
     - Trạng thái đếm ngược (Cooldown): Hiển thị `Gửi lại sau (30s)` màu xám nhạt (`#94a3b8`), tự động chuyển lại màu xanh thương hiệu có gạch chân khi hết thời gian chờ 30 giây.
     - Lối thoát tài khoản: Nút liên kết tinh gọn `← Đăng nhập bằng tài khoản khác` ở dưới cùng.
+
+
+
+---
+
+## 46. SỰ CỐ GOOGLE SAFE BROWSING (PHISHING FLAG) DO XÂM NHẬP TÀI KHOẢN FTP & QUY TRÌNH CÁCH LY / KHÔI PHỤC (13/11/2026)
+- **Hiện tượng & Cảnh báo**:
+  - Ngày 13/11/2026, trình duyệt Chrome / Thorium hiển thị màn hình đỏ `Dangerous site` (Google Safe Browsing phân loại `Social Engineering / Deceptive site` cho `protools.com.vn`).
+- **Kết quả Điều tra Pháp y Máy chủ (Forensic Root Cause Analysis)**:
+  - Phân tích cây thư mục `/public_html` qua FTPS và nhật ký truy cập máy chủ `/logs/Nov-2026.tar.gz` (`protools.com.vn.log`) xác định tin tặc nước ngoài (dải IP Maroc `105.74.199.150`, `105.74.207.37`, `105.74.207.239`, `196.65.155.222`) đã lợi dụng thông tin đăng nhập FTP bị lộ để tải trực tiếp (không qua HTTP upload) 3 bộ Phishing Kit giả mạo ngân hàng châu Âu lên máy chủ vào ngày 12/11 - 13/11/2026:
+    1. `/public_html/Assurance-Retraite/`: Bộ phishing ngân hàng Pháp (BNP Paribas, Société Générale, Crédit Agricole, HSBC France, LCL...).
+    2. `/public_html/vb/`: Bộ phishing thu thập thẻ tín dụng và OTP ngân hàng Pháp/Đức (`dkb.sqlite`, `cc.php`, `logbank.php`, `validatesms.php`).
+    3. `/public_html/zt/`: Bộ điều hướng phishing (`ziper.php`, `newslet.png`, `visit.txt`) phục vụ đường dẫn giả mạo `/l9a3n7t5u9/easybank.de/mijnbank/`.
+    4. Các script điều hướng Geo-IP / Anti-Bot ẩn: `/public_html/ajax/index.php` (`SpecOps Anti-Bot Redirect`), `/public_html/class/index.php` (`mcamp.co.uk`), `/public_html/ckeditor/skins/moono/cy/index.php` (`mibootcamp.co.uk`), `/public_html/xmlpc.php`.
+    5. Ghi đè `/public_html/.htaccess` (76.799 bytes, kết thúc bằng chữ ký `##Off to the Mouse they go##`) chứa quy tắc `RewriteRule (([a-z]\d){5}/)(.*/)(.*/)(.*) zt/index.php [L]` và hơn 3.000 dòng chặn IP máy quét bảo mật.
+  - Lúc `12/Nov/2026:15:55:10 +0700` và `13/Nov/2026:00:58:48 +0700`, bot của Google (`142.250.32.34`, `66.102.8.234`, `35.241.220.252`) đã quét trúng `/Assurance-Retraite` và `/vb/page1.php`, dẫn đến lệnh khóa tên miền trên Google Safe Browsing.
+- **Biện pháp Khắc phục Kỹ thuật Đã Thực thi**:
+  1. **Cách ly bằng chứng & Xóa triệt để (Quarantine & Purge)**: Sao lưu toàn bộ bằng chứng pháp y vào `backups/safebrowsing-20261113/` và xóa hoàn toàn `/Assurance-Retraite/`, `/vb/`, `/zt/`, `/ckeditor/skins/moono/cy/`, `/ajax/index.php`, `/class/index.php`, `/xmlpc.php` khỏi máy chủ.
+  2. **Trả mã `HTTP 410 Gone` cho Bot Xác minh Google**: Bổ sung quy tắc `RewriteRule ^(Assurance-Retraite|vb|zt|gt)(/.*)?$ - [G,L,NC]` và `RewriteRule ^([a-z]\d){5}/ - [G,L,NC]` ở đầu [`public/.htaccess`](file:///d:/T&TVina/protools/public/.htaccess) trước SPA fallback để Google Safe Browsing nhận đúng mã `410 Gone` (đã xóa vĩnh viễn) thay vì mã `200 OK` của React SPA, đồng thời khóa quyền ghi `.htaccess` (`SITE CHMOD 444 .htaccess`).
+  3. **Khóa thực thi script trong thư mục tĩnh/di sản**: Chặn tuyệt đối việc gọi trực tiếp `.php/.phtml/.phar` trong `ckeditor`, `class`, `images`, `uploads`, `gallery`, `assets`, `logos`, `data`, `documents`, `template`, `style`, `font`, `js`, `player`, `calendar`.
+  4. **Chuẩn hóa `/office/` & `robots.txt`**: Bổ sung header `X-Robots-Tag: noindex, nofollow, noarchive, nosnippet`, gỡ placeholder tên miền chéo `@t2tvina.com` trên `/office/index.php`, và lược bỏ các dòng chỉ điểm thư mục nội bộ trong [`public/robots.txt`](file:///d:/T&TVina/protools/public/robots.txt).
+  5. **Yêu cầu Bắt buộc Tiếp theo**: Quản trị viên phải đổi ngay mật khẩu FTP (`deploy@protools.com.vn`) và mật khẩu quản trị hosting trên портал Mắt Bão S2, sau đó bấm **Request Review** trên Google Search Console.
+
+
+
+---
+
+## 47. KIỂM TOÁN BẢO MẬT TOÀN DIỆN CẤP CTO (`/SECURITY-AUDIT` & GOOGLE SAFE BROWSING COMPLIANCE) (13/11/2026)
+- **Phạm vi Kiểm toán (End-to-End Surface Coverage)**:
+  - Rà soát toàn diện 7 bề mặt tin cậy (Trust Boundaries) của `protools.com.vn`: (1) Root React SPA & SEO Snapshots, (2) Subpages `/murrplastik/` & `/robot-dresspack/`, (3) Public RFQ API `/api/submit_quote.php`, (4) ERP `/office/` & `/office/san-xuat/test/`, (5) WMS `/kho/`, (6) Legacy `/admincp/`, và (7) Hạ tầng FTPS Deployment (`scripts/ftps_client.py`).
+- **4 Lỗ hổng Trọng yếu Đã Phát hiện & Khắc phục Triệt để**:
+  1. **`[SEC-01]` CRITICAL - Loại bỏ Mật khẩu FTPS Ghi cứng & Xoay vòng Thông tin Xác thực**:
+     - Đã đổi mật khẩu FTPS trên Mắt Bão S2, chuyển cấu hình sang `.env.deploy` (gitignored) và xóa mật khẩu fallback khỏi [`scripts/ftps_client.py`](file:///d:/T&TVina/protools/scripts/ftps_client.py).
+  2. **`[SEC-02]` HIGH - Xóa & Chặn Truy cập HTTP tới `error_log` (646,9 MB) và File Backup Mã nguồn (`.bak_pre_batch`)**:
+     - Phát hiện `/public_html/error_log` (646,9 MB), `/public_html/admincp/error_log` (3,3 MB) làm lộ đường dẫn vật lý `/home/prod2e4e/...` và `/public_html/kho/index.php.bak_pre_batch` làm lộ mã nguồn PHP dạng plain-text, cùng các script `diag.php`, `migrate.php`, `seed_runner.php`, `test.php`.
+     - Đã xóa toàn bộ các file này khỏi máy chủ Production và bổ sung `<FilesMatch "(^error_log$|\.(sql|log|db|sqlite|ini|env|bak|bak_.*|old|orig|swp|sh|py|md))$">` chặn `403 Forbidden` tại [`public/.htaccess`](file:///d:/T&TVina/protools/public/.htaccess) và [`public/kho/.htaccess`](file:///d:/T&TVina/protools/public/kho/.htaccess).
+  3. **`[SEC-03]` HIGH - Đóng băng Toàn bộ Bề mặt PHP Di sản 2014 trên Root (`410 Gone`)**:
+     - Các file PHP từ năm 2014 (`cart.php`, `list.php`, `lostpassword.php`, `lostpassword_success.php`, `print.php`, `reg.php`, `search.php`, `tag.php`, `view.php`, `profile/*`, `nganluong/*`, `captcha/*`) tồn tại vật lý trên đĩa nên vượt qua `RewriteCond %{REQUEST_FILENAME} !-f` của SPA, vừa phơi bày các form đăng nhập/đặt lại mật khẩu cũ dễ bị Google Safe Browsing gắn cờ Phishing, vừa tiềm ẩn lỗi SQL cũ.
+     - Đã khóa trả về **`HTTP 410 Gone`** cho toàn bộ các điểm vào PHP 2014 không còn sử dụng.
+  4. **`[SEC-04]` HIGH - Khóa Các Bộ Upload File Cũ Dùng Denylist trong `/admincp/`**:
+     - Các file `upload_image_ckeditor.php`, `uploadfile.php`, `modules/uploadfile.php`, `modules/upload_image_fast.php` sử dụng danh sách đen (`$disallowed_ext`) thiếu `.phar`, `.php7`, `.php8`, `.pht` và tự động `chmod 0777`. Đã khóa `403 Forbidden` trong `/public_html/admincp/.htaccess`.
+- **Hồ sơ Bài học Kinh nghiệm**: Xem chi tiết tại [`.memory/lessons/LESSON-007-google-safebrowsing-phishing-remediation-and-cto-audit.md`](file:///d:/T&TVina/protools/.memory/lessons/LESSON-007-google-safebrowsing-phishing-remediation-and-cto-audit.md) và [`.memory/mistakes/MISTAKE-002-hardcoded-ftp-credentials-and-legacy-php-exposure.md`](file:///d:/T&TVina/protools/.memory/mistakes/MISTAKE-002-hardcoded-ftp-credentials-and-legacy-php-exposure.md).
+
+- **Bổ sung Khắc phục Tầng Sâu Vòng 2 (`[SEC-05]` - `[SEC-09]`, Đã Nghiệm thu Live 13/11/2026)**:
+  5. **`[SEC-05]` CRITICAL - Chặn Truy cập Trái phép `/kho/print_labels.php` & Rút Bỏ Tài sản Nhạy cảm**:
+     - Phát hiện [`public/kho/print_labels.php`](file:///d:/T&TVina/protools/public/kho/print_labels.php) đọc trực tiếp `data/wms_500kg.json` mà không kiểm tra phiên đăng nhập WMS. Đã bổ sung kiểm tra `$_SESSION['ttvina_wms_logged_in']` / `$_SESSION['tt_user_id']` (khớp cookie path `/kho`, trả `403 Forbidden` khi chưa xác thực) và khóa truy cập `/kho/uploads_raw_backup/` trong [`public/kho/.htaccess`](file:///d:/T&TVina/protools/public/kho/.htaccess).
+  6. **`[SEC-06]` HIGH - Vá Lỗ hổng `200 OK` tại `/office/config.php` & `/office/architecture_map.html`**:
+     - Máy chủ `/office/.htaccess` trước đó thiếu quy tắc chặn `config.php`, `auth.php`, `architecture_map.html`, `error_log` và header `X-Robots-Tag`. Đã nâng cấp [`public/office/.htaccess`](file:///d:/T&TVina/protools/public/office/.htaccess) (gộp rule `mod_rewrite`, chặn `403` toàn bộ file nội bộ & `storage/`), lưu backup và xóa `/public_html/office/architecture_map.html` khỏi webroot.
+  7. **`[SEC-07]` HIGH - Chống Chuyển hướng Giả `200 OK` / `404` trên LiteSpeed khi File Bị Xóa (`mod_rewrite` Fallback Trap)**:
+     - Trên LiteSpeed, `<FilesMatch>` chỉ khớp file có thật trên đĩa; nếu file `error_log` hoặc `*.bak` đã bị xóa, yêu cầu `/error_log` rơi vào SPA fallback `/index.html` (`200 OK`). Đã bổ sung `RewriteRule` trả `[F,L,NC]` (`403 Forbidden`) trực tiếp trong `mod_rewrite` trước SPA fallback tại [`public/.htaccess`](file:///d:/T&TVina/protools/public/.htaccess), [`public/kho/.htaccess`](file:///d:/T&TVina/protools/public/kho/.htaccess), [`public/office/.htaccess`](file:///d:/T&TVina/protools/public/office/.htaccess), và `/public_html/admincp/.htaccess`.
+  8. **`[SEC-08]` MEDIUM - Bảo mật `download.php` & Làm sạch `submit_quote.php` / Script Python**:
+     - [`public/office/download.php`](file:///d:/T&TVina/protools/public/office/download.php): Thay wildcard CORS (`*`) bằng containment kiểm tra `realpath()` trong `office/storage/`, làm sạch `Content-Disposition`, thêm `X-Content-Type-Options: nosniff`.
+     - [`public/api/submit_quote.php`](file:///d:/T&TVina/protools/public/api/submit_quote.php) + [`public/api/.htaccess`](file:///d:/T&TVina/protools/public/api/.htaccess): Loại bỏ `HTTP_X_FORWARDED_FOR` khỏi khóa rate-limit (chống bypass bằng header giả), tách thông tin kết nối DB ra khỏi file tracked Git sang `public/api/db_config.local.php` (`*.local.*` gitignored, `CHMOD 640`, chặn `403`), đồng thời xóa mật khẩu FTP ghi cứng khỏi 8 script `deploy_*.py` và `scripts/upload_sapo_images_multithreaded.py`.
+  9. **`[SEC-09]` VERIFIED LIVE VIA BROWSER INSPECTOR (13/11/2026)**:
+     - 6/6 trang chính (`/`, `/murrplastik/`, `/robot-dresspack/`, `/office/`, `/kho/`, `/office/san-xuat/test/`) hiển thị `200 OK`, **0 console errors**; `robots.txt` và `sitemap.xml` trả `200 OK`.
+     - 8/8 đường dẫn phishing & PHP 2014 (`/vb/page1.php`, `/Assurance-Retraite/`, `/zt/ziper.php`, `/reg.php`, `/lostpassword.php`, `/profile/index.php`, `/test.php`, `/cart.php`) trả `HTTP 410 Gone`.
+     - 17/17 đường dẫn nhạy cảm được bảo vệ: `/error_log`, `/.htaccess`, `/admincp/error_log`, `/admincp/upload_image_ckeditor.php`, `/admincp/uploadfile.php`, `/admincp/modules/config.php`, `/kho/index.php.bak_pre_batch`, `/kho/wms_batch_service.php`, `/kho/data/wms_500kg.json`, `/kho/print_labels.php`, `/office/config.php`, `/office/auth.php`, `/office/architecture_map.html`, `/office/001_initial_schema.sql`, `/api/db_config.local.php` trả `HTTP 403 Forbidden`; `/office/download.php` trả `HTTP 401 Unauthorized`; `/config/database.php` chuyển hướng DirectAdmin alias (`s2d34.cloudnetwork.vn:2222`).
+     - Các hạng mục kiến trúc còn tồn tại cần lên kế hoạch xử lý riêng (không sửa mù làm gián đoạn vận hành): (a) Legacy `/admincp/` vẫn dùng cookie MD5, không có server-side PHP `exit` trước JS redirect trong `admincp/index.php`, và `admincp/modules/*` chỉ kiểm tra `HTTP_REFERER` trừ các file đã chặn cứng; (b) `/kho/wms_batch_service.php` (gitignored) còn hash mật khẩu dùng chung và Telegram bot token ghi cứng; (c) Khuyến nghị đổi mật khẩu DB MariaDB `prod2e4e_user` do từng xuất hiện trong lịch sử Git của `submit_quote.php`.
+
+- **Bổ sung Khắc phục Chiều Sâu Vòng 3 (`[SEC-10]` - `[SEC-13]`, Đã Nghiệm thu Live 14/11/2026)**:
+  10. **`[SEC-10]` CRITICAL - Dọn Sạch Tàn dư Phishing 10/2026 & Đóng `/index.php` (`410 Gone`)**:
+      - Cách ly tàn dư bộ phishing tháng 10/2026 tại `/public_html/assets/cartQuotes/` (`e-mypos`, `VIC-*.json`, `debug.txt`) về [`backups/safebrowsing-20261113/forensics/october_cartQuotes_e-mypos/`](file:///d:/T&TVina/protools/backups/safebrowsing-20261113/forensics/october_cartQuotes_e-mypos/) và xóa khỏi webroot.
+      - Cập nhật [`public/.htaccess`](file:///d:/T&TVina/protools/public/.htaccess) (`CHMOD 444`): bổ sung `index.php`, `^assets/cartQuotes(/.*)?$`, `^assets/mailernda\.php$` vào nhóm trả **`HTTP 410 Gone`** và mở rộng quy tắc chặn thực thi script trong thư mục tĩnh sang `bomvietnam.com`, `htmlstyle`, `old`, `preview`, `robot-dresspack`, `danh-muc`, `gio-bao-gia`, `lien-he`, `san-pham`, `tai-lieu`.
+  11. **`[SEC-11]` CRITICAL - Đóng Lỗ hổng Bỏ qua Xác thực & Cookie SQLi tại Legacy `/admincp/`**:
+      - Rà soát toàn bộ 71 file trong `admincp/modules/`: 46/71 file thiếu `checklogin()` (cho phép truy cập bằng giả mạo `HTTP_REFERER`), 9 module đưa thẳng `$_COOKIE["number_limit"]` vào `LIMIT`, `mdl_global_admincp.php` đưa `$_COOKIE["languagecp"]` vào SQL, `user_login.php` thiếu rate-limit, và `legacy_mysql_shim.php` còn mật khẩu DB dự phòng cũ ghi cứng.
+      - Đã vá trên Production và lưu bản đối chiếu tại [`backups/safebrowsing-20261113/patches_pass2/`](file:///d:/T&TVina/protools/backups/safebrowsing-20261113/patches_pass2/): gỡ mật khẩu DB cũ trong `admincp/legacy_mysql_shim.php` (chuyển sang `/api/db_config.local.php`); bổ sung xác thực DB bắt buộc (`tt_admincp_verify_auth()`), kiểm tra Same-Origin `POST` (`tt_admincp_enforce_same_origin_post()`), ép kiểu nguyên cookie `number_limit` (`1..500`) và `languagecp` trong `admincp/modules/mdl_global_admincp.php`; khóa truy cập trực tiếp `admincp/modules/content_left.php` (`ADMINCP_AUTH_OK`); thêm bắt buộc `POST` + giới hạn IP (`10` lần sai / `5` phút) + `mysql_real_escape_string` tại `admincp/modules/user_login.php`.
+  12. **`[SEC-12]` HIGH - Tách Bí mật WMS & Fail-Closed trong `/kho/`**:
+      - Di chuyển Telegram bot token, chat ID và bcrypt hash khỏi [`public/kho/wms_batch_service.php`](file:///d:/T&TVina/protools/public/kho/wms_batch_service.php) sang file riêng trên server `/public_html/kho/wms_secrets.local.php` (`CHMOD 640`, chặn HTTP `403`), sửa `wms_resolve_current_user()` thành fail-closed `GUEST` qua HTTP (`ADMIN` chỉ khi CLI) và loại bỏ hash thật khỏi `$dummyHash` trong [`public/kho/api.php`](file:///d:/T&TVina/protools/public/kho/api.php).
+      - Bổ sung `wms_verify_same_origin_post()` chống CSRF cho mọi yêu cầu `POST`, `wms_csv_safe_row()` khử CSV Formula Injection khi xuất Sapo, giới hạn `10 MB` + kiểm tra ảnh thật (`getimagesizefromstring()`) cho upload `photo_base64`, và kiểm tra vai trò cho `export_sapo_csv`.
+  13. **`[SEC-13]` HIGH - Gia cố Live Phase 1 `/office/api.php` (Zero-Breakage) & Khuyến nghị Vận hành Còn lại**:
+      - Vá trực tiếp bản Phase 1 đang chạy `/public_html/office/api.php` (không ghi đè mã nguồn Phase 2 đang phát triển): bổ sung `office_verify_same_origin_post()`, bắt buộc `POST` (`405`) đối với 13 action ghi/xóa, bỏ fallback `$_GET` ở `delete_customer`, `approve_quotation`, `delete_quotation`, và ẩn chi tiết `$e->getMessage()` sang `error_log()`.
+      - Hạng mục cần chủ hệ thống thao tác tiếp ngoài phạm vi vá nóng: (a) xoay vòng `TELEGRAM_BOT_TOKEN` qua `@BotFather`; (b) cấp mật khẩu riêng cho từng tài khoản thủ kho `/kho/`; (c) cân nhắc làm sạch lịch sử Git từng chứa mật khẩu cũ; (d) bổ sung Cloudflare Zero Trust hoặc DirectAdmin Password Protected Directories trước `/admincp/`, `/office/`, `/kho/`.

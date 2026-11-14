@@ -1,0 +1,24 @@
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header always set X-Robots-Tag "noindex, nofollow"
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+<FilesMatch "(\.local\.php$|^error_log$|\.(sql|log|ini|env|bak|bak_.*)$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+    RewriteRule \.local\.php$ - [F,L,NC]
+    RewriteRule (^|/)error_log$ - [F,L,NC]
+    RewriteRule \.(sql|log|ini|env|bak|bak_.*)$ - [F,L,NC]
+</IfModule>
